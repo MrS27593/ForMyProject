@@ -1,1 +1,102 @@
+Świetnie 😄 teraz **`@Registered`** — tu trzeba uważać, bo to **nie jest standardowa adnotacja JDK**.
+
+---
+
+# 📌 `@Registered` – co to jest?
+
+`@Registered` to adnotacja, która:
+
+> Oznacza, że dana klasa lub komponent jest **zarejestrowany w jakimś systemie / kontenerze / frameworku**.
+
+⚠️ **Kluczowe:**
+Nie ma jednej oficjalnej `@Registered` w Javie — jej znaczenie zależy od biblioteki/frameworka.
+
+---
+
+# 🔎 Gdzie się pojawia?
+
+Możesz ją spotkać w:
+
+* frameworkach DI (Dependency Injection)
+* systemach pluginów
+* narzędziach testowych
+* własnych projektach (custom annotation)
+
+---
+
+# ✅ Przykład (własna adnotacja)
+
+```java
+import java.lang.annotation.*;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+public @interface Registered {
+}
+```
+
+Użycie:
+
+```java
+@Registered
+class PaymentService {
+}
+```
+
+➡ oznacza: „ta klasa jest zarejestrowana w systemie” (np. skanowana przez reflection)
+
+---
+
+# 🧠 Jak to działa w praktyce?
+
+Framework może:
+
+1. Skanować klasy (reflection)
+2. Szukać `@Registered`
+3. Automatycznie:
+
+   * tworzyć obiekty
+   * dodawać do kontenera
+   * rejestrować jako plugin
+
+---
+
+# 🔥 Przykład użycia w stylu DI
+
+```java
+@Registered
+class UserService {}
+
+@Registered
+class OrderService {}
+```
+
+➡ potem np.:
+
+```java
+for (Class<?> clazz : scannedClasses) {
+    if (clazz.isAnnotationPresent(Registered.class)) {
+        // zarejestruj w kontenerze
+    }
+}
+```
+
+---
+
+# 🧠 Uwagi
+
+1. ❌ Nie należy do standardowego JDK
+2. ✅ Często jest **customową adnotacją**
+3. ✅ Używana do oznaczania klas „do wykrycia”
+4. ❗ Znaczenie zależy od projektu
+
+---
+
+# 🎯 Definicja egzaminacyjna
+
+> `@Registered` to adnotacja (najczęściej niestandardowa), oznaczająca, że klasa lub komponent jest **zarejestrowany lub powinien być wykryty przez framework/system**, np. podczas skanowania klas.
+
+---
+
+Chcesz teraz **quiz z `@Registered`**?
 
