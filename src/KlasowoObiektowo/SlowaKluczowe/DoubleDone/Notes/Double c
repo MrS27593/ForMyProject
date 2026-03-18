@@ -1,0 +1,130 @@
+Świetnie, teraz przejdźmy do **`double`** — czyli **prymitywnego typu danych** w języku Java, który służy do reprezentowania liczb zmiennoprzecinkowych o **podwójnej precyzji**.
+
+---
+
+## 🧠 Co to jest `double` w Javie?
+
+`double` to **typ prymitywny** służący do przechowywania wartości zmiennoprzecinkowych (np. 3.14, -0.001, 2.71828). Zajmuje **64 bity** i jest oparty na standardzie **IEEE 754** (*double precision floating-point*).
+
+---
+
+## 📌 Cechy `double`
+
+| Cecha                   | Wartość / Opis                                           |
+|------------------------|----------------------------------------------------------|
+| Typ                    | Prymitywny (nie obiektowy)                               |
+| Rozmiar                | 64 bity (8 bajtów)                                       |
+| Zakres wartości        | ±1.7976931348623157 × 10³⁰⁸                              |
+| Precyzja               | ~15-17 cyfr znaczących                                   |
+| Domyślna wartość       | `0.0`                                                    |
+| Zgodność ze standardem | IEEE 754                                                 |
+
+---
+
+## ✅ Przykłady użycia
+
+```java
+double pi = 3.14159;
+double negative = -0.005;
+double sum = pi + negative;
+System.out.println(sum); // 3.13659
+```
+
+---
+
+## 💡 Kiedy używać `double`
+
+- Gdy potrzebujesz **dokładnych obliczeń zmiennoprzecinkowych**
+- Do reprezentacji **dużych lub bardzo małych wartości z przecinkiem**
+- W zastosowaniach matematycznych, fizycznych, statystycznych
+
+> **Uwaga:** `double` nie jest dokładny dla operacji finansowych. Do obliczeń pieniężnych lepiej używać `BigDecimal`.
+
+---
+
+## ⚠️ Problemy z dokładnością
+
+Zmiennoprzecinkowe liczby w komputerach są **przybliżeniami** wartości rzeczywistych. Przykład:
+
+```java
+double a = 0.1 + 0.2;
+double b = 0.3;
+System.out.println(a == b); // false (!)
+```
+
+Dlatego do porównań należy używać tolerancji (ang. *epsilon*):
+
+```java
+double epsilon = 1e-9;
+if (Math.abs(a - b) < epsilon) {
+    System.out.println("Równe");
+}
+```
+
+---
+
+## 🧪 Operacje matematyczne
+
+```java
+double a = 10;
+double b = 3;
+
+System.out.println(a + b);  // 13.0
+System.out.println(a - b);  // 7.0
+System.out.println(a * b);  // 30.0
+System.out.println(a / b);  // 3.333333333...
+System.out.println(a % b);  // 1.0
+```
+
+---
+
+## 🧮 Funkcje pomocnicze
+
+Dla typów prymitywnych, takich jak `double`, możesz używać metod klasy `Math`:
+
+```java
+double r = Math.sqrt(2);          // pierwiastek
+double pow = Math.pow(2, 3);      // potęga
+double abs = Math.abs(-5.5);      // wartość bezwzględna
+double sin = Math.sin(Math.PI);  // sinus
+```
+
+---
+
+## 🚫 `double` NIE może być `null`
+
+W przeciwieństwie do obiektów (np. `Double`), prymitywne `double` nie mogą przyjąć wartości `null`. To ważne przy np. przechowywaniu w kolekcjach – tam używasz `Double`.
+
+---
+
+## 🧵 Formatowanie `double`
+
+```java
+double value = 3.1415926535;
+System.out.printf("%.2f", value); // wypisze 3.14
+```
+
+---
+
+## ✏️ Konwersja `double` ↔ inne typy
+
+```java
+double d = 9.99;
+int i = (int) d;         // 9 (ucięcie)
+String s = Double.toString(d);  // "9.99"
+```
+
+---
+
+## 🔁 Przypomnienie: `double` vs `Double`
+
+| `double`         | `Double`               |
+|------------------|------------------------|
+| Typ prymitywny   | Klasa opakowująca      |
+| Nie może być null| Może być null          |
+| Szybszy          | Wolniejszy (więcej pamięci) |
+| Nie ma metod     | Ma metody (np. `compareTo`) |
+
+---
+
+Chcesz przykład z wykorzystaniem `double` w funkcji matematycznej lub wykresie?

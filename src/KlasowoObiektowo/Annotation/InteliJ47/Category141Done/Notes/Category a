@@ -1,0 +1,121 @@
+Super 👍
+Poniżej masz **pełny klucz odpowiedzi do quizu: `@Category` (Java Flight Recorder)** wraz z krótkimi, praktycznymi wyjaśnieniami.
+
+---
+
+# ✅ **Odpowiedzi: Quiz `@Category`**
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Czym jest `@Category`?
+
+**✅ C** – adnotacją Java Flight Recorder do **grupowania zdarzeń**
+
+---
+
+### 2️⃣ W jakim pakiecie się znajduje?
+
+**✅ C – `jdk.jfr`**
+
+---
+
+### 3️⃣ Na jakich elementach można jej użyć?
+
+**✅ C – klasach**
+
+📌 Tylko `TYPE` (eventy i settings JFR)
+
+---
+
+## 🔹 Część II – Struktura kategorii
+
+### 4️⃣ Typ wartości?
+
+**✅ B – `String[]`**
+
+---
+
+### 5️⃣ Co oznacza zapis?
+
+```java
+@Category({"Application", "HTTP"})
+```
+
+**✅ C** – **kategoria główna + podkategoria**
+
+---
+
+### 6️⃣ Jak wyświetlana w JMC?
+
+**✅ B – hierarchicznie (`Application / HTTP`)**
+
+---
+
+## 🔹 Część III – Praktyka JFR
+
+### 7️⃣ Wpływ na logikę?
+
+**✅ C – NIE**
+
+---
+
+### 8️⃣ Brak `@Category`?
+
+**✅ C** – event trafi do **kategorii domyślnej**
+
+---
+
+## 🔹 Część IV – Porównania
+
+### 9️⃣ Czytelna nazwa eventu?
+
+**✅ B – `@Label`**
+
+---
+
+### 🔟 Najczęstsze połączenie?
+
+**✅ C – `@Label`**
+
+(razem z `@Name`, `@Description`)
+
+---
+
+## ✍️ 1️⃣1️⃣ Przykładowa poprawna odpowiedź
+
+```java
+@Category({"Application", "Web"})
+@Category({"Application", "Database"})
+@Category({"Application", "Cache"})
+```
+
+lub bardziej precyzyjnie (oddzielne eventy):
+
+```java
+@Category({"Application", "Web"})
+@Category({"Application", "Database"})
+@Category({"Application", "Cache"})
+```
+
+📌 Każdy obszar funkcjonalny ma swoją podkategorię.
+
+---
+
+## 🧠 Podsumowanie do zapamiętania
+
+> **`@Category` porządkuje eventy JFR w hierarchię widoczną w narzędziach monitorujących**
+
+* tylko `jdk.jfr`
+* tylko klasy
+* nie wpływa na runtime logic
+* kluczowa dla analizy wydajności
+
+---
+
+Jeśli chcesz iść dalej 👇
+
+* ➡️ **`@Label`, `@Name`, `@Description` (pełny zestaw JFR)**
+* ➡️ **napisz własne eventy JFR krok po kroku**
+* ➡️ **porównanie adnotacji JFR vs klasyczne adnotacje Javy**
+
+Co następne? 😄

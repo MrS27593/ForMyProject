@@ -1,0 +1,108 @@
+Haha, idealnie 😄
+Jedziemy z **QUIZEM: „`@ContentType` i okolice”**
+(uwaga: **pułapki egzaminacyjne** 🧠💣)
+
+---
+
+# 📝 Quiz – `@ContentType` (i nie tylko)
+
+## 🔹 Część I – Prawda czy fałsz
+
+### 1️⃣ W standardowej Javie istnieje adnotacja `@ContentType`.
+
+A. Prawda
+B. Fałsz
+
+---
+
+### 2️⃣ `Content-Type` to nagłówek HTTP.
+
+A. Prawda
+B. Fałsz
+
+---
+
+### 3️⃣ `org.apache.http.entity.ContentType` to adnotacja.
+
+A. Prawda
+B. Fałsz
+
+---
+
+## 🔹 Część II – JAX-RS
+
+### 4️⃣ Która adnotacja w JAX-RS określa, jaki Content-Type metoda **przyjmuje**?
+
+A. `@Produces`
+B. `@Consumes`
+C. `@MediaType`
+D. `@HeaderParam`
+
+---
+
+### 5️⃣ Która adnotacja w JAX-RS określa, jaki Content-Type metoda **zwraca**?
+
+A. `@Consumes`
+B. `@Produces`
+C. `@ContentType`
+D. `@Path`
+
+---
+
+### 6️⃣ W jakim pakiecie znajdują się `@Consumes` i `@Produces`?
+
+A. `java.net.http`
+B. `javax.http`
+C. `jakarta.ws.rs`
+D. `org.springframework.web`
+
+---
+
+## 🔹 Część III – Spring
+
+### 7️⃣ Jak w Springu określisz Content-Type żądania?
+
+A. `@Consumes`
+B. `@ContentType`
+C. `consumes` w `@RequestMapping`
+D. `@MediaType`
+
+---
+
+### 8️⃣ Jak pobrać Content-Type nagłówka w Springu?
+
+A. `@Header("Content-Type")`
+B. `@RequestHeader("Content-Type")`
+C. `@Consumes`
+D. `@HttpHeader`
+
+---
+
+## 🔹 Część IV – Pułapki
+
+### 9️⃣ `MediaType.APPLICATION_JSON` to:
+
+A. Adnotacja
+B. Enum
+C. Stała opisująca MIME type
+D. Nagłówek HTTP
+
+---
+
+### 🔟 Co jest **najbliższym odpowiednikiem** fikcyjnej adnotacji `@ContentType`?
+
+A. `@HeaderParam`
+B. `@Consumes` / `@Produces`
+C. `@RequestHeader`
+D. `HttpHeaders.CONTENT_TYPE`
+
+---
+
+## ✍️ 1️⃣1️⃣ (opisowe)
+
+Dlaczego `@ContentType` **nie została wprowadzona** jako osobna adnotacja w Javie?
+
+---
+
+Jak skończysz — napisz 👉 **odpowiedzi**
+a ja dam Ci **klucz + komentarze egzaminacyjne + typowe haczyki** 😄💪

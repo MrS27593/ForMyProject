@@ -1,0 +1,185 @@
+Ooo, **`@DescriptorKey`** — to już **cięższy kaliber Javy**, bardzo „JMX-owy” i zdecydowanie **egzamin + senior-level** 😄
+Spokojnie, rozkładamy to na czynniki pierwsze.
+
+---
+
+# 📘 `@DescriptorKey` w Javie
+
+## 1️⃣ Czym jest `@DescriptorKey`?
+
+`@DescriptorKey` to **adnotacja z JDK**, służąca do:
+
+> **mapowania metod interfejsu na klucze w obiekcie `Descriptor`**
+
+📌 Używana **wyłącznie w kontekście JMX (Java Management Extensions)**.
+
+---
+
+## 2️⃣ Gdzie się znajduje?
+
+```java
+java.beans
+```
+
+---
+
+## 3️⃣ Do czego służy `Descriptor`?
+
+W JMX:
+
+* `Descriptor` = **mapa metadanych**
+* klucz → wartość
+* opisuje elementy MBeanów (atrybuty, operacje)
+
+```java
+Descriptor d;
+d.getFieldValue("units");
+d.getFieldValue("since");
+```
+
+---
+
+## 4️⃣ Po co w ogóle `@DescriptorKey`?
+
+Bez niej:
+
+* musisz ręcznie tworzyć `Descriptor`
+* dużo boilerplate
+
+Z nią:
+👉 **adnotowany interfejs → automatyczny Descriptor**
+
+---
+
+## 5️⃣ Jak działa `@DescriptorKey`?
+
+```java
+public interface Metric {
+
+    @DescriptorKey("units")
+    String units();
+
+    @DescriptorKey("since")
+    String since();
+}
+```
+
+➡️ Metody **bez argumentów**
+➡️ Zwracają wartości
+➡️ Nazwa klucza = `"units"`, `"since"`
+
+---
+
+## 6️⃣ Co się dzieje w runtime?
+
+```java
+Metric metric = ...;
+
+Descriptor descriptor =
+    Introspector.getBeanInfo(Metric.class)
+        .getBeanDescriptor()
+        .getValue("descriptor");
+```
+
+📌 JMX:
+
+* odczytuje wartości metod
+* wrzuca je do `Descriptor`
+
+---
+
+## 7️⃣ Najważniejsze ograniczenia ❗
+
+`@DescriptorKey`:
+
+* ✔️ tylko na **metodach**
+* ✔️ metoda **bez parametrów**
+* ✔️ metoda **nie może rzucać wyjątków**
+* ✔️ wartość musi być serializowalna
+
+---
+
+## 8️⃣ Przykład pełny (JMX)
+
+```java
+public interface CacheMXBean {
+
+    @DescriptorKey("units")
+    String units();
+
+    @DescriptorKey("description")
+    String description();
+}
+```
+
+➡️ Descriptor może wyglądać tak:
+
+```text
+units=MB
+description=Cache size
+```
+
+---
+
+## 9️⃣ Czy to adnotacja „biznesowa”?
+
+❌ NIE
+✔️ To **czysto techniczna adnotacja JDK**
+
+* brak Springa
+* brak REST
+* brak walidacji
+
+---
+
+## 🔟 Czy używa się jej dziś?
+
+⚠️ **Rzadko**, ale:
+
+* JMX nadal żyje
+* monitoring
+* legacy systemy
+* narzędzia JVM
+
+📌 Jeśli widzisz `@DescriptorKey`, to:
+👉 **na 100% jesteś w JMX**
+
+---
+
+## 🧠 Szybka ściąga (egzamin)
+
+* pakiet: `java.beans`
+* target: `METHOD`
+* retencja: `RUNTIME`
+* użycie: **JMX Descriptor**
+* działa z: `Introspector`
+
+---
+
+## ❌ Najczęstsze pomyłki
+
+❌ Mylenie z:
+
+* `@BeanProperty`
+* `@ConstructorProperties`
+* Spring annotations
+* Jackson
+
+❌ Próba użycia w zwykłych klasach
+
+---
+
+## 🧪 Wzorcowa odpowiedź egzaminacyjna
+
+> `@DescriptorKey` to adnotacja JDK używana w JMX do mapowania metod interfejsów na klucze w obiekcie `Descriptor`, umożliwiająca deklaratywne definiowanie metadanych MBeanów.
+
+---
+
+Jeśli chcesz:
+
+* 🔥 **quiz z `@DescriptorKey`**
+* 🔥 **JMX od zera (MBean, MXBean, Descriptor)**
+* 🔥 **porównanie: `@DescriptorKey` vs `@BeanProperty`**
+* 🔥 **lista wszystkich adnotacji `java.beans`**
+
+Jak zwykle — napisz 👉 **quiz** 😄

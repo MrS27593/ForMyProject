@@ -1,0 +1,171 @@
+## WIEDZA – `int` w Java
+
+---
+
+### 1️⃣ Czym jest `int`?
+
+* `int` to **prymitywny typ danych** służący do przechowywania **liczb całkowitych**.
+* Jest **najczęściej używanym** typem liczbowym w Javie.
+
+```java
+int a = 10;
+int b = -5;
+```
+
+---
+
+### 2️⃣ Zakres i rozmiar `int`
+
+* Rozmiar: **32 bity (4 bajty)**
+* Zakres:
+
+```text
+-2 147 483 648  do  2 147 483 647
+```
+
+```java
+int max = Integer.MAX_VALUE;
+int min = Integer.MIN_VALUE;
+```
+
+📌 Przekroczenie zakresu powoduje **overflow / underflow** (bez wyjątku!).
+
+---
+
+### 3️⃣ Domyślna wartość `int`
+
+* W polach klas: `0`
+* W zmiennych lokalnych: **musi być zainicjalizowany**
+
+```java
+class Test {
+    int x; // 0
+}
+```
+
+```java
+int y;
+// System.out.println(y); // ❌ błąd kompilacji
+```
+
+---
+
+### 4️⃣ Operacje na `int`
+
+```java
+int a = 10;
+int b = 3;
+
+int sum = a + b;   // 13
+int diff = a - b;  // 7
+int mul = a * b;   // 30
+int div = a / b;   // 3 (DZIELENIE CAŁKOWITE!)
+int mod = a % b;   // 1
+```
+
+📌 **Dzielenie `int / int` zawsze daje `int`**
+
+---
+
+### 5️⃣ Rzutowanie (casting)
+
+#### 🔹 Niejawne (widening)
+
+```java
+int a = 10;
+long l = a;
+```
+
+#### 🔹 Jawne (narrowing)
+
+```java
+long l = 10_000_000_000L;
+int a = (int) l; // utrata danych!
+```
+
+---
+
+### 6️⃣ `int` vs inne typy liczbowe
+
+| Typ       | Rozmiar | Zakres      |
+| --------- | ------- | ----------- |
+| `byte`    | 8 bit   | -128..127   |
+| `short`   | 16 bit  | ~32k        |
+| **`int`** | 32 bit  | ~2 mld      |
+| `long`    | 64 bit  | bardzo duży |
+
+📌 **Zawsze wybieraj najmniejszy sensowny typ**
+
+---
+
+### 7️⃣ `Integer` – wrapper dla `int`
+
+```java
+int a = 5;
+Integer b = 5; // autoboxing
+```
+
+* `int` → typ prymitywny
+* `Integer` → obiekt
+* `Integer` może być `null`, `int` **nie**
+
+```java
+Integer x = null;
+// int y = x; // NullPointerException
+```
+
+---
+
+### 8️⃣ `int` w pętlach i indeksach (praktyka)
+
+```java
+for (int i = 0; i < 10; i++) {
+    System.out.println(i);
+}
+```
+
+* `int` jest **standardem** dla:
+
+  * indeksów tablic
+  * liczników pętli
+  * rozmiarów kolekcji
+
+---
+
+### 9️⃣ Praktyczny przykład – system zamówień
+
+```java
+class Order {
+    int quantity;
+    int pricePerItem;
+
+    int totalPrice() {
+        return quantity * pricePerItem;
+    }
+}
+```
+
+📌 Gdyby kwoty były duże → `long`
+📌 Gdyby pieniądze → `BigDecimal`
+
+---
+
+### 🔟 Najczęstsze błędy
+
+❌ Dzielenie `int` i oczekiwanie wyniku z przecinkiem
+❌ Przepełnienie zakresu
+❌ Mylenie `int` z `Integer`
+❌ Brak inicjalizacji zmiennej lokalnej
+
+---
+
+### ✅ Podsumowanie
+
+* `int` = podstawowy typ całkowity
+* Szybki, wydajny, najczęściej używany
+* 32 bity, dzielenie całkowite
+* Uważaj na overflow i castowanie
+
+---
+
+Kiedy chcesz, napisz **„quiz”** 👍

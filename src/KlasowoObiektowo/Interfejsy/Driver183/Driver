@@ -1,0 +1,11 @@
+Aby dobrze umieć Interfejs Driver warto znać:
+Interface:
+Connection
+
+Class:
+DriverPropertyInfo
+Logger
+
+Exceptions:
+SQLException
+SQLFeatureNotSupportedException

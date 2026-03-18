@@ -1,0 +1,97 @@
+### ✅ Odpowiedzi – `continue` w Java (z wyjaśnieniami)
+
+---
+
+#### 1️⃣ Co robi słowo kluczowe `continue` w pętli?
+
+**✅ B. Przeskakuje bieżącą iterację i przechodzi do następnej**
+`continue` pomija resztę kodu w danej iteracji i przechodzi do sprawdzenia warunku następnej iteracji pętli.
+
+---
+
+#### 2️⃣ Co wypisze poniższy kod?
+
+```java
+for (int i = 1; i <= 5; i++) {
+    if (i == 3) continue;
+    System.out.print(i + " ");
+}
+```
+
+**✅ B. 1 2 4 5**
+Iteracja dla `i == 3` jest pominięta, więc nie zostaje wypisana liczba 3.
+
+---
+
+#### 3️⃣ W jakich pętlach można używać `continue`?
+
+**✅ B. `for`, `while`, `do-while`**
+`continue` działa w każdej typowej pętli w Javie.
+
+---
+
+#### 4️⃣ Co się stanie w przypadku `continue` w pętli `while`?
+
+**✅ B. Pominięta zostanie pozostała część iteracji i sprawdzany będzie warunek następnej iteracji**
+Dzięki temu pętla kontynuuje działanie od sprawdzenia warunku.
+
+---
+
+#### 5️⃣ Co robi `continue` z etykietą (label)?
+
+**✅ A. Przeskakuje do następnej iteracji pętli oznaczonej etykietą**
+Umożliwia kontrolowanie zagnieżdżonych pętli.
+
+---
+
+#### 6️⃣ Co jest różnicą między `continue` a `break`?
+
+**✅ B. `continue` pomija iterację, `break` kończy całą pętlę**
+`break` przerywa całą pętlę, a `continue` tylko pomija bieżącą iterację.
+
+---
+
+#### 7️⃣ Czy można używać `continue` w pętli `do-while`?
+
+**✅ A. Tak**
+Działa tak samo jak w `for` i `while`.
+
+---
+
+#### 8️⃣ Który zapis jest prawidłowy?
+
+**✅ A. `if (x == 5) continue;`**
+Pozostałe zapisy są niepoprawne składniowo.
+
+---
+
+#### 9️⃣ (Otwarte) Przykład użycia `continue` w pętli `for`:
+
+```java
+for (int i = 1; i <= 10; i++) {
+    if (i % 2 != 0) continue; // pomija liczby nieparzyste
+    System.out.println(i);    // wypisze tylko parzyste
+}
+```
+
+**Wyjście:**
+
+```
+2
+4
+6
+8
+10
+```
+
+---
+
+#### 🔟 (Otwarte) Wyjaśnienie, kiedy użyć `continue` zamiast `if-else`:
+
+* `continue` **upraszcza kod**, gdy chcemy przeskoczyć niechciane przypadki w pętli
+* Zamiast pisać dużą blokadę `if-else`, można pominąć niepasujące elementy i kontynuować iterację
+* Poprawia **czytelność kodu** i zmniejsza zagnieżdżenie
+
+---
+
+Chcesz, żebym teraz przeszedł do **`break`**, aby zamknąć temat pętli sterujących?

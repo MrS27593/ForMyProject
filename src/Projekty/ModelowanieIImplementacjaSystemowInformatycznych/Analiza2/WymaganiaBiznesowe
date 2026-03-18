@@ -1,0 +1,65 @@
+2.2 Wymagania dla Wypożyczalni wideo
+1. System ma przechowywać informacje o wszystkich klientach.
+Klient może być firmą lub osobą. Każdy klient „osobowy” jest
+opisany przez:
+a. Imię,
+b. Nazwisko,
+c. Adres,
+12
+d. Dane kontaktowe.
+2. Dla klienta firmowego przechowujemy następujące informacje:
+a. Nazwa,
+b. Adres,
+c. NIP,
+d. Dane kontaktowe.
+3. W przypadku klientów prywatnych, klientem wypożyczalni
+może zostać osoba, która ukończyła 16 lat.
+4. System ma przechowywać informacje o wszystkich filmach,
+kasetach i płytach dostępnych w wypożyczalni.
+5. Informacja o filmie dotyczy:
+a. Tytułu filmu,
+b. Daty produkcji,
+c. Czasu trwania,
+d. Aktorów grających główne role,
+e. Opłaty pobieranej za wypożyczenie nośnika z filmem
+(takiej samej dla wszystkich filmów).
+6. Może istnieć wiele nośników z tym samym filmem. Każdy no
+śnik posiada numer identyfikacyjny.
+7. Filmy podzielone są na kategorie, np. filmy fabularne, doku
+mentalne, przyrodnicze itd. System powinien być dostosowany
+do przechowywania informacji specyficznych dla poszczegól
+nych kategorii. Zostaną one doprecyzowane w przyszłości.
+8. Innym kryterium podziału filmów jest odbiorca docelowy:
+dziecko, młodzież, osoba dorosła, wszyscy. Dla dzieci musimy
+pamiętać kategorię wiekową (3, 5, 7, 9, 13 lat), a dla dorosłych
+przyczynę przynależności do tej kategorii wiekowej (są one
+z góry zdefiniowane, np. przemoc).
+9. Informacja o wypożyczeniu dotyczy daty wypożyczenia oraz
+opłaty za wypożyczenie.
+10. Do jednego wypożyczenia może być przypisane kilka nośni
+ków, jednak nie więcej niż trzy. Każdy z pobranych nośników
+może być oddany w innym terminie.
+11. Jednocześnie można mieć wypożyczonych maks. 5 nośników.
+12. Nośniki wypożycza się standardowo na jeden dzień, płatne
+z góry. W przypadku przetrzymania nośnika opłata za każdy
+dzień przetrzymania zostaje zwiększona o 10% w stosunku do
+opłaty standardowej.
+13. Jeśli fakt przetrzymania powtórzy się trzykrotnie, klient traci
+na zawsze prawo do korzystania z wypożyczalni.
+14. Jeśli klient oddał uszkodzony nośnik, jest zobowiązany do
+zwrócenia kosztów nowego.
+15. Filmy przeznaczone wyłącznie dla osób dorosłych może wypo
+życzyć osoba, która ukończyła 18 lat.
+16. Klient musi mieć możliwość samodzielnego przeglądania infor
+macji o filmach oraz stanu swojego konta.
+17. Codziennie opracowuje się raport dzienny o wydarzeniach
+w wypożyczalni, tzn. O:
+a. Liczbie nowych wypożyczeń,
+b. Liczbie zwrotów,
+c. Liczbie dzisiaj wypożyczonych nośników,
+d. Dziennym utargu.
+18. Co jakiś czas opracowuje się raport okresowy (za zadany okres - okresy mogą się nakładać), który zawiera informacje o:
+a. Najczęściej wypożyczanym filmie,
+b. Najpopularniejszej kategorii,
+c. Najpopularniejszym aktorze.
+19. Raporty są uporządkowane chronologicznie.

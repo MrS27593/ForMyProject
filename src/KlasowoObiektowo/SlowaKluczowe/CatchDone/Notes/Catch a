@@ -1,0 +1,120 @@
+Okej! Oto **odpowiedzi do quizu `catch` w Javie** w takim samym stylu jak poprzednio, z wyjaśnieniami krok po kroku.
+
+---
+
+## ✅ Odpowiedzi – `catch` w Java
+
+---
+
+### **1. Do czego służy słowo kluczowe `catch`?**
+
+**✔ B. Przechwycenia i obsługi wyjątku** ✅
+
+* `catch` służy do **przechwytywania wyjątków**, które wystąpiły w bloku `try`.
+
+---
+
+### **2. Co się stanie w tym kodzie?**
+
+```java
+try {
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Błąd dzielenia");
+}
+```
+
+**✔ C. Wypisze "Błąd dzielenia"** ✅
+
+* Wystąpi `ArithmeticException`, który zostanie przechwycony i obsłużony przez blok `catch`.
+
+---
+
+### **3. Czy można użyć wielu bloków `catch` po jednym `try`?**
+
+**✔ A. Tak** ✅
+
+* Można umieścić kilka bloków `catch`, każdy obsługujący inny typ wyjątku.
+* Ważne: od **bardziej szczegółowych** do **bardziej ogólnych** wyjątków.
+
+---
+
+### **4. Co zrobi blok `finally` w połączeniu z `catch`?**
+
+**✔ A. Wykona się zawsze, niezależnie od wyjątku** ✅
+
+* `finally` jest wykonywany **zawsze**, nawet jeśli wyjątek został przechwycony lub nie wystąpił.
+* Przydatny do zwalniania zasobów (np. zamykanie plików).
+
+---
+
+### **5. Które połączenie jest poprawne w Java 7+?**
+
+```java
+try { ... }
+catch (IOException | NullPointerException e) { ... }
+```
+
+**✔ B. Poprawne – blok `catch` obsługuje wiele typów** ✅
+
+* Java 7+ pozwala używać jednego bloku `catch` dla **kilku wyjątków** rozdzielonych `|`.
+
+---
+
+### **6. Co się stanie, jeśli w `catch` nic nie zrobimy?**
+
+**✔ C. Wyjątek zostanie przechwycony, ale nieobserwowany** ✅
+
+* Program nie przerwie działania, ale wyjątek nie zostanie zalogowany ani obsłużony.
+* To często **zła praktyka**, bo utrudnia debugowanie.
+
+---
+
+### **7. W jakiej kolejności powinny być umieszczone bloki `catch`?**
+
+**✔ B. Od szczegółowego wyjątku do ogólnego** ✅
+
+* Przykład: najpierw `NullPointerException`, potem `Exception`.
+* Odwrotna kolejność spowoduje **błąd kompilacji**.
+
+---
+
+### **8. Czy można użyć `catch` bez `try`?**
+
+**✔ B. Nie, `catch` musi być po `try`** ✅
+
+* `catch` jest zawsze powiązany z blokiem `try`.
+* Próba użycia samego `catch` spowoduje błąd kompilacji.
+
+---
+
+### **9. (Otwarte)**
+
+**Przykład jednego bloku `catch` obsługującego kilka typów wyjątków:**
+
+```java
+try {
+    String s = null;
+    int[] arr = new int[2];
+    arr[5] = 10;
+    System.out.println(s.length());
+} catch (NullPointerException | ArrayIndexOutOfBoundsException e) {
+    System.out.println("Błąd tablicy lub null!");
+}
+```
+
+---
+
+### **10. (Otwarte)**
+
+**Dlaczego warto logować wyjątek w `catch`?**
+
+* Ułatwia **debugowanie** i identyfikację problemu
+* Pokazuje **dokładny typ wyjątku i miejsce wystąpienia**
+* Pozwala monitorować i raportować błędy w aplikacjach produkcyjnych
+
+---
+
+Jeżeli chcesz, mogę teraz przygotować **temat `finally` w Javie** z przykładami i quizem w tym samym stylu.
+
+Chcesz, żebym to zrobił?

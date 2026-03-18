@@ -1,0 +1,89 @@
+## QUIZ – `long` w Java (10 pytań)
+
+---
+
+### **1. Co oznacza typ `long` w Javie?**
+
+A. Liczbę zmiennoprzecinkową
+B. Liczbę całkowitą 64-bitową
+C. Zmienną tekstową
+D. Tablicę liczb
+
+---
+
+### **2. Ile bitów zajmuje typ `long`?**
+
+A. 32
+B. 16
+C. 64
+D. 8
+
+---
+
+### **3. Jaka jest domyślna wartość zmiennej `long`?**
+
+A. `null`
+B. `0`
+C. `0L`
+D. `1`
+
+---
+
+### **4. Które zdanie jest prawdziwe?**
+
+A. `long` może przechowywać liczby większe niż `int`
+B. `long` ma mniejszy zakres niż `int`
+C. `long` i `int` mają ten sam zakres
+D. `long` nie może być używany w tablicach
+
+---
+
+### **5. Jak oznaczyć literę L w liczbie typu `long`?**
+
+A. Na początku liczby, np. `L12345`
+B. Na końcu liczby, np. `12345L`
+C. W środku liczby, np. `12L345`
+D. Nie trzeba używać L
+
+---
+
+### **6. Co się stanie, jeśli operacja łączy `int` i `long`?**
+
+A. Kompilator zgłosi błąd
+B. `int` automatycznie konwertowane do `long`
+C. `long` zostanie zmienione na `int`
+D. Wynik będzie zawsze typu `int`
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład użycia `long` do przechowywania dużej liczby, np. populacji świata.
+
+---
+
+### **8. (OTWARTE)**
+
+Dlaczego warto używać `long` zamiast `int` dla dużych liczb?
+
+---
+
+### **9. Czy `long` może przechowywać liczby ujemne?**
+
+A. Tak
+B. Nie
+C. Tylko jeśli jest `static`
+D. Tylko w tablicach
+
+---
+
+### **10. Które zdanie jest prawdziwe o tablicach typu `long`?**
+
+A. Można je tworzyć jak każdą tablicę typu prymitywnego
+B. Nie można ich tworzyć w Javie
+C. Mogą przechowywać tylko dodatnie liczby
+D. Muszą być inicjalizowane konstruktorami klas
+
+---
+
+Napisz **„odpowiedzi”**, a podam komplet poprawnych odpowiedzi z wyjaśnieniami ✅

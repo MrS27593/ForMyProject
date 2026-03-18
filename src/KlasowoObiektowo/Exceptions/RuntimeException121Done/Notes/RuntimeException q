@@ -1,0 +1,153 @@
+Świetnie 😄 Oto **QUIZ: `RuntimeException` w Javie** – poziom **od podstaw do rekrutacyjnego**.
+Najpierw pytania, **odpowiedzi dostaniesz na końcu albo na Twoje „odpowiedzi”** 😉
+
+---
+
+# 🧠 **QUIZ – RuntimeException**
+
+## 🟢 Poziom 1 – Podstawy
+
+### 1️⃣ `RuntimeException` jest:
+
+A. Checked exception
+B. Unchecked exception
+C. Błędem JVM
+D. Tylko do plików
+
+---
+
+### 2️⃣ Która klasa jest **bezpośrednim rodzicem** `NullPointerException`?
+
+A. `Exception`
+B. `Throwable`
+C. `RuntimeException`
+D. `Error`
+
+---
+
+### 3️⃣ Czy `RuntimeException` musi być obsłużony?
+
+A. Tak, zawsze
+B. Tylko w `main`
+C. Nie
+D. Tylko w Springu
+
+---
+
+### 4️⃣ Co się stanie?
+
+```java
+String s = null;
+System.out.println(s.length());
+```
+
+A. Program się skompiluje i wykona poprawnie
+B. Błąd kompilacji
+C. `NullPointerException`
+D. `IllegalArgumentException`
+
+---
+
+## 🟡 Poziom 2 – Praktyka
+
+### 5️⃣ Który wyjątek najlepiej pasuje do walidacji danych?
+
+A. `IOException`
+B. `SQLException`
+C. `IllegalArgumentException`
+D. `FileNotFoundException`
+
+---
+
+### 6️⃣ Co się stanie?
+
+```java
+Object o = "123";
+Integer i = (Integer) o;
+```
+
+A. `NumberFormatException`
+B. `ClassCastException`
+C. `NullPointerException`
+D. Kod poprawny
+
+---
+
+### 7️⃣ Który wyjątek dziedziczy po `RuntimeException`?
+
+A. `IOException`
+B. `SQLException`
+C. `ArithmeticException`
+D. `InterruptedException`
+
+---
+
+### 8️⃣ Co robi ten kod?
+
+```java
+if (age < 0) {
+    throw new IllegalArgumentException();
+}
+```
+
+A. Obsługuje wyjątek
+B. Rzuca checked exception
+C. Rzuca unchecked exception
+D. Ignoruje błąd
+
+---
+
+## 🔵 Poziom 3 – Rekrutacyjny
+
+### 9️⃣ Co jest ZŁĄ praktyką?
+
+A. Rzucanie `IllegalArgumentException`
+B. Tworzenie własnych RuntimeException
+C. Łapanie `RuntimeException` wszędzie
+D. Walidacja danych wejściowych
+
+---
+
+### 🔟 Co się stanie?
+
+```java
+try {
+    throw new RuntimeException("Błąd");
+} finally {
+    System.out.println("FINALLY");
+}
+```
+
+A. Nic się nie wypisze
+B. `FINALLY`
+C. `RuntimeException` i nic więcej
+D. Program się nie skompiluje
+
+---
+
+### 1️⃣1️⃣ Jaki wyjątek powinien reprezentować **błąd logiki biznesowej**?
+
+A. `Exception`
+B. `IOException`
+C. Własny `RuntimeException`
+D. `Error`
+
+---
+
+### 1️⃣2️⃣ Dlaczego frameworki (np. Spring) często używają RuntimeException?
+
+A. Bo są szybsze
+B. Bo nie wymagają `try-catch`
+C. Bo są ignorowane przez JVM
+D. Bo nie można ich logować
+
+---
+
+💡 **Gdy będziesz gotowy**, napisz **„odpowiedzi”**, a podam pełne rozwiązania + krótkie wyjaśnienia.
+
+Chcesz potem:
+👉 **super-trudny quiz (code traps)**
+👉 **zadania rekrutacyjne z wyjątkami**
+👉 **50 RuntimeException – must know**
+
+Ty decydujesz 😄

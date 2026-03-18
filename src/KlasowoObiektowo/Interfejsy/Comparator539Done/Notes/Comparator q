@@ -1,0 +1,103 @@
+Świetnie 👍
+Oto **QUIZ dotyczący interfejsu `Comparator` w Javie**
+❗ **Bez odpowiedzi** — dokładnie tak jak wcześniej.
+Odpowiedzi podam dopiero, gdy o nie poprosisz.
+
+---
+
+## 🧠 **QUIZ – interfejs `Comparator` (Java)**
+
+---
+
+### **1️⃣ Czym jest interfejs `Comparator`?**
+
+a) Klasą abstrakcyjną
+b) Interfejsem markerowym
+c) Interfejsem funkcyjnym
+d) Klasą dziedziczącą po `Comparable`
+
+---
+
+### **2️⃣ W jakim pakiecie znajduje się `Comparator`?**
+
+a) java.lang
+b) java.io
+c) java.util
+d) java.concurrent
+
+---
+
+### **3️⃣ Jaką metodę musi zaimplementować `Comparator`?**
+
+a) `compareTo(T o)`
+b) `equals(Object o)`
+c) `compare(T o1, T o2)`
+d) `sort(List<T> list)`
+
+---
+
+### **4️⃣ Co oznacza, że `Comparator` jest interfejsem funkcyjnym?**
+
+a) Nie zawiera żadnych metod
+b) Zawiera dokładnie jedną metodę abstrakcyjną
+c) Może być używany tylko z lambdami
+d) Nie można go implementować w klasie
+
+---
+
+### **5️⃣ Jaka jest podstawowa różnica między `Comparator` a `Comparable`?**
+
+a) `Comparator` działa tylko na liczbach
+b) `Comparable` jest wolniejszy
+c) `Comparator` definiuje porządek zewnętrzny
+d) `Comparable` nie pozwala na sortowanie
+
+---
+
+### **6️⃣ Co zwraca metoda `compare(o1, o2)` gdy obiekty są równe?**
+
+a) -1
+b) 1
+c) 0
+d) `true`
+
+---
+
+### **7️⃣ Która z poniższych metod służy do łączenia kilku kryteriów sortowania?**
+
+a) `combine()`
+b) `merge()`
+c) `thenComparing()`
+d) `join()`
+
+---
+
+### **8️⃣ Co się stanie w `TreeSet`, jeśli `compare()` zwróci `0` dla dwóch różnych obiektów?**
+
+a) Oba obiekty zostaną dodane
+b) Zostanie rzucony wyjątek
+c) Drugi obiekt nie zostanie dodany
+d) Kolekcja się wyczyści
+
+---
+
+### **9️⃣ Która metoda pozwala odwrócić kolejność sortowania?**
+
+a) `invert()`
+b) `reverse()`
+c) `reversed()`
+d) `descending()`
+
+---
+
+### **🔟 Który zapis jest NAJLEPSZĄ praktyką sortowania po polu typu `int`?**
+
+a) `(a, b) -> a.getX() - b.getX()`
+b) `Comparator.comparing(a -> a.getX())`
+c) `Comparator.comparingInt(a -> a.getX())`
+d) `Collections.sortInt()`
+
+---
+
+📌 Gdy będziesz gotowy, napisz po prostu: **„odpowiedzi”**
+i przejdziemy wszystko dokładnie krok po kroku 💪

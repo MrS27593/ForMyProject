@@ -1,0 +1,166 @@
+
+WYKŁAD 03
+Poruszyliśmy zagadnienia:
+∙ Typy generyczne
+∙ Wykorzystanie interfejsów
+1
+
+WYKŁAD 04
+Plan wykładu:
+∙ Typy wylicznikowe
+∙ Kolekcje
+2
+
+
+TYPY WYLICZNIKOWE
+TYPY WYLICZNIKOWE - CZYM SĄ?
+Typ wylicznikowy zapisem skończonej ilości wartości, z których każda ma swoją własną
+(najczęściej znaczącą) nazwę.
+
+
+TYPY WYLICZNIKOWE - SKŁADNIA
+[public] enum EnumerationTypeName {
+    constant1, constant2, ...;
+}
+
+
+
+TYPY WYLICZNIKOWE
+Po co:
+∙ dla predefiniowanych list wartości,
+∙ gdy zmiennej może być nadana wartość z ograniczonego zestawu,
+∙ używając enum-ów zwiększamy czas kompilacji, ale unikamy błędów przekazywanych
+wartości.
+7
+
+
+TYPY WYLICZNIKOWE - OGRANICZENIA
+∙ Wszystkie typy wylicznikowe dziedziczą po java.lang.Enum
+
+
+TYPY WYLICZNIKOWE - OGRANICZENIA
+∙ Wszystkie typy wylicznikowe dziedziczą po java.lang.Enum
+∙ Enum wykorzystuje własną przestrzeń nazewniczą
+∙ wartości Enum są z definicji statyczne i final
+∙ wartości Enum mogą być bezpiecznie porównywane:
+∙ w wyrażeniach switch - case
+∙ przez operator ==
+∙ metodą equals()
+8
+
+
+PRZYKŁAD 2
+
+
+9
+KOLEKCJE
+STRUKTURY DANYCH
+Czym są struktury danych?
+∙ tablice
+∙ listy
+
+
+STRUKTURY DANYCH
+Czym są struktury danych?
+jest to sposób przechowywania danych w pamięci komputera
+Jakie struktury danych znamy?
+∙ tablice
+∙ listy
+11
+
+
+PRZYKŁAD 3
+12
+KOLEKCJE W JAVA
+Czym są kolekcje?
+Kolekcje to zestaw implementacji struktur danych
+∙ list
+∙ zbiór
+∙ map
+∙ kolejek
+
+
+
+KOLEKCJE W JAVA
+Czym są kolekcje?
+Kolekcje to zestaw implementacji struktur danych oraz mechanizmów odwołania się do
+elementów z których się składają. Jakie metody dostępu przewidziano?
+∙ list
+∙ zbiór
+∙ map
+∙ kolejek
+13
+
+
+PRZYKŁAD 4
+HIERARCHIA
+≪interface≫
+    Iterable<E>
+≪interface≫
+    Collection<E>
+≪interface≫
+    List<E>
+≪interface≫
+    Queue<E>
+≪interface≫
+    Set<E>
+≪interface≫
+    Dequeue<E>
+≪interface≫
+    SortedSet<E>
+≪interface≫
+    Map<E>
+≪interface≫
+    SortedMap<E>
+
+
+15
+ITERATOR
+
+
+16
+ITERATOR
+Obiekt pozwalający na sekwencyjny dostęp do elementów zawartych w innym obiekcie.
+
+
+17
+PRZYKŁAD 5
+MyList<T>
+    + void add(T)
+    + void show()
+MyList<T>
+    + void add(T)
+    + void show()
+    + Iterator<T> iterator()
+≪interface≫
+    Iterable<E>
+        # Iterator<E> iterator()
+≪interface≫
+    Iterator<E>
+        # boolean hasNext()
+        # E next()
+
+
+Tutaj opisać wybór typu kolekcji
+
+
+
+KOLEKCJE I METODY PORÓWNUJĄCE
+∙ ArrayList - equals()
+∙ HashMap - hashCode() i equals()
+∙ TreeSet/TreeMap - compareTo() interfejs Comparable
+
+
+METODA HASHCODE()
+Poprawne zaimplementowanie metody hashCode() jest kluczowe dla wydajności i
+poprawnego działania HashMap i HashSet. Metoda ta powinna być:
+
+∙ unikalna - musi zwracać unikalne wartości dla różnych obiektów, tzn. że dwa obiekty
+równe muszą mieć taką samą wartość hashCode(), ale nie na odwrót;
+
+∙ konsystencyjna - jeśli dane obiektu nie uległy zmianie, to ich hashe również powinny
+być niezmienne (w czasie działania programu);
+
+∙ równomiernie rozłożona - tj. zwracane hashe są równomiernie rozłożone w
+przestrzeni wartości;
+

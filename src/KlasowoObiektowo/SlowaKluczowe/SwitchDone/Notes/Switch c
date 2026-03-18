@@ -1,0 +1,215 @@
+## WIEDZA – `switch` w Java (praktycznie i „projektowo”)
+
+---
+
+### 1️⃣ Czym jest `switch`?
+
+`switch` to **instrukcja sterująca**, która pozwala wykonać **różne ścieżki kodu** w zależności od wartości jednej zmiennej.
+
+Alternatywa dla wielu `if / else if`, gdy:
+
+* porównujesz **jedną zmienną**
+* masz **wiele możliwych przypadków**
+
+---
+
+### 2️⃣ Klasyczna składnia `switch`
+
+```java
+switch (value) {
+    case 1:
+        System.out.println("Jeden");
+        break;
+    case 2:
+        System.out.println("Dwa");
+        break;
+    default:
+        System.out.println("Inna wartość");
+}
+```
+
+📌 `break` zapobiega „przelatywaniu” do kolejnych `case`.
+
+---
+
+### 3️⃣ Typy obsługiwane przez `switch`
+
+`switch` działa na:
+
+* `byte`, `short`, `char`, `int`
+* `enum`
+* `String`
+* od Java 12+: **wyrażenia (`switch expression`)**
+
+❌ Nie działa na:
+
+* `long`
+* `float`, `double`
+* obiektach (poza `String` i `enum`)
+
+---
+
+## 🔧 Praktyczny przykład 1: System ról użytkownika (enum + switch)
+
+```java
+enum Role {
+    ADMIN, USER, GUEST
+}
+
+class AccessManager {
+
+    void checkAccess(Role role) {
+        switch (role) {
+            case ADMIN:
+                System.out.println("Pełny dostęp");
+                break;
+            case USER:
+                System.out.println("Dostęp standardowy");
+                break;
+            case GUEST:
+                System.out.println("Dostęp ograniczony");
+                break;
+            default:
+                System.out.println("Nieznana rola");
+        }
+    }
+}
+```
+
+✔ Czytelne
+✔ Bezpieczne
+✔ Idealne połączenie `enum + switch`
+
+---
+
+## 🔧 Praktyczny przykład 2: Menu aplikacji (String + switch)
+
+```java
+class MenuHandler {
+
+    void handleOption(String option) {
+        switch (option.toLowerCase()) {
+            case "start":
+                startApp();
+                break;
+            case "stop":
+                stopApp();
+                break;
+            case "status":
+                showStatus();
+                break;
+            default:
+                System.out.println("Nieznana opcja");
+        }
+    }
+
+    void startApp() {}
+    void stopApp() {}
+    void showStatus() {}
+}
+```
+
+📌 Bardzo częsty pattern w aplikacjach backendowych i CLI.
+
+---
+
+## 🔧 Praktyczny przykład 3: Brak `break` (fall-through)
+
+```java
+switch (day) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+        System.out.println("Dzień roboczy");
+        break;
+    case 6:
+    case 7:
+        System.out.println("Weekend");
+        break;
+}
+```
+
+✔ Celowe użycie fall-through
+❌ Częsta przyczyna błędów, jeśli `break` zostanie pominięty przypadkowo
+
+---
+
+## 🚀 Nowoczesny `switch` (Java 12+)
+
+### `switch` jako wyrażenie
+
+```java
+String type = switch (role) {
+    case ADMIN -> "Pełny dostęp";
+    case USER -> "Standardowy dostęp";
+    case GUEST -> "Ograniczony dostęp";
+};
+```
+
+✔ Krótszy kod
+✔ Brak `break`
+✔ Zawsze zwraca wartość
+
+---
+
+### Bloki w `switch expression`
+
+```java
+int result = switch (operation) {
+    case "+" -> {
+        yield a + b;
+    }
+    case "-" -> {
+        yield a - b;
+    }
+    default -> 0;
+};
+```
+
+---
+
+## ⚠️ Częste błędy
+
+❌ Brak `break` w klasycznym `switch`
+❌ Brak `default`
+❌ Używanie `switch` zamiast polimorfizmu w złożonej logice
+❌ `null` w `switch` (rzuci `NullPointerException`)
+
+---
+
+## 🧠 Kiedy używać `switch`, a kiedy nie?
+
+### ✔ Używaj `switch`, gdy:
+
+* masz **jedną zmienną**
+* wiele **prostych przypadków**
+* enum / status / komenda
+
+### ❌ Unikaj, gdy:
+
+* logika jest złożona
+* zachowanie zależy od wielu warunków
+* lepszy będzie **polimorfizm**
+
+---
+
+## 🔟 Podsumowanie
+
+* `switch` = czytelna alternatywa dla `if-else`
+* Idealny do:
+
+  * menu
+  * statusów
+  * enumów
+* Od Java 12 → `switch expression`
+* Uważaj na `break` i `null`
+
+---
+
+Gdy będziesz gotowy:
+👉 **quiz do `switch` (analiza kodu + pytania praktyczne)**
+👉 albo **przerobimy `switch` vs `if-else` na przykładzie projektu**
+
+Co wybierasz?

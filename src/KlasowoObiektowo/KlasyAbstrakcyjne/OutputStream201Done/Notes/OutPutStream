@@ -1,0 +1,13 @@
+Aby dobrze umieć Abstract Class OutPutStream warto znać:
+Interface:
+Closeable
+Flushable
+
+Class i Abstract Class:
+Objects
+
+Exceptions:
+IOException
+
+Enum:
+

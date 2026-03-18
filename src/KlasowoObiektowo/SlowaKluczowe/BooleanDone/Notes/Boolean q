@@ -1,0 +1,105 @@
+Super 🙂
+Oto **QUIZ z `boolean` w Javie** — solidny, logiczny i z pułapkami, dokładnie pod dobre zrozumienie tematu.
+
+---
+
+## 🧪 Quiz: `boolean` w języku Java
+
+**Instrukcja:**
+Wybierz **jedną poprawną odpowiedź** (A, B, C lub D).
+Pytania 9–10 są **otwarte**.
+
+---
+
+### **1. Czym jest `boolean` w Javie?**
+
+A. Typem obiektowym
+B. Typem numerycznym
+C. Typem prymitywnym
+D. Stałą językową
+
+---
+
+### **2. Jakie wartości może przyjmować `boolean`?**
+
+A. `0` i `1`
+B. `true` i `false`
+C. `yes` i `no`
+D. Dowolne
+
+---
+
+### **3. Który zapis deklaracji jest poprawny?**
+
+A. `boolean x = 1;`
+B. `boolean x = true;`
+C. `bool x = true;`
+D. `boolean x = "true";`
+
+---
+
+### **4. Co zwróci poniższy kod?**
+
+```java
+int a = 5;
+int b = 10;
+boolean result = a > b;
+```
+
+A. `true`
+B. `false`
+C. `0`
+D. Błąd kompilacji
+
+---
+
+### **5. Co robi operator `!`?**
+
+A. Porównuje wartości
+B. Wykonuje AND
+C. Neguje wartość logiczną
+D. Kończy instrukcję
+
+---
+
+### **6. Który warunek jest zapisany POPRAWNIE?**
+
+A. `if (x == true)`
+B. `if (x = true)`
+C. `if (x)`
+D. `if (x == 1)`
+
+---
+
+### **7. Co jest prawdą o `Boolean` (wrapper)?**
+
+A. Nie może być `null`
+B. Jest szybszy od `boolean`
+C. Może być `null`
+D. Jest tym samym co `boolean`
+
+---
+
+### **8. Co oznacza short-circuit w `&&`?**
+
+A. Obie strony zawsze są sprawdzane
+B. Druga część może nie zostać wykonana
+C. Operator działa wolniej
+D. Dotyczy tylko `||`
+
+---
+
+### **9. (Otwarte)**
+
+Podaj przykład metody, która zwraca `boolean`, i wyjaśnij kiedy się jej używa.
+
+---
+
+### **10. (Otwarte)**
+
+Dlaczego nie powinno się porównywać `boolean` do `true`?
+
+---
+
+👉 Gdy skończysz, napisz: **`odpowiedzi`**
+a dostaniesz **klucz + wyjaśnienia krok po kroku** ✅

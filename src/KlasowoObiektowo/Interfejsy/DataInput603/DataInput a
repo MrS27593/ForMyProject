@@ -1,0 +1,68 @@
+Oczywiście! Oto odpowiedzi do quizu:
+
+---
+
+### ✅ **Odpowiedzi – `DataInput` w Javie**
+
+#### **1. \[P/F] `DataInput` jest klasą abstrakcyjną, którą można rozszerzyć.**
+
+**Odpowiedź: B) Fałsz**
+👉 `DataInput` to **interfejs**, a nie klasa abstrakcyjna.
+
+---
+
+#### **2. Co zwraca metoda `readUnsignedByte()`?**
+
+**Odpowiedź: B) int**
+👉 Zwraca wartość bajtu jako `int` w zakresie 0–255.
+
+---
+
+#### **3. Która z poniższych klas implementuje interfejs `DataInput`?**
+
+**Odpowiedź: C) DataInputStream**
+👉 To najczęstsza implementacja `DataInput`.
+
+---
+
+#### **4. Jakie dane odczyta poniższy kod?**
+
+```java
+byte[] data = {0, 1};
+DataInputStream dis = new DataInputStream(new ByteArrayInputStream(data));
+boolean b1 = dis.readBoolean(); // 0 -> false
+boolean b2 = dis.readBoolean(); // 1 -> true
+System.out.println(b1 + " " + b2);
+```
+
+**Odpowiedź: A) false true**
+
+---
+
+#### **5. Do czego służy metoda `readFully(byte[] b)`?**
+
+**Odpowiedź: B) Czyta dokładnie `b.length` bajtów lub wyrzuca wyjątek**
+
+---
+
+#### **6. \[P/F] Metoda `readUTF()` może zwrócić `null`.**
+
+**Odpowiedź: B) Fałsz**
+👉 Jeśli nic nie ma do odczytania, może rzucić wyjątek, ale nie zwróci `null`.
+
+---
+
+#### **7. Co zrobi `readChar()`?**
+
+**Odpowiedź: B) Wczyta 2 bajty i zwróci `char`**
+
+---
+
+#### **8. Jakie typy danych można odczytać przez `DataInput`? (Wybierz WSZYSTKIE poprawne)**
+
+**Odpowiedź: B) `boolean`, C) `float`, D) `int`, E) `char`**
+👉 `String` nie – `DataInput` nie ma metody `readString()`, tylko `readUTF()` do zakodowanych ciągów.
+
+---
+
+Jak Ci poszło? Chcesz kolejny quiz – np. z `DataOutput`, `DataStreams`, albo `Serializable`?

@@ -1,0 +1,191 @@
+Świetnie 👍
+**`@Category`** to kolejna **kluczowa adnotacja Java Flight Recorder (JFR)**. Razem z `@Name`, `@Label`, `@Description` i `@BooleanFlag` tworzy **kanon adnotacji JFR**.
+
+Poniżej masz **pełne, uporządkowane wyjaśnienie** — od podstaw do praktyki.
+
+---
+
+# 📘 `@Category` w Javie (Java Flight Recorder)
+
+## 1️⃣ Czym jest `@Category`?
+
+`@Category` to **adnotacja z pakietu `jdk.jfr`**, służąca do:
+
+> **grupowania zdarzeń JFR w logiczne kategorie**
+
+📌 Kategorie są widoczne w:
+
+* **JDK Mission Control**
+* narzędziach analizujących pliki `.jfr`
+
+---
+
+## 2️⃣ Po co istnieje `@Category`?
+
+Bez kategorii:
+
+* wszystkie zdarzenia trafiają do „jednego worka”
+
+Z kategoriami:
+
+* łatwa nawigacja
+* filtrowanie zdarzeń
+* czytelna analiza wydajności
+
+➡️ **To odpowiednik folderów / tagów dla eventów JFR**
+
+---
+
+## 3️⃣ Gdzie można jej użyć?
+
+```java
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Category {
+    String[] value();
+}
+```
+
+📌 TYLKO na:
+
+* **klasach** (eventy JFR)
+* **klasach ustawień (settings)**
+
+---
+
+## 4️⃣ Najprostszy przykład
+
+```java
+import jdk.jfr.Category;
+import jdk.jfr.Event;
+
+@Category("Application")
+public class MyEvent extends Event {
+}
+```
+
+➡️ Event pojawi się w kategorii **Application**
+
+---
+
+## 5️⃣ Kategorie zagnieżdżone (BARDZO WAŻNE) ⭐
+
+`@Category` przyjmuje **tablicę Stringów**:
+
+```java
+@Category({"Application", "Database"})
+public class DbQueryEvent extends Event {
+}
+```
+
+📁 Struktura w JMC:
+
+```
+Application
+ └── Database
+```
+
+➡️ To jest **najczęstszy i zalecany sposób użycia**
+
+---
+
+## 6️⃣ Przykład profesjonalny
+
+```java
+@Name("app.http.request")
+@Label("HTTP Request")
+@Description("Measures HTTP request processing time")
+@Category({"Application", "HTTP"})
+public class HttpRequestEvent extends Event {
+
+    @Label("Method")
+    String method;
+
+    @Label("URI")
+    String uri;
+}
+```
+
+📌 Tak wyglądają **eventy JDK** i frameworków
+
+---
+
+## 7️⃣ Czy `@Category` wpływa na działanie programu?
+
+❌ **NIE**
+
+* nie zmienia logiki
+* nie wpływa na wydajność
+* jest **czysto opisowa**
+
+➡️ Służy narzędziom JFR
+
+---
+
+## 8️⃣ Domyślna kategoria
+
+Jeśli **nie podasz `@Category`**:
+
+* event trafi do **kategorii domyślnej**
+* często trudny do znalezienia
+
+❗ **Zła praktyka** w poważnych aplikacjach
+
+---
+
+## 9️⃣ `@Category` vs `@Label`
+
+| Adnotacja      | Rola                   |
+| -------------- | ---------------------- |
+| `@Category`    | grupowanie eventów     |
+| `@Label`       | czytelna nazwa         |
+| `@Name`        | unikalny identyfikator |
+| `@Description` | opis                   |
+
+➡️ Wszystkie są **komplementarne**
+
+---
+
+## 🔟 Najczęstsze błędy ❌
+
+❌ Jedna długa nazwa:
+
+```java
+@Category("Application HTTP Database")
+```
+
+❌ Brak kategorii
+❌ Zbyt techniczne nazwy
+❌ Niespójne drzewo kategorii
+
+---
+
+## ✅ Dobre praktyki
+
+✔️ Używaj **hierarchii** (`String[]`)
+✔️ Trzymaj spójne nazewnictwo
+✔️ Myśl jak użytkownik JMC
+✔️ Jedna domena = jedna główna kategoria
+
+---
+
+## 🧠 Podsumowanie (egzaminacyjne)
+
+> **`@Category` grupuje zdarzenia JFR w logiczne kategorie widoczne w narzędziach monitorujących**
+
+* pakiet: `jdk.jfr`
+* tylko `TYPE`
+* tylko JFR
+* brak wpływu na runtime logic
+* kluczowa dla czytelności eventów
+
+---
+
+Jeśli chcesz:
+
+* ✅ **quiz z `@Category`**
+* ✅ **porównanie wszystkich adnotacji JFR**
+* ✅ **zadanie: zaprojektuj własne eventy JFR**
+* ✅ **pełna mapa Java Flight Recorder**
+
+Napisz 👉 **quiz** 😄

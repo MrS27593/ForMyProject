@@ -1,0 +1,79 @@
+Jasne 😄 oto **quiz o `@Override`** – czysty i zróżnicowany poziom:
+
+---
+
+# 🟢 Quiz – `@Override`
+
+### 1️⃣ Co oznacza adnotacja `@Override`?
+
+A. Metoda jest statyczna
+B. Metoda nadpisuje metodę z klasy nadrzędnej lub implementuje metodę z interfejsu
+C. Kompilator automatycznie tworzy getter i setter
+D. Metoda jest prywatna
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Override`?
+
+A. `java.lang.annotation`
+B. `jdk.jfr`
+C. `javax.annotation`
+D. `org.jetbrains.annotations`
+
+---
+
+### 3️⃣ Od której wersji Javy wprowadzono `@Override`?
+
+A. Java 1.4
+B. Java 5
+C. Java 6
+D. Java 8
+
+---
+
+### 4️⃣ Czy `@Override` wpływa na zachowanie programu w runtime?
+
+A. Tak
+B. Nie
+
+---
+
+### 5️⃣ Czy można używać `@Override` przy metodach implementujących interfejsy?
+
+A. Tak, od Java 6+
+B. Nie
+
+---
+
+### 6️⃣ Co się stanie, jeśli użyjemy `@Override` przy metodzie, która **nie nadpisuje żadnej metody**?
+
+A. Program skompiluje się poprawnie
+B. Kompilator zgłosi błąd
+
+---
+
+### 7️⃣ Czy `@Override` jest adnotacją markerową?
+
+A. Tak
+B. Nie
+
+---
+
+### 8️⃣ Czy `@Override` może być stosowana na polach klasy?
+
+A. Tak
+B. Nie
+
+---
+
+### 9️⃣ Czy `@Override` jest obowiązkowa przy nadpisywaniu metod?
+
+A. Tak
+B. Nie
+
+---
+
+### 🔟 Czy `@Override` można stosować przy metodach prywatnych?
+
+A. Tak
+B. Nie

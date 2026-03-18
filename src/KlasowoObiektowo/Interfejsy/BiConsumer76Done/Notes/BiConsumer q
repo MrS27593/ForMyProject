@@ -1,0 +1,101 @@
+Super! 👍
+Oto **QUIZ dotyczący interfejsu `BiConsumer<T, U>` w Javie**
+❗ **Bez odpowiedzi** – odpowiemy na nie dopiero, gdy o nie poprosisz.
+
+---
+
+## 🧠 **QUIZ – `BiConsumer<T, U>`**
+
+---
+
+### **1️⃣ Czym jest `BiConsumer<T, U>`?**
+
+a) Interfejsem markerowym
+b) Interfejsem funkcyjnym
+c) Klasą abstrakcyjną
+d) Specjalizacją `Consumer<T>`
+
+---
+
+### **2️⃣ Jaką metodę definiuje `BiConsumer`?**
+
+a) `R apply(T t, U u)`
+b) `boolean test(T t, U u)`
+c) `void accept(T t, U u)`
+d) `void consume(T t, U u)`
+
+---
+
+### **3️⃣ Ile argumentów przyjmuje `BiConsumer`?**
+
+a) 0
+b) 1
+c) 2
+d) 3
+
+---
+
+### **4️⃣ Co zwraca metoda `accept()`?**
+
+a) void
+b) boolean
+c) R
+d) T
+
+---
+
+### **5️⃣ W jakim pakiecie znajduje się `BiConsumer`?**
+
+a) java.lang
+b) java.util.function
+c) java.util
+d) java.io
+
+---
+
+### **6️⃣ Co robi metoda domyślna `andThen()` w `BiConsumer`?**
+
+a) Łączy dwa BiConsumer w jeden, wykonując je po sobie
+b) Odwraca kolejność argumentów
+c) Zwraca wynik jako BiFunction
+d) Przekształca BiConsumer w Predicate
+
+---
+
+### **7️⃣ Jak BiConsumer różni się od BiFunction?**
+
+a) BiConsumer przyjmuje różne typy argumentów
+b) BiConsumer nie zwraca wyniku, BiFunction zwraca wynik
+c) BiConsumer przyjmuje jeden argument, BiFunction dwa
+d) Nie ma różnicy
+
+---
+
+### **8️⃣ Który z przykładów jest poprawnym BiConsumer?**
+
+a) `(a, b) -> System.out.println(a + b)`
+b) `(a, b) -> a + b`
+c) `(a) -> System.out.println(a)`
+d) `(a, b, c) -> System.out.println(a + b + c)`
+
+---
+
+### **9️⃣ Gdzie najczęściej używa się BiConsumer w Javie?**
+
+a) Stream.map()
+b) Map.forEach() / Map.computeIfPresent()
+c) List.removeIf()
+d) Predicate.filter()
+
+---
+
+### **🔟 Czego BiConsumer NIE robi?**
+
+a) Przyjmuje dwa argumenty
+b) Wykonuje akcję
+c) Zwraca boolean (do tego służy BiPredicate)
+d) Może być użyty z lambdą
+
+---
+
+Gdy będziesz gotowy, napisz **„odpowiedzi”**, a przejdziemy przez wszystkie krok po kroku ✅

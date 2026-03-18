@@ -1,0 +1,117 @@
+### ✅ Odpowiedzi – `final` w Java (z wyjaśnieniami)
+
+---
+
+#### 1️⃣ Co oznacza słowo kluczowe `final` w Javie?
+
+**✅ B. Element nie może być zmieniony lub nadpisany**
+`final` oznacza „ostateczny”: brak możliwości zmiany wartości, nadpisania metody lub dziedziczenia klasy (w zależności od kontekstu).
+
+---
+
+#### 2️⃣ Co się stanie, jeśli spróbujesz zmienić wartość zmiennej `final`?
+
+**✅ C. Kompilator zgłosi błąd**
+Błąd pojawi się już na etapie kompilacji – kod się nie uruchomi.
+
+---
+
+#### 3️⃣ Które zdanie o `final` i obiektach jest prawdziwe?
+
+**✅ B. `final` uniemożliwia zmianę referencji**
+Możesz zmieniać stan obiektu, ale nie możesz przypisać nowego obiektu do tej referencji.
+
+```java
+final List<String> list = new ArrayList<>();
+list.add("A");      // OK
+list = new ArrayList<>(); // ❌ błąd kompilacji
+```
+
+---
+
+#### 4️⃣ Co oznacza metoda oznaczona jako `final`?
+
+**✅ C. Nie można jej nadpisać**
+Metody `final` nie mogą być override’owane w klasach dziedziczących.
+
+---
+
+#### 5️⃣ Co oznacza klasa oznaczona jako `final`?
+
+**✅ C. Nie można po niej dziedziczyć**
+Przykład: `String`, `Integer`, `Math`.
+
+---
+
+#### 6️⃣ Gdzie **musi** zostać zainicjalizowane pole `final`?
+
+**✅ C. Przy deklaracji lub w konstruktorze**
+
+```java
+class User {
+    final String name;
+
+    User(String name) {
+        this.name = name; // OK
+    }
+}
+```
+
+---
+
+#### 7️⃣ Czy parametr metody może być `final`?
+
+**✅ C. Tak, nie można go wtedy zmienić**
+
+```java
+void print(final int x) {
+    // x = 10; ❌ błąd
+}
+```
+
+---
+
+#### 8️⃣ Która klasa z JDK jest `final`?
+
+**✅ C. String**
+`String` jest `final`, aby zapewnić bezpieczeństwo i niemutowalność.
+
+---
+
+#### 9️⃣ (Otwarte) Przykład praktycznego zastosowania `final`
+
+**Poprawna odpowiedź (przykład):**
+
+```java
+public class Config {
+    public static final String APP_NAME = "MyApp";
+    public static final int MAX_USERS = 100;
+}
+```
+
+👉 Chroni stałe konfiguracyjne przed przypadkową zmianą.
+
+---
+
+#### 🔟 (Otwarte) Różnica: `final` prymityw vs obiekt
+
+**Poprawna odpowiedź:**
+
+* `final int x = 5;` → **nie można zmienić wartości**
+* `final User user = new User();` → **nie można zmienić referencji**, ale można zmieniać stan obiektu
+
+---
+
+### 🧠 Podsumowanie
+
+| `final` na           | Efekt                |
+| -------------------- | -------------------- |
+| zmiennej prymitywnej | brak zmiany wartości |
+| referencji           | brak zmiany obiektu  |
+| metody               | brak override        |
+| klasy                | brak dziedziczenia   |
+
+---
+
+Świetnie Ci idzie 💪
+Następny logiczny krok to **`finally vs final vs finalize`** albo kolejny keyword – daj znać 🚀

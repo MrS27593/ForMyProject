@@ -1,0 +1,212 @@
+## WIEDZA – `true` w Java
+
+### 1️⃣ Czym jest `true`?
+
+`true` to **literał logiczny** typu `boolean`.
+
+```java
+boolean flag = true;
+```
+
+📌 W Javie istnieją **tylko dwie wartości logiczne**:
+
+* `true`
+* `false`
+
+Nie są to liczby (jak w C), tylko **pełnoprawny typ logiczny**.
+
+---
+
+### 2️⃣ Typ `boolean`
+
+`true` zawsze ma typ `boolean`.
+
+```java
+boolean a = true;
+boolean b = false;
+```
+
+❌ BŁĄD:
+
+```java
+int x = true;   // niekompatybilne typy
+```
+
+---
+
+### 3️⃣ `true` w instrukcjach warunkowych (`if`)
+
+```java
+if (true) {
+    System.out.println("Ten kod zawsze się wykona");
+}
+```
+
+📌 Warunek w `if` **musi być typu `boolean`**.
+
+❌ BŁĄD:
+
+```java
+if (1) { }   // w Javie NIE wolno
+```
+
+---
+
+### 4️⃣ `true` w pętlach
+
+#### `while`
+
+```java
+while (true) {
+    System.out.println("Pętla nieskończona");
+}
+```
+
+➡️ Najczęściej używane z `break`:
+
+```java
+while (true) {
+    if (conditionMet()) {
+        break;
+    }
+}
+```
+
+---
+
+#### `for`
+
+```java
+for (;;) {   // równoważne while(true)
+    System.out.println("Nieskończona pętla");
+}
+```
+
+---
+
+### 5️⃣ `true` jako wynik porównania
+
+```java
+int a = 5;
+int b = 3;
+
+boolean result = a > b; // true
+```
+
+Operatory zwracające `true` / `false`:
+
+* `==`
+* `!=`
+* `>`
+* `<`
+* `>=`
+* `<=`
+
+---
+
+### 6️⃣ Operatory logiczne i `true`
+
+```java
+true && true   // true
+true && false  // false
+true || false  // true
+!true          // false
+```
+
+📌 Typowe użycie:
+
+```java
+if (isLoggedIn && isAdmin) {
+    // dostęp
+}
+```
+
+---
+
+### 7️⃣ `true` a metody
+
+```java
+boolean isAdult(int age) {
+    return age >= 18; // true lub false
+}
+```
+
+Wywołanie:
+
+```java
+if (isAdult(20)) {
+    System.out.println("Dorosły");
+}
+```
+
+---
+
+### 8️⃣ Częsty błąd: `=` vs `==`
+
+❌ BŁĄD LOGICZNY:
+
+```java
+if (flag = true) {  // przypisanie!
+}
+```
+
+✔️ Poprawnie:
+
+```java
+if (flag == true) { // OK, ale...
+}
+```
+
+✔️ Najlepiej:
+
+```java
+if (flag) {
+}
+```
+
+---
+
+### 9️⃣ `true` a obiekty (`Boolean`)
+
+```java
+Boolean b1 = true;                  // autoboxing
+Boolean b2 = Boolean.TRUE;
+```
+
+❗ Uwaga:
+
+```java
+Boolean b = null;
+
+if (b) { } // NullPointerException
+```
+
+---
+
+### 🔟 Kiedy używać `true` jawnie?
+
+✔️ Gdy:
+
+* inicjalizujesz flagę
+* tworzysz pętlę nieskończoną
+* zwracasz wynik logiczny
+
+❌ Niepotrzebnie:
+
+```java
+if (x == true)
+```
+
+---
+
+### 📌 Podsumowanie
+
+* `true` to **literal typu `boolean`**
+* używany w warunkach, pętlach i logice
+* **nie jest liczbą**
+* uważaj na `=` vs `==`
+* `Boolean` ≠ `boolean`
+
+---
+
+👉 Gdy będziesz gotowy, napisz: **„quiz”** – wtedy zrobię **same pytania**, a potem **odpowiedzi**.

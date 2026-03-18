@@ -1,0 +1,16 @@
+Aby dobrze umieć Klasę JBRApiBootstrap warto znać:
+Interface:
+
+
+Class:
+System
+MethodHandles
+Class
+ClassLoader
+JBRApi
+ClassLoader
+
+Exceptions:
+ClassNotFoundException
+IllegalAccessException
+

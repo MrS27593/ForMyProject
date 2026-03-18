@@ -1,0 +1,113 @@
+## WIEDZA – `transient` w Java
+
+---
+
+### 1️⃣ Czym jest `transient`?
+
+`transient` to **modyfikator pola** w Javie używany przy **serializacji obiektów**.
+
+📌 Mówi JVM:
+
+> „Nie zapisuj tej zmiennej przy serializacji obiektu”.
+
+---
+
+### 2️⃣ Serializacja – przypomnienie
+
+* Serializacja: zapis obiektu do pliku lub wysłanie przez sieć
+* Standardowo **wszystkie pola** obiektu są serializowane
+* `transient` **wyłącza wybrane pole** z serializacji
+
+---
+
+### 3️⃣ Przykład użycia `transient`
+
+```java
+import java.io.*;
+
+class User implements Serializable {
+    String name;
+    transient String password; // nie zostanie zapisane
+}
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        User user = new User();
+        user.name = "Jan";
+        user.password = "tajne";
+
+        // serializacja
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("user.dat"));
+        oos.writeObject(user);
+        oos.close();
+
+        // deserializacja
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("user.dat"));
+        User deserialized = (User) ois.readObject();
+        ois.close();
+
+        System.out.println(deserialized.name);      // Jan
+        System.out.println(deserialized.password);  // null
+    }
+}
+```
+
+📌 `password` po deserializacji będzie `null`.
+
+---
+
+### 4️⃣ Typowe zastosowania `transient`
+
+* Pola, które są **tymczasowe** i nie powinny być zapisane:
+
+  * hasła, tokeny
+  * dane sesyjne
+  * pola pomocnicze do obliczeń
+
+* Pola, które można **odtworzyć po deserializacji**, np. `transient int cache;`
+
+---
+
+### 5️⃣ Zasady użycia
+
+1. `transient` działa **tylko przy polach instancji**
+2. Nie działa przy **statycznych polach** (`static`)
+3. Typ pola może być dowolny
+
+```java
+transient int temp;
+transient String sessionKey;
+```
+
+---
+
+### 6️⃣ `transient` i `final`
+
+* `final transient` jest dozwolone
+* Ale pole **final** nie może być zmienione po konstrukcji
+* W praktyce: rzadko używane razem
+
+```java
+final transient int x = 5;
+```
+
+---
+
+### 7️⃣ Częste błędy
+
+❌ Serializowanie **obiektów z polem, które nie implementuje Serializable** (wyjątek)
+❌ Myślenie, że `transient` chroni pole przed innymi wątkami — **nie**
+❌ Użycie `transient` przy `static` — nie ma sensu (statyczne pola nie serializuje się domyślnie)
+
+---
+
+### 8️⃣ Podsumowanie
+
+* `transient` = **pole pomijane przy serializacji**
+* Idealne do: haseł, tokenów, tymczasowych danych, cache
+* **Nie chroni przed wątkami**, nie działa przy polach statycznych
+* Po deserializacji pole `transient` przyjmuje wartość domyślną (`null`, `0`, `false`)
+
+---
+
+👉 Gdy będziesz gotowy, mogę zrobić **quiz do `transient`** z pytaniami A–D + otwarte. Chcesz, żebym teraz zrobił quiz?

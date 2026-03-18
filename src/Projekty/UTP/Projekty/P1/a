@@ -1,0 +1,75 @@
+package Projekty.UTP.P1;
+
+public class StringTask implements Runnable{
+
+    String napis;
+    private int ilerazy;
+
+    TaskState stan;
+
+    public StringTask(String napis, int ilerazy){
+        this.napis=napis;
+        this.ilerazy = ilerazy;
+        this.stan = TaskState.CREATED;
+    }
+
+    /**
+     * When an object implementing interface {@code Runnable} is used
+     * to create a thread, starting the thread causes the object's
+     * {@code run} method to be called in that separately executing
+     * thread.
+     * <p>
+     * The general contract of the method {@code run} is that it may
+     * take any action whatsoever.
+     *
+     * @see Thread#run()
+     */
+    @Override
+    public void run() {
+        System.out.println(napis);
+    }
+    // zwracającą wynik konkatenacji
+    public String getResult(){
+        StringBuilder stringBuilder = new StringBuilder(this.napis);
+        String result="";
+        for(int i = 1 ; i < this.ilerazy ; i++){
+            stringBuilder.append(napis);
+        }
+        result = String.valueOf( stringBuilder);
+        napis = result;
+        return result;
+    }
+
+    // zwracającą stan zadania
+    public TaskState getState(){
+        return this.stan;
+    }
+    // uruchamiającą zadanie w odrębnym watku
+    public void start(){
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                stan = TaskState.RUNNING;
+                System.out.println(napis);
+            }
+        };
+
+        Thread thread = new Thread();
+//        thread.start();
+        stan = TaskState.READY;
+    }
+    // przerywającą wykonanie kodu zadania i działanie wątku
+    public void abort(){
+        stan = TaskState.ABORTED;
+    }
+    // zwracająca true, jeśli wykonanie zadania się zakończyło normalnie lub przez przerwanie, false w przeciwnym razie
+    public boolean isDone() {
+        boolean isDone = false;
+        if(this.getState()== TaskState.READY || this.getState()== TaskState.ABORTED){
+            isDone = true;
+        }else {
+            isDone = false;
+        }
+        return  isDone;
+    }
+}

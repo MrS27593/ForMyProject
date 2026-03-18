@@ -1,0 +1,12 @@
+Aby dobrze umieć Interfejs Serializable warto znać:
+Interface:
+ObjectInput,
+Externalizable
+
+Class:
+ObjectOutputStream,
+ObjectInputStream,
+ObjectOutput
+
+Exceptions:
+NotSerializableException

@@ -1,0 +1,126 @@
+Pewnie! Oto **quiz na temat interfejsu `ItemSelectable` w Javie**, który pomoże Ci utrwalić wiedzę. Składa się z 8 pytań: wielokrotnego wyboru, prawda/fałsz i pytania otwarte.
+
+---
+
+### 🧪 **Quiz: `ItemSelectable` w Javie**
+
+#### **Pytanie 1 — jednokrotnego wyboru**
+
+Która z poniższych klas najprawdopodobniej implementuje interfejs `ItemSelectable`?
+
+A. `JPanel`
+B. `JButton`
+C. `Checkbox`
+D. `JTextField`
+
+<details>
+<summary>✅ Odpowiedź</summary>
+C. `Checkbox`
+</details>
+
+---
+
+#### **Pytanie 2 — wielokrotnego wyboru**
+
+Które z poniższych są metodami interfejsu `ItemSelectable`?
+
+A. `addItemListener(ItemListener l)`
+B. `getSelectedObjects()`
+C. `setSelectedItem(Object item)`
+D. `removeItemListener(ItemListener l)`
+
+<details>
+<summary>✅ Odpowiedź</summary>
+A, B, D
+</details>
+
+---
+
+#### **Pytanie 3 — prawda/fałsz**
+
+Interfejs `ItemSelectable` pozwala komponentowi graficznemu reagować na zmiany zaznaczenia przez użytkownika.
+
+✅ Prawda
+⬜ Fałsz
+
+<details>
+<summary>✅ Odpowiedź</summary>
+✅ Prawda
+</details>
+
+---
+
+#### **Pytanie 4 — jednokrotnego wyboru**
+
+Co zwraca metoda `getSelectedObjects()` gdy nic nie jest zaznaczone?
+
+A. Wyjątek
+B. `new Object[0]`
+C. `null`
+D. `Optional.empty()`
+
+<details>
+<summary>✅ Odpowiedź</summary>
+C. `null`
+</details>
+
+---
+
+#### **Pytanie 5 — otwarte**
+
+Do czego służy `ItemListener` w kontekście `ItemSelectable`?
+
+<details>
+<summary>✅ Odpowiedź</summary>
+Służy do nasłuchiwania i reagowania na zdarzenia zmiany zaznaczenia (np. zaznaczenie/odznaczenie pola wyboru).
+</details>
+
+---
+
+#### **Pytanie 6 — kod (co zostanie wypisane?)**
+
+```java
+Object[] selected = checkbox.getSelectedObjects();
+System.out.println(selected == null ? "Nic nie zaznaczono" : selected[0]);
+```
+
+Jeśli `checkbox` nie jest zaznaczony, co zostanie wypisane?
+
+A. Nazwa komponentu
+B. `"null"`
+C. `"Nic nie zaznaczono"`
+D. Wystąpi błąd
+
+<details>
+<summary>✅ Odpowiedź</summary>
+C. `"Nic nie zaznaczono"`
+</details>
+
+---
+
+#### **Pytanie 7 — prawda/fałsz**
+
+`ItemSelectable` to interfejs w pakiecie `javax.swing`.
+
+⬜ Prawda
+✅ Fałsz
+
+<details>
+<summary>✅ Odpowiedź</summary>
+✅ Fałsz — `ItemSelectable` znajduje się w pakiecie `java.awt`
+</details>
+
+---
+
+#### **Pytanie 8 — otwarte**
+
+Podaj przykład komponentu Swing, który implementuje `ItemSelectable`.
+
+<details>
+<summary>✅ Odpowiedź</summary>
+Np. `JCheckBox`, `JComboBox`, `JRadioButton`
+</details>
+
+---
+
+Chcesz wersję PDF lub interaktywną wersję tego quizu?

@@ -1,0 +1,108 @@
+## QUIZ – **package-private** (domyślny brak modyfikatora) w Java (10 pytań)
+
+---
+
+### **1. Co oznacza brak modyfikatora dostępu w Javie?**
+
+A. Dostęp publiczny
+B. Dostęp prywatny
+C. Dostęp pakietowy (package-private)
+D. Dostęp chroniony (`protected`)
+
+---
+
+### **2. Gdzie element package-private jest dostępny?**
+
+A. Tylko w klasie
+B. W klasach tego samego pakietu
+C. W podklasach w innych pakietach
+D. W całym projekcie
+
+---
+
+### **3. Czy package-private działa dla klas najwyższego poziomu?**
+
+A. Tak, wtedy klasa jest dostępna tylko w pakiecie
+B. Nie, klasy muszą być `public` lub `private`
+C. Tak, ale tylko w tym samym pakiecie
+D. Nie, klasy nie mogą mieć żadnego modyfikatora
+
+---
+
+### **4. Czy klasa w innym pakiecie ma dostęp do package-private metody?**
+
+A. Tak, zawsze
+B. Tak, jeśli dziedziczy
+C. Nie
+D. Tak, jeśli metoda jest statyczna
+
+---
+
+### **5. Która deklaracja pokazuje poprawny przykład package-private metody?**
+
+A.
+
+```java
+void calculate() {}
+```
+
+B.
+
+```java
+public void calculate() {}
+```
+
+C.
+
+```java
+protected void calculate() {}
+```
+
+D.
+
+```java
+private void calculate() {}
+```
+
+---
+
+### **6. Czy package-private pola są dostępne w podklasach w tym samym pakiecie?**
+
+A. Tak
+B. Nie
+C. Tylko jeśli są statyczne
+D. Tylko jeśli są final
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład zastosowania package-private, kiedy element nie powinien być publiczny, ale potrzebny w pakiecie.
+
+---
+
+### **8. (OTWARTE)**
+
+Dlaczego package-private jest użyteczny w projektach z wieloma klasami w tym samym pakiecie?
+
+---
+
+### **9. Który modyfikator ma szerszy zakres od package-private?**
+
+A. private
+B. protected
+C. brak modyfikatora
+D. public
+
+---
+
+### **10. Które zdanie jest prawdziwe o package-private?**
+
+A. Elementy są dostępne w całym projekcie
+B. Elementy są dostępne tylko w pakiecie
+C. Elementy są dostępne tylko w klasach dziedziczących
+D. Elementy są dostępne tylko w tej samej klasie
+
+---
+
+Napisz **„odpowiedzi”**, a podam komplet poprawnych odpowiedzi z wyjaśnieniami ✅

@@ -1,0 +1,87 @@
+Oto quiz z tematu **klasy `JBRApiBootstrap` w Java**, idealny do sprawdzenia zrozumienia działania i zastosowania tej klasy:
+
+---
+
+### 📘 **Quiz: `JBRApiBootstrap` i JetBrains Runtime (JBR)**
+
+#### 🧠 Poziom: Średniozaawansowany
+
+---
+
+#### **1. Co to jest `JBRApiBootstrap`?**
+
+A. Klasa odpowiedzialna za tworzenie GUI w IntelliJ IDEA
+B. Klasa do bootstrappingu API w JetBrains Runtime
+C. Moduł odpowiedzialny za zarządzanie pamięcią w JVM
+D. Narzędzie komend JDK
+
+---
+
+#### **2. W jakim środowisku działa `JBRApiBootstrap`?**
+
+A. Każda JVM (Java Virtual Machine)
+B. Tylko w OpenJDK
+C. Tylko w JetBrains Runtime (JBR)
+D. W Google Cloud Runtime
+
+---
+
+#### **3. Jaką funkcję pełni metoda `bootstrap(...)` w `JBRApiBootstrap`?**
+
+A. Tworzy nową instancję środowiska IntelliJ
+B. Wywołuje `main()` aplikacji
+C. Inicjalizuje i zwraca instancję API JBR
+D. Uruchamia JUnit testy
+
+---
+
+#### **4. Co zostanie zwrócone przez metodę `bootstrap(...)` przy prawidłowym wywołaniu?**
+
+A. Obiekt klasy `Thread`
+B. Instancja klasy `ServiceApi`
+C. Wyjątek `ClassNotFoundException`
+D. Kod źródłowy klasy JBR
+
+---
+
+#### **5. Dlaczego `JBRApiBootstrap` została oznaczona jako przestarzała (`@Deprecated`)?**
+
+A. Bo zawierała błędy krytyczne
+B. Została zastąpiona przez `JBRApiSupport`
+C. Nie działała w IntelliJ IDEA
+D. Nie można było jej testować jednostkowo
+
+---
+
+#### **6. Co się stanie, jeśli spróbujesz użyć `JBRApiBootstrap` poza JetBrains Runtime (np. w OpenJDK)?**
+
+A. Aplikacja zadziała poprawnie
+B. Zostanie automatycznie zastąpiona przez alternatywną klasę
+C. Wystąpi wyjątek, np. `ClassNotFoundException`
+D. JVM się zrestartuje
+
+---
+
+#### **7. Jakiego mechanizmu Java używa `JBRApiBootstrap` do załadowania klas?**
+
+A. `ServiceLoader`
+B. `ClassLoader.getSystemClassLoader()`
+C. Refleksji i `MethodHandles.Lookup`
+D. JNI (Java Native Interface)
+
+---
+
+#### **8. W jakim kontekście warto używać klas typu `JBRApiBootstrap` lub `JBRApiSupport`?**
+
+A. Tworzenia gier w Java
+B. Aplikacji działających w środowisku JetBrains z dostępem do niestandardowych funkcji JBR
+C. Kompilacji aplikacji na Androida
+D. Optymalizacji zużycia CPU w JVM
+
+---
+
+### ✅ **Chcesz sprawdzić swoje odpowiedzi?**
+
+Napisz "sprawdź odpowiedzi", a je dla Ciebie ocenię i wyjaśnię każdy punkt.
+
+Możesz też wpisać "stwórz wersję PDF", jeśli chcesz pobrać quiz jako plik.

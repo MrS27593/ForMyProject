@@ -1,0 +1,151 @@
+Świetnie, jedziemy dalej — teraz wszystko o **`const`** w Javie!
+Ale uwaga: w Javie **`const` nie jest używane tak jak np. w C++**.
+
+---
+
+# 🚫 Czy w Javie używa się `const`?
+
+**Nie.**
+Słowo kluczowe `const` **istnieje**, ale… **nie jest używane!**
+
+- `const` w Javie to **słowo zarezerwowane**, ale **nieaktywne**.
+- Zostało zarezerwowane "na przyszłość" i nie możesz go użyć jako nazwy zmiennej, ale nie robi nic.
+
+```java
+const int liczba = 5;  // ❌ Błąd kompilacji w Javie
+```
+
+---
+
+# ✅ Co zamiast `const`?
+
+W Javie używamy **`final`** — pełni taką samą rolę:
+
+> `final` = stała wartość (czyli **odpowiednik `const`** z innych języków)
+
+---
+
+## 📌 Przykład: stała w Javie (`final`)
+
+```java
+final int ROK = 2025;
+```
+
+- `ROK` to teraz **stała** — **nie można już zmienić tej zmiennej**.
+- Próba przypisania nowej wartości = błąd:
+
+```java
+ROK = 2030;  // ❌ Błąd: nie można przypisać do final
+```
+
+---
+
+# 📚 `final` vs `const` — porównanie
+
+| C/C++ | Java |
+|-------|------|
+| `const int x = 5;` | `final int x = 5;` |
+| zmienna stała | zmienna stała |
+| wartość niezmienna | wartość niezmienna |
+
+---
+
+# 🔐 `final` może być używane z:
+
+| Typ | Przykład | Znaczenie |
+|-----|----------|-----------|
+| zmienne | `final int x = 1;` | niezmienialna wartość |
+| metody | `final void metoda()` | nie można nadpisać |
+| klasy | `final class Klasa` | nie można dziedziczyć |
+
+---
+
+# 📌 Przykład: stała w klasie
+
+```java
+public class Matma {
+    public static final double PI = 3.14159;
+}
+```
+
+Użycie:
+
+```java
+System.out.println(Matma.PI);
+```
+
+---
+
+# 🔥 Przykład z `final` w pętli
+
+```java
+final int limit = 5;
+for (int i = 0; i < limit; i++) {
+    System.out.println(i);
+}
+```
+
+---
+
+# 💡 Co się stanie, jeśli użyjesz `const`?
+
+```java
+const int x = 5;
+```
+
+❌ **Błąd kompilacji:**
+```
+not a statement
+```
+
+---
+
+# 🧠 Podsumowanie
+
+| Cecha | Wartość |
+|-------|---------|
+| `const` w Javie | zarezerwowane, ale **nieużywane** |
+| Zamiast `const` | używamy `final` |
+| `final` zmienne | nie można zmienić |
+| `final` metody | nie można przesłonić |
+| `final` klasy | nie można rozszerzyć (dziedziczyć) |
+
+---
+
+# 🎯 Quiz — szybki test
+
+### 1. Czy `const` działa w Javie?
+
+a) Tak
+b) Nie
+c) Tylko w klasach
+
+---
+
+### 2. Co robi `final`?
+
+a) Chroni przed błędami
+b) Zatrzymuje kompilator
+c) Ustawia, że nie można zmienić wartości
+
+---
+
+### 3. Czy `final` działa z klasami?
+
+a) Tak
+b) Nie
+c) Tylko z interfejsami
+
+---
+
+# 🧪 Zadania
+
+**Zadanie 1:**
+Zrób klasę `Konfiguracja`, która ma `final static String NAZWA_APLIKACJI = "MojaApp";`.
+
+**Zadanie 2:**
+Spróbuj stworzyć zmienną `const int liczba = 100;` i zobacz, co zrobi kompilator.
+
+---
+
+Chcesz żebym pokazał przykład błędu, albo przećwiczył z Tobą quiz?

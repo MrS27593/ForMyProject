@@ -1,0 +1,95 @@
+## QUIZ – `short` w Java (10 pytań)
+
+---
+
+### **1. Ile bitów zajmuje typ `short`?**
+
+A. 8 bitów
+B. 16 bitów
+C. 32 bity
+D. 64 bity
+
+---
+
+### **2. Jaki jest zakres wartości typu `short`?**
+
+A. -128 do 127
+B. -32 768 do 32 767
+C. -2 147 483 648 do 2 147 483 647
+D. 0 do 65 535
+
+---
+
+### **3. Co się stanie, gdy dodasz dwa `short` bez rzutowania?**
+
+A. Kompilator zgłosi błąd
+B. Wynik będzie typu `short`
+C. Wynik będzie typu `int`
+D. Wynik zostanie automatycznie dopasowany
+
+---
+
+### **4. Jak poprawnie przypisać wynik dodawania do zmiennej `short`?**
+
+A. `short sum = a + b;`
+B. `short sum = (short)(a + b);`
+C. `short sum = a + b; // działa automatycznie`
+D. `short sum = a.add(b);`
+
+---
+
+### **5. Co się stanie przy overflow `short`?**
+
+A. Kompilator zgłosi błąd
+B. Wynik zostanie ograniczony do maksymalnej wartości
+C. Wynik „przewinie się” do wartości minimalnej
+D. JVM automatycznie użyje `int`
+
+---
+
+### **6. Czy można przypisać `int` do `short` bez rzutowania?**
+
+A. Tak, zawsze
+B. Tak, jeśli wartość mieści się w zakresie `short`
+C. Nie, rzutowanie jest wymagane
+D. Nie, tylko `byte` można przypisać
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład zastosowania typu `short` w systemie pomiarowym lub IoT.
+
+---
+
+### **8. (OTWARTE)**
+
+Dlaczego operacje arytmetyczne na `short` wymagają rzutowania w Javie?
+
+---
+
+### **9. Które zdanie o `short` jest PRAWDZIWE?**
+
+A. `short` jest typem zmiennoprzecinkowym
+B. `short` zajmuje 16 bitów pamięci
+C. `short` może przechowywać liczby większe niż `int`
+D. `short` zawsze rzutuje wynik arytmetyki na `long`
+
+---
+
+### **10. Co się stanie w tym kodzie?**
+
+```java
+short x = 32767;
+x++;
+System.out.println(x);
+```
+
+A. 32768
+B. -32768
+C. 0
+D. Kompilator zgłosi błąd
+
+---
+
+Napisz **„odpowiedzi”**, a podam komplet poprawnych odpowiedzi z wyjaśnieniami.

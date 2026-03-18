@@ -1,0 +1,134 @@
+Świetnie, bo **`@Enabled`** to znowu **klasyczna nazwa-pułapka** 😄
+Najpierw klarowna prawda, potem porządkujemy świat.
+
+---
+
+# ❗ Czy istnieje adnotacja `@Enabled` w Javie?
+
+## ❌ **NIE istnieje żadna standardowa adnotacja `@Enabled`**
+
+w:
+
+* JDK
+* `java.lang`
+* `java.util`
+* `java.annotation`
+* Spring Core
+
+👉 Jeśli widzisz samo `@Enabled` **bez kontekstu**, to **nie jest standard Javy**.
+
+---
+
+# ✅ Gdzie ludzie „widzieli” `@Enabled`?
+
+Bo **różne frameworki używają SŁOWA „Enabled”**, ale **nie jako jednej adnotacji**.
+
+---
+
+## 1️⃣ JUnit 5 (najczęstsze skojarzenie)
+
+JUnit 5 **NIE MA `@Enabled`**, ale ma **rodzinę adnotacji „Enabled…”**:
+
+📦 `org.junit.jupiter.api.condition`
+
+### Najważniejsze:
+
+```java
+@EnabledOnOs(OS.WINDOWS)
+@EnabledOnJre(JRE.JAVA_17)
+@EnabledIfEnvironmentVariable(named = "ENV", matches = "prod")
+@EnabledIfSystemProperty(named = "os.arch", matches = "amd64")
+```
+
+➡️ **Warunkowe włączanie testów**
+
+📌 Przeciwieństwo: `@Disabled`
+
+---
+
+## 2️⃣ JUnit 4 (legacy)
+
+Nie było `@Enabled`, było:
+
+```java
+@Ignore
+```
+
+➡️ Brak mechanizmu „enabled”, tylko „ignore”.
+
+---
+
+## 3️⃣ Spring – „enabled”, ale NIE adnotacja
+
+### Konfiguracja warunkowa:
+
+```java
+@ConditionalOnProperty(
+    name = "feature.x.enabled",
+    havingValue = "true"
+)
+```
+
+📌 To **nie jest `@Enabled`**, tylko **warunek na property**.
+
+---
+
+## 4️⃣ Lombok?
+
+❌ Nie ma `@Enabled`
+
+---
+
+## 5️⃣ Jakarta EE / Java EE?
+
+❌ Nie ma `@Enabled`
+
+---
+
+## 6️⃣ UI / Frontend?
+
+Czasem spotkasz:
+
+* `enabled = true`
+* `@EnableSomething`
+
+❗ Ale to **co innego**.
+
+---
+
+# 🧠 Najczęstsze pomyłki ❌
+
+| Myślą, że istnieje | W rzeczywistości         |
+| ------------------ | ------------------------ |
+| `@Enabled`         | ❌ brak                   |
+| `@Enable`          | ❌ brak                   |
+| `@EnableFeature`   | ✔️ Spring (konfiguracja) |
+| `@Disabled`        | ✔️ JUnit 5               |
+| `@EnabledOnOs`     | ✔️ JUnit 5               |
+
+---
+
+# 🧪 Egzaminacyjna odpowiedź (wzorcowa)
+
+> W standardowej Javie nie istnieje adnotacja `@Enabled`. Pojęcie „enabled” występuje koncepcyjnie w frameworkach, np. w JUnit 5 jako adnotacje warunkowe (`@EnabledOnOs`, `@EnabledOnJre`) lub w Springu poprzez warunki konfiguracyjne (`@ConditionalOnProperty`).
+
+---
+
+# 🔑 Szybka mapa
+
+* ❌ `@Enabled` — **nie istnieje**
+* ✅ JUnit 5 → `@EnabledOn...`
+* ✅ JUnit 5 → `@Disabled`
+* ✅ Spring → `@ConditionalOnProperty`
+* ✅ Spring → `@EnableXxx` (co innego!)
+
+---
+
+Jeśli chcesz, naturalny ciąg dalszy 🔥
+
+* ➡️ **quiz: `@Enabled` vs `@Disabled` (JUnit)**
+* ➡️ **pełna mapa adnotacji warunkowych JUnit 5**
+* ➡️ **Spring: @Conditional vs @Enable**
+* ➡️ **„czy ta adnotacja istnieje?” – HARD MODE**
+
+Jak zwykle — napisz 👉 **quiz** 😄

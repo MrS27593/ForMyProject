@@ -1,0 +1,169 @@
+## WIEDZA – `private` w Java
+
+---
+
+### 1️⃣ Czym jest `private`?
+
+`private` to **najbardziej restrykcyjny modyfikator dostępu** w Javie.
+Element oznaczony jako `private` jest dostępny **wyłącznie wewnątrz tej samej klasy**.
+
+📌 Nawet klasy dziedziczące **nie mają dostępu** do elementów `private`.
+
+---
+
+### 2️⃣ Zakres dostępu `private`
+
+| Miejsce użycia | Dostęp |
+| -------------- | ------ |
+| Ta sama klasa  | ✔      |
+| Ten sam pakiet | ❌      |
+| Klasa potomna  | ❌      |
+| Inny pakiet    | ❌      |
+
+---
+
+### 3️⃣ `private` przy polach (najczęstsze użycie)
+
+```java
+public class User {
+    private String password;
+}
+```
+
+✔ Chroni wrażliwe dane
+✔ Wymusza kontrolowany dostęp przez metody
+
+---
+
+### 4️⃣ Getter i setter – kontrolowany dostęp
+
+```java
+public class User {
+    private int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if (age < 0) {
+            throw new IllegalArgumentException("Wiek nie może być ujemny");
+        }
+        this.age = age;
+    }
+}
+```
+
+📌 `private` + metody publiczne = **enkapsulacja**
+
+---
+
+### 5️⃣ `private` przy metodach
+
+```java
+public class PaymentService {
+
+    public void processPayment() {
+        validate();
+        execute();
+    }
+
+    private void validate() {
+        // logika wewnętrzna
+    }
+
+    private void execute() {
+        // szczegóły implementacji
+    }
+}
+```
+
+✔ Ukrywa szczegóły implementacji
+✔ Czytelne publiczne API
+
+---
+
+### 6️⃣ `private` przy konstruktorze
+
+```java
+public class Singleton {
+
+    private static final Singleton INSTANCE = new Singleton();
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        return INSTANCE;
+    }
+}
+```
+
+✔ Kontroluje tworzenie obiektów
+✔ Wzorzec **Singleton**
+
+---
+
+### 7️⃣ `private` a dziedziczenie (ważne!)
+
+```java
+class Parent {
+    private int x = 10;
+}
+
+class Child extends Parent {
+    void test() {
+        // x ❌ niedostępne
+    }
+}
+```
+
+📌 `private` **nie jest dziedziczone**
+
+---
+
+### 8️⃣ `private` w `record`
+
+```java
+public record User(String name, int age) {
+    private static int counter = 0;
+}
+```
+
+* Pola rekordu są zawsze `private final`
+* Można mieć `private` metody pomocnicze
+
+---
+
+### 9️⃣ Kiedy używać `private`?
+
+✔ ZAWSZE domyślnie
+✔ Gdy element:
+
+* jest szczegółem implementacji
+* nie powinien być dostępny z zewnątrz
+* chroni stan obiektu
+
+❌ Nie używaj, gdy:
+
+* element jest częścią publicznego API
+
+---
+
+### 🔟 Zasada projektowa
+
+> **„Najpierw `private`, potem ewentualnie zwiększaj widoczność.”**
+
+To jedna z najważniejszych zasad dobrego OOP.
+
+---
+
+### 🧠 Podsumowanie
+
+* `private` = dostęp tylko w klasie
+* Fundament enkapsulacji
+* Chroni dane i logikę
+* Najczęściej używany modyfikator dostępu
+
+---
+
+Gdy będziesz gotowy, napisz **„quiz”**, a przygotuję **quiz o `private`** w tym samym stylu co poprzednie 💪

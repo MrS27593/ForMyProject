@@ -1,0 +1,145 @@
+Oczywiście! Oto **quiz sprawdzający wiedzę o interfejsie `Connection` w JDBC** – zawiera pytania jednokrotnego i wielokrotnego wyboru oraz pytania otwarte.
+
+---
+
+## ✅ **Quiz: JDBC – interfejs `Connection`**
+
+### 🔹 **1. Co reprezentuje interfejs `Connection` w JDBC?**
+
+**A.** Połączenie sieciowe między dwoma serwerami
+**B.** Połączenie między aplikacją Java a bazą danych
+**C.** Zestaw danych wynikowych
+**D.** Metadane schematu bazy danych
+
+✅ *Prawidłowa odpowiedź: B*
+
+---
+
+### 🔹 **2. Jak poprawnie uzyskać połączenie z bazą danych MySQL?**
+
+**A.**
+
+```java
+Connection conn = DriverManager.getConnection("mysql://localhost/mydb");
+```
+
+**B.**
+
+```java
+Connection conn = new Connection("jdbc:mysql://localhost/mydb");
+```
+
+**C.**
+
+```java
+Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "user", "password");
+```
+
+**D.**
+
+```java
+Connection conn = new DriverManager("jdbc:mysql://localhost", "user", "pass");
+```
+
+✅ *Prawidłowa odpowiedź: C*
+
+---
+
+### 🔹 **3. Które z poniższych metod należą do interfejsu `Connection`?** *(Wielokrotny wybór)*
+
+**A.** `commit()`
+**B.** `prepareStatement(String sql)`
+**C.** `executeQuery(String sql)`
+**D.** `setAutoCommit(boolean)`
+
+✅ *Prawidłowe odpowiedzi: A, B, D*
+*(C należy do Statement/PreparedStatement)*
+
+---
+
+### 🔹 **4. Co robi metoda `conn.setAutoCommit(false)`?**
+
+**A.** Zamyka połączenie automatycznie po zakończeniu transakcji
+**B.** Włącza ręczne zarządzanie transakcjami – trzeba samemu wywołać `commit()`
+**C.** Wysyła zapytanie SQL automatycznie po jego przygotowaniu
+**D.** Ustawia domyślny `timeout` połączenia
+
+✅ *Prawidłowa odpowiedź: B*
+
+---
+
+### 🔹 **5. Co się stanie, jeśli nie wywołasz `commit()` po `setAutoCommit(false)`?**
+
+**A.** Transakcja zostanie zatwierdzona automatycznie
+**B.** Dane zostaną zapisane tylko w pamięci podręcznej
+**C.** Zmiany zostaną wycofane przy zamknięciu połączenia
+**D.** Wystąpi wyjątek `TransactionNotCommittedException`
+
+✅ *Prawidłowa odpowiedź: C*
+
+---
+
+### 🔹 **6. Uzupełnij kod, aby poprawnie wykonać transakcję z rollbackiem w razie błędu:**
+
+```java
+Connection conn = DriverManager.getConnection(...);
+conn.setAutoCommit(false);
+try {
+    // zapytania SQL
+    ...
+    conn.__________(); // co tu powinno być?
+} catch (SQLException e) {
+    conn.rollback();
+}
+```
+
+📝 **Odpowiedź:** `commit()`
+
+---
+
+### 🔹 **7. Czy można używać `Connection` w bloku `try-with-resources`?**
+
+**A.** Nie, bo `Connection` nie implementuje `Closeable`
+**B.** Tak, ponieważ `Connection` implementuje `AutoCloseable`
+**C.** Nie, bo połączenie musi być zamknięte ręcznie
+**D.** Tak, ale tylko z biblioteką Spring JDBC
+
+✅ *Prawidłowa odpowiedź: B*
+
+---
+
+### 🔹 **8. Co zwraca metoda `getMetaData()` z interfejsu `Connection`?**
+
+**A.** Listę użytkowników bazy danych
+**B.** Obiekt umożliwiający pobranie informacji o bazie (np. nazwa, wersja, tabele)
+**C.** Wynik zapytania SQL
+**D.** Obiekt `ResultSet`
+
+✅ *Prawidłowa odpowiedź: B*
+
+---
+
+### 🔹 **9. Jakie są dobre praktyki przy pracy z `Connection`?** *(Wielokrotny wybór)*
+
+**A.** Zawsze zamykaj połączenie po użyciu
+**B.** Przechowuj `Connection` jako singleton
+**C.** Korzystaj z connection pooli w aplikacjach produkcyjnych
+**D.** Zmieniaj użytkownika bazy danych co każde połączenie
+
+✅ *Prawidłowe odpowiedzi: A, C*
+
+---
+
+### 🔹 **10. \[Otwarta] Dlaczego warto używać `PreparedStatement` zamiast `Statement` przy pracy z danymi użytkownika?**
+
+📝 **Twoja odpowiedź:**
+
+*(Oczekiwana odpowiedź:)*
+
+* Chroni przed SQL Injection
+* Pozwala na wielokrotne wykonanie z różnymi danymi
+* Może być szybciej wykonywany dzięki prekompilacji zapytań
+
+---
+
+Chcesz wersję z oceną końcową albo interaktywną aplikację quizową w Java (np. Swing lub konsolową)?

@@ -1,0 +1,77 @@
+Oto **poprawne odpowiedzi do quizu o `@Provides`** wraz z krótkim wyjaśnieniem:
+
+---
+
+### 1️⃣ Co oznacza adnotacja `@Provides`?
+
+**A – Metoda dostarcza instancję obiektu dla dependency injection**
+➡ Framework DI używa metody, aby wstrzyknąć obiekt tam, gdzie jest potrzebny.
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Provides` w Guice?
+
+**B – `com.google.inject`**
+
+---
+
+### 3️⃣ Czy `@Provides` jest częścią standardowego JDK?
+
+**B – Nie**
+➡ Należy do frameworków DI, takich jak Guice czy Dagger.
+
+---
+
+### 4️⃣ Na czym można stosować `@Provides`?
+
+**A – Na metodach w modułach lub klasach konfiguracyjnych DI**
+➡ Nie stosuje się na polach ani interfejsach.
+
+---
+
+### 5️⃣ Co decyduje o typie obiektu, który wstrzykiwany jest przez DI z metody `@Provides`?
+
+**B – Typ zwracany przez metodę**
+➡ Typ zwracany przez metodę `@Provides` określa, co DI wstrzyknie.
+
+---
+
+### 6️⃣ Czy metoda `@Provides` może przyjmować parametry?
+
+**A – Tak, DI automatycznie wstrzyknie zależności jako parametry**
+➡ Pozwala tworzyć złożone obiekty zależne od innych wstrzykiwanych instancji.
+
+---
+
+### 7️⃣ Czy `@Provides` może być stosowana w klasach, które **nie są modułami DI**?
+
+**B – Nie**
+➡ Metody `@Provides` muszą znajdować się w modułach lub klasach konfiguracyjnych DI.
+
+---
+
+### 8️⃣ Czy metoda oznaczona `@Provides` może zwracać różne instancje przy każdym wywołaniu?
+
+**A – Tak, w zależności od konfiguracji DI i scope**
+➡ W scope `@Singleton` zwróci jedną instancję, w scope `@NoScope` – każdorazowo nową.
+
+---
+
+### 9️⃣ Czy metoda `@Provides` może być statyczna?
+
+**A – Tak, jeśli framework DI na to pozwala**
+➡ W Guice można stosować metody statyczne w modułach.
+
+---
+
+### 🔟 Czy `@Provides` zastępuje konstruktory w DI?
+
+**B – Nie, jest alternatywą do definiowania zależności w module**
+➡ Konstruktor nadal działa, ale `@Provides` pozwala definiować dodatkowe lub bardziej skomplikowane zależności.
+
+---
+
+Jeśli chcesz, mogę teraz zrobić **mega quiz zbiorczy wszystkich adnotacji**, które przerobiliśmy – od JFR (`@Frequency`, `@Percentage`, `@Provided` itd.) po standardowe i DI (`@Override`, `@Provides`) – w jednym miejscu do powtórki.
+
+Chcesz, żebym go zrobił?
+

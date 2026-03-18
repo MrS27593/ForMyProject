@@ -1,0 +1,110 @@
+### 📘 QUIZ – `finally` w Java
+
+**10 pytań: 8 zamkniętych (A–D) + 2 otwarte**
+
+---
+
+#### 1️⃣ Kiedy blok `finally` jest wykonywany?
+
+A. Tylko gdy wystąpi wyjątek
+B. Tylko gdy nie wystąpi wyjątek
+C. Zawsze po `try`/`catch`
+D. Tylko jeśli jest `catch`
+
+---
+
+#### 2️⃣ Do czego najczęściej używa się bloku `finally`?
+
+A. Do obsługi logiki biznesowej
+B. Do zwracania wartości z metody
+C. Do zamykania zasobów
+D. Do rzucania wyjątków
+
+---
+
+#### 3️⃣ Czy blok `finally` wykona się, jeśli w `try` znajduje się `return`?
+
+A. Nie
+B. Tak, zawsze
+C. Tylko jeśli nie ma `catch`
+D. Tylko w metodach `void`
+
+---
+
+#### 4️⃣ Która konstrukcja jest poprawna?
+
+A.
+
+```java
+try { ... } finally { ... }
+```
+
+B.
+
+```java
+try { ... } catch { ... }
+```
+
+C.
+
+```java
+finally { ... }
+```
+
+D.
+
+```java
+try { ... } else { ... }
+```
+
+---
+
+#### 5️⃣ Kiedy blok `finally` może się NIE wykonać?
+
+A. Gdy wystąpi wyjątek
+B. Gdy nie wystąpi wyjątek
+C. Gdy wywołany zostanie `System.exit()`
+D. Gdy istnieje `catch`
+
+---
+
+#### 6️⃣ Dlaczego `return` w `finally` jest złą praktyką?
+
+A. Spowalnia program
+B. Może nadpisać wyjątek lub wartość zwracaną
+C. Powoduje błąd kompilacji
+D. Nie działa w Javie
+
+---
+
+#### 7️⃣ Czy można użyć `finally` bez `catch`?
+
+A. Nie
+B. Tak, zawsze
+C. Tak, z `try`
+D. Tylko w metodach statycznych
+
+---
+
+#### 8️⃣ Co jest lepszą alternatywą dla `finally` przy pracy z zasobami?
+
+A. `synchronized`
+B. `try-with-resources`
+C. `throw`
+D. `assert`
+
+---
+
+#### 9️⃣ (Pytanie otwarte)
+
+Podaj przykład praktycznego zastosowania `finally` w aplikacji (np. baza danych, pliki).
+
+---
+
+#### 🔟 (Pytanie otwarte)
+
+Wymień sytuacje, w których blok `finally` może się nie wykonać.
+
+---
+
+Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam komplet z wyjaśnieniami ✅

@@ -1,0 +1,86 @@
+Super, oto **odpowiedzi z omówieniem** do quizu o interfejsie `Function<T, R>` w Javie:
+
+---
+
+### ✅ **Odpowiedzi i omówienie**
+
+#### **1. Co zwraca metoda `apply()`?**
+**✅ B) Typ R**
+> `apply(T t)` zwraca wynik funkcji, czyli typ `R`.
+
+---
+
+#### **2. Jaki wynik wypisze kod?**
+```java
+Function<String, Integer> f = String::length;
+System.out.println(f.apply("Java"));
+```
+**✅ B) 4**
+> Długość napisu `"Java"` to 4.
+
+---
+
+#### **3. Function z lambdą – prawda czy fałsz?**
+**✅ Prawda**
+> `Function<T, R>` to interfejs funkcyjny, więc może być użyty z lambdą.
+
+---
+
+#### **4. Funkcja zwracająca to samo co otrzymała?**
+**✅ B) `identity()`**
+> `Function.identity()` tworzy funkcję `x -> x`.
+
+---
+
+#### **5. Wynik działania compose:**
+```java
+Function<Integer, Integer> f = x -> x + 10;
+Function<Integer, Integer> g = x -> x * 2;
+Function<Integer, Integer> h = f.compose(g);
+System.out.println(h.apply(3));
+```
+**✅ B) 16**
+> `compose(g)` oznacza: **najpierw** `g(3)` = 6, potem `f(6)` = 16.
+
+---
+
+#### **6. Co pierwsze w `f.andThen(g)`?**
+**✅ A) `f`**
+> Najpierw `f`, potem `g`.
+
+---
+
+#### **7. `compose()` odwrotnie niż `andThen()`?**
+**✅ Prawda**
+> `compose(before)` – najpierw before, potem bieżąca
+> `andThen(after)` – najpierw bieżąca, potem after
+
+---
+
+#### **8. Funkcja wielkich liter?**
+**✅ C) `String::toUpperCase`**
+> Referencja do metody klasy `String`.
+
+---
+
+#### **9. Wynik działania `Function.identity()`**
+```java
+Function<String, String> identity = Function.identity();
+System.out.println(identity.apply("Echo"));
+```
+**✅ C) "Echo"**
+> Funkcja `x -> x`, więc wynik to `"Echo"`.
+
+---
+
+#### **10. Interfejs dla funkcji bez argumentów?**
+**✅ B) `Supplier<R>`**
+> `Supplier` to funkcja: `() -> R`
+
+---
+
+### 📊 Twój wynik:
+Jeśli masz wszystko dobrze – **10/10, świetna robota!**
+Jeśli masz jakieś błędy, mogę Ci przygotować **minilekcję z danego zagadnienia**.
+
+Chcesz wersję PDF tego quizu z miejscem na odpowiedzi?

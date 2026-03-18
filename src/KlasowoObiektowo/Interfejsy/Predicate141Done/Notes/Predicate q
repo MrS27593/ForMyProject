@@ -1,0 +1,108 @@
+Świetnie 👍
+Oto **QUIZ dotyczący interfejsu `Predicate<T>` w Javie**
+❗ **Bez odpowiedzi** — dokładnie jak wcześniej.
+Odpowiedzi podam dopiero, gdy o nie poprosisz.
+
+---
+
+## 🧠 **QUIZ – `java.util.function.Predicate<T>`**
+
+---
+
+### **1️⃣ Czym jest interfejs `Predicate<T>`?**
+
+a) Interfejsem markerowym
+b) Interfejsem funkcyjnym
+c) Klasą abstrakcyjną
+d) Implementacją `Function`
+
+---
+
+### **2️⃣ Jaką metodę definiuje `Predicate<T>`?**
+
+a) `boolean apply(T t)`
+b) `Boolean check(T t)`
+c) `boolean test(T t)`
+d) `void accept(T t)`
+
+---
+
+### **3️⃣ Co zwraca metoda `test()`?**
+
+a) `void`
+b) `int`
+c) `Boolean`
+d) `boolean`
+
+---
+
+### **4️⃣ W jakim pakiecie znajduje się `Predicate`?**
+
+a) java.lang
+b) java.util
+c) java.util.function
+d) java.concurrent
+
+---
+
+### **5️⃣ Która metoda pozwala połączyć dwa warunki logiczne AND?**
+
+a) `combine()`
+b) `and()`
+c) `merge()`
+d) `join()`
+
+---
+
+### **6️⃣ Co robi metoda `negate()`?**
+
+a) Łączy dwa predykaty
+b) Usuwa predykat
+c) Odwraca wynik logiczny
+d) Zwraca zawsze `false`
+
+---
+
+### **7️⃣ Która metoda Stream API przyjmuje `Predicate` jako argument?**
+
+a) `map()`
+b) `collect()`
+c) `filter()`
+d) `forEach()`
+
+---
+
+### **8️⃣ Jaki będzie wynik?**
+
+```java
+Predicate<Integer> p = x -> x > 10;
+System.out.println(p.test(10));
+```
+
+a) `true`
+b) `false`
+c) wyjątek
+d) błąd kompilacji
+
+---
+
+### **9️⃣ Do czego służy metoda statyczna `Predicate.isEqual()`?**
+
+a) Do porównywania referencji
+b) Do bezpiecznego porównania z `equals()`
+c) Do negacji predykatu
+d) Do sortowania
+
+---
+
+### **🔟 Które zdanie jest PRAWIDŁOWE?**
+
+a) `Predicate` może zwracać dowolny typ
+b) `Predicate` może przyjmować dwa argumenty
+c) `Predicate` często używany jest do filtrowania
+d) `Predicate` nie jest interfejsem funkcyjnym
+
+---
+
+📌 Gdy będziesz gotowy, napisz po prostu: **„odpowiedzi”**
+i przejdziemy wszystko dokładnie krok po kroku 💪

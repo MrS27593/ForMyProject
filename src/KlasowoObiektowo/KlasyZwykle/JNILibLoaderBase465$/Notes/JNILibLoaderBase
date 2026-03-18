@@ -1,0 +1,20 @@
+Aby dobrze umieć Klasę JNILbLoaderBase warto znać:
+Interface:
+
+
+Class:
+Object
+String
+Method
+HashSet
+Class
+Uri
+StringBuilder
+TempJarCache
+ClassLoader
+JarUtil
+Exception
+
+Exceptions:
+IOException
+IllegalArgumentException

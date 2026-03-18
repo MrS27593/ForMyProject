@@ -1,0 +1,90 @@
+Świetnie — skupmy się teraz na **wszystkich metodach klasy `Reader`** w języku **Java**, w tym tych dziedziczonych z klas bazowych i dostępnych do nadpisania. Klasa `Reader` jest klasą **abstrakcyjną** (czyli nie można utworzyć jej instancji bezpośrednio), dlatego metody te często są implementowane w klasach pochodnych (`FileReader`, `BufferedReader` itd.).
+
+---
+
+## 🔍 Wszystkie metody klasy `Reader` (z pakietu `java.io`)
+
+Poniżej znajdziesz listę metod pogrupowaną według ich zastosowania:
+
+---
+
+### ✅ **Podstawowe metody do czytania danych**
+| Metoda | Opis |
+|--------|------|
+| `int read()` | Czyta pojedynczy znak (zwraca `int`, -1 jeśli koniec strumienia). |
+| `int read(char[] cbuf)` | Czyta wiele znaków do tablicy `char`. |
+| `int read(char[] cbuf, int off, int len)` | Czyta do `len` znaków i umieszcza je w `cbuf`, zaczynając od indeksu `off`. |
+| `int read(CharBuffer target)` | (od JDK 1.4) Czyta dane do bufora `CharBuffer`. |
+
+---
+
+### 📌 **Znaczniki i cofanie (jeśli wspierane przez daną klasę)**
+| Metoda | Opis |
+|--------|------|
+| `boolean markSupported()` | Sprawdza, czy dany `Reader` wspiera znaczniki (`mark()` i `reset()`). |
+| `void mark(int readAheadLimit)` | Ustawia znacznik w bieżącej pozycji (jeśli obsługiwany). |
+| `void reset()` | Powraca do pozycji ustawionej przez `mark()`. |
+
+> 💡 Uwaga: Nie wszystkie implementacje `Reader` wspierają `mark()` i `reset()`. Np. `BufferedReader` wspiera, ale `InputStreamReader` już nie.
+
+---
+
+### 🔁 **Pomijanie znaków**
+| Metoda | Opis |
+|--------|------|
+| `long skip(long n)` | Pomija `n` znaków w strumieniu. |
+
+---
+
+### 🛑 **Zamykanie strumienia**
+| Metoda | Opis |
+|--------|------|
+| `void close()` | Zamyka strumień i zwalnia zasoby systemowe. |
+
+---
+
+### ⚙️ **Metody z klasy `Object` (odziedziczone)**
+| Metoda | Opis |
+|--------|------|
+| `boolean equals(Object obj)` | Porównuje obiekty. |
+| `int hashCode()` | Zwraca hashcode. |
+| `String toString()` | Zwraca reprezentację tekstową obiektu. |
+
+---
+
+## 📌 Przykład użycia różnych metod
+
+```java
+import java.io.*;
+
+public class ReaderMethodsExample {
+    public static void main(String[] args) {
+        try (Reader reader = new BufferedReader(new FileReader("plik.txt"))) {
+            if (reader.markSupported()) {
+                reader.mark(100); // ustaw znacznik
+            }
+
+            char[] buffer = new char[10];
+            int readCount = reader.read(buffer, 0, buffer.length);
+            System.out.println("Przeczytano: " + new String(buffer, 0, readCount));
+
+            if (reader.markSupported()) {
+                reader.reset(); // wróć do znacznika
+                readCount = reader.read(buffer);
+                System.out.println("Po reset: " + new String(buffer, 0, readCount));
+            }
+
+            reader.skip(5); // pomija 5 znaków
+            int znak = reader.read();
+            System.out.println("Znak po skip: " + (char) znak);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+---
+
+Czy chcesz też, żebym przygotował **tabelkę PDF z opisem wszystkich metod `Reader`**, albo diagram klas `Reader`, `FileReader`, `BufferedReader` itd.?

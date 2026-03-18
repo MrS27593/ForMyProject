@@ -1,0 +1,122 @@
+Super! 👍
+Teraz przejdziemy do **`BiConsumer<T, U>`** – ostatniego podstawowego interfejsu funkcyjnego przyjmującego **dwa argumenty, ale nie zwracającego wyniku**.
+
+---
+
+# 🧩 Interfejs `BiConsumer<T, U>`
+
+## 1️⃣ Co to jest `BiConsumer`?
+
+`BiConsumer` to **interfejs funkcyjny**, który:
+
+* przyjmuje **dwa argumenty**
+* **nie zwraca wyniku** (`void`)
+
+📦 Pakiet:
+
+```java
+java.util.function.BiConsumer
+```
+
+📌 Definicja:
+
+```java
+@FunctionalInterface
+public interface BiConsumer<T, U> {
+    void accept(T t, U u);
+}
+```
+
+* `T` – pierwszy argument
+* `U` – drugi argument
+
+---
+
+## 2️⃣ Do czego służy `BiConsumer`?
+
+* wykonywanie operacji na dwóch obiektach bez zwracania wartości
+* aktualizacja stanu, np. w Mapach
+* wywołania callback
+* używany w:
+
+  * `Map.forEach()`
+  * `Map.computeIfPresent()`
+  * lambdy przy dwóch parametrach
+
+---
+
+## 3️⃣ Najprostszy przykład
+
+```java
+BiConsumer<String, Integer> print = (s, n) -> System.out.println(s + " -> " + n);
+
+print.accept("A", 10); // Output: A -> 10
+```
+
+---
+
+## 4️⃣ BiConsumer w Map
+
+```java
+Map<String, Integer> map = Map.of("A", 1, "B", 2);
+
+map.forEach((k, v) -> System.out.println(k + " = " + v));
+```
+
+➡️ `forEach` przyjmuje **BiConsumer**.
+
+---
+
+## 5️⃣ Metoda domyślna `andThen()`
+
+* Łączy dwa BiConsumer w jeden, aby wykonywały się po sobie:
+
+```java
+BiConsumer<Integer, Integer> c1 = (a, b) -> System.out.println(a + b);
+BiConsumer<Integer, Integer> c2 = (a, b) -> System.out.println(a * b);
+
+BiConsumer<Integer, Integer> combined = c1.andThen(c2);
+combined.accept(2, 3);
+// Output:
+// 5
+// 6
+```
+
+---
+
+## 6️⃣ BiConsumer vs BiFunction
+
+| Interfejs         | Argumenty | Zwraca |
+| ----------------- | --------- | ------ |
+| BiConsumer<T,U>   | 2         | void   |
+| BiFunction<T,U,R> | 2         | R      |
+
+➡️ BiConsumer **nie zwraca wyniku**, tylko wykonuje akcję.
+
+---
+
+## 7️⃣ Czego BiConsumer NIE robi?
+
+❌ nie zwraca wartości
+❌ nie zwraca boolean (do tego BiPredicate)
+❌ nie wykonuje mapowania (do tego BiFunction)
+
+---
+
+## 🔟 Podsumowanie (ściąga)
+
+* `BiConsumer<T,U>` → `void accept(T t, U u)`
+* interfejs funkcyjny → lambda
+* często: `Map.forEach()`
+* `andThen()` → łączenie akcji
+* używany do **efektów ubocznych** (side effects)
+
+---
+
+📌 **Naturalny kolejny krok**:
+
+* 🔹 **Quiz z BiConsumer**
+* 🔹 **Praktyczne zadania z Map.forEach + BiConsumer**
+* 🔹 **BiConsumer vs BiFunction vs BiPredicate**
+
+Chcesz, żebym zrobił teraz **quiz z BiConsumer** w tym samym stylu co poprzednie?

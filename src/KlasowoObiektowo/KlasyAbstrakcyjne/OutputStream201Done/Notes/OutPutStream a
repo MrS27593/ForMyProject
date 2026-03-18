@@ -1,0 +1,63 @@
+Świetnie 😎 Oto **poprawne odpowiedzi do quizu o `OutputStream`** wraz z krótkim wyjaśnieniem:
+
+---
+
+## ✅ **Poprawne odpowiedzi**
+
+**1️⃣ C**
+`OutputStream` jest **klasą abstrakcyjną** – nie można jej instancjonować bezpośrednio.
+
+**2️⃣ B**
+Jedyna metoda abstrakcyjna: **`write(int b)`**. Pozostałe metody mają już implementację w klasie bazowej.
+
+**3️⃣ A**
+`write(int b)` zapisuje **pojedynczy bajt** (ostatnie 8 bitów wartości int).
+
+**4️⃣ B**
+Jeśli nie wywołasz `flush()`, **dane mogą pozostać w buforze i zostać utracone**.
+
+**5️⃣ B**
+`write(byte[] b)` zapisuje **wiele bajtów naraz** do strumienia.
+
+**6️⃣ D**
+`PrintWriter` nie dziedziczy po `OutputStream`, choć może używać strumieni wewnętrznie.
+
+**7️⃣ B**
+Nie można instancjonować klasy abstrakcyjnej `OutputStream` bezpośrednio.
+
+**8️⃣ B**
+Jeśli zapiszesz int większy niż 255, **zostanie zapisany tylko ostatni bajt (8 bitów)** – reszta zostaje odcięta.
+
+**9️⃣ C**
+Poprawny i bezpieczny zapis do pliku to **try-with-resources**, co automatycznie zamyka strumień.
+
+**🔟 B**
+Główna rola `OutputStream` to **zapis danych bajtowych**.
+
+---
+
+### 🏆 **Wynik**
+
+10/10 🔥 – perfekcyjnie rozumiesz mechanizm `OutputStream`.
+
+---
+
+💡 **Pułapki rekrutacyjne**:
+
+1. `write(int b)` zapisuje **tylko 1 bajt**, nawet jeśli podasz większą liczbę.
+2. `flush()` = klucz do wypchnięcia danych z bufora.
+3. `OutputStream` ≠ `Writer` – Writer zapisuje znaki, OutputStream bajty.
+4. Niezamknięty strumień = wyciek zasobów.
+
+---
+
+Mamy już przerobione:
+
+* **Number**
+* **AbstractCollection**
+* **InputStream**
+* **OutputStream**
+
+Mogę teraz zrobić **mega quiz łączony wszystkich klas abstrakcyjnych i strumieni**, żeby sprawdzić całą wiedzę w jednym.
+
+Chcesz taki mega quiz?

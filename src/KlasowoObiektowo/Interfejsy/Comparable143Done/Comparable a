@@ -1,0 +1,79 @@
+Świetnie! Oto **odpowiedzi** do quizu o interfejsie `Comparable` wraz z krótkimi **wyjaśnieniami**:
+
+---
+
+### ✅ **Pytanie 1**
+
+**Prawidłowe odpowiedzi:**
+**B**, **C**, **D**
+
+**Wyjaśnienie:**
+
+* A ❌ — `Comparable` znajduje się w `java.lang`, a nie `java.util`
+* B ✅ — `compareTo` zwraca `int`
+* C ✅ — służy do naturalnego sortowania
+* D ✅ — klasa może implementować tylko jeden `Comparable<T>` (bo typowo tylko jedna naturalna kolejność)
+
+---
+
+### ✅ **Pytanie 2**
+
+**Prawidłowa odpowiedź:**
+**B**
+
+**Wyjaśnienie:**
+Zwrócenie `0` oznacza, że obiekty są **równe względem naturalnego porządku**.
+
+---
+
+### ✅ **Pytanie 3 (Prawda / Fałsz)**
+
+**Prawidłowa odpowiedź:**
+**Prawda** (ale z uwagą)
+
+**Wyjaśnienie:**
+Dobrą praktyką jest, aby `compareTo()` było **zgodne z `equals()`** (czyli jeśli `a.compareTo(b) == 0`, to `a.equals(b)`
+powinno być prawdą), choć **nie jest to wymagane przez kompilator**. Jednak `TreeSet`, `TreeMap` i inne klasy mogą wtedy działać niepoprawnie.
+
+---
+
+### ✅ **Pytanie 4**
+
+**Prawidłowa odpowiedź:**
+**B**
+
+**Wyjaśnienie:**
+`Integer.compare(this.age, other.age)` to bezpieczna, rekomendowana metoda porównywania — chroni m.in. przed przepełnieniem,
+które może się zdarzyć w `this.age - other.age`.
+
+---
+
+### ✅ **Pytanie 5 (Prawda / Fałsz)**
+
+**Prawidłowa odpowiedź:**
+**Fałsz**
+
+**Wyjaśnienie:**
+Można używać `Collections.sort()` także z klasami **nieimplementującymi `Comparable`**, jeśli przekazujesz **`Comparator`** jako drugi argument:
+
+```java
+Collections.sort(lista, comparator);
+```
+
+---
+
+### ✅ **Pytanie 6**
+
+**Prawidłowe odpowiedzi:**
+**A**, **C**, **D**
+
+**Wyjaśnienie:**
+
+* A ✅ — jeśli chcesz sortować po wielu kryteriach (np. imię, potem wiek), potrzebujesz różnych `Comparatorów`
+* B ❌ — jeden stały porządek = `Comparable` wystarczy
+* C ✅ — jeśli nie masz kontroli nad klasą (np. z biblioteki), nie możesz dodać `compareTo()`
+* D ✅ — `Comparator` pozwala tymczasowo zmienić sposób sortowania w jednym miejscu
+
+---
+
+Chcesz teraz wersję z punktacją, albo trudniejsze pytania z kodem?

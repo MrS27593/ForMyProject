@@ -1,0 +1,96 @@
+Jasne! W Javie `Future` to interfejs służący do reprezentowania wyniku operacji asynchronicznej, który **może być dostępny w przyszłości**. Jest częścią biblioteki `java.util.concurrent` i wprowadza podstawowy sposób obsługi programowania współbieżnego.
+
+---
+
+## 🔷 Co to jest `Future`?
+
+Wyobraź sobie, że zlecasz komuś zadanie (np. pobranie danych z internetu) i zamiast czekać na wynik, dostajesz "obietnicę", że kiedyś ten wynik będzie gotowy. Tą obietnicą jest właśnie obiekt `Future`.
+
+```java
+Future<String> future = executorService.submit(() -> {
+    // Długotrwałe zadanie
+    Thread.sleep(3000);
+    return "Gotowe!";
+});
+```
+
+---
+
+## 🔧 Podstawowe metody `Future`
+
+```java
+String result = future.get();             // Zablokuje aż wynik będzie gotowy
+String result = future.get(1, TimeUnit.SECONDS); // Jak powyżej, ale z limitem czasu
+boolean done = future.isDone();           // Czy zadanie się już zakończyło?
+boolean cancelled = future.isCancelled(); // Czy zostało anulowane?
+boolean success = future.cancel(true);    // Anuluj zadanie
+```
+
+---
+
+## ✅ Przykład działania `Future` z `ExecutorService`
+
+```java
+import java.util.concurrent.*;
+
+public class FutureExample {
+    public static void main(String[] args) throws Exception {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+        Future<String> future = executor.submit(() -> {
+            Thread.sleep(2000);
+            return "Wynik zadania";
+        });
+
+        System.out.println("Czekam na wynik...");
+        String wynik = future.get(); // Zablokuje aż wynik będzie gotowy
+        System.out.println("Wynik: " + wynik);
+
+        executor.shutdown();
+    }
+}
+```
+
+---
+
+## ❗ Wady `Future`
+
+1. **Blokujący `get()`** – zatrzymuje wątek aż do końca zadania.
+2. **Brak reaktywności** – nie da się "zarejestrować" działania po zakończeniu (`callback`).
+3. **Brak łatwego łańcuchowania zadań**.
+
+Dlatego w nowszych wersjach Javy pojawiło się:
+
+---
+
+## 🔄 `CompletableFuture` (Java 8+) – lepszy następca
+
+`CompletableFuture` pozwala m.in. na:
+
+- asynchroniczne wykonywanie zadań
+- reagowanie po zakończeniu
+- łączenie wielu zadań (`thenApply`, `thenCombine`, `thenAccept`, `exceptionally`, itp.)
+
+Przykład:
+
+```java
+CompletableFuture.supplyAsync(() -> {
+    return "Witaj";
+}).thenApply(imie -> imie + ", świecie")
+  .thenAccept(System.out::println);
+```
+
+---
+
+## 📌 Kiedy używać `Future`, a kiedy `CompletableFuture`?
+
+| Sytuacja | `Future` | `CompletableFuture` |
+|---------|----------|----------------------|
+| Prosty wynik asynchroniczny | ✅ | ✅ |
+| Łączenie zadań, reakcje | ❌ | ✅ |
+| Obsługa wyjątków | Słaba | Bardzo dobra |
+| Programowanie reaktywne | ❌ | ✅ |
+
+---
+
+Czy chcesz, żebym teraz pokazał przykład z `CompletableFuture` albo porównał oba podejścia w konkretnym zadaniu?

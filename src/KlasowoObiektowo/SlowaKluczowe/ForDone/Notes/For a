@@ -1,0 +1,108 @@
+### ✅ Odpowiedzi – QUIZ `for` w Java
+
+---
+
+### 1️⃣ Co oznacza pętla `for` w Javie?
+
+**✅ B. Pętlę sterowaną licznikowo**
+
+➡ Standardowa pętla licznikowa wykonuje blok kodu określoną liczbę razy.
+
+---
+
+### 2️⃣ Co wypisze poniższy kod?
+
+```java
+for (int i = 0; i < 3; i++) {
+    System.out.print(i + " ");
+}
+```
+
+**✅ A. `0 1 2`**
+
+➡ Iteracje wykonują się dla i = 0, 1, 2. Warunek `i < 3` kończy pętlę.
+
+---
+
+### 3️⃣ Który zapis tworzy **pętlę nieskończoną**?
+
+**✅ B. `for (;;) {}`**
+
+➡ Brak warunku sprawdzającego i aktualizacji zmiennej – pętla będzie działać w nieskończoność, dopóki nie zostanie przerwana.
+
+---
+
+### 4️⃣ Do czego służy `for-each`?
+
+**✅ A. Do iteracji po tablicach i kolekcjach**
+
+➡ `for-each` upraszcza iterację i eliminuje ryzyko błędów indeksowania.
+
+---
+
+### 5️⃣ Co się stanie, jeśli zapomnisz `i++` w standardowym `for`?
+
+**✅ B. Pętla może stać się nieskończona**
+
+➡ Zmienna sterująca nigdy się nie zwiększa, warunek pozostaje prawdziwy.
+
+---
+
+### 6️⃣ Co robi `break` w pętli `for`?
+
+**✅ C. Kończy pętlę natychmiast**
+
+➡ Przerywa działanie pętli i przechodzi do kodu po niej.
+
+---
+
+### 7️⃣ Co robi `continue` w pętli `for`?
+
+**✅ B. Pomija resztę bieżącej iteracji i przechodzi do następnej**
+
+➡ Pozwala pominąć kod w bieżącej iteracji bez wychodzenia z pętli.
+
+---
+
+### 8️⃣ Czy można zagnieżdżać pętle `for`?
+
+**✅ B. Tak, można zagnieżdżać dowolnie**
+
+➡ Przydatne np. do pracy z tablicami dwuwymiarowymi.
+
+---
+
+### 9️⃣ Pytanie otwarte – przykładowa odpowiedź
+
+**✔ Przykład biznesowy:**
+
+```java
+double[] orders = {100, 200, 50};
+double total = 0;
+
+for (double order : orders) {
+    if (order > 100) {
+        total += order * 0.9; // rabat 10%
+    } else {
+        total += order;
+    }
+}
+
+System.out.println("Suma zamówień: " + total);
+```
+
+➡ Łatwe podsumowanie zamówień z logiką rabatową.
+
+---
+
+### 🔟 Pytanie otwarte – przykładowa odpowiedź
+
+**✔ Kiedy warto używać `for-each`:**
+
+* Iteracja po tablicach i kolekcjach, gdy **nie potrzebujesz indeksu**
+* Zmniejsza ryzyko błędów przy indeksowaniu
+* Kod jest bardziej czytelny i prostszy w utrzymaniu
+
+---
+
+Chcesz, żebym teraz przeszedł do **`while`**, czy kontynuujemy kolejne słowo kluczowe jak `switch` albo `enum`?

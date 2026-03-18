@@ -1,0 +1,128 @@
+Świetnie 😄
+Oto **quiz z `java.time.temporal.ChronoUnit`** – poziom **podstawy + praktyka + pytania rekrutacyjne**.
+
+---
+
+# ✅ **Quiz: `ChronoUnit` w Javie**
+
+## 1️⃣ Prawda / Fałsz
+
+1. `ChronoUnit` znajduje się w pakiecie `java.time`.
+
+   * A) Prawda
+   * B) Fałsz
+
+2. `ChronoUnit` jest enumem.
+
+   * A) Prawda
+   * B) Fałsz
+
+3. `ChronoUnit.DAYS` jest jednostką czasową (time-based).
+
+   * A) Prawda
+   * B) Fałsz
+
+4. `ChronoUnit.MONTHS.getDuration()` zawsze zwraca stałą liczbę sekund.
+
+   * A) Prawda
+   * B) Fałsz
+
+---
+
+## 2️⃣ Wybór jednokrotny
+
+5. Której jednostki **nie można** bezpośrednio użyć z `LocalTime`?
+
+* A) HOURS
+* B) MINUTES
+* C) DAYS
+* D) SECONDS
+
+---
+
+6. Co wypisze poniższy kod?
+
+```java
+LocalDate date = LocalDate.of(2026, 1, 1);
+System.out.println(date.plus(2, ChronoUnit.MONTHS));
+```
+
+* A) 2026-03-01
+* B) 2026-02-01
+* C) 2026-01-03
+* D) Błąd kompilacji
+
+---
+
+## 3️⃣ Wybór wielokrotny
+
+7. Które z poniższych są jednostkami **date-based**?
+
+* A) DAYS
+* B) HOURS
+* C) MONTHS
+* D) YEARS
+
+---
+
+## 4️⃣ Analiza kodu
+
+8. Co zostanie wypisane?
+
+```java
+LocalTime t1 = LocalTime.of(10, 0);
+LocalTime t2 = LocalTime.of(12, 45);
+
+System.out.println(ChronoUnit.MINUTES.between(t1, t2));
+```
+
+* A) 135
+* B) 145
+* C) 150
+* D) 165
+
+---
+
+## 5️⃣ Pytanie praktyczne
+
+9. Uzupełnij metodę, aby zwracała liczbę **dni** pomiędzy dwiema datami:
+
+```java
+public long daysBetween(LocalDate start, LocalDate end) {
+    // Twój kod
+}
+```
+
+---
+
+## 6️⃣ Pytanie podchwytliwe (ważne!)
+
+10. Które zdanie jest **najlepsze** do obliczania różnicy miesięcy pomiędzy dwiema datami?
+
+* A)
+
+```java
+ChronoUnit.DAYS.between(d1, d2) / 30
+```
+
+* B)
+
+```java
+ChronoUnit.MONTHS.between(d1, d2)
+```
+
+* C)
+
+```java
+Duration.between(d1, d2).toDays() / 30
+```
+
+* D)
+
+```java
+d2.getMonthValue() - d1.getMonthValue()
+```
+
+---
+
+👉 Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam **pełne rozwiązania z wyjaśnieniami** 👌

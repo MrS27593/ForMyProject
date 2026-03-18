@@ -1,0 +1,115 @@
+Oczywiście! Z przyjemnością wytłumaczę Ci wszystko, co powinieneś wiedzieć o klasie `ReentrantLock` w Javie – jak działa, do czego służy, kiedy warto jej używać zamiast `synchronized`, a także pokażę praktyczny przykład.
+
+---
+
+## 🔐 Czym jest `ReentrantLock`?
+
+`ReentrantLock` to klasa z pakietu `java.util.concurrent.locks`, która implementuje mechanizm blokady (lock), podobnie jak słowo kluczowe `synchronized`, ale daje większą kontrolę nad blokowaniem i odblokowywaniem wątków.
+
+**Reentrant** oznacza, że ten sam wątek może wielokrotnie przejąć blokadę bez zakleszczenia (deadlocku).
+
+---
+
+## 🧠 Cechy `ReentrantLock`
+
+1. **Reentrantność**: Jeśli wątek posiada już blokadę, może ją zablokować ponownie bez zawieszenia.
+2. **Możliwość ręcznego odblokowania**: W przeciwieństwie do `synchronized`, `ReentrantLock` wymaga jawnego odblokowania za pomocą `unlock()`.
+3. **Sprawiedliwość (fairness)**: Można stworzyć blokadę sprawiedliwą – przyznającą dostęp wątkom w kolejności ich zgłoszeń (`new ReentrantLock(true)`).
+4. **Próba blokady bez czekania**: `tryLock()` pozwala spróbować przejąć blokadę bez blokowania wątku.
+5. **Możliwość przerywania**: `lockInterruptibly()` pozwala przerwać czekający wątek.
+
+---
+
+## 🧪 Praktyczny przykład
+
+### Scenariusz: Bankowy system przelewów z wieloma wątkami
+
+```java
+import java.util.concurrent.locks.ReentrantLock;
+
+class KontoBankowe {
+    private double saldo;
+    private final ReentrantLock lock = new ReentrantLock();
+
+    public KontoBankowe(double saldoPoczatkowe) {
+        this.saldo = saldoPoczatkowe;
+    }
+
+    public void wplata(double kwota) {
+        lock.lock();
+        try {
+            saldo += kwota;
+            System.out.println(Thread.currentThread().getName() + " wpłacił: " + kwota + ", saldo: " + saldo);
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public void wyplata(double kwota) {
+        lock.lock();
+        try {
+            if (saldo >= kwota) {
+                saldo -= kwota;
+                System.out.println(Thread.currentThread().getName() + " wypłacił: " + kwota + ", saldo: " + saldo);
+            } else {
+                System.out.println(Thread.currentThread().getName() + " brak środków. Saldo: " + saldo);
+            }
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+}
+
+public class BankDemo {
+    public static void main(String[] args) {
+        KontoBankowe konto = new KontoBankowe(1000);
+
+        Runnable klient = () -> {
+            for (int i = 0; i < 5; i++) {
+                konto.wplata(100);
+                konto.wyplata(50);
+            }
+        };
+
+        Thread t1 = new Thread(klient, "Klient-1");
+        Thread t2 = new Thread(klient, "Klient-2");
+
+        t1.start();
+        t2.start();
+    }
+}
+```
+
+---
+
+## 📊 Kiedy używać `ReentrantLock` zamiast `synchronized`?
+
+| `synchronized`            | `ReentrantLock`                              |
+| ------------------------- | -------------------------------------------- |
+| Prosty w użyciu           | Bardziej elastyczny                          |
+| Automatyczne odblokowanie | Wymaga jawnego `unlock()`                    |
+| Nieobsługuje przerwań     | Obsługuje przerwania (`lockInterruptibly()`) |
+| Nie ma `tryLock()`        | Możliwość sprawdzenia dostępności blokady    |
+| Nie ma sprawiedliwości    | Możliwość wymuszenia kolejkowania (FIFO)     |
+
+---
+
+## ⚠️ Uwaga
+
+Zawsze używaj `try { ... } finally { lock.unlock(); }`, aby upewnić się, że blokada zostanie **zawsze** zwolniona – nawet jeśli wystąpi wyjątek.
+
+---
+
+## ✅ Podsumowanie
+
+* `ReentrantLock` to zaawansowane narzędzie synchronizacji w Javie.
+* Umożliwia bardziej precyzyjne sterowanie blokadami niż `synchronized`.
+* Nadaje się do bardziej złożonych przypadków, gdzie potrzebna jest kontrola nad kolejnością, możliwością przerywania, czy czasem oczekiwania.
+
+---
+
+Jeśli chcesz, mogę pokazać bardziej złożony przykład, np. z `Condition`, czyli czymś w rodzaju `wait()`/`notify()`, ale w `ReentrantLock`. Chcesz?

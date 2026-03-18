@@ -1,0 +1,76 @@
+Oto **poprawne odpowiedzi do quizu o `@MetadataDefinition`** wraz z krótkim wyjaśnieniem:
+
+---
+
+### 1️⃣ Co oznacza adnotacja `@MetadataDefinition`?
+
+**B – Oznacza, że adnotacja lub klasa definiuje metadane dla narzędzi**
+➡ Informuje narzędzia (IDE, JFR), że dana adnotacja jest metadanymi, np. opisującymi pole zdarzenia.
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@MetadataDefinition` w JDK?
+
+**B – `jdk.jfr`**
+
+---
+
+### 3️⃣ Czy `@MetadataDefinition` wpływa na logikę programu w runtime?
+
+**B – Nie**
+➡ To adnotacja informacyjna; nie zmienia zachowania klasy ani metod.
+
+---
+
+### 4️⃣ Z którą adnotacją JFR często współpracuje `@MetadataDefinition`?
+
+**B – `@Label`**
+➡ `@Label`, `@Description`, `@Category` to adnotacje metadanych wspierane przez `@MetadataDefinition`.
+
+---
+
+### 5️⃣ Czy `@MetadataDefinition` może być stosowana na polach?
+
+**B – Nie**
+➡ Jest stosowana **na adnotacjach**, nie bezpośrednio na polach czy metodach.
+
+---
+
+### 6️⃣ Czy adnotacja `@MetadataDefinition` jest wymagana dla wszystkich adnotacji JFR?
+
+**B – Nie**
+➡ Jest opcjonalna; używa się jej przy custom annotations dla lepszej integracji z narzędziami.
+
+---
+
+### 7️⃣ Czy `@MetadataDefinition` jest adnotacją meta?
+
+**A – Tak**
+➡ Oznacza, że adnotacja oznacza **inne adnotacje** (czyli jest adnotacją meta).
+
+---
+
+### 8️⃣ Czy narzędzia takie jak IDE lub JMC mogą wykorzystać informacje z `@MetadataDefinition`?
+
+**A – Tak**
+➡ Dzięki niej narzędzia wiedzą, które adnotacje zawierają metadane do wizualizacji lub dokumentacji.
+
+---
+
+### 9️⃣ Czy `@MetadataDefinition` może być stosowana na metodach?
+
+**B – Nie**
+➡ Dotyczy tylko definicji adnotacji, nie metod ani pól.
+
+---
+
+### 🔟 Czy `@MetadataDefinition` jest częścią standardowego publicznego API od Java 9?
+
+**A – Tak**
+➡ Wprowadzona w Java 9 w pakiecie `jdk.jfr`.
+
+---
+
+Jeśli chcesz, mogę teraz zrobić **mega powtórkę – quiz zbiorczy ze wszystkich adnotacji JFR i innych, które przerobiliśmy** w jednym miejscu. Będzie to świetna powtórka do nauki.
+
+Chcesz, żebym go zrobił?

@@ -1,0 +1,14 @@
+Napisz program, który symuluje działanie sklepu internetowego.
+Sklep ma kilka rodzajów produktów, które mogą być dodawane do koszyka. Zaimplementuj klasę abstrakcyjną Product z nagłowkami metod:
+getName(), zwracającą nazwę produktu,
+getPrice(), zwracającą cenę produktu.
+Stwórz klasy reprezentujące różne produkty, np. Book, Clothing, Electronics, dziedziczące po Product.
+
+Następnie zaimplementuj klasę abstrakcyjną ShoppingCart z metodami:
+addProduct(Product product), dodającą produkt do koszyka,
+removeProduct(Product product), usuwającą produkt z koszyka,
+getTotalPrice(), zwracającą łączną cenę produktów w koszyku.
+
+Stwórz klasę OnlineStore, dziedziczącą po ShoppingCart.
+Klasa ta powinna mieć metodę main, w której można dodać produkty do koszyka,
+usunąć produkty z koszyka oraz wyświetlić łączną cenę produktów w konsoli.

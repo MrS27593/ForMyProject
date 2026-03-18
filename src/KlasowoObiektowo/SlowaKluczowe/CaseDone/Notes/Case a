@@ -1,0 +1,60 @@
+Jasne! Oto **odpowiedzi w formie, jak w poprzednich quizach** – każda odpowiedź z wyjaśnieniem krok po kroku.
+
+---
+
+## ✅ Odpowiedzi – `case` w Java
+
+---
+
+### **1. Co się stanie, gdy w `case` użyjemy zmiennej?**
+
+**Odpowiedź:** **B. Kompilator zgłosi błąd** ✅
+
+* W `case` można używać tylko **stałych znanych w czasie kompilacji** (`final`).
+* Zmienna `B` nie jest `final`, więc kompilator zgłosi błąd.
+
+---
+
+### **2. Czy `case` może mieć wartość `null`?**
+
+**Odpowiedź:** **B. Kompilator błąd** ✅
+
+* `case null` nie jest dozwolone w Javie.
+* Jeśli zmienna w `switch` jest `null`, JVM rzuci `NullPointerException`, ale samo `case null` nie skompiluje się.
+
+---
+
+### **3. Co się stanie, gdy nie damy `break` w `case`?**
+
+**Odpowiedź:** **B. "Dwa" i "Trzy"** ✅
+
+* Brak `break` powoduje **fall-through** – wykonują się wszystkie kolejne przypadki aż do końca `switch`.
+
+**Wynik w konsoli:**
+
+```
+Dwa
+Trzy
+```
+
+---
+
+### **4. Czy `switch` działa na `float`?**
+
+**Odpowiedź:** **B. Nie** ✅
+
+* `switch` nie obsługuje typów `float` ani `double`.
+* Poprawne typy: `byte`, `short`, `char`, `int`, `String`, `enum`.
+
+---
+
+### **5. Co jest poprawne w nowym `switch` (Java 14)?**
+
+**Odpowiedź:** **A. Tak** ✅
+
+* Od Javy 14 `switch` może **zwracać wartość** przy użyciu `->`.
+* Wynik można przypisać bezpośrednio do zmiennej.
+
+---
+
+Chcesz, żebym teraz przygotował **pełny quiz praktyczny z `switch-case` z pułapkami i zadaniami kodowymi** do samodzielnego ćwiczenia?

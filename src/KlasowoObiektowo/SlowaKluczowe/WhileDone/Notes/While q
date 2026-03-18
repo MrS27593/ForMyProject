@@ -1,0 +1,74 @@
+Świetnie! Oto **quiz dotyczący pętli `while` w Javie**, który pomoże Ci utrwalić wiedzę. Quiz zawiera pytania wyboru, uzupełniania kodu oraz jedno pytanie otwarte.
+
+---
+
+### 🧠 **Quiz: Pętla `while` w Javie**
+
+#### **Pytanie 1:**
+
+Jak długo będzie wykonywać się pętla `while`, jeśli jej warunek to `true` i nie ma w niej instrukcji `break`?
+A) Wykona się raz
+B) Wykona się dopóki użytkownik przerwie
+C) Wykona się nieskończoną liczbę razy
+D) Nie wykona się wcale
+
+✅ **Odpowiedź:**
+
+---
+
+#### **Pytanie 2:**
+
+Co wypisze poniższy kod?
+
+```java
+int i = 1;
+while (i < 4) {
+    System.out.print(i + " ");
+    i++;
+}
+```
+
+A) `1 2 3`
+B) `0 1 2 3`
+C) `1 2 3 4`
+D) `1 2 3 4 5`
+
+✅ **Odpowiedź:**
+
+---
+
+#### **Pytanie 3:**
+
+Uzupełnij kod, aby wypisał liczby od 5 do 1 w kolejności malejącej:
+
+```java
+int i = ___;
+while (i > 0) {
+    System.out.println(i);
+    ___;
+}
+```
+
+✅ **Wypełnij miejsca oznaczone `___`:**
+
+---
+
+#### **Pytanie 4:**
+
+Które zdanie najlepiej opisuje różnicę między `while` a `do...while`?
+A) `do...while` sprawdza warunek przed wykonaniem
+B) `while` gwarantuje przynajmniej jedno wykonanie pętli
+C) `do...while` gwarantuje przynajmniej jedno wykonanie pętli
+D) Nie ma różnicy
+
+✅ **Odpowiedź:**
+
+---
+
+#### **Pytanie 5 (otwarte):**
+
+Dlaczego pętla `while` może być bardziej odpowiednia niż `for` w niektórych przypadkach? Podaj przykład zastosowania.
+
+---
+
+Chcesz, żebym od razu pokazał odpowiedzi i wyjaśnienia, czy chcesz najpierw spróbować samodzielnie rozwiązać?

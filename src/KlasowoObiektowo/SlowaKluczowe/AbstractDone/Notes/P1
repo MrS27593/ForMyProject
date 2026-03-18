@@ -1,0 +1,19 @@
+package Słowa_Kluczowe.Abstract;
+
+abstract public class Osoba {
+    String name;
+    int age;
+
+    void say(){
+        System.out.println("Mam na imie "+name+"i mam "+age+" lat");
+    }
+
+    abstract void giveASound();
+}
+
+/*
+Każda klasa abstrakcyjna ma pola, normalne metody z ciałem i metodę abstrakcyjną bez ciała
+ */
+class Dziecko extends {
+
+}

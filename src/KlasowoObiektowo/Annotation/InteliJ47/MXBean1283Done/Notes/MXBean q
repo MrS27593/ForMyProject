@@ -1,0 +1,81 @@
+Jasne 😄 oto **quiz o `@MXBean`** – czysty i zróżnicowany poziom:
+
+---
+
+# 🟢 Quiz – `@MXBean`
+
+### 1️⃣ Co oznacza adnotacja `@MXBean`?
+
+A. Klasa jest automatycznie serializowalna
+B. Interfejs lub klasa jest Management Bean (MXBean) dla JMX
+C. Klasa jest automatycznie rejestrowana w JConsole
+D. Pole klasy jest monitorowane
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@MXBean`?
+
+A. `java.lang.annotation`
+B. `javax.management`
+C. `jdk.jfr`
+D. `java.util`
+
+---
+
+### 3️⃣ Od której wersji Javy wprowadzono `@MXBean`?
+
+A. Java 5
+B. Java 6
+C. Java 8
+D. Java 9
+
+---
+
+### 4️⃣ Czy `@MXBean` działa na klasach i interfejsach?
+
+A. Tak
+B. Nie
+
+---
+
+### 5️⃣ Czy `@MXBean` automatycznie konwertuje typy Java na typy zgodne z JMX?
+
+A. Tak
+B. Nie
+
+---
+
+### 6️⃣ Czy metody MXBean muszą być publiczne?
+
+A. Tak
+B. Nie
+
+---
+
+### 7️⃣ Czy `@MXBean` wymaga ręcznego mapowania typów do JMX?
+
+A. Tak
+B. Nie
+
+---
+
+### 8️⃣ Czy `@MXBean` rejestruje obiekt w MBeanServer automatycznie?
+
+A. Tak
+B. Nie
+
+---
+
+### 9️⃣ Do czego najczęściej używa się `@MXBean`?
+
+A. Do monitorowania i zarządzania aplikacjami w Javie
+B. Do serializacji obiektów
+C. Do definiowania beanów JavaFX
+D. Do generowania dokumentacji
+
+---
+
+### 🔟 Czy można używać `@MXBean` dla klas implementujących interfejsy MXBean?
+
+A. Tak
+B. Nie

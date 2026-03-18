@@ -1,0 +1,19 @@
+Aby dobrze umieć Enum ChronoField warto znać:
+Interface:
+TemporalUnit
+LocaleProviderAdapter
+Temporal
+TemporalAccessor
+
+
+Class i Abstract Class:
+ValueRange
+Year
+Long
+Locale
+LocaleResources
+Objects
+ResourceBundle
+
+Exceptions:
+

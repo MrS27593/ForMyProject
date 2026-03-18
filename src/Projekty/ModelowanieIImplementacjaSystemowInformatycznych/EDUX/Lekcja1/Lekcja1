@@ -1,0 +1,222 @@
+Wprowadzenie do przedmiotu MAS (Modelowanie i Analiza Systemów)
+Autor: dr inż. Mariusz Trzaska
+Uzasadnienie
+Współczesne języki programowania są w większości oparte o paradygmat obiektowy. W związku z tym jego praktyczne zrozumienie jest niezbędną podstawą do pracy w tym zawodzie. Co więcej, programiści często tworzą systemy w oparciu o materiały analityczne. A te w dużej mierze wykorzystują obiektowe notacje graficzne (np. UML). W trakcie tej i następnych lekcji, pogłębisz swoją więdzę teoretyczną, ale przede wszystkim poznasz sposoby implementacji różnych pojęć z obiektowości. Dzięki temu będziesz w stanie projektować oraz implementować nowoczesne aplikacje biznesowe.
+
+Wprowadzenie
+Przedmiot poświęcony jest osadzeniu modelu pojęciowego dziedziny problemowej, efektu fazy analizy i specyfikacji wymagań, w konkretnym środowisku implementacyjnym (zarówno obiektowym jak i relacyjnym). Studenci poznają sposoby realizacji konstrukcji, niezbędnych do osadzenia modelu, a nie istniejących w wybranym języku programowania. Dyskutowane są również elementy związane z użytecznością (w tym jej testowaniem) graficznych interfejsów użytkownika. Wiedza teoretyczna poparta jest praktyczną implementacją struktury danych, logiki biznesowej oraz prostych i zaawansowanych graficznych interfejsów użytkownika (m. in. przy wykorzystaniu dedykowanych edytorów). Każdy ze studentów jest zobowiązany do przeprowadzenia analizy dynamicznej oraz wykonania prac projektowych i implementacyjnych, w oparciu o indywidualne wymagania użytkownika. Specyfikacja wymagań i analiza statyczna powinny być przeprowadzone w trakcie nauczania przedmiotu Projektowanie Systemów Informacyjnych (PRI). Analogicznie studenci przystępujący do kursu MAS powinni umieć programować w jakimś obiektowym języku (domyślnie Java).
+
+Mini-projekty
+Celem mini-projektów jest praktyczne sprawdzenie zrozumienia sposobów implementacji poszczególnych konstrukcji z modelu pojęciowego (klasy, asocjacje, ekstensja, itp.) oraz współpracy z modelem relacyjnym. Dodatkowo można je potraktować jako „fundament” projektu końcowego (który później zostanie uzupełniony o odpowiednie elementy, m. in. GUI). Należy zaimplementować różne biznesowe konstrukcje (odpadają wszelkie techniczne informacje jak np. liczba obiektów w ekstensji, settery/gettery, wyświetlanie obiektów, itp.) występujące w modelu pojęciowym. Nie wolno łączyć przykładów, tzn. każda konstrukcja musi mieć swój własny przykład biznesowy. Zakres ocenianych zagadnień jest przedstawiony w poniższej tabeli (trzeba opracować własne przykłady biznesowe; nie wolno ich kopiować z wykładu, książek itp.):
+
+MP1
+
+Klasy, atrybuty
+
+MP2
+
+Asocjacje
+
+MP3
+
+Dziedziczenie
+
+MP4
+
+Model relacyjny (MR)
+
+Ekstensja
+Ekstensja - trwałość
+Atrybut złożony
+Atrybut opcjonalny
+Atrybut powtarzalny
+Atrybut klasowy
+Atrybut pochodny
+Metoda klasowa
+Przesłonięcie
+Przeciążenie
+Binarna
+Z atrybutem
+Kwalifikowana
+Kompozycja
+Każda z asocjacji musi mieć liczność co najmniej 1-* oraz automatyczne tworzenie połączenia zwrotnego.
+
+Disjoint
+Klasa abstrakcyjna
+Polimorficzne wołanie metody
+Overlapping
+Wielodziedziczenie
+Wieloaspektowe
+Dynamiczne
+MR - klasy
+MR - asocjacje (liczności 1:* lub *:*)
+MR - dziedziczenie
+Należy stworzyć działający program (aplikacja konsolowa) korzystający z relacyjnej bazy danych i realizujący powyższe konstrukcje. Trzeba użyć oprogramowania typu ORM-ów, np. Hibernate, Entity Framework. W archiwum powinny znaleźć się tylko pliki źródłowe (bez binarnych/bibliotek) ewentualnie razem z mapującymi (dla ORM-ów). Oczywiście należy załączyć odpowiednie przykłady użycia w main.
+
+Mini-projekty są częścią składową oceny końcowej. W związku z tym warto je dobrze wykonać. Oddajemy je w postaci archiwum 7z/ZIP/RAR zawierającego (prosta aplikacja konsolowa):
+
+kody źródłowe z komentarzami (opisującymi zrealizowane konstrukcje, API). Należy przestrzegać wytycznych dla używanej platformy, np. Java wymaga oddzielnych plików dla każdej publicznej klasy. Nie trzeba dołączać plików binarnych (bibliotek, obrazków, itp.);
+m. in. jedną klasę (plik) Main.java (main.cs, itd.) z metodą main zawierającą skomentowane przykłady wykorzystania zrealizowanych konstrukcji, np.:
+?
+1
+pracownik1.setAdres(adres2); //atrybut złożony
+Tylko skomentowane elementy zaprezentowane w w/w klasie będą oceniane. Projekty bez tej klasy nie będą oceniane;
+Plik archiwum zawierający wyłącznie kody źródłowe (MPx_Nazwisko_Imię_NrIndeksu.zip gdzie x jest numerem mini-projektu) należy umieścić w odpowiednim folderze systemu EDU. Ostateczny termin – patrz dalej.
+
+Projekt
+
+Projekt składa się z dwóch części: dokumentacyjnej oraz implementacyjnej. Jego tematyka powinna być tak dobrana, aby dało się stworzyć odpowiednią liczbę (12 - 15) sensownych klas biznesowych. W związku z tym raczej odpadają wszelkie aplikacje narzędziowe, systemowe, odtwarzacze multimediów, itp. W razie wątpliwości należy skonsultować się z prowadzącym ćwiczenia.
+
+Dokumentacja projektowa
+Dokumentacja może, ale nie musi, być oparta na projekcie z przedmiotu PRI.
+Podstawą projektu są wymagania użytkownika opisane w postaci „historyjki” w punktach.
+Zgodnie z nimi należy opracować wymagania funkcjonalne (jako diagramy przypadków użycia i ewentualnie w postaci tekstowej) oraz niefunkcjonalne (tekst w punktach).
+Istotnym składnikiem wymagań jest również analityczny diagram klas. Jako, że jest podstawą do dalszych prac, warto zadbać aby nie zawierał on błędów. Bez poprawnego analitycznego diagramu klas nie ma możliwości przygotowania odpowiedniego projektowego diagramu klas.
+Bardziej szczegółowo należy omówić przynajmniej jeden nietrywialny przypadek użycia (odwołujący się do innego przypadku użycia). Scenariusz, dla tego przypadku, powinien być sporządzony zarówno z wykorzystaniem języka naturalnego, jak i diagramów aktywności.
+Dla wybranego przypadku użycia należy przeprowadzić analizę dynamiczną (czyli wykorzystać diagramy: aktywności i stanu ). Analiza dynamiczna powinna zakończyć się jawnym omówieniem jej skutków. „Skutki” analizy dynamicznej (np. nowe atrybuty, nowe asocjacje, itp.) powinny być umieszczone na implementacyjnym (projektowym) diagramie klas. Projekt musi wykorzystywać wszystkie wymienione rodzaje diagramów.
+Projekt interfejsu użytkownika: w oparciu o wybrany, nietrywialny przypadek użycia powinien być sporządzony projekt interfejsu użytkownika (zgodnie z wytycznymi podanymi na wykładzie).
+Należy dołączyć elementy specyfikujące podjęte decyzje projektowe/implementacyjne (na przykładach, w oparciu o odpowiednie fragmenty diagramu), np. sposób realizacji ekstensji klasy, dziedziczenia itp.
+Na podstawie analitycznego diagramu klas, tworzony jest projektowy (implementacyjny) diagram klas. Może zawierać tylko elementy wynikającego z diagramu analitycznego.
+jest uszczegółowiony,
+wszystkie konstrukcje nie istniejące w wybranym języku programowania są zamienione (zgodnie z podjętymi decyzjami projektowymi),
+ewentualnie jest uzupełniony o metody wynikłe z analizy dynamicznej.
+Należy zadbać o czytelność całej dokumentacji, a szczególnie diagramów (zalecany jest jakiś format wektorowy (np. Enhanced Metafile) lub plik z bezstratną kompresją, np. PNG). W tym celu warto upewnić się, że:
+prawidłowo stosujemy notację UML (a nie „podobne” elementy graficzne),
+każdy diagram jest prawidłowo podpisany,
+został przygotowany w odpowiednim narzędziu (np. UMLet),
+na diagramach stosujemy rozmiar czcionek niewymagający nadmiernego powiększania (czytelny diagram A4 w widoku 100%, np. na wydrukowanej stronie; w razie potrzeby zwiększ czcionkę na diagramie, a nie cały diagram),
+nie dzielimy diagramów na części,
+elementy (np. klasy) są właściwe rozplanowane, m. in.
+dziedziczenie w pionie,
+asocjacje w poziomie,
+unikamy przecinania linii,
+asocjacje mają nazwy i liczności.
+Uwaga: prace zawierające nieczytelne diagramy nie będą sprawdzane.
+W stworzeniu czytelnych diagramów pomocny może być przygotowany poradnik.
+Podsumowanie zawartości dokumentacji projektowej:
+Wymagania użytkownika („historyjka”)
+Diagram przypadków użycia (wymagania funkcjonalne)
+Wymagania niefunkcjonalne jako lista
+Diagram klas analityczny
+Diagram klas projektowy
+Scenariusz przypadku użycia (jako tekst w punktach)
+Diagram aktywności dla przypadku użycia
+Diagram stanu dla klasy
+Projekt GUI
+Omówienie decyzji projektowych i skutków analizy dynamicznej
+Dokumentację projektową MAS oddajemy w postaci pojedynczego pliku PDF (nazwa: MAS_Projekt_Nazwisko_Imię_NrIndeksu.PDF) umieszczonego w odpowiednim folderze systemu EDU. Ostateczny termin – patrz dalej.
+Implementacja projektu
+Cała struktura (klasy z odpowiednimi powiązaniami),
+Metody potrzebne do realizacji wybranego przypadku (lub przypadków) użycia,
+Elementy graficznego interfejsu użytkownika (GUI), które są niezbędne do zaprezentowania pracującej implementacji z działającym wybranym przypadkiem użycia. Każdy projekt musi posiadać GUI.
+Minimalna implementacja GUI musi obejmować interakcję co najmniej dwóch klas połączonych asocjacją (wymagana liczność docelowa: „wiele”),
+Na diagramie mamy dwie klasy połączone asocjacją, np.: Firma i Pracownik; odpowiedni widget (wyświetlający wiele elementów, np. ListBox) zawiera listę firm, po kliknięciu w dowolną pozycję wyświetla się inny widget (wyświetlający wiele elementów, np. ListBox) zawierający listę jej pracowników pobraną za pomocą zdefiniowanej aoscjacji (przeważnie oznacza to brak stosowania języka zapytań, w tym SQL-a).
+Zaimplementowane GUI, które tylko tworzy połączenia pomiędzy obiektami i nie pozwala na w/w interakcję, nie wystarczy do zaliczenia.
+Analogicznie, niewystarczające są np. rozwiązania z jednym widget'em, TextBox’em, licznością docelową „1” lub filtrujące dane z ekstensji (zamiast korzystania z uprzednio zdefiniowanej asocjacji).
+Implementacja musi zawierać przykładowe dane ilustrujące poprawne działanie.
+Należy zwrócić uwagę na jakość i ergonomię GUI (np. skalowanie okien, kolorystyka, filozofia działania) – jest to ważny składnik oceny końcowej. Projekt i wykonanie GUI (można używać dedykowanych edytorów) powinno być zgodne z zasadami użyteczności (usability), podawanymi na wykładzie.
+Wszystkie dane przechowywane w systemie muszą być trwałe (np. plik, baza danych, dedykowana biblioteka, itp.). Warto zwrócić uwagę na poprawność wyboru technologii (np. serializacja nie nadaje się dla aplikacji webowych) oraz prawidłowość jej implementacji, np. serializacja wymaga jednego wspólnego pliku dla wszystkich ekstensji.
+W kodzie nie należy umieszczać oczywistych komentarzy opisujących kod źródłowy.
+Językiem implementacji może być Java, C# lub C++. Inne języki wymagają zgody prowadzącego ćwiczenia.
+Każdy projekt będzie indywidualnie odbierany w terminie podanym w ogłoszeniu kursu (do kilku dni przed egzaminem). W trakcie odbioru można spodziewać się szczegółowych pytań dotyczących sposobu implementacji, np. „co by było gdyby...”, „dlaczego jest to zrobione w ten sposób...”, „proszę dokonać następującej modyfikacji...”. Osoby, które samodzielnie wykonały projekt nie powinny mieć problemów z udzieleniem odpowiedzi na powyższe pytania. Brak umiejętności odpowiedzi na powyższe pytania oznacza brak zaliczenia ćwiczeń.
+Ze względu na procedurę antyplagiatową (patrz poniżej), implementacja projektu (tylko kody źródłowe) musi zostać przesłana do wyznaczonego folderu w systemie Gakko/EduX przed indywidualną obroną. Plik powinien mieć następującą nazwę: „ProjectImpl_LastName_FirstName_Number.zip”.
+Rozwiązania niespełniające ww. warunków, nie zaliczą ćwiczeń.
+Kryteria oceny i terminy: patrz dalej.
+Terminy
+Szczegółowe informacje dotyczące terminów znajdują się w opisie kursu. Prace oddane po terminie będą miały obniżoną punktację (50% dla mini-projektów).
+
+Zaliczenie ćwiczeń
+Uwaga: zgodnie z regulaminem studiów "blended", zaliczenie ćwiczeń jest związane również z zaliczeniem egzaminu - patrz sekcja „Egzamin”.
+
+Ocena końcowa z ćwiczeń składa się z następujących składowych:
+
+Punkty za MPx (24 + 24 + 24 + 28 = 100 pkt.; w sumie trzeba uzyskać min. 50%)
+
+Za każde zagadnienie wymienione w tabeli dla poszczególnych MP, można otrzymać liczbę punktów obliczoną na podstawie wzoru: (Liczba punktów dla konkretnego MP) / (Liczba zagadnień w danym MP), np. dla MP1 za każdą konstrukcję można otrzymać 24 / 10 = 2,4 pkt. (razem: 10 x 2,4 pkt. = 24 pkt.)
+
+Liczba przyznanych punktów, za każde zagadnienie, będzie uwzględniała poprawność rozwiązania, wybór metody, czytelność kodu itp.
+
+Ocena z projektu (należy uzyskać minimum 50% z każdej części):
+Ocena za implementację będzie wystawiana zgodnie z poniższą tabelą (warunek wstępny: spełnienie wymagań z pkt. 4.2):
+
+Kryterium	Maks. pkt.
+Skomplikowanie, zakres i poprawność zrealizowanej funkcjonalności	20
+Zakres i poprawność zrealizowanych konstrukcji z obiektowości	25
+Jakość kodu (nazewnictwo, struktura, komentarze)	5
+Elegancja zaimplementowanych rozwiązań	15
+Sposób implementacji trwałości	10
+Implementacja GUI (w tym użyteczność/ergonomia)	20
+Prezentacja projektu	5
+Razem	100
+Na podstawie powyższej punktacji wystawiana jest ocena w oparciu o następującą skalę: 50 pkt. → 3,0; 60 pkt. → 3,5; 70 → 4,0; 80 → 4,5; 90 → 5,0.
+
+Ocena za dokumentację będzie wystawiana zgodnie z poniższą tabelą (warunek wstępny: spełnienie wymagań z pkt. 4.1):
+
+Kryterium	Maks. pkt.
+Skomplikowanie dziedziny biznesowej	10
+Udokumentowanie przypadku (ów) użycia (scenariusz i diagram)	10
+Poprawność i złożoność projektowego diagramu klas	35
+Poprawność i złożoność diagramu aktywności	10
+Poprawność i złożoność diagramu stanu	10
+Projekt GUI	10
+Omówienie decyzji projektowych	10
+Czytelność i organizacja dokumentu	5
+Razem	100
+Na podstawie powyższej punktacji wystawiana jest ocena w oparciu o następującą skalę: 50 pkt. → 3,0; 60 pkt. → 3,5; 70 → 4,0; 80 → 4,5; 90 → 5,0.
+
+Z każdej części trzeba otrzymać ocenę pozytywną. W związku z tym osoby, które np. zaliczą mini-projekty, a nie zaliczą dokumentacji projektu, nie zaliczą ćwiczeń.
+
+Plagiat
+Wszystkie kody źródłowe podlegające ocenie (mini-projekty, projekt końcowy) będą przechodziły procedurę antyplagiatową. W przypadku wykrycia zapożyczeń z innych programów:
+
+wszystkie programy, w których wykryto wspólny kod, otrzymują 0 pkt.;
+nie ma możliwości przysłania poprawionej wersji takiego programu, co może prowadzić do niezaliczenia ćwiczeń bez szansy na ich poprawę w bieżącym semestrze;
+nie będą prowadzone ustalenia, kto, od kogo kopiował kody źródłowe.
+Egzamin
+Egzamin z MAS składa się z dwóch części (liczy się suma punktów):
+
+Testowej. Należy ocenić każde z pytań (T/N). Odpowiedź prawidłowa oznacza +2 pkt., błędna -2 pkt., brak odpowiedzi 0 pkt.
+Zadaniowej. Należy nazwać oraz krótko omówić sposób implementacji zaznaczonych konstrukcji na otrzymanym diagramie klas.
+Nie ma zwolnień z egzaminu.
+
+Przykładowy egzamin: http://www.mtrzaska.com/mas-egzamin.
+
+Uwaga: zgodnie z regulaminem studiów "blended", w celu zaliczenia ćwiczeń, trzeba otrzymać co najmniej 30% punktów z egzaminu (w pierwszym lub drugim terminie). Osoby, które nie osiągną tego progu muszą powtarzać ćwiczenia. Ta zasada "30%" nie dotyczy osób, które zaliczyły ćwiczenia w którymś z poprzednich semestrów i w aktualnym semestrze tylko poprawiają egzamin.
+
+Materiały uzupełniające
+Książka Mariusz Trzaska - Modelowanie i implementacja systemów informatycznych 2.0Książka: M. Trzaska: „Modelowanie i implementacja systemów informatycznych 2.0”. Stron 487. ISBN 978-83-976442-0-5. Jest to całkiem nowa wersja książki (rok wydania 2025) uzupełniona i rozszerzona o nowe zagadnienia (ponad 200 stron więcej). Może być przydatna jako uzupełnienie wiedzy z modelowania (m. in. diagramy klas) jak i rozszerzenie umiejętności programistycznych (m. in. framework Java Spring w różnych wariantach, testy E2E i integracyjne, pielęgnacja/konserwacja oprogramowania):
+Wersja elektroniczna (PDF): sklep Empik,
+więcej informacji: na mojej stronie.
+Wersja elektroniczna wykładów dla studiów stacjonarnych
+Przykładowe zadania programistyczne
+Niniejsze zadania programistyczne mają na celu jedynie przypomnienie materiału dotyczącego programowania (przyswojonego w czasie wcześniejszych kursów) i ich rozwiązania nie będą oceniane w ramach przedmiotu MAS. Studenci przystępujący do kursu MAS, powinni umieć rozwiązać zdecydowaną większość z nich.
+Wszystkie pozycje związane z modelowaniem pojęciowym (w oparciu o język UML) – odpowiedni spis można znaleźć w opisie przedmiotu Projektowanie Systemów Informacyjnych (PRI),
+Pozycje dotyczące programowania w wybranym dla realizacji celów przedmiotu środowisku implementacji (aktualnie Java lub MS C#).
+Narzędzia implementacyjne
+Ze względu na fakt, iż istnieje dość duża dowolność wyboru technologii realizacji projektu, nie ma listy narzędzi obowiązkowych. Niemniej poniżej umieszczono listę narzędzi, które mogą być przydatne:
+
+Narzędzia CASE (edytory diagramów):
+UMLet (open-source, wieloplatformowy): https://www.umlet.com//,
+NetBeans for Java: http://www.netbeans.org/ (umożliwia m.in. tworzenie diagramów UML i generowanie kodu źródłowego)
+Modelio (open-source, wieloplatformowy): https://www.modelio.org/
+Visual Paradigm Community Edition: http://www.visualparadigm.com
+ArgoUML: http://argouml.tigris.org/
+MagicDraw Community Edition: http://www.magicdraw.com
+StarUML: http://staruml.sourceforge.net/en/
+MS Visio (dostępny na licencji ELMS dla studentów PJWSTK),
+Obszerna lista narzędzi: http://en.wikipedia.org/wiki/List_of_UML_tools
+IDE
+IntelliJ IDEA Community Edition: http://www.jetbrains.com/idea/
+MS Visual Studio (darmowa edycja)
+Eclipse for Java: http://www.eclipse.org/
+NetBeans for Java: http://www.netbeans.org/
+Edytory GUI
+wbudowany w NetBeans;
+dla Eclipse: Jigloo SWT/Swing GUI Builder (http://www.cloudgarden.com/jigloo/);
+dla Eclipse: WindowBuilder Pro po przejęciu przez Google jest darmowy (http://code.google.com/intl/pl/webtoolkit/tools/wbpro);
+wbudowany w MS Visual Studio.
+Większość pojęć teoretycznych poruszanych na przedmiocie MAS została dokładnie omówiona na przedmiocie PRI. Na MAS-ach zajmujemy się ich praktycznym wykorzystaniem (implementacją). W związku z tym osoby, które mają problemy z ich zrozumieniem powinny zacząć od przypomnienia sobie materiału z PRI. Są one również szczegółowo przedyskutowane w mojej książce "Modelowanie i implementacja systemów informatycznych 2.0".
+
+Niemniej, w miarę możliwości, będziemy podawali i omawiali niezbędne definicje.
+
+To samo dotyczy programowania w języku Java.

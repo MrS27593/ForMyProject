@@ -1,0 +1,109 @@
+## ✅ Odpowiedzi – QUIZ `return` w Java
+
+---
+
+### **1. Do czego służy słowo kluczowe `return`?**
+
+**✅ B. Do zakończenia metody i opcjonalnie zwrócenia wartości**
+
+* `return` kończy metodę i ewentualnie zwraca wartość w metodach nie-void.
+
+---
+
+### **2. Co się stanie, jeśli metoda typu `int` nie zawiera `return`?**
+
+**✅ A. Kompilator zgłosi błąd**
+
+* Metody zwracające wartość muszą kończyć się `return` z odpowiednim typem.
+
+---
+
+### **3. Czy metoda typu `void` może zawierać `return`?**
+
+**✅ B. Tak, bez wartości (`return;`)**
+
+* Służy do wcześniejszego zakończenia metody.
+
+---
+
+### **4. Co się stanie z kodem po instrukcji `return`?**
+
+**✅ B. Jest ignorowany – metoda się kończy**
+
+* Kod po `return` w tej samej ścieżce nie jest wykonywany.
+
+---
+
+### **5. Która instrukcja jest poprawna w metodzie `int`?**
+
+**✅ B. `return 5;`**
+
+* Typ zwracany musi odpowiadać deklaracji metody (`int`).
+* `return;` w metodzie `int` → błąd, `return "5";` → błąd typu.
+
+---
+
+### **6. Która instrukcja jest poprawna w metodzie `void`?**
+
+**✅ B. `return;`**
+
+* Pozwala zakończyć metodę wcześniej.
+* Nie można zwracać wartości w metodzie `void`.
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład użycia `return` w metodzie z wczesnym zakończeniem:**
+
+```java
+int divide(int a, int b) {
+    if (b == 0) return -1; // wcześniejsze zakończenie przy błędzie
+    return a / b;
+}
+```
+
+---
+
+### **8. (OTWARTE)**
+
+**Dlaczego warto stosować wielokrotne instrukcje `return`?**
+
+* Pozwala zakończyć metodę **wcześniej** w różnych warunkach
+* Poprawia czytelność kodu i redukuje zagnieżdżenie warunków (`if/else`)
+
+---
+
+### **9. Co się stanie w poniższym kodzie?**
+
+```java
+int square(int x) {
+    if (x < 0) return -1;
+    return x * x;
+}
+```
+
+**✅ B. Zwraca -1 dla liczb ujemnych, inaczej `x * x`**
+
+* Warunek obsługuje liczby ujemne, reszta zwraca kwadrat.
+
+---
+
+### **10. Które zdanie o `return` jest prawdziwe?**
+
+**✅ C. `return` kończy metodę natychmiast**
+
+* Instrukcja `return` przerywa dalsze wykonywanie metody natychmiast.
+
+---
+
+### 🧠 Podsumowanie
+
+* `return` = zakończenie metody + zwracanie wartości
+* Metody `void` → opcjonalne `return;`
+* Metody zwracające typ → `return` musi zwracać odpowiedni typ
+* Przydatne w **logice warunkowej i wczesnym zakończeniu metod**
+
+---
+
+Chcesz, żebym teraz przeszedł do **`short` i `int` w połączeniu z `return` w praktycznych przykładach**, żeby pokazać zastosowanie razem?

@@ -1,0 +1,138 @@
+
+WYKŁAD 01
+
+KLASY
+KLASY ZEWNĘTRZNE
+Klasą zewnętrzną jest klasa nie zawarta w żadnej innej klasie.
+Klasa zewnętrzna może być tylko publiczna albo pakietowa.
+package example01 ;
+class Outer {
+    // . . .
+}
+2
+
+
+
+KLASY WEWNĘTRZNE
+Klasą wewnętrzną (Nested Inner Class) jest klasa zawarta w innej klasie, zadeklarowana
+bez specyfikatora static i zdefiniowana w miejscu, w którym mogłyby wystąpić składniki
+klasy zawierającej.
+∙ klasy wewnętrzne mogą być prywatne, chroniona, publiczna lub pakietowa
+∙ klasa wewnętrzna nie może zawierać składników klasowych (w tym interfejsów) pre Java16
+
+
+class Outer {
+    private int count = 1 0 ;
+    public
+    class Inner {
+        public int getCount ( ) {
+            return count ;
+        }
+    }
+}
+4
+
+
+KLASY ZANURZONE
+Klasą zanurzoną (Static Nested Classes) jest klasa zawarta w innej klasie, zadeklarowana
+ze specyfikatorem static i zdefiniowana w miejscu, w którym mogłyby wystąpić składniki
+klasy zawierającej.
+∙ klasy zanurzone mogą być prywatne, chroniona, publiczna lub pakietowa
+∙ klasa zanurzona w odróżnieniu od klasy wewnętrznej, może zawierać składniki
+klasowe.pre Java16
+class Outer {
+    private static int count = 1 0 ;
+    private
+    static class Immersed {
+        public static int count = 2 0 ;
+        public int getCount ( ) {
+        return Outer . count+count ;
+        }
+    }
+}
+5
+
+KLASY LOKALNE
+Klasą lokalną (Method Local Inner Classes) jest klasa zawarta w ciele metody.
+∙ klasy lokalna nie może być zadeklarowana ze specyfikatorem hermetyzacji, ani ze
+słowem static
+∙ fabrykator obiekty tej klasy może wystąpić dopiero po jej definicji.
+
+package example01 ;
+    class Outer {
+        public void fun ( ) {
+        class Local {
+            // . . .
+        }
+        Local loc = new Local ( ) ;
+    }
+}
+6
+
+
+
+KLASY ANONIMOWE
+Klasą anonimową (Anonymous Inner Classes) jest klasa niejawnie zdefiniowana tuż za
+fabrykatorem.
+Definicja klasy anonimowej nie zawiera słowa kluczowego class ani fraz extends i
+implements
+class Ex01 {
+    public void fun ( ) {
+        new Object ( ) {
+            public int val = 1 2 7 ;
+            public int getVal ( ) {
+                return val ;
+            }
+        } . getVal ( ) ;
+    }
+}
+7
+
+
+OGRANICZENIA KLAS WEWNĘTRZNYCH
+∙ Anonimowe klasy wewnętrzne mogą rozszerzać tylko jedną nie-finalną klasę lub
+implementować jeden interfejs;
+∙ Lokalne klasy wewnętrzne nie mogą korzystać z lokalnej zmiennej metody
+zewnętrznej, dopóki ta lokalna zmienna nie jest zadeklarowana jako finalna;
+∙ Klasy wewnętrzne nie mogą mieć statycznych członków (z wyjątkiem statycznych
+finalnych zmiennych);
+8
+
+
+ZASTOSOWANIA KLAS WEWNĘTRZNYCH OBEJMUJĄ
+∙ Umożliwiają dostęp do prywatnych metod klasy zewnętrznej;
+∙ Są używane do implementacji wywołań zwrotnych i obsługi zdarzeń;
+∙ Są mechanizmem zabezpieczającym w Javie. Klasy wewnętrzne mogą być prywatne,
+co jest używane do dostępu do prywatnych członków klasy;
+∙ Zwiększają enkapsulację i ułatwiają grupowanie klas;
+9
+
+
+
+KLASA ABSTRAKCYJNA
+KLASY ABSTRAKCYJNE
+Klasa abstrakcyjna to taka, której nagłówek zawiera słowo kluczowe abstract.
+∙ klasa abstrakcyjna może, ale nie musi zawierać abstrakcyjnych metod;
+∙ nie można tworzyć obiektów klasy abstrakcyjnej;
+∙ klasa abstrakcyjna może być klasą bazową dla innych klas.
+public
+    abstract class Figure {
+        private int width , hight ;
+        public Figure(int width , int hight) {
+            this . width = width ;
+            this . hight = hight ;
+        }
+    }
+
+Cechą metody abstrakcyjnej jest brak ciała metody.
+∙ jeżeli klasa zawiera metodę abstrakcyjną wówczas musi być klasą abstrakcyjną
+public
+    abstract class Figure {
+        private int width , hight ;
+        public Figure(int width , int hight) {
+            this . width = width ;
+            this . hight = hight ;
+        }
+        public abstract void draw ( ) ;
+    }
+12

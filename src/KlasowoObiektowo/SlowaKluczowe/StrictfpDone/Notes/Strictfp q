@@ -1,0 +1,89 @@
+## QUIZ – `strictfp` w Java (10 pytań)
+
+---
+
+### **1. Do czego służy słowo kluczowe `strictfp`?**
+
+A. Zwiększa dokładność liczb zmiennoprzecinkowych
+B. Przyspiesza obliczenia matematyczne
+C. Wymusza identyczne wyniki obliczeń zmiennoprzecinkowych na każdej platformie
+D. Zamienia `double` na `BigDecimal`
+
+---
+
+### **2. Jakie typy danych są bezpośrednio objęte działaniem `strictfp`?**
+
+A. `int`, `long`
+B. `float`, `double`
+C. `BigDecimal`
+D. Wszystkie typy liczbowe
+
+---
+
+### **3. Gdzie można zastosować `strictfp`?**
+
+A. Tylko w metodach
+B. Tylko w klasach
+C. W klasach, interfejsach i metodach
+D. W konstruktorach
+
+---
+
+### **4. Co się stanie, jeśli klasa jest oznaczona jako `strictfp`?**
+
+A. Tylko jedna metoda używa `strictfp`
+B. Wszystkie metody w klasie podlegają `strictfp`
+C. Tylko pola klasy są objęte `strictfp`
+D. Klasa staje się niemodyfikowalna
+
+---
+
+### **5. Czy `strictfp` zwiększa precyzję obliczeń?**
+
+A. Tak
+B. Tylko dla `double`
+C. Nie
+D. Tylko dla liczb dodatnich
+
+---
+
+### **6. Dlaczego `strictfp` może wpłynąć na wydajność?**
+
+A. Zwiększa zużycie pamięci
+B. Blokuje niektóre optymalizacje sprzętowe
+C. Wymusza użycie `BigDecimal`
+D. Zwiększa liczbę instrukcji Java
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład zastosowania `strictfp` w realnym systemie.
+
+---
+
+### **8. (OTWARTE)**
+
+Dlaczego `strictfp` **nie zastępuje** `BigDecimal`?
+
+---
+
+### **9. Które zdanie o `strictfp` jest PRAWDZIWE?**
+
+A. Jest wymagane w każdej aplikacji Java
+B. Zapewnia takie same wyniki obliczeń na różnych JVM i procesorach
+C. Eliminuje błędy zaokrągleń
+D. Działa tylko w starszych wersjach Javy
+
+---
+
+### **10. Którego miejsca NIE MOŻNA oznaczyć jako `strictfp`?**
+
+A. Metody
+B. Klasy
+C. Interfejsu
+D. Pola klasy
+
+---
+
+Napisz **„odpowiedzi”**, a podam komplet poprawnych odpowiedzi z krótkimi, technicznymi wyjaśnieniami 👌

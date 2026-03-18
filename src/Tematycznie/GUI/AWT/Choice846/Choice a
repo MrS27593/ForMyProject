@@ -1,0 +1,52 @@
+Oczywiście! Oto **odpowiedzi do quizu o klasie `Choice` w Java (AWT)** wraz z krótkim wyjaśnieniem:
+
+---
+
+### ✅ **Odpowiedzi**
+
+**1. Który pakiet zawiera klasę `Choice`?**
+✅ **C) `java.awt`**
+*`Choice` jest częścią AWT (Abstract Window Toolkit), a więc znajduje się w pakiecie `java.awt`.*
+
+---
+
+**2. Co robi metoda `getSelectedItem()` w klasie `Choice`?**
+✅ **D) Zwraca tekst aktualnie wybranego elementu**
+*Ta metoda zwraca `String`, który odpowiada wybranej pozycji w liście.*
+
+---
+
+**3. Jak można usunąć wszystkie elementy z obiektu `Choice`?**
+✅ **B) `removeAll()`**
+*Metoda `removeAll()` usuwa wszystkie elementy z listy `Choice`.*
+
+---
+
+**4. Ile elementów może wybrać użytkownik z komponentu `Choice`?**
+✅ **C) Tylko jeden**
+*Komponent `Choice` umożliwia wybór tylko jednej opcji naraz.*
+
+---
+
+**5. Której z poniższych cech NIE posiada `Choice` w AWT?**
+✅ **C) Obsługa ikon i stylów tekstu**
+*`Choice` to prosty komponent tekstowy – nie obsługuje ikon ani stylizowanego tekstu.*
+
+---
+
+**6. Która z metod ustawia zaznaczenie w komponencie `Choice`?**
+✅ **B) `select(int index)`**
+*Ta metoda wybiera element na podanym indeksie.*
+
+---
+
+**7. Jakie zdarzenie nasłuchuje zmiany wyboru w `Choice`?**
+✅ **D) `ItemListener`**
+*`Choice` wykorzystuje `ItemListener`, aby reagować na zmiany wyboru.*
+
+---
+
+### ✨ Twój wynik:
+
+Zlicz swoje odpowiedzi i daj znać, ile masz punktów – chętnie pomogę w analizie, jeśli coś było niejasne!
+Czy chcesz teraz quiz dotyczący `JComboBox` albo inne pytania praktyczne z GUI?

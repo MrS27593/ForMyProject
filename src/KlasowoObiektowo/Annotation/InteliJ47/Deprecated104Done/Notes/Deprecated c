@@ -1,0 +1,262 @@
+Świetny temat — **`@Deprecated`** to jedna z *najważniejszych adnotacji w Javie*, często spotykana w realnych projektach 👍
+Poniżej masz **kompletne, praktyczne omówienie**: od podstaw → przez wersjonowanie → aż po dobre praktyki i pułapki.
+
+---
+
+# 🔴 `@Deprecated` w Javie — wszystko, co musisz wiedzieć
+
+## 1️⃣ Czym jest `@Deprecated`?
+
+`@Deprecated` informuje, że **dany element kodu nie powinien być już używany**, ponieważ:
+
+* jest **przestarzały**
+* zostanie **usunięty w przyszłości**
+* ma **lepszą alternatywę**
+
+⚠️ **Kod nadal działa** – ale kompilator i IDE ostrzegają programistę.
+
+---
+
+## 2️⃣ Gdzie można użyć `@Deprecated`?
+
+Można oznaczyć:
+
+| Element     | Przykład                          |
+| ----------- | --------------------------------- |
+| klasę       | `@Deprecated class OldService {}` |
+| metodę      | `@Deprecated void oldMethod()`    |
+| pole        | `@Deprecated int oldValue;`       |
+| konstruktor | `@Deprecated OldClass()`          |
+| enum        | `@Deprecated enum OldEnum {}`     |
+| pakiet      | `package-info.java`               |
+
+---
+
+## 3️⃣ Podstawowy przykład
+
+```java
+public class Calculator {
+
+    @Deprecated
+    public int add(int a, int b) {
+        return a + b;
+    }
+}
+```
+
+Użycie:
+
+```java
+Calculator calc = new Calculator();
+calc.add(2, 3); // ⚠️ ostrzeżenie
+```
+
+💡 **IDE (IntelliJ)**:
+
+* podkreśli metodę na żółto
+* doda komunikat *“Deprecated”*
+
+---
+
+## 4️⃣ `@Deprecated` vs komentarz `@deprecated`
+
+### ❌ Stary sposób (niezalecany)
+
+```java
+/**
+ * @deprecated Use newMethod() instead
+ */
+public void oldMethod() {}
+```
+
+### ✅ Poprawny sposób (od Java 5)
+
+```java
+/**
+ * @deprecated Use {@link #newMethod()} instead
+ */
+@Deprecated
+public void oldMethod() {}
+```
+
+👉 **Najlepsza praktyka:**
+✔️ **zawsze łącz `@Deprecated` + JavaDoc**
+
+---
+
+## 5️⃣ Nowoczesna forma (Java 9+)
+
+Od **Java 9** `@Deprecated` ma **parametry**:
+
+```java
+@Deprecated(since = "2.1", forRemoval = true)
+public void oldMethod() {}
+```
+
+### Parametry:
+
+| Parametr     | Znaczenie                                |
+| ------------ | ---------------------------------------- |
+| `since`      | Od której wersji element jest deprecated |
+| `forRemoval` | Czy zostanie usunięty w przyszłości      |
+
+### Przykład komunikatu w IDE:
+
+> Deprecated since version 2.1, marked for removal
+
+---
+
+## 6️⃣ Przykład z alternatywą
+
+```java
+public class Logger {
+
+    /**
+     * @deprecated Use logInfo(String msg) instead
+     */
+    @Deprecated(since = "1.5", forRemoval = true)
+    public void log(String msg) {
+        System.out.println(msg);
+    }
+
+    public void logInfo(String msg) {
+        System.out.println("[INFO] " + msg);
+    }
+}
+```
+
+---
+
+## 7️⃣ `@SuppressWarnings("deprecation")`
+
+Jeśli **musisz** użyć deprecated API:
+
+```java
+@SuppressWarnings("deprecation")
+public void test() {
+    Logger logger = new Logger();
+    logger.log("test");
+}
+```
+
+⚠️ **Uwaga:**
+
+* nie używaj globalnie
+* tylko lokalnie i świadomie
+
+---
+
+## 8️⃣ `@Deprecated` a kompatybilność wsteczna
+
+Dlaczego nie usuwa się od razu metod?
+
+* starszy kod by się **nie kompilował**
+* biblioteki muszą być **backward-compatible**
+* migracja użytkowników wymaga czasu
+
+Typowy cykl:
+
+```
+NOWA METODA → @Deprecated → forRemoval=true → USUNIĘCIE
+```
+
+---
+
+## 9️⃣ `@Deprecated` na poziomie klasy
+
+```java
+@Deprecated
+public class OldService {
+    public void process() {}
+}
+```
+
+➡️ Każde użycie klasy = ostrzeżenie
+
+---
+
+## 🔟 `@Deprecated` w pakiecie
+
+Plik: `package-info.java`
+
+```java
+/**
+ * @deprecated This package is obsolete.
+ */
+@Deprecated
+package com.old.api;
+```
+
+---
+
+## 1️⃣1️⃣ Czy `@Deprecated` wpływa na runtime?
+
+❌ **NIE**
+
+* brak wyjątku
+* brak błędu
+* tylko **ostrzeżenie kompilatora**
+
+---
+
+## 1️⃣2️⃣ Różnica: `@Deprecated` vs usunięcie metody
+
+| Usunięcie       | @Deprecated        |
+| --------------- | ------------------ |
+| ❌ łamie build   | ✅ nie łamie        |
+| ❌ brak migracji | ✅ czas na migrację |
+| ❌ agresywne     | ✅ bezpieczne       |
+
+---
+
+## 1️⃣3️⃣ Najczęstsze błędy ❌
+
+❌ Deprecated bez alternatywy
+❌ Deprecated bez JavaDoc
+❌ Używanie deprecated w nowym kodzie
+❌ Globalne `@SuppressWarnings`
+❌ Brak `forRemoval=true`
+
+---
+
+## 1️⃣4️⃣ Dobre praktyki ✅
+
+✔️ Zawsze podaj **alternatywę**
+✔️ Używaj `since`
+✔️ Ustaw `forRemoval=true` gdy planujesz usunięcie
+✔️ Usuń element w kolejnej głównej wersji
+✔️ Nie deprecated’uj bez powodu
+
+---
+
+## 1️⃣5️⃣ Przykład z prawdziwej Javy
+
+```java
+@Deprecated(since = "9", forRemoval = true)
+public final void stop();
+```
+
+📌 `Thread.stop()` – **niebezpieczna metoda**, oficjalnie wycofana.
+
+---
+
+## 1️⃣6️⃣ Podsumowanie (do zapamiętania 🧠)
+
+> **`@Deprecated` = „nie używaj, bo wyleci”**
+
+* działa od Java 5
+* Java 9+ → `since`, `forRemoval`
+* NIE usuwa kodu
+* ostrzega, nie blokuje
+* kluczowa dla API i bibliotek
+
+---
+
+Jeśli chcesz, mogę:
+
+* ✅ zrobić **quiz z @Deprecated**
+* ✅ porównać z innymi annotation (`@Override`, `@SuppressWarnings`)
+* ✅ pokazać **jak deprecated’ować API jak w Spring / JDK**
+* ✅ przygotować **ściągę PDF / tabelkę**
+
+Co wybierasz? 😊

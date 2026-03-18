@@ -1,0 +1,66 @@
+Super 😄 lecimy z **`@Label`** – adnotacją często używaną w kontekście **Java Flight Recorder (JFR)** i nie tylko.
+
+---
+
+# 📌 `@Label` – co to jest?
+
+`@Label` to adnotacja **informacyjna**, która pozwala:
+
+> Przypisać czytelny opis lub nazwę do elementu kodu, np. pola w klasie zdarzenia JFR.
+
+Nie zmienia logiki programu, jest wykorzystywana przez narzędzia i frameworki do prezentacji czy dokumentacji.
+
+---
+
+## 🔎 Pakiet
+
+W kontekście JFR:
+
+```java id="g7y35a"
+jdk.jfr.Label
+```
+
+Od wersji: Java 9+
+
+---
+
+# ✅ Przykład użycia w Java Flight Recorder
+
+```java id="rx5k8t"
+import jdk.jfr.*;
+
+@Name("com.example.MyEvent")
+class MyEvent extends Event {
+
+    @Label("Sampling Rate (Hz)")
+    @Frequency
+    long samplingRate;
+
+    @Label("User Identifier")
+    String userId;
+}
+```
+
+➡ W narzędziach takich jak **Java Mission Control (JMC)** pola będą wyświetlane z nazwą z `@Label` zamiast samej nazwy pola w kodzie.
+
+---
+
+# 🧠 Uwagi
+
+1. **Tylko metadane** – nie wpływa na logikę ani runtime.
+2. **Stosowana głównie w JFR**, ale koncept podobny w innych frameworkach do dokumentowania pól.
+3. Może współpracować z innymi adnotacjami JFR:
+
+   * `@Description` – dłuższy opis pola
+   * `@ContentType` – typ semantyczny wartości
+   * `@Category` – grupowanie w kategoriach
+
+---
+
+# 🎯 Definicja egzaminacyjna
+
+> `@Label` w Java Flight Recorder przypisuje czytelną nazwę polu lub metodzie zdarzenia, która jest wykorzystywana przez narzędzia do wizualizacji lub dokumentacji.
+
+---
+
+Chcesz, żebym teraz zrobił **quiz z `@Label`**?

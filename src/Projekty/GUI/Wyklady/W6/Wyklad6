@@ -1,0 +1,138 @@
+WYKŁAD 05
+Poruszyliśmy zagadnienia:
+∙ Strumienie
+
+
+WYKŁAD 06
+Plan wykładu:
+∙ Współbieżność
+
+
+PROGRAMOWANIE WSPÓŁBIEŻNE
+WSPÓŁBIEŻNOŚĆ
+Program jest współbieżny, jeśli jego wykonanie wiąże się z więcej niż jednym przepływem
+strowania.
+
+
+WSPÓŁBIEŻNOŚĆ
+Program jest współbieżny, jeśli jego wykonanie wiąże się z więcej niż jednym przepływem
+strowania.
+Każdy przepływ sterowania jest realizowany przez odrębny wątek.
+Początkowo wykonuje się tylko wątek główny i wątki systemowe.
+Niezależnie od liczby procesorów, program wielowątkowy zachowuje się tak, jakby każdy przepływ
+sterowania był realizowany przez oddzielny procesor.
+4
+
+
+TWORZENIE WĄTKU
+Użycie klasy pochodnej od Thread:
+class Runner
+    extends Thread {
+        public void run ( ) {
+            // . . .
+        }
+    }
+// . . .
+public static void main(String [ ] args) {
+    new Runner ( ) . start ( ) ;
+}
+
+
+5
+TWORZENIE WĄTKU
+Użycie klasy Thread przez implementację interfejsu Runnable:
+class Program
+    implements Runnable {
+        public static void main(String [ ] args) {
+            new Thread(this) . start ( ) ;
+        }
+        public void run ( ) {
+            // . . .
+        }
+    }
+
+
+PROBLEM 1 - WYKLUCZENIE DOSTĘPU
+Program współbieżny musi zapewnić wykluczanie jednoczesnego dostępu do wspólnego
+zasobu dowolnej pary wątków korzystających z tego zasobu.
+Zaniedbanie tego wymagania może spowodować, że stan zasobu stanie się nieokreślony.
+7
+
+
+PROBLEM 1 - SEKCJE KRYTYCZNE
+Wykluczenie współbieżnego wykonania wycinka programu odbywa się za pomocą
+instrukcji:
+synchronized (lock) {
+    block
+}
+w której lock jest odnośnikiem do obiektu synchronizatora, a block jest sekwencją
+instrukcji stanowiących sekcję krytyczną
+
+
+8
+PROBLEM 1 - FUNKCJE SYNCHRONIZOWANE
+Funkcją synchronizowaną jest metoda zadeklarowana ze specyfikatorem synchronized.
+Type synchronized fun(par , par , . . , par) {
+    block
+}
+to jest niejawnie zastępowane definicją:
+Type synchronized fun(par , par , . . , par) {
+    synchronized (lock) {
+        block
+    }
+}
+
+
+9
+PROBLEM 2 - KOORDYNOWANIE WĄTKÓW
+Koordynowanie ma na celu wstrzymanie przepływu sterowania wątku od chwili, gdy
+zostanie on uwolniony przez inny wątek.
+synchronized (readyLock) {
+// . . .
+    try {
+        while ( ! gameReady)
+        readyLock . wait ( ) ;
+    } catch(InterruptedException) {
+        return ;
+        }
+        // . . .
+}
+
+
+10
+PROBLEM 2 - KOORDYNOWANIE WĄTKÓW
+Koordynowanie ma na celu wstrzymanie przepływu sterowania wątku od chwili, gdy
+zostanie on uwolniony przez inny wątek. Wstrzymanie wątków odbywa się za pomocą
+metody wait, a ich uwolnienie za pomocą metod notify i notifyAll.
+synchronized (readyLock) {
+    // . . .
+    try {
+        while ( ! gameReady)
+        readyLock . wait ( ) ;
+        } catch(InterruptedException) {
+            return ;
+        }
+        // . . .
+}
+10
+
+
+synchronized (readyLock) {
+    // . . .
+    readyLock . notify ( ) ;
+    gameReady = true ;
+    // . . .
+}
+
+
+EXECUTORSERVICE
+Concurrency API umożliwiło wysokopoziomową pracę z wątkami za pomocą
+ExecutorService. Dzięki temu zadania mogą być tworzone, uruchamiane i zarządzane
+asynchronicznie bez potrzeby tworzenia wątków.
+ExecutorService executor =
+Executors . newSingleThreadExecutor ( ) ;
+executor . submit(
+( ) −> {
+// . . .
+}
+) ;

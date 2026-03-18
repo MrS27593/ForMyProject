@@ -1,0 +1,184 @@
+Świetny wybór 👍
+**`IllegalArgumentException`** to jeden z **najważniejszych RuntimeException w praktycznej Javie**. Zrobimy go **dokładnie, z przykładami i pod rekrutację**.
+
+---
+
+## 1️⃣ Czym jest `IllegalArgumentException`?
+
+`IllegalArgumentException` to **unchecked exception** (`RuntimeException`), rzucany gdy:
+
+➡️ metoda dostaje **niepoprawny argument**
+➡️ argument **łamię kontrakt metody**
+➡️ dane wejściowe są **nieprawidłowe**
+
+```java
+public void setAge(int age) {
+    if (age < 0) {
+        throw new IllegalArgumentException("Wiek nie może być ujemny");
+    }
+}
+```
+
+---
+
+## 2️⃣ Miejsce w hierarchii
+
+```
+Throwable
+ └── Exception
+      └── RuntimeException
+           └── IllegalArgumentException
+```
+
+---
+
+## 3️⃣ Kiedy używać IllegalArgumentException? ⭐
+
+Używaj, gdy:
+
+* argument = `null` (jeśli nie jest dozwolony)
+* argument ma zły zakres
+* argument ma zły format
+* argument łamie reguły biznesowe
+
+📌 **Złota zasada**:
+
+> **Błąd argumentu → IllegalArgumentException**
+
+---
+
+## 4️⃣ Najczęstsze przykłady 🔥
+
+### 🔴 Zły zakres
+
+```java
+public void setPercentage(int p) {
+    if (p < 0 || p > 100) {
+        throw new IllegalArgumentException("Zakres 0–100");
+    }
+}
+```
+
+---
+
+### 🔴 `null` jako argument
+
+```java
+public User(String name) {
+    if (name == null) {
+        throw new IllegalArgumentException("name == null");
+    }
+}
+```
+
+---
+
+### 🔴 Zły format
+
+```java
+UUID.fromString("abc"); // IllegalArgumentException
+```
+
+---
+
+### 🔴 Walidacja w konstruktorze
+
+```java
+public Order(int amount) {
+    if (amount <= 0) {
+        throw new IllegalArgumentException("amount <= 0");
+    }
+}
+```
+
+---
+
+## 5️⃣ IllegalArgumentException vs NullPointerException
+
+| Sytuacja                    | Lepszy wyjątek             |
+| --------------------------- | -------------------------- |
+| Argument `null`             | `IllegalArgumentException` |
+| Użycie `null` w środku kodu | `NullPointerException`     |
+| Błąd programisty            | `RuntimeException`         |
+| Zła walidacja wejścia       | `IllegalArgumentException` |
+
+📌 **API publiczne → IllegalArgumentException**
+
+---
+
+## 6️⃣ `Objects.requireNonNull` a IllegalArgumentException
+
+```java
+this.name = Objects.requireNonNull(name, "name == null");
+```
+
+➡️ technicznie rzuca `NullPointerException`
+➡️ ale **z czytelnym komunikatem**
+
+📌 W API często lepiej jawnie:
+
+```java
+if (name == null) {
+    throw new IllegalArgumentException("name == null");
+}
+```
+
+---
+
+## 7️⃣ Czego NIE robić ❌
+
+❌ Nie łap:
+
+```java
+catch (IllegalArgumentException e) {}
+```
+
+❌ Nie używaj do błędów zewnętrznych (plik, DB)
+
+❌ Nie rzucaj bez komunikatu:
+
+```java
+throw new IllegalArgumentException(); // ❌
+```
+
+---
+
+## 8️⃣ Dobre praktyki ✅
+
+✔️ Rzucaj jak **najwcześniej** (fail-fast)
+✔️ Zawsze dodawaj **czytelny message**
+✔️ Waliduj argumenty w publicznych metodach
+✔️ Nie używaj do sterowania logiką
+
+---
+
+## 9️⃣ Rekrutacyjne pytania 🎯
+
+❓ Kiedy IllegalArgumentException zamiast Exception?
+➡️ gdy **argument metody jest niepoprawny**
+
+❓ Checked czy unchecked?
+➡️ **unchecked**
+
+❓ Czy można używać w konstruktorze?
+➡️ **TAK (wręcz zalecane)**
+
+---
+
+## 🔟 Podsumowanie – MUST KNOW
+
+* `IllegalArgumentException` = unchecked
+* Walidacja danych wejściowych
+* Lepszy niż NPE w API
+* Fail-fast
+* Jeden z NAJCZĘŚCIEJ używanych wyjątków
+
+---
+
+Jeśli chcesz:
+👉 **QUIZ z IllegalArgumentException**
+👉 **porównanie: IllegalStateException vs IllegalArgumentException**
+👉 **zadania rekrutacyjne z walidacją**
+👉 **następny wyjątek: IndexOutOfBoundsException**
+
+Co robimy dalej? 😄

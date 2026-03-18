@@ -1,0 +1,165 @@
+Świetnie 😄
+Oto **QUIZ z `abstract` w Javie** — pytania są **coraz trudniejsze**, dokładnie pod naukę i realne użycie w projektach.
+
+---
+
+## 🧪 Quiz: `abstract` w języku Java
+
+**Instrukcja:**
+Wybierz **jedną poprawną odpowiedź** (A, B, C lub D).
+
+---
+
+### **1. Co oznacza słowo kluczowe `abstract` w Javie?**
+
+A. Klasa lub metoda jest niewidoczna
+B. Klasa lub metoda jest niekompletna
+C. Klasa nie może mieć metod
+D. Metoda zawsze zwraca `null`
+
+---
+
+### **2. Która deklaracja klasy abstrakcyjnej jest poprawna?**
+
+A.
+
+```java
+class abstract Vehicle { }
+```
+
+B.
+
+```java
+abstract class Vehicle { }
+```
+
+C.
+
+```java
+abstract Vehicle class { }
+```
+
+D.
+
+```java
+abstract class Vehicle() { }
+```
+
+---
+
+### **3. Co jest prawdą o metodzie abstrakcyjnej?**
+
+A. Musi mieć ciało
+B. Może być `private`
+C. Nie ma ciała i kończy się `;`
+D. Musi być `static`
+
+---
+
+### **4. Co się stanie, jeśli klasa dziedzicząca NIE zaimplementuje wszystkich metod abstrakcyjnych?**
+
+A. Program uruchomi się normalnie
+B. Metody zostaną automatycznie zaimplementowane
+C. Klasa musi być oznaczona jako `abstract`
+D. JVM zgłosi wyjątek w czasie działania
+
+---
+
+### **5. Który kod jest poprawny?**
+
+A.
+
+```java
+abstract class A {
+    abstract void test() { }
+}
+```
+
+B.
+
+```java
+abstract class A {
+    void test();
+}
+```
+
+C.
+
+```java
+abstract class A {
+    abstract void test();
+}
+```
+
+D.
+
+```java
+class A {
+    abstract void test();
+}
+```
+
+---
+
+### **6. Które połączenie słów kluczowych jest NIEDOZWOLONE?**
+
+A. `abstract class`
+B. `abstract method`
+C. `abstract static method`
+D. `abstract public method`
+
+---
+
+### **7. Które zdanie jest prawdziwe?**
+
+A. Można tworzyć obiekty klas abstrakcyjnych
+B. Klasa abstrakcyjna może mieć konstruktor
+C. Klasa abstrakcyjna nie może mieć pól
+D. Metody abstrakcyjne mogą mieć ciało
+
+---
+
+### **8. Jaki jest główny cel klas abstrakcyjnych?**
+
+A. Poprawa wydajności
+B. Ukrywanie danych
+C. Wymuszanie implementacji metod w klasach potomnych
+D. Obsługa wyjątków
+
+---
+
+### **9. Co wypisze poniższy kod?**
+
+```java
+abstract class Animal {
+    abstract void sound();
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Hau");
+    }
+}
+
+Animal a = new Dog();
+a.sound();
+```
+
+A. Nic
+B. Błąd kompilacji
+C. `Hau`
+D. `Animal`
+
+---
+
+### **10. Kiedy lepiej użyć `abstract class` zamiast `interface`?**
+
+A. Gdy potrzebujesz wielu dziedziczeń
+B. Gdy chcesz mieć pola i konstruktor
+C. Gdy wszystkie metody mają być publiczne
+D. Gdy nie chcesz używać polimorfizmu
+
+---
+
+👉 Gdy skończysz, napisz: **`odpowiedzi`**
+a podam **pełny klucz + dokładne wyjaśnienia** do każdego pytania ✅

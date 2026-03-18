@@ -1,0 +1,118 @@
+Świetnie 👍
+Poniżej masz **poprawne odpowiedzi + krótkie, rzeczowe omówienie** do każdego pytania.
+
+---
+
+## ✅ **ODPOWIEDZI – Quiz: Klasa `Object` w Javie**
+
+---
+
+### **1. Co zwraca domyślna implementacja metody `toString()`?**
+
+✅ **B) Nazwę klasy i hashCode w postaci szesnastkowej**
+
+🔎 Przykład:
+
+```java
+Samochod@1a2b3c4d
+```
+
+To **nie jest adres pamięci**, tylko hashCode zapisany w systemie szesnastkowym.
+
+---
+
+### **2. Jak działa domyślna metoda `equals()` w klasie `Object`?**
+
+✅ **B) Porównuje referencje (czy to ten sam obiekt)**
+
+🔎 Domyślne `equals()` działa tak samo jak `==`:
+
+```java
+this == obj
+```
+
+---
+
+### **3. Wskaż prawdziwe zdania (więcej niż jedno może być poprawne):**
+
+❌ A) Jeśli nadpisujesz `equals()`, nie musisz nadpisywać `hashCode()`
+✅ **B) Każda klasa w Javie dziedziczy po klasie `Object`**
+❌ C) `Object` jest interfejsem
+✅ **D) `clone()` działa tylko wtedy, gdy klasa implementuje interfejs `Cloneable`**
+
+✔ **Poprawne odpowiedzi: B, D**
+
+🔎 Ważna zasada:
+
+> Nadpisujesz `equals()` → **MUSISZ** nadpisać `hashCode()`
+
+---
+
+### **4. Co zwraca metoda `getClass()`?**
+
+✅ **B) Obiekt typu `Class`**
+
+🔎 Przykład:
+
+```java
+Samochod s = new Samochod();
+Class<?> c = s.getClass();
+```
+
+---
+
+### **5. Pytanie otwarte – `equals()` w klasie `Samochod`**
+
+✅ **Poprawna implementacja:**
+
+```java
+class Samochod {
+    String marka;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Samochod)) return false;
+        Samochod samochod = (Samochod) o;
+        return marka.equals(samochod.marka);
+    }
+
+    @Override
+    public int hashCode() {
+        return marka.hashCode();
+    }
+}
+```
+
+🔎 Co tu się dzieje:
+1️⃣ Sprawdzenie tej samej referencji
+2️⃣ Sprawdzenie typu
+3️⃣ Rzutowanie
+4️⃣ Porównanie pola `marka`
+5️⃣ Spójny `hashCode()`
+
+---
+
+## 🧠 PODSUMOWANIE
+
+Jeśli opanowałeś:
+
+* `toString()`
+* `equals()` + `hashCode()`
+* fakt, że **wszystko dziedziczy po `Object`**
+
+👉 to masz **solidne fundamenty OOP w Javie**
+
+---
+
+## 🔜 CO DALEJ?
+
+Możemy iść dalej **krok po kroku**:
+
+* 👉 **konstruktory**
+* 👉 **pola, metody, this**
+* 👉 **dziedziczenie (`extends`)**
+* 👉 **`String` jako specjalna klasa**
+* 👉 albo **kolejny quiz (trudniejszy 😈)**
+
+Napisz tylko: **co dalej** 🚀

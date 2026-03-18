@@ -1,0 +1,117 @@
+Oczywiście! Interfejs `Comparable` w Javie jest jednym z podstawowych narzędzi do sortowania obiektów. Umożliwia on definiowanie naturalnego porządku obiektów danej klasy. Oto wszystko, co powinieneś wiedzieć o `Comparable` — krok po kroku:
+
+---
+
+## 📌 1. Co to jest `Comparable`?
+
+`Comparable<T>` to interfejs generyczny znajdujący się w pakiecie `java.lang`. Definiuje metodę:
+
+```java
+public interface Comparable<T> {
+    int compareTo(T o);
+}
+```
+
+Klasa, która implementuje ten interfejs, zobowiązana jest do zdefiniowania **naturalnego porządku sortowania** obiektów tej klasy.
+
+---
+
+## 🔧 2. Jak działa `compareTo`?
+
+Metoda `compareTo(T o)` porównuje `this` z obiektem `o` i zwraca:
+
+* **< 0** — jeśli `this` < `o`
+* **0** — jeśli `this` == `o`
+* **> 0** — jeśli `this` > `o`
+
+Czyli dokładnie jak metoda sortująca – wskazuje kolejność.
+
+---
+
+## 📘 3. Przykład praktyczny
+
+Załóżmy, że mamy klasę `Person`, którą chcemy sortować po wieku:
+
+```java
+public class Person implements Comparable<Person> {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public int compareTo(Person other) {
+        return Integer.compare(this.age, other.age);
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + age + ")";
+    }
+}
+```
+
+Użycie:
+
+```java
+List<Person> people = new ArrayList<>();
+people.add(new Person("Anna", 30));
+people.add(new Person("Bartek", 25));
+people.add(new Person("Cezary", 40));
+
+Collections.sort(people);
+
+System.out.println(people);
+// -> [Bartek (25), Anna (30), Cezary (40)]
+```
+
+---
+
+## 🧠 4. Kiedy używać `Comparable`?
+
+* Gdy chcesz mieć **jeden, domyślny sposób porównywania** obiektów.
+* Idealne do **sortowania list**, **używania w TreeSet/TreeMap**.
+
+---
+
+## 🛠️ 5. Co jeśli chcę sortować według różnych kryteriów?
+
+Wtedy **nie używaj tylko `Comparable`**, ale również interfejsu `Comparator`.
+
+Na przykład:
+
+```java
+Comparator<Person> nameComparator = Comparator.comparing(p -> p.name);
+Collections.sort(people, nameComparator);
+```
+
+---
+
+## ❗ 6. Częste błędy
+
+* Porównywanie z `null` (powinno być odpowiednio obsłużone).
+* Nieprzestrzeganie kontraktu `compareTo`, np. niespójność z `equals`.
+* Zwracanie błędnych wartości (np. `1`, `0`, `-1` ręcznie — lepiej używać np. `Integer.compare`).
+
+---
+
+## ✅ 7. Zasady i kontrakt `compareTo`
+
+Jeśli `a.compareTo(b) == 0`, to powinno być też `a.equals(b)` — choć nie jest to wymagane przez kompilator, ale przez dobre praktyki i spójność np. z `TreeSet`.
+
+---
+
+## 🧪 8. Możliwość testowania
+
+Można przetestować poprawność metody `compareTo` tworząc testy jednostkowe, np. w JUnit:
+
+```java
+assertTrue(new Person("A", 20).compareTo(new Person("B", 30)) < 0);
+```
+
+---
+
+Jeśli chcesz, mogę pokazać przykład porównywania z użyciem kilku kryteriów lub pokazać różnice z `Comparator`. Czy chciałbyś pójść dalej w tym temacie?

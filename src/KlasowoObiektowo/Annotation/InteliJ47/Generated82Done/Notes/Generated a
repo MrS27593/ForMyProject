@@ -1,0 +1,127 @@
+Masz rację 👍 — poniżej **porządna wersja: pytanie + poprawna odpowiedź + krótkie wyjaśnienie**.
+
+---
+
+# ✅ Quiz – `@Generated` (odpowiedzi z wyjaśnieniem)
+
+---
+
+### 1️⃣ Do czego służy `@Generated`?
+
+**Poprawna odpowiedź: B – Oznacza kod wygenerowany automatycznie**
+
+Adnotacja informuje, że element został wygenerowany przez narzędzie (np. processor adnotacji), a nie napisany ręcznie.
+
+---
+
+### 2️⃣ Która wersja jest poprawna w Java 11+?
+
+**Poprawna odpowiedź: B – `javax.annotation.processing.Generated`**
+
+Od Java 9 właściwa wersja znajduje się w pakiecie związanym z annotation processing.
+
+---
+
+### 3️⃣ Czy `@Generated` wpływa na działanie programu w runtime?
+
+**Poprawna odpowiedź: B – Nie**
+
+To wyłącznie metadane dla narzędzi (IDE, coverage, analiza statyczna).
+
+---
+
+### 4️⃣ Czy `@Generated` jest obowiązkowa przy generowaniu kodu?
+
+**Poprawna odpowiedź: B – Nie**
+
+Generator może jej używać, ale nie jest to wymagane przez JVM ani kompilator.
+
+---
+
+### 5️⃣ W jakim kontekście najczęściej używa się `@Generated`?
+
+**Poprawna odpowiedź: B – Annotation Processing (APT)**
+
+Najczęściej stosowana przy kodzie tworzonym przez procesory adnotacji.
+
+---
+
+### 6️⃣ Czy IDE może traktować kod oznaczony `@Generated` inaczej?
+
+**Poprawna odpowiedź: A – Tak**
+
+IDE może np.:
+
+* ukrywać ostrzeżenia
+* wykluczać z coverage
+* oznaczać jako kod wygenerowany
+
+---
+
+### 7️⃣ Czy ta deklaracja jest poprawna?
+
+```java
+import javax.annotation.processing.Generated;
+
+@Generated("MyGenerator")
+public class MyDto {
+}
+```
+
+**Poprawna odpowiedź: A – Tak**
+
+To prawidłowe użycie.
+
+---
+
+### 8️⃣ Dlaczego stara wersja `javax.annotation.Generated` zniknęła z JDK 9?
+
+**Poprawna odpowiedź: B – Została przeniesiona do modułu związanego z annotation processing**
+
+Zmiany modularne (Project Jigsaw) uporządkowały pakiety.
+
+---
+
+### 9️⃣ Czy `@Generated` może być używana poza kontekstem annotation processing?
+
+**Poprawna odpowiedź: A – Tak**
+
+Technicznie można jej użyć w dowolnym miejscu — to tylko metadane.
+
+---
+
+### 🔟 Czy `@Generated` jest częścią:
+
+**Poprawna odpowiedź: C – Obu**
+
+Występuje w:
+
+* JDK (`javax.annotation.processing.Generated`)
+* Jakarta EE (`jakarta.annotation.Generated`)
+
+---
+
+### 1️⃣1️⃣ Czy `@Generated` może zawierać informacje o wersji generatora?
+
+**Poprawna odpowiedź: A – Tak**
+
+Parametr `value()` często zawiera:
+
+* nazwę generatora
+* wersję
+* czasem datę
+
+Np.:
+
+```java
+@Generated(value = "MapStruct 1.5.3")
+```
+
+---
+
+Jeśli chcesz, mogę teraz zrobić:
+
+* quiz HARD (z modułami i retention policy),
+* porównanie `@Generated` vs `@SuppressWarnings`,
+* albo pytania typowo rekrutacyjne.
+

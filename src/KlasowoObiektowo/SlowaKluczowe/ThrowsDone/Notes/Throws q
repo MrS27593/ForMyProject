@@ -1,0 +1,89 @@
+## QUIZ – `throws` w Java (10 pytań)
+
+---
+
+### **1. Czym jest `throws` w Javie?**
+
+A. Słowem kluczowym do rzucania wyjątku w kodzie
+B. Słowem kluczowym w deklaracji metody, informującym o możliwych wyjątkach
+C. Typem wyjątku
+D. Operatorem logicznym
+
+---
+
+### **2. Gdzie umieszczamy `throws` w metodzie?**
+
+A. Wewnątrz ciała metody
+B. Po nawiasach metody, przed `{`
+C. Na początku klasy
+D. Na końcu pliku
+
+---
+
+### **3. Która metoda poprawnie deklaruje wyjątek?**
+
+A. `void read() { throw new IOException(); }`
+B. `void read() throws IOException { }`
+C. `void read() throws IOException { throw new IOException(); }`
+D. `void read() throw IOException { throw new IOException(); }`
+
+---
+
+### **4. Czy `throws` jest wymagane dla `RuntimeException`?**
+
+A. Tak, zawsze
+B. Nie, nie jest wymagane
+C. Tylko przy metodzie `main`
+D. Tylko jeśli metoda jest `static`
+
+---
+
+### **5. Co musi zrobić wywołujący metodę, która deklaruje checked exception?**
+
+A. Nic, wyjątek zostanie zignorowany
+B. Obsłużyć go w `try-catch` lub zadeklarować `throws`
+C. Zamienić wyjątek na `RuntimeException`
+D. Przekonwertować wyjątek na `String`
+
+---
+
+### **6. Czy można deklarować więcej niż jeden wyjątek w `throws`?**
+
+A. Nie
+B. Tak, rozdzielając przecinkami
+C. Tak, używając średnika
+D. Tylko jeden wyjątek jest dozwolony
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład metody, która deklaruje, że może rzucić `IOException` i wyjaśnij, dlaczego warto użyć `throws`.
+
+---
+
+### **8. (OTWARTE)**
+
+Jaka jest różnica między `throw` a `throws`?
+
+---
+
+### **9. Co się stanie, jeśli metoda nie zadeklaruje checked exception ani go nie obsłuży?**
+
+A. Program skompiluje się normalnie
+B. Kompilator zgłosi błąd
+C. Wyjątek zostanie zignorowany
+D. JVM automatycznie doda `throws`
+
+---
+
+### **10. Które z poniższych jest prawidłową sygnaturą metody?**
+
+A. `void test() throws IOException, SQLException { }`
+B. `void test() throw IOException, SQLException { }`
+C. `void test() throws IOException;`
+D. `void test() throws IOException SQLException { }`
+
+---
+
+Napisz **„odpowiedzi”**, a podam poprawne odpowiedzi z wyjaśnieniami.

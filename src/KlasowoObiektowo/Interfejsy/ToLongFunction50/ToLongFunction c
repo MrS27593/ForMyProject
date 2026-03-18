@@ -1,0 +1,85 @@
+Oczywiście! `ToLongFunction` to część biblioteki standardowej Javy — konkretnie pakietu `java.util.function` — i jest częścią systemu programowania funkcyjnego wprowadzonego w Java 8.
+
+---
+
+## 🔧 Co to jest `ToLongFunction<T>`?
+
+`ToLongFunction<T>` to **interfejs funkcyjny**, który reprezentuje funkcję przyjmującą obiekt typu `T` i zwracającą wartość typu `long`.
+
+### Sygnatura interfejsu:
+
+```java
+@FunctionalInterface
+public interface ToLongFunction<T> {
+    long applyAsLong(T value);
+}
+```
+
+---
+
+## 🔹 Kiedy używać `ToLongFunction<T>`?
+
+Używamy go, gdy mamy:
+
+* wejście typu obiektowego `T` (np. `String`, `Person`, `Order`, itp.),
+* i chcemy wyciągnąć z niego liczbę typu `long`.
+
+### ✅ Przykład użycia:
+
+```java
+import java.util.function.ToLongFunction;
+
+public class Example {
+    public static void main(String[] args) {
+        ToLongFunction<String> stringLengthToLong = str -> str.length();
+
+        long result = stringLengthToLong.applyAsLong("ChatGPT");
+        System.out.println(result); // Wydrukuje: 7
+    }
+}
+```
+
+---
+
+## 🧠 Cechy `ToLongFunction<T>`
+
+* Jest to interfejs funkcyjny (posiada tylko jedną metodę abstrakcyjną),
+* Jest wykorzystywany głównie w kontekście strumieni i programowania funkcyjnego,
+* Unika autoboxingu z `Long`, bo operuje na prymitywnym `long` — co poprawia wydajność.
+
+---
+
+## 📦 Użycie w strumieniach:
+
+```java
+import java.util.List;
+import java.util.function.ToLongFunction;
+
+public class StreamExample {
+    public static void main(String[] args) {
+        List<String> words = List.of("java", "stream", "long");
+
+        long totalLength = words.stream()
+            .mapToLong((ToLongFunction<String>) String::length)
+            .sum();
+
+        System.out.println("Total length: " + totalLength); // Total length: 14
+    }
+}
+```
+
+---
+
+## 🔄 Porównanie z innymi interfejsami funkcyjnymi:
+
+| Interfejs             | Wejście | Wyjście |
+| --------------------- | ------- | ------- |
+| `Function<T, R>`      | T       | R       |
+| `ToIntFunction<T>`    | T       | int     |
+| `ToDoubleFunction<T>` | T       | double  |
+| `ToLongFunction<T>`   | T       | long    |
+| `LongFunction<R>`     | long    | R       |
+
+---
+
+Chcesz przykład bardziej z życia wzięty, np. z użyciem własnej klasy?

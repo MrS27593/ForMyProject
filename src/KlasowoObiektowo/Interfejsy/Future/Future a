@@ -1,0 +1,74 @@
+Świetnie! Oto **odpowiedzi do quizu o `Future` w Javie** – wraz z krótkimi wyjaśnieniami tam, gdzie warto.
+
+---
+
+### ✅ **ODPOWIEDZI – pytania zamknięte**
+
+1. **Czym jest `Future` w Javie?**
+   ✅ **C) Obiektem reprezentującym wynik operacji asynchronicznej**
+
+2. **Która metoda `Future` blokuje do momentu zakończenia zadania?**
+   ✅ **B) `get()`**
+   `get()` blokuje, dopóki wynik nie będzie gotowy.
+
+3. **Co się stanie po wywołaniu `future.cancel(true)`?**
+   ✅ **C) Zadanie zostanie anulowane, jeśli jeszcze się nie rozpoczęło**
+   Jeżeli już się rozpoczęło, można próbować je przerwać (jeśli wspiera `interrupt()`).
+
+4. **Jak sprawdzić, czy `Future` zakończył działanie?**
+   ✅ **C) `future.isDone()`**
+
+5. **Które z poniższych NIE jest wadą `Future`?**
+   ✅ **C) Możliwość asynchronicznego wykonania**
+   To akurat jego zaleta – `Future` służy właśnie do obsługi zadań asynchronicznych.
+
+6. **Czym różni się `CompletableFuture` od `Future`?**
+   ✅ **C) `CompletableFuture` umożliwia reakcje po zakończeniu zadania**
+
+7. **Które z poniższych metod użyjesz, by dodać akcję po zakończeniu `CompletableFuture`?**
+   ✅ **A) `thenAccept()`**
+
+---
+
+### ✅ **ODPOWIEDZI – pytania otwarte**
+
+8. **Co się stanie, jeśli wywołasz `future.get()` zanim zadanie się zakończy?**
+   ➤ Wątek wywołujący `get()` zostanie **zablokowany** i będzie czekał, aż zadanie zakończy się i zwróci wynik lub wyjątek.
+
+---
+
+9. **Dlaczego warto używać `CompletableFuture` zamiast `Future` w nowoczesnych aplikacjach?**
+   ➤ `CompletableFuture` pozwala na:
+   - wykonywanie akcji po zakończeniu zadania (`thenApply`, `thenAccept`)
+   - łańcuchowanie i kombinowanie zadań
+   - lepszą obsługę wyjątków (`exceptionally`, `handle`)
+   - pracę reaktywną, bardziej zbliżoną do np. programowania w stylu funkcyjnym
+
+---
+
+10. **Przykład kodu z `Future`:**
+
+```java
+import java.util.concurrent.*;
+
+public class FutureExample {
+    public static void main(String[] args) throws Exception {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+        Future<String> future = executor.submit(() -> {
+            Thread.sleep(1000); // symulacja długiej operacji
+            return "Zadanie zakończone";
+        });
+
+        System.out.println("Czekam na wynik...");
+        String wynik = future.get(); // zablokuje do zakończenia zadania
+        System.out.println("Wynik: " + wynik);
+
+        executor.shutdown();
+    }
+}
+```
+
+---
+
+Chcesz teraz może podobny quiz o `CompletableFuture`, czy przejść do bardziej zaawansowanych przykładów?

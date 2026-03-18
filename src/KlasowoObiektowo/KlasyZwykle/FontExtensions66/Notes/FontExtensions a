@@ -1,0 +1,46 @@
+Świetnie! Przejdźmy do **sprawdzenia odpowiedzi**. Poniżej znajdują się **poprawne odpowiedzi i krótkie wyjaśnienia**:
+
+---
+
+### 📘 **Odpowiedzi do quizu: FontExtensions i JetBrains Runtime**
+
+#### **Pytania zamknięte:**
+
+**1. W jakim celu prawdopodobnie została stworzona klasa `FontExtensions` w JBR?**
+✅ **B. Do rozszerzania funkcjonalności związanej z czcionkami**
+➡️ `FontExtensions` to klasa pomocnicza wykorzystywana do rozszerzeń związanych z obsługą czcionek w środowisku JetBrains Runtime.
+
+**2. JetBrains Runtime (JBR) to:**
+✅ **C. Zmodyfikowana wersja OpenJDK**
+➡️ JetBrains Runtime bazuje na OpenJDK i zawiera poprawki wydajnościowe, graficzne i systemowe, używane m.in. w IntelliJ IDEA i innych produktach JetBrains.
+
+**3. Która biblioteka korzysta z usług takich jak `FontExtensions`?**
+✅ **C. Jewel**
+➡️ `Jewel` to projekt od JetBrains dla Compose UI na desktopie, który wykorzystuje usługi takie jak `FontExtensions` poprzez klasę `JBR`.
+
+---
+
+#### **Pytania otwarte:**
+
+**4. Podaj dwa możliwe zastosowania `FontExtensions` w aplikacji desktopowej.**
+💡 Przykładowe odpowiedzi:
+
+* Dynamiczne ładowanie czcionek w czasie działania aplikacji.
+* Dostosowanie parametrów renderowania czcionek (np. antyaliasing, rozdzielczość).
+* Obsługa czcionek spoza systemu operacyjnego (np. z zasobów aplikacji).
+
+**5. W jakim przypadku użycie `FontExtensions` może być przydatne dla dewelopera interfejsu użytkownika?**
+💡 Odpowiedź:
+Kiedy deweloper tworzy aplikację, która ma wyglądać spójnie na różnych systemach operacyjnych — może użyć `FontExtensions`, by wczytać konkretne czcionki i zapewnić identyczne renderowanie bez względu na platformę.
+
+**6. Jakie inne funkcje (oprócz zarządzania czcionkami) oferuje JetBrains Runtime w porównaniu do standardowego OpenJDK?**
+💡 Przykłady:
+
+* Lepsze renderowanie UI na systemach HiDPI.
+* Poprawiona obsługa klawiatury i języków (IME).
+* Integracja z menedżerami okien (np. macOS, Linux Wayland).
+* Poprawki bezpieczeństwa i stabilności dostosowane do IntelliJ Platform.
+
+---
+
+Chcesz teraz **quiz praktyczny z kodem**, np. jak dynamicznie załadować czcionkę lub wykorzystać JBR w Compose for Desktop?

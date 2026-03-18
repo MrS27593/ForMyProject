@@ -1,0 +1,117 @@
+Świetnie 😄
+Lecimy z **quizem o `@Generated`** – od podstaw do poziomu rekrutacyjnego.
+
+---
+
+# 🟢 Część I – Podstawy
+
+### 1️⃣ Do czego służy `@Generated`?
+
+A. Oznacza kod przestarzały
+B. Oznacza kod wygenerowany automatycznie
+C. Wymusza generowanie kodu
+D. Przyspiesza kompilację
+
+---
+
+### 2️⃣ Która wersja jest poprawna w Java 11+?
+
+A. `javax.annotation.Generated`
+B. `javax.annotation.processing.Generated`
+C. `java.lang.Generated`
+D. `jdk.annotation.Generated`
+
+---
+
+### 3️⃣ Czy `@Generated` wpływa na działanie programu w runtime?
+
+A. Tak
+B. Nie
+
+---
+
+### 4️⃣ Czy `@Generated` jest obowiązkowa przy generowaniu kodu?
+
+A. Tak
+B. Nie
+
+---
+
+# 🟡 Część II – Średni poziom
+
+### 5️⃣ W jakim kontekście najczęściej używa się `@Generated`?
+
+A. Reflection
+B. Annotation Processing (APT)
+C. Spring AOP
+D. JVM Garbage Collector
+
+---
+
+### 6️⃣ Czy IDE może traktować kod oznaczony `@Generated` inaczej?
+
+A. Tak
+B. Nie
+
+---
+
+### 7️⃣ Czy ta deklaracja jest poprawna?
+
+```java
+import javax.annotation.processing.Generated;
+
+@Generated("MyGenerator")
+public class MyDto {
+}
+```
+
+A. Tak
+B. Nie
+
+---
+
+### 8️⃣ Dlaczego stara wersja `javax.annotation.Generated` zniknęła z JDK 9?
+
+A. Była błędna
+B. Została przeniesiona do modułu związanego z annotation processing
+C. Była nieużywana
+D. Kolidowała z lambdami
+
+---
+
+# 🔴 Część III – Zaawansowane
+
+### 9️⃣ Czy `@Generated` może być używana poza kontekstem annotation processing?
+
+A. Tak
+B. Nie
+
+---
+
+### 🔟 Czy `@Generated` jest częścią:
+
+A. JDK
+B. Jakarta EE
+C. Obu
+D. Żadnego
+
+---
+
+### 1️⃣1️⃣ Czy `@Generated` może zawierać informacje o wersji generatora?
+
+A. Tak
+B. Nie
+
+---
+
+Odpowiedz w formacie:
+
+```
+1B
+2?
+3?
+...
+```
+
+Jak podasz odpowiedzi — sprawdzimy i dam Ci komentarz „jak na rozmowie technicznej” 😎
+

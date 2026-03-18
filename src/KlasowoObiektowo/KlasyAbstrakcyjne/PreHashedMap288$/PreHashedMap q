@@ -1,0 +1,99 @@
+Świetnie! Oto **quiz dotyczący koncepcji `PreHashedMap`** oraz ogólnej wiedzy o strukturach map w Javie. Quiz składa się z **10 pytań** z odpowiedziami jednokrotnego wyboru (A, B, C, D).
+
+---
+
+### **📘 Quiz: Mapy i PreHashedMap w Javie**
+
+#### **1. Co to jest `PreHashedMap`?**
+
+A. Oficjalna klasa w Java SE
+B. Mapa, która przechowuje dane w kolejności ich dodania
+C. Własna implementacja lub specjalna mapa z góry przygotowaną funkcją haszującą
+D. Synonim `ConcurrentHashMap`
+
+---
+
+#### **2. W jakim przypadku `PreHashedMap` jest najbardziej użyteczna?**
+
+A. Kiedy dane są dynamiczne i często się zmieniają
+B. Gdy klucze są nieznane do czasu wykonania programu
+C. Gdy zbiór danych jest znany z góry i rzadko się zmienia
+D. Kiedy potrzebujemy struktury FIFO
+
+---
+
+#### **3. Jaka metoda w `Map` służy do pobrania wartości na podstawie klucza?**
+
+A. `put()`
+B. `contains()`
+C. `get()`
+D. `valueOf()`
+
+---
+
+#### **4. Co się stanie, jeśli użyjemy `get()` z kluczem, którego nie ma w mapie?**
+
+A. Zostanie rzucony wyjątek
+B. Zwróci wartość domyślną 0
+C. Zwróci `null`
+D. Zatrzyma program
+
+---
+
+#### **5. Jaki interfejs implementuje klasa `HashMap` w Javie?**
+
+A. `Serializable`
+B. `Map`
+C. `Collection`
+D. `Hashable`
+
+---
+
+#### **6. W jakim celu można użyć `PreHashedMap` w parserze języka programowania?**
+
+A. Do wyświetlania GUI
+B. Do parsowania liczb zmiennoprzecinkowych
+C. Do szybkiego rozpoznawania słów kluczowych
+D. Do szyfrowania hasła
+
+---
+
+#### **7. Która z poniższych map zachowuje kolejność dodawania elementów?**
+
+A. `HashMap`
+B. `TreeMap`
+C. `LinkedHashMap`
+D. `EnumMap`
+
+---
+
+#### **8. Co oznacza „haszowanie” w kontekście mapy?**
+
+A. Dzielenie danych przez 2
+B. Zamiana mapy na listę
+C. Przypisanie wartościom klucza na podstawie funkcji skrótu
+D. Przeszukiwanie całej mapy liniowo
+
+---
+
+#### **9. Czym różni się `TreeMap` od `HashMap`?**
+
+A. `TreeMap` przechowuje dane w losowej kolejności
+B. `TreeMap` sortuje klucze zgodnie z naturalnym porządkiem lub komparatorem
+C. `TreeMap` nie pozwala na null jako klucz
+D. `TreeMap` działa tylko z liczbami całkowitymi
+
+---
+
+#### **10. Jakie są potencjalne zalety `PreHashedMap` w porównaniu do `HashMap`?**
+
+A. Dynamiczne dodawanie danych
+B. Szybszy dostęp dla ustalonego zbioru kluczy
+C. Mniejsza przejrzystość kodu
+D. Brak potrzeby stosowania kluczy
+
+---
+
+
+
+Jeśli chcesz, mogę wygenerować **wersję interaktywną** quizu w HTML/JavaScript albo zrobić quiz na **poziomie zaawansowanym** – chcesz?

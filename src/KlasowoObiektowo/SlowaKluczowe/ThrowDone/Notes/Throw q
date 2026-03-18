@@ -1,0 +1,99 @@
+## QUIZ – `throw` w Java (10 pytań)
+
+---
+
+### **1. Czym jest `throw` w Javie?**
+
+A. Słowem kluczowym deklarującym wyjątki w metodzie
+B. Słowem kluczowym do rzucania wyjątku w ciele metody
+C. Typem wyjątku
+D. Operatorem logicznym
+
+---
+
+### **2. Co można użyć po `throw`?**
+
+A. Dowolną wartość liczbową
+B. Obiekt klasy dziedziczącej po `Throwable`
+C. String
+D. Metodę
+
+---
+
+### **3. Co zrobi poniższy kod?**
+
+```java
+throw new ArithmeticException("Błąd!");
+```
+
+A. Zakończy metodę i przekaże wyjątek wywołującemu
+B. Zignoruje wyjątek
+C. Zwróci wartość `"Błąd!"`
+D. Skompiluje się, ale nic nie zrobi
+
+---
+
+### **4. Jak różni się `throw` od `throws`?**
+
+A. `throw` deklaruje wyjątki, `throws` je rzuca
+B. `throw` i `throws` są synonimami
+C. `throw` rzuca wyjątek w kodzie, `throws` deklaruje wyjątki w sygnaturze
+D. `throw` jest używane tylko w `try`, `throws` tylko w klasach
+
+---
+
+### **5. Czy `throw` może rzucić więcej niż jeden wyjątek naraz?**
+
+A. Tak
+B. Nie
+C. Tylko w pętli `for`
+D. Tylko w metodzie `main`
+
+---
+
+### **6. Co się stanie, jeśli rzucisz checked exception w metodzie bez `throws` lub `try-catch`?**
+
+A. Program działa poprawnie
+B. Kompilator zgłosi błąd
+C. JVM automatycznie doda `throws`
+D. Wyjątek zostanie zignorowany
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład użycia `throw` dla `RuntimeException`.
+
+---
+
+### **8. (OTWARTE)**
+
+Dlaczego użycie `throw` przerywa dalsze wykonywanie metody?
+
+---
+
+### **9. Czy można użyć `throw` dla zmiennej typu `int`?**
+
+A. Tak
+B. Nie
+C. Tylko w pętli
+D. Tylko w klasie abstrakcyjnej
+
+---
+
+### **10. Co jest błędem w tym kodzie?**
+
+```java
+void read() throw IOException {
+    throw new IOException();
+}
+```
+
+A. Brakuje `catch`
+B. Błędna składnia `throw` w deklaracji metody
+C. Nie można rzucać IOException
+D. Brakuje nawiasów w `throw`
+
+---
+
+Napisz **„odpowiedzi”**, a podam poprawne odpowiedzi z wyjaśnieniami.

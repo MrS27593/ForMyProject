@@ -1,0 +1,82 @@
+Świetnie! Oto **quiz dotyczący typu `double` w Javie** – idealny do sprawdzenia i utrwalenia wiedzy. Składa się z **10 pytań**: 6 jednokrotnego wyboru, 2 prawda/fałsz i 2 otwarte.
+
+---
+
+## ✅ **QUIZ: Typ `double` w Javie**
+
+---
+
+### **1. Jaki rozmiar w pamięci (RAM) zajmuje zmienna typu `double` w Javie?**
+A. 32 bity
+B. 64 bity
+C. 128 bitów
+D. Zależy od systemu operacyjnego
+
+---
+
+### **2. Co zostanie wypisane?**
+```java
+double a = 0.1 + 0.2;
+double b = 0.3;
+System.out.println(a == b);
+```
+A. true
+B. false
+C. Kompilator zgłosi błąd
+D. Program się zawiesi
+
+---
+
+### **3. Która z poniższych metod NIE należy do klasy `Math`, ale może być używana z `double`?**
+A. `Math.pow()`
+B. `Math.sqrt()`
+C. `Math.toDouble()`
+D. `Math.abs()`
+
+---
+
+### **4. Co oznacza wartość `Double.NaN`?**
+A. Wartość bardzo duża
+B. Brak liczby (Not a Number)
+C. Błąd kompilacji
+D. Nieskończoność ujemna
+
+---
+
+### **5. Jaka jest domyślna wartość zmiennej typu `double` w klasie?**
+A. null
+B. 0
+C. 0.0
+D. Brak – musi być zainicjalizowana
+
+---
+
+### **6. Jak najlepiej porównać liczby `double`, aby uniknąć błędów precyzji?**
+A. `a == b`
+B. `a.equals(b)`
+C. `Math.abs(a - b) < epsilon`
+D. `a.compareTo(b) == 0`
+
+---
+
+### **7. (PRAWDA/FAŁSZ)**
+Zmienna typu `double` może przechowywać wartość `null`.
+
+---
+
+### **8. (PRAWDA/FAŁSZ)**
+Wartości `-0.0` i `0.0` są różne pod względem binarnego zapisu, ale w porównaniu `==` dają wynik `true`.
+
+---
+
+### **9. (PYTANIE OTWARTE)**
+Dlaczego `double` nie jest zalecany do przechowywania wartości pieniężnych?
+
+---
+
+### **10. (PYTANIE OTWARTE)**
+Co to jest epsilon i jaką rolę odgrywa w porównywaniu liczb typu `double`?
+
+---
+
+Chcesz teraz odpowiedzi z wyjaśnieniami lub spróbować najpierw samodzielnie?

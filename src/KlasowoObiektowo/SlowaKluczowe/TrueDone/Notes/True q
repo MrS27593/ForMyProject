@@ -1,0 +1,113 @@
+## QUIZ – `true` w Java (10 pytań)
+
+---
+
+### **1. Czym jest `true` w języku Java?**
+
+A. Stałą typu `int`
+B. Literałem typu `boolean`
+C. Słowem kluczowym pętli
+D. Wartością typu `Boolean`
+
+---
+
+### **2. Które przypisanie jest poprawne?**
+
+A. `int x = true;`
+B. `boolean x = 1;`
+C. `boolean x = true;`
+D. `Boolean x = 1;`
+
+---
+
+### **3. Co zrobi ten kod?**
+
+```java
+if (true) {
+    System.out.println("OK");
+}
+```
+
+A. Nie skompiluje się
+B. Wypisze `OK`
+C. Wyrzuci wyjątek
+D. Wypisze `true`
+
+---
+
+### **4. Który warunek jest poprawny w Javie?**
+
+A. `if (1)`
+B. `if ("true")`
+C. `if (true)`
+D. `if (True)`
+
+---
+
+### **5. Co oznacza poniższy kod?**
+
+```java
+while (true) {
+    // ...
+}
+```
+
+A. Pętlę wykonaną jeden raz
+B. Pętlę, która wykona się 10 razy
+C. Pętlę nieskończoną
+D. Błąd kompilacji
+
+---
+
+### **6. Jaki będzie wynik wyrażenia?**
+
+```java
+boolean result = (5 > 3);
+```
+
+A. `false`
+B. `0`
+C. `1`
+D. `true`
+
+---
+
+### **7. Które wyrażenie zwróci `true`?**
+
+A. `true && false`
+B. `!true`
+C. `true || false`
+D. `false && false`
+
+---
+
+### **8. Co jest niebezpieczne w tym kodzie?**
+
+```java
+Boolean flag = null;
+
+if (flag) {
+    System.out.println("OK");
+}
+```
+
+A. Błąd kompilacji
+B. `NullPointerException`
+C. Pętla nieskończona
+D. Kod nigdy się nie wykona
+
+---
+
+### **9. (OTWARTE)**
+
+Dlaczego zapis `if (flag == true)` jest uważany za gorszy niż `if (flag)`?
+
+---
+
+### **10. (OTWARTE)**
+
+Podaj **jeden przykład praktycznego użycia** wartości `true` w kodzie.
+
+---
+
+👉 Napisz **„odpowiedzi”**, a podam poprawne odpowiedzi z wyjaśnieniami.

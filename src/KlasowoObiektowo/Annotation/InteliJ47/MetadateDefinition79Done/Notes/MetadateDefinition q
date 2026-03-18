@@ -1,0 +1,79 @@
+Jasne 😄 oto **quiz o `@MetadataDefinition`** – czysty i zróżnicowany poziom:
+
+---
+
+# 🟢 Quiz – `@MetadataDefinition`
+
+### 1️⃣ Co oznacza adnotacja `@MetadataDefinition`?
+
+A. Oznacza, że klasa jest abstrakcyjna
+B. Oznacza, że adnotacja lub klasa definiuje metadane dla narzędzi
+C. Automatycznie generuje dokumentację JavaDoc
+D. Oznacza pole jako prywatne
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@MetadataDefinition` w JDK?
+
+A. `java.lang.annotation`
+B. `jdk.jfr`
+C. `javax.annotation`
+D. `org.jetbrains.annotations`
+
+---
+
+### 3️⃣ Czy `@MetadataDefinition` wpływa na logikę programu w runtime?
+
+A. Tak
+B. Nie
+
+---
+
+### 4️⃣ Z którą adnotacją JFR często współpracuje `@MetadataDefinition`?
+
+A. `@SuppressWarnings`
+B. `@Label`
+C. `@Deprecated`
+D. `@FunctionalInterface`
+
+---
+
+### 5️⃣ Czy `@MetadataDefinition` może być stosowana na polach?
+
+A. Tak
+B. Nie
+
+---
+
+### 6️⃣ Czy adnotacja `@MetadataDefinition` jest wymagana dla wszystkich adnotacji JFR?
+
+A. Tak
+B. Nie
+
+---
+
+### 7️⃣ Czy `@MetadataDefinition` jest adnotacją meta?
+
+A. Tak
+B. Nie
+
+---
+
+### 8️⃣ Czy narzędzia takie jak IDE lub JMC mogą wykorzystać informacje z `@MetadataDefinition`?
+
+A. Tak
+B. Nie
+
+---
+
+### 9️⃣ Czy `@MetadataDefinition` może być stosowana na metodach?
+
+A. Tak
+B. Nie
+
+---
+
+### 🔟 Czy `@MetadataDefinition` jest częścią standardowego publicznego API od Java 9?
+
+A. Tak
+B. Nie

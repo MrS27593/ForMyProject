@@ -1,0 +1,134 @@
+### Klasa abstrakcyjna `JCefAppConfig` — wszystko, co powinieneś wiedzieć
+
+---
+
+#### 📌 Co to jest JCef?
+
+Zacznijmy od kontekstu: **JCEF (Java Chromium Embedded Framework)** to biblioteka pozwalająca na osadzanie silnika **Chromium** (czyli przeglądarki Google Chrome) w aplikacjach Java. Umożliwia np. wyświetlanie stron internetowych, obsługę JavaScript, komunikację między Java a przeglądarką itd.
+
+---
+
+## 🧱 `JCefAppConfig` – klasa abstrakcyjna
+
+`JCefAppConfig` to **abstrakcyjna klasa konfiguracyjna** używana przy uruchamianiu aplikacji korzystającej z JCEF. Służy do **dostosowania parametrów startowych** instancji przeglądarki (Chromium) uruchamianej przez JCEF.
+
+### 📘 Lokalizacja
+
+Zwykle znajdziesz ją w paczce:
+
+```java
+org.cef
+```
+
+lub
+
+```java
+org.cef.settings
+```
+
+(zależnie od wersji JCEF).
+
+---
+
+## 🧠 Kluczowe cechy `JCefAppConfig`
+
+### 1. **Jest abstrakcyjna**
+
+Musisz ją **rozszerzyć** i dostarczyć własną implementację, jeśli chcesz zmodyfikować domyślne ustawienia.
+
+### 2. **Służy do konfiguracji**
+
+Możesz określić:
+
+* argumenty linii komend dla Chromium,
+* ścieżki katalogów,
+* zachowanie logowania,
+* użycie GPU,
+* inne flagi startowe przeglądarki.
+
+---
+
+## 🧪 Przykład zastosowania
+
+### 👉 Cel: wyłączyć WebGL i włączyć tryb headless
+
+```java
+import org.cef.CefApp;
+import org.cef.CefApp.CefAppState;
+import org.cef.settings.JCefAppConfig;
+
+public class MyAppConfig extends JCefAppConfig {
+    @Override
+    public void beforeAppStart() {
+        // Dodajemy flagi Chromium przez CefApp.addAppArgs
+        CefApp.addAppArgs("--disable-gpu");
+        CefApp.addAppArgs("--disable-webgl");
+        CefApp.addAppArgs("--headless");
+    }
+}
+```
+
+Następnie, przy inicjalizacji aplikacji:
+
+```java
+public class BrowserLauncher {
+    public static void main(String[] args) {
+        JCefAppConfig config = new MyAppConfig();
+        CefApp cefApp = CefApp.getInstance(args, config);
+
+        // dalsze tworzenie okna, przeglądarki itd.
+    }
+}
+```
+
+---
+
+## 🧰 Praktyczne zastosowania
+
+1. **Headless browser testing**
+
+   * Można tworzyć testy z wykorzystaniem Chromium bez GUI (np. w CI/CD).
+
+2. **Bezpieczne środowisko przeglądarki**
+
+   * Można wyłączyć określone funkcje, np. JavaScript, WebGL, microphone, camera itd.
+
+3. **Debugowanie i logowanie**
+
+   * Dodawanie flag typu `--enable-logging`, `--v=1` itp.
+
+4. **Dostosowanie wydajności**
+
+   * Możesz ograniczyć lub wymusić akcelerację sprzętową.
+
+5. **Tworzenie kiosków lub aplikacji osadzonych**
+
+   * Użycie JCEF do osadzania przeglądarki w aplikacjach typu POS, terminalach itp.
+
+---
+
+## 🛠️ Dodatkowe metody (mogą się różnić wersjami)
+
+Jeśli masz dostęp do dokumentacji lub źródeł JCEF, `JCefAppConfig` może zawierać metody takie jak:
+
+* `beforeAppStart()`
+* `getCommandLineArgs()`
+* `isOffscreenRenderingEnabled()`
+
+---
+
+## 🔍 Czy warto używać `JCefAppConfig`?
+
+Jeśli tworzysz coś więcej niż najprostszy widok przeglądarki — tak. Pozwala ci kontrolować zachowanie silnika Chromium i dostosować go do konkretnego zastosowania.
+
+---
+
+## 🧭 Chcesz więcej?
+
+Mogę przygotować:
+
+* Gotowy projekt Maven z JCEF + `JCefAppConfig`,
+* Konfigurację dla konkretnego scenariusza (np. przeglądarka bez dostępu do kamery),
+* Wyjaśnienie komunikacji Java ↔ JavaScript z użyciem JCEF.
+
+Czy coś z tego Cię interesuje?

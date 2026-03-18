@@ -1,0 +1,170 @@
+Świetnie! 🚀 Teraz na tapet bierzemy **`continue`** w Javie — jedno z ważniejszych słów kluczowych sterujących przepływem pętli. Zaczynamy od podstaw i przechodzimy aż po tricki i różnice względem `break`.
+
+---
+
+# 🔁 Co robi `continue` w Javie?
+
+`continue` **przerywa bieżącą iterację pętli** i przechodzi **do następnej**.
+Używa się go w pętlach: `for`, `while`, `do-while`.
+
+---
+
+## ✅ Przykład 1 — z `for`
+
+```java
+for (int i = 0; i < 5; i++) {
+    if (i == 2) continue;
+    System.out.println(i);
+}
+```
+
+🔹 Wypisze:
+```
+0
+1
+3
+4
+```
+
+➡️ `i == 2` zostało **pominięte**, bo `continue` przeskoczyło dalej.
+
+---
+
+## ✅ Przykład 2 — z `while`
+
+```java
+int i = 0;
+while (i < 5) {
+    i++;
+    if (i == 3) continue;
+    System.out.println(i);
+}
+```
+
+🔹 Wypisze:
+```
+1
+2
+4
+5
+```
+
+➡️ **Nie wypisze 3**, bo `continue` przeskoczyło `System.out.println(i);`.
+
+---
+
+## 🔍 Jak to działa?
+
+| Krok | Efekt |
+|------|-------|
+| W pętli trafiamy na `continue` | pomija **resztę kodu** w tej iteracji |
+| Przechodzi do **następnej iteracji** | czyli do `i++`, warunku `while`, itd. |
+
+---
+
+# ❗ Uwaga: `continue` ≠ `break`
+
+| `continue` | `break` |
+|------------|--------|
+| pomija tylko **1 iterację** | przerywa całą pętlę |
+| pętla trwa dalej | pętla się kończy |
+
+---
+
+## 🧠 Przykład porównawczy
+
+```java
+for (int i = 0; i < 5; i++) {
+    if (i == 2) continue;
+    System.out.print(i + " ");
+}
+System.out.println();
+
+for (int i = 0; i < 5; i++) {
+    if (i == 2) break;
+    System.out.print(i + " ");
+}
+```
+
+🔹 Wynik:
+```
+0 1 3 4
+0 1
+```
+
+---
+
+## 🔁 `continue` z etykietą (label)
+
+Działa w zagnieżdżonych pętlach:
+
+```java
+outer:
+for (int i = 1; i <= 3; i++) {
+    for (int j = 1; j <= 3; j++) {
+        if (j == 2) continue outer;
+        System.out.print(i + "-" + j + " ");
+    }
+}
+```
+
+🔹 Wypisze:
+```
+1-1 2-1 3-1
+```
+
+➡️ `continue outer;` przerywa **wewnętrzną pętlę** i przechodzi do **kolejnej iteracji zewnętrznej**.
+
+---
+
+# 🧪 Quiz — sprawdź się
+
+### 1. Co robi `continue`?
+
+a) Kończy pętlę
+b) Przerywa program
+c) Pomija resztę kodu w tej iteracji
+
+---
+
+### 2. Co wypisze?
+
+```java
+for (int i = 1; i <= 3; i++) {
+    if (i == 2) continue;
+    System.out.print(i + " ");
+}
+```
+
+a) `1 2 3`
+b) `1 3`
+c) `2 3`
+
+---
+
+### 3. Czy `continue` można użyć w `while`?
+
+a) Tak
+b) Nie
+
+---
+
+# 🧠 Kiedy używać `continue`?
+
+✔️ Gdy chcesz **pominąć pewne przypadki** w pętli
+✔️ Gdy warunki są złożone i nie chcesz mieć zagnieżdżeń
+✔️ Gdy nie chcesz robić `else`, tylko po prostu przeskoczyć dalej
+
+---
+
+# 🎯 Zadania praktyczne
+
+**Zadanie 1:**
+Napisz pętlę `for`, która wypisuje liczby 1–10 **z pominięciem parzystych**.
+
+**Zadanie 2:**
+Zagnieżdż pętle i użyj `continue` z etykietą, by przeskakiwać całe wiersze.
+
+---
+
+Chcesz rozwiązania do zadań albo quiz z omówieniem odpowiedzi?

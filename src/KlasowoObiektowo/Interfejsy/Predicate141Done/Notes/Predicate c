@@ -1,0 +1,182 @@
+Świetnie 👍
+Teraz **`java.util.function.Predicate<T>`** — **bardzo ważny interfejs funkcyjny**, szczególnie w `Stream API`.
+
+---
+
+# 🧩 Interfejs `Predicate<T>`
+
+## 1️⃣ Co to jest `Predicate`?
+
+`Predicate<T>` to **interfejs funkcyjny**, który:
+
+* **przyjmuje jeden argument**
+* **zwraca wartość logiczną (`boolean`)**
+
+📦 Pakiet:
+
+```java
+java.util.function.Predicate
+```
+
+📌 Definicja:
+
+```java
+@FunctionalInterface
+public interface Predicate<T> {
+    boolean test(T t);
+}
+```
+
+---
+
+## 2️⃣ Do czego służy `Predicate`?
+
+* sprawdzanie warunków
+* filtrowanie danych
+* walidacja
+* używany w:
+
+  * `Stream.filter()`
+  * `Collection.removeIf()`
+  * `Optional.filter()`
+  * `anyMatch()`, `allMatch()`, `noneMatch()`
+
+---
+
+## 3️⃣ Najprostszy przykład
+
+```java
+Predicate<Integer> isEven = x -> x % 2 == 0;
+
+System.out.println(isEven.test(4)); // true
+System.out.println(isEven.test(5)); // false
+```
+
+---
+
+## 4️⃣ Predicate w Stream API (BARDZO CZĘSTE)
+
+```java
+List<Integer> list = List.of(1, 2, 3, 4, 5, 6);
+
+list.stream()
+    .filter(x -> x > 3)
+    .forEach(System.out::println);
+// 4, 5, 6
+```
+
+➡️ `filter()` przyjmuje **Predicate**
+
+---
+
+## 5️⃣ Metody domyślne Predicate (BARDZO WAŻNE)
+
+### 🔹 `and()`
+
+```java
+Predicate<Integer> gt3 = x -> x > 3;
+Predicate<Integer> even = x -> x % 2 == 0;
+
+Predicate<Integer> both = gt3.and(even);
+
+both.test(4); // true
+both.test(5); // false
+```
+
+---
+
+### 🔹 `or()`
+
+```java
+Predicate<Integer> gt3 = x -> x > 3;
+Predicate<Integer> even = x -> x % 2 == 0;
+
+Predicate<Integer> either = gt3.or(even);
+```
+
+---
+
+### 🔹 `negate()`
+
+```java
+Predicate<Integer> even = x -> x % 2 == 0;
+Predicate<Integer> odd = even.negate();
+```
+
+---
+
+## 6️⃣ Metoda statyczna `isEqual()`
+
+```java
+Predicate<String> isHello = Predicate.isEqual("hello");
+
+isHello.test("hello"); // true
+isHello.test("hi");    // false
+```
+
+➡️ Bezpieczne porównywanie z `null`
+
+---
+
+## 7️⃣ Predicate vs Function vs Consumer
+
+| Interfejs     | Metoda      | Zwraca  | Cel         |
+| ------------- | ----------- | ------- | ----------- |
+| Predicate<T>  | `test(T)`   | boolean | sprawdzanie |
+| Function<T,R> | `apply(T)`  | R       | mapowanie   |
+| Consumer<T>   | `accept(T)` | void    | akcja       |
+
+---
+
+## 8️⃣ Predicate a metody kolekcji
+
+### `removeIf()`
+
+```java
+list.removeIf(x -> x < 3);
+```
+
+### `anyMatch()`
+
+```java
+boolean exists = list.stream().anyMatch(x -> x > 10);
+```
+
+---
+
+## 9️⃣ Łączenie wielu Predicate (praktyka)
+
+```java
+Predicate<String> notNull = s -> s != null;
+Predicate<String> notEmpty = s -> !s.isEmpty();
+
+Predicate<String> valid = notNull.and(notEmpty);
+```
+
+---
+
+## 🔟 Czego Predicate NIE robi?
+
+❌ nie modyfikuje obiektu
+❌ nie zwraca obiektu
+❌ nie przyjmuje wielu argumentów
+
+---
+
+## 🧠 Podsumowanie (ściąga)
+
+* `Predicate<T>` → `boolean test(T t)`
+* interfejs funkcyjny
+* często w `filter()`
+* metody: `and`, `or`, `negate`
+* `Predicate.isEqual()` → bezpieczne equals
+
+---
+
+📌 **Naturalny kolejny krok** (jak zawsze 😉):
+
+* 🔹 **QUIZ z Predicate (bez odpowiedzi)**
+* 🔹 **Predicate + Stream – zadania**
+* 🔹 **Predicate vs BiPredicate**
+
+👉 Co robimy dalej? 💪

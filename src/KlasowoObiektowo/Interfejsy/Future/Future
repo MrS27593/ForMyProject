@@ -1,0 +1,11 @@
+Aby dobrze umieć Interfejs Future warto znać:
+Interface:
+
+
+Class:
+TimeUnit
+
+Exceptions:
+InterruptedException
+ExecutionException
+TimeoutException

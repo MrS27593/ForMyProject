@@ -1,0 +1,83 @@
+Jasne 😄 oto **quiz o `@MemoryAddress`** – czysty i zróżnicowany poziom:
+
+---
+
+# 🟢 Quiz – `@MemoryAddress`
+
+### 1️⃣ Co oznacza adnotacja `@MemoryAddress`?
+
+A. Pole przechowuje zwykłą wartość `long`
+B. Pole lub parametr reprezentuje adres w pamięci natywnej
+C. Adnotacja generuje getter i setter dla pola
+D. Pole jest automatycznie zwalniane po GC
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@MemoryAddress` w JDK?
+
+A. `java.lang.annotation`
+B. `jdk.internal.foreign`
+C. `java.foreign`
+D. `jdk.incubator.foreign`
+
+---
+
+### 3️⃣ Czy `@MemoryAddress` wpływa na zachowanie programu w runtime?
+
+A. Tak
+B. Nie
+
+---
+
+### 4️⃣ Z którym API jest najczęściej używana `@MemoryAddress`?
+
+A. Java Reflection API
+B. Foreign Memory API (Project Panama)
+C. Java Stream API
+D. JDBC API
+
+---
+
+### 5️⃣ Czy można stosować `@MemoryAddress` na metodach?
+
+A. Tak
+B. Nie
+
+---
+
+### 6️⃣ Czy użycie `@MemoryAddress` jest w pełni stabilne w JDK 17+?
+
+A. Tak
+B. Nie
+
+---
+
+### 7️⃣ Do czego najczęściej służy `@MemoryAddress`?
+
+A. Do oznaczania typów w pamięci natywnej, dla bezpieczeństwa i analizy statycznej
+B. Do generowania dokumentacji JavaDoc
+C. Do serializacji obiektów
+D. Do optymalizacji GC
+
+---
+
+### 8️⃣ Czy adnotacja `@MemoryAddress` ma własne pola lub logikę?
+
+A. Tak
+B. Nie
+
+---
+
+### 9️⃣ Czy `@MemoryAddress` można używać w zwykłych klasach Java bez Foreign Memory API?
+
+A. Tak, ale nie przynosi korzyści
+B. Nie, kompilator nie pozwala
+C. Tylko w module `java.base`
+D. Tylko w JVM eksperymentalnym
+
+---
+
+### 🔟 Czy `@MemoryAddress` jest częścią standardowego publicznego API JDK?
+
+A. Tak
+B. Nie

@@ -1,0 +1,176 @@
+Super 😄
+Oto **quiz z adnotacji `@SuppressWarnings` w Javie** — od podstaw do zaawansowanych przypadków.
+Na końcu **NIE MA odpowiedzi** (jak poprzednio). Gdy skończysz, napisz **„odpowiedzi”** ✅
+
+---
+
+# 🧠 **Quiz: `@SuppressWarnings` w Javie**
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Do czego służy `@SuppressWarnings`?
+
+A. Naprawia błędy w kodzie
+B. Usuwa adnotacje
+C. Wycisza ostrzeżenia kompilatora
+D. Wyłącza JVM
+
+---
+
+### 2️⃣ Czy `@SuppressWarnings` ma wpływ na runtime?
+
+A. Tak, spowalnia program
+B. Tak, rzuca wyjątki
+C. Nie, dotyczy tylko kompilacji
+D. Tylko w trybie debug
+
+---
+
+### 3️⃣ Jaką postać przyjmuje argument `@SuppressWarnings`?
+
+A. Enum
+B. String lub tablica Stringów
+C. int
+D. boolean
+
+---
+
+## 🔹 Część II – Zastosowanie
+
+### 4️⃣ Gdzie można użyć `@SuppressWarnings`? (wielokrotny wybór)
+
+A. Klasa
+B. Metoda
+C. Konstruktor
+D. Zmienna lokalna
+E. Pole klasy
+
+---
+
+### 5️⃣ Co oznacza `"unchecked"`?
+
+A. Nieprawidłowy import
+B. Brak sprawdzenia wyjątków
+C. Niesprawdzone rzutowania (generyki)
+D. Brak testów jednostkowych
+
+---
+
+### 6️⃣ Które ostrzeżenie dotyczy użycia `@Deprecated`?
+
+A. `"deprecated"`
+B. `"old"`
+C. `"legacy"`
+D. `"remove"`
+
+---
+
+## 🔹 Część III – Praktyka
+
+### 7️⃣ Jak poprawnie wyciszyć kilka ostrzeżeń?
+
+A.
+
+```java
+@SuppressWarnings("unchecked,rawtypes")
+```
+
+B.
+
+```java
+@SuppressWarnings({"unchecked", "rawtypes"})
+```
+
+C.
+
+```java
+@SuppressWarnings(List.of("unchecked"))
+```
+
+D.
+
+```java
+@SuppressWarnings()
+```
+
+---
+
+### 8️⃣ Który zakres jest **najlepszy**?
+
+A. Cały projekt
+B. Cała klasa
+C. Pojedyncza metoda
+D. Najmniejszy możliwy fragment kodu
+
+---
+
+## 🔹 Część IV – Dobre praktyki
+
+### 9️⃣ Którego użycia należy UNIKAĆ?
+
+A. `"unchecked"`
+B. `"deprecation"`
+C. `"all"`
+D. `"unused"`
+
+---
+
+### 🔟 Co jest dobrą praktyką przy użyciu `@SuppressWarnings`?
+
+A. Zawsze wyciszać warningi
+B. Dodawać komentarz „dlaczego”
+C. Stosować globalnie
+D. Ignorować ostrzeżenia IDE
+
+---
+
+## 🔹 Część V – Porównania
+
+### 1️⃣1️⃣ Czym różni się `@SuppressWarnings` od `@Deprecated`?
+
+A. Obie usuwają kod
+B. `@SuppressWarnings` ukrywa warningi, `@Deprecated` je generuje
+C. Działają tylko w runtime
+D. Są tym samym
+
+---
+
+### 1️⃣2️⃣ Czy można używać `@SuppressWarnings("deprecation")`?
+
+A. Nie, to błąd
+B. Tak, gdy świadomie używamy deprecated API
+C. Tylko w testach
+D. Tylko w Java 9+
+
+---
+
+## 🔹 Część VI – Zaawansowane
+
+### 1️⃣3️⃣ Czy `@SuppressWarnings` jest sprawdzane przez JVM?
+
+A. Tak
+B. Tylko w debug
+C. Nie
+D. Tylko przy wyjątkach
+
+---
+
+### 1️⃣4️⃣ Co jest LEPSZE?
+
+A. Wyciszyć warning
+B. Naprawić przyczynę warningu
+C. Zignorować kompilator
+D. Użyć `"all"`
+
+---
+
+## ✍️ Pytanie otwarte
+
+### 1️⃣5️⃣ Napisz poprawny przykład użycia `@SuppressWarnings("unchecked")`
+
+– z możliwie **najmniejszym zakresem**
+
+---
+
+Gdy skończysz 👉 napisz **„odpowiedzi”**
+i lecimy z omówieniem 💪

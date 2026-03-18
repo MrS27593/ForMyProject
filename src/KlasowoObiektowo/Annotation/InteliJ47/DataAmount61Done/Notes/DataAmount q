@@ -1,0 +1,113 @@
+No to lecimy 😄
+**QUIZ: `DataAmount` / `DataSize` / ilość danych w Javie i Springu**
+(dużo pułapek, zero litości 😉)
+
+---
+
+# 📝 Quiz – DataAmount & DataSize
+
+## 🔹 Część I – Prawda czy fałsz
+
+### 1️⃣ W standardowej Javie istnieje klasa `DataAmount`.
+
+A. Prawda
+B. Fałsz
+
+---
+
+### 2️⃣ W Springu istnieje adnotacja `@DataAmount`.
+
+A. Prawda
+B. Fałsz
+
+---
+
+### 3️⃣ `DataSize` jest częścią JDK.
+
+A. Prawda
+B. Fałsz
+
+---
+
+## 🔹 Część II – Spring
+
+### 4️⃣ Jaka klasa w Springu reprezentuje ilość danych?
+
+A. `DataAmount`
+B. `DataVolume`
+C. `DataSize`
+D. `ByteSize`
+
+---
+
+### 5️⃣ W jakim pakiecie znajduje się `DataSize`?
+
+A. `java.util`
+B. `org.springframework.core`
+C. `org.springframework.util.unit`
+D. `org.springframework.boot.util`
+
+---
+
+### 6️⃣ Co robi `DataSize.parse("10MB")`?
+
+A. Zwraca String
+B. Zwraca liczbę bajtów typu long
+C. Zwraca obiekt `DataSize`
+D. Rzuca wyjątek zawsze
+
+---
+
+## 🔹 Część III – Konfiguracja
+
+### 7️⃣ Jakiego typu są właściwości:
+
+```properties
+spring.servlet.multipart.max-file-size=10MB
+```
+
+A. `String`
+B. `long`
+C. `DataSize`
+D. `int`
+
+---
+
+### 8️⃣ Kto konwertuje `"10MB"` → `DataSize`?
+
+A. JVM
+B. Jackson
+C. Spring Converter
+D. Lombok
+
+---
+
+## 🔹 Część IV – Porównania
+
+### 9️⃣ Co jest lepszym odpowiednikiem „ilości danych” niż adnotacja?
+
+A. Enum
+B. String
+C. Typ wartości (`DataSize`)
+D. Exception
+
+---
+
+### 🔟 Co jest poprawnym odpowiednikiem `DataSize` w JDK?
+
+A. `FileSize`
+B. `DataAmount`
+C. `Duration`
+D. Brak bezpośredniego odpowiednika
+
+---
+
+## ✍️ 1️⃣1️⃣ (opisowe)
+
+Dlaczego ilość danych w Javie / Springu reprezentuje się **typem**, a nie adnotacją?
+
+---
+
+Jak skończysz — pisz 👉 **odpowiedzi**
+i lecimy z **kluczem + wyjaśnieniami rekrutacyjnymi** 💪😄
+

@@ -1,0 +1,10 @@
+Aby dobrze umieć Interfejs Condition warto znać:
+Interface:
+
+
+Class:
+long
+TimeUnit
+
+Exceptions:
+InterruptedException

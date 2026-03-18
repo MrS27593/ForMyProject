@@ -1,0 +1,107 @@
+Pewnie! Słowo kluczowe `volatile` w Javie dotyczy **programowania współbieżnego** (ang. *concurrent programming*) i dotyczy **pamięci współdzielonej między wątkami**. Poniżej dostajesz pełne wprowadzenie krok po kroku.
+
+---
+
+## 🔹 Co to jest `volatile`?
+
+Słowo kluczowe `volatile` informuje **maszynę wirtualną Javy (JVM)**, że dana zmienna może być **modyfikowana przez wiele wątków jednocześnie**, i że:
+
+1. **Nie powinna być cache'owana lokalnie w wątku** – każdy dostęp do niej to odczyt/zapis bezpośrednio z/do pamięci głównej.
+2. **Zmiana widziana w jednym wątku będzie natychmiast widoczna w innych**.
+
+---
+
+## 🔹 Problem bez `volatile` – przykład
+
+```java
+class MyRunnable implements Runnable {
+    private boolean running = true;
+
+    public void run() {
+        while (running) {
+            // jakaś logika
+        }
+    }
+
+    public void stop() {
+        running = false;
+    }
+}
+```
+
+Jeśli `running` **nie** jest oznaczona jako `volatile`, jeden wątek (np. główny) może ustawić `running = false`, ale drugi wątek (np. działający w `run`) może **nigdy nie zobaczyć tej zmiany**, bo może korzystać z cache CPU lub rejestru.
+
+---
+
+## 🔹 Rozwiązanie z `volatile`
+
+```java
+private volatile boolean running = true;
+```
+
+Dzięki `volatile`:
+
+* Gdy jeden wątek ustawi `running = false`, inne wątki natychmiast to zobaczą.
+* Wątek czytający `running` nie użyje lokalnej kopii, tylko zawsze odczyta wartość z pamięci głównej.
+
+---
+
+## 🔹 Czym się różni `volatile` od `synchronized`?
+
+| Cecha                     | `volatile`                   | `synchronized`                   |
+| ------------------------- | ---------------------------- | -------------------------------- |
+| Widoczność między wątkami | ✅ Tak                        | ✅ Tak                            |
+| Atomowość operacji        | ❌ Nie                        | ✅ Tak                            |
+| Blokada                   | ❌ Nie                        | ✅ Tak (mutex)                    |
+| Wydajność                 | 🟢 Lepsza niż `synchronized` | 🔴 Wolniejsza (bo blokuje wątki) |
+
+> `volatile` gwarantuje **widoczność**, ale **nie gwarantuje atomowości**. Nie używaj go do operacji typu `i++`.
+
+---
+
+## 🔹 Przykład, gdzie `volatile` NIE wystarcza
+
+```java
+class Counter {
+    private volatile int count = 0;
+
+    public void increment() {
+        count++;
+    }
+}
+```
+
+Tutaj `count++` **nie** jest operacją atomową:
+
+* Odczyt `count`
+* Zwiększenie wartości
+* Zapis z powrotem
+
+To wymaga synchronizacji (lub użycia klas z `java.util.concurrent.atomic`).
+
+---
+
+## 🔹 Kiedy używać `volatile`?
+
+✅ Gdy masz **zmienną flagową**, np. `running`, `stopRequested`, `dataReady`.
+
+✅ Gdy chcesz **gwarancji widoczności**, ale nie potrzebujesz blokowania.
+
+❌ Gdy potrzebujesz **atomowych operacji** na zmiennych – użyj `synchronized` lub `Atomic*`.
+
+---
+
+## 🔹 Co gwarantuje `volatile` (w szczegółach technicznych)
+
+* **Happens-before**: zapis do `volatile` gwarantuje, że wszystko, co zostało zapisane w tym wątku przed tym zapisem, będzie widoczne w innych wątkach, które odczytają tę zmienną.
+* **Bariery pamięci**: JVM generuje instrukcje CPU gwarantujące odświeżenie pamięci cache.
+
+---
+
+## 🔹 Wersje języka Java a `volatile`
+
+Od JDK 1.5 `volatile` działa zgodnie z poprawionym **modelem pamięci Java (Java Memory Model – JMM)**, dzięki czemu możesz mu zaufać w większości przypadków.
+
+---
+
+Chcesz może ćwiczenia praktyczne albo diagram ilustrujący `volatile` i cache CPU?

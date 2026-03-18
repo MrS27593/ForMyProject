@@ -1,0 +1,98 @@
+### ✅ Odpowiedzi – QUIZ `implements` w Java
+
+---
+
+### 1️⃣ Czym jest słowo kluczowe `implements`?
+
+**✅ C. Używane do implementacji interfejsu przez klasę**
+
+➡ Słowo kluczowe `implements` mówi: **klasa realizuje kontrakt interfejsu**.
+
+---
+
+### 2️⃣ Która linia kodu jest poprawna?
+
+**✅ A. `class A implements B, C { }` (gdzie B i C to interfejsy)**
+
+❌ B – klasy nie mogą być implementowane, tylko dziedziczone
+❌ C – nie można `extends` po klasie i `implements` po klasie, jeśli C też jest klasą
+❌ D – niepoprawna składnia
+
+---
+
+### 3️⃣ Co się stanie, jeśli klasa implementuje interfejs, ale nie zaimplementuje wszystkich metod?
+
+**✅ B. Kompilator zgłosi błąd**
+
+➡ Tylko klasa abstrakcyjna może tego nie robić.
+
+---
+
+### 4️⃣ Jakie modyfikatory dostępu muszą mieć metody interfejsu w klasie implementującej?
+
+**✅ C. `public`**
+
+➡ Nie można ograniczać widoczności – metody w interfejsie są zawsze `public`.
+
+---
+
+### 5️⃣ Czy klasa abstrakcyjna może używać `implements`?
+
+**✅ B. Tak, ale nie musi implementować wszystkich metod**
+
+➡ Klasa abstrakcyjna może pozostawić metody abstrakcyjne do implementacji w klasach potomnych.
+
+---
+
+### 6️⃣ Co się stanie przy konflikcie metod `default` z dwóch interfejsów?
+
+**✅ B. Kompilator zgłosi błąd i trzeba ręcznie rozwiązać konflikt**
+
+➡ Konflikt należy rozwiązać poprzez nadpisanie metody w klasie.
+
+---
+
+### 7️⃣ W jakiej kolejności zapisujemy `extends` i `implements` w definicji klasy?
+
+**✅ C. `extends` najpierw, potem `implements`**
+
+```java
+class A extends B implements C, D {}
+```
+
+---
+
+### 8️⃣ Które zdanie o `implements` jest prawdziwe?
+
+**✅ B. Klasa może implementować wiele interfejsów**
+
+➡ To jest **jedna z głównych zalet** Javy – obejście braku wielodziedziczenia klas.
+
+---
+
+### 9️⃣ Pytanie otwarte – przykładowa poprawna odpowiedź
+
+**✔ Przykład:**
+
+```java
+interface Payment { void pay(double amount); }
+class CardPayment implements Payment {
+    public void pay(double amount) { System.out.println("Paid " + amount); }
+}
+```
+
+➡ Różne klasy mogą implementować `Payment` (np. `BlikPayment`, `PaypalPayment`).
+
+---
+
+### 🔟 Pytanie otwarte – przykładowa poprawna odpowiedź
+
+**✔ Zwiększa elastyczność i testowalność:**
+
+* Kod jest **polimorficzny** – możesz podmienić implementację w runtime.
+* Łatwiej pisać **testy jednostkowe** (mocki interfejsów).
+* Ułatwia przestrzeganie **zasad SOLID**, zwłaszcza Dependency Inversion.
+
+---
+
+Chcesz, żebym teraz przeszedł do **`extends`**, czy wolisz kontynuować od **`enum`**?

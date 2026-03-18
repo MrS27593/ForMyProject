@@ -1,0 +1,176 @@
+Świetnie 😄 Oto **QUIZ z Exception w Javie** – poziom **od podstaw do średnio-zaawansowanego**.
+Najpierw pytania, **odpowiedzi na samym dole** ⬇️ (nie podglądaj 😉).
+
+---
+
+# 🧠 **QUIZ: Exception w Javie**
+
+## 🟢 Poziom 1 – Podstawy
+
+### 1️⃣ Co jest **bezpośrednią klasą bazową** dla wszystkich wyjątków i błędów?
+
+A. `Exception`
+B. `RuntimeException`
+C. `Throwable`
+D. `Error`
+
+---
+
+### 2️⃣ Który wyjątek jest **checked exception**?
+
+A. `NullPointerException`
+B. `ArithmeticException`
+C. `IOException`
+D. `IndexOutOfBoundsException`
+
+---
+
+### 3️⃣ Co oznacza `unchecked exception`?
+
+A. Musi być obsłużony w `try-catch`
+B. JVM go ignoruje
+C. Nie musi być obsłużony
+D. Występuje tylko w czasie kompilacji
+
+---
+
+### 4️⃣ Co się stanie?
+
+```java
+int x = 10 / 0;
+```
+
+A. Błąd kompilacji
+B. `IOException`
+C. `ArithmeticException`
+D. Program zakończy się poprawnie
+
+---
+
+## 🟡 Poziom 2 – Obsługa wyjątków
+
+### 5️⃣ Który blok wykona się **zawsze**?
+
+A. `try`
+B. `catch`
+C. `finally`
+D. `throws`
+
+---
+
+### 6️⃣ Co jest nie tak z tym kodem?
+
+```java
+try {
+    String s = null;
+    s.length();
+} catch (Exception e) {
+} catch (NullPointerException e) {
+}
+```
+
+A. Nic – kod poprawny
+B. Zła kolejność `catch`
+C. Brak `finally`
+D. Brak `throws`
+
+---
+
+### 7️⃣ Co robi słowo kluczowe `throws`?
+
+A. Rzuca wyjątek
+B. Łapie wyjątek
+C. Informuje, że metoda może rzucić wyjątek
+D. Ignoruje wyjątek
+
+---
+
+### 8️⃣ Jak poprawnie rzucić wyjątek?
+
+A. `throws new Exception()`
+B. `catch new Exception()`
+C. `throw new Exception()`
+D. `exception throw()`
+
+---
+
+## 🔵 Poziom 3 – Zaawansowane
+
+### 9️⃣ Która klasa jest **unchecked exception**?
+
+A. `SQLException`
+B. `IOException`
+C. `RuntimeException`
+D. `FileNotFoundException`
+
+---
+
+### 🔟 Co jest ZŁĄ praktyką?
+
+A. Łapanie konkretnego wyjątku
+B. Logowanie wyjątku
+C. Pusty blok `catch`
+D. Tworzenie własnych wyjątków
+
+---
+
+### 1️⃣1️⃣ Co wypisze program?
+
+```java
+try {
+    throw new RuntimeException("Błąd");
+} catch (Exception e) {
+    System.out.println("Catch");
+} finally {
+    System.out.println("Finally");
+}
+```
+
+A. `Catch`
+B. `Finally`
+C. `Catch` potem `Finally`
+D. Nic
+
+---
+
+### 1️⃣2️⃣ Jaki wyjątek należy dziedziczyć, gdy tworzysz **biznesowy wyjątek**, który NIE musi być obsługiwany?
+
+A. `Exception`
+B. `IOException`
+C. `RuntimeException`
+D. `Throwable`
+
+---
+
+---
+
+# ✅ **ODPOWIEDZI**
+
+<details>
+<summary>Kliknij, aby zobaczyć odpowiedzi 👀</summary>
+
+1️⃣ **C** – `Throwable`
+2️⃣ **C** – `IOException`
+3️⃣ **C** – nie musi być obsłużony
+4️⃣ **C** – `ArithmeticException`
+5️⃣ **C** – `finally`
+6️⃣ **B** – najpierw szczegółowy wyjątek
+7️⃣ **C** – deklaracja wyjątku
+8️⃣ **C** – `throw new Exception()`
+9️⃣ **C** – `RuntimeException`
+🔟 **C** – pusty `catch`
+1️⃣1️⃣ **C** – `Catch` + `Finally`
+1️⃣2️⃣ **C** – `RuntimeException`
+
+</details>
+
+---
+
+## 🔥 Jak chcesz dalej?
+
+👉 **quiz trudniejszy (rekrutacyjny)**
+👉 **zadania z kodem – co się stanie?**
+👉 **100 najważniejszych Exception w Javie**
+👉 **Custom Exceptions – quiz**
+
+Wybierz 😄

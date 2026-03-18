@@ -1,0 +1,70 @@
+Świetnie! Oto **odpowiedzi z wyjaśnieniami** do każdego pytania w quizie:
+
+---
+
+### **1. Jaki rozmiar w pamięci (RAM) zajmuje zmienna typu `double` w Javie?**
+✅ **B. 64 bity**
+`double` to typ zmiennoprzecinkowy o podwójnej precyzji, zgodny z IEEE 754 – zajmuje dokładnie 64 bity (8 bajtów).
+
+---
+
+### **2. Co zostanie wypisane?**
+```java
+double a = 0.1 + 0.2;
+double b = 0.3;
+System.out.println(a == b);
+```
+✅ **B. false**
+Z powodu niedokładności reprezentacji binarnej zmiennoprzecinkowych liczb, `0.1 + 0.2` nie daje dokładnie `0.3`.
+
+---
+
+### **3. Która z poniższych metod NIE należy do klasy `Math`, ale może być używana z `double`?**
+✅ **C. `Math.toDouble()`**
+Nie istnieje metoda `Math.toDouble()`. Pozostałe to rzeczywiste metody klasy `Math` operujące na `double`.
+
+---
+
+### **4. Co oznacza wartość `Double.NaN`?**
+✅ **B. Brak liczby (Not a Number)**
+`NaN` pojawia się, np. gdy dzielimy 0.0 przez 0.0 lub próbujemy obliczyć pierwiastek z liczby ujemnej.
+
+---
+
+### **5. Jaka jest domyślna wartość zmiennej typu `double` w klasie?**
+✅ **C. 0.0**
+Zmienna instancyjna typu `double`, jeśli nie zostanie zainicjalizowana, ma domyślną wartość `0.0`.
+
+---
+
+### **6. Jak najlepiej porównać liczby `double`, aby uniknąć błędów precyzji?**
+✅ **C. `Math.abs(a - b) < epsilon`**
+To standardowa metoda porównywania zmiennoprzecinkowych wartości, gdzie `epsilon` to dopuszczalna różnica.
+
+---
+
+### **7. (PRAWDA/FAŁSZ)**
+❌ **Fałsz**
+`double` to typ **prymitywny**, więc nie może przechowywać `null`. Jeśli potrzebujesz `null`, użyj `Double`.
+
+---
+
+### **8. (PRAWDA/FAŁSZ)**
+✅ **Prawda**
+`-0.0` i `0.0` mają różną reprezentację binarną, ale `-0.0 == 0.0` zwraca `true`.
+
+---
+
+### **9. (PYTANIE OTWARTE)**
+📝 **Odpowiedź:**
+`double` nie nadaje się do przechowywania pieniędzy, ponieważ operacje zmiennoprzecinkowe mogą powodować błędy zaokrągleń. Precyzja `double` jest ograniczona, co może prowadzić do nieoczekiwanych rezultatów przy obliczeniach finansowych. W takich przypadkach należy używać klasy `BigDecimal`.
+
+---
+
+### **10. (PYTANIE OTWARTE)**
+📝 **Odpowiedź:**
+`epsilon` to bardzo mała wartość (np. `1e-9`), która określa akceptowalną różnicę między dwiema liczbami zmiennoprzecinkowymi. Używa się jej do porównywania `double`, ponieważ dokładne porównanie (`==`) może zawieść przez niedokładności reprezentacji.
+
+---
+
+Chcesz teraz wersję PDF quizu do druku albo quiz interaktywny?

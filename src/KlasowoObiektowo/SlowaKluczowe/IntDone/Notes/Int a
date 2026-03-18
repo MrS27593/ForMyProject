@@ -1,0 +1,113 @@
+### ✅ Odpowiedzi – QUIZ `int` w Java
+
+*(zwięźle, ale z konkretnym wyjaśnieniem)*
+
+---
+
+### 1️⃣ Jaki jest rozmiar typu `int` w Javie?
+
+**✅ B. 32 bity**
+
+➡ Zawsze 32 bity – niezależnie od systemu operacyjnego.
+
+---
+
+### 2️⃣ Jaki jest poprawny zakres wartości typu `int`?
+
+**✅ C. –2 147 483 648 do 2 147 483 647**
+
+➡ Wynika to z reprezentacji **liczb ze znakiem (two’s complement)**.
+
+---
+
+### 3️⃣ Co wypisze poniższy kod?
+
+```java
+System.out.println(a / b);
+```
+
+**✅ B. `3`**
+
+➡ Dzielenie `int / int` → wynik też jest `int` (część ułamkowa jest obcinana).
+
+---
+
+### 4️⃣ Co się stanie w wyniku wykonania tego kodu?
+
+```java
+x = x + 1;
+```
+
+**✅ D. Nastąpi overflow i wynik będzie liczbą ujemną**
+
+➡ Java **nie rzuca wyjątku** przy przepełnieniu typu prymitywnego.
+
+---
+
+### 5️⃣ Która deklaracja jest POPRAWNA?
+
+**✅ B. `int a = (int) 10.5;`**
+
+➡ Rzutowanie jawne obcina część ułamkową (`10`).
+
+---
+
+### 6️⃣ Czym różni się `int` od `Integer`?
+
+**✅ C. `Integer` może przyjmować wartość `null`**
+
+➡ `int` = prymityw
+➡ `Integer` = obiekt (wrapper)
+
+---
+
+### 7️⃣ Co się stanie przy wykonaniu tego kodu?
+
+```java
+Integer x = null;
+int y = x;
+```
+
+**✅ D. `NullPointerException` w runtime**
+
+➡ Autounboxing próbuje wyjąć wartość z `null`.
+
+---
+
+### 8️⃣ Które zastosowanie `int` jest NAJLEPSZE?
+
+**✅ B. Indeksowanie tablic i pętle**
+
+➡ Standardowe, bezpieczne i wydajne użycie.
+
+---
+
+### 9️⃣ Pytanie otwarte – przykładowa poprawna odpowiedź
+
+**✔ Do obliczeń finansowych (pieniądze, grosze) – lepiej `BigDecimal`.**
+
+Inne poprawne:
+
+* bardzo duże liczby (`long`)
+* wartości z ułamkami (`double`, `BigDecimal`)
+
+---
+
+### 🔟 Pytanie otwarte – przykładowa poprawna odpowiedź
+
+**✔ Ponieważ oba operandy są typu `int`, Java wykonuje dzielenie całkowite i obcina część ułamkową.**
+
+---
+
+## 🎯 Podsumowanie
+
+Jeśli rozumiesz:
+
+* overflow
+* różnicę `int` vs `Integer`
+* dzielenie całkowite
+
+➡ masz **solidne podstawy Javy** 👌
+
+Gotowy na kolejny temat?
+👉 `double`, `boolean`, `enum`, `var`, `instanceof`, `if`

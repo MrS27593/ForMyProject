@@ -1,0 +1,114 @@
+No to wchodzimy na **tryb JMX 🧠🔥**
+**QUIZ: `@DescriptorKey`**
+(krótko nie będzie – to już wyższa półka 😄)
+
+---
+
+# 📝 Quiz – `@DescriptorKey`
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Czym jest `@DescriptorKey`?
+
+A. Adnotacją Springa do konfiguracji
+B. Adnotacją JDK do mapowania metod na klucze `Descriptor`
+C. Adnotacją do walidacji danych
+D. Adnotacją do serializacji JSON
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@DescriptorKey`?
+
+A. `javax.management`
+B. `java.lang.management`
+C. `java.beans`
+D. `jakarta.management`
+
+---
+
+### 3️⃣ Gdzie można użyć `@DescriptorKey`?
+
+A. Na klasie
+B. Na polu
+C. Na metodzie
+D. Na konstruktorze
+
+---
+
+## 🔹 Część II – Działanie
+
+### 4️⃣ Do czego służy `Descriptor` w JMX?
+
+A. Do przechowywania konfiguracji aplikacji
+B. Do serializacji obiektów
+C. Do przechowywania metadanych elementów MBeanów
+D. Do obsługi wyjątków
+
+---
+
+### 5️⃣ Jakie metody mogą być oznaczone `@DescriptorKey`?
+
+A. Dowolne metody
+B. Metody statyczne
+C. Metody bez parametrów
+D. Metody z jednym parametrem
+
+---
+
+### 6️⃣ Co reprezentuje wartość zwracana przez metodę oznaczoną `@DescriptorKey`?
+
+A. Nazwę metody
+B. Wartość klucza w `Descriptor`
+C. Typ metody
+D. Komentarz dokumentacyjny
+
+---
+
+## 🔹 Część III – Ograniczenia
+
+### 7️⃣ Które stwierdzenie jest prawdziwe?
+
+A. Metoda może rzucać wyjątki
+B. Metoda może mieć parametry
+C. Metoda musi być bezargumentowa
+D. Metoda musi być `static`
+
+---
+
+### 8️⃣ Retencja `@DescriptorKey` to:
+
+A. `SOURCE`
+B. `CLASS`
+C. `RUNTIME`
+D. `MODULE`
+
+---
+
+## 🔹 Część IV – Porównania
+
+### 9️⃣ `@DescriptorKey` jest najbardziej podobna do:
+
+A. `@BeanProperty`
+B. `@ConstructorProperties`
+C. `@JsonProperty`
+D. `@Autowired`
+
+---
+
+### 🔟 W jakim scenariuszu NAJCZĘŚCIEJ spotkasz `@DescriptorKey`?
+
+A. Aplikacje webowe Spring
+B. REST API
+C. Monitoring i zarządzanie JVM (JMX)
+D. Testy jednostkowe
+
+---
+
+## ✍️ 1️⃣1️⃣ (opisowe)
+
+Dlaczego `@DescriptorKey` jest używana **na interfejsach**, a nie typowo na klasach?
+
+---
+
+Jak skończysz — napisz 👉 **odpowiedzi**
+a ja dam Ci **pełny klucz + komentarze senior-level** 😄💪

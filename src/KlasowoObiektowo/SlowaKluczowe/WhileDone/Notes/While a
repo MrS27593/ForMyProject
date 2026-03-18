@@ -1,0 +1,94 @@
+Świetnie! Oto **odpowiedzi z wyjaśnieniem** do quizu o pętli `while` w Javie:
+
+---
+
+### ✅ **Pytanie 1:**
+
+**Pytanie:** Jak długo będzie wykonywać się pętla `while`, jeśli jej warunek to `true` i nie ma w niej instrukcji `break`?
+
+**Odpowiedź:** C) **Wykona się nieskończoną liczbę razy**
+
+**Wyjaśnienie:** Jeśli warunek pętli `while` jest zawsze `true` i nic go nie przerywa (np. `break` lub zmiana zmiennej), to pętla nigdy się nie zakończy – będzie wykonywać się w nieskończoność.
+
+---
+
+### ✅ **Pytanie 2:**
+
+**Kod:**
+
+```java
+int i = 1;
+while (i < 4) {
+    System.out.print(i + " ");
+    i++;
+}
+```
+
+**Odpowiedź:** A) **1 2 3**
+
+**Wyjaśnienie:**
+
+* `i` zaczyna się od 1.
+* Pętla działa, dopóki `i < 4`.
+* Wypisywane są kolejno liczby: 1, 2, 3.
+* Gdy `i == 4`, warunek jest fałszywy, więc pętla się kończy.
+
+---
+
+### ✅ **Pytanie 3:**
+
+**Uzupełniony kod:**
+
+```java
+int i = 5;
+while (i > 0) {
+    System.out.println(i);
+    i--;
+}
+```
+
+**Wyjaśnienie:**
+
+* Zmienna `i` musi zaczynać od 5.
+* W każdej iteracji zmniejszamy wartość `i` (`i--`).
+* Dzięki temu wypisywane są liczby 5, 4, 3, 2, 1.
+
+---
+
+### ✅ **Pytanie 4:**
+
+**Pytanie:** Które zdanie najlepiej opisuje różnicę między `while` a `do...while`?
+
+**Odpowiedź:** C) **`do...while` gwarantuje przynajmniej jedno wykonanie pętli**
+
+**Wyjaśnienie:**
+
+* W pętli `do...while`, warunek jest sprawdzany **po** wykonaniu bloku kodu.
+* Dlatego pętla wykona się zawsze przynajmniej raz – nawet jeśli warunek jest fałszywy.
+
+---
+
+### ✅ **Pytanie 5 (otwarte):**
+
+**Pytanie:** Dlaczego pętla `while` może być bardziej odpowiednia niż `for`?
+
+**Przykładowa odpowiedź:**
+
+> Pętla `while` jest lepsza, gdy nie znamy z góry liczby powtórzeń i warunek zakończenia zależy od zewnętrznego czynnika, np. wejścia od użytkownika.
+>
+> **Przykład:**
+>
+> ```java
+> Scanner scanner = new Scanner(System.in);
+> String input;
+> while (!(input = scanner.nextLine()).equals("exit")) {
+>     System.out.println("Wpisałeś: " + input);
+> }
+> ```
+
+**Wyjaśnienie:**
+Tutaj pętla działa tak długo, jak długo użytkownik nie wpisze `"exit"`. Nie wiemy z góry, ile to potrwa – idealny przypadek dla `while`.
+
+---
+
+Chcesz teraz quiz z `do...while`, `for`, czy może zadanie do samodzielnego napisania kodu z `while`?

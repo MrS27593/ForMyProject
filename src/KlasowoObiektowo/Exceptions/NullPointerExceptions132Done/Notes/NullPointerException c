@@ -1,0 +1,205 @@
+Świetnie 👍 Teraz **`NullPointerException` (NPE)** — jeden z **najważniejszych i najczęstszych** wyjątków w Javie. Zrobimy to **konkretnie, praktycznie i rekrutacyjnie**.
+
+---
+
+## 1️⃣ Czym jest `NullPointerException`?
+
+`NullPointerException` to **unchecked exception** (`RuntimeException`), rzucany gdy:
+
+➡️ próbujesz użyć **referencji = `null`**
+➡️ wywołujesz metodę na `null`
+➡️ odwołujesz się do pola obiektu, który jest `null`
+
+```java
+String s = null;
+s.length(); // NullPointerException
+```
+
+---
+
+## 2️⃣ Miejsce w hierarchii
+
+```
+Throwable
+ └── Exception
+      └── RuntimeException
+           └── NullPointerException
+```
+
+---
+
+## 3️⃣ NAJCZĘSTSZE przyczyny NPE 🔥
+
+### 🔴 1. Wywołanie metody na `null`
+
+```java
+obj.toString();
+```
+
+---
+
+### 🔴 2. Dostęp do pola obiektu = `null`
+
+```java
+user.name;
+```
+
+---
+
+### 🔴 3. Element tablicy / kolekcji = `null`
+
+```java
+list.get(0).length();
+```
+
+---
+
+### 🔴 4. Autounboxing `null`
+
+```java
+Integer x = null;
+int y = x; // NPE
+```
+
+---
+
+### 🔴 5. Zwracanie `null` z metody
+
+```java
+User getUser() {
+    return null;
+}
+```
+
+---
+
+## 4️⃣ Jak ROZPOZNAĆ NPE?
+
+### Stacktrace (Java 14+ – MEGA WAŻNE)
+
+```text
+Cannot invoke "String.length()" because "s" is null
+```
+
+➡️ JVM mówi **dokładnie, co jest null** ⭐
+
+---
+
+## 5️⃣ Jak UNIKAĆ NullPointerException?
+
+### ✅ 1. Sprawdzanie `null`
+
+```java
+if (user != null) {
+    user.getName();
+}
+```
+
+---
+
+### ✅ 2. `Objects.requireNonNull`
+
+```java
+this.user = Objects.requireNonNull(user, "user nie może być null");
+```
+
+---
+
+### ✅ 3. `Optional` (rozsądnie!)
+
+```java
+Optional<User> user;
+user.ifPresent(u -> System.out.println(u.getName()));
+```
+
+❗ Nie używaj `Optional` do pól klas!
+
+---
+
+### ✅ 4. Inicjalizacja obiektów
+
+```java
+List<String> list = new ArrayList<>();
+```
+
+---
+
+### ✅ 5. Programowanie defensywne
+
+```java
+public void setName(String name) {
+    if (name == null) {
+        throw new IllegalArgumentException("name is null");
+    }
+}
+```
+
+---
+
+## 6️⃣ Czego NIE robić ❌
+
+❌ Łapać NPE:
+
+```java
+catch (NullPointerException e) {}
+```
+
+❌ Zwracać `null` zamiast pustej kolekcji:
+
+```java
+return null; // ❌
+return Collections.emptyList(); // ✅
+```
+
+---
+
+## 7️⃣ NPE a Optional – rekrutacyjne pytanie 🎯
+
+❓ Czy `Optional` zapobiega NPE?
+
+👉 **NIE**
+➡️ zmusza do **jawnej obsługi braku wartości**
+
+```java
+Optional<String> opt = Optional.ofNullable(null); // OK
+opt.get(); // ❌ NoSuchElementException
+```
+
+---
+
+## 8️⃣ Kiedy NPE jest OK?
+
+💡 Prawie nigdy 😄
+Ale:
+
+* jako **fail-fast** (błąd programisty)
+* w testach
+* przy złamaniu kontraktu API
+
+---
+
+## 9️⃣ Złota zasada ⭐
+
+> **Lepiej rzucić czytelny `IllegalArgumentException`
+> niż dopuścić do `NullPointerException`**
+
+---
+
+## 🔟 Podsumowanie – MUST KNOW
+
+* `NullPointerException` = unchecked
+* Najczęstszy wyjątek w Javie
+* Autounboxing może go wywołać
+* Java 14+ → czytelne komunikaty
+* NIE łap go
+* Zapobiegaj, nie obsługuj
+
+---
+
+Chcesz teraz:
+👉 **QUIZ z NullPointerException**
+👉 **zadania „co się stanie?” (pułapki)**
+👉 **Optional vs null – głębiej**
+👉 **Top 10 NPE z projektów**
+
+Co dalej? 😄

@@ -1,0 +1,143 @@
+W Javie klasa `MutableBigInteger` nie jest częścią oficjalnego, publicznego API Javy (takiego jak `java.math.BigInteger`), ale stanowi klasę pomocniczą używaną **wewnętrznie** przez klasę `BigInteger` w pakiecie `java.math`.
+
+Zacznijmy od uporządkowania wiedzy krok po kroku:
+
+---
+
+### 🔹 1. **Co to jest `MutableBigInteger`?**
+
+* `MutableBigInteger` to **wewnętrzna, pakietowo-prywatna** (package-private) klasa zdefiniowana w `java.math`.
+* Używana do **efektywnego wykonywania operacji arytmetycznych** na liczbach całkowitych bezpośrednio na tablicach cyfr (`int[]`), co pozwala uniknąć tworzenia wielu nowych obiektów `BigInteger`.
+* Słowo "mutable" oznacza, że można zmieniać jej stan – w przeciwieństwie do `BigInteger`, który jest **niemodyfikowalny (immutable)**.
+
+---
+
+### 🔹 2. **Gdzie znajduje się `MutableBigInteger`?**
+
+Jest w pakiecie:
+
+```java
+package java.math;
+```
+
+Ale ma **modyfikator dostępu domyślnego** (brak `public`), więc **nie można jej używać bezpośrednio** spoza `java.math`.
+
+---
+
+### 🔹 3. **Dlaczego `BigInteger` używa `MutableBigInteger`?**
+
+Dla **wydajności**:
+
+* Operacje jak dodawanie, mnożenie, dzielenie i inne są złożone.
+* `BigInteger` jako immutable tworzy nowy obiekt dla każdej operacji.
+* `MutableBigInteger` przechowuje dane jako `int[]` i modyfikuje je „w miejscu”.
+* Potem wynik może być użyty do utworzenia nowego `BigInteger`.
+
+---
+
+### 🔹 4. **Jak działa `MutableBigInteger`?** (kluczowe komponenty)
+
+#### a) **Reprezentacja liczby**
+
+```java
+int[] value;
+int intLen;
+int offset;
+```
+
+* `value`: Tablica cyfr w systemie 32-bitowym (każdy int to jedno "słowo").
+* `intLen`: Długość używanego fragmentu tablicy.
+* `offset`: Punkt początkowy w tablicy.
+
+#### b) **Operacje**
+
+Metody wewnętrzne używane przez `BigInteger`, np.:
+
+* `add(MutableBigInteger val)`
+* `subtract(MutableBigInteger val)`
+* `multiply(MutableBigInteger val, MutableBigInteger result)`
+* `divide(MutableBigInteger b, MutableBigInteger quotient)`
+* `normalize()` – usuwa wiodące zera.
+
+#### c) **Konwersje**
+
+* `toBigInteger(int sign)` – tworzy obiekt `BigInteger` na podstawie aktualnego stanu.
+
+---
+
+### 🔹 5. **Przykład użycia (pośredniego)**
+
+Jako że `MutableBigInteger` nie jest dostępna publicznie, nie można jej używać bezpośrednio, ale możemy podejrzeć, jak działa np. w OpenJDK:
+
+#### Kod źródłowy BigInteger – operacja dodawania:
+
+```java
+public BigInteger add(BigInteger val) {
+    if (val.signum == 0)
+        return this;
+    if (signum == 0)
+        return val;
+
+    if (val.signum == signum)
+        return new BigInteger(add(this.mag, val.mag), signum);
+
+    int cmp = compareMagnitude(val);
+    if (cmp == 0)
+        return ZERO;
+    int[] resultMag = (cmp > 0 ? subtract(this.mag, val.mag)
+                               : subtract(val.mag, this.mag));
+    return new BigInteger(resultMag, cmp == signum ? 1 : -1);
+}
+```
+
+Tutaj używa tablic `int[]` (czyli `mag`), które są bezpośrednio modyfikowane wewnątrz klas takich jak `MutableBigInteger`.
+
+---
+
+### 🔹 6. **Czy można używać `MutableBigInteger` w aplikacjach?**
+
+**Nie bezpośrednio.**
+
+* Ponieważ jest **package-private**, nie jest częścią publicznego API.
+* Nie możesz jej zaimportować poza `java.math`.
+
+---
+
+### 🔹 7. **Czy są zamienniki lub biblioteki oferujące mutowalne liczby całkowite?**
+
+Tak, jeśli chcesz pracować z mutowalnymi wielkimi liczbami, możesz:
+
+* Użyć bibliotek takich jak:
+
+  * **Apache Commons Math**
+  * **GMP (Java binding)** – jeśli potrzebna jest ekstremalna wydajność
+  * **Google Guava BigInteger utilities** (bardziej do pomocniczych operacji)
+
+---
+
+### 🔹 8. **Czy mogę sam napisać własną wersję `MutableBigInteger`?**
+
+Tak. To dobry sposób na naukę. Możesz stworzyć własną klasę z tablicą `int[]` i zaimplementować podstawowe operacje arytmetyczne na dużych liczbach (np. jak w systemie ręcznego dodawania liczb wielocyfrowych).
+
+---
+
+### 🔹 Podsumowanie
+
+| Cecha             | Opis                                                                   |
+| ----------------- | ---------------------------------------------------------------------- |
+| **Nazwa**         | `MutableBigInteger`                                                    |
+| **Pakiet**        | `java.math`                                                            |
+| **Dostępność**    | package-private (niedostępna publicznie)                               |
+| **Przeznaczenie** | Wewnętrzne operacje w `BigInteger`                                     |
+| **Zalety**        | Wydajność, możliwość modyfikacji bez tworzenia nowych obiektów         |
+| **Wady**          | Brak dostępu z zewnątrz, brak dokumentacji publicznej                  |
+| **Alternatywy**   | Własna implementacja, zewnętrzne biblioteki (Apache Commons Math, GMP) |
+
+---
+
+Jeśli chcesz, mogę:
+
+* Pokazać przykładową uproszczoną wersję `MutableBigInteger` w Javie,
+* Albo napisać kod klasy `MutableBigIntegerLite`, którą mógłbyś używać w swoim projekcie.
+
+Czy chcesz?

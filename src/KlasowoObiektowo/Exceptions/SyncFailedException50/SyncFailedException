@@ -1,0 +1,9 @@
+Aby dobrze umieć Klasę SyncFailedException warto znać:
+Interface:
+
+
+Class:
+String
+
+Exceptions:
+IOException

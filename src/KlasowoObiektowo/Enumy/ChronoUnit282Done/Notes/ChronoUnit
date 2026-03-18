@@ -1,0 +1,11 @@
+Aby dobrze umieć Enum ChronoUnit warto znać:
+Interface:
+Temporal
+TemporalUnit
+
+Class:
+String
+Duration
+
+
+Exceptions:

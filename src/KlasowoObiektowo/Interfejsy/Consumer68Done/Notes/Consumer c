@@ -1,0 +1,126 @@
+Jasne! Interfejs `Consumer` w Javie pochodzi z pakietu `java.util.function` i jest częścią programowania funkcyjnego wprowadzonego w Javie 8. Poniżej znajdziesz kompleksowe wprowadzenie do tego interfejsu – w przystępny sposób, krok po kroku.
+
+---
+
+### 🔹 1. Co to jest `Consumer<T>`?
+
+`Consumer<T>` to interfejs funkcyjny, który reprezentuje operację przyjmującą jeden argument typu `T` i **nie zwracającą wyniku** (czyli `void`).
+
+To idealny wybór, gdy chcesz coś *zrobić* z danym obiektem, ale nie oczekujesz żadnej wartości zwrotnej (np. wyświetlenie, zapis, modyfikacja czegoś).
+
+---
+
+### 🔹 2. Składnia
+
+```java
+@FunctionalInterface
+public interface Consumer<T> {
+    void accept(T t);
+}
+```
+
+---
+
+### 🔹 3. Przykład użycia
+
+```java
+import java.util.function.Consumer;
+
+public class ConsumerExample {
+    public static void main(String[] args) {
+        Consumer<String> printUpperCase = s -> System.out.println(s.toUpperCase());
+
+        printUpperCase.accept("hello"); // WYPISZE: HELLO
+    }
+}
+```
+
+---
+
+### 🔹 4. Zastosowanie z kolekcjami
+
+Bardzo często `Consumer` używany jest z metodami takimi jak `forEach()`:
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
+
+public class ConsumerWithList {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("Anna", "Bartek", "Cezary");
+
+        Consumer<String> printName = name -> System.out.println("Hello, " + name);
+
+        names.forEach(printName); // Wypisze powitanie dla każdego imienia
+    }
+}
+```
+
+---
+
+### 🔹 5. Łączenie Consumerów — `andThen()`
+
+Możesz połączyć dwa `Consumer<T>` w jeden, który wykona je w kolejności:
+
+```java
+Consumer<String> first = s -> System.out.println("Pierwszy: " + s);
+Consumer<String> second = s -> System.out.println("Drugi: " + s);
+
+Consumer<String> combined = first.andThen(second);
+combined.accept("Test");
+// WYPISZE:
+// Pierwszy: Test
+// Drugi: Test
+```
+
+---
+
+### 🔹 6. Przykłady praktyczne
+
+**Zapis danych do pliku + logowanie:**
+
+```java
+Consumer<String> saveToFile = content -> {
+    // kod zapisujący do pliku
+};
+
+Consumer<String> logToConsole = content -> System.out.println("Zapisano: " + content);
+
+Consumer<String> combined = saveToFile.andThen(logToConsole);
+combined.accept("Nowy wpis");
+```
+
+---
+
+### 🔹 7. Consumer vs inne interfejsy funkcyjne
+
+| Interfejs        | Argument | Zwraca wartość? | Użycie                         |
+|------------------|----------|------------------|--------------------------------|
+| `Consumer<T>`     | Tak      | Nie               | Do akcji typu "zrób coś"       |
+| `Function<T, R>`  | Tak      | Tak              | Gdy przekształcasz dane        |
+| `Supplier<T>`     | Nie      | Tak              | Gdy dostarczasz dane           |
+| `Predicate<T>`    | Tak      | Tak (boolean)    | Gdy coś sprawdzasz/filtrujesz  |
+
+---
+
+### 🔹 8. Gdzie można to spotkać?
+
+- `Stream.forEach(...)`
+- W programowaniu reaktywnym (`subscribe` w RxJava czy Project Reactor)
+- W kontrolowanych akcjach GUI (np. przy kliknięciu przycisku w JavaFX)
+- W testach lub logowaniu
+
+---
+
+### Podsumowanie
+
+`Consumer<T>` to:
+- prosty interfejs funkcyjny,
+- przyjmuje argument i **nic nie zwraca**,
+- często używany z kolekcjami (`forEach`),
+- można go łączyć z `andThen()`.
+
+---
+
+Chcesz, żebym pokazał ćwiczenia do samodzielnego zrobienia albo quiz do sprawdzenia wiedzy?

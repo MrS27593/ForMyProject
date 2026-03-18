@@ -1,0 +1,184 @@
+Super 😄
+Oto **poprawne odpowiedzi + wyjaśnienia**.
+
+---
+
+# 🟢 Część I – Podstawy
+
+### 1️⃣ Czy `@FunctionalInterface` jest obowiązkowa?
+
+**✅ B. Nie**
+
+Adnotacja nie jest wymagana.
+Lambda zadziała bez niej — ona tylko wymusza sprawdzenie przez kompilator.
+
+---
+
+### 2️⃣ Ile metod abstrakcyjnych?
+
+**✅ B. 1**
+
+Functional interface = **Single Abstract Method (SAM)**.
+
+---
+
+### 3️⃣ Czy może mieć metody `default`?
+
+**✅ A. Tak**
+
+`default` i `static` się nie liczą jako abstrakcyjne.
+
+---
+
+### 4️⃣ Czy to jest poprawne?
+
+```java
+@FunctionalInterface
+public interface Test {
+    void run();
+    default void log() {}
+}
+```
+
+**✅ A. Tak**
+
+Jest jedna metoda abstrakcyjna (`run`).
+
+---
+
+# 🟡 Część II – Średni poziom
+
+### 5️⃣ Czy `Runnable` jest functional interface?
+
+**✅ A. Tak**
+
+Ma jedną metodę abstrakcyjną:
+
+```java
+void run();
+```
+
+---
+
+### 6️⃣ Czy to jest poprawne?
+
+```java
+@FunctionalInterface
+public interface Test {
+    boolean equals(Object obj);
+}
+```
+
+**❌ B. Nie**
+
+Dlaczego?
+
+Metody z `Object` (equals, hashCode, toString)
+**nie liczą się jako abstrakcyjne**.
+
+Czyli:
+→ ten interfejs ma **0 metod abstrakcyjnych**
+→ więc nie spełnia warunku SAM.
+
+---
+
+### 7️⃣ Czy `Comparator<T>` jest functional interface?
+
+**✅ A. Tak**
+
+Tylko jedna metoda abstrakcyjna:
+
+```java
+int compare(T o1, T o2);
+```
+
+Reszta to `default` i `static`.
+
+---
+
+### 8️⃣ Co oznacza SAM?
+
+**✅ B. Single Abstract Method**
+
+---
+
+# 🔴 Część III – Zaawansowane
+
+### 9️⃣ Czy to jest poprawne?
+
+```java
+@FunctionalInterface
+public interface Test {
+    void a();
+    void b();
+}
+```
+
+**❌ B. Nie**
+
+Są dwie metody abstrakcyjne.
+
+---
+
+### 🔟 Czy to jest functional interface?
+
+```java
+interface A {
+    void test();
+}
+
+@FunctionalInterface
+interface B extends A {
+}
+```
+
+**✅ A. Tak**
+
+Dlaczego?
+
+B dziedziczy jedną metodę abstrakcyjną (`test()`).
+
+Łącznie ma dokładnie jedną.
+
+---
+
+### 1️⃣1️⃣ Czy to jest functional interface?
+
+```java
+@FunctionalInterface
+interface A {
+    void test();
+    String toString();
+}
+```
+
+**✅ A. Tak**
+
+`toString()` pochodzi z `Object`
+→ nie liczy się jako metoda abstrakcyjna.
+
+Czyli nadal mamy jedną (`test()`).
+
+---
+
+# 🎯 Najczęstsze pułapki
+
+| Pułapka           | Dlaczego      |
+| ----------------- | ------------- |
+| equals()          | Nie liczy się |
+| hashCode()        | Nie liczy się |
+| toString()        | Nie liczy się |
+| default           | Nie liczy się |
+| static            | Nie liczy się |
+| private (Java 9+) | Nie liczy się |
+
+---
+
+Jeśli chcesz, możemy teraz zrobić:
+
+* 🔥 poziom HARD (podchwytliwe dziedziczenie)
+* 🔥 lambdy + typy generyczne
+* 🔥 target typing
+* 🔥 pytania rekrutacyjne senior level
+
+Co wybierasz? 😎

@@ -1,0 +1,121 @@
+## QUIZ – `switch` w Java (10 pytań, praktyczne)
+
+---
+
+### **1. Do czego służy instrukcja `switch` w Javie?**
+
+A. Do tworzenia pętli
+B. Do obsługi wyjątków
+C. Do wyboru jednej z wielu ścieżek wykonania na podstawie wartości
+D. Do deklaracji zmiennych
+
+---
+
+### **2. Który typ NIE jest obsługiwany przez `switch`?**
+
+A. `int`
+B. `String`
+C. `enum`
+D. `double`
+
+---
+
+### **3. Co się stanie, jeśli w klasycznym `switch` zabraknie `break`?**
+
+A. Program się nie skompiluje
+B. Wykona się tylko jeden `case`
+C. Nastąpi przejście do kolejnych `case` (fall-through)
+D. JVM doda `break` automatycznie
+
+---
+
+### **4. Jaka jest rola `default` w `switch`?**
+
+A. Musi zawsze występować
+B. Obsługuje przypadki, które nie pasują do żadnego `case`
+C. Zatrzymuje działanie `switch`
+D. Działa tylko z `enum`
+
+---
+
+### **5. Który kod jest POPRAWNY?**
+
+A.
+
+```java
+switch(x) {
+    case 1:
+        System.out.println("1");
+}
+```
+
+B.
+
+```java
+switch(x) {
+    case 1 -> System.out.println("1");
+    break;
+}
+```
+
+C.
+
+```java
+switch(x) {
+    case 1:
+        System.out.println("1");
+        break;
+}
+```
+
+D.
+
+```java
+switch(x) {
+    case 1;
+        System.out.println("1");
+}
+```
+
+---
+
+### **6. Kiedy najlepiej użyć `switch` zamiast `if-else`?**
+
+A. Gdy warunki są złożone
+B. Gdy sprawdzamy wiele wartości jednej zmiennej
+C. Gdy pracujemy na obiektach
+D. Gdy używamy pętli
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład praktycznego zastosowania `switch` w aplikacji (np. system, menu, status).
+
+---
+
+### **8. (OTWARTE)**
+
+Jaka jest różnica między klasycznym `switch` a `switch expression` (Java 12+)?
+
+---
+
+### **9. Co się stanie, jeśli do `switch` przekażesz `null` (np. `String`)?**
+
+A. Nic, `default` się wykona
+B. Zostanie rzucony `NullPointerException`
+C. `switch` zostanie pominięty
+D. Kompilator zgłosi błąd
+
+---
+
+### **10. Które zdanie o `switch expression` jest prawdziwe?**
+
+A. Wymaga `break`
+B. Nie może zwracać wartości
+C. Zawsze zwraca wartość
+D. Działa tylko z `int`
+
+---
+
+Napisz **„odpowiedzi”**, a podam poprawne odpowiedzi z wyjaśnieniami i analizą kodu 👌

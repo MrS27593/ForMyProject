@@ -1,0 +1,145 @@
+Świetnie! 🔥
+Przechodzimy teraz do **`byte`** — i zrobię to dla Ciebie tak samo: od podstaw do pełnego zrozumienia!
+
+---
+
+# 📚 Co to jest `byte` w Javie?
+
+- `byte` to **typ danych** w Javie — **prymitywny typ liczbowy**.
+- Przechowuje **bardzo małe liczby całkowite**.
+- Jest najmniejszym typem liczbowym w Javie pod względem rozmiaru.
+
+---
+
+# 📏 Szczegóły o `byte`:
+
+| Cecha | Wartość |
+|:------|:--------|
+| Typ | Prymitywny |
+| Rozmiar | **8 bitów** (1 bajt) |
+| Zakres wartości | od **-128** do **127** |
+| Wartość domyślna | `0` |
+
+➔ Dlaczego tylko od -128 do 127?
+Bo:
+- 8 bitów = 2⁸ = 256 możliwych wartości
+- Połowa na liczby ujemne (`-128` do `-1`)
+- Jedna wartość dla `0`
+- Reszta na liczby dodatnie (`1` do `127`)
+
+---
+
+# 🔥 Jak używać `byte`?
+
+## 1. Deklaracja zmiennej `byte`:
+
+```java
+byte myByte = 100;
+System.out.println(myByte);
+```
+
+✅ Wypisze: `100`
+
+---
+
+## 2. Przykład przekroczenia zakresu:
+
+```java
+byte myByte = 130; // Błąd: liczba za duża
+```
+⛔ Kompilator powie: "**possible lossy conversion from int to byte**"
+
+Bo **130 > 127** ➔ przekroczenie zakresu `byte`.
+
+---
+
+# 🧠 Jak działa rzutowanie (`casting`)?
+
+Jeśli naprawdę chcesz przypisać wartość spoza zakresu, musisz **jawnie** rzutować:
+
+```java
+byte myByte = (byte) 130;
+System.out.println(myByte);
+```
+
+**Wynik:** `-126`
+
+Dlaczego?
+Bo Java **przechodzi przez zakres** i "zawija" liczbę.
+(`130 - 256 = -126`)
+
+---
+
+# ⚡ Operacje na `byte`
+
+Ponieważ `byte` jest **małym typem liczbowym**, Java **promuje** `byte` do `int` w operacjach matematycznych.
+
+Przykład:
+
+```java
+byte a = 10;
+byte b = 20;
+byte c = (byte) (a + b); // Musimy jawnie rzutować
+System.out.println(c);
+```
+
+**Bez `(byte)` kompilator zgłosi błąd!**
+Java automatycznie zamienia `byte` na `int` w `a + b`.
+
+---
+
+# 🎯 Gdzie się używa `byte`?
+
+✅ Jeśli chcesz **zaoszczędzić pamięć** (np. w dużych tablicach danych)
+✅ W programowaniu niskopoziomowym (np. strumienie plików, obrazy, sieci)
+✅ W miejscach, gdzie dane są zawsze małe (np. wiek, liczba prób)
+
+Przykład:
+```java
+byte[] fileContent = new byte[1024]; // np. czytanie pliku
+```
+
+---
+
+# ✨ Dodatkowo: `Byte` — klasa opakowująca
+
+Java ma też **klasę opakowującą** `Byte` (z dużej litery).
+
+- `byte` ➔ typ prymitywny
+- `Byte` ➔ klasa obiektowa
+
+**Przykład:**
+
+```java
+Byte myByteObject = 127; // autoboxing
+byte myPrimitive = myByteObject; // unboxing
+```
+
+**`Byte`** pozwala:
+- przechowywać `byte` w kolekcjach (`List<Byte>`)
+- konwertować `byte` na `String`, `int`, itp.
+
+---
+
+# 🚀 Podsumowanie `byte`
+
+| Element | Opis |
+|:--------|:----|
+| Typ | Prymitywny liczbowy (całkowity) |
+| Rozmiar | 8 bitów |
+| Zakres | od -128 do 127 |
+| Operacje | Trzeba często rzutować `(byte)` |
+| Gdzie używać | Małe liczby, optymalizacja pamięci, strumienie danych |
+| Klasa opakowująca | `Byte` |
+
+---
+
+# 🔥 Extra ciekawostka:
+
+W Java `byte` jest często używany w **operacjach bitowych** (`&`, `|`, `^`, `~`, `<<`, `>>`) — np. w kryptografii lub sieciach!
+
+---
+
+# 📣 Chcesz, żebym przygotował Ci jeszcze **mini quiz** albo **małe zadania** na `byte`, żebyś szybko utrwalił? 🚀
+(np. jak działa rzutowanie, jak "przepływa" liczba poza zakres)
+Chcesz? 🔥

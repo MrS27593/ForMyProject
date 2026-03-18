@@ -1,0 +1,17 @@
+Aby dobrze umieć AbstractClass Writer warto znać:
+Interface:
+Appendable
+Closeable
+Flushable
+CharSequence
+
+Class i Abstract Class:
+Writer
+Objects
+Object
+
+Exceptions:
+IOException
+
+Enum:
+

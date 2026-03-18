@@ -1,0 +1,202 @@
+Ekstra! 🚀 Teraz czas na **pełne i praktyczne wyjaśnienie `class` w Javie** — absolutna podstawa, ale też potężne narzędzie OOP. Gotowy? 😎
+
+---
+
+# 🧱 Co to jest `class` w Javie?
+
+- `class` to **szablon/plan** do tworzenia obiektów.
+- Zawiera **pola (zmienne)** i **metody (zachowania)**.
+- Obiekt to **konkretna instancja klasy**.
+
+---
+
+## ✅ Przykład klasy:
+
+```java
+public class Samochod {
+    String marka;
+    int rok;
+
+    void jedz() {
+        System.out.println("Samochód jedzie");
+    }
+}
+```
+
+To szablon. Teraz możesz stworzyć samochód:
+
+```java
+Samochod auto = new Samochod();
+auto.marka = "Toyota";
+auto.rok = 2020;
+auto.jedz();  // Samochód jedzie
+```
+
+---
+
+# 🧩 Składniki klasy
+
+| Element | Opis |
+|--------|------|
+| **pola** (fields) | dane (np. `String marka`) |
+| **konstruktory** | specjalne metody do tworzenia obiektu |
+| **metody** | działania (np. `void jedz()`) |
+| **modyfikatory** | np. `public`, `private` |
+| **inne klasy** | klasy wewnętrzne, dziedziczenie, itp. |
+
+---
+
+## 🛠️ Konstruktor
+
+```java
+public Samochod(String m, int r) {
+    marka = m;
+    rok = r;
+}
+```
+
+Tworzenie obiektu:
+
+```java
+Samochod auto = new Samochod("Audi", 2018);
+```
+
+---
+
+## 🔐 Modyfikatory dostępu
+
+| Modyfikator | Gdzie dostęp? |
+|-------------|----------------|
+| `public` | wszędzie |
+| `private` | tylko w tej klasie |
+| `protected` | w tej klasie + klasach dziedziczących |
+| (domyślny) | w tym samym pakiecie |
+
+---
+
+## ⚙️ Przykład pełnej klasy
+
+```java
+public class Osoba {
+    private String imie;
+    private int wiek;
+
+    public Osoba(String imie, int wiek) {
+        this.imie = imie;
+        this.wiek = wiek;
+    }
+
+    public void przywitajSie() {
+        System.out.println("Cześć, mam na imię " + imie);
+    }
+
+    public int getWiek() {
+        return wiek;
+    }
+
+    public void setWiek(int nowyWiek) {
+        if (nowyWiek > 0) {
+            wiek = nowyWiek;
+        }
+    }
+}
+```
+
+---
+
+## 📦 `class` może zawierać:
+
+- inne klasy (`class Wewnętrzna {}`)
+- statyczne pola/metody
+- dziedziczenie: `class Kot extends Zwierze`
+- implementacje interfejsów: `implements Runnable`
+
+---
+
+# 🧠 Co to znaczy "obiekt klasy"?
+
+```java
+Osoba ja = new Osoba("Tomek", 25);
+ja.przywitajSie();
+```
+
+- `ja` to **obiekt klasy `Osoba`**.
+- Ma swoje własne `imie`, `wiek`, itd.
+- Możesz stworzyć wiele takich obiektów — każdy niezależny.
+
+---
+
+# 📚 Słówko o `this`
+
+```java
+this.imie = imie;
+```
+
+- `this` odnosi się do **bieżącego obiektu**.
+- Pomaga odróżnić pole od parametru.
+
+---
+
+# ✨ Dodatki
+
+| Cechy klas | Znaczenie |
+|------------|-----------|
+| `static` | nie trzeba tworzyć obiektu |
+| `final class` | nie można dziedziczyć |
+| `abstract class` | nie można stworzyć obiektu tej klasy |
+| `extends` | dziedziczenie |
+| `implements` | implementacja interfejsu |
+
+---
+
+# 🧪 Mini Quiz — sprawdź się
+
+### 1. Co robi konstruktor?
+
+a) Tworzy nową metodę
+b) Tworzy nowy obiekt
+c) Nadaje nazwę klasie
+
+---
+
+### 2. Co to znaczy `private int wiek;`?
+
+a) Można używać wszędzie
+b) Można używać tylko w tej klasie
+c) W ogóle nie działa
+
+---
+
+### 3. Co wypisze?
+
+```java
+public class Kot {
+    void mialcz() {
+        System.out.println("Miau");
+    }
+
+    public static void main(String[] args) {
+        Kot k = new Kot();
+        k.mialcz();
+    }
+}
+```
+
+---
+
+# 🎯 Zadania praktyczne
+
+**Zadanie 1:**
+Stwórz klasę `Pies` z polami `imie` i `rasa`, z metodą `szczekaj()`, która wypisuje `Hau hau!`.
+
+**Zadanie 2:**
+Dodaj konstruktor i `gettery/settery`.
+
+**Zadanie 3 (trudniejsze):**
+Zrób klasę `BankAccount`, z metodami `wplac(double kwota)` i `wyplac(double kwota)` oraz `getSaldo()`.
+
+---
+
+✅
+Mogę sprawdzić Twoje klasy lub stworzyć wzorcowe rozwiązania. Chcesz?
+Czy idziemy dalej i chcesz teraz np. o `interface`, `static` albo `this`?

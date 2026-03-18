@@ -1,0 +1,35 @@
+Klasa `NativeRasterLoader` w pakiecie `com.jetbrains.desktop` nie jest publicznie udokumentowana ani dostępna w oficjalnych repozytoriach JetBrains. Możliwe, że jest to komponent wewnętrzny używany w środowisku uruchomieniowym JetBrains Runtime (JBR), który jest dostosowaną wersją OpenJDK wykorzystywaną przez produkty JetBrains, takie jak IntelliJ IDEA. ([JetBrains Marketplace][1])
+
+### Możliwe zastosowania
+
+Chociaż brak jest oficjalnej dokumentacji dotyczącej klasy `NativeRasterLoader`, można przypuszczać, że jej zadaniem jest ładowanie rastrowych zasobów graficznych (np. obrazów) w sposób zoptymalizowany dla systemów desktopowych. Tego rodzaju funkcjonalność jest często wykorzystywana w aplikacjach opartych na bibliotekach graficznych, takich jak Skiko czy Compose Multiplatform, które są używane do tworzenia interfejsów użytkownika w aplikacjach desktopowych.([GitHub][2])
+
+### Przykładowe użycie
+
+Ponieważ klasa `NativeRasterLoader` nie jest publicznie dostępna, nie można przedstawić konkretnego przykładu jej użycia. Jednak w kontekście aplikacji desktopowych opartych na Compose Multiplatform, ładowanie obrazów odbywa się zazwyczaj za pomocą funkcji dostarczanych przez bibliotekę Compose.
+
+Jeśli chcesz załadować obraz w aplikacji desktopowej, możesz skorzystać z funkcji `loadImageBitmap` z biblioteki Compose:([GitHub][3])
+
+```kotlin
+import androidx.compose.ui.res.loadImageBitmap
+import androidx.compose.ui.res.useResource
+import androidx.compose.ui.graphics.ImageBitmap
+
+val image: ImageBitmap = useResource("path/to/image.png", ::loadImageBitmap)
+```
+
+
+
+W powyższym przykładzie `useResource` ładuje zasób z podanej ścieżki, a `loadImageBitmap` przekształca go w obiekt `ImageBitmap`, który można wykorzystać w interfejsie użytkownika.
+
+### Dalsze kroki
+
+Jeśli potrzebujesz bardziej zaawansowanego ładowania obrazów lub integracji z natywnymi bibliotekami graficznymi, warto zapoznać się z dokumentacją bibliotek takich jak Skiko czy Compose Multiplatform. Dodatkowo, przeglądając kod źródłowy JetBrains Runtime, można znaleźć klasy takie jak `JBRFileDialog`, które oferują rozszerzoną funkcjonalność w porównaniu do standardowych komponentów Javy. ([GitHub][4])
+
+Jeśli masz dostęp do źródeł JetBrains Runtime, możesz poszukać klasy `NativeRasterLoader` w strukturze projektu, aby lepiej zrozumieć jej działanie i możliwości.
+
+[1]: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-jetbrains-runtime.html?utm_source=chatgpt.com "JetBrains Runtime (JBR) | IntelliJ Platform Plugin SDK"
+[2]: https://github.com/JetBrains/compose-multiplatform-desktop-template?utm_source=chatgpt.com "JetBrains/compose-multiplatform-desktop-template - GitHub"
+[3]: https://github.com/JetBrains/compose-multiplatform/issues/3123?utm_source=chatgpt.com "Cannot run compose desktop application using IDEA gutter #3123 - GitHub"
+[4]: https://github.com/JetBrains/JetBrainsRuntime/blob/main/src/java.desktop/share/classes/com/jetbrains/desktop/JBRFileDialog.java?utm_source=chatgpt.com "JetBrainsRuntime/src/java.desktop/share/classes/com/jetbrains/desktop ..."
+

@@ -1,0 +1,172 @@
+Świetnie 😄
+Oto **quiz z adnotacji `@SafeVarargs` w Javie** — poziom **egzamin + praktyka**.
+Jak zawsze: **bez odpowiedzi**. Gdy skończysz, napisz **„odpowiedzi”** ✅
+
+---
+
+# 🧠 **Quiz: `@SafeVarargs` w Javie**
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Do czego służy `@SafeVarargs`?
+
+A. Przyspiesza działanie varargs
+B. Usuwa błędy kompilacji
+C. Informuje kompilator, że varargs z generykami są bezpieczne
+D. Zmienia sposób działania JVM
+
+---
+
+### 2️⃣ Jaki problem jest związany z `@SafeVarargs`?
+
+A. Memory leak
+B. Heap pollution
+C. Stack overflow
+D. Deadlock
+
+---
+
+### 3️⃣ Z czym jest związany problem heap pollution?
+
+A. Dziedziczeniem
+B. Autoboxingiem
+C. Varargs i generykami
+D. Stream API
+
+---
+
+## 🔹 Część II – Ograniczenia
+
+### 4️⃣ Gdzie WOLNO użyć `@SafeVarargs`? (wielokrotny wybór)
+
+A. Metoda `static`
+B. Metoda instancyjna (nie-final)
+C. Metoda `final`
+D. Metoda `private`
+E. Konstruktor
+
+---
+
+### 5️⃣ Dlaczego metoda musi być `final`, `static` lub `private`?
+
+A. Ze względów wydajnościowych
+B. Żeby nie dało się jej nadpisać
+C. Bo JVM tego wymaga
+D. Żeby działała w runtime
+
+---
+
+### 6️⃣ Od której wersji Javy istnieje `@SafeVarargs`?
+
+A. Java 5
+B. Java 6
+C. Java 7
+D. Java 8
+
+---
+
+## 🔹 Część III – Praktyka
+
+### 7️⃣ Która metoda jest BEZPIECZNA?
+
+A.
+
+```java
+@SafeVarargs
+static <T> void m(T... t) {
+    Object[] o = t;
+    o[0] = 1;
+}
+```
+
+B.
+
+```java
+@SafeVarargs
+static <T> void m(T... t) {
+    for (T e : t) {
+        System.out.println(e);
+    }
+}
+```
+
+C.
+
+```java
+static <T> void m(T... t) {
+    t[0] = null;
+}
+```
+
+D.
+
+```java
+@SafeVarargs
+static <T> void m(T... t) {
+    t[0] = t[1];
+}
+```
+
+---
+
+### 8️⃣ Co WOLNO robić w metodzie oznaczonej `@SafeVarargs`?
+
+A. Zapisywać do tablicy varargs
+B. Zmieniać typy elementów
+C. Tylko odczytywać / iterować
+D. Rzutować na `Object[]` i modyfikować
+
+---
+
+## 🔹 Część IV – Porównania
+
+### 9️⃣ Co jest LEPSZE przy varargs + generyki?
+
+A. `@SuppressWarnings("unchecked")`
+B. `@SafeVarargs`
+C. Ignorowanie warningu
+D. Usunięcie generyków
+
+---
+
+### 🔟 Które API JDK używa `@SafeVarargs`?
+
+A. `Arrays.sort()`
+B. `Thread.sleep()`
+C. `List.of()`
+D. `Optional.get()`
+
+---
+
+## 🔹 Część V – Zaawansowane
+
+### 1️⃣1️⃣ Czy `@SafeVarargs` sprawdza bezpieczeństwo kodu?
+
+A. Tak, w runtime
+B. Tak, w compile-time
+C. Nie, to obietnica programisty
+D. Tylko w debug
+
+---
+
+### 1️⃣2️⃣ Co się stanie, jeśli użyjesz `@SafeVarargs` NIEPOPRAWNIE?
+
+A. Kompilator rzuci błąd
+B. JVM zignoruje adnotację
+C. Możliwy `ClassCastException` w runtime
+D. Nic
+
+---
+
+## ✍️ Pytanie otwarte
+
+### 1️⃣3️⃣ Napisz poprawny przykład użycia `@SafeVarargs`
+
+– bezpieczna metoda
+– z generykami
+– bez heap pollution
+
+---
+
+Gdy skończysz 👉 napisz **„odpowiedzi”**
+i sprawdzimy wszystko punkt po punkcie 💪

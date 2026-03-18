@@ -1,0 +1,92 @@
+Pewnie! Oto **odpowiedzi do quizu o `Supplier<T>`** wraz z krótkim wyjaśnieniem do każdego pytania:
+
+---
+
+### ✅ Odpowiedzi i wyjaśnienia
+
+### **Pytanie 1**
+
+**Odpowiedź:** B
+**Wyjaśnienie:** `Supplier<T>` ma jedną metodę `get()`, która **nie przyjmuje żadnych argumentów** i **zwraca obiekt typu T**.
+
+---
+
+### **Pytanie 2**
+
+**Odpowiedź:** C
+**Wyjaśnienie:** `() -> "Witaj"` to poprawna lambda dla `Supplier<String>`.
+Pozostałe opcje są błędne składniowo lub mają zły typ zwracany.
+
+---
+
+### **Pytanie 3**
+
+**Odpowiedzi:** A, C
+**Wyjaśnienie:** `Supplier<T>` świetnie się sprawdza przy generowaniu danych (np. losowych)
+oraz przy tworzeniu obiektów tylko wtedy, gdy są potrzebne (leniwe tworzenie).
+**B** i **D** to zastosowania odpowiednio `Predicate<T>` i `Consumer<T>`.
+
+---
+
+### **Pytanie 4**
+
+**Odpowiedź:** D
+**Wyjaśnienie:** `Supplier` znajduje się w pakiecie **`java.util.function`**,
+który zawiera wszystkie interfejsy funkcyjne wprowadzone w Java 8.
+
+---
+
+### **Pytanie 5**
+
+**Odpowiedź:** D
+**Wyjaśnienie:** Wszystkie wymienione interfejsy mają **dokładnie jedną metodę abstrakcyjną**,
+co czyni je interfejsami funkcyjnymi.
+
+---
+
+### **Pytanie 6**
+
+**Odpowiedź:** C
+**Wyjaśnienie:** `numberSupplier.get()` zwróci `10`, więc wypisze po prostu `10`.
+
+---
+
+### **Pytanie 7**
+
+**Odpowiedzi:** A, C, D
+**Wyjaśnienie:**
+
+* `Supplier` nie przyjmuje argumentów – ✔️
+* `Function<T, R>` przyjmuje argument i zwraca wartość – ✔️
+* `Supplier` świetnie nadaje się do leniwej inicjalizacji – ✔️
+* **B** jest błędne – `Function` może zwracać dowolny typ, nie tylko `boolean`.
+
+---
+
+### **Pytanie 8**
+
+**Odpowiedź:** A
+**Wyjaśnienie:** `Stream.generate(() -> Math.random())`
+tworzy **nieskończony strumień** liczb `double` losowych — dlatego warto dodać `.limit(n)`.
+
+---
+
+### **Pytanie 9**
+
+**Odpowiedzi:** A, B, D
+**Wyjaśnienie:**
+
+* `Consumer<T>`, `Function<T, R>`, `Predicate<T>` — wszystkie przyjmują **jeden argument**, a `Supplier` — **żadnego**.
+* `Runnable` też nie przyjmuje żadnych parametrów, więc nie różni się tu od `Supplier`.
+
+---
+
+### **Pytanie 10**
+
+**Odpowiedź:** C
+**Wyjaśnienie:** `Supplier` pozwala **odroczyć wykonanie kodu** do momentu, kiedy ktoś wywoła metodę `get()`.
+To idealne do tzw. "lazy loading".
+
+---
+
+Masz ochotę na dodatkowy quiz, np. o `Function`, `Consumer`, albo o `Stream API`?

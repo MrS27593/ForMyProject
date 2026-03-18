@@ -1,0 +1,66 @@
+Świetnie! Oto **quiz** sprawdzający Twoją wiedzę o interfejsie `Comparable` w Javie. Składa się z pytań **wielokrotnego wyboru** oraz **prawda/fałsz**. Na końcu możesz poprosić o odpowiedzi i wyjaśnienia 😊
+
+---
+
+### 📚 Quiz: Interfejs `Comparable` w Javie
+
+#### **Pytanie 1**
+
+Które z poniższych stwierdzeń o interfejsie `Comparable` są prawdziwe?
+*(Wybierz wszystkie poprawne)*
+
+A. `Comparable` znajduje się w pakiecie `java.util`
+B. Metoda `compareTo` zwraca wartość typu `int`
+C. `Comparable` umożliwia sortowanie obiektów w naturalnej kolejności
+D. Klasa może implementować tylko jeden interfejs `Comparable`
+
+---
+
+#### **Pytanie 2**
+
+Co oznacza, gdy metoda `compareTo()` zwraca `0`?
+
+A. Obiekt `this` jest większy niż `other`
+B. Obiekty są równe względem porządku naturalnego
+C. Obiekt `this` jest mniejszy niż `other`
+D. Nie można porównać obiektów
+
+---
+
+#### **Pytanie 3 (Prawda / Fałsz)**
+
+`compareTo()` powinno być zgodne z metodą `equals()`.
+**Prawda / Fałsz**
+
+---
+
+#### **Pytanie 4**
+
+Jaki jest poprawny sposób porównania dwóch liczb całkowitych w metodzie `compareTo`?
+
+A. `return this.age - other.age;`
+B. `return Integer.compare(this.age, other.age);`
+C. `return other.age - this.age;`
+D. `return this.age.equals(other.age);`
+
+---
+
+#### **Pytanie 5 (Prawda / Fałsz)**
+
+Można użyć `Collections.sort()` tylko z klasami, które implementują `Comparable`.
+**Prawda / Fałsz**
+
+---
+
+#### **Pytanie 6**
+
+Który z tych przypadków wymaga **zamiast `Comparable` użycia `Comparator`**?
+
+A. Sortowanie po wielu różnych kryteriach (np. imię, wiek, wzrost)
+B. Sortowanie według jednego, stałego kryterium
+C. Gdy klasa nie ma dostępu do kodu źródłowego (np. biblioteka zewnętrzna)
+D. Gdy chcemy nadpisać domyślną kolejność tylko w jednym miejscu
+
+---
+
+Chcesz teraz sprawdzić odpowiedzi? 😊

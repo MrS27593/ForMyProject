@@ -1,0 +1,65 @@
+4. Sterowniki JDBC
+Aby połączyć się z bazą danych i móc wykonywać na niej operacje należy skorzystać ze specjalnego sterownika, który tłumaczy odwołania z poziomu Javy na odwołania właściwe dla danego RDBMS.
+
+Istnieją 4 typy sterowników.
+
+
+
+Typ sterownika
+
+Wyjaśnienia
+
+Zastosowanie
+
+1 - JDBC-ODBC bridge
+
++ sterownik ODBC
+
+
+
+
+
+Dostęp do BD przez ODBC.
+
+JDBC-ODBC bridge komunikuje się ze sterownikiem ODBC a ten z bazą danych.
+
+Natywny kod ODBC musi być załadowany po stronie klienta.
+
+Wszelkie BD spełniające protokół ODBC.
+
+Kiedy nie ma problemów z ładowaniem natywnego kodu po stronie klienta
+
+2 - Native-API
+
+partly-Java driver
+
+
+
+Sterownik JDBC tłumaczy odwołania na natywny kod konkretnego API klienta danego RDBMS.
+
+Sterowniki są specyficzne dla RDBMS dostarczane przez firmy np. Oracle, Sybase, IBM DB2 (UDB) etc.
+
+3 - JDBC-Net
+
+pure Java driver
+
+
+
+Tylko kod javowy. Odwołania tłumaczone są na uniwersalny, niezależny od RDBMS, protokół sieciowy, a następnie przez serwer na kody specyficzne dla RDBMS .
+
+Najbardziej elastyczne rozwiązanie, ale w przypadku użycia w Internecie wymaga, by sterownik/serwer zapewniały odpowiedni poziom bezpieczeństwa
+
+4 - Native-protocol
+
+pure Java driver
+
+
+
+Tylko kod javowy.
+
+Sterownik tłumaczy odwołania na specyficzny dla danego RDBMS protokół sieciowy
+
+Pozwala na b. efektywną, bo bezpośrednią komunikację klient-serwer bazodanowy. Doskonałe w intranecie.
+
+Głównym źródłem są producenci RDBMS np. Oracle, Sybase, Informix, IBM DB2, Inprise InterBase, Microsoft SQL Server
+

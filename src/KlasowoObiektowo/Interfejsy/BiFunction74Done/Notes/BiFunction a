@@ -1,0 +1,92 @@
+Świetnie 👍
+Oto **ODPOWIEDZI do quizu o interfejsie `BiFunction<T, U, R>`** wraz z wyjaśnieniami krok po kroku.
+
+---
+
+## ✅ **Odpowiedzi – Quiz `BiFunction`**
+
+---
+
+### **1️⃣ Czym jest `BiFunction<T, U, R>`?**
+
+**Odpowiedź:** **b) Interfejsem funkcyjnym**
+➡️ Ma dokładnie jedną metodę abstrakcyjną `apply(T t, U u)` i można go używać z lambdą.
+
+---
+
+### **2️⃣ Jaką metodę definiuje `BiFunction`?**
+
+**Odpowiedź:** **b) `R apply(T t, U u)`**
+➡️ Przyjmuje dwa argumenty i zwraca wynik.
+
+---
+
+### **3️⃣ Ile argumentów przyjmuje `BiFunction`?**
+
+**Odpowiedź:** **c) 2**
+
+---
+
+### **4️⃣ Co zwraca metoda `apply()`?**
+
+**Odpowiedź:** **c) R**
+➡️ Typ wynikowy określony przez parametr `R`.
+
+---
+
+### **5️⃣ W jakim pakiecie znajduje się `BiFunction`?**
+
+**Odpowiedź:** **b) java.util.function**
+
+---
+
+### **6️⃣ Co robi metoda domyślna `andThen()` w `BiFunction`?**
+
+**Odpowiedź:** **b) Wywołuje funkcję po apply()**
+➡️ Najpierw `apply(a, b)`, potem wynik przekazywany do funkcji `Function<? super R, ? extends V>`.
+
+---
+
+### **7️⃣ Jak BiFunction różni się od BinaryOperator?**
+
+**Odpowiedź:** **b) BinaryOperator przyjmuje dwa te same typy i zwraca ten sam typ**
+➡️ `BinaryOperator<T>` to specjalizacja `BiFunction<T,T,T>`.
+
+---
+
+### **8️⃣ Który z przykładów jest poprawnym BiFunction?**
+
+**Odpowiedź:** **a) `(a, b) -> a + b` gdzie a,b to String, zwraca int**
+➡️ Poprawnie przyjmuje dwa argumenty i zwraca wartość.
+Pozostałe:
+
+* `(a) -> a*2` → jeden argument (to Function)
+* `(a,b) -> a>b` → zwraca boolean (to BiPredicate)
+* `(a,b,c) -> ...` → trzy argumenty (niepoprawne)
+
+---
+
+### **9️⃣ Gdzie najczęściej używa się BiFunction w Javie?**
+
+**Odpowiedź:** **b) Map.compute() / Map.merge()**
+➡️ Te metody przyjmują funkcje dwóch argumentów i zwracają wynik.
+
+---
+
+### **🔟 Czego BiFunction NIE robi?**
+
+**Odpowiedź:** **d) Zwraca boolean (do tego służy BiPredicate)**
+
+---
+
+## 🧠 **Ściąga egzaminacyjna BiFunction**
+
+* `BiFunction<T,U,R>` → `R apply(T t, U u)`
+* interfejs funkcyjny → lambda
+* metoda domyślna: `andThen()`
+* używany w `Map.compute()`, `Map.merge()`, redukcjach
+* różnica z `BinaryOperator<T>`: typy argumentów i wynik = ten sam
+
+---
+
+Chcesz, żebym teraz przeszedł do **`BiPredicate<T,U>`**, żeby skończyć całą rodzinę Bi-interfejsów funkcyjnych?

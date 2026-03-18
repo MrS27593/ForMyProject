@@ -1,0 +1,90 @@
+Świetnie! 🚀
+Oto **quiz 10 pytań** dotyczący klasy **`System`**, zgodnie z Twoimi zasadami – wszystkie pytania mają odpowiedzi **a, b, c, d**.
+
+---
+
+## 🧪 **Quiz: Klasa `System` w Javie** (10 pytań)
+
+---
+
+**1. Czy można utworzyć obiekt klasy `System`?**
+a) Tak
+b) Nie
+c) Tylko w pakiecie java.lang
+d) Tylko z refleksji
+
+---
+
+**2. Co robi `System.exit(0)`?**
+a) Zamyka program
+b) Uruchamia garbage collector
+c) Wyświetla komunikat w konsoli
+d) Restartuje program
+
+---
+
+**3. Jaka metoda zwraca czas w milisekundach od 1 stycznia 1970?**
+a) `System.nanoTime()`
+b) `System.currentTimeMillis()`
+c) `System.getTime()`
+d) `System.timeMillis()`
+
+---
+
+**4. Do czego służy `System.arraycopy()`?**
+a) Do kopiowania elementów tablicy
+b) Do usuwania elementów tablicy
+c) Do sortowania tablicy
+d) Do tworzenia nowej tablicy losowych wartości
+
+---
+
+**5. Jak pobrać nazwę systemu operacyjnego?**
+a) `System.getenv("os.name")`
+b) `System.getProperty("os.name")`
+c) `System.osName()`
+d) `System.getOSName()`
+
+---
+
+**6. Które pole jest standardowym wyjściem w Javie?**
+a) `System.in`
+b) `System.err`
+c) `System.out`
+d) `System.console`
+
+---
+
+**7. Co robi `System.gc()`?**
+a) Wyświetla zawartość pamięci
+b) Wywołuje garbage collector
+c) Czyści wszystkie zmienne lokalne
+d) Restartuje JVM
+
+---
+
+**8. Jak pobrać zmienną środowiskową PATH?**
+a) `System.getProperty("PATH")`
+b) `System.getenv("PATH")`
+c) `System.console("PATH")`
+d) `System.path()`
+
+---
+
+**9. Która metoda służy do pobrania konsoli?**
+a) `System.console()`
+b) `System.getConsole()`
+c) `System.readLine()`
+d) `System.input()`
+
+---
+
+**10. Co jest prawdą o polach `System.in`, `System.out`, `System.err`?**
+a) Wszystkie są niestatyczne
+b) Wszystkie są statyczne
+c) `in` i `out` są statyczne, `err` nie
+d) Są prywatne i nie można ich używać
+
+---
+
+Jeżeli chcesz, mogę teraz od razu podać **poprawne odpowiedzi z krótkim omówieniem każdego pytania**. Chcesz, żebym to zrobił?

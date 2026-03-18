@@ -1,0 +1,183 @@
+Świetnie 😄 Lecimy z **QUIZEM: `ArrayIndexOutOfBoundsException`**
+Jak zawsze: **najpierw pytania**, odpowiedzi podasz na **„odpowiedzi”** 👇
+
+---
+
+# 🧠 **QUIZ – ArrayIndexOutOfBoundsException**
+
+## 🟢 Poziom 1 – Podstawy
+
+### 1️⃣ `ArrayIndexOutOfBoundsException` jest:
+
+A. Checked exception
+B. Unchecked exception
+C. Error
+D. Compile-time exception
+
+---
+
+### 2️⃣ Kiedy JVM rzuca `ArrayIndexOutOfBoundsException`?
+
+A. Gdy tablica jest null
+B. Gdy indeks tablicy jest < 0 lub ≥ length
+C. Gdy argument metody jest niepoprawny
+D. Gdy pętla for jest źle napisana
+
+---
+
+### 3️⃣ Dla tablicy `int[] arr = new int[4];` poprawne indeksy to:
+
+A. 1–4
+B. 0–4
+C. 0–3
+D. 1–3
+
+---
+
+### 4️⃣ Co się stanie?
+
+```java
+int[] arr = {10, 20, 30};
+System.out.println(arr[-1]);
+```
+
+A. Kod poprawny
+B. `IndexOutOfBoundsException`
+C. `ArrayIndexOutOfBoundsException`
+D. `NullPointerException`
+
+---
+
+## 🟡 Poziom 2 – Praktyka
+
+### 5️⃣ Co się stanie?
+
+```java
+int[] arr = new int[0];
+arr[0] = 5;
+```
+
+A. Kod poprawny
+B. `NullPointerException`
+C. `ArrayIndexOutOfBoundsException`
+D. `IllegalStateException`
+
+---
+
+### 6️⃣ Która pętla jest POPRAWNA?
+
+A.
+
+```java
+for (int i = 0; i <= arr.length; i++)
+```
+
+B.
+
+```java
+for (int i = 1; i < arr.length; i++)
+```
+
+C.
+
+```java
+for (int i = 0; i < arr.length; i++)
+```
+
+D.
+
+```java
+for (int i = 1; i <= arr.length; i++)
+```
+
+---
+
+### 7️⃣ Co się stanie?
+
+```java
+int[] arr = {1, 2, 3};
+int i = arr.length;
+System.out.println(arr[i]);
+```
+
+A. Kod poprawny
+B. `IndexOutOfBoundsException`
+C. `ArrayIndexOutOfBoundsException`
+D. `IllegalArgumentException`
+
+---
+
+### 8️⃣ Jak NAJLEPIEJ zapobiegać temu wyjątkowi?
+
+A. Łapać wyjątek w try-catch
+B. Sprawdzać indeks przed użyciem
+C. Ignorować błąd
+D. Rzucać własny RuntimeException
+
+---
+
+## 🔵 Poziom 3 – Rekrutacyjny
+
+### 9️⃣ Co się stanie?
+
+```java
+int[] arr = null;
+System.out.println(arr[0]);
+```
+
+A. `ArrayIndexOutOfBoundsException`
+B. `NullPointerException`
+C. `IndexOutOfBoundsException`
+D. Kod poprawny
+
+---
+
+### 🔟 Które stwierdzenie jest PRAWDZIWE?
+
+A. `ArrayIndexOutOfBoundsException` jest checked
+B. Jest podklasą `IllegalArgumentException`
+C. Jest podklasą `IndexOutOfBoundsException`
+D. Jest podklasą `Error`
+
+---
+
+### 1️⃣1️⃣ Czy JVM sprawdza zakres indeksów tablic?
+
+A. Nie
+B. Tylko przy zapisie
+C. Tylko przy odczycie
+D. Tak, zawsze
+
+---
+
+### 1️⃣2️⃣ Który kod jest NAJLEPSZY?
+
+A.
+
+```java
+try { arr[i]; } catch (...) {}
+```
+
+B.
+
+```java
+if (i >= 0 && i < arr.length) { arr[i]; }
+```
+
+C.
+
+```java
+arr[Math.abs(i)];
+```
+
+D.
+
+```java
+arr[i % arr.length];
+```
+
+---
+
+📌 Napisz **„odpowiedzi”**, a dostaniesz **pełne rozwiązania + wyjaśnienia rekrutacyjne** 👌
+
+Rock & Java 🤘

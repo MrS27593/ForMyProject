@@ -1,0 +1,103 @@
+Świetnie! Oto **poprawne odpowiedzi** do quizu wraz z **wyjaśnieniem każdego pytania**:
+
+---
+
+### ✅ **Odpowiedzi i wyjaśnienia**
+
+#### **1. Jaką wartość zwróci `Day.FRIDAY.ordinal()`?**
+✅ **Odpowiedź: c) 4**
+
+- `ordinal()` zwraca indeks (numer porządkowy) danej wartości `enum`, zaczynając od 0.
+- Jeśli `Day` wygląda tak:
+  ```java
+  enum Day { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY }
+  ```
+  To `FRIDAY` ma indeks **4**.
+
+---
+
+#### **2. Które z poniższych zdań o `enum` w Javie jest prawdziwe?**
+✅ **Odpowiedź: c) enum może implementować interfejs**
+
+- `enum` może **implementować interfejsy**, ale nie może **rozszerzać innych klas** (wszystkie enumy dziedziczą po klasie `java.lang.Enum`).
+- Przykład:
+  ```java
+  enum Color implements Runnable {
+      RED, GREEN, BLUE;
+      public void run() { System.out.println("Running"); }
+  }
+  ```
+
+---
+
+#### **3. Co zostanie wypisane?**
+✅ **Odpowiedź: a) FAIL**
+
+- `valueOf("FAIL")` zwraca **wartość enum o nazwie `"FAIL"`**.
+- `System.out.println(Status.valueOf("FAIL"));` wypisze po prostu `FAIL`.
+
+---
+
+#### **4. Czy można przypisać `null` do zmiennej typu `enum`?**
+✅ **Odpowiedź: a) Tak**
+
+- Enum to **obiekt** w Javie, więc jak każdy obiekt może mieć wartość `null`.
+  Przykład:
+  ```java
+  Day d = null;
+  ```
+
+---
+
+#### **5. Co robi metoda `values()` dla `enum`?**
+✅ **Odpowiedź: c) Zwraca tablicę wszystkich wartości enum**
+
+- `values()` to specjalna metoda dodawana automatycznie przez kompilator do każdej definicji `enum`.
+- Przykład:
+  ```java
+  for (Day d : Day.values()) { ... }
+  ```
+
+---
+
+#### **6. Co wypisze ten kod?**
+✅ **Odpowiedź: a) LOW MEDIUM HIGH**
+
+- `values()` zwraca tablicę wszystkich wartości `enum`, a `System.out.print(l)` wypisuje nazwę każdej wartości.
+
+---
+
+#### **7. Czy enum może mieć konstruktor z parametrem?**
+✅ **Odpowiedź: b) Tak, ale tylko prywatny i używany wewnętrznie**
+
+- Konstruktor `enum` **musi być prywatny** (nawet jeśli nie jest jawnie oznaczony) i **nie można go wywołać za pomocą `new`**.
+- Przykład:
+  ```java
+  enum Color {
+      RED("Czerwony");
+
+      private String description;
+
+      private Color(String desc) {
+          this.description = desc;
+      }
+  }
+  ```
+
+---
+
+### 📊 Podsumowanie
+
+| Pytanie | Poprawna odpowiedź |
+|--------|--------------------|
+| 1 | c |
+| 2 | c |
+| 3 | a |
+| 4 | a |
+| 5 | c |
+| 6 | a |
+| 7 | b |
+
+---
+
+Jeśli chcesz, mogę przygotować **drugi, trudniejszy quiz** albo ćwiczenie praktyczne z pisania własnego `enum` z logiką. Chcesz kontynuować?

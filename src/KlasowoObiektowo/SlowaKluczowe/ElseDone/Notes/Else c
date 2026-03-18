@@ -1,0 +1,100 @@
+Pewnie! Zacznijmy od podstaw, a potem przejdziemy do bardziej zaawansowanych zastosowań słowa kluczowego `else` w języku Java.
+
+---
+
+## 🔹 Co to jest `else` w Java?
+
+`else` to część instrukcji warunkowej `if`. Wykonuje się tylko wtedy, gdy warunek w `if` jest **fałszywy**.
+
+### 📌 Składnia podstawowa:
+```java
+if (warunek) {
+    // kod jeśli warunek jest prawdziwy (true)
+} else {
+    // kod jeśli warunek jest fałszywy (false)
+}
+```
+
+---
+
+## 🔹 Przykład:
+
+```java
+int liczba = 10;
+
+if (liczba > 0) {
+    System.out.println("Liczba jest dodatnia.");
+} else {
+    System.out.println("Liczba nie jest dodatnia.");
+}
+```
+
+👉 Tutaj `else` wykona się tylko wtedy, jeśli `liczba > 0` jest **fałszywe**.
+
+---
+
+## 🔹 `else if` – wiele warunków
+
+Jeśli chcesz sprawdzić więcej niż jeden warunek, używasz `else if`.
+
+```java
+int liczba = 0;
+
+if (liczba > 0) {
+    System.out.println("Liczba jest dodatnia.");
+} else if (liczba < 0) {
+    System.out.println("Liczba jest ujemna.");
+} else {
+    System.out.println("Liczba jest zerem.");
+}
+```
+
+### Zasady:
+- `if` może być tylko jeden.
+- Może być dowolna liczba `else if`.
+- `else` jest opcjonalny, ale tylko **jeden** może się pojawić na końcu.
+
+---
+
+## 🔹 Zagnieżdżone `else` (nested if-else)
+
+Możesz mieć instrukcje `if` i `else` wewnątrz innych `if`/`else`.
+
+```java
+int a = 5;
+int b = 10;
+
+if (a < b) {
+    if (a > 0) {
+        System.out.println("a jest mniejsze od b i większe od zera");
+    } else {
+        System.out.println("a jest mniejsze od b, ale nie większe od zera");
+    }
+}
+```
+
+---
+
+## 🔹 Częste błędy:
+
+### ❌ Brak nawiasów klamrowych
+```java
+if (x > 0)
+    System.out.println("Dodatnia");
+else
+    System.out.println("Niedodatnia");
+```
+
+Działa, ale **zaleca się zawsze używać nawiasów `{}`**, zwłaszcza w większym kodzie.
+
+---
+
+## 🔹 Porady:
+
+- `else` **nie może istnieć samodzielnie** – musi być po `if` (lub `else if`).
+- Unikaj "pustych" bloków `else` – jeśli nie potrzebujesz alternatywy, po prostu jej nie pisz.
+- Jeśli masz wiele warunków porównujących jedną zmienną – rozważ `switch`.
+
+---
+
+Chcesz teraz przećwiczyć to na zadaniu, czy może chcesz przykład z błędem do naprawienia?

@@ -1,0 +1,115 @@
+## WIEDZA – `throw` w Java
+
+---
+
+### 1️⃣ Czym jest `throw`?
+
+`throw` to **słowo kluczowe**, które służy do **rzucania wyjątku** w kodzie.
+Jest używane w ciele metody, funkcji lub bloku `try`.
+
+```java
+throw new IOException("Błąd odczytu pliku");
+```
+
+📌 Każde użycie `throw` tworzy wyjątek i przekazuje go do wywołującego.
+
+---
+
+### 2️⃣ Składnia `throw`
+
+```java
+throw <obiekt_wyjątku>;
+```
+
+* `<obiekt_wyjątku>` musi być instancją klasy dziedziczącej po `Throwable`
+* Najczęściej `Exception` lub `RuntimeException`
+
+Przykład:
+
+```java
+throw new IllegalArgumentException("Niepoprawny argument");
+```
+
+---
+
+### 3️⃣ Różnica między `throw` a `throws`
+
+| `throw`                      | `throws`                              |
+| ---------------------------- | ------------------------------------- |
+| Rzuca wyjątek w ciele metody | Deklaruje wyjątki w sygnaturze metody |
+| `throw new IOException();`   | `void readFile() throws IOException`  |
+
+---
+
+### 4️⃣ Przykład użycia `throw`
+
+```java
+public void divide(int a, int b) {
+    if (b == 0) {
+        throw new ArithmeticException("Dzielenie przez zero!");
+    }
+    System.out.println(a / b);
+}
+```
+
+* Jeśli `b` = 0 → wyjątek zostaje rzucony
+* Jeśli wywołujący nie obsłuży `ArithmeticException` → program zakończy się błędem (unchecked exception)
+
+---
+
+### 5️⃣ `throw` z checked exceptions
+
+```java
+void readFile(String fileName) throws IOException {
+    FileReader file = new FileReader(fileName);
+    if (file == null) {
+        throw new IOException("Plik nie istnieje");
+    }
+}
+```
+
+* Checked exception wymaga **obsługi** w miejscu wywołania lub deklaracji `throws` w metodzie wywołującej.
+
+---
+
+### 6️⃣ Warto wiedzieć
+
+1. **Każde `throw` przerywa bieżącą metodę** – dalszy kod nie zostanie wykonany.
+2. Można rzucić **tylko jeden wyjątek naraz**:
+
+   ```java
+   throw new IOException(); // tylko jeden obiekt
+   ```
+3. `throw` może być użyty zarówno dla **checked**, jak i **unchecked exceptions**.
+
+---
+
+### 7️⃣ Typowe błędy
+
+❌ `throw` bez instancji wyjątku:
+
+```java
+throw IOException; // ❌ błąd
+```
+
+❌ Próba użycia `throw` w sygnaturze metody zamiast `throws`:
+
+```java
+void read() throw IOException { } // ❌ błąd
+```
+
+---
+
+### 8️⃣ Podsumowanie
+
+* `throw` = rzucenie wyjątku **w ciele metody**
+* `throws` = deklaracja w **sygnaturze metody**
+* Przerywa działanie metody
+* Checked exceptions wymagają obsługi lub deklaracji `throws`
+* Unchecked exceptions (RuntimeException) nie wymagają deklaracji
+
+---
+
+Gdy będziesz gotowy, mogę zrobić **quiz do `throw`** z pytaniami A–D i otwartymi.
+
+Chcesz, żebym przygotował quiz teraz?

@@ -1,0 +1,163 @@
+## WIEDZA – `super` w Java (praktycznie i „projektowo”)
+
+---
+
+### 1️⃣ Czym jest `super`?
+
+`super` to **słowo kluczowe w Javie**, które odnosi się do **obiektu klasy nadrzędnej (rodzica)**.
+
+Używamy go, gdy:
+
+* klasa **dziedziczy** po innej (`extends`)
+* chcemy odwołać się do **pól, metod lub konstruktora** klasy bazowej
+
+📌 `super` jest odpowiednikiem `this`, ale dla **klasy nadrzędnej**.
+
+---
+
+### 2️⃣ `super` vs `this`
+
+| `this`                           | `super`                         |
+| -------------------------------- | ------------------------------- |
+| Bieżący obiekt                   | Część obiektu z klasy rodzica   |
+| Odwołanie do klasy aktualnej     | Odwołanie do klasy nadrzędnej   |
+| `this.name`                      | `super.name`                    |
+| `this()` – konstruktor tej klasy | `super()` – konstruktor rodzica |
+
+---
+
+## 🔧 Praktyczny przykład 1: Wywołanie konstruktora klasy nadrzędnej
+
+```java
+class Vehicle {
+    protected int speed;
+
+    Vehicle(int speed) {
+        this.speed = speed;
+    }
+}
+
+class Car extends Vehicle {
+    private String model;
+
+    Car(String model, int speed) {
+        super(speed);      // wywołanie konstruktora Vehicle
+        this.model = model;
+    }
+}
+```
+
+📌 **`super()` musi być pierwszą instrukcją konstruktora**
+
+---
+
+## 🔧 Praktyczny przykład 2: Nadpisanie metody + `super`
+
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Zwierzę wydaje dźwięk");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        super.makeSound(); // zachowanie rodzica
+        System.out.println("Pies szczeka");
+    }
+}
+```
+
+✔ Rozszerzamy zachowanie
+✔ Nie tracimy logiki klasy bazowej
+
+---
+
+## 🔧 Praktyczny przykład 3: `super` do pola klasy nadrzędnej
+
+```java
+class User {
+    protected String role = "USER";
+}
+
+class Admin extends User {
+    String role = "ADMIN";
+
+    void printRoles() {
+        System.out.println(role);       // ADMIN
+        System.out.println(super.role); // USER
+    }
+}
+```
+
+📌 `super` pozwala rozróżnić pola o tej samej nazwie.
+
+---
+
+## 🔧 Praktyczny przykład 4: Mini-projekt – system płatności
+
+```java
+class Payment {
+    void process() {
+        System.out.println("Przetwarzanie płatności");
+    }
+}
+
+class CardPayment extends Payment {
+    @Override
+    void process() {
+        super.process();
+        System.out.println("Płatność kartą");
+    }
+}
+
+class BlikPayment extends Payment {
+    @Override
+    void process() {
+        super.process();
+        System.out.println("Płatność BLIK");
+    }
+}
+```
+
+✔ Polimorfizm
+✔ Wspólna logika w klasie bazowej
+✔ Rozszerzenia w klasach potomnych
+
+---
+
+## ⚠️ Ograniczenia `super`
+
+❌ Nie można używać `super` w klasach bez `extends`
+❌ Nie można używać w metodach statycznych
+❌ `super()` i `this()` **nie mogą występować razem** w jednym konstruktorze
+
+---
+
+## 🧠 Kiedy używać `super`?
+
+✔ Gdy nadpisujesz metodę, ale chcesz zachować część logiki rodzica
+✔ Gdy klasa bazowa ma wymagany konstruktor
+✔ Gdy pola w klasach mają te same nazwy
+
+---
+
+## 🔟 Podsumowanie
+
+* `super` = dostęp do klasy nadrzędnej
+* Używany do:
+
+  * konstruktora (`super()`)
+  * metod (`super.method()`)
+  * pól (`super.field`)
+* Kluczowy przy **dziedziczeniu i polimorfizmie**
+* Często występuje razem z `@Override`
+
+---
+
+Gdy będziesz gotowy:
+👉 **quiz do `super` (analiza kodu + pytania A–D)**
+👉 albo **porównanie `this` vs `super` w mini-projekcie**
+
+Co robimy dalej?

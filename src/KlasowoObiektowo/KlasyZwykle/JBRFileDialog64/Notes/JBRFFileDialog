@@ -1,0 +1,16 @@
+Aby dobrze umieć Klasę JBRFileDialog warto znać:
+Interface:
+Serializable
+
+
+Class:
+String
+VarHandle
+MethodHandles
+FileDialog
+Error
+
+
+Exceptions:
+NoSuchFieldException
+IllegalAccessException

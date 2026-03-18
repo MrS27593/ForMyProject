@@ -1,0 +1,111 @@
+Pięknie, lecimy 👌
+Oto **pełny klucz odpowiedzi do quizu `@DescriptorKey`** z komentarzami **senior / egzamin**.
+
+---
+
+# ✅ Odpowiedzi – Quiz `@DescriptorKey`
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Czym jest `@DescriptorKey`?
+
+**✅ B** – adnotacją JDK do mapowania metod na klucze `Descriptor`
+
+📌 Służy wyłącznie do **JMX**.
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@DescriptorKey`?
+
+**✅ C – `java.beans`**
+
+➡️ To często zaskakuje, bo logicznie kojarzy się z JMX (`javax.management`).
+
+---
+
+### 3️⃣ Gdzie można użyć `@DescriptorKey`?
+
+**✅ C – na metodzie**
+
+---
+
+## 🔹 Część II – Działanie
+
+### 4️⃣ Do czego służy `Descriptor` w JMX?
+
+**✅ C** – do przechowywania metadanych elementów MBeanów
+
+---
+
+### 5️⃣ Jakie metody mogą być oznaczone `@DescriptorKey`?
+
+**✅ C – metody bez parametrów**
+
+---
+
+### 6️⃣ Co reprezentuje wartość zwracana przez metodę?
+
+**✅ B** – wartość klucza w `Descriptor`
+
+---
+
+## 🔹 Część III – Ograniczenia
+
+### 7️⃣ Które stwierdzenie jest prawdziwe?
+
+**✅ C – metoda musi być bezargumentowa**
+
+📌 Dodatkowo: nie może rzucać wyjątków.
+
+---
+
+### 8️⃣ Retencja `@DescriptorKey`?
+
+**✅ C – `RUNTIME`**
+
+---
+
+## 🔹 Część IV – Porównania
+
+### 9️⃣ Najbardziej podobna adnotacja?
+
+**✅ A – `@BeanProperty`**
+
+➡️ Obie mapują **metody → metadane**, ale w różnych światach:
+
+* JavaBeans
+* JMX
+
+---
+
+### 🔟 Gdzie spotkasz `@DescriptorKey`?
+
+**✅ C – monitoring i zarządzanie JVM (JMX)**
+
+---
+
+## ✍️ 1️⃣1️⃣ Odpowiedź opisowa (wzorcowa)
+
+> `@DescriptorKey` jest stosowana na interfejsach, ponieważ w JMX metadane MBeanów są definiowane kontraktem (interfejsem), a nie implementacją. Pozwala to oddzielić opis zarządzanych elementów od logiki wykonawczej oraz umożliwia narzędziom JMX introspekcję metadanych bez znajomości implementacji.
+
+---
+
+## 🧠 Najważniejsze do zapamiętania
+
+* pakiet: `java.beans`
+* target: `METHOD`
+* retencja: `RUNTIME`
+* kontekst: **JMX**
+* mapowanie: metoda → `Descriptor`
+* brak związku ze Springiem
+
+---
+
+Jeśli chcesz iść dalej 🔥
+
+* ➡️ **`MXBean` vs `StandardMBean`**
+* ➡️ **pełna mapa adnotacji `java.beans`**
+* ➡️ **quiz HARD: JavaBeans vs JMX**
+* ➡️ **pytania rekrutacyjne o JMX**
+
+Co następne? 😄

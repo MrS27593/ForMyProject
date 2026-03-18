@@ -1,0 +1,106 @@
+Jasne! Oto **quiz sprawdzający wiedzę o `ReentrantLock` w Javie**. Zawiera pytania jednokrotnego wyboru, otwarte i z kodem. Na końcu zamieściłem klucz odpowiedzi.
+
+---
+
+### 🧠 **Quiz: ReentrantLock w Javie**
+
+#### **1. Pytanie jednokrotnego wyboru**
+
+Która z poniższych metod pozwala sprawdzić, czy blokada jest dostępna, bez blokowania wątku?
+
+A. `lock()`
+B. `lockInterruptibly()`
+C. `tryLock()`
+D. `isLocked()`
+
+---
+
+#### **2. Pytanie otwarte**
+
+Co oznacza "reentrantność" w kontekście klasy `ReentrantLock`?
+
+---
+
+#### **3. Pytanie jednokrotnego wyboru**
+
+Które z poniższych stwierdzeń jest **prawdziwe**?
+
+A. `ReentrantLock` automatycznie zwalnia blokadę po zakończeniu metody.
+B. Można używać `ReentrantLock` do implementacji wzorca producent-konsument z `Condition`.
+C. `ReentrantLock` można stosować tylko w aplikacjach jednowątkowych.
+D. `ReentrantLock` nie działa w połączeniu z `try-catch`.
+
+---
+
+#### **4. Uzupełnij kod**
+
+Uzupełnij poniższy kod, aby użyć `ReentrantLock` poprawnie.
+
+```java
+import java.util.concurrent.locks.ReentrantLock;
+
+public class Licznik {
+    private int wartosc = 0;
+    private ReentrantLock lock = __________;
+
+    public void zwieksz() {
+        lock.__________;
+        try {
+            wartosc++;
+        } finally {
+            __________;
+        }
+    }
+
+    public int getWartosc() {
+        return wartosc;
+    }
+}
+```
+
+---
+
+#### **5. Pytanie kodowe — analiza**
+
+Co zostanie wypisane przez poniższy program?
+
+```java
+import java.util.concurrent.locks.ReentrantLock;
+
+public class Test {
+    private static ReentrantLock lock = new ReentrantLock();
+
+    public static void main(String[] args) {
+        if (lock.tryLock()) {
+            try {
+                System.out.println("Blokada zdobyta");
+            } finally {
+                lock.unlock();
+            }
+        } else {
+            System.out.println("Nie udało się zdobyć blokady");
+        }
+    }
+}
+```
+
+---
+
+### ✅ **Odpowiedzi:**
+
+1. **C** – `tryLock()` próbuje przejąć blokadę bez oczekiwania.
+2. Reentrantność oznacza, że ten sam wątek może przejąć blokadę więcej niż raz bez zakleszczenia.
+3. **B** – `Condition` pozwala tworzyć konstrukcje podobne do `wait/notify` w `ReentrantLock`.
+4. Uzupełnienie kodu:
+
+```java
+private ReentrantLock lock = new ReentrantLock();
+lock.lock();
+lock.unlock();
+```
+
+5. **"Blokada zdobyta"** – ponieważ `tryLock()` zwraca true, jeśli blokada była wolna (a jest, bo to pierwszy wątek).
+
+---
+
+Jeśli chcesz, mogę przygotować wersję quizu jako **interaktywny formularz HTML**, lub wygenerować wersję PDF/drukowalną. Chcesz?

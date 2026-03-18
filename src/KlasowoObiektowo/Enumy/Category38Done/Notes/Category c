@@ -1,0 +1,158 @@
+Świetny temat 👍
+`java.util.Locale.Category` to **mały, ale bardzo ważny enum**, szczególnie przy **internacjonalizacji (i18n)** i **formatowaniu danych**.
+
+---
+
+# 🌍 `java.util.Locale.Category` — wszystko, co musisz wiedzieć
+
+## 📦 Gdzie się znajduje?
+
+```java
+java.util.Locale.Category
+```
+
+Jest to **enum**.
+
+---
+
+## 🎯 Do czego służy?
+
+Pozwala **rozróżnić, do czego używany jest Locale**:
+
+* do **formatowania danych**
+* do **interfejsu użytkownika (UI)**
+
+Dzięki temu Java może używać **różnych Locale w tym samym czasie**.
+
+---
+
+## 🧩 Dostępne wartości enumu
+
+```java
+DISPLAY
+FORMAT
+```
+
+---
+
+## 🔍 Co oznaczają te wartości?
+
+### 1️⃣ `DISPLAY`
+
+➡ Locale używany do:
+
+* nazw języków
+* nazw krajów
+* nazw dni tygodnia
+* nazw miesięcy
+* tekstów interfejsu
+
+📌 **UI / prezentacja**
+
+```java
+Locale displayLocale = Locale.getDefault(Locale.Category.DISPLAY);
+```
+
+---
+
+### 2️⃣ `FORMAT`
+
+➡ Locale używany do:
+
+* formatowania dat
+* formatowania liczb
+* walut
+* separatorów dziesiętnych
+
+📌 **dane / liczby / daty**
+
+```java
+Locale formatLocale = Locale.getDefault(Locale.Category.FORMAT);
+```
+
+---
+
+## 🧠 Dlaczego to jest ważne?
+
+Przykład realny:
+
+👤 Użytkownik:
+
+* język UI: **polski**
+* format liczb: **niemiecki**
+
+➡ Java może to obsłużyć!
+
+---
+
+## 🧪 Przykład praktyczny
+
+### 🔹 Ustawienie różnych Locale
+
+```java
+Locale.setDefault(Locale.Category.DISPLAY, new Locale("pl", "PL"));
+Locale.setDefault(Locale.Category.FORMAT, Locale.GERMANY);
+```
+
+---
+
+### 🔹 Efekt
+
+```java
+double value = 12345.67;
+
+System.out.println(NumberFormat.getInstance().format(value));
+System.out.println(Locale.getDefault(Locale.Category.DISPLAY)
+        .getDisplayLanguage());
+```
+
+➡ wynik:
+
+```
+12.345,67   // FORMAT = Germany
+polski      // DISPLAY = Poland
+```
+
+---
+
+## ⚠️ Ważne fakty
+
+### ❗ Przed Java 7
+
+Był tylko **jeden globalny Locale**.
+
+### ❗ Od Java 7
+
+Można rozdzielić:
+
+* formatowanie
+* wyświetlanie
+
+---
+
+## 🧠 Kiedy używać `Locale.Category`?
+
+✔ aplikacje międzynarodowe
+✔ aplikacje desktop / web
+✔ systemy finansowe
+✔ UI + dane w różnych standardach
+
+---
+
+## 🔥 Podsumowanie (must-know)
+
+✔ `Locale.Category` = enum
+✔ wartości: `DISPLAY`, `FORMAT`
+✔ `DISPLAY` → język UI
+✔ `FORMAT` → liczby, daty, waluty
+✔ dostępne od **Java 7**
+
+---
+
+Chcesz teraz:
+
+* 🧠 **quiz z `Locale.Category`**
+* ⚔️ **porównanie `Locale`, `Category`, `ResourceBundle`**
+* 🚀 **praktyczne zadania i18n (daty, liczby, waluty)**
+
+👉 Co dalej?

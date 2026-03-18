@@ -1,0 +1,13 @@
+Aby dobrze umieć Interfejs Executor warto znać:
+Interface:
+Runnable
+Thread
+DirectExecutor
+ThreadPerTaskExecutor
+SerialExecutor
+Queue
+
+Class:
+Executors
+
+Exceptions:

@@ -1,0 +1,129 @@
+## ✅ Odpowiedzi – QUIZ `super` w Java (z wyjaśnieniami)
+
+---
+
+### **1. Czym jest `super` w Javie?**
+
+**✅ B. Referencją do klasy nadrzędnej**
+
+`super` pozwala odwołać się do **obiektu klasy rodzica**.
+
+---
+
+### **2. Kiedy można użyć słowa kluczowego `super`?**
+
+**✅ B. Tylko w klasach, które dziedziczą po innej klasie**
+
+Bez `extends` nie istnieje klasa nadrzędna → `super` nie działa.
+
+---
+
+### **3. Co robi `super()` w konstruktorze?**
+
+**✅ B. Wywołuje konstruktor klasy nadrzędnej**
+
+Nie tworzy nowego obiektu — inicjalizuje część „rodzica” w tym samym obiekcie.
+
+---
+
+### **4. Jakie jest ważne ograniczenie dotyczące `super()` w konstruktorze?**
+
+**✅ C. Musi być pierwszą instrukcją konstruktora**
+
+Java wymaga, by inicjalizacja klasy nadrzędnej była wykonana jako pierwsza.
+
+---
+
+### **5. Co się stanie, jeśli w konstruktorze nie wywołasz jawnie `super()`?**
+
+**✅ B. JVM automatycznie wywoła konstruktor bezargumentowy klasy nadrzędnej**
+
+❗ Jeśli taki konstruktor **nie istnieje** → **błąd kompilacji**.
+
+---
+
+### **6. Który kod poprawnie używa `super` do wywołania metody?**
+
+**✅ B**
+
+```java
+super.makeSound();
+```
+
+Pozostałe wersje są składniowo niepoprawne.
+
+---
+
+### **7. (OTWARTE)**
+
+**Kiedy użyć `super.method()`?**
+
+✔ Gdy **nadpisujesz metodę**, ale chcesz:
+
+* zachować część logiki rodzica
+* dodać nowe zachowanie
+
+Przykład:
+
+```java
+@Override
+void process() {
+    super.process();
+    logAction();
+}
+```
+
+---
+
+### **8. (OTWARTE)**
+
+**Dlaczego nie można używać `super` w metodach statycznych?**
+
+Ponieważ:
+
+* `super` odnosi się do **konkretnego obiektu**
+* metody `static` **nie działają na obiektach**
+
+📌 Statyczne = klasa
+📌 `super` = instancja
+
+---
+
+### **9. Co zostanie wypisane przez kod?**
+
+**✅ C. B A**
+
+```text
+B
+A
+```
+
+* `value` → pole klasy B
+* `super.value` → pole klasy A
+
+---
+
+### **10. Które zdanie o `super` jest PRAWDZIWE?**
+
+**✅ C. `super` daje dostęp do pól, metod i konstruktorów klasy nadrzędnej**
+
+Pozostałe odpowiedzi są błędne.
+
+---
+
+## 🎯 Wynik idealny: **10/10** jeśli:
+
+* rozumiesz `super()` w konstruktorach
+* umiesz używać `super.method()`
+* znasz różnicę `this` vs `super`
+
+---
+
+👉 Następny temat?
+
+* `abstract`
+* `final`
+* `static`
+* `instanceof`
+* `enum`
+* czy **mini-projekt łączący `this`, `super`, `synchronized` i `volatile`**?

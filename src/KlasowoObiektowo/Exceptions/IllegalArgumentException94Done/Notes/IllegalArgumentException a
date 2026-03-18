@@ -1,0 +1,49 @@
+Jasne 👍 Oto **ODPOWIEDZI do quizu: `IllegalArgumentException`** wraz z krótkimi, rekrutacyjnymi wyjaśnieniami 👇
+
+---
+
+## ✅ **ODPOWIEDZI – IllegalArgumentException**
+
+1️⃣ **B** – `IllegalArgumentException` jest **unchecked exception**
+
+2️⃣ **B** – używamy go, gdy **argument metody jest niepoprawny**
+
+3️⃣ **C** – **nie musi** być obsłużony w `try-catch`
+
+4️⃣ **C** – rzucany jest **unchecked exception**
+
+5️⃣ **C** – w publicznym API najlepszy jest `IllegalArgumentException`
+
+6️⃣ **B** – `UUID.fromString("abc")` rzuca `IllegalArgumentException`
+
+7️⃣ **C** – łapanie `IllegalArgumentException` to **zła praktyka**
+
+8️⃣ **C** – argument łamie kontrakt metody
+
+9️⃣ **C** – w metodzie publicznej argument `null` → **najczęściej `IllegalArgumentException`**
+
+🔟 **B** – wersja z komunikatem jest **zdecydowanie lepsza**
+
+1️⃣1️⃣ **C** – **tak**, można (i powinno się) rzucać w konstruktorze
+
+1️⃣2️⃣ **C** – jasno komunikuje **błąd argumentu**
+
+---
+
+## 🧠 **Złote zasady (do zapamiętania)**
+
+✔️ Waliduj argumenty jak najwcześniej (fail-fast)
+✔️ Zawsze dodawaj czytelny komunikat
+✔️ Publiczne API → `IllegalArgumentException`
+✔️ Nie łap tego wyjątku lokalnie
+✔️ To jeden z **najczęściej używanych wyjątków w Javie**
+
+---
+
+Chcesz iść dalej?
+👉 **IllegalStateException (bardzo ważny następny krok)**
+👉 **IndexOutOfBoundsException**
+👉 **hard quiz rekrutacyjny (mix wyjątków)**
+👉 **zadania z walidacją argumentów**
+
+Co wybieramy dalej? 😄

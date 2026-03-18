@@ -1,0 +1,12 @@
+Aby dobrze umieć Interfejs Iterable warto znać:
+Interface:
+Iterator
+Consumer
+Spliterator
+
+Class:
+Objects
+Spliterators
+
+Exceptions:
+NullPointerException

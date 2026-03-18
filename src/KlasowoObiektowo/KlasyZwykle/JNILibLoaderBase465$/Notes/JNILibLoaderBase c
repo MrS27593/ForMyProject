@@ -1,0 +1,65 @@
+Klasa `JNILibLoaderBase` z pakietu `com.jogamp.common.jvm` w bibliotece GlueGen (część projektu JogAmp) odpowiada za dynamiczne ładowanie natywnych bibliotek (np. `.dll`, `.so`, `.dylib`) w aplikacjach Java. Jest to kluczowy komponent w środowiskach takich jak JOGL, JOAL czy JOCL, gdzie wymagane jest połączenie kodu Java z natywnymi bibliotekami systemowymi.
+
+---
+
+### 🔧 Główne funkcje klasy `JNILibLoaderBase`
+
+1. **Dynamiczne ładowanie bibliotek natywnych**
+   Metoda `loadLibrary(String libname, boolean ignoreError, ClassLoader cl)` umożliwia załadowanie biblioteki o nazwie `libname`. Jeśli biblioteka została już załadowana, operacja jest pomijana. Można również określić, czy błędy podczas ładowania mają być ignorowane .
+
+2. **Preładowanie zależności**
+   Metoda `loadLibrary(String libname, String[] preload, boolean preloadIgnoreError, ClassLoader cl)` pozwala na wcześniejsze załadowanie zależnych bibliotek przed główną biblioteką `libname`. Jest to przydatne w sytuacjach, gdy główna biblioteka wymaga obecności innych bibliotek .
+
+3. **Zarządzanie stanem ładowania**
+
+   * `isLoaded(String libName)`: Sprawdza, czy biblioteka o nazwie `libName` została już załadowana.
+   * `addLoaded(String libName)`: Ręcznie oznacza bibliotekę jako załadowaną, co może być użyteczne w niestandardowych scenariuszach ładowania .([JogAmp][1])
+
+4. **Ładowanie bibliotek z JAR-ów**
+   Metoda `addNativeJarLibs(Class<?> classFromJavaJar, String nativeJarBasename)` umożliwia załadowanie bibliotek natywnych z JAR-ów. Na przykład, dla klasy `GLProfile.class` znajdującej się w `jogl-all.jar`, metoda ta może załadować odpowiedni plik `jogl-all-natives-os.and.arch.jar`, gdzie `os.and.arch` odpowiada systemowi operacyjnemu i architekturze .
+
+5. **Konfiguracja ładowania**
+
+   * `setLoadingAction(LoaderAction action)`: Pozwala na ustawienie niestandardowej strategii ładowania bibliotek.
+   * `enableLoading()` i `disableLoading()`: Włączają lub wyłączają automatyczne ładowanie bibliotek .([JogAmp][1])
+
+---
+
+### 🧩 Interfejs `LoaderAction`
+
+Interfejs `LoaderAction` definiuje sposób ładowania bibliotek natywnych. Domyślna implementacja, `DefaultAction`, wykorzystuje metody `System.loadLibrary()` lub `System.load()` do załadowania bibliotek. Można jednak dostarczyć własną implementację tego interfejsu, aby dostosować proces ładowania do specyficznych potrzeb aplikacji .([GitHub][2], [Stack Overflow][3])
+
+---
+
+### 🧪 Przykładowe użycie
+
+```java
+Class<?>[] classes = new Class<?>[] { GLProfile.class };
+JNILibLoaderBase.addNativeJarLibsJoglCfg(classes);
+```
+
+
+
+Powyższy kod próbuje załadować biblioteki natywne dla klasy `GLProfile`, korzystając z domyślnej konfiguracji JOGL. Jeśli `GLProfile.class` znajduje się w `jogl-all.jar`, metoda ta będzie szukać i załadować odpowiedni plik `jogl-all-natives-os.and.arch.jar` .([JogAmp][1])
+
+---
+
+### ⚠️ Typowe problemy i rozwiązania
+
+* **`UnsatisfiedLinkError`**: Błąd ten często wskazuje na brak odpowiednich bibliotek natywnych lub ich nieprawidłowe załadowanie. Upewnij się, że odpowiednie pliki `.jar` z bibliotekami natywnymi znajdują się w ścieżce klas i są zgodne z systemem operacyjnym oraz architekturą .
+
+* **Niezgodność architektury**: Używanie 32-bitowej wersji JVM z 64-bitowymi bibliotekami natywnymi (lub odwrotnie) może prowadzić do błędów. Upewnij się, że wersje JVM i bibliotek są zgodne .([Forum Jogamp][4])
+
+* **Użycie `jogamp-fat.jar`**: Aby uprościć zarządzanie bibliotekami, można użyć `jogamp-fat.jar`, który zawiera zarówno biblioteki Java, jak i natywne, eliminując potrzebę zarządzania oddzielnymi plikami .([Forum Jogamp][5])
+
+---
+
+Dla bardziej zaawansowanych scenariuszy, takich jak ładowanie bibliotek z niestandardowych lokalizacji czy integracja z różnymi systemami operacyjnymi, warto zapoznać się z pełną dokumentacją klasy `JNILibLoaderBase` dostępną na stronie projektu JogAmp ([JogAmp][1]).
+
+Jeśli potrzebujesz dalszej pomocy w konfiguracji lub napotykasz konkretne problemy, daj znać — chętnie pomogę!
+
+[1]: https://jogamp.org/deployment/v2.1.2/javadoc/gluegen/javadoc/com/jogamp/common/jvm/JNILibLoaderBase.html?utm_source=chatgpt.com "JNILibLoaderBase (GlueGen Runtime Documentation)"
+[2]: https://github.com/sgothel/gluegen/blob/master/src/java/com/jogamp/common/jvm/JNILibLoaderBase.java?utm_source=chatgpt.com "gluegen/src/java/com/jogamp/common/jvm/JNILibLoaderBase.java at master ..."
+[3]: https://stackoverflow.com/questions/48648370/jogamp-gluegen-rt-cant-find-native-library?utm_source=chatgpt.com "java - JogAmp gluegen-rt can't find native library - Stack Overflow"
+[4]: https://forum.jogamp.org/RE-OPEN-UnsatisfiedLinkError-jogamp-nativewindow-jawt-td4036242.html?utm_source=chatgpt.com "[RE-OPEN] UnsatisfiedLinkError: jogamp.nativewindow.jawt"
+[5]: https://forum.jogamp.org/Error-setting-up-JOGL-library-td4040939.html?utm_source=chatgpt.com "jogl - Error setting up JOGL library - forum.jogamp.org"

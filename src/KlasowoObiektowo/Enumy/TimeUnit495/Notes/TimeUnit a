@@ -1,0 +1,130 @@
+Świetnie 👍
+Oto **pełne odpowiedzi do quizu z `java.util.concurrent.TimeUnit`** – z wyjaśnieniami (egzamin + rekrutacja).
+
+---
+
+# ✅ **Odpowiedzi – Quiz: `TimeUnit`**
+
+## 1️⃣ Prawda / Fałsz
+
+**1.** `TimeUnit` jest enumem.
+✅ **A) Prawda**
+
+---
+
+**2.** `TimeUnit` znajduje się w pakiecie `java.time`.
+❌ **B) Fałsz**
+➡ Poprawny pakiet: `java.util.concurrent`
+
+---
+
+**3.** `TimeUnit.SECONDS.sleep(1)` = `Thread.sleep(1000)`.
+✅ **A) Prawda**
+
+---
+
+**4.** `TimeUnit` obsługuje miesiące i lata.
+❌ **B) Fałsz**
+➡ Jednostki o zmiennej długości nie są obsługiwane.
+
+---
+
+## 2️⃣ Wybór jednokrotny
+
+**5.** Najbardziej czytelny zapis:
+
+```java
+TimeUnit.MINUTES.sleep(1);
+```
+
+✅ **C)**
+
+---
+
+**6.**
+
+```java
+TimeUnit.SECONDS.toMillis(2)
+```
+
+➡ 2 × 1000 = **2000**
+
+✅ **C) 2000**
+
+---
+
+## 3️⃣ Wybór wielokrotny
+
+**7.** Metody istniejące w `TimeUnit`:
+
+* ✅ **A) `toMillis(long)`**
+* ✅ **B) `toSeconds(long)`**
+* ✅ **C) `convert(long, TimeUnit)`**
+* ❌ **D) `between(long, long)`**
+
+✔️ **Poprawne:** **A, B, C**
+
+---
+
+## 4️⃣ Analiza kodu
+
+**8.**
+
+```java
+TimeUnit.SECONDS.sleep(1);
+```
+
+➡ Usypia aktualny wątek na 1 sekundę
+
+✅ **B)**
+
+---
+
+## 5️⃣ Pytanie praktyczne
+
+**9.** Czekanie 500 ms:
+
+```java
+public void waitHalfSecond() throws InterruptedException {
+    TimeUnit.MILLISECONDS.sleep(500);
+}
+```
+
+✔ poprawne
+✔ czytelne
+
+---
+
+## 6️⃣ Pytanie podchwytliwe
+
+**10.** Prawdziwe stwierdzenie:
+
+✅ **B) `TimeUnit` służy głównie do API concurrency**
+
+❌ Pozostałe:
+
+* A – fałsz (inne przeznaczenie niż `ChronoUnit`)
+* C – fałsz (brak stref czasowych)
+* D – fałsz (nie zastępuje `java.time`)
+
+---
+
+## 🧠 Najważniejsze rzeczy do zapamiętania
+
+✔ `TimeUnit` = enum
+✔ pakiet `java.util.concurrent`
+✔ czytelniejsze timeouty
+✔ brak miesięcy i lat
+✔ standard w concurrency API
+
+---
+
+### 🔥 Co dalej?
+
+Mogę:
+
+* zrobić **porównanie `TimeUnit` vs `ChronoUnit` vs `Duration`**
+* przejść do **`ExecutorService`, `Callable`, `Future`**
+* dać **zadania rekrutacyjne z timeoutami i wątkami**
+
+👉 Co robimy dalej?

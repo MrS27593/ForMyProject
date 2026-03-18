@@ -1,0 +1,95 @@
+### ✅ Odpowiedzi – QUIZ `import` w Java
+
+---
+
+### 1️⃣ Czym jest słowo kluczowe `import`?
+
+**✅ B. Importuje klasę, interfejs lub pakiet z innego pakietu**
+
+➡ Pozwala używać nazw klas bez pełnej ścieżki kwalifikowanej.
+
+---
+
+### 2️⃣ Co umożliwia `import static`?
+
+**✅ B. Używanie metod i pól statycznych bez prefiksu klasy**
+
+```java
+import static java.lang.Math.*;
+double r = cos(PI * 2);
+```
+
+---
+
+### 3️⃣ Która linia kodu jest poprawnym importem konkretnej klasy?
+
+**✅ B. `import java.util.ArrayList;`**
+
+❌ A – importuje cały pakiet
+❌ C – `static` dotyczy metod/pól
+❌ D – niepoprawna składnia
+
+---
+
+### 4️⃣ Czy import całego pakietu (`*`) importuje klasy z podpakietów?
+
+**✅ B. Nie, tylko klasy z tego pakietu**
+
+➡ Podpakiety trzeba importować osobno.
+
+---
+
+### 5️⃣ Co się stanie, jeśli spróbujesz zaimportować klasę z tego samego pakietu?
+
+**✅ B. Nic się nie stanie, import jest ignorowany**
+
+➡ Kompilator nie wymaga importów dla klas z tego samego pakietu.
+
+---
+
+### 6️⃣ Czy import wpływa na wydajność programu?
+
+**✅ C. Nie, jest tylko skrótem w czasie kompilacji**
+
+➡ Nie zwiększa ani nie zmniejsza runtime, nie wpływa na plik .class.
+
+---
+
+### 7️⃣ Co jest poprawną kolejnością grup importów w projekcie?
+
+**✅ B. java.*, javax.*, biblioteki zewnętrzne, własne klasy**
+
+➡ Poprawia czytelność i zgodność z konwencjami.
+
+---
+
+### 8️⃣ Które zdanie o `import` jest prawdziwe?
+
+**✅ A. Można importować klasy i interfejsy, ale nie pakiety**
+
+➡ Import pakietu (`*`) to tylko skrót do klas w tym pakiecie, **pakiet jako obiekt nie istnieje**.
+
+---
+
+### 9️⃣ Pytanie otwarte – przykładowa odpowiedź
+
+**✔ Przykład:**
+
+```java
+import java.util.List;
+import java.util.ArrayList;
+
+List<String> names = new ArrayList<>();
+```
+
+➡ Ułatwia pisanie większych projektów.
+
+---
+
+### 🔟 Pytanie otwarte – przykładowa odpowiedź
+
+**✔ `import *` zmniejsza czytelność, może prowadzić do konfliktów nazw i ukrywa faktyczne zależności.**
+
+---
+
+Chcesz, żebym teraz przeszedł do **`extends`**, czy wolisz kontynuować od kolejnego słowa kluczowego jak `final` lub `enum`?

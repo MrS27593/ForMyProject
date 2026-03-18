@@ -1,0 +1,58 @@
+Świetnie! Oto **odpowiedzi** do quizu z wyjaśnieniami:
+
+---
+
+### ✅ **Odpowiedzi i wyjaśnienia**
+
+#### **1. Co gwarantuje zmienna oznaczona jako `volatile`?**
+
+**✅ Odpowiedź: C) Że zmiana wartości jest natychmiast widoczna w innych wątkach**
+➡️ `volatile` gwarantuje **widoczność zmian** między wątkami. Wątki nie będą używać lokalnej kopii tej zmiennej.
+
+---
+
+#### **2. Co NIE jest gwarantowane przez `volatile`?**
+
+**✅ Odpowiedź: D) Atomowość operacji takich jak `count++`**
+➡️ `volatile` NIE chroni przed problemami z **atomowością**. Operacja `i++` składa się z odczytu, inkrementacji i zapisu — co nie jest bezpieczne w wielu wątkach.
+
+---
+
+#### **3. Który zapis zmiennej jest bezpieczny z użyciem `volatile`?**
+
+**✅ Odpowiedź: C) `flag = true`**
+➡️ Prosty zapis zmiennej (np. typu `boolean`, `int`) jest **bezpieczny**, bo nie wymaga wielu kroków (atomowy zapis).
+
+---
+
+#### **4. Kiedy należy użyć `volatile` zamiast `synchronized`?**
+
+**✅ Odpowiedź: C) Gdy chcesz zagwarantować widoczność prostej flagi między wątkami**
+➡️ `volatile` sprawdza się doskonale przy **fladze sterującej** np. `running`, `stop`, `ready`.
+
+---
+
+#### **5. Które z poniższych stwierdzeń jest PRAWIDŁOWE?**
+
+**✅ Odpowiedź: D) `volatile` wpływa na widoczność, ale nie zapewnia spójności wielu operacji**
+➡️ Dokładnie! `volatile` **nie synchronizuje bloków kodu** – tylko pojedyncze zmienne. Operacje złożone mogą być niespójne.
+
+---
+
+#### **6. Jaka klasa z `java.util.concurrent.atomic` jest bezpieczna do operacji takich jak `i++`?**
+
+**✅ Odpowiedź: B) `AtomicInteger`**
+➡️ `AtomicInteger` oferuje metody takie jak `incrementAndGet()`, które są **atomowe i thread-safe**.
+
+---
+
+7.
+
+Wątek może pracować na nieaktualnej wartości
+
+8. ❌ Nie
+
+volatile i synchronized to różne narzędzia
+
+🧩 **Wynik:** jeśli odpowiedziałeś poprawnie na 5–6 pytań – masz bardzo dobrą znajomość `volatile`.
+Chcesz teraz quiz praktyczny z kodem lub coś trudniejszego (np. jak `volatile` działa na poziomie CPU lub JMM)?

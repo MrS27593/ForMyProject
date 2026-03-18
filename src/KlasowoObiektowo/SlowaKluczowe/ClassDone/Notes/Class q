@@ -1,0 +1,95 @@
+Świetnie! Oto **quiz o słowie kluczowym `class` w Javie** — 10 pytań, w tym jedno lub dwa otwarte, z pułapkami i przykładami praktycznymi.
+
+---
+
+## 🧪 **Quiz: `class` w języku Java**
+
+**Instrukcja:** Wybierz **jedną poprawną odpowiedź** (A, B, C lub D), chyba że podano inaczej.
+
+---
+
+### **1. Do czego służy słowo kluczowe `class` w Javie?**
+
+A. Do tworzenia nowych typów danych i szablonów obiektów
+B. Do wykonywania pętli
+C. Do definiowania zmiennej lokalnej
+D. Do przechowywania wyjątków
+
+---
+
+### **2. Co oznacza konstruktor klasy?**
+
+A. Metodę, która może zwracać wartość
+B. Specjalną metodę do inicjalizacji obiektu
+C. Statyczną metodę klasy
+D. Metodę abstrakcyjną
+
+---
+
+### **3. Co się stanie, gdy spróbujesz utworzyć obiekt klasy abstrakcyjnej?**
+
+A. Kod się skompiluje i działa poprawnie
+B. Kompilator zgłosi błąd
+C. Program zgłosi wyjątek w runtime
+D. Utworzy się obiekt z domyślnymi wartościami pól
+
+---
+
+### **4. Jak utworzyć obiekt klasy `Person`?**
+
+```java
+public class Person {
+    String name;
+    int age;
+}
+```
+
+A. `Person p = new Person();`
+B. `Person p;`
+C. `Person p = Person();`
+D. `new Person p = Person();`
+
+---
+
+### **5. Który z poniższych modyfikatorów uniemożliwia dziedziczenie klasy?**
+
+A. `public`
+B. `final`
+C. `abstract`
+D. `protected`
+
+---
+
+### **6. Jak wywołać metodę `sayHello()` obiektu `p` klasy `Person`?**
+
+A. `sayHello(p);`
+B. `p.sayHello();`
+C. `Person.sayHello();`
+D. `p->sayHello();`
+
+---
+
+### **7. Czy klasa może zawierać inną klasę?**
+
+A. Nie, klasy nie mogą być zagnieżdżone
+B. Tak, mogą być **klasy wewnętrzne** (inner classes)
+C. Tak, ale tylko klasy abstrakcyjne
+D. Nie, można tylko dziedziczyć
+
+---
+
+### **8. (Otwarte)**
+
+Podaj przykład konstruktora klasy `Car`, który przyjmuje parametr `brand` i inicjalizuje pole `brand`.
+
+---
+
+### **9. (Otwarte)**
+
+Dlaczego warto stosować **enkapsulację** pól klasy (`private`) i udostępniać je przez metody publiczne (`get/set`)?
+
+---
+
+### **10. (Otwarte)**
+
+Napisz przykład klasy `BankAccount` z metodą `deposit` i polem `balance`, które jest **ukryte przed bezpośrednim dostępem**.

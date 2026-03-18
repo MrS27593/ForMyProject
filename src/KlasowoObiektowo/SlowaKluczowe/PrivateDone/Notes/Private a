@@ -1,0 +1,114 @@
+## ✅ Odpowiedzi – QUIZ `private` w Java
+
+---
+
+### **1. Co oznacza modyfikator `private` w Javie?**
+
+**✅ C. Dostęp tylko w tej samej klasie**
+
+---
+
+### **2. Które elementy mogą być oznaczone jako `private`?**
+
+**✅ A. Pola, metody, konstruktory**
+
+* Zmienne lokalne i klasy najwyższego poziomu nie mogą być `private`.
+
+---
+
+### **3. Czy klasa dziedzicząca ma dostęp do pól `private` klasy bazowej?**
+
+**✅ C. Nie**
+
+* Pola i metody `private` **nie są dziedziczone**.
+
+---
+
+### **4. Dlaczego używa się `private` przy polach?**
+
+**✅ B. Aby chronić stan obiektu i wymusić enkapsulację**
+
+* Pozwala kontrolować dostęp do danych przez gettery/settery lub metody publiczne.
+
+---
+
+### **5. Który przykład poprawnie pokazuje `private` przy polu i metodzie?**
+
+**✅ A**
+
+```java
+private int age;
+private void setAge(int age) {}
+```
+
+* Inne opcje używają niepoprawnych modyfikatorów lub składni.
+
+---
+
+### **6. Co pozwala zrobić `private` przy konstruktorze?**
+
+**✅ B. Ukryć konstruktor i kontrolować tworzenie obiektów**
+
+* Typowy przykład: wzorzec Singleton.
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład klasy z `private` chroniącej dane:**
+
+```java
+public class BankAccount {
+    private double balance;
+
+    public void deposit(double amount) {
+        if(amount > 0) balance += amount;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+```
+
+* Pole `balance` nie może być zmieniane bezpośrednio z zewnątrz.
+
+---
+
+### **8. (OTWARTE)**
+
+**Dlaczego „najpierw `private`, potem zwiększ widoczność” jest ważne?**
+
+* Zwiększa bezpieczeństwo danych
+* Chroni enkapsulację
+* Minimalizuje ryzyko błędów
+* Ułatwia utrzymanie kodu
+
+---
+
+### **9. Czy `private` pola rekordu mogą być modyfikowane po utworzeniu obiektu?**
+
+**✅ C. Nie, są `final`**
+
+* Pola rekordu są zawsze `private final` → niezmienne.
+
+---
+
+### **10. Które zdanie o `private` jest prawdziwe?**
+
+**✅ A. `private` elementy są dostępne tylko w klasie**
+
+* Nie są dostępne z pakietu, dziedziczenia ani innych klas.
+
+---
+
+### 🧠 Podsumowanie
+
+* `private` = **tylko wewnątrz klasy**
+* Fundament **enkapsulacji** i bezpieczeństwa danych
+* Najczęściej używany modyfikator
+* W połączeniu z getterami/setterami daje kontrolowany dostęp
+
+---
+
+Chcesz, żebym teraz zrobił **quiz + odpowiedzi dla package-private (czyli brak modyfikatora)**, żeby zamknąć temat wszystkich modyfikatorów dostępu?

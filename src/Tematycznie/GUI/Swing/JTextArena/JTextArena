@@ -1,0 +1,9 @@
+Aby dobrze umieć Klasę JTextArena warto znać:
+Interface:
+Document
+
+Class:
+String
+JTextComponent
+
+Exceptions:

@@ -1,0 +1,58 @@
+Świetnie! Oto krótki quiz dotyczący klasy `JBRFileDialog` i jej zastosowania. Pytania mają formę wielokrotnego wyboru i jedno pytanie otwarte na końcu:
+
+---
+
+### **🧠 Quiz: JBRFileDialog (Java, JetBrains)**
+
+#### **1. W jakim pakiecie znajduje się klasa `JBRFileDialog`?**
+
+A. `java.awt`
+B. `com.intellij.ui`
+C. `com.jetbrains.desktop`
+D. `org.jetbrains.swing`
+
+---
+
+#### **2. Która z poniższych stałych służy do wyboru katalogów?**
+
+A. `SELECT_FILES_HINT`
+B. `CREATE_DIRECTORIES_HINT`
+C. `SELECT_DIRECTORIES_HINT`
+D. `CHOOSE_FOLDER_HINT`
+
+---
+
+#### **3. Co umożliwia metoda `get(FileDialog dialog)` w klasie `JBRFileDialog`?**
+
+A. Tworzy nowe okno dialogowe
+B. Pobiera instancję `JBRFileDialog` z istniejącego `FileDialog`
+C. Resetuje ustawienia dialogu
+D. Wysyła dane pliku do chmury
+
+---
+
+#### **4. Która metoda pozwala ustawić niestandardowy tekst przycisku otwierania pliku?**
+
+A. `setOpenButtonText()`
+B. `setFileFilter()`
+C. `setLocalizationString()`
+D. `customizeButtonLabel()`
+
+---
+
+#### **5. W jakim celu używa się metody `setFileFilterExtensions()`?**
+
+A. Do wyświetlania tylko folderów
+B. Do filtrowania rozszerzeń plików
+C. Do szyfrowania plików
+D. Do ustawiania domyślnego katalogu
+
+---
+
+#### **6. \[Pytanie otwarte]**
+
+**Wymień przynajmniej dwa praktyczne zastosowania klasy `JBRFileDialog` w aplikacjach desktopowych.**
+
+---
+
+Gdy będziesz gotowy, prześlij odpowiedzi – sprawdzę je i podam wynik!

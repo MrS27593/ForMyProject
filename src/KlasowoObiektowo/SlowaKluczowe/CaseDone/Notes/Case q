@@ -1,0 +1,142 @@
+Super! 🔥🔥
+Oto **mini quiz o `case`** w Javie, żebyś perfekcyjnie opanował temat!
+
+---
+
+# 📚 **Quiz o `case`**
+
+## 1. Co się stanie, gdy w `case` użyjemy zmiennej?
+
+```java
+final int A = 10;
+int B = 20;
+
+switch (5) {
+    case A:
+        System.out.println("A");
+        break;
+    case B:
+        System.out.println("B");
+        break;
+}
+```
+
+**Co się stanie?**
+
+a) Działa poprawnie
+b) Kompilator zgłosi błąd
+c) Wypisze "B"
+
+👉 **Odpowiedź?**
+
+---
+
+## 2. Czy `case` może mieć wartość `null`?
+
+```java
+String text = null;
+
+switch (text) {
+    case null:
+        System.out.println("Null");
+        break;
+}
+```
+
+**Co się stanie?**
+
+a) NullPointerException
+b) Kompilator błąd
+c) Wypisze "Null"
+
+👉 **Odpowiedź?**
+
+---
+
+## 3. Co się stanie, gdy nie damy `break` w `case`?
+
+```java
+int num = 2;
+
+switch (num) {
+    case 1:
+        System.out.println("Jeden");
+    case 2:
+        System.out.println("Dwa");
+    case 3:
+        System.out.println("Trzy");
+}
+```
+
+**Co wypisze?**
+
+a) Tylko "Dwa"
+b) "Dwa" i "Trzy"
+c) "Dwa"
+
+👉 **Odpowiedź?**
+
+---
+
+## 4. Czy `switch` działa na `float`?
+
+```java
+float value = 1.0f;
+
+switch (value) {
+    case 1.0f:
+        System.out.println("Jeden");
+        break;
+}
+```
+
+**Czy to się skompiluje?**
+
+a) Tak
+b) Nie
+
+👉 **Odpowiedź?**
+
+---
+
+## 5. Co jest poprawne w nowym `switch` (Java 14)?
+
+```java
+String output = switch (day) {
+    case 1 -> "Poniedziałek";
+    case 2 -> "Wtorek";
+    default -> "Weekend";
+};
+```
+
+**Czy `switch` może teraz zwracać wartość?**
+
+a) Tak
+b) Nie
+
+👉 **Odpowiedź?**
+
+---
+
+# 🎯 Zadania praktyczne:
+
+**Zadanie 1:**
+Napisz `switch-case`, który na podstawie liczby (1-7) wypisze dzień tygodnia.
+
+---
+
+**Zadanie 2:**
+Zrób `switch` na `String`, gdzie podajesz nazwę miesiąca i wypisuje, ile ma dni.
+
+---
+
+**Zadanie 3 (trudniejsze):**
+Napisz `switch`, który na podstawie zmiennej `enum` (`SMALL`, `MEDIUM`, `LARGE`) wypisuje rozmiar ubrania.
+
+---
+
+# ✅
+
+Chcesz, żebym potem sprawdził Twoje odpowiedzi i razem omówiliśmy każdą?
+Albo jeśli wolisz, mogę też od razu przygotować pełne **rozwiązania** i razem je przejdziemy! 🚀
+Jak wolisz? 🔥

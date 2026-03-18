@@ -1,0 +1,118 @@
+Świetnie 👍
+Oto **pełne odpowiedzi do quizu z `java.net.http.HttpClient.Version`** – z krótkimi, ale konkretnymi wyjaśnieniami (Java 11+ / rekrutacja).
+
+---
+
+# ✅ **Odpowiedzi – Quiz: `HttpClient.Version`**
+
+## 1️⃣ Prawda / Fałsz
+
+**1.** `HttpClient.Version` jest enumem.
+✅ **A) Prawda**
+
+---
+
+**2.** `HttpClient.Version` znajduje się w pakiecie `java.net.http`.
+✅ **A) Prawda**
+
+---
+
+**3.** Java `HttpClient` obsługuje HTTP/3.
+❌ **B) Fałsz**
+➡ Obsługiwane są tylko **HTTP/1.1** i **HTTP/2**.
+
+---
+
+**4.** Jeśli nie ustawimy wersji, domyślnie używany jest tylko HTTP/1.1.
+❌ **B) Fałsz**
+➡ Domyślnie klient **spróbuje HTTP/2**, a potem cofnie się do HTTP/1.1.
+
+---
+
+## 2️⃣ Wybór jednokrotny
+
+**5.** Wartości enumu:
+
+```java
+HTTP_1_1
+HTTP_2
+```
+
+✅ **C)**
+
+---
+
+**6.** Znaczenie ustawienia `HTTP_2`:
+
+➡ Preferencja HTTP/2 z fallbackiem
+
+✅ **B)**
+
+---
+
+## 3️⃣ Wybór wielokrotny
+
+**7.** Prawdziwe stwierdzenia:
+
+* ✅ **A) HTTP/2 oferuje multiplexing**
+* ❌ **B) HTTP/2 jest zawsze szybsze** (nie zawsze)
+* ✅ **C) `HttpResponse.version()` zwraca `HttpClient.Version`**
+* ✅ **D) HTTP/1.1 może być wymuszone**
+
+✔️ **Poprawne:** **A, C, D**
+
+---
+
+## 4️⃣ Analiza kodu
+
+**8.** Możliwe wyniki:
+
+```java
+HTTP_1_1
+HTTP_2
+```
+
+✅ **C)**
+
+---
+
+## 5️⃣ Pytanie praktyczne
+
+**9.** Wymuszenie HTTP/1.1:
+
+```java
+HttpClient client = HttpClient.newBuilder()
+        .version(HttpClient.Version.HTTP_1_1)
+        .build();
+```
+
+---
+
+## 6️⃣ Pytanie podchwytliwe
+
+**10.** Najlepszy opis `HTTP_2`:
+
+✅ **B) Jest preferencją, a nie bezwzględnym wymuszeniem**
+
+---
+
+## 🧠 Najważniejsze rzeczy do zapamiętania
+
+✔ `HttpClient.Version` = enum
+✔ Java 11+
+✔ HTTP_1_1, HTTP_2
+✔ domyślnie próba HTTP/2
+✔ brak HTTP/3
+✔ fallback do HTTP/1.1
+
+---
+
+### 🔥 Co dalej?
+
+Mogę:
+
+* zrobić **pełny przykład REST Client (GET/POST + JSON)**
+* porównać **`HttpClient` vs `RestTemplate` vs `WebClient`**
+* przejść do **HTTP headers, BodyHandlers, Async API**
+
+👉 Co robimy dalej?

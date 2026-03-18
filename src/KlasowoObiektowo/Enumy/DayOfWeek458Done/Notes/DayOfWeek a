@@ -1,0 +1,140 @@
+Świetnie 👍
+Oto **poprawne odpowiedzi do quizu z Enum `DayOfWeek`** wraz z jasnymi wyjaśnieniami (ważne pod egzamin i rekrutację).
+
+---
+
+# ✅ **Odpowiedzi – Quiz: `DayOfWeek`**
+
+## 1️⃣ Prawda / Fałsz
+
+**1.** `DayOfWeek` znajduje się w pakiecie `java.util`.
+❌ **B) Fałsz**
+➡ Poprawny pakiet: `java.time`
+
+---
+
+**2.** `DayOfWeek` jest enumem.
+✅ **A) Prawda**
+
+---
+
+**3.** `DayOfWeek.MONDAY.getValue()` zwraca `0`.
+❌ **B) Fałsz**
+➡ Zwraca **1**
+
+---
+
+**4.** `ordinal()` w `DayOfWeek` zwraca ten sam numer co `getValue()`.
+❌ **B) Fałsz**
+
+| Metoda       | MONDAY |
+| ------------ | ------ |
+| `ordinal()`  | 0      |
+| `getValue()` | 1      |
+
+---
+
+## 2️⃣ Wybór jednokrotny
+
+**5.** Który dzień ma wartość `7`?
+
+✅ **B) SUNDAY**
+
+---
+
+**6.** Co wypisze kod?
+
+```java
+DayOfWeek.FRIDAY.plus(2)
+```
+
+➡ FRIDAY → SATURDAY → SUNDAY
+
+✅ **A) SUNDAY**
+
+---
+
+## 3️⃣ Wybór wielokrotny
+
+**7.** Które metody istnieją?
+
+* ✅ **A) `getValue()`**
+* ✅ **B) `plus(long days)`**
+* ❌ **C) `isWeekend()`**
+* ✅ **D) `minus(long days)`**
+
+✔️ **Poprawne:** **A, B, D**
+
+---
+
+## 4️⃣ Analiza kodu
+
+**8.** Kod:
+
+```java
+LocalDate.of(2026, 1, 4)
+```
+
+📅 **4 stycznia 2026 = niedziela**
+
+✅ **B) SUNDAY**
+
+---
+
+## 5️⃣ Pytanie praktyczne
+
+**9.** Metoda `isWorkingDay`
+
+### ✅ Poprawne rozwiązanie:
+
+```java
+public boolean isWorkingDay(DayOfWeek day) {
+    return day.getValue() <= 5;
+}
+```
+
+📌 Alternatywa (też poprawna):
+
+```java
+return day != DayOfWeek.SATURDAY && day != DayOfWeek.SUNDAY;
+```
+
+---
+
+## 6️⃣ Pytanie podchwytliwe
+
+**10.** Najlepszy zapis:
+
+```java
+day.getValue() >= 6
+```
+
+✅ **B)**
+
+❌ Dlaczego inne są złe:
+
+* `ordinal()` ❌ (zależne od kolejności)
+* `name()` ❌ (String comparison)
+* `toString()` ❌ (krucha logika)
+
+---
+
+## 🧠 Najważniejsze wnioski (zapamiętaj!)
+
+✔ `DayOfWeek` = enum
+✔ `getValue()` ≠ `ordinal()`
+✔ ISO-8601: poniedziałek = 1
+✔ `plus()` i `minus()` działają cyklicznie
+✔ `java.time` zamiast `java.util.Calendar`
+
+---
+
+### 🔥 Co dalej?
+
+Mogę:
+
+* zrobić **porównawczy quiz `DayOfWeek` vs `Month`**
+* dać **zadania rekrutacyjne z datami**
+* albo przejść do **Enum `Month` / `MonthDay` / `ChronoUnit`**
+
+👉 Co robimy dalej?

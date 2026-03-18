@@ -1,0 +1,19 @@
+Aby dobrze umieć Interfejs ScheduleExecutorService warto znać:
+Interface:
+Executor
+ExecutorService
+Runnable
+ScheduledFuture
+
+Class:
+Thread
+Date
+TimeUnit
+BeeperControl
+ScheduledFuture
+
+Exceptions:
+RejectedExecutionException
+NullPointerException
+IllegalArgumentException
+ExecutionException

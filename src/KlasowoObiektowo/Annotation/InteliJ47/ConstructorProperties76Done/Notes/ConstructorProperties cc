@@ -1,0 +1,186 @@
+Świetny temat 👌
+**`@ConstructorProperties`** to adnotacja **starsza, ale bardzo ważna koncepcyjnie**, bo pokazuje **jak Java łączy konstruktory z właściwościami (properties)** — szczególnie w kontekście **JavaBeans, serializacji i frameworków**.
+
+Jedziemy od podstaw → praktyka.
+
+---
+
+# 📘 `@ConstructorProperties` w Javie
+
+## 1️⃣ Czym jest `@ConstructorProperties`?
+
+`@ConstructorProperties` to adnotacja z pakietu:
+
+```java
+java.beans
+```
+
+Służy do:
+
+> **mapowania parametrów konstruktora na nazwy właściwości (properties) obiektu**
+
+📌 Czyli mówi:
+
+> *Ten parametr konstruktora odpowiada tej właściwości klasy*
+
+---
+
+## 2️⃣ Jaki problem rozwiązuje?
+
+### Problem:
+
+Java **nie przechowuje nazw parametrów konstruktora w bytecode** (chyba że użyjesz `-parameters`).
+
+Frameworki (serializacja, introspekcja) **nie wiedzą**, co oznacza dany parametr:
+
+```java
+public Person(String a, int b) { ... }
+```
+
+❓ Czy `a` to `name`, `email`, czy coś innego?
+
+---
+
+## 3️⃣ Rozwiązanie: `@ConstructorProperties`
+
+```java
+import java.beans.ConstructorProperties;
+
+public class Person {
+
+    private final String name;
+    private final int age;
+
+    @ConstructorProperties({"name", "age"})
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+```
+
+➡️ Teraz:
+
+* `name` → właściwość `name`
+* `age` → właściwość `age`
+
+---
+
+## 4️⃣ Co to są „properties” w Javie?
+
+**Property = getter/setter w stylu JavaBeans**
+
+```java
+public String getName() { return name; }
+public int getAge() { return age; }
+```
+
+📌 `@ConstructorProperties` łączy:
+
+* **konstruktor**
+* **gettery/settery**
+
+---
+
+## 5️⃣ Jak działa technicznie?
+
+* Retencja: **RUNTIME**
+* Target: **CONSTRUCTOR**
+* Odczytywana przez:
+
+  * `java.beans.Introspector`
+  * frameworki (Jackson, Spring, CDI – historycznie)
+
+---
+
+## 6️⃣ Co się stanie, jeśli liczba nazw ≠ liczbie parametrów?
+
+❌ **Błąd w runtime**
+
+```java
+@ConstructorProperties({"name"})
+public Person(String name, int age) { }
+```
+
+➡️ IllegalArgumentException
+
+📌 Musi być **1:1**
+
+---
+
+## 7️⃣ Czy nadal się jej używa?
+
+⚠️ **Rzadziej**, ale warto ją znać.
+
+### Dlaczego?
+
+* Java 8+: `-parameters`
+* Frameworki lepiej radzą sobie z reflection
+* Lombok / records
+
+---
+
+## 8️⃣ `@ConstructorProperties` vs `record` ⭐
+
+### Record (Java 16+):
+
+```java
+public record Person(String name, int age) {}
+```
+
+➡️ Record:
+
+* automatycznie mapuje pola
+* ma semantykę immutable
+* **zastępuje 90% use-case’ów**
+
+📌 `@ConstructorProperties` to **prekursor recordów**
+
+---
+
+## 9️⃣ Kiedy ma sens dziś?
+
+✅ Gdy:
+
+* utrzymujesz **stary kod**
+* biblioteki JavaBeans
+* custom serializacja
+* brak `-parameters`
+
+❌ Gdy:
+
+* używasz records
+* nowoczesne frameworki
+* Lombok
+
+---
+
+## 🔟 Częste błędy ❌
+
+❌ Mylenie z `@JsonCreator`
+❌ Brak getterów
+❌ Niezgodna kolejność
+❌ Stosowanie w nowych projektach bez potrzeby
+
+---
+
+## 🧠 Podsumowanie (egzaminacyjne)
+
+> **`@ConstructorProperties` mapuje parametry konstruktora na nazwy właściwości JavaBeans**
+
+* pakiet: `java.beans`
+* target: `CONSTRUCTOR`
+* retencja: `RUNTIME`
+* używana przy introspekcji
+* dziś głównie legacy
+
+---
+
+Jeśli chcesz:
+
+* ✅ **quiz z `@ConstructorProperties`**
+* ✅ **porównanie z `@JsonCreator` / Jackson**
+* ✅ **introspekcja JavaBeans w praktyce**
+* ✅ **ewolucja: JavaBeans → records**
+
+Napisz 👉 **quiz** 😄

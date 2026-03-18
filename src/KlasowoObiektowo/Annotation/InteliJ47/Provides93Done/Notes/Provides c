@@ -1,0 +1,65 @@
+Super 😄 teraz lecimy z **`@Provides`** – to adnotacja z zupełnie innego kontekstu niż JFR, zwykle związana z **dependency injection (DI)**, np. w **Guice** lub innych frameworkach DI w Javie.
+
+---
+
+# 📌 `@Provides` – co to jest?
+
+`@Provides` to adnotacja używana przy metodach w klasach konfiguracyjnych lub modułach DI, która:
+
+> Informuje framework DI, że metoda **dostarcza instancję (bean)** określonego typu.
+> Jest to sposób na definiowanie zależności niestandardowych lub konfiguracji obiektów, które nie mogą być wstrzykiwane bezpośrednio przez konstruktor lub pola.
+
+---
+
+## 🔎 Pakiet
+
+* W Guice:
+
+```java
+com.google.inject.Provides
+```
+
+Od wersji: zależne od frameworku (w Guice od wersji 2+)
+
+---
+
+# ✅ Przykład użycia (Guice)
+
+```java
+import com.google.inject.AbstractModule;
+import com.google.inject.Provides;
+
+class AppModule extends AbstractModule {
+    @Override
+    protected void configure() {
+        // normalne wiązania
+    }
+
+    @Provides
+    DatabaseConnection provideDatabaseConnection() {
+        return new DatabaseConnection("jdbc:mysql://localhost:3306/mydb");
+    }
+}
+```
+
+➡ Metoda oznaczona `@Provides` dostarcza instancję `DatabaseConnection`, która będzie wstrzykiwana tam, gdzie jest potrzebna.
+
+---
+
+# 🧠 Uwagi
+
+1. **Nie jest częścią standardowego JDK** – należy używać z frameworkiem DI, np. **Guice**, **Dagger**.
+2. Stosowana tylko na **metodach** w klasach modułów/konfiguracji.
+3. Pomaga w tworzeniu instancji niestandardowych lub konfigurowanych w runtime.
+4. Typ zwracany przez metodę jest tym, co DI będzie wstrzykiwać.
+
+---
+
+# 🎯 Definicja egzaminacyjna
+
+> `@Provides` oznacza metodę w module lub klasie konfiguracyjnej, która **dostarcza instancję obiektu** do wstrzykiwania zależności w frameworku DI.
+
+---
+
+Chcesz, żebym teraz zrobił **quiz z `@Provides`**?
+

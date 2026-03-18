@@ -1,0 +1,90 @@
+Świetnie! 🚀
+Oto **quiz 10 pytań** dotyczący klasy **`Integer`** w Javie – wszystkie pytania mają odpowiedzi **a, b, c, d**:
+
+---
+
+## 🧪 **Quiz: Klasa `Integer` w Javie**
+
+**1. Do czego służy klasa `Integer`?**
+a) Do przechowywania liczb zmiennoprzecinkowych
+b) Do przechowywania liczb całkowitych jako obiektów
+c) Do tworzenia tablic liczb
+d) Do konwersji String → double
+
+---
+
+**2. Jak utworzyć obiekt Integer w nowoczesnej Javie?**
+a) `Integer i = new Integer(10);`
+b) `Integer i = Integer.valueOf(10);`
+c) `Integer i = (Integer)10;`
+d) `Integer i = int(10);`
+
+---
+
+**3. Jak zamienić napis `"123"` na typ `int`?**
+a) `Integer.toString("123")`
+b) `Integer.parseInt("123")`
+c) `Integer.valueOf("123")`
+d) `Integer.intValue("123")`
+
+---
+
+**4. Jak pobrać wartość typu `int` z obiektu `Integer i`?**
+a) `i.value()`
+b) `i.intValue()`
+c) `Integer.getInt(i)`
+d) `i.getInteger()`
+
+---
+
+**5. Które pola są statyczne w klasie Integer?**
+a) `MIN_VALUE`, `MAX_VALUE`, `SIZE`
+b) `minValue`, `maxValue`
+c) `value`, `type`
+d) Wszystkie instancyjne
+
+---
+
+**6. Co robi metoda `Integer.compare(int x, int y)`?**
+a) Zwraca największą liczbę
+b) Zwraca różnicę `x - y`
+c) Porównuje dwa inty i zwraca -1, 0 lub 1
+d) Zwraca true, jeśli x = y
+
+---
+
+**7. Co zwróci `Integer.toBinaryString(10)`?**
+a) `"1010"`
+b) `"10"`
+c) `"101"`
+d) `"0101"`
+
+---
+
+**8. Dlaczego nie zawsze należy używać `==` do porównania Integerów?**
+a) Bo porównuje wartości binarne
+b) Bo porównuje tylko referencje obiektów
+c) Bo nie działa dla liczb większych niż 100
+d) Bo powoduje wyjątek NullPointerException
+
+---
+
+**9. Jak zamienić String `"456"` na obiekt `Integer`?**
+a) `Integer.valueOf("456")`
+b) `Integer.parseInt("456")`
+c) `new Integer("456")`
+d) `Integer.toInt("456")`
+
+---
+
+**10. Ile bitów zajmuje typ `int` w Javie?**
+a) 16
+b) 32
+c) 64
+d) 8
+
+---
+
+Jeżeli chcesz, mogę teraz przygotować **poprawne odpowiedzi z krótkim omówieniem** dla wszystkich 10 pytań.
+
+Chcesz, żebym to zrobił teraz?

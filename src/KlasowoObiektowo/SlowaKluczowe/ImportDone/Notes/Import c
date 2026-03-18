@@ -1,0 +1,131 @@
+## WIEDZA – `import` w Java
+
+---
+
+### 1️⃣ Czym jest `import`?
+
+* `import` to **słowo kluczowe** umożliwiające użycie **klas, interfejsów lub pakietów z innych pakietów** bez konieczności podawania pełnej ścieżki kwalifikowanej.
+
+```java
+import java.util.ArrayList;
+
+public class Test {
+    ArrayList<String> list = new ArrayList<>();
+}
+```
+
+➡ Bez `import java.util.ArrayList;` musiałbyś pisać:
+
+```java
+java.util.ArrayList<String> list = new java.util.ArrayList<>();
+```
+
+---
+
+### 2️⃣ Rodzaje importów
+
+#### 🔹 Import konkretnej klasy
+
+```java
+import java.util.HashMap;
+```
+
+#### 🔹 Import całego pakietu
+
+```java
+import java.util.*;
+```
+
+* Import pakietu nie importuje klas z podpakietów!
+
+```java
+import java.util.*;
+// nie importuje java.util.concurrent.*
+```
+
+---
+
+### 3️⃣ Import statyczny (`static import`)
+
+* Od Java 5 możliwe jest importowanie **statycznych pól i metod**, aby używać ich bez prefiksu klasy.
+
+```java
+import static java.lang.Math.*;
+
+double r = cos(PI * 2);
+```
+
+➡ Bez `Math.` przed `cos` i `PI`.
+
+---
+
+### 4️⃣ Kolejność importów
+
+1. Importy z **java.***
+2. Importy z **javax.***
+3. Importy z **trzecich bibliotek**
+4. Importy z **twojego projektu**
+
+📌 Zalecenie: każda grupa oddzielona pustą linią (czytelność).
+
+---
+
+### 5️⃣ Czy import zwiększa wydajność?
+
+❌ **Nie** – `import` nie wpływa na runtime ani rozmiar klasy.
+➡ To tylko **skrót w czasie kompilacji**.
+
+---
+
+### 6️⃣ Praktyczny przykład – większy projekt
+
+```java
+import java.util.List;
+import java.util.ArrayList;
+
+public class NotificationService {
+    private List<String> messages = new ArrayList<>();
+
+    public void addMessage(String msg) {
+        messages.add(msg);
+    }
+
+    public void showMessages() {
+        for(String m : messages) {
+            System.out.println(m);
+        }
+    }
+}
+```
+
+📌 Bez importów musielibyśmy pisać pełne nazwy klas `java.util.List` i `java.util.ArrayList` wszędzie.
+
+---
+
+### 7️⃣ Import wewnętrzny vs zewnętrzny
+
+* **Wewnętrzny pakiet projektu:** `import com.mycompany.utils.Helper;`
+* **Zewnętrzny (Java API lub biblioteka):** `import java.util.*;`
+
+➡ Wszystko działa w ten sam sposób, tylko **ścieżka różna**.
+
+---
+
+### 8️⃣ Błędy najczęściej popełniane
+
+❌ Próba importu klasy z tego samego pakietu – niepotrzebne
+❌ Użycie `import *` zbyt często – zmniejsza czytelność
+❌ Import klas z podpakietu mylone z głównym pakietem
+
+---
+
+### ✅ Podsumowanie
+
+* `import` = **skrót nazwy klasy/interfejsu**
+* Nie wpływa na runtime
+* Można importować konkretne klasy lub całe pakiety
+* `static import` pozwala używać metod/pól statycznych bez prefiksu
+
+---
+
+Kiedy chcesz, napisz **„quiz”** 👍

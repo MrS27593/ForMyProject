@@ -1,0 +1,58 @@
+Na podstawie podanego tekstu przygotowałem quiz sprawdzający zrozumienie tematu **kończenia zadań przy pomocy `interrupt()` w Javie**, szczególnie w kontekście współbieżności i korzystania z `ExecutorService`.
+
+---
+
+### 📋 **Quiz: Kończenie zadań przez `interrupt()` w Javie**
+
+#### **Pytania jednokrotnego wyboru (ABC):**
+
+1. **Co robi metoda `interrupt()` wywołana na wątku?**
+   A. Natychmiast zatrzymuje wątek
+   B. Ustawia status wątku jako „przerwany”
+   C. Usuwa wątek z puli ExecutorService
+   ✅ **Poprawna odpowiedź: B**
+
+2. **Jakie zachowanie powinien wykazywać kod w metodzie `run()`, aby umożliwić prawidłowe przerwanie?**
+   A. Wywoływać `System.exit(0)` po wykonaniu zadań
+   B. Regularnie sprawdzać `Thread.currentThread().isInterrupted()`
+   C. Używać `Thread.sleep(1000)` bez obsługi wyjątków
+   ✅ **Poprawna odpowiedź: B**
+
+3. **Jaki wyjątek zostaje zgłoszony, gdy `interrupt()` przerywa metodę `sleep()`?**
+   A. InterruptedException
+   B. IllegalThreadStateException
+   C. TimeoutException
+   ✅ **Poprawna odpowiedź: A**
+
+4. **Dlaczego metoda `shutdownNow()` nie zakończyła zadań w poprzednim przykładzie?**
+   A. Wątki nie były dodane do puli
+   B. Nie obsłużono wyjątku `InterruptedException`
+   C. Kod w `run()` nie reagował na przerwanie
+   ✅ **Poprawna odpowiedź: C**
+
+5. **W jakich sytuacjach `interrupt()` może spowodować przerwanie działania kodu?**
+   A. Tylko w przypadku metod synchronizowanych
+   B. Gdy kod reaguje na przerwanie przez wyjątek lub sprawdzenie flagi
+   C. Wyłącznie przy wywołaniu `wait()`
+   ✅ **Poprawna odpowiedź: B**
+
+#### **Prawda / Fałsz:**
+
+6. `interrupt()` automatycznie zatrzymuje wykonywanie metody `run()`.
+   ❌ **Fałsz**
+
+7. Aby skutecznie przerwać wątek, należy uwzględnić jego status `interrupted` w logice programu.
+   ✅ **Prawda**
+
+8. `Scanner` zgłasza wyjątek `InterruptedException`, gdy jego działanie zostaje przerwane.
+   ❌ **Fałsz** (przerywa działanie, ale nie zgłasza wyjątku)
+
+9. `ExecutorService.shutdownNow()` wykorzystuje `interrupt()` do zakończenia zadań.
+   ✅ **Prawda**
+
+10. Blokady (`Lock`) i kanały we-wy mogą reagować na `interrupt()` przez zgłoszenie wyjątku.
+    ✅ **Prawda**
+
+---
+
+Czy chcesz teraz wersję **interaktywną** (np. HTML z przyciskami do zaznaczania odpowiedzi) lub **plik PDF/Word** do wydruku?

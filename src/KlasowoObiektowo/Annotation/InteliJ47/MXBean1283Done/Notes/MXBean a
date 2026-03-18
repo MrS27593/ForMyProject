@@ -1,0 +1,76 @@
+Oto **poprawne odpowiedzi do quizu o `@MXBean`** wraz z krótkim wyjaśnieniem:
+
+---
+
+### 1️⃣ Co oznacza adnotacja `@MXBean`?
+
+**B – Interfejs lub klasa jest Management Bean (MXBean) dla JMX**
+➡ Umożliwia zarządzanie i monitorowanie klasy przez JMX.
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@MXBean`?
+
+**B – `javax.management`**
+
+---
+
+### 3️⃣ Od której wersji Javy wprowadzono `@MXBean`?
+
+**B – Java 6**
+➡ W Java 6 dodano MXBeans do ułatwienia monitorowania aplikacji.
+
+---
+
+### 4️⃣ Czy `@MXBean` działa na klasach i interfejsach?
+
+**A – Tak**
+➡ Można oznaczyć interfejs lub klasę implementującą interfejs MXBean.
+
+---
+
+### 5️⃣ Czy `@MXBean` automatycznie konwertuje typy Java na typy zgodne z JMX?
+
+**A – Tak**
+➡ Dzięki temu typy takie jak Map, List są automatycznie zamieniane na typy JMX.
+
+---
+
+### 6️⃣ Czy metody MXBean muszą być publiczne?
+
+**A – Tak**
+➡ Tylko publiczne metody są widoczne dla narzędzi JMX.
+
+---
+
+### 7️⃣ Czy `@MXBean` wymaga ręcznego mapowania typów do JMX?
+
+**B – Nie**
+➡ Adnotacja automatycznie konwertuje typy.
+
+---
+
+### 8️⃣ Czy `@MXBean` rejestruje obiekt w MBeanServer automatycznie?
+
+**B – Nie**
+➡ Rejestracja w MBeanServer odbywa się ręcznie przez kod aplikacji.
+
+---
+
+### 9️⃣ Do czego najczęściej używa się `@MXBean`?
+
+**A – Do monitorowania i zarządzania aplikacjami w Javie**
+➡ Umożliwia narzędziom typu JConsole lub JMC dostęp do stanu aplikacji.
+
+---
+
+### 🔟 Czy można używać `@MXBean` dla klas implementujących interfejsy MXBean?
+
+**A – Tak**
+➡ Klasa implementująca interfejs MXBean i oznaczona `@MXBean` może być zarejestrowana jako bean zarządzania.
+
+---
+
+Jeśli chcesz, mogę teraz zrobić **mega quiz zbiorczy ze wszystkich adnotacji**, które przerobiliśmy od `@Deprecated` do `@MXBean` – wszystko w jednym miejscu do powtórki.
+
+Chcesz, żebym go zrobił?

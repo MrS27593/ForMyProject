@@ -1,0 +1,110 @@
+Świetnie! Oto **quiz z tematu `Dimension2D` w Javie** — zawiera pytania jednokrotnego wyboru oraz jedno zadanie kodowe na końcu. Możesz wykorzystać go do nauki lub sprawdzenia swojej wiedzy.
+
+---
+
+## 🧠 **Quiz: Dimension2D w Javie**
+
+### 🔹 Pytanie 1
+
+**Czym jest `Dimension2D` w pakiecie `java.awt.geom`?**
+A. Interfejsem
+B. Klasą generyczną
+C. Abstrakcyjną klasą reprezentującą wymiary 2D
+D. Implementacją `Dimension` z typem `int`
+
+> **Poprawna odpowiedź:** C
+
+---
+
+### 🔹 Pytanie 2
+
+**Która z poniższych metod jest częścią `Dimension2D`?**
+A. `setColor()`
+B. `getWidth()`
+C. `drawShape()`
+D. `addComponent()`
+
+> **Poprawna odpowiedź:** B
+
+---
+
+### 🔹 Pytanie 3
+
+**Jaka jest podstawowa różnica między `Dimension` a `Dimension2D`?**
+A. `Dimension2D` używa `String` zamiast liczb
+B. `Dimension2D` obsługuje wartości zmiennoprzecinkowe (`double`)
+C. `Dimension` jest klasą abstrakcyjną
+D. `Dimension2D` znajduje się w `java.util`
+
+> **Poprawna odpowiedź:** B
+
+---
+
+### 🔹 Pytanie 4
+
+**Która z poniższych klas jest gotową implementacją `Dimension2D` w JavaFX?**
+A. `java.awt.Dimension`
+B. `javafx.geometry.Dimension2D`
+C. `java.util.Dimension2D`
+D. `javax.swing.Dimension2D`
+
+> **Poprawna odpowiedź:** B
+
+---
+
+### 🔹 Pytanie 5
+
+**Czy można utworzyć instancję `Dimension2D` bezpośrednio?**
+A. Tak, ale tylko z typem `int`
+B. Tak, ponieważ to klasa finalna
+C. Nie, ponieważ to klasa abstrakcyjna
+D. Tak, ale wymaga interfejsu `Shape`
+
+> **Poprawna odpowiedź:** C
+
+---
+
+## ✍️ Zadanie kodowe
+
+**Uzupełnij brakujące fragmenty kodu tak, aby stworzyć klasę `CustomDimension`, która dziedziczy po `Dimension2D` i ustawia szerokość i wysokość.**
+
+```java
+import java.awt.geom.Dimension2D;
+
+public class CustomDimension extends ____________ {
+    private double width;
+    private double height;
+
+    public CustomDimension(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public double getWidth() {
+        return ___________;
+    }
+
+    @Override
+    public double getHeight() {
+        return ___________;
+    }
+
+    @Override
+    public void setSize(double width, double height) {
+        this.width = width;
+        this.height = ___________;
+    }
+}
+```
+
+> **Odpowiedzi:**
+>
+> * `Dimension2D`
+> * `this.width`
+> * `this.height`
+> * `height`
+
+---
+
+Chcesz wersję tego quizu jako plik PDF lub w formacie online (np. do Google Forms)?

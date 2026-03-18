@@ -1,0 +1,51 @@
+Metoda `String.format()` w Javie służy do formatowania ciągów znaków (stringów). Pozwala na wstawianie zmiennych i wartości w określony sposób do szablonu tekstowego, zachowując czytelność i elastyczność.
+
+### Składnia:
+```java
+String formattedString = String.format(String format, Object... args);
+```
+
+- **format** – szablon formatujący, który zawiera specjalne symbole (tzw. **placeholdery**), które są później zastępowane wartościami przekazanymi w **args**.
+- **args** – zmienne (lub wartości), które mają zostać wstawione w miejsce tych symboli.
+
+### Przykład:
+
+```java
+int age = 25;
+String name = "John";
+String result = String.format("My name is %s and I am %d years old.", name, age);
+System.out.println(result);
+```
+
+### Wynik:
+```
+My name is John and I am 25 years old.
+```
+
+### Wyjaśnienie:
+- `%s` jest symbolem formatu, który oznacza, że w tym miejscu zostanie wstawiony ciąg znaków (string).
+- `%d` to symbol formatu dla liczb całkowitych (integer).
+- Wartości `name` i `age` są przekazywane w odpowiedniej kolejności do metody `String.format()`, a następnie wstawiane w miejsce placeholderów `%s` i `%d`.
+
+### Inne popularne symbole formatujące:
+- **%d** – liczba całkowita (int, long)
+- **%f** – liczba zmiennoprzecinkowa (float, double)
+- **%s** – ciąg znaków (String)
+- **%x** – liczba szesnastkowa
+- **%t** – data i czas (np. `%tY` – rok, `%tm` – miesiąc, `%td` – dzień)
+
+### Formatowanie liczby zmiennoprzecinkowej:
+```java
+double pi = 3.14159;
+String result = String.format("Value of Pi: %.2f", pi);
+System.out.println(result);
+```
+
+### Wynik:
+```
+Value of Pi: 3.14
+```
+
+W powyższym przykładzie `%.2f` oznacza, że liczba zmiennoprzecinkowa ma być zaokrąglona do dwóch miejsc po przecinku.
+
+Metoda `String.format()` jest bardzo elastyczna i przydatna, zwłaszcza gdy chcemy kontrolować sposób wyświetlania danych, np. w raportach, logach, czy komunikatach użytkownika.

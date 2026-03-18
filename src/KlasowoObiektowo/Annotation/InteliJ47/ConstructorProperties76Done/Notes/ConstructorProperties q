@@ -1,0 +1,134 @@
+Super 👍
+Oto **quiz z adnotacji `@ConstructorProperties`** — poziom **praktyczny / egzaminacyjny**.
+Jak zawsze: **bez odpowiedzi**.
+Gdy skończysz, napisz **„odpowiedzi”** ✅
+
+---
+
+# 🧠 **Quiz: `@ConstructorProperties`**
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Czym jest `@ConstructorProperties`?
+
+A. Meta-adnotacją
+B. Adnotacją do walidacji konstruktora
+C. Adnotacją mapującą parametry konstruktora na właściwości
+D. Adnotacją kompilatora
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@ConstructorProperties`?
+
+A. `java.lang.annotation`
+B. `javax.annotation.processing`
+C. `java.beans`
+D. `java.lang.reflect`
+
+---
+
+### 3️⃣ Na jakim elemencie można jej użyć?
+
+A. Klasie
+B. Metodzie
+C. Konstruktorze
+D. Polu
+
+---
+
+## 🔹 Część II – Działanie
+
+### 4️⃣ Do czego używają jej frameworki?
+
+A. Walidacji danych
+B. Serializacji / deserializacji
+C. Generowania kodu
+D. Optymalizacji JVM
+
+---
+
+### 5️⃣ Co się stanie, jeśli liczba nazw ≠ liczba parametrów?
+
+A. Błąd kompilacji
+B. Ostrzeżenie
+C. Błąd w runtime
+D. Nic
+
+---
+
+### 6️⃣ Jaka jest retencja `@ConstructorProperties`?
+
+A. `SOURCE`
+B. `CLASS`
+C. `RUNTIME`
+D. Brak retencji
+
+---
+
+## 🔹 Część III – Porównania
+
+### 7️⃣ Co jest nowoczesną alternatywą?
+
+A. `Serializable`
+B. `@Deprecated`
+C. `record`
+D. `enum`
+
+---
+
+### 8️⃣ Co jest wymagane, aby `@ConstructorProperties` miała sens?
+
+A. Getterów JavaBeans
+B. Setterów
+C. Pól publicznych
+D. Metody `equals`
+
+---
+
+## 🔹 Część IV – Praktyka
+
+### 9️⃣ Który zapis jest POPRAWNY?
+
+A.
+
+```java
+@ConstructorProperties("name")
+```
+
+B.
+
+```java
+@ConstructorProperties({"name", "age"})
+public Person(String name, int age) {}
+```
+
+C.
+
+```java
+@ConstructorProperties({name, age})
+```
+
+D.
+
+```java
+@ConstructorProperties(2)
+```
+
+---
+
+### 🔟 Czy `@ConstructorProperties` jest dziś zalecana w nowych projektach?
+
+A. Tak, zawsze
+B. Tak, zamiast recordów
+C. Raczej nie, głównie legacy
+D. Tylko w Springu
+
+---
+
+## ✍️ Pytanie otwarte
+
+### 1️⃣1️⃣ Podaj przykład sytuacji, w której użycie `@ConstructorProperties` MA sens dziś.
+
+---
+
+Gdy skończysz 👉 napisz **„odpowiedzi”** 💪

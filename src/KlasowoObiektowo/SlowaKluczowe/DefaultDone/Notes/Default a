@@ -1,0 +1,90 @@
+### ✅ Odpowiedzi – `default` w Java (z wyjaśnieniami)
+
+---
+
+#### 1️⃣ Co robi słowo kluczowe `default` w instrukcji `switch`?
+
+**✅ B. Wykonuje blok kodu, gdy żaden `case` nie pasuje**
+Blok `default` jest wykonywany tylko wtedy, gdy żaden inny `case` nie pasuje do wartości zmiennej.
+
+---
+
+#### 2️⃣ Co się stanie, jeśli w `switch` nie ma `default` i żaden `case` nie pasuje?
+
+**✅ C. Blok kodu nie wykona się wcale**
+Brak dopasowania i brak `default` skutkuje tym, że żaden kod nie zostanie uruchomiony.
+
+---
+
+#### 3️⃣ W którym roku wprowadzono domyślne metody (`default methods`) w interfejsach?
+
+**✅ D. Java 8**
+Java 8 wprowadziła możliwość definiowania metod domyślnych w interfejsach.
+
+---
+
+#### 4️⃣ Dlaczego używa się metod `default` w interfejsach?
+
+**✅ B. Aby zapewnić domyślną implementację bez łamania istniejącego kodu**
+Pozwala to rozszerzać interfejsy, nie zmuszając wszystkich klas implementujących do natychmiastowej zmiany.
+
+---
+
+#### 5️⃣ Które z poniższych zdań jest prawdziwe o dostępie „default” (brak modyfikatora)?
+
+**✅ D. Element jest widoczny tylko w tym samym pakiecie**
+Brak `public`, `protected` czy `private` oznacza **pakietowy dostęp**.
+
+---
+
+#### 6️⃣ Jaką wartość zwróci `switch` z `default`, jeśli żaden `case` nie pasuje?
+
+**✅ B. Wywoła blok kodu `default`**
+To podstawowa rola bloku `default` – zapewnia wykonanie kodu dla niepasujących przypadków.
+
+---
+
+#### 7️⃣ Czy można użyć `default` w klasie?
+
+**✅ C. Nie, `default` w klasie oznacza brak modyfikatora (pakietowy)**
+Nie ma słowa `default` stosowanego w klasach do metod czy pól – użycie go oznacza po prostu brak modyfikatora dostępu.
+
+---
+
+#### 8️⃣ Czy metoda `default` w interfejsie może być nadpisana w klasie implementującej?
+
+**✅ A. Tak**
+Klasa implementująca interfejs może nadpisać metodę `default`, tak jak normalną metodę.
+
+---
+
+#### 9️⃣ (Otwarte) Przykład użycia `default` w `switch`:
+
+```java
+String role = "GUEST";
+
+switch (role) {
+    case "ADMIN":
+        System.out.println("Pełny dostęp");
+        break;
+    case "USER":
+        System.out.println("Dostęp ograniczony");
+        break;
+    default:
+        System.out.println("Brak dostępu");
+}
+```
+
+---
+
+#### 🔟 (Otwarte) Korzyści z metody `default` w interfejsie:
+
+* Pozwala **rozszerzać interfejsy** bez konieczności zmiany wszystkich klas implementujących
+* Umożliwia **domyślne zachowanie**, które może być nadpisane
+* Ułatwia **utrzymanie kodu i kompatybilność wsteczną**
+
+---
+
+Kiedy będziesz gotowy, możemy przejść do kolejnego słowa kluczowego w Javie, np. **`do`** lub inne, które chcesz zgłębić.
+
+Chcesz kontynuować kolejne słowo kluczowe?

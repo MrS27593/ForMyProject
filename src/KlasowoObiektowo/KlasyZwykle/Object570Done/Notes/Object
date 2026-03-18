@@ -1,0 +1,14 @@
+Aby dobrze umieć klasy Object warto znać:
+Interface:
+
+
+
+Class:
+
+
+Exceptions:
+CloneNotSupportedException
+IllegalMonitorStateException
+InterruptedException
+IllegalArgumentException
+Throwable

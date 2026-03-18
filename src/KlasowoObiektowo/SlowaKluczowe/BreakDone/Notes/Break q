@@ -1,0 +1,132 @@
+Super 🙂
+Oto **QUIZ z `break` w Javie** — pytania obejmują pętle, `switch` i etykiety.
+
+---
+
+## 🧪 Quiz: `break` w języku Java
+
+**Instrukcja:**
+Wybierz **jedną poprawną odpowiedź** (A, B, C lub D).
+Pytania 9–10 są **otwarte**.
+
+---
+
+### **1. Do czego służy słowo kluczowe `break`?**
+
+A. Zakończenia programu
+B. Przerwania pętli lub `switch`
+C. Zakończenia metody
+D. Pomijania iteracji pętli
+
+---
+
+### **2. Co się stanie w poniższym kodzie?**
+
+```java
+for (int i = 0; i < 5; i++) {
+    if (i == 3) break;
+    System.out.println(i);
+}
+```
+
+A. Wypisze `0 1 2 3`
+B. Wypisze `0 1 2`
+C. Wypisze `0 1 2 3 4`
+D. Nic nie wypisze
+
+---
+
+### **3. Co się stanie, jeśli w `switch` zabraknie `break`?**
+
+A. Kompilator zgłosi błąd
+B. JVM zakończy program
+C. Nastąpi fall-through (wykonanie kolejnych `case`)
+D. Kod zostanie zignorowany
+
+---
+
+### **4. Czy `break` można użyć poza pętlą lub `switch`?**
+
+A. Tak, zawsze
+B. Nie, to spowoduje błąd kompilacji
+C. Tylko w metodach `void`
+D. Tylko w konstruktorach
+
+---
+
+### **5. Jak działa `break` z etykietą (label)?**
+
+A. Przerywa tylko pętlę, w której jest zapisane
+B. Przerywa wszystkie pętle w programie
+C. Przerywa wskazaną etykietą pętlę zewnętrzną
+D. Przerywa metodę
+
+---
+
+### **6. Co zrobi `break` w pętli `while(true)`?**
+
+A. Zignoruje warunek
+B. Przerwie pętlę natychmiast, jeśli napotka `break`
+C. Zawsze zakończy program
+D. Spowoduje nieskończoną pętlę
+
+---
+
+### **7. Który fragment w `switch` jest poprawny?**
+
+A.
+
+```java
+case 1:
+    System.out.println("A");
+case 2:
+    System.out.println("B");
+```
+
+B.
+
+```java
+case 1:
+    System.out.println("A");
+    break;
+case 2:
+    System.out.println("B");
+    break;
+```
+
+C.
+
+```java
+case 1:
+    System.out.println("A");
+    exit;
+```
+
+D.
+
+```java
+case 1:
+    System.out.println("A");
+    continue;
+```
+
+---
+
+### **8. Co odróżnia `break` od `continue`?**
+
+A. `break` kończy pętlę, `continue` pomija iterację
+B. `break` działa tylko w `switch`, `continue` tylko w pętlach
+C. `break` zawsze zatrzymuje program, `continue` nie
+D. Nie ma różnicy
+
+---
+
+### **9. (Otwarte)**
+
+Podaj przykład zagnieżdżonej pętli, gdzie użycie `break` z etykietą jest uzasadnione.
+
+---
+
+### **10. (Otwarte)**
+
+Dlaczego nie powinno się nadużywać `break` w kodzie?

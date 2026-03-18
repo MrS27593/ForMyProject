@@ -1,0 +1,106 @@
+Świetnie 😄
+Oto **quiz z `java.util.Locale.Category`** — poziom **podstawy → rekrutacja**.
+
+---
+
+# ✅ **Quiz: `Locale.Category`**
+
+## 1️⃣ Prawda / Fałsz
+
+1. `Locale.Category` jest enumem.
+
+   * A) Prawda
+   * B) Fałsz
+
+2. `Locale.Category` jest dostępne dopiero od Java 11.
+
+   * A) Prawda
+   * B) Fałsz
+
+3. `DISPLAY` odpowiada za język interfejsu użytkownika.
+
+   * A) Prawda
+   * B) Fałsz
+
+4. `FORMAT` wpływa na formatowanie liczb i dat.
+
+   * A) Prawda
+   * B) Fałsz
+
+---
+
+## 2️⃣ Wybór jednokrotny
+
+5. Która kategoria Locale jest używana do formatowania liczb?
+
+* A) DISPLAY
+* B) FORMAT
+* C) DEFAULT
+* D) SYSTEM
+
+---
+
+6. Co zwróci poniższy kod (zakładając `DISPLAY = pl_PL`)?
+
+```java
+Locale.getDefault(Locale.Category.DISPLAY).getDisplayLanguage();
+```
+
+* A) pl
+* B) polski
+* C) Polish
+* D) PL
+
+---
+
+## 3️⃣ Wybór wielokrotny
+
+7. Które elementy są zależne od `Locale.Category.DISPLAY`?
+
+* A) Nazwy miesięcy
+* B) Separator dziesiętny
+* C) Nazwy dni tygodnia
+* D) Teksty interfejsu
+
+---
+
+## 4️⃣ Analiza kodu
+
+8. Co się stanie?
+
+```java
+Locale.setDefault(Locale.Category.FORMAT, Locale.FRANCE);
+NumberFormat nf = NumberFormat.getInstance();
+System.out.println(nf.format(1234.56));
+```
+
+* A) 1,234.56
+* B) 1.234,56
+* C) 1234.56
+* D) 1 234,56
+
+---
+
+## 5️⃣ Pytanie praktyczne
+
+9. Uzupełnij kod tak, aby **ustawić język UI na angielski**, a **format liczb na niemiecki**:
+
+```java
+// Twój kod
+```
+
+---
+
+## 6️⃣ Pytanie podchwytliwe (rekrutacyjne!)
+
+10. Dlaczego wprowadzono `Locale.Category`?
+
+* A) Dla wydajności
+* B) Aby rozdzielić język UI i format danych
+* C) Aby obsłużyć strefy czasowe
+* D) Aby zastąpić `ResourceBundle`
+
+---
+
+👉 Napisz **„odpowiedzi”**, a podam **pełne rozwiązania z wyjaśnieniami** 🔥
+

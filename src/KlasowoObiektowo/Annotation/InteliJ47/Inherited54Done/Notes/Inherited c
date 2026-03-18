@@ -1,0 +1,101 @@
+Super 😄
+Teraz lecimy z **`@Inherited`** – jedna z adnotacji JDK, która często pojawia się w pytaniach rekrutacyjnych i egzaminacyjnych.
+
+---
+
+# 📌 `@Inherited` – co to jest?
+
+`@Inherited` to adnotacja **meta**, która mówi:
+
+> Jeśli adnotacja jest zadeklarowana na klasie bazowej, to automatycznie jest dziedziczona przez podklasy.
+
+Pakiet:
+
+```java
+java.lang.annotation.Inherited
+```
+
+Od wersji: JDK 5+
+
+---
+
+# 🔎 Szczegóły
+
+* Może być używana **tylko z adnotacjami oznaczonymi `@Target(ElementType.TYPE)`** (czyli na klasach, interfejsach)
+* Działa tylko na **adnotacje z retention policy**: `RUNTIME`
+  (bo inaczej nie można jej odczytać przez reflection)
+* Nie działa na metody, pola, parametry ani konstruktory.
+
+---
+
+# ✅ Przykład
+
+```java id="s3h9tx"
+import java.lang.annotation.*;
+
+@Inherited
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+@interface MyAnnotation {}
+
+@MyAnnotation
+class Parent {}
+
+class Child extends Parent {}
+```
+
+Sprawdzenie:
+
+```java id="v7q2tz"
+Child.class.isAnnotationPresent(MyAnnotation.class); // true
+```
+
+➡ `Child` **dziedziczy adnotację** `MyAnnotation`.
+
+---
+
+# ❌ Ograniczenia
+
+1. Nie działa na metody:
+
+```java id="o3k0rh"
+@Inherited
+@Target(ElementType.METHOD)
+@interface MethodAnn {}
+```
+
+➡ Kompilator pozwoli, ale **dziedziczenie nie zadziała**.
+
+2. Nie działa dla interfejsów metod:
+
+* `@Inherited` działa tylko dla klas dziedziczących klasy.
+* Interfejsy nie dziedziczą adnotacji od innych interfejsów.
+
+---
+
+# 🧪 Typowe użycie
+
+* Frameworki typu Spring sprawdzają klasy bazowe i korzystają z `@Inherited`:
+
+  * np. `@Transactional` na klasie bazowej
+  * adnotacje konfiguracyjne na klasach bazowych
+
+---
+
+# 🔥 Przykłady z JDK
+
+* `@Deprecated` **nie** jest dziedziczona (bo nie ma `@Inherited`)
+* `@SuppressWarnings` **nie** jest dziedziczona
+* Własne adnotacje konfiguracyjne mogą być dziedziczone przez `@Inherited`
+
+---
+
+# 🎯 Krótka definicja egzaminacyjna
+
+> `@Inherited` pozwala klasom potomnym dziedziczyć adnotacje zadeklarowane na klasach bazowych, jeśli adnotacja jest typu klasy i ma retention `RUNTIME`.
+
+---
+
+Jeśli chcesz, mogę od razu przygotować **quiz o `@Inherited`**.
+
+Chcesz, żebym zrobił quiz teraz?

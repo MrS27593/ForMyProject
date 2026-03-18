@@ -1,0 +1,110 @@
+## QUIZ – `protected` w Java (10 pytań)
+
+---
+
+### **1. Co oznacza modyfikator `protected` w Javie?**
+
+A. Dostęp tylko w tej samej klasie
+B. Dostęp w tej samej klasie, pakiecie i klasach dziedziczących
+C. Dostęp tylko w pakiecie
+D. Dostęp z każdego miejsca
+
+---
+
+### **2. Które elementy mogą być oznaczone jako `protected`?**
+
+A. Klasy najwyższego poziomu
+B. Zmienne lokalne
+C. Metody i pola
+D. Pakiety
+
+---
+
+### **3. Gdzie element `protected` jest dostępny?**
+
+A. Tylko w klasach dziedziczących
+B. Tylko w pakiecie
+C. W pakiecie i w klasach dziedziczących (także w innym pakiecie)
+D. Tylko w tej samej klasie
+
+---
+
+### **4. Jaka jest różnica między `protected` a brakiem modyfikatora?**
+
+A. `protected` daje dostęp globalny
+B. Brak modyfikatora daje większy dostęp
+C. `protected` dodaje dostęp dla klas dziedziczących
+D. Nie ma żadnej różnicy
+
+---
+
+### **5. Czy klasa najwyższego poziomu może być `protected`?**
+
+A. Tak
+B. Tylko w tym samym pakiecie
+C. Tylko jeśli jest abstrakcyjna
+D. Nie
+
+---
+
+### **6. Co stanie się przy nadpisaniu metody `protected`?**
+
+A. Można zmniejszyć jej widoczność
+B. Widoczność musi pozostać taka sama lub większa
+C. Metoda musi być `final`
+D. Nie można jej nadpisywać
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład, kiedy użycie `protected` jest lepsze niż `public`.
+
+---
+
+### **8. (OTWARTE)**
+
+Dlaczego `protected` jest często używane w klasach bazowych (frameworkach)?
+
+---
+
+### **9. Który kod jest poprawny?**
+
+A.
+
+```java
+protected class A {}
+```
+
+B.
+
+```java
+class A {
+    protected int x;
+}
+```
+
+C.
+
+```java
+protected void method() {}
+```
+
+D.
+
+```java
+protected int localVar;
+```
+
+---
+
+### **10. Które zdanie o `protected` jest prawdziwe?**
+
+A. Działa jak `public` w całym projekcie
+B. Jest węższe niż `private`
+C. Jest szersze niż `private`, ale węższe niż `public`
+D. Nie działa z dziedziczeniem
+
+---
+
+Napisz **„odpowiedzi”**, a podam komplet poprawnych odpowiedzi z wyjaśnieniami ✅

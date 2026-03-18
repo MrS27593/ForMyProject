@@ -1,0 +1,74 @@
+Oczywiście! Oto **odpowiedzi do quizu o `PropertyChangeEvent`** wraz z krótkim wyjaśnieniem do każdego pytania:
+
+---
+
+### ✅ **Pytanie 1:**
+
+**Który pakiet zawiera klasę `PropertyChangeEvent`?**
+**Odpowiedź: C. `java.beans`**
+
+> Klasa `PropertyChangeEvent` jest częścią pakietu `java.beans`, który obsługuje zdarzenia związane z właściwościami w Javie.
+
+---
+
+### ✅ **Pytanie 2:**
+
+**Co przechowuje obiekt `PropertyChangeEvent`?**
+**Odpowiedź: A, B, D**
+
+> * A. `source` – obiekt, który wygenerował zdarzenie
+> * B. `newValue` – nowa wartość właściwości
+> * D. `propertyName` – nazwa zmienionej właściwości
+>   (C jest fałszywe – nie przechowuje "całego starego obiektu", tylko starą wartość jednej właściwości)
+
+---
+
+### ✅ **Pytanie 3:**
+
+**Klasa `PropertyChangeEvent` umożliwia słuchaczowi zablokowanie zmiany właściwości.**
+**Odpowiedź: Nie**
+
+> `PropertyChangeEvent` tylko **informuje** o tym, że coś się zmieniło. Jeśli chcesz możliwość **zablokowania** zmiany, musisz użyć `VetoableChangeListener`.
+
+---
+
+### ✅ **Pytanie 4:**
+
+**Co zostanie wypisane na ekranie?**
+
+```java
+PropertyChangeEvent evt = new PropertyChangeEvent("Źródło", "wiek", 20, 30);
+System.out.println(evt.getPropertyName());
+System.out.println(evt.getOldValue());
+System.out.println(evt.getNewValue());
+```
+
+**Odpowiedź: A. wiek, 20, 30**
+
+> `getPropertyName()` zwraca `"wiek"`, `getOldValue()` to `20`, a `getNewValue()` to `30`.
+
+---
+
+### ✅ **Pytanie 5 (otwarte):**
+
+**Do czego służy klasa `PropertyChangeSupport`?**
+
+**Odpowiedź:**
+`PropertyChangeSupport` ułatwia zarządzanie słuchaczami (`PropertyChangeListener`) i wywoływaniem zdarzeń. Zamiast ręcznie obsługiwać listę słuchaczy, możesz użyć tej klasy do dodawania, usuwania i powiadamiania ich o zmianach właściwości.
+
+---
+
+### ✅ **Pytanie 6:**
+
+**Który interfejs musi zaimplementować obiekt nasłuchujący zmian właściwości?**
+**Odpowiedź: C. `PropertyChangeListener`**
+
+> Jest to interfejs zawierający jedną metodę:
+
+```java
+void propertyChange(PropertyChangeEvent evt);
+```
+
+---
+
+Jeśli chcesz, mogę przygotować quiz z `VetoableChangeListener` albo rozwinąć temat słuchaczy w Swingu. Chcesz?

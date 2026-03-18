@@ -1,0 +1,61 @@
+Świetnie 😄 teraz lecimy z **`@Native`** – adnotacją związaną ze stałymi w Javie.
+
+---
+
+# 📌 `@Native` – co to jest?
+
+`@Native` to adnotacja z pakietu **`java.lang.annotation`**, używana głównie do oznaczania **stałych publicznych w interfejsach lub klasach**, które mogą być używane np. w **enumach lub flagach bitowych**.
+
+> Głównym celem jest wspieranie narzędzi takich jak **IDE i Javadoc**, aby mogły automatycznie generować listy dostępnych wartości stałych.
+
+---
+
+## 🔎 Pakiet
+
+```java
+java.lang.annotation.Native
+```
+
+Od wersji: Java 8+
+
+---
+
+# ✅ Przykład użycia
+
+```java
+import java.lang.annotation.*;
+
+public class Colors {
+    @Native
+    public static final int RED = 1;
+    @Native
+    public static final int GREEN = 2;
+    @Native
+    public static final int BLUE = 3;
+}
+```
+
+➡ IDE może teraz wyświetlać RED, GREEN, BLUE jako **dozwolone wartości** np. w parametrach metody:
+
+```java
+public void setColor(@ColorsAnnotation int color) { ... }
+```
+
+---
+
+# 🧠 Uwagi
+
+1. **Nie zmienia działania programu** – jest adnotacją informacyjną.
+2. Najczęściej używana z **`@interface` typu `@IntDef` lub `@StringDef`** (głównie w Androidzie lub przy narzędziach statycznej analizy).
+3. Pomaga **narzędziom statycznej analizy i Javadocowi** w rozpoznawaniu dozwolonych wartości.
+4. Zazwyczaj stosowana przy **publicznych stałych typu int lub String**.
+
+---
+
+# 🎯 Definicja egzaminacyjna
+
+> `@Native` oznacza stałą, która może być używana jako dozwolona wartość dla parametrów lub pól. Służy głównie narzędziom (IDE, Javadoc) i analizie statycznej, nie wpływa na runtime.
+
+---
+
+Chcesz, żebym teraz zrobił **quiz z `@Native`**?

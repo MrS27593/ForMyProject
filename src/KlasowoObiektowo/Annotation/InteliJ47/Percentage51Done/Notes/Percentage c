@@ -1,0 +1,67 @@
+Super 😄 teraz lecimy z **`@Percentage`** – adnotacją używaną głównie w kontekście **Java Flight Recorder (JFR)**.
+
+---
+
+# 📌 `@Percentage` – co to jest?
+
+`@Percentage` to adnotacja, która oznacza, że:
+
+> Pole lub metoda reprezentuje **wartość procentową**, zazwyczaj w zakresie 0–100, przy raportowaniu zdarzeń w JFR.
+
+Pomaga narzędziom, takim jak **Java Mission Control**, poprawnie wyświetlać dane i interpretować je jako procenty.
+
+---
+
+## 🔎 Pakiet
+
+```java
+jdk.jfr.Percentage
+```
+
+Od wersji: Java 9+
+
+---
+
+# ✅ Przykład użycia
+
+```java
+import jdk.jfr.*;
+
+@Label("CPU Usage Event")
+@Description("Tracks CPU usage percentage")
+class CpuUsageEvent extends Event {
+
+    @Percentage
+    @Label("CPU Usage")
+    double cpuUsage;
+
+    @Percentage
+    @Label("Memory Usage")
+    double memoryUsage;
+}
+```
+
+➡ Adnotacja `@Percentage` wskazuje, że wartości `cpuUsage` i `memoryUsage` powinny być traktowane jako procenty w raportach.
+
+---
+
+# 🧠 Uwagi
+
+1. **Nie wpływa na runtime** – jest adnotacją informacyjną dla narzędzi monitorujących.
+2. Stosowana tylko do **pól liczbowych** (`double` lub `float`).
+3. Często używana razem z:
+
+   * `@Label` – przyjazna nazwa pola
+   * `@Description` – opis pola
+   * `@Category` – grupa pól
+4. Pomaga wizualizować dane w JFR w bardziej czytelny sposób (np. jako % zamiast liczby surowej).
+
+---
+
+# 🎯 Definicja egzaminacyjna
+
+> `@Percentage` oznacza, że pole lub metoda w zdarzeniu JFR reprezentuje **wartość procentową**. Służy narzędziom monitorującym do poprawnej interpretacji i wizualizacji danych.
+
+---
+
+Chcesz, żebym teraz zrobił **quiz z `@Percentage`**?

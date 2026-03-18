@@ -1,0 +1,141 @@
+Super! 🌊 Skoro mamy InputStream, czas na **`OutputStream`** – klasę abstrakcyjną do zapisu danych bajtowych w Javie.
+
+---
+
+# 🧩 `java.io.OutputStream` – pełne omówienie
+
+## 1️⃣ Czym jest `OutputStream`?
+
+```java
+public abstract class OutputStream implements Closeable, Flushable
+```
+
+📌 **Najważniejsze fakty**
+
+* Jest **klasą abstrakcyjną** w pakiecie `java.io`.
+* Służy do **zapisu danych bajt po bajcie**.
+* Wszystkie klasy zapisujące dane bajtowe dziedziczą po niej, np.:
+
+  * `FileOutputStream` – zapis do pliku
+  * `ByteArrayOutputStream` – zapis do tablicy bajtów
+  * `BufferedOutputStream` – buforowany zapis
+
+---
+
+## 2️⃣ Metody abstrakcyjne
+
+**Jedyna metoda abstrakcyjna** w `OutputStream`:
+
+```java
+public abstract void write(int b) throws IOException;
+```
+
+📌 **Co robi**:
+
+* Zapisuje **pojedynczy bajt** (ostatnie 8 bitów int) do strumienia.
+
+---
+
+## 3️⃣ Ważniejsze metody z `OutputStream` (już zaimplementowane)
+
+| Metoda                              | Co robi                                                  |
+| ----------------------------------- | -------------------------------------------------------- |
+| `write(byte[] b)`                   | Zapisuje wszystkie bajty z tablicy `b`                   |
+| `write(byte[] b, int off, int len)` | Zapisuje `len` bajtów z tablicy `b` od offsetu `off`     |
+| `flush()`                           | Wypycha wszystkie dane do miejsca docelowego (np. pliku) |
+| `close()`                           | Zamyka strumień i zwalnia zasoby                         |
+
+📌 Większość klas pochodnych nadpisuje te metody dla wydajności.
+
+---
+
+## 4️⃣ Dlaczego `OutputStream` jest abstrakcyjny?
+
+✅ Bo różne miejsca docelowe (plik, tablica, sieć) **mają różne mechanizmy zapisu**, ale wszystkie można traktować **jednoznacznie przez OutputStream**.
+
+---
+
+## 5️⃣ Przykład użycia `FileOutputStream`
+
+```java
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+public class Main {
+    public static void main(String[] args) {
+        try (OutputStream out = new FileOutputStream("plik.txt")) {
+            String text = "Hello World";
+            out.write(text.getBytes()); // zapisuje wszystkie bajty
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+📌 Znowu **try-with-resources**, aby automatycznie zamknąć strumień.
+
+---
+
+## 6️⃣ Przykład własnej klasy dziedziczącej `OutputStream`
+
+### 🔹 Klasa zapisująca tylko cyfry (ignoruje inne znaki)
+
+```java
+import java.io.IOException;
+import java.io.OutputStream;
+
+public class DigitOutputStream extends OutputStream {
+
+    @Override
+    public void write(int b) throws IOException {
+        if (Character.isDigit((char) b)) {
+            System.out.print((char) b); // zapisujemy na konsolę
+        }
+    }
+}
+```
+
+### Użycie:
+
+```java
+public class Main {
+    public static void main(String[] args) throws IOException {
+        OutputStream out = new DigitOutputStream();
+        String text = "a1b2c3";
+        for (byte b : text.getBytes()) {
+            out.write(b); // wypisze: 123
+        }
+    }
+}
+```
+
+---
+
+## 7️⃣ Typowe pułapki początkujących
+
+1. **Nie używasz `flush()`** → dane mogą pozostać w buforze.
+2. **Nie zamykasz strumienia** → wyciek zasobów.
+3. **Konwertujesz int do byte źle** → zapisane dane mogą być błędne.
+4. **Nie nadpisujesz `write(int b)`** w własnym OutputStream → strumień nie działa.
+
+---
+
+## 8️⃣ Podsumowanie – najważniejsze punkty
+
+* `OutputStream` = **abstrakcyjny zapis danych bajtowych**
+* Metoda abstrakcyjna: **`write(int b)`**
+* Kluczowe klasy dziedziczące: `FileOutputStream`, `BufferedOutputStream`, `ByteArrayOutputStream`
+* Pozwala tworzyć **polimorficzne operacje zapisu bajtów**
+
+---
+
+💡 **Analogia:**
+`OutputStream` = **uniwersalna rura do wylewania danych**, a konkretne strumienie (`FileOutputStream`, `ByteArrayOutputStream`) = **różne miejsca docelowe wody** (plik, pamięć, sieć).
+
+---
+
+Mogę teraz zrobić **quiz o OutputStream** podobny do InputStream, żeby utrwalić wiedzę.
+
+Chcesz, żebym zrobił quiz?

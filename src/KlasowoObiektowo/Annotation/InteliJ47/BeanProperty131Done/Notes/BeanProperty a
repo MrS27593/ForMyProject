@@ -1,0 +1,126 @@
+Pięknie 😎
+Oto **pełny klucz odpowiedzi do quizu `@BeanProperty`** – z krótkimi, treściwymi wyjaśnieniami (takimi „egzaminowymi”).
+
+---
+
+# ✅ Odpowiedzi – Quiz `@BeanProperty`
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Czym jest `@BeanProperty`?
+
+**✅ C** – adnotacją jawnie oznaczającą property JavaBeans
+
+➡️ Informuje mechanizm introspekcji, że dany element **jest właściwością (property)**.
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@BeanProperty`?
+
+**✅ C – `java.beans`**
+
+---
+
+### 3️⃣ Na czym MOŻNA użyć `@BeanProperty`?
+
+**✅ C – na polu i metodzie**
+
+📌 Nie używa się jej na klasach ani konstruktorach.
+
+---
+
+## 🔹 Część II – Działanie
+
+### 4️⃣ Jaki problem rozwiązuje `@BeanProperty`?
+
+**✅ C** – brak automatycznego rozpoznania property przez konwencję JavaBeans
+
+➡️ Szczególnie gdy:
+
+* brak settera
+* niestandardowa nazwa
+* pole publiczne
+
+---
+
+### 5️⃣ Czy `@BeanProperty` wpływa na logikę programu?
+
+**✅ D – Nie, jest tylko opisowa**
+
+❗ Nie dodaje walidacji, nie zmienia dostępu, nie generuje kodu.
+
+---
+
+### 6️⃣ Jaka jest retencja `@BeanProperty`?
+
+**✅ C – `RUNTIME`**
+
+➡️ Widoczna przez refleksję i `Introspector`.
+
+---
+
+## 🔹 Część III – Atrybuty
+
+### 7️⃣ Który atrybut oznacza property jako „ukryte”?
+
+**✅ B – `hidden`**
+
+---
+
+### 8️⃣ Co oznacza `bound = true`?
+
+**✅ C** – property generuje `PropertyChangeEvent`
+
+📌 Wymaga mechanizmu `PropertyChangeSupport`.
+
+---
+
+### 9️⃣ Który atrybut sugeruje, że property jest „najważniejsze”?
+
+**✅ C – `preferred`**
+
+➡️ Często wyświetlane jako pierwsze w edytorach.
+
+---
+
+## 🔹 Część IV – Porównania i praktyka
+
+### 🔟 `@BeanProperty` działa głównie z:
+
+**✅ C – JavaBeans `Introspector`**
+
+---
+
+### 1️⃣1️⃣ Czy `@BeanProperty` zastępuje gettery/settery?
+
+**✅ C – Nie, tylko pomaga w introspekcji**
+
+📌 To **metadane**, nie mechanizm dostępu.
+
+---
+
+## ✍️ 1️⃣2️⃣ Przykładowa poprawna odpowiedź opisowa
+
+> `@BeanProperty` ma sens w legacy aplikacjach opartych o JavaBeans, np. w starych edytorach GUI lub frameworkach używających `Introspector`, gdy property nie spełnia standardowej konwencji getter/setter, ale musi być widoczne jako właściwość.
+
+---
+
+## 🧠 Szybka ściąga
+
+* pakiet: `java.beans`
+* target: `FIELD`, `METHOD`
+* retencja: `RUNTIME`
+* rola: **jawne property JavaBeans**
+* dziś: **legacy / egzamin / czysta Java**
+
+---
+
+Chcesz iść dalej? 🔥
+Propozycje:
+
+* ➡️ **`@PropertyDescriptor` w praktyce**
+* ➡️ **JavaBeans Introspector – jak działa krok po kroku**
+* ➡️ **Porównanie: `@BeanProperty` vs `@JsonProperty`**
+* ➡️ **Ostatnia adnotacja `java.beans` – pełna mapa**
+
+Co bierzemy następne? 😄

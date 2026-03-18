@@ -1,0 +1,110 @@
+Z przyjemnością! Oto **quiz dotyczący interfejsu `Function<T, R>` w Javie**, który pomoże Ci sprawdzić i utrwalić wiedzę. Quiz składa się z **10 pytań** – są pytania jednokrotnego wyboru, kodowe i prawda/fałsz.
+
+---
+
+### ✅ **Quiz: Interfejs Function w Javie**
+
+#### **1. [Wybór jednokrotny]**
+Co zwraca metoda `apply()` w interfejsie `Function<T, R>`?
+- A) Typ T
+- B) Typ R
+- C) void
+- D) boolean
+
+---
+
+#### **2. [Kod – wynik działania]**
+Jaki wynik wypisze poniższy kod?
+```java
+Function<String, Integer> f = String::length;
+System.out.println(f.apply("Java"));
+```
+- A) 3
+- B) 4
+- C) błąd kompilacji
+- D) 0
+
+---
+
+#### **3. [Prawda/Fałsz]**
+`Function<T, R>` może być używany z wyrażeniem lambda.
+- ✅ Prawda
+- ❌ Fałsz
+
+---
+
+#### **4. [Wybór jednokrotny]**
+Która metoda służy do utworzenia funkcji, która zwraca dokładnie ten sam argument, który otrzymała?
+- A) `compose()`
+- B) `identity()`
+- C) `map()`
+- D) `apply()`
+
+---
+
+#### **5. [Kod – wynik działania]**
+Co zostanie wypisane?
+```java
+Function<Integer, Integer> f = x -> x + 10;
+Function<Integer, Integer> g = x -> x * 2;
+Function<Integer, Integer> h = f.compose(g);
+System.out.println(h.apply(3));
+```
+- A) 26
+- B) 16
+- C) 13
+- D) 10
+
+---
+
+#### **6. [Uzupełnij lukę]**
+W `f.andThen(g)`, funkcja `___` jest wywoływana jako pierwsza.
+- A) `f`
+- B) `g`
+- C) żadna
+- D) zależy od typu
+
+---
+
+#### **7. [Prawda/Fałsz]**
+Metoda `compose()` działa odwrotnie niż `andThen()`.
+- ✅ Prawda
+- ❌ Fałsz
+
+---
+
+#### **8. [Wybór jednokrotny]**
+Które wyrażenie najlepiej tworzy `Function<String, String>` konwertującą tekst na wielkie litery?
+- A) `str -> str.toLowerCase()`
+- B) `s -> s.length()`
+- C) `String::toUpperCase`
+- D) `() -> "default"`
+
+---
+
+#### **9. [Kod – wynik działania]**
+Co zostanie wypisane?
+```java
+Function<String, String> identity = Function.identity();
+System.out.println(identity.apply("Echo"));
+```
+- A) "ECHO"
+- B) null
+- C) "Echo"
+- D) Kompilator się wykrzaczy
+
+---
+
+#### **10. [Wybór jednokrotny]**
+Jakiego interfejsu należy użyć, jeśli funkcja nie przyjmuje żadnych argumentów?
+- A) `Function<Void, R>`
+- B) `Supplier<R>`
+- C) `Consumer<R>`
+- D) `Predicate<R>`
+
+---
+
+### 📥 Chcesz odpowiedzi i omówienie?
+Mogę Ci je przygotować od razu, lub jeśli wolisz, możesz najpierw rozwiązać quiz i wtedy Ci je sprawdzę.
+
+Chcesz spróbować sam?

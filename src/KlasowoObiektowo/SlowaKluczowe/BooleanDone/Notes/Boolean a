@@ -1,0 +1,112 @@
+Świetnie 👍
+Poniżej masz **kompletne odpowiedzi do quizu `boolean`** wraz z **konkretnymi wyjaśnieniami**.
+
+---
+
+## ✅ Odpowiedzi – `boolean` w Java
+
+---
+
+### **1. Czym jest `boolean` w Javie?**
+
+**✔ C. Typem prymitywnym**
+
+`boolean` to jeden z 8 typów prymitywnych w Javie.
+
+---
+
+### **2. Jakie wartości może przyjmować `boolean`?**
+
+**✔ B. `true` i `false`**
+
+Nie są to liczby ani napisy.
+
+---
+
+### **3. Który zapis deklaracji jest poprawny?**
+
+**✔ B. `boolean x = true;`**
+
+Pozostałe są niepoprawne składniowo lub logicznie.
+
+---
+
+### **4. Co zwróci poniższy kod?**
+
+**✔ B. `false`**
+
+Ponieważ `5 > 10` jest fałszem.
+
+---
+
+### **5. Co robi operator `!`?**
+
+**✔ C. Neguje wartość logiczną**
+
+`!true → false`, `!false → true`.
+
+---
+
+### **6. Który warunek jest zapisany POPRAWNIE?**
+
+**✔ C. `if (x)`**
+
+Najczytelniejszy i poprawny zapis w Javie.
+
+---
+
+### **7. Co jest prawdą o `Boolean` (wrapper)?**
+
+**✔ C. Może być `null`**
+
+To bardzo częste źródło `NullPointerException`.
+
+---
+
+### **8. Co oznacza short-circuit w `&&`?**
+
+**✔ B. Druga część może nie zostać wykonana**
+
+Jeśli pierwsza część jest `false`, JVM nie sprawdza drugiej.
+
+---
+
+### **9. (Otwarte)**
+
+**Przykładowa poprawna odpowiedź:**
+
+```java
+boolean isAdult(int age) {
+    return age >= 18;
+}
+```
+
+Używana do sprawdzania warunku logicznego, np. czy użytkownik jest pełnoletni.
+
+---
+
+### **10. (Otwarte)**
+
+**Ponieważ:**
+
+* `if (x)` jest czytelniejsze
+* `x == true` jest zbędne
+* zwiększa ryzyko błędów
+* łamie konwencje Javy
+
+---
+
+## 🧠 PODSUMOWANIE
+
+* `boolean` = podstawa logiki
+* nie jest liczbą
+* `Boolean` ≠ `boolean`
+* short-circuit jest kluczowy
+* czytelność > zbędne porównania
+
+---
+
+Jeśli chcesz, następne sensowne kroki to:
+👉 **`Boolean` (wrapper) – osobny temat**
+👉 **operatory logiczne – quiz pułapki**
+👉 **złożone warunki w `if` (realne przykłady)**

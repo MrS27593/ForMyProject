@@ -1,0 +1,104 @@
+Super! Oto **quiz z `catch` w Javie** — 10 pytań, w tym jedno lub dwa otwarte, z pułapkami i praktycznymi przykładami.
+
+---
+
+## 🧪 **Quiz: `catch` w języku Java**
+
+**Instrukcja:** Wybierz **jedną poprawną odpowiedź** (A, B, C lub D), chyba że podano inaczej.
+
+---
+
+### **1. Do czego służy słowo kluczowe `catch`?**
+
+A. Zakończenia programu
+B. Przechwycenia i obsługi wyjątku
+C. Definiowania zmiennej
+D. Tworzenia pętli
+
+---
+
+### **2. Co się stanie w tym kodzie?**
+
+```java
+try {
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Błąd dzielenia");
+}
+```
+
+A. Program się zatrzyma
+B. Nic się nie wypisze
+C. Wypisze "Błąd dzielenia"
+D. Kompilator zgłosi błąd
+
+---
+
+### **3. Czy można użyć wielu bloków `catch` po jednym `try`?**
+
+A. Tak
+B. Nie
+C. Tylko w Java 8
+D. Tylko jeśli wyjątki są tego samego typu
+
+---
+
+### **4. Co zrobi blok `finally` w połączeniu z `catch`?**
+
+A. Wykona się zawsze, niezależnie od wyjątku
+B. Nigdy się nie wykona
+C. Wykona się tylko gdy nie wystąpi wyjątek
+D. Zakończy program
+
+---
+
+### **5. Które połączenie jest poprawne w Java 7+?**
+
+```java
+try { ... }
+catch (IOException | NullPointerException e) { ... }
+```
+
+A. Niepoprawne – można tylko jeden typ wyjątku
+B. Poprawne – blok `catch` obsługuje wiele typów
+C. Niepoprawne – trzeba użyć osobnych `catch`
+D. Poprawne, ale tylko dla `RuntimeException`
+
+---
+
+### **6. Co się stanie, jeśli w `catch` nic nie zrobimy?**
+
+A. Kompilator zgłosi błąd
+B. Program się zatrzyma
+C. Wyjątek zostanie przechwycony, ale nieobserwowany
+D. JVM automatycznie wypisze błąd
+
+---
+
+### **7. W jakiej kolejności powinny być umieszczone bloki `catch`?**
+
+A. Od ogólnego wyjątku do szczegółowego
+B. Od szczegółowego wyjątku do ogólnego
+C. Kolejność nie ma znaczenia
+D. Tylko jeden blok `catch` jest dozwolony
+
+---
+
+### **8. Czy można użyć `catch` bez `try`?**
+
+A. Tak, zawsze
+B. Nie, `catch` musi być po `try`
+C. Tak, ale tylko w metodach `void`
+D. Tak, ale tylko w klasach abstrakcyjnych
+
+---
+
+### **9. (Otwarte)**
+
+Podaj przykład kodu, w którym jeden blok `catch` obsługuje **kilka typów wyjątków**.
+
+---
+
+### **10. (Otwarte)**
+
+Dlaczego warto zawsze logować lub przynajmniej wypisywać wyjątek w bloku `catch`?

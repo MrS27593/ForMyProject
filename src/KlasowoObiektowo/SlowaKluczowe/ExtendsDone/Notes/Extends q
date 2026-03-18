@@ -1,0 +1,91 @@
+### 📘 QUIZ – `extends` w Java
+
+**10 pytań: 8 zamkniętych (A–D) + 2 otwarte**
+
+---
+
+#### 1️⃣ Co oznacza słowo kluczowe `extends` w Javie?
+
+A. Klasa implementuje interfejs
+B. Klasa dziedziczy po innej klasie
+C. Klasa staje się abstrakcyjna
+D. Metoda zostaje nadpisana
+
+---
+
+#### 2️⃣ Co jest dziedziczone z klasy nadrzędnej?
+
+A. Wszystkie metody, pola i konstruktory
+B. `public` i `protected` metody oraz pola
+C. Tylko pola
+D. Tylko metody prywatne
+
+---
+
+#### 3️⃣ Czy konstruktor klasy nadrzędnej jest dziedziczony?
+
+A. Tak, zawsze
+B. Tak, jeśli jest publiczny
+C. Nie
+D. Tylko w klasach abstrakcyjnych
+
+---
+
+#### 4️⃣ Co oznacza relacja „IS-A”?
+
+A. Obiekt klasy nadrzędnej jest typu klasy pochodnej
+B. Obiekt klasy pochodnej jest typu klasy nadrzędnej
+C. Obiekt klasy pochodnej **nie** jest typu klasy nadrzędnej
+D. Obiekt klasy pochodnej może implementować wiele klas
+
+---
+
+#### 5️⃣ Co robi słowo `super` w klasie pochodnej?
+
+A. Wywołuje konstruktor klasy pochodnej
+B. Wywołuje konstruktor klasy nadrzędnej
+C. Nadpisuje metody klasy pochodnej
+D. Tworzy nowy obiekt klasy pochodnej
+
+---
+
+#### 6️⃣ Czy można dziedziczyć po więcej niż jednej klasie w Javie?
+
+A. Tak, zawsze
+B. Tak, tylko jeśli klasy są abstrakcyjne
+C. Nie
+D. Tylko jeśli klasy są w tym samym pakiecie
+
+---
+
+#### 7️⃣ Czy metoda `final` może być nadpisana w klasie pochodnej?
+
+A. Tak
+B. Nie
+C. Tylko jeśli jest `public`
+D. Tylko jeśli jest `protected`
+
+---
+
+#### 8️⃣ Co się stanie, gdy klasa pochodna nie nadpisze metody abstrakcyjnej z klasy nadrzędnej?
+
+A. Kod się skompiluje
+B. Kod się nie skompiluje
+C. Metoda zostanie automatycznie nadpisana
+D. Wyjątek w runtime
+
+---
+
+#### 9️⃣ (Pytanie otwarte)
+
+Podaj przykład dziedziczenia klasy w Javie z użyciem `extends` i nadpisania metody.
+
+---
+
+#### 🔟 (Pytanie otwarte)
+
+Wyjaśnij, dlaczego Java nie pozwala na dziedziczenie po więcej niż jednej klasie.
+
+---
+
+Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam komplet z wyjaśnieniami ✅

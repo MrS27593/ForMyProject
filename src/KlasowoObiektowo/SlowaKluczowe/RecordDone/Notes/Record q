@@ -1,0 +1,93 @@
+## QUIZ – `record` w Java (10 pytań)
+
+---
+
+### **1. Jaki jest główny cel użycia `record` w Javie?**
+
+A. Tworzenie klas dziedziczących
+B. Przechowywanie niemutowalnych danych
+C. Implementacja wielowątkowości
+D. Zarządzanie pamięcią JVM
+
+---
+
+### **2. Co Java automatycznie generuje w `record`?**
+
+A. Tylko konstruktor
+B. Gettery, settery i builder
+C. Pola `private final`, konstruktor, `equals`, `hashCode`, `toString`
+D. Tylko metody `toString`
+
+---
+
+### **3. Jak poprawnie odczytać pole `name` z rekordu `User`?**
+
+```java
+record User(String name, int age) {}
+```
+
+A. `user.getName()`
+B. `user.name()`
+C. `user.name`
+D. `User.name()`
+
+---
+
+### **4. Która deklaracja `record` jest poprawna?**
+
+A. `record Car extends Vehicle(String brand) {}`
+B. `record Car(String brand) implements Vehicle {}`
+C. `record Car { String brand; }`
+D. `final record Car(String brand) {}`
+
+---
+
+### **5. Czy `record` może zawierać własne metody?**
+
+A. Nie, nigdy
+B. Tak, tylko statyczne
+C. Tak, dowolne metody instancyjne
+D. Tak, ale tylko prywatne
+
+---
+
+### **6. Jakie są cechy pól w `record`?**
+
+A. `public` i zmienne
+B. `protected final`
+C. `private final`
+D. `static final`
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład użycia `record` jako DTO w aplikacji (np. użytkownik, zamówienie).
+
+---
+
+### **8. (OTWARTE)**
+
+Dlaczego `record` dobrze współpracuje z `sealed`?
+
+---
+
+### **9. Które zdanie o `record` jest prawdziwe?**
+
+A. Może dziedziczyć po dowolnej klasie
+B. Może mieć settery
+C. Jest domyślnie `final`
+D. Może mieć pola spoza nagłówka
+
+---
+
+### **10. Kiedy NIE warto używać `record`?**
+
+A. Do DTO
+B. Do niemutowalnych danych
+C. Do obiektów z bogatą logiką i zmiennym stanem
+D. Do modelowania odpowiedzi API
+
+---
+
+Napisz **„odpowiedzi”**, a podam komplet poprawnych odpowiedzi z krótkimi, rzeczowymi wyjaśnieniami 👌

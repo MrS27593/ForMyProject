@@ -1,0 +1,117 @@
+Świetnie 👍
+Oto **pełne odpowiedzi do quizu z `java.util.Locale.Category`** — z jasnymi wyjaśnieniami (egzamin + praktyka).
+
+---
+
+# ✅ **Odpowiedzi – Quiz: `Locale.Category`**
+
+## 1️⃣ Prawda / Fałsz
+
+**1.** `Locale.Category` jest enumem.
+✅ **A) Prawda**
+
+---
+
+**2.** `Locale.Category` jest dostępne dopiero od Java 11.
+❌ **B) Fałsz**
+➡ Dostępne **od Java 7**.
+
+---
+
+**3.** `DISPLAY` odpowiada za język interfejsu użytkownika.
+✅ **A) Prawda**
+
+---
+
+**4.** `FORMAT` wpływa na formatowanie liczb i dat.
+✅ **A) Prawda**
+
+---
+
+## 2️⃣ Wybór jednokrotny
+
+**5.** Formatowanie liczb:
+
+✅ **B) FORMAT**
+
+---
+
+**6.**
+
+```java
+Locale.getDefault(Locale.Category.DISPLAY).getDisplayLanguage();
+```
+
+➡ Zwraca nazwę języka **w języku lokalnym**:
+
+✅ **B) polski**
+
+---
+
+## 3️⃣ Wybór wielokrotny
+
+**7.** Zależne od `DISPLAY`:
+
+* ✅ **A) Nazwy miesięcy**
+* ❌ **B) Separator dziesiętny**
+* ✅ **C) Nazwy dni tygodnia**
+* ✅ **D) Teksty interfejsu**
+
+✔️ **Poprawne:** **A, C, D**
+
+---
+
+## 4️⃣ Analiza kodu
+
+**8.**
+
+```java
+Locale.FRANCE
+```
+
+➡ separator dziesiętny: `,`
+➡ separator tysięcy: spacja
+
+✅ **D) 1 234,56**
+
+---
+
+## 5️⃣ Pytanie praktyczne
+
+**9.** Ustawienie Locale:
+
+```java
+Locale.setDefault(Locale.Category.DISPLAY, Locale.ENGLISH);
+Locale.setDefault(Locale.Category.FORMAT, Locale.GERMANY);
+```
+
+---
+
+## 6️⃣ Pytanie podchwytliwe
+
+**10.** Powód wprowadzenia:
+
+✅ **B) Aby rozdzielić język UI i format danych**
+
+---
+
+## 🧠 Najważniejsze rzeczy do zapamiętania
+
+✔ `Locale.Category` = enum
+✔ `DISPLAY` → UI
+✔ `FORMAT` → liczby, daty
+✔ Java 7+
+✔ różne Locale jednocześnie
+
+---
+
+### 🔥 Co dalej?
+
+Mogę:
+
+* zrobić **porównanie `Locale` vs `Category` vs `ResourceBundle`**
+* przejść do **internacjonalizacji (i18n) w praktyce**
+* dać **zadania rekrutacyjne z Locale i formatowaniem**
+
+👉 Co robimy dalej?
+

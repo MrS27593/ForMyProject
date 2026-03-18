@@ -1,0 +1,79 @@
+
+WYKŁAD 02
+Poruszyliśmy zagadnienia:
+∙ Interfejsy przed Java 8
+∙ Interfejsy po Java 8
+∙ Interfejsy vs klasy abstrakcyjne
+∙ Wyrażenia Lambda
+1
+
+
+WYKŁAD 03
+Plan wykładu:
+∙ Typy generyczne
+∙ Wykorzystanie interfejsów
+∙ Typy wylicznikowe
+2
+
+
+TYPY GENERYCZNE
+Typy generyczne w języku Java to narzędzie, które pozwala na tworzenie kodu
+niezależnego od konkretnego typu danych.
+Umożliwia to tworzenie klas, interfejsów i metod, które mogą być parametryzowane przez
+jeden lub więcej typów.
+5
+
+
+TYPY GENERYCZNE - JAK?
+public
+    interface List<E>
+        extends Collection<E>{
+            // ...
+        };
+
+
+6
+TYPY GENERYCZNE - KONWENCJE
+Kiedy korzystamy z typów generycznych?
+Typy generyczne głównie są wykorzystywane podczas definiowania bibliotek lub API.
+
+
+TYPY GENERYCZNE - KONWENCJE
+Przyjęte nazewnictwo:
+∙ T - type
+∙ K - key
+∙ N - number
+∙ E - element
+∙ V - value
+∙ S, U, V, ... - drugi, trzeci i kolejne typy
+7
+
+
+TYPY GENERYCZNE - KONWENCJE
+Przyjęte nazewnictwo: ∙ T - type ∙ K - key ∙ N - number ∙ E - element ∙ V - value ∙ S, U, V, ... - drugi, trzeci i kolejne typy
+public
+    interface Pair<K, V> {
+        public K getKey();
+        public V getValue();
+    };
+8
+
+
+WYKORZYSTANIE INTERFEJSÓW
+PRZYKŁAD PRAKTYCZNY
+∙ przyjmijmy że chcemy opisać Studenta;
+
+
+PRZYKŁAD PRAKTYCZNY
+∙ przyjmijmy że chcemy opisać Studenta;
+∙ przyjmijmy że chcemy poukładać Studentów w zadanej kolejności
+∙ only one answer - Arrays.sort
+
+
+COMPARABLE VS COMPARATOR
+∙ interfejs Comparable jest wykorzystywany gdy chcemy posortować elementy tylko w
+jeden sposób, podczas gdy Comparator pozwala na określenie sposobu sortowania
+∙ aby użyć interfejsu Comparable musimy go zdefiniować podczas tworzenia klasy, co
+nie jest konieczne przy wykorzystaniu Comparator-a
+∙ Comparable zdefiniowano w pakiecie java.lang, a Comparator w pakiecie
+java.util

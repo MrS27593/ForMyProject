@@ -1,0 +1,136 @@
+Świetnie 👍
+Poniżej masz **kompletne odpowiedzi do quizu `@SafeVarargs`** wraz z krótkimi, egzaminacyjnymi wyjaśnieniami.
+
+---
+
+# ✅ **Odpowiedzi: Quiz `@SafeVarargs`**
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Do czego służy `@SafeVarargs`?
+
+**✅ C** – informuje kompilator, że varargs z generykami są bezpieczne
+➡️ usuwa warning *heap pollution*
+
+---
+
+### 2️⃣ Jaki problem rozwiązuje?
+
+**✅ B – Heap pollution**
+
+---
+
+### 3️⃣ Z czym jest związany heap pollution?
+
+**✅ C** – varargs + generyki
+
+---
+
+## 🔹 Część II – Ograniczenia
+
+### 4️⃣ Gdzie WOLNO użyć `@SafeVarargs`?
+
+**✅ A, C, D, E**
+
+❌ B – metoda instancyjna **nie-final** (może być nadpisana)
+
+---
+
+### 5️⃣ Dlaczego metoda musi być `final/static/private`?
+
+**✅ B** – żeby **nie dało się jej nadpisać**
+
+---
+
+### 6️⃣ Od której wersji Javy?
+
+**✅ C – Java 7**
+
+📌 konstruktory i `private` → Java 9+
+
+---
+
+## 🔹 Część III – Praktyka
+
+### 7️⃣ Która metoda jest BEZPIECZNA?
+
+**✅ B**
+
+✔️ tylko odczyt
+✔️ brak modyfikacji tablicy
+✔️ brak rzutowań
+
+---
+
+### 8️⃣ Co WOLNO robić?
+
+**✅ C** – tylko odczyt / iteracja
+
+---
+
+## 🔹 Część IV – Porównania
+
+### 9️⃣ Co jest lepsze?
+
+**✅ B – `@SafeVarargs`**
+
+---
+
+### 🔟 Które API JDK?
+
+**✅ C – `List.of()`**
+
+---
+
+## 🔹 Część V – Zaawansowane
+
+### 1️⃣1️⃣ Czy `@SafeVarargs` sprawdza kod?
+
+**✅ C** – NIE, to obietnica programisty
+
+---
+
+### 1️⃣2️⃣ Skutek niepoprawnego użycia?
+
+**✅ C** – możliwy `ClassCastException` w runtime
+
+---
+
+## ✍️ 1️⃣3️⃣ Przykładowa poprawna odpowiedź (wzorcowa)
+
+```java
+@SafeVarargs
+public static <T> void printAll(T... items) {
+    for (T item : items) {
+        System.out.println(item);
+    }
+}
+```
+
+✔️ static
+✔️ generyki
+✔️ tylko odczyt
+✔️ brak heap pollution
+
+---
+
+## 🧠 Podsumowanie do zapamiętania
+
+> **`@SafeVarargs` = „varargs + generyki są tu bezpieczne”**
+
+* Java 7+
+* tylko `static`, `final`, `private`
+* NIE zapisuj do tablicy varargs
+* lepsze niż `@SuppressWarnings`
+* kłamstwo = runtime bug
+
+---
+
+Jeśli chcesz iść dalej (świetny moment 👇):
+
+* ➡️ **`@FunctionalInterface` (kolejna egzaminacyjna adnotacja)**
+* ➡️ **zadania z heap pollution**
+* ➡️ **pełna lista adnotacji z `java.lang`**
+* ➡️ **quiz mix: wszystkie annotations**
+
+Co następne? 😄

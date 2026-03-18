@@ -1,0 +1,57 @@
+Oczywiście! Oto **odpowiedzi do quizu** o interfejsie `Executor`:
+
+---
+
+## ✅ Odpowiedzi do quizu
+
+**1. Co robi metoda `execute(Runnable command)` w interfejsie `Executor`?**
+➡️ **b) Wykonuje zadanie w nowym wątku lub puli wątków**
+
+---
+
+**2. Która klasa służy do tworzenia instancji `ExecutorService`?**
+➡️ **b) Executors**
+
+---
+
+**3. Co zwraca metoda `submit()` z `ExecutorService`?**
+➡️ **c) Future**
+
+---
+
+**4. Czym różni się `Runnable` od `Callable`?**
+➡️ **b) `Callable` może rzucać wyjątki, `Runnable` nie**
+
+---
+
+**5. Jak zatrzymać `ExecutorService` po zakończeniu wszystkich zadań?**
+➡️ **c) shutdown()**
+
+---
+
+**6. Co się stanie, jeśli spróbujesz ponownie dodać zadanie po `shutdown()`?**
+➡️ **c) Rzuci wyjątek `RejectedExecutionException`**
+
+---
+
+**7. Do czego służy `ScheduledExecutorService`?**
+➡️ **b) Do uruchamiania zadań jednorazowo z opóźnieniem lub cyklicznie**
+
+---
+
+**8. Co robi `newFixedThreadPool(4)`?**
+➡️ **b) Tworzy pulę z maksymalnie czterema jednoczesnymi wątkami**
+
+---
+
+**9. Jakiego typu zadanie można przekazać do `Executor.execute()`?**
+➡️ **c) Runnable**
+
+---
+
+**10. Co umożliwia `Future.get()`?**
+➡️ **c) Pobranie wyniku lub oczekiwanie aż zadanie się zakończy**
+
+---
+
+Jeśli chcesz, mogę przygotować **interaktywną wersję quizu w Javie (np. w konsoli)** albo plik PDF do druku. Chcesz?

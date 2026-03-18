@@ -1,0 +1,51 @@
+Jasne 👍 Oto **ODPOWIEDZI do quizu: `RuntimeException`** wraz z krótkim wyjaśnieniem, żeby dobrze się utrwaliło 👇
+
+---
+
+## ✅ **ODPOWIEDZI – RuntimeException**
+
+1️⃣ **B** – `RuntimeException` jest **unchecked exception**
+
+2️⃣ **C** – `NullPointerException` dziedziczy bezpośrednio po `RuntimeException`
+
+3️⃣ **C** – **nie musi** być obsłużony (`try-catch` nie jest wymagany)
+
+4️⃣ **C** – `NullPointerException`
+
+5️⃣ **C** – `IllegalArgumentException`
+➡️ idealny do walidacji danych wejściowych
+
+6️⃣ **B** – `ClassCastException`
+
+7️⃣ **C** – `ArithmeticException`
+
+8️⃣ **C** – rzucany jest **unchecked exception**
+
+9️⃣ **C** – łapanie `RuntimeException` wszędzie to zła praktyka
+
+🔟 **B** – `FINALLY`
+➡️ blok `finally` wykona się **zawsze**, nawet przy RuntimeException
+
+1️⃣1️⃣ **C** – własny `RuntimeException` najlepiej opisuje błąd logiki biznesowej
+
+1️⃣2️⃣ **B** – frameworki używają RuntimeException, bo **nie wymagają try-catch**
+
+---
+
+## 🔥 Rekrutacyjne PODSUMOWANIE
+
+✔️ `RuntimeException` = błąd programisty
+✔️ Walidacja → `IllegalArgumentException`
+✔️ Logika biznesowa → custom `RuntimeException`
+✔️ `finally` zawsze się wykona
+❌ Nie łap RuntimeException „wszędzie”
+
+---
+
+Jeśli chcesz iść dalej:
+👉 **Exception vs RuntimeException – pytania rekrutacyjne**
+👉 **code traps (co się stanie?)**
+👉 **Spring: GlobalExceptionHandler**
+👉 **QUIZ HARD MODE**
+
+Co wybieramy dalej? 😄

@@ -1,0 +1,123 @@
+Super 👍 Oto **poprawne odpowiedzi do quizu z `Enum LogLevel`** wraz z krótkimi wyjaśnieniami.
+
+---
+
+# ✅ **Odpowiedzi – Quiz: Enum LogLevel w Javie**
+
+## 1️⃣ Podstawy – prawda/fałsz
+
+**1.** `Enum LogLevel` może mieć własne pola i metody.
+✅ **A) Prawda**
+
+> Enum w Javie to pełnoprawna klasa.
+
+---
+
+**2.** Każda stała w `Enum` to osobna instancja klasy Enum.
+✅ **A) Prawda**
+
+> `LogLevel.ERROR` to obiekt typu `LogLevel`.
+
+---
+
+**3.** Metoda `ordinal()` zwraca numer porządkowy stałej w deklaracji, zaczynając od 1.
+❌ **B) Fałsz**
+
+> `ordinal()` zaczyna od **0**.
+
+---
+
+**4.** Enum w Javie może dziedziczyć po innej klasie.
+❌ **B) Fałsz**
+
+> Enum **zawsze dziedziczy po `java.lang.Enum`** i nie może rozszerzać innych klas.
+
+---
+
+## 2️⃣ Wybór wielokrotny
+
+**5.** Które zdania są prawdziwe?
+
+✅ **A) Enum może implementować interfejs**
+❌ **B) Enum może mieć konstruktor publiczny**
+✅ **C) Enum może mieć abstrakcyjne metody**
+✅ **D) Enum może być używany w `switch`**
+
+✔️ **Poprawne odpowiedzi:** **A, C, D**
+
+---
+
+## 3️⃣ Kod i analiza
+
+### 6. Co zostanie wypisane?
+
+```java
+LogLevel level = LogLevel.WARN;
+System.out.println(level.ordinal());
+System.out.println(level.name());
+```
+
+Deklaracja:
+
+```java
+ERROR -> 0
+WARN  -> 1
+INFO  -> 2
+```
+
+✅ **A) `1` i `WARN`**
+
+---
+
+### 7. Poprawne przyp reedzielnie z napisu `"INFO"`:
+
+```java
+LogLevel level = LogLevel.valueOf("INFO");
+```
+
+✅ **A)**
+
+> `valueOf()` to jedyna poprawna metoda konwersji `String → Enum`.
+
+❌ Pozostałe są nielegalne w Javie.
+
+---
+
+## 4️⃣ Pytanie praktyczne
+
+### 8. Metoda `shouldLog`
+
+Zakładamy, że `severity` – im wyższa, tym ważniejszy log.
+
+### ✅ Poprawne rozwiązanie:
+
+```java
+public boolean shouldLog(LogLevel current, LogLevel minimum) {
+    return current.getSeverity() >= minimum.getSeverity();
+}
+```
+
+📌 **Logika:**
+
+* Logujemy tylko wtedy, gdy **aktualny poziom jest równy lub ważniejszy** niż minimalny.
+
+---
+
+## 🏁 Podsumowanie punktów kluczowych
+
+✔ Enum to klasa
+✔ Każda stała = obiekt
+✔ `ordinal()` zaczyna od 0
+✔ Enum ≠ zwykła klasa (nie dziedziczy po innych)
+✔ `valueOf()` służy do parsowania `String`
+✔ Idealny do poziomów logowania (`LogLevel`)
+
+---
+
+Jeśli chcesz, mogę:
+
+* zrobić **trudniejszy quiz (poziom egzamin / interview)**
+* albo **mini-zadanie rekrutacyjne z LogLevel + Logger**
+* albo **porównać Enum vs int vs String w logowaniu**
+
+👉 Co wybierasz?

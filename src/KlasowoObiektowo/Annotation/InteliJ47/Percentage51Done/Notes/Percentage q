@@ -1,0 +1,81 @@
+Jasne 😄 oto **quiz o `@Percentage`** – czysty i zróżnicowany poziom:
+
+---
+
+# 🟢 Quiz – `@Percentage`
+
+### 1️⃣ Co oznacza adnotacja `@Percentage` w JFR?
+
+A. Pole przechowuje liczbę całkowitą
+B. Pole lub metoda reprezentuje wartość procentową
+C. Pole jest automatycznie konwertowane na float
+D. Metoda zwraca liczbę całkowitą
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Percentage`?
+
+A. `java.lang.annotation`
+B. `jdk.jfr`
+C. `javax.annotation`
+D. `org.jetbrains.annotations`
+
+---
+
+### 3️⃣ Czy `@Percentage` wpływa na logikę programu w runtime?
+
+A. Tak
+B. Nie
+
+---
+
+### 4️⃣ Na jakich typach pól można stosować `@Percentage`?
+
+A. `int` i `long`
+B. `double` i `float`
+C. `String`
+D. Dowolny typ
+
+---
+
+### 5️⃣ Czy `@Percentage` jest obowiązkowa dla pól procentowych w zdarzeniach JFR?
+
+A. Tak
+B. Nie
+
+---
+
+### 6️⃣ Z którymi adnotacjami JFR często współpracuje `@Percentage`?
+
+A. `@Label` i `@Description`
+B. `@Override` i `@Deprecated`
+C. `@MXBean` i `@JavaBean`
+D. `@Native` i `@IntDef`
+
+---
+
+### 7️⃣ Czy `@Percentage` może być stosowana na metodach?
+
+A. Tak
+B. Nie
+
+---
+
+### 8️⃣ Czy narzędzia monitorujące, takie jak Java Mission Control, wykorzystują `@Percentage`?
+
+A. Tak
+B. Nie
+
+---
+
+### 9️⃣ Czy `@Percentage` zmienia wartość pola w runtime?
+
+A. Tak
+B. Nie
+
+---
+
+### 🔟 Czy `@Percentage` jest częścią standardowego JDK od Java 9?
+
+A. Tak
+B. Nie

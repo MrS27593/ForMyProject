@@ -1,0 +1,76 @@
+Oto **poprawne odpowiedzi do quizu o `@Percentage`** wraz z krótkim wyjaśnieniem:
+
+---
+
+### 1️⃣ Co oznacza adnotacja `@Percentage` w JFR?
+
+**B – Pole lub metoda reprezentuje wartość procentową**
+➡ Narzędzia monitorujące interpretują wartości oznaczone `@Percentage` jako procenty (0–100).
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Percentage`?
+
+**B – `jdk.jfr`**
+
+---
+
+### 3️⃣ Czy `@Percentage` wpływa na logikę programu w runtime?
+
+**B – Nie**
+➡ Jest adnotacją informacyjną, nie zmienia działania kodu.
+
+---
+
+### 4️⃣ Na jakich typach pól można stosować `@Percentage`?
+
+**B – `double` i `float`**
+➡ Najczęściej liczby zmiennoprzecinkowe reprezentujące procenty.
+
+---
+
+### 5️⃣ Czy `@Percentage` jest obowiązkowa dla pól procentowych w zdarzeniach JFR?
+
+**B – Nie**
+➡ Pola mogą być procentami nawet bez adnotacji, ale `@Percentage` pomaga w raportach i wizualizacji.
+
+---
+
+### 6️⃣ Z którymi adnotacjami JFR często współpracuje `@Percentage`?
+
+**A – `@Label` i `@Description`**
+➡ `@Label` daje przyjazną nazwę pola, `@Description` opisuje jego znaczenie.
+
+---
+
+### 7️⃣ Czy `@Percentage` może być stosowana na metodach?
+
+**A – Tak**
+➡ Może oznaczać metodę zwracającą wartość procentową w zdarzeniu.
+
+---
+
+### 8️⃣ Czy narzędzia monitorujące, takie jak Java Mission Control, wykorzystują `@Percentage`?
+
+**A – Tak**
+➡ Pozwala poprawnie wyświetlać wartości jako procenty.
+
+---
+
+### 9️⃣ Czy `@Percentage` zmienia wartość pola w runtime?
+
+**B – Nie**
+➡ Jest adnotacją informacyjną, nie modyfikuje danych.
+
+---
+
+### 🔟 Czy `@Percentage` jest częścią standardowego JDK od Java 9?
+
+**A – Tak**
+➡ Wprowadzona w Java 9 w pakiecie `jdk.jfr`.
+
+---
+
+Jeśli chcesz, mogę teraz zrobić **mega quiz zbiorczy wszystkich adnotacji JFR i innych**, które omawialiśmy od `@Deprecated` do `@Percentage` – wszystko w jednym miejscu do powtórki.
+
+Chcesz, żebym go zrobił?

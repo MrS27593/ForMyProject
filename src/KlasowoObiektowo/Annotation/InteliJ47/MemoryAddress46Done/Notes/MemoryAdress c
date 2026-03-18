@@ -1,0 +1,57 @@
+Super 😄 teraz **`@MemoryAddress`** – to adnotacja, która pojawia się w kontekście JDK i niskopoziomowych API, głównie w projektach takich jak **Foreign Memory API**.
+
+---
+
+# 📌 `@MemoryAddress` – co to jest?
+
+`@MemoryAddress` to **adnotacja informacyjna**, która oznacza:
+
+> Pole lub parametr reprezentuje **adres w pamięci natywnej** (np. w alokowanej pamięci off-heap lub przy pracy z `MemorySegment`).
+
+---
+
+## 🔎 Pakiet
+
+```java
+jdk.internal.foreign.MemoryAddress
+```
+
+> Uwaga: w większości przypadków jest to pakiet **internal**, więc użycie w kodzie produkcyjnym jest eksperymentalne i wymaga opcji `--add-exports` lub korzystania z stabilnych API `java.foreign` (Project Panama).
+
+---
+
+# ✅ Przykład użycia
+
+```java id="x9f3k2"
+import jdk.internal.foreign.MemoryAddress;
+
+class NativeBuffer {
+    @MemoryAddress
+    long address;
+
+    public NativeBuffer(long address) {
+        this.address = address;
+    }
+}
+```
+
+➡ Adnotacja informuje narzędzia, że `address` nie jest zwykłą wartością, tylko wskaźnikiem do pamięci natywnej.
+
+---
+
+# 🧠 Uwagi
+
+1. **Tylko informacyjna** – nie zmienia zachowania kodu.
+2. Używana głównie w **analizie bezpieczeństwa i statycznym sprawdzaniu typów**.
+3. W połączeniu z **Foreign Memory API** (`MemorySegment`, `MemoryAddress`) pozwala lepiej modelować bezpieczny dostęp do pamięci.
+4. Wiele takich adnotacji to **marker annotations** – same w sobie nie mają pól ani logiki.
+
+---
+
+# 🎯 Definicja egzaminacyjna
+
+> `@MemoryAddress` oznacza, że pole lub parametr reprezentuje adres w pamięci natywnej, wykorzystywany w kontekście Foreign Memory API (Project Panama). Jest adnotacją informacyjną i nie zmienia zachowania programu.
+
+---
+
+Chcesz, żebym teraz zrobił **quiz z `@MemoryAddress`**?

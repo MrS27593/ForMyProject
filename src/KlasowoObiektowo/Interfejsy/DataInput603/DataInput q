@@ -1,0 +1,84 @@
+Świetnie! Oto krótki quiz z 8 pytaniami, który pomoże Ci sprawdzić znajomość `DataInput` w Javie. Pytania są mieszane: wielokrotnego wyboru, prawda/fałsz oraz kodowe.
+
+---
+
+### ✅ **Quiz – `DataInput` w Javie**
+
+#### **1. \[P/F]** `DataInput` jest klasą abstrakcyjną, którą można rozszerzyć.
+
+A) Prawda
+B) Fałsz
+
+---
+
+#### **2. Co zwraca metoda `readUnsignedByte()`?**
+
+A) `byte`
+B) `int`
+C) `short`
+D) `long`
+
+---
+
+#### **3. Która z poniższych klas implementuje interfejs `DataInput`?**
+
+A) `BufferedReader`
+B) `ObjectInputStream`
+C) `DataInputStream`
+D) `Scanner`
+
+---
+
+#### **4. Jakie dane odczyta poniższy kod?**
+
+```java
+byte[] data = {0, 1};
+DataInputStream dis = new DataInputStream(new ByteArrayInputStream(data));
+boolean b1 = dis.readBoolean();
+boolean b2 = dis.readBoolean();
+System.out.println(b1 + " " + b2);
+```
+
+A) false true
+B) true true
+C) false false
+D) Wyrzuci wyjątek
+
+---
+
+#### **5. Do czego służy metoda `readFully(byte[] b)`?**
+
+A) Odczytuje wszystkie dostępne bajty ze strumienia
+B) Czyta dokładnie `b.length` bajtów lub wyrzuca wyjątek
+C) Zamyka strumień po odczycie
+D) Czyta dane aż do końca strumienia
+
+---
+
+#### **6. \[P/F]** Metoda `readUTF()` może zwrócić `null`.
+
+A) Prawda
+B) Fałsz
+
+---
+
+#### **7. Co zrobi `readChar()`?**
+
+A) Wczyta 1 bajt i zwróci `char`
+B) Wczyta 2 bajty i zwróci `char`
+C) Wczyta 4 bajty i zwróci `String`
+D) Rzuci wyjątek, jeśli dane to liczba
+
+---
+
+#### **8. Jakie typy danych można odczytać przez `DataInput`? (Wybierz WSZYSTKIE poprawne)**
+
+A) `String`
+B) `boolean`
+C) `float`
+D) `int`
+E) `char`
+
+---
+
+Chcesz od razu odpowiedzi, czy najpierw sam spróbujesz rozwiązać?

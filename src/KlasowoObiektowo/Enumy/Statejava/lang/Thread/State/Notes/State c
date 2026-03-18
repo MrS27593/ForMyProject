@@ -1,0 +1,213 @@
+Świetny wybór 👍
+`java.lang.Thread.State` to **bardzo ważny enum** – często pojawia się na **rozmowach rekrutacyjnych** i w pytaniach o **wielowątkowość**.
+
+---
+
+# 🧵 `java.lang.Thread.State` — wszystko, co musisz wiedzieć
+
+## 📦 Gdzie się znajduje?
+
+```java
+java.lang.Thread.State
+```
+
+Jest to **enum wewnątrz klasy `Thread`**.
+
+---
+
+## 🔹 Do czego służy?
+
+Reprezentuje **aktualny stan wątku** w JVM.
+
+Możesz go odczytać przez:
+
+```java
+thread.getState();
+```
+
+---
+
+## 🧩 Wszystkie stany (`enum State`)
+
+### 1️⃣ `NEW`
+
+➡ Wątek **został utworzony**, ale **nie został uruchomiony**
+
+```java
+Thread t = new Thread(() -> {});
+System.out.println(t.getState()); // NEW
+```
+
+📌 `start()` jeszcze **nie** wywołane
+
+---
+
+### 2️⃣ `RUNNABLE`
+
+➡ Wątek:
+
+* **wykonuje się**, LUB
+* **czeka na przydział CPU**
+
+```java
+t.start();
+System.out.println(t.getState()); // RUNNABLE
+```
+
+📌 W Javie **nie ma osobnego RUNNING**
+
+---
+
+### 3️⃣ `BLOCKED`
+
+➡ Wątek:
+
+* chce wejść do `synchronized`
+* ale **lock jest zajęty**
+
+```java
+synchronized (lock) {
+    // inny wątek próbuje tu wejść → BLOCKED
+}
+```
+
+📌 Czeka na **monitor (lock)**
+
+---
+
+### 4️⃣ `WAITING`
+
+➡ Wątek czeka **bez limitu czasu**
+
+Metody powodujące ten stan:
+
+* `Object.wait()`
+* `Thread.join()`
+* `LockSupport.park()`
+
+```java
+obj.wait();
+```
+
+📌 Czeka, aż **ktoś go obudzi**
+
+---
+
+### 5️⃣ `TIMED_WAITING`
+
+➡ Wątek czeka **określony czas**
+
+Metody:
+
+* `Thread.sleep(ms)`
+* `wait(timeout)`
+* `join(timeout)`
+* `parkNanos()`
+
+```java
+Thread.sleep(1000);
+```
+
+📌 Po czasie wraca do `RUNNABLE`
+
+---
+
+### 6️⃣ `TERMINATED`
+
+➡ Wątek:
+
+* zakończył metodę `run()`
+* **nie można go uruchomić ponownie**
+
+```java
+// run() się skończyła
+System.out.println(t.getState()); // TERMINATED
+```
+
+---
+
+## 🔁 Diagram przejść (logicznie)
+
+```
+NEW
+ ↓ start()
+RUNNABLE
+ ↓
+BLOCKED / WAITING / TIMED_WAITING
+ ↓
+RUNNABLE
+ ↓
+TERMINATED
+```
+
+---
+
+## ⚠️ Ważne rzeczy, które lubią rekruterzy
+
+### ❌ Nie ma stanu `RUNNING`
+
+➡ JVM używa tylko `RUNNABLE`
+
+---
+
+### ❌ Nie da się wrócić z `TERMINATED`
+
+```java
+t.start(); // IllegalThreadStateException
+```
+
+---
+
+### ⚠️ `BLOCKED` ≠ `WAITING`
+
+| BLOCKED       | WAITING              |
+| ------------- | -------------------- |
+| synchronized  | wait / join          |
+| czeka na lock | czeka na sygnał      |
+| JVM monitor   | Object / LockSupport |
+
+---
+
+## 🧪 Przykład praktyczny
+
+```java
+Thread t = new Thread(() -> {
+    try {
+        Thread.sleep(1000);
+    } catch (InterruptedException e) {}
+});
+
+System.out.println(t.getState()); // NEW
+t.start();
+System.out.println(t.getState()); // RUNNABLE lub TIMED_WAITING
+```
+
+---
+
+## 🧠 Kiedy używa się `Thread.State`?
+
+* debugowanie
+* monitoring wątków
+* narzędzia typu JConsole / VisualVM
+* testy współbieżności
+
+---
+
+## 🔥 Podsumowanie (must-know)
+
+✔ `Thread.State` = enum
+✔ 6 stanów
+✔ `RUNNABLE` ≠ RUNNING
+✔ `BLOCKED` → synchronized
+✔ `WAITING` → wait/join
+✔ `TERMINATED` = koniec życia wątku
+
+---
+
+Chcesz teraz:
+
+* 🧠 **quiz z `Thread.State`**
+* ⚔️ **porównanie `wait()` vs `sleep()` vs `join()`**
+* 🚀 **przejście do `ExecutorService` i puli wątków**
+
+👉 Co dalej?

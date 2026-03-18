@@ -1,0 +1,89 @@
+## WIEDZA – `long` w Java
+
+---
+
+### 1️⃣ Czym jest `long`?
+
+* `long` to **typ prymitywny w Javie**, używany do przechowywania **liczb całkowitych** o dużym zakresie.
+* Zajmuje **64 bity (8 bajtów)** pamięci.
+* Domyślna wartość: `0L`.
+
+```java
+long distance = 9876543210L;
+```
+
+📌 Litera `L` na końcu liczby jest obowiązkowa, jeśli liczba przekracza zakres `int`.
+
+---
+
+### 2️⃣ Zakres wartości
+
+| Typ    | Zakres                                                  |
+| ------ | ------------------------------------------------------- |
+| `int`  | -2_147_483_648 do 2_147_483_647                         |
+| `long` | -9_223_372_036_854_775_808 do 9_223_372_036_854_775_807 |
+
+---
+
+### 3️⃣ Przykład użycia w praktyce
+
+```java
+long populationWorld = 7_900_000_000L; // liczba ludności świata
+long distanceToSun = 149_600_000_000L; // w metrach
+```
+
+* Przydatne do liczb **większych niż `int`**.
+
+---
+
+### 4️⃣ Operacje na `long`
+
+```java
+long a = 10L;
+long b = 3L;
+
+long sum = a + b;
+long diff = a - b;
+long prod = a * b;
+long div = a / b;
+long mod = a % b;
+```
+
+* Działa jak zwykłe typy całkowite.
+
+---
+
+### 5️⃣ `long` a typy mieszane
+
+* Operacje między `int` i `long` automatycznie konwertują `int` na `long`:
+
+```java
+int x = 1000;
+long y = 5000L;
+
+long result = x + y; // x konwertowane do long
+```
+
+---
+
+### 6️⃣ `long` w tablicach
+
+```java
+long[] timestamps = new long[5];
+timestamps[0] = 1_694_000_000L;
+```
+
+* Idealny do przechowywania dużych liczb, np. czasu w milisekundach.
+
+---
+
+### 7️⃣ Podsumowanie
+
+* `long` = liczby całkowite 64-bitowe
+* Używany, gdy `int` jest za mały
+* Oznaczaj litery `L` przy dużych wartościach
+* Automatyczna konwersja z `int` w operacjach mieszanych
+
+---
+
+Chcesz, żebym teraz przygotował **quiz o `long`** w tym samym stylu co poprzednie słowa kluczowe?

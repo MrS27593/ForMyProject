@@ -1,0 +1,112 @@
+Super 👌
+Oto **pełny klucz odpowiedzi do quizu `@Description`** z komentarzami **egzamin / senior-level**.
+
+---
+
+# ✅ Odpowiedzi – Quiz `@Description`
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ `@Description` w Javie to:
+
+**✅ C** – adnotacja JMX do opisu elementów MBean
+
+📌 Nie ma nic wspólnego ze Springiem ani REST.
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Description`?
+
+**✅ C – `javax.management`**
+
+---
+
+### 3️⃣ Główny cel `@Description`?
+
+**✅ B** – dodanie opisu do metadanych JMX
+
+➡️ Trafia do `MBeanInfo`.
+
+---
+
+## 🔹 Część II – Użycie
+
+### 4️⃣ Na czym MOŻNA użyć `@Description`?
+
+**✅ C – na klasie, metodzie i parametrze**
+
+📌 (również na polach / atrybutach MBean).
+
+---
+
+### 5️⃣ Gdzie opis jest widoczny?
+
+**✅ C – w narzędziach JMX (np. JConsole, VisualVM)**
+
+---
+
+## 🔹 Część III – Techniczne detale
+
+### 6️⃣ Retencja `@Description`?
+
+**✅ C – `RUNTIME`**
+
+➡️ Inaczej JMX nie mógłby jej odczytać.
+
+---
+
+### 7️⃣ Czy wpływa na logikę programu?
+
+**✅ C – Nie, jest czysto opisowa**
+
+❗ Zero wpływu na wykonanie kodu.
+
+---
+
+## 🔹 Część IV – Porównania
+
+### 8️⃣ Najbliższa koncepcyjnie adnotacja?
+
+**✅ A – `@DescriptorKey`**
+
+➡️ Obie:
+
+* służą do **metadanych JMX**
+* są czytane przez introspekcję
+
+---
+
+### 9️⃣ Czego `@Description` NIE zastępuje?
+
+**✅ B – Javadoc**
+
+📌 Javadoc ≠ metadane runtime.
+
+---
+
+## ✍️ 1️⃣0️⃣ Odpowiedź opisowa (wzorcowa)
+
+> `@Description` jest używana głównie w JMX, ponieważ JMX udostępnia metadane obiektów w czasie działania JVM narzędziom monitorującym. W zwykłych aplikacjach Java takie metadane nie są potrzebne, a opisy realizuje się poprzez Javadoc lub dokumentację zewnętrzną.
+
+---
+
+## 🧠 Najważniejsze do zapamiętania
+
+* pakiet: `javax.management`
+* kontekst: **JMX**
+* retencja: `RUNTIME`
+* rola: **opis metadanych**
+* widoczna w: JConsole, VisualVM
+* ❌ nie REST, ❌ nie Spring
+
+---
+
+Jeśli chcesz domknąć temat 🔥
+proponuję:
+
+* ➡️ **pełny QUIZ: wszystkie adnotacje JMX**
+* ➡️ **porównanie: `@Description` vs `@DescriptorKey`**
+* ➡️ **JavaBeans vs JMX – mapa mentalna**
+* ➡️ **najczęstsze pytania rekrutacyjne o JMX**
+
+Co następne? 😄

@@ -1,0 +1,143 @@
+Super 😄
+Lecimy z **pytaniami o `@FunctionalInterface`** – od podstaw do poziomu rekrutacyjnego.
+
+---
+
+# 🟢 Część I – Podstawy
+
+### 1️⃣ Czy `@FunctionalInterface` jest obowiązkowa, aby używać lambd?
+
+A. Tak
+B. Nie
+
+---
+
+### 2️⃣ Ile metod abstrakcyjnych może mieć functional interface?
+
+A. 0
+B. 1
+C. 2
+D. Dowolnie wiele
+
+---
+
+### 3️⃣ Czy functional interface może mieć metody `default`?
+
+A. Tak
+B. Nie
+
+---
+
+### 4️⃣ Czy ten interfejs jest poprawny?
+
+```java
+@FunctionalInterface
+public interface Test {
+    void run();
+    default void log() {}
+}
+```
+
+A. Tak
+B. Nie
+
+---
+
+# 🟡 Część II – Średni poziom
+
+### 5️⃣ Czy `Runnable` jest functional interface?
+
+A. Tak
+B. Nie
+
+---
+
+### 6️⃣ Czy ten interfejs jest poprawny?
+
+```java
+@FunctionalInterface
+public interface Test {
+    boolean equals(Object obj);
+}
+```
+
+A. Tak
+B. Nie
+
+---
+
+### 7️⃣ Czy `Comparator<T>` jest functional interface?
+
+A. Tak
+B. Nie
+
+---
+
+### 8️⃣ Co oznacza SAM?
+
+A. Simple Abstract Method
+B. Single Abstract Method
+C. Static Abstract Method
+D. Standard Annotation Method
+
+---
+
+# 🔴 Część III – Zaawansowane
+
+### 9️⃣ Czy ten interfejs jest poprawny?
+
+```java
+@FunctionalInterface
+public interface Test {
+    void a();
+    void b();
+}
+```
+
+A. Tak
+B. Nie
+
+---
+
+### 🔟 Czy interfejs dziedziczący po innym może być functional interface?
+
+```java
+interface A {
+    void test();
+}
+
+@FunctionalInterface
+interface B extends A {
+}
+```
+
+A. Tak
+B. Nie
+
+---
+
+### 1️⃣1️⃣ Czy to jest functional interface?
+
+```java
+@FunctionalInterface
+interface A {
+    void test();
+    String toString();
+}
+```
+
+A. Tak
+B. Nie
+
+---
+
+Odpowiedz np. tak:
+
+```
+1B
+2B
+3A
+...
+```
+
+Jak podasz odpowiedzi — sprawdzimy i dam Ci komentarz jak na rozmowie technicznej 😎

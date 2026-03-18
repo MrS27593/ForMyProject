@@ -1,0 +1,91 @@
+### 📘 QUIZ – `float` w Java
+
+**10 pytań: 8 zamkniętych (A–D) + 2 otwarte**
+
+---
+
+#### 1️⃣ Czym jest typ `float` w Javie?
+
+A. Typ całkowity
+B. Typ zmiennoprzecinkowy pojedynczej precyzji
+C. Typ zmiennoprzecinkowy podwójnej precyzji
+D. Typ logiczny
+
+---
+
+#### 2️⃣ Jak poprawnie zadeklarować zmienną typu `float`?
+
+A. `float f = 3.14;`
+B. `float f = 3.14f;`
+C. `float f = (float)3.14;`
+D. B i C są poprawne
+
+---
+
+#### 3️⃣ Ile bajtów zajmuje `float` w Javie?
+
+A. 2
+B. 4
+C. 8
+D. 16
+
+---
+
+#### 4️⃣ Jaka jest główna różnica między `float` a `double`?
+
+A. `float` ma większą precyzję niż `double`
+B. `double` ma większą precyzję niż `float`
+C. `float` zajmuje więcej pamięci niż `double`
+D. Brak różnicy
+
+---
+
+#### 5️⃣ Co się stanie, jeśli przypiszesz `float f = 3.14;` bez sufiksu `f`?
+
+A. Kompilator zgłosi błąd
+B. Kod zadziała poprawnie
+C. `f` automatycznie stanie się `double`
+D. Program się zawiesi
+
+---
+
+#### 6️⃣ Czy można używać `float` do bardzo dokładnych obliczeń finansowych?
+
+A. Tak, zawsze
+B. Nie, lepiej używać `BigDecimal`
+C. Tylko przy kwotach całkowitych
+D. Tylko przy ułamkach dziesiętnych
+
+---
+
+#### 7️⃣ Jak można rzutować `double` na `float`?
+
+A. `float f = (float) d;`
+B. `float f = d;`
+C. `float f = d.toFloat();`
+D. Nie można
+
+---
+
+#### 8️⃣ Co jest prawdą o operacjach arytmetycznych na `float`?
+
+A. Wyniki mogą być przybliżone
+B. Wyniki są zawsze dokładne
+C. Nie można wykonywać dzielenia
+D. Nie można wykonywać mnożenia
+
+---
+
+#### 9️⃣ (Pytanie otwarte)
+
+Podaj przykład użycia `float` w praktycznym kodzie, np. obliczanie podatku.
+
+---
+
+#### 🔟 (Pytanie otwarte)
+
+Dlaczego dla bardzo dokładnych obliczeń finansowych nie powinno się używać `float` ani `double`?
+
+---
+
+Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam komplet z wyjaśnieniami ✅

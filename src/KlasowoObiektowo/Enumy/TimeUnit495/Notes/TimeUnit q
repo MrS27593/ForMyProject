@@ -1,0 +1,125 @@
+Świetnie 💪
+Oto **quiz z `java.util.concurrent.TimeUnit`** – poziom **podstawy → rekrutacja**.
+
+---
+
+# ✅ **Quiz: `TimeUnit`**
+
+## 1️⃣ Prawda / Fałsz
+
+1. `TimeUnit` jest enumem.
+
+   * A) Prawda
+   * B) Fałsz
+
+2. `TimeUnit` znajduje się w pakiecie `java.time`.
+
+   * A) Prawda
+   * B) Fałsz
+
+3. `TimeUnit.SECONDS.sleep(1)` jest równoważne `Thread.sleep(1000)`.
+
+   * A) Prawda
+   * B) Fałsz
+
+4. `TimeUnit` obsługuje miesiące i lata.
+
+   * A) Prawda
+   * B) Fałsz
+
+---
+
+## 2️⃣ Wybór jednokrotny
+
+5. Który zapis jest **najbardziej czytelny i zalecany**?
+
+* A)
+
+```java
+Thread.sleep(60000);
+```
+
+* B)
+
+```java
+TimeUnit.MILLISECONDS.sleep(60000);
+```
+
+* C)
+
+```java
+TimeUnit.MINUTES.sleep(1);
+```
+
+* D)
+
+```java
+sleep(1);
+```
+
+---
+
+6. Co wypisze kod?
+
+```java
+long ms = TimeUnit.SECONDS.toMillis(2);
+System.out.println(ms);
+```
+
+* A) 2
+* B) 200
+* C) 2000
+* D) 20000
+
+---
+
+## 3️⃣ Wybór wielokrotny
+
+7. Które metody **istnieją** w `TimeUnit`?
+
+* A) `toMillis(long)`
+* B) `toSeconds(long)`
+* C) `convert(long, TimeUnit)`
+* D) `between(long, long)`
+
+---
+
+## 4️⃣ Analiza kodu
+
+8. Co się stanie?
+
+```java
+TimeUnit.SECONDS.sleep(1);
+```
+
+* A) Błąd kompilacji
+* B) Usypia wątek na 1 sekundę
+* C) Usypia wątek na 1000 minut
+* D) Nic się nie stanie
+
+---
+
+## 5️⃣ Pytanie praktyczne
+
+9. Uzupełnij metodę tak, aby czekała **500 milisekund**:
+
+```java
+public void waitHalfSecond() throws InterruptedException {
+    // Twój kod
+}
+```
+
+---
+
+## 6️⃣ Pytanie podchwytliwe (rekrutacyjne!)
+
+10. Które stwierdzenie jest **prawdziwe**?
+
+* A) `TimeUnit` jest dokładniejszy niż `ChronoUnit`
+* B) `TimeUnit` służy głównie do API concurrency
+* C) `TimeUnit` obsługuje strefy czasowe
+* D) `TimeUnit` zastępuje `java.time`
+
+---
+
+👉 Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam **pełne rozwiązania z wyjaśnieniami** 🔥

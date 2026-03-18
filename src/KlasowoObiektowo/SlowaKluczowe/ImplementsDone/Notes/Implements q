@@ -1,0 +1,91 @@
+### 📘 QUIZ – `implements` w Java
+
+**10 pytań: 8 zamkniętych (A–D) + 2 otwarte**
+
+---
+
+#### 1️⃣ Czym jest słowo kluczowe `implements`?
+
+A. Używane do dziedziczenia po klasie
+B. Używane do tworzenia obiektu
+C. Używane do implementacji interfejsu przez klasę
+D. Używane do nadpisania metody
+
+---
+
+#### 2️⃣ Która linia kodu jest poprawna?
+
+A. `class A implements B, C { }` (gdzie B i C to interfejsy)
+B. `class A implements B, C { }` (gdzie B i C to klasy)
+C. `class A extends B implements C { }` (B i C to klasy)
+D. `class A implements B extends C { }`
+
+---
+
+#### 3️⃣ Co się stanie, jeśli klasa implementuje interfejs, ale nie zaimplementuje wszystkich metod?
+
+A. Kod się skompiluje i będzie działał
+B. Kompilator zgłosi błąd
+C. Java automatycznie doda puste implementacje
+D. Program się wykona z ostrzeżeniem
+
+---
+
+#### 4️⃣ Jakie modyfikatory dostępu muszą mieć metody interfejsu w klasie implementującej?
+
+A. `private`
+B. `protected`
+C. `public`
+D. Dowolne
+
+---
+
+#### 5️⃣ Czy klasa abstrakcyjna może używać `implements`?
+
+A. Nie
+B. Tak, ale nie musi implementować wszystkich metod
+C. Tak, i musi implementować wszystkie metody
+D. Tylko jeśli implementuje jeden interfejs
+
+---
+
+#### 6️⃣ Co się stanie przy konflikcie metod `default` z dwóch interfejsów?
+
+A. Kompilator sam wybierze jedną metodę
+B. Kompilator zgłosi błąd i trzeba ręcznie rozwiązać konflikt
+C. Metody zostaną połączone automatycznie
+D. Java zignoruje konflikt
+
+---
+
+#### 7️⃣ W jakiej kolejności zapisujemy `extends` i `implements` w definicji klasy?
+
+A. `implements` najpierw, potem `extends`
+B. Kolejność nie ma znaczenia
+C. `extends` najpierw, potem `implements`
+D. Tylko `extends` można użyć
+
+---
+
+#### 8️⃣ Które zdanie o `implements` jest prawdziwe?
+
+A. Klasa może implementować tylko jeden interfejs
+B. Klasa może implementować wiele interfejsów
+C. `implements` może być używane dla klas abstrakcyjnych tylko
+D. `implements` tworzy instancję interfejsu
+
+---
+
+#### 9️⃣ (Pytanie otwarte)
+
+Podaj **przykład praktycznego zastosowania** słowa kluczowego `implements`.
+
+---
+
+#### 🔟 (Pytanie otwarte)
+
+Dlaczego użycie `implements` zwiększa **elastyczność i testowalność** kodu?
+
+---
+
+Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam komplet z wyjaśnieniami ✅

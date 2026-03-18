@@ -1,0 +1,111 @@
+No to wchodzimy na poziom „status API” 😄🔥
+**QUIZ: `@Experimental` i podobne adnotacje**
+
+---
+
+# 📝 Quiz – `@Experimental`
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ W standardowej Javie (JDK) istnieje adnotacja `@Experimental`.
+
+A. Prawda
+B. Fałsz
+
+---
+
+### 2️⃣ `@Experimental` najczęściej oznacza:
+
+A. API przestarzałe
+B. API niestabilne, mogące się zmienić
+C. API usunięte
+D. API prywatne
+
+---
+
+### 3️⃣ Która z poniższych adnotacji jest standardową adnotacją JDK?
+
+A. `@Experimental`
+B. `@Beta`
+C. `@Deprecated`
+D. `@Incubating`
+
+---
+
+## 🔹 Część II – Biblioteki
+
+### 4️⃣ Która biblioteka używa adnotacji `@Beta` jako odpowiednika „experimental”?
+
+A. Spring
+B. Hibernate
+C. Google Guava
+D. JUnit
+
+---
+
+### 5️⃣ `org.jetbrains.annotations.ApiStatus.Experimental` oznacza:
+
+A. API tylko do testów
+B. API niestabilne
+C. API tylko dla JetBrains
+D. API przestarzałe
+
+---
+
+### 6️⃣ W Kotlinie `@Experimental` oznacza:
+
+A. API usunięte
+B. API stabilne
+C. API eksperymentalne wymagające świadomego użycia
+D. API prywatne
+
+---
+
+## 🔹 Część III – Porównania
+
+### 7️⃣ Różnica między `@Deprecated` a `@Experimental` polega na tym, że:
+
+A. Obie oznaczają to samo
+B. `@Deprecated` oznacza API do usunięcia, `@Experimental` API niestabilne
+C. `@Experimental` jest silniejszym ostrzeżeniem
+D. `@Deprecated` nie generuje ostrzeżeń
+
+---
+
+### 8️⃣ Która z poniższych NIE jest standardową adnotacją JDK?
+
+A. `@Override`
+B. `@Deprecated`
+C. `@SuppressWarnings`
+D. `@Experimental`
+
+---
+
+## 🔹 Część IV – Zaawansowane
+
+### 9️⃣ W JDK funkcje eksperymentalne są oznaczane przez:
+
+A. `@Experimental`
+B. `@PreviewFeature`
+C. `@Beta`
+D. `@Incubating`
+
+---
+
+### 🔟 Dlaczego JDK nie wprowadziło ogólnej adnotacji `@Experimental`?
+
+A. Bo nie ma potrzeby
+B. Bo używa mechanizmu preview features
+C. Bo zastępuje ją `@Deprecated`
+D. Bo adnotacje są zabronione
+
+---
+
+## ✍️ 1️⃣1️⃣ (opisowe)
+
+Dlaczego oznaczanie API jako „experimental” jest ważne w dużych projektach?
+
+---
+
+Jak skończysz — napisz 👉 **odpowiedzi**
+a ja dam Ci **pełny klucz + komentarze architektoniczne** 😄💪

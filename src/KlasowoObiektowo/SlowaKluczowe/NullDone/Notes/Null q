@@ -1,0 +1,89 @@
+## QUIZ – `null` w Java (10 pytań)
+
+---
+
+### **1. Co oznacza wartość `null` w Javie?**
+
+A. Zmienna jest pusta, ale zawiera domyślną wartość
+B. Brak referencji do obiektu
+C. Zmienna typu prostego ma wartość 0
+D. Obiekt jest zainicjalizowany, ale pusty
+
+---
+
+### **2. Czy zmienna typu `int` może być ustawiona na `null`?**
+
+A. Tak, zawsze
+B. Nie, typy proste nie mogą być `null`
+C. Tylko jeśli jest `static`
+D. Tylko w klasach abstrakcyjnych
+
+---
+
+### **3. Co się stanie, jeśli wywołasz metodę na `null`?**
+
+A. Zwróci domyślną wartość typu
+B. Nic się nie stanie
+C. Kompilator zgłosi błąd
+D. Wystąpi `NullPointerException`
+
+---
+
+### **4. Jak poprawnie sprawdzić, czy zmienna jest `null`?**
+
+A. `if (text.equals(null))`
+B. `if (text == null)`
+C. `if (text != null)`
+D. `if (text.isEmpty())`
+
+---
+
+### **5. Który przykład jest poprawny dla typu obiektowego?**
+
+A. `String s = null;`
+B. `int i = null;`
+C. `boolean b = null;`
+D. `double d = null;`
+
+---
+
+### **6. Jakie metody z klasy `Objects` mogą sprawdzić `null`?**
+
+A. `Objects.isNull(obj)` i `Objects.nonNull(obj)`
+B. `Objects.equals(obj)`
+C. `Objects.compare(obj)`
+D. `Objects.nullify(obj)`
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład sytuacji, w której przypisanie `null` może prowadzić do błędu `NullPointerException`.
+
+---
+
+### **8. (OTWARTE)**
+
+Dlaczego warto używać `Optional` zamiast `null`?
+
+---
+
+### **9. Czy kolekcje Java mogą zawierać `null`?**
+
+A. Tak, wszystkie kolekcje mogą przechowywać `null`
+B. Nie, żadna kolekcja nie dopuszcza `null`
+C. Tak, niektóre kolekcje dopuszczają `null` (np. `ArrayList`)
+D. Tylko w `Set`
+
+---
+
+### **10. Które zdanie o `null` jest prawdziwe?**
+
+A. `null` można przypisać do typu prostego
+B. `null` oznacza brak referencji do obiektu
+C. `null` zawsze zwraca wyjątek kompilatora
+D. `null` inicjalizuje zmienne do wartości domyślnej
+
+---
+
+Napisz **„odpowiedzi”**, a podam komplet poprawnych odpowiedzi z wyjaśnieniami ✅

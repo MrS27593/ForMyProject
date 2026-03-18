@@ -1,0 +1,91 @@
+Super 👍
+Oto **ODPOWIEDZI do quizu z interfejsu `Serializable`** wraz z krótkimi wyjaśnieniami — dokładnie w tej samej kolejności.
+
+---
+
+## ✅ Odpowiedzi: Quiz `Serializable`
+
+---
+
+### **1️⃣ Czym jest interfejs `Serializable`?**
+
+**Odpowiedź:** **b)** Interfejsem markerowym bez metod
+👉 `Serializable` nie zawiera żadnych metod – tylko informuje JVM, że obiekt może być serializowany.
+
+---
+
+### **2️⃣ W jakim pakiecie znajduje się `Serializable`?**
+
+**Odpowiedź:** **c)** java.io
+
+---
+
+### **3️⃣ Co oznacza serializacja obiektu?**
+
+**Odpowiedź:** **b)** Zamianę obiektu na strumień bajtów
+👉 Dzięki temu obiekt można zapisać do pliku lub wysłać przez sieć.
+
+---
+
+### **4️⃣ Co się stanie, jeśli spróbujemy zapisać obiekt klasy, która NIE implementuje `Serializable`?**
+
+**Odpowiedź:** **c)** Zostanie rzucony wyjątek `NotSerializableException`
+
+---
+
+### **5️⃣ Do czego służy słowo kluczowe `transient`?**
+
+**Odpowiedź:** **c)** Do pominięcia pola podczas serializacji
+👉 Pole nie zostanie zapisane do strumienia bajtów.
+
+---
+
+### **6️⃣ Jaką wartość będzie miało pole `transient` po deserializacji?**
+
+**Odpowiedź:** **c)** Wartość domyślną (`0`, `null`, `false`)
+
+---
+
+### **7️⃣ Do czego służy `serialVersionUID`?**
+
+**Odpowiedź:** **b)** Do wersjonowania klasy podczas serializacji
+👉 Chroni przed `InvalidClassException` po zmianach w klasie.
+
+---
+
+### **8️⃣ Co może się stać, gdy zmienimy klasę i NIE użyjemy `serialVersionUID`?**
+
+**Odpowiedź:** **c)** InvalidClassException podczas deserializacji
+
+---
+
+### **9️⃣ Które stwierdzenie jest prawdziwe?**
+
+**Odpowiedź:** **d)** Wszystkie pola obiektu też muszą być serializowalne
+👉 Albo muszą być oznaczone jako `transient`.
+
+---
+
+### **🔟 Kiedy NAJLEPIEJ używać `Serializable`?**
+
+**Odpowiedź:** **b)** Do zapisu/odczytu obiektów (plik, sieć, sesja)
+
+---
+
+## 🧠 Egzaminacyjna ściąga (bardzo ważne)
+
+* `Serializable` = **marker**
+* brak metod
+* `transient` = NIE zapisuj
+* `serialVersionUID` = wersja klasy
+* brak `Serializable` → `NotSerializableException`
+
+---
+
+Jeśli chcesz, kolejne sensowne kroki to:
+
+* 🔹 **quiz z Externalizable**
+* 🔹 **porównanie Serializable vs Externalizable**
+* 🔹 **zadania praktyczne (zapis/odczyt obiektu)**
+
+👉 Co robimy dalej?

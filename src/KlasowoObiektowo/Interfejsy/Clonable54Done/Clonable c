@@ -1,0 +1,95 @@
+Interfejs **Clonable** jest jednym z najważniejszych interfejsów w języku programowania Java, który pozwala na tworzenie kopii obiektów. Jest to bardzo przydatna funkcjonalność w wielu scenariuszach, gdy konieczne jest wykonanie operacji na kopii obiektu, a nie na jego oryginale. W Java interfejs `Cloneable` jest związany z mechanizmem klonowania obiektów, a w szczególności z metodą `clone()`, która umożliwia utworzenie kopii obiektu.
+
+### 1. **Czym jest interfejs `Cloneable`?**
+
+Interfejs `Cloneable` jest markerem (czyli interfejsem, który nie definiuje żadnych metod), który wskazuje, że obiekt danej klasy może być klonowany. W przeciwnym razie, jeśli obiekt nie implementuje tego interfejsu, a próbujesz wywołać na nim metodę `clone()`, rzucany jest wyjątek `CloneNotSupportedException`.
+
+### 2. **Metoda `clone()`**
+
+Klasy, które implementują interfejs `Cloneable`, mogą używać metody `clone()`, która jest dostępna w klasie `Object` – bazowej klasie wszystkich obiektów w Javie. Metoda `clone()` domyślnie wykonuje płytką kopię obiektu, czyli kopiuje sam obiekt, ale nie tworzy nowych obiektów dla jego pól (jeśli są to obiekty, a nie typy proste).
+
+### 3. **Płytka kopia vs Głęboka kopia**
+
+- **Płytka kopia (Shallow Copy)**: Kopiuje sam obiekt, ale pola, które są obiektami, nie są kopiowane, a jedynie kopiowane są referencje do tych obiektów. To oznacza, że zmiana w jednym obiekcie może wpłynąć na drugi, jeśli obiekty te współdzielą pola.
+
+- **Głęboka kopia (Deep Copy)**: Tworzy nową kopię obiektu, ale także kopiuje wszystkie obiekty, które są przechowywane w polach tego obiektu. Dzięki temu zmiana w jednym obiekcie nie wpływa na drugi.
+
+### 4. **Przykład użycia interfejsu `Cloneable` w Javie**
+
+```java
+class Osoba implements Cloneable {
+    String imie;
+    int wiek;
+
+    // Konstruktor
+    public Osoba(String imie, int wiek) {
+        this.imie = imie;
+        this.wiek = wiek;
+    }
+
+    // Nadpisanie metody clone() aby obsługiwała wyjątek
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone(); // wywołanie metody clone() z klasy Object
+    }
+
+    // Metoda do wypisywania danych
+    public void wypisz() {
+        System.out.println("Imię: " + imie + ", Wiek: " + wiek);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            // Tworzenie obiektu
+            Osoba osoba1 = new Osoba("Jan", 30);
+
+            // Klonowanie obiektu
+            Osoba osoba2 = (Osoba) osoba1.clone();
+
+            // Wyświetlanie oryginalnego obiektu i jego kopii
+            osoba1.wypisz(); // Imię: Jan, Wiek: 30
+            osoba2.wypisz(); // Imię: Jan, Wiek: 30
+
+            // Zmiana imienia w kopii
+            osoba2.imie = "Kamil";
+
+            // Sprawdzenie czy zmiana w kopii wpływa na oryginał
+            osoba1.wypisz(); // Imię: Jan, Wiek: 30
+            osoba2.wypisz(); // Imię: Kamil, Wiek: 30
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+W tym przykładzie:
+
+1. **Klasa `Osoba`** implementuje interfejs `Cloneable`, co pozwala na klonowanie obiektów tej klasy.
+2. Metoda `clone()` jest nadpisana, aby wywołać metodę `clone()` klasy `Object`.
+3. Tworzymy obiekt `osoba1` i klonujemy go do `osoba2`. Po zmianie imienia w `osoba2`, oryginalny obiekt `osoba1` pozostaje niezmieniony.
+
+### 5. **Kiedy używać `Cloneable`?**
+
+Interfejs `Cloneable` i metoda `clone()` są użyteczne, kiedy:
+- Potrzebujesz tworzyć kopie obiektów, ale nie chcesz ich tworzyć ręcznie, a jedynie poprzez automatyczne klonowanie.
+- Klonowanie obiektów jest częścią logiki aplikacji, np. w strukturach danych, które potrzebują operacji klonowania (np. kolekcje).
+
+### 6. **Zalecenia i dobre praktyki**
+
+- **Unikaj nadpisywania `clone()`**: Zamiast nadpisywać metodę `clone()`, warto czasem stworzyć własną metodę kopiującą, aby uniknąć problemów związanych z klonowaniem.
+- **Rozważ głębokie klonowanie**: W przypadku, gdy obiekt zawiera inne obiekty, warto rozważyć implementację głębokiego klonowania, aby uniknąć problemów z niezamierzonym współdzieleniem danych pomiędzy obiektami.
+- **Zgodność z `Cloneable`**: Tylko obiekty, które implementują `Cloneable`, mogą być klonowane, więc musisz pamiętać o tej zależności.
+
+### 7. **Problemy związane z `clone()`**
+
+- Metoda `clone()` jest często krytykowana, ponieważ jej implementacja nie jest zbyt intuicyjna, szczególnie w kontekście klonowania obiektów zagnieżdżonych. Głęboka kopia wymaga zaimplementowania odpowiedniej logiki.
+- **Brak wsparcia dla przeciążania konstruktora**: Z `clone()` nie możesz tworzyć nowych konstruktorów ani wykonywać bardziej zaawansowanej logiki inicjalizacji obiektu.
+
+### Podsumowanie
+
+Interfejs `Cloneable` w Javie pozwala na klonowanie obiektów. Klasy, które go implementują, mogą używać metody `clone()` do tworzenia nowych obiektów będących kopią istniejącego. Warto zrozumieć różnice między płytką i głęboką kopią, by unikać potencjalnych problemów z danymi współdzielonymi między obiektami.
+
+Jeśli masz pytania dotyczące implementacji lub szczegółów działania tego interfejsu, chętnie pomogę!

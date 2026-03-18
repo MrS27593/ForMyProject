@@ -1,0 +1,14 @@
+Aby dobrze umieć Enum TimeUnit warto znać:
+Interface:
+
+
+Class i Abstract Class:
+ChronoUnit
+Long
+Duration
+
+Exceptions:
+IllegalArgumentException
+
+Enum:
+

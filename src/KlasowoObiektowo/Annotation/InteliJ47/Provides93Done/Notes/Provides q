@@ -1,0 +1,82 @@
+Jasne 😄 oto **quiz o `@Provides`** – czysty i zróżnicowany poziom:
+
+---
+
+# 🟢 Quiz – `@Provides`
+
+### 1️⃣ Co oznacza adnotacja `@Provides`?
+
+A. Metoda dostarcza instancję obiektu dla dependency injection
+B. Metoda jest prywatna
+C. Metoda jest statyczna
+D. Automatycznie generuje getter i setter
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Provides` w Guice?
+
+A. `java.lang.annotation`
+B. `com.google.inject`
+C. `javax.annotation`
+D. `org.jetbrains.annotations`
+
+---
+
+### 3️⃣ Czy `@Provides` jest częścią standardowego JDK?
+
+A. Tak
+B. Nie
+
+---
+
+### 4️⃣ Na czym można stosować `@Provides`?
+
+A. Na metodach w modułach lub klasach konfiguracyjnych DI
+B. Na polach klasy
+C. Na klasach abstrakcyjnych
+D. Na interfejsach
+
+---
+
+### 5️⃣ Co decyduje o typie obiektu, który wstrzykiwany jest przez DI z metody `@Provides`?
+
+A. Nazwa metody
+B. Typ zwracany przez metodę
+C. Adnotacja `@Label`
+D. Typ pola w klasie wywołującej
+
+---
+
+### 6️⃣ Czy metoda `@Provides` może przyjmować parametry?
+
+A. Tak, DI automatycznie wstrzyknie zależności jako parametry
+B. Nie
+
+---
+
+### 7️⃣ Czy `@Provides` może być stosowana w klasach, które **nie są modułami DI**?
+
+A. Tak
+B. Nie
+
+---
+
+### 8️⃣ Czy metoda oznaczona `@Provides` może zwracać różne instancje przy każdym wywołaniu?
+
+A. Tak, w zależności od konfiguracji DI i scope
+B. Nie, zawsze ta sama instancja
+
+---
+
+### 9️⃣ Czy metoda `@Provides` może być statyczna?
+
+A. Tak, jeśli framework DI na to pozwala
+B. Nie
+
+---
+
+### 🔟 Czy `@Provides` zastępuje konstruktory w DI?
+
+A. Tak, całkowicie
+B. Nie, jest alternatywą do definiowania zależności w module
+

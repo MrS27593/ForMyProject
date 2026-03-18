@@ -1,0 +1,19 @@
+2. Dlaczego Java?
+
+Zazwyczaj "poważne" RDBMS nie dostarczają gotowych (zadowalających) rozwiązań  w zakresie graficznych interfejsów dostępu do  baz danych lub nieco bardziej zaawansowanych środków przetwarzania danych na styku klient – serwer bazodanowy.
+
+Zamiast tego udostępniane są programistyczne interfejsy (API), dzięki którym można takie problemy rozwiązywać.
+Każdy RDBMS ma zdefiniowane dla różnych języków programowania odpowiednie interfejsy programistyczne dostępu do BD (C, C++, Cobol, PL/I etc; nie wspomnę już o Visual Basicu czy językach specyficznych dla danego RDBMS).
+
+Są to jednak biblioteki dynamiczne, skompilowane (i zlinkowane) dla konkretnych platform sprzętowych i systemowych. Każde takie API różni się w też w zależności od RDBMS.
+
+Programistyczny interfejs dostępu do baz danych z poziomu Javy
+JDBC (Java Database Connectivity API):
+jest niezależny od maszyny bazodanowej (RDBMS)
+jest niezależny od platformy sprzętowej
+jest niezależny od systemu operacyjnego
+Jest zatem jednolity i uniwersalny, a do tego łatwy w użyciu i aktualny (np. umożliwia działania, wykorzystujące nowe konstrukcje SQL – przewijalne tabele wynikowe czy typy danych SQL3 – oraz programowanie z uwzględnieniem wymagań środowisk rozproszonych).
+
+Wszystko co chcielibyśmy robić z dowolnymi relacyjnymi bazami danych z poziomu programów użytkowych – możemy zrobić w Javie, w jej duchu i konwencji, mając jednocześnie do dyspozycji przebogate środowisko Javy.
+
+Znając Javę możemy szybko i łatwo tworzyć aplikacje bazodanowe, które wykraczają poza samą interakcję z RDBMS i mogą włączać wszystko co Java ma do zaoferowania (programowanie sieciowe, rozproszone, multimedialne itp.)

@@ -1,0 +1,20 @@
+Aby dobrze umieć Abstract Klase InputStream warto znać:
+Interface:
+List
+
+
+Class i Abstract Class:
+byte
+int
+Objects
+OutputStream
+Math
+System
+Arrays
+Integer
+
+Exceptions:
+IOException
+IndexOutOfBoundsException
+OutOfMemoryError
+IllegalArgumentException

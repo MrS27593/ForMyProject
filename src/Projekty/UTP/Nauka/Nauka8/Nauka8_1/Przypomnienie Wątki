@@ -1,0 +1,61 @@
+Narzędzia programowania współbieżnego: wykonawcy
+
+Głównym celem tego  wykładu jest przedstawienie  środków programowania współbieżnego, dostępnych w pakiecie java.util.concurrent. Rozpoczynamy od przypomnienia podstawowych pojęć, po czym zajmiemy się podstawowymi  koncepcjami "konkurencyjnej Javy".  Najpiewr uwagę skupimy na zadaniach i wykonawcach, aby potem zająć się  środkami synchronizacji i koordynacji watków.
+1. Przypomnienie: wątki
+
+Wątek - to sekwencja działań, która może wykonywać się równolegle  z innymi sekwencjami działań w kontekście danego procesu (programu).
+
+W systemach jednoprocesorowych wrażenie równoległości działania wątków osiągane jest przez mechanizm przydzielania czasu procesora poszczególnym wykonującym się wątkom. Każdy wątek uzyskuje dostęp do procesora na krótki czas (kwant czasu), po czym "oddaje procesor" innemu wątkowi. Zmiany są tak szybkie, że powstaje wrażenie równoległości działania.
+
+Najbardziej popularnym mechanizmem "zamiany wątków u procesora" jest tzw. wywłaszczanie (pre-emptive multistasking) - o dostępie wątków do procesora decyduje systemowy zarządca wątków: przydziela on wątkowi kwant czasu procesora, po upłynięciu którego odsuwa wątek od procesora i przydziela kwant czasu procesora innemu wątkowi.
+
+Podstawowa różnica pomiędzy procesami i wątkami polega na tym, że różne wątki w ramach jednego procesu mają dostęp do całego kontekstu tego procesu (m.in. przydzielonych mu zasobów).
+Wobec tego zamiana wątków jednego procesu "przy procesorze" jest wykonywana szybciej niż zamiana procesów (wątków różnych procesów).
+Z punktu widzenia programisty wspólny dostęp wszystkich wątków jednego procesu do kontekstu tego procesu ma zarówno zalety jak i wady.
+Zaletą jest możliwość łatwego dostępu do wspólnych danych programu. Wadą - brak ochrony danych programu przed równoległymi zmianami, dokonywanymi przez różne wątki, co może prowadzić do niespójności danych, a czego unikanie wiąże się z koniecznością synchronizacji działania wątków.
+
+W Javie uruchamianiem wątków i zarządzaniem nimi zajmuje się klasa Thread.
+
+Do wersji 1.5 obowiązywały następujące zasady:
+
+Aby uruchomić wątek należy stworzyć obiekt klasy Thread i  użyć metody start() wobec tego obiektu.
+
+Ale kod, wykonujący się jako wątek (sekwencja działań, wykonująca się równolegle z innymi działaniami programu) określany jest przez obiekt klasy implementującej interfejs Runnable.
+Interfejs ten zawiera deklarację metody run(), która przy implementacji musi być zdefiniowana.
+Właśnie w metodzie run() zapisujemy kod, który będzie wykonywany jako wątek (równolegle z innymi wątkami programu).
+
+   Metoda run() określa co ma robić wątek.
+
+
+Klasa Thread implementuje interfejs Runnable (podając "pustą" metodę run).
+
+Stąd pierwszy sposób tworzenia i uruchamiania wątku.
+
+Pierwszy sposób tworzenia i uruchamiania wątku (Java 1.4)
+Zdefiniować własną klasę dziedziczącą Thread (np. class Timer extends Thread)
+Przedefiniować odziedziczoną metodą run(), podając w niej działania, które ma wykonywać wątek
+Stworzyć obiekt naszej klasy (np. Timer timer = new Timer(...);
+Wysłać mu komunikat start() (np. timer.start())
+
+Jak wiemy, kod wykonywany przez wątek podajemy w metodzie run(). A metoda run() może być zdefiniowana w dowolnej klasie implementującej interfejs Runnable.
+Klasa Thread dostarcza zaś konstruktora, którego argument jest  typu Runnable.
+Konstruktor ten  tworzy wątek, który będzie wykonywał kod zapisany w metodzie run() w klasie obiektu, do którego referencję przekazano wspomnianemu wyżej konstruktorowi.
+
+Stąd drugi sposób tworzenia i uruchamiania wątków.
+
+Drugi sposób tworzenia i uruchamiania wątku (Java 1.4)
+Zdefiniować klasę implementującą interfejs Runnable (np. class X implements Runnable).
+Dostarczyć w niej definicji metody run (co ma robić wątek).
+Utworzyć obiekt tej klasy (np.  X x = new X(); )
+ Utworzyć obiekt klasy Thread, przekazując w konstruktorze referencję do obiektu utworzonego w p.3 (np.Thread thread = new Thread(x);).
+Wywołać na rzecz nowoutworzonego obiektu klasy Thread  metodę start ( thread.start();)
+
+Kończenie pracy wątku
+
+Wątek kończy pracę w sposób naturalny wtedy, gdy zakończy się jego metoda run().
+
+
+Jeśli chcemy programowo zakończyć pracę wątku, to  należy zapewnić w metodzie run() sprawdzenie warunków zakończenia (ustalanych programowo) i jeśli są spełnione - spowodować wyjście z run() albo przez "dobiegnięcie do końca", albo przez return.
+Warunki zakończenia mogą być formułowane w postaci wartości jakiejś zmiennej, które są ustalane przez inne fragmenty kodu programu (wykonywane w innym wątku).
+
+Do kończenia pracy wątku możliwe jest także użycie metody interrupt() ale wymaga to odpowiedniego przygotowania kodu w metodzie run(). Jest to właściwy sposób postępowania, jeśli używamy nowych koncepcji (serwisów wykonawców) z pakietu java.util.concurrent.  O tym mowa będzie w dalszej części wykładu.

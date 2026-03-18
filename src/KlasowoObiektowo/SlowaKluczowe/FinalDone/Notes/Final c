@@ -1,0 +1,144 @@
+## WIEDZA – `final` w Java
+
+---
+
+### 1️⃣ Czym jest `final`?
+
+`final` to **słowo kluczowe w Javie**, które oznacza **„niezmienialność” lub „brak możliwości nadpisania”**.
+Może być używane dla:
+
+* zmiennych
+* metod
+* klas
+* parametrów metod
+
+Znaczenie `final` zależy od **kontekstu użycia**.
+
+---
+
+### 2️⃣ `final` dla zmiennych
+
+#### 🔹 Zmienna `final` = nie można zmienić przypisanej wartości
+
+```java
+final int MAX_USERS = 100;
+MAX_USERS = 200; // ❌ błąd kompilacji
+```
+
+📌 Dobra praktyka: stałe zapisujemy **WIELKIMI LITERAMI**.
+
+#### 🔹 `final` + obiekty
+
+```java
+final List<String> list = new ArrayList<>();
+list.add("A");      // ✅ dozwolone
+list = new ArrayList<>(); // ❌ błąd
+```
+
+➡ `final` blokuje **referencję**, a nie stan obiektu.
+
+---
+
+### 3️⃣ `final` dla pól klasy
+
+```java
+class Config {
+    final String url;
+
+    Config(String url) {
+        this.url = url; // musi być przypisane
+    }
+}
+```
+
+📌 Pole `final`:
+
+* musi być zainicjalizowane przy deklaracji **lub**
+* w konstruktorze
+
+---
+
+### 4️⃣ `final` dla metod
+
+#### 🔹 Metoda `final` nie może być nadpisana
+
+```java
+class Parent {
+    final void show() {
+        System.out.println("Parent");
+    }
+}
+
+class Child extends Parent {
+    // void show() {} // ❌ błąd
+}
+```
+
+➡ Używane, gdy chcesz **zablokować zmianę zachowania metody**.
+
+---
+
+### 5️⃣ `final` dla klas
+
+#### 🔹 Klasa `final` nie może być dziedziczona
+
+```java
+final class Utility {
+    static void help() {}
+}
+
+// class MyUtil extends Utility {} // ❌ błąd
+```
+
+➡ Przykład: `String`, `Integer`, `Math`.
+
+---
+
+### 6️⃣ `final` dla parametrów metod
+
+```java
+void print(final int x) {
+    // x = 5; // ❌ błąd
+    System.out.println(x);
+}
+```
+
+➡ Chroni parametr przed przypadkową modyfikacją.
+
+---
+
+### 7️⃣ Przykład praktyczny – konfiguracja aplikacji
+
+```java
+public final class AppConfig {
+
+    public static final String APP_NAME = "MyApp";
+    public static final int PORT = 8080;
+
+    private AppConfig() {} // brak możliwości tworzenia obiektów
+}
+```
+
+➡ Klasa narzędziowa z niezmiennymi stałymi.
+
+---
+
+### 8️⃣ Najczęstsze błędy
+
+❌ Mylenie `final` z `const` (Java nie ma `const`)
+❌ Zakładanie, że `final` czyni obiekt niemutowalnym
+❌ Zapomnienie o inicjalizacji pola `final`
+
+---
+
+### ✅ Podsumowanie
+
+* `final` = brak możliwości zmiany / nadpisania
+* Zmienna `final` → nie można zmienić przypisania
+* Metoda `final` → nie można nadpisać
+* Klasa `final` → nie można dziedziczyć
+* Bardzo ważne dla **bezpieczeństwa, czytelności i stabilności kodu**
+
+---
+
+Gdy będziesz gotowy, napisz **„quiz”**, a przygotuję pytania ✅

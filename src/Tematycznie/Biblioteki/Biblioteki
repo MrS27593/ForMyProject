@@ -1,0 +1,14 @@
+java.util
+java.io
+java.nio
+java.sql
+org.apache.commons
+JUnit
+Spring Framework
+Hibernate
+Jackson
+Log4j / SLF4J / Logback
+Apache Kafka
+Akka
+Vert.x
+Apache Camel

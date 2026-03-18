@@ -1,0 +1,131 @@
+## WIEDZA – `this` w Java
+
+---
+
+### 1️⃣ Czym jest `this`?
+
+`this` to **słowo kluczowe w Javie**, które odnosi się do **bieżącego obiektu** klasy, w której jest używane.
+
+* Pozwala odróżnić pola klasy od parametrów lub zmiennych lokalnych
+* Może być używane w **konstruktach, metodach i blokach inicjalizacyjnych**
+
+```java
+class Person {
+    String name;
+
+    Person(String name) {
+        this.name = name; // "this.name" odnosi się do pola klasy
+    }
+}
+```
+
+---
+
+### 2️⃣ Zastosowanie `this` w konstruktorach
+
+* Rozróżnia **parametr metody/konstruktora** od pola klasy
+* Można też użyć `this()` do wywołania **innego konstruktora w tej samej klasie**
+
+```java
+class Person {
+    String name;
+    int age;
+
+    Person() {
+        this("Nieznany", 0); // wywołanie innego konstruktora
+    }
+
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+```
+
+---
+
+### 3️⃣ `this` w metodach
+
+* Odnosi się do **obiektu, który wywołał metodę**
+* Przydatne przy przekazywaniu **obiektu jako argumentu**
+
+```java
+class Car {
+    String model;
+
+    void printThis() {
+        System.out.println(this); // wypisze referencję obiektu
+    }
+
+    void passThis(Car other) {
+        other.showOwner(this); // przekazanie bieżącego obiektu
+    }
+
+    void showOwner(Car owner) {
+        System.out.println("Owner: " + owner.model);
+    }
+}
+```
+
+---
+
+### 4️⃣ `this` vs zmienne lokalne
+
+```java
+class Example {
+    int x;
+
+    void setX(int x) {
+        this.x = x; // przypisanie parametru do pola klasy
+    }
+}
+```
+
+* `x` po lewej stronie = pole klasy
+* `x` w nawiasach = parametr metody
+
+---
+
+### 5️⃣ `this()` – wywołanie innego konstruktora
+
+* Może być użyte **tylko w pierwszej linii konstruktora**
+
+```java
+class Point {
+    int x, y;
+
+    Point() {
+        this(0, 0); // wywołuje konstruktor z dwoma parametrami
+    }
+
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+```
+
+---
+
+### 6️⃣ Częste błędy
+
+❌ Próba użycia `this()` poza konstruktorem → błąd kompilacji
+❌ Użycie `this` w **statycznych metodach** → błąd kompilacji (brak bieżącego obiektu)
+
+---
+
+### 7️⃣ Podsumowanie
+
+* `this` = bieżący obiekt klasy
+* Służy do:
+
+  * rozróżniania pól od parametrów
+  * wywoływania innych konstruktorów (`this()`)
+  * przekazywania obiektu jako argumentu
+* **Nie można używać w statycznych metodach**
+
+---
+
+Gdy będziesz gotowy, mogę zrobić **quiz do `this`** z pytaniami A–D i otwartymi.
+
+Chcesz, żebym przygotował quiz teraz?

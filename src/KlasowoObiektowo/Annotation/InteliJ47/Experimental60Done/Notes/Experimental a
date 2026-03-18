@@ -1,0 +1,141 @@
+Super 👌
+Lecimy z **kluczem + komentarzem architektonicznym**.
+
+---
+
+# ✅ Odpowiedzi – Quiz `@Experimental`
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Czy `@Experimental` istnieje w JDK?
+
+**❌ B. Fałsz**
+
+➡️ Nie ma takiej standardowej adnotacji w JDK.
+
+---
+
+### 2️⃣ `@Experimental` oznacza:
+
+**✅ B. API niestabilne, mogące się zmienić**
+
+➡️ To ostrzeżenie: „używasz na własne ryzyko”.
+
+---
+
+### 3️⃣ Która jest standardową adnotacją JDK?
+
+**✅ C. `@Deprecated`**
+
+Standardowe JDK:
+
+* `@Override`
+* `@Deprecated`
+* `@SuppressWarnings`
+* `@FunctionalInterface`
+* itd.
+
+---
+
+## 🔹 Część II – Biblioteki
+
+### 4️⃣ Kto używa `@Beta` jako odpowiednika „experimental”?
+
+**✅ C. Google Guava**
+
+➡️ `@Beta` = API niestabilne.
+
+---
+
+### 5️⃣ `ApiStatus.Experimental` (JetBrains) oznacza:
+
+**✅ B. API niestabilne**
+
+---
+
+### 6️⃣ W Kotlinie `@Experimental` oznacza:
+
+**✅ C. API eksperymentalne wymagające świadomego użycia**
+
+➡️ Często wymaga opt-in.
+
+---
+
+## 🔹 Część III – Porównania
+
+### 7️⃣ Różnica `@Deprecated` vs `@Experimental`:
+
+**✅ B**
+
+* `@Deprecated` → API do usunięcia
+* `@Experimental` → API nowe, niestabilne
+
+To przeciwne kierunki rozwoju.
+
+---
+
+### 8️⃣ Która NIE jest standardową adnotacją JDK?
+
+**✅ D. `@Experimental`**
+
+---
+
+## 🔹 Część IV – Zaawansowane
+
+### 9️⃣ W JDK funkcje eksperymentalne są oznaczane przez:
+
+**✅ B. `@PreviewFeature`**
+
+To wewnętrzna adnotacja używana przy **preview features**.
+
+---
+
+### 🔟 Dlaczego JDK nie wprowadziło `@Experimental`?
+
+**✅ B. Bo używa mechanizmu preview features**
+
+➡️ JDK kontroluje eksperymentalność przez:
+
+* flagi kompilatora (`--enable-preview`)
+* wersje języka
+* system modułów
+
+---
+
+# ✍️ 1️⃣1️⃣ Odpowiedź architektoniczna
+
+Oznaczanie API jako „experimental” jest ważne, ponieważ:
+
+* 🔹 sygnalizuje brak stabilności
+* 🔹 pozwala szybciej wprowadzać innowacje
+* 🔹 chroni twórców przed koniecznością utrzymywania kompatybilności
+* 🔹 daje użytkownikom świadomy wybór
+
+W dużych projektach (np. frameworki) brak takiego oznaczenia prowadzi do:
+
+* problemów z kompatybilnością
+* „zamrożenia” API
+* długoterminowego długu technologicznego
+
+---
+
+# 🧠 Najważniejsze do zapamiętania
+
+| Adnotacja                | Status         |
+| ------------------------ | -------------- |
+| `@Experimental`          | ❌ nie w JDK    |
+| `@Deprecated`            | ✅ standard JDK |
+| `@Beta`                  | Guava          |
+| `ApiStatus.Experimental` | JetBrains      |
+| `@PreviewFeature`        | JDK preview    |
+
+---
+
+Jeśli chcesz, możemy teraz zrobić:
+
+* 🔥 mega-quiz: wszystkie „statusowe” adnotacje
+* 🔥 różnice: Preview vs Deprecated vs Experimental
+* 🔥 zaprojektować własną `@Experimental`
+* 🔥 pytania rekrutacyjne o stabilność API
+
+Co dalej? 😄

@@ -1,0 +1,108 @@
+Interfejs `Executor` w Javie to podstawowy element biblioteki współbieżności (concurrency) dostępnej od Javy 5 (Java SE 5), wprowadzonej w ramach pakietu `java.util.concurrent`. Jest to bardzo ważne narzędzie, które upraszcza wykonywanie zadań w osobnych wątkach (ang. **thread**), zamiast ręcznego zarządzania wątkami.
+
+---
+
+## 🔷 Czym jest `Executor`?
+
+`Executor` to **interfejs funkcyjny** z metodą:
+
+```java
+void execute(Runnable command);
+```
+
+Służy on do **uruchamiania zadań** reprezentowanych jako obiekty `Runnable`. `Executor` to **abstrakcja nad tworzeniem i zarządzaniem wątkami**, dzięki czemu nie musisz pisać `new Thread(runnable).start()` samodzielnie.
+
+---
+
+## 🔧 Przykład użycia podstawowego `Executor`
+
+```java
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
+public class Main {
+    public static void main(String[] args) {
+        Executor executor = Executors.newSingleThreadExecutor();
+
+        executor.execute(() -> {
+            System.out.println("Zadanie wykonane w osobnym wątku: " + Thread.currentThread().getName());
+        });
+
+        System.out.println("To działa równolegle z zadaniem.");
+    }
+}
+```
+
+W tym przykładzie:
+
+* Tworzymy `Executor`, który używa **pojedynczego wątku**.
+* Przekazujemy mu `Runnable`, czyli zadanie do wykonania.
+* `Executor` zarządza wątkiem samodzielnie — Ty tylko „wrzucasz” zadanie.
+
+---
+
+## 🔍 Główne implementacje interfejsu `Executor`
+
+### 1. `ExecutorService` (rozszerza `Executor`)
+
+* Bardziej rozbudowany interfejs.
+* Pozwala na:
+
+  * zatrzymywanie (`shutdown`)
+  * czekanie na zakończenie
+  * uruchamianie zadań z wynikiem (`Callable`)
+  * obsługę kolejek zadań
+
+```java
+ExecutorService executorService = Executors.newFixedThreadPool(4);
+executorService.submit(() -> System.out.println("Działa w puli 4 wątków"));
+executorService.shutdown();
+```
+
+### 2. `ScheduledExecutorService`
+
+* Rozszerzenie `ExecutorService`, umożliwia **cykliczne** lub **opóźnione** uruchamianie zadań.
+
+```java
+ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+scheduler.schedule(() -> System.out.println("Wykonane po 3 sekundach"), 3, TimeUnit.SECONDS);
+```
+
+---
+
+## 🧠 Różnica między `execute()` a `submit()`
+
+* `execute()` – uruchamia zadanie typu `Runnable`, **nic nie zwraca**.
+* `submit()` (z `ExecutorService`) – uruchamia `Runnable` lub `Callable`, **zwraca `Future`**, który pozwala na:
+
+  * sprawdzenie zakończenia,
+  * odebranie wyniku (w przypadku `Callable`).
+
+---
+
+## 📌 Kiedy używać `Executor`?
+
+Używaj, gdy:
+
+* Chcesz wykonywać zadania równolegle bez samodzielnego zarządzania wątkami.
+* Chcesz kontrolować liczbę jednocześnie uruchomionych wątków (np. ograniczenie do 10).
+* Potrzebujesz elastyczności (kolejkowanie, planowanie, monitorowanie).
+
+---
+
+## 📚 Najważniejsze klasy/funkcje powiązane
+
+* `Executors` – klasa fabryczna do tworzenia obiektów `ExecutorService`, np.:
+
+  * `newFixedThreadPool(n)`
+  * `newCachedThreadPool()`
+  * `newSingleThreadExecutor()`
+  * `newScheduledThreadPool(n)`
+* `Future` – reprezentuje wynik asynchronicznego obliczenia.
+* `Callable<T>` – jak `Runnable`, ale zwraca wartość i może rzucać wyjątek.
+
+---
+
+## 🧪 Chcesz przykład z `Callable`, `Future` albo pokaz działania `shutdown()`?
+
+Czy chciałbyś kontynuować i przejść do praktycznego projektu z wykorzystaniem `ExecutorService`?

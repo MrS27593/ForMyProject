@@ -1,0 +1,91 @@
+### 📘 QUIZ – `import` w Java
+
+**10 pytań: 8 zamkniętych (A–D) + 2 otwarte**
+
+---
+
+#### 1️⃣ Czym jest słowo kluczowe `import`?
+
+A. Tworzy nowy pakiet w projekcie
+B. Importuje klasę, interfejs lub pakiet z innego pakietu
+C. Kopiuje klasę do bieżącego pliku
+D. Usuwa klasy z projektu
+
+---
+
+#### 2️⃣ Co umożliwia `import static`?
+
+A. Importowanie klas z pakietu
+B. Używanie metod i pól statycznych bez prefiksu klasy
+C. Zmniejszenie rozmiaru pliku .class
+D. Tworzenie nowych metod statycznych
+
+---
+
+#### 3️⃣ Która linia kodu jest poprawnym importem konkretnej klasy?
+
+A. `import java.util.*;`
+B. `import java.util.ArrayList;`
+C. `import static java.util.ArrayList;`
+D. `import ArrayList;`
+
+---
+
+#### 4️⃣ Czy import całego pakietu (`*`) importuje klasy z podpakietów?
+
+A. Tak, wszystkie podpakiety też
+B. Nie, tylko klasy z tego pakietu
+C. Zależy od JVM
+D. Automatycznie tworzy klasy w podpakietach
+
+---
+
+#### 5️⃣ Co się stanie, jeśli spróbujesz zaimportować klasę z tego samego pakietu?
+
+A. Kompilator zgłosi błąd
+B. Nic się nie stanie, import jest ignorowany
+C. Klasa zostanie skopiowana
+D. Program się wykona szybciej
+
+---
+
+#### 6️⃣ Czy import wpływa na wydajność programu?
+
+A. Tak, przyspiesza runtime
+B. Tak, zmniejsza rozmiar pliku .class
+C. Nie, jest tylko skrótem w czasie kompilacji
+D. Tak, przyspiesza JVM
+
+---
+
+#### 7️⃣ Co jest poprawną kolejnością grup importów w projekcie?
+
+A. Najpierw własne klasy, potem java.*, potem javax.*, potem biblioteki zewnętrzne
+B. java.*, javax.*, biblioteki zewnętrzne, własne klasy
+C. Kolejność nie ma znaczenia
+D. Tylko java.* i biblioteki zewnętrzne
+
+---
+
+#### 8️⃣ Które zdanie o `import` jest prawdziwe?
+
+A. Można importować klasy i interfejsy, ale nie pakiety
+B. Można importować tylko klasy
+C. Import zwiększa wydajność programu
+D. Import tworzy kopię klasy w bieżącym pakiecie
+
+---
+
+#### 9️⃣ (Pytanie otwarte)
+
+Podaj **przykład użycia `import`** w większym projekcie.
+
+---
+
+#### 🔟 (Pytanie otwarte)
+
+Dlaczego **import całego pakietu (`*`)** nie zawsze jest najlepszą praktyką?
+
+---
+
+Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam komplet z wyjaśnieniami ✅

@@ -1,0 +1,78 @@
+Jasne! Oto **quiz na temat interfejsu `Iterable` w języku Java** – świetny sposób, żeby sprawdzić i utrwalić wiedzę. Quiz zawiera **10 pytań** o różnym poziomie trudności: wybór jednokrotny, prawda/fałsz i pytania otwarte.
+
+---
+
+### ✅ **QUIZ: Interfejs `Iterable` w Java**
+
+#### **Pytania zamknięte (jednokrotny wybór)**
+
+**1.** Co zwraca metoda `iterator()` z interfejsu `Iterable`?
+A) `List<T>`
+B) `Enumeration<T>`
+C) `Iterator<T>`
+D) `Stream<T>`
+
+---
+
+**2.** Dlaczego warto implementować interfejs `Iterable`?
+A) Żeby móc używać `for-each`
+B) Żeby można było porównywać obiekty
+C) Żeby umożliwić serializację
+D) Żeby obiekt działał w pętli `while`
+
+---
+
+**3.** Która z poniższych klas NIE implementuje `Iterable`?
+A) `ArrayList`
+B) `HashSet`
+C) `HashMap`
+D) `LinkedList`
+
+---
+
+**4.** Co się stanie, jeśli spróbujesz użyć `for-each` na obiekcie, który **nie implementuje** `Iterable`?
+A) Błąd czasu wykonania
+B) Kompilacja przebiegnie pomyślnie
+C) Błąd czasu kompilacji
+D) Zostanie automatycznie skonwertowany
+
+---
+
+**5.** Co musisz zrobić, aby klasa implementująca `Iterable` działała z `for-each`?
+A) Przesłonić metodę `hasNext()`
+B) Przesłonić metodę `next()`
+C) Przesłonić metodę `iterator()`
+D) Przesłonić metodę `forEach()`
+
+---
+
+#### **Prawda / Fałsz**
+
+**6.** `Iterable` to klasa abstrakcyjna.
+**(Prawda / Fałsz)**
+
+---
+
+**7.** `Iterable` wspiera użycie wyrażeń lambda od Javy 8 dzięki metodzie `forEach()`.
+**(Prawda / Fałsz)**
+
+---
+
+**8.** `Map` w Java implementuje bezpośrednio `Iterable`.
+**(Prawda / Fałsz)**
+
+---
+
+#### **Pytania otwarte**
+
+**9.** Napisz fragment kodu, który pokazuje iterację po obiekcie implementującym `Iterable`, z użyciem `for-each`.
+
+---
+
+**10.** Wyjaśnij różnicę między `Iterable` a `Iterator`.
+
+---
+
+### 📝 Chcesz odpowiedzi?
+
+Mogę Ci teraz podać odpowiedzi i wytłumaczenia do każdego pytania – czy chcesz spróbować najpierw sam, czy mam od razu przesłać odpowiedzi?

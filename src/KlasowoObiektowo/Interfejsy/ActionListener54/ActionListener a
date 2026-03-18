@@ -1,0 +1,69 @@
+Oczywiście! Oto **odpowiedzi do quizu** o `ActionListener`:
+
+---
+
+## ✅ **ODPOWIEDZI: QUIZ – ActionListener w Java**
+
+### 🔹 Pytanie 1
+
+**Które z poniższych zdań najlepiej opisuje interfejs `ActionListener`?**
+**Prawidłowa odpowiedź:** **B)** Obsługuje zdarzenia akcji generowane przez komponenty GUI
+
+---
+
+### 🔹 Pytanie 2
+
+**Która z metod musi być zaimplementowana, jeśli implementujesz `ActionListener`?**
+**Prawidłowa odpowiedź:** **C)** `actionPerformed(ActionEvent e)`
+
+---
+
+### 🔹 Pytanie 3
+
+**Które z poniższych komponentów Swing mogą korzystać z `ActionListener`?**
+**Prawidłowe odpowiedzi:**
+✅ **A)** `JButton`
+✅ **C)** `JCheckBox`
+✅ **D)** `JMenuItem`
+
+📌 `JLabel` nie reaguje na akcje, jest tylko do wyświetlania tekstu/grafiki.
+
+---
+
+### 🔹 Pytanie 4
+
+**Co zostanie wypisane na konsolę?**
+**Prawidłowa odpowiedź:** **B)** Kliknięto!
+
+📌 Metoda `doClick()` programowo „klika” przycisk — wywołuje akcję.
+
+---
+
+### 🔹 Pytanie 5
+
+**Co robi metoda `getSource()` w klasie `ActionEvent`?**
+**Prawidłowa odpowiedź:**
+`getSource()` zwraca obiekt (np. `JButton`), który wywołał zdarzenie akcji. Dzięki temu można sprawdzić, który przycisk został kliknięty, jeśli jeden `ActionListener` obsługuje kilka komponentów.
+
+---
+
+### 🔹 Pytanie 6
+
+**Uzupełnij metodę, aby przypisać `ActionListener`:**
+
+```java
+button._________(new ActionListener() {
+```
+
+**Prawidłowa odpowiedź:**
+`addActionListener`
+
+📌 Pełna linia:
+
+```java
+button.addActionListener(new ActionListener() {
+```
+
+---
+
+Chcesz teraz wyzwanie kodowe — np. zadanie, by samemu napisać prosty interfejs GUI z kilkoma przyciskami i obsługą zdarzeń?

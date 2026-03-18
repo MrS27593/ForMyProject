@@ -1,0 +1,76 @@
+Oto **poprawne odpowiedzi do quizu o `@Native`** wraz z krótkim wyjaśnieniem:
+
+---
+
+### 1️⃣ Co oznacza adnotacja `@Native`?
+
+**B – Oznacza stałą, którą mogą używać narzędzia do analizy i dokumentacji**
+➡ Ułatwia IDE i Javadoc wykrywanie dozwolonych wartości stałych.
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Native`?
+
+**A – `java.lang.annotation`**
+
+---
+
+### 3️⃣ Od której wersji Javy wprowadzono `@Native`?
+
+**C – Java 8**
+➡ Pojawiła się w JDK 8 jako wsparcie dla narzędzi statycznej analizy i dokumentacji.
+
+---
+
+### 4️⃣ Czy `@Native` wpływa na zachowanie programu w runtime?
+
+**B – Nie**
+➡ Jest adnotacją informacyjną; nie zmienia działania kodu.
+
+---
+
+### 5️⃣ Na czym najczęściej stosuje się `@Native`?
+
+**C – Na publicznych stałych typu int lub String**
+➡ Najczęściej w kontekście flag lub dozwolonych wartości parametrów.
+
+---
+
+### 6️⃣ Czy `@Native` jest wymagana do użycia stałej w narzędziach statycznej analizy?
+
+**B – Nie, jest opcjonalna, ale ułatwia narzędziom wykrycie wartości**
+
+---
+
+### 7️⃣ Z którą adnotacją często współpracuje w Androidzie lub przy narzędziach statycznej analizy?
+
+**A – `@IntDef` lub `@StringDef`**
+➡ Używana razem z tymi adnotacjami do definiowania dozwolonych wartości parametrów.
+
+---
+
+### 8️⃣ Czy `@Native` może być stosowana na metodach lub klasach?
+
+**B – Nie**
+➡ Stosuje się wyłącznie do stałych (`fields`).
+
+---
+
+### 9️⃣ Czy IDE może wykorzystać `@Native` do podpowiadania dozwolonych wartości?
+
+**A – Tak**
+➡ IDE i narzędzia statycznej analizy mogą dzięki temu wyświetlać podpowiedzi dla parametrów.
+
+---
+
+### 🔟 Czy `@Native` zmienia typ stałej w runtime?
+
+**B – Nie**
+➡ Adnotacja nie ma wpływu na typ ani zachowanie pola w runtime.
+
+---
+
+Jeśli chcesz, mogę teraz zrobić **mega quiz zbiorczy ze wszystkich przerobionych adnotacji**, od `@Deprecated` do `@Native` – w jednym miejscu do powtórki.
+
+Chcesz, żebym go zrobił?
+

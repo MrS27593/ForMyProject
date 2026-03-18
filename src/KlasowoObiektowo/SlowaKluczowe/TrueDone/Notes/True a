@@ -1,0 +1,138 @@
+## ODPOWIEDZI – QUIZ `true` w Java
+
+---
+
+### **1. Czym jest `true` w języku Java?**
+
+✅ **B. Literałem typu `boolean`**
+
+`true` i `false` to jedyne dwie wartości typu logicznego `boolean`.
+
+---
+
+### **2. Które przypisanie jest poprawne?**
+
+✅ **C. `boolean x = true;`**
+
+Pozostałe opcje mają niezgodne typy.
+
+---
+
+### **3. Co zrobi ten kod?**
+
+```java
+if (true) {
+    System.out.println("OK");
+}
+```
+
+✅ **B. Wypisze `OK`**
+
+Warunek jest zawsze spełniony.
+
+---
+
+### **4. Który warunek jest poprawny w Javie?**
+
+✅ **C. `if (true)`**
+
+Java wymaga warunku typu `boolean`.
+
+---
+
+### **5. Co oznacza poniższy kod?**
+
+```java
+while (true) {
+    // ...
+}
+```
+
+✅ **C. Pętlę nieskończoną**
+
+Działa bez końca, dopóki nie użyjesz np. `break`.
+
+---
+
+### **6. Jaki będzie wynik wyrażenia?**
+
+```java
+boolean result = (5 > 3);
+```
+
+✅ **D. `true`**
+
+5 jest większe niż 3.
+
+---
+
+### **7. Które wyrażenie zwróci `true`?**
+
+✅ **C. `true || false`**
+
+Operator `||` (OR) zwraca `true`, gdy przynajmniej jeden operand jest `true`.
+
+---
+
+### **8. Co jest niebezpieczne w tym kodzie?**
+
+```java
+Boolean flag = null;
+
+if (flag) {
+    System.out.println("OK");
+}
+```
+
+✅ **B. `NullPointerException`**
+
+`Boolean` może być `null`, a auto-unboxing spowoduje wyjątek.
+
+---
+
+### **9. (OTWARTE)**
+
+**Dlaczego `if (flag == true)` jest gorsze niż `if (flag)`?**
+
+✔️ Jest:
+
+* mniej czytelne
+* zbędne
+* podatne na błędy (szczególnie przy `Boolean`)
+
+Najlepsza forma:
+
+```java
+if (flag) { }
+```
+
+---
+
+### **10. (OTWARTE)**
+
+**Przykład praktycznego użycia `true`:**
+
+✔️ Przykłady:
+
+```java
+boolean isLoggedIn = true;
+boolean running = true;
+
+while (true) {
+    // serwer nasłuchuje
+}
+```
+
+---
+
+## 📊 PODSUMOWANIE
+
+Jeśli miałeś:
+
+* **8–10 poprawnych** → bardzo dobra znajomość
+* **6–7** → solidne podstawy
+* **<6** → warto wrócić do przykładów
+
+---
+
+👉 Podaj następny temat (np. `false`, `boolean`, `if`, `switch`, `return`, `catch`, `throw`).

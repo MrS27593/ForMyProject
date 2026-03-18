@@ -1,0 +1,162 @@
+Tu muszę być z Tobą **uczciwy technicznie** 👇
+i to jest ważna wiedza sama w sobie.
+
+---
+
+# ❗ `@ContentType` — **nie istnieje** jako standardowa adnotacja w Javie
+
+👉 **W standardowej Javie NIE MA adnotacji o nazwie `@ContentType`.**
+
+I to nie jest haczyk — to bardzo częsty **fałszywy trop** na egzaminach i w rozmowach technicznych.
+
+---
+
+## 🧠 Dlaczego ludzie myślą, że `@ContentType` istnieje?
+
+Bo **CONTENT-TYPE** jest:
+
+* nagłówkiem HTTP
+* pojęciem REST
+* klasą (`ContentType`)
+* parametrem w adnotacjach
+
+➡️ ale **nie osobną adnotacją**
+
+---
+
+# ✅ Co jest zamiast `@ContentType`?
+
+Zależnie od technologii 👇
+
+---
+
+## 1️⃣ **JAX-RS (javax / jakarta)** – NAJBLIŻEJ „@ContentType”
+
+### ✔️ `@Consumes`
+
+```java
+@Consumes("application/json")
+```
+
+➡️ jaki **Content-Type przyjmujesz**
+
+### ✔️ `@Produces`
+
+```java
+@Produces("application/json")
+```
+
+➡️ jaki **Content-Type zwracasz**
+
+📦 Pakiet:
+
+```java
+jakarta.ws.rs.*
+```
+
+📌 To są **de facto adnotacje Content-Type**
+
+---
+
+## 2️⃣ **Spring MVC / Spring Boot**
+
+Nie ma `@ContentType`, tylko:
+
+### ✔️ `@RequestMapping`
+
+```java
+@RequestMapping(
+    consumes = "application/json",
+    produces = "application/json"
+)
+```
+
+lub krócej:
+
+```java
+@PostMapping(consumes = "application/json")
+```
+
+➡️ Spring **mapuje Content-Type nagłówka**
+
+---
+
+## 3️⃣ Odczyt nagłówka Content-Type (bez adnotacji)
+
+### Spring
+
+```java
+@RequestHeader("Content-Type") String contentType
+```
+
+### JAX-RS
+
+```java
+@HeaderParam("Content-Type") String contentType
+```
+
+---
+
+## 4️⃣ Klasa `ContentType` (częsta pomyłka)
+
+❌ **To NIE jest adnotacja**
+
+```java
+org.apache.http.entity.ContentType
+```
+
+➡️ to **klasa opisująca MIME type**, np.:
+
+```java
+ContentType.APPLICATION_JSON
+```
+
+---
+
+## 5️⃣ Stała CONTENT_TYPE
+
+```java
+HttpHeaders.CONTENT_TYPE
+```
+
+lub:
+
+```java
+javax.ws.rs.core.HttpHeaders.CONTENT_TYPE
+```
+
+➡️ **String**, nie adnotacja
+
+---
+
+# 🧪 Egzaminacyjna pułapka ⚠️
+
+❓ *Czy istnieje adnotacja `@ContentType` w Javie?*
+✅ **NIE**
+
+Poprawna odpowiedź:
+
+> W Javie nie istnieje standardowa adnotacja `@ContentType`. Obsługa Content-Type realizowana jest przez adnotacje takie jak `@Consumes`, `@Produces` (JAX-RS) lub parametry `consumes` / `produces` w Springu.
+
+---
+
+## 🧠 Szybka mapa mentalna
+
+| Co chcesz zrobić     | Czym                  |
+| -------------------- | --------------------- |
+| Przyjąć Content-Type | `@Consumes`           |
+| Zwrócić Content-Type | `@Produces`           |
+| Spring REST          | `consumes / produces` |
+| Odczytać nagłówek    | `@RequestHeader`      |
+| MIME type            | `ContentType` (klasa) |
+
+---
+
+Jeśli chcesz, możemy:
+
+* 🔥 zrobić **quiz: „Czy to adnotacja czy nie?”**
+* 🔥 porównać **JAX-RS vs Spring (Consumes/Produces)**
+* 🔥 rozebrać **HTTP Content-Type od zera**
+* 🔥 omówić **MediaType vs ContentType**
+
+Co dalej? 😄

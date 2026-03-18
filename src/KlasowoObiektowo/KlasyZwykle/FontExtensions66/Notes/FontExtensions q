@@ -1,0 +1,44 @@
+Jasne! Oto krótki **quiz dotyczący klasy `FontExtensions` i jej kontekstu w JetBrains Runtime (JBR)**. Quiz zawiera pytania jednokrotnego wyboru i kilka otwartych, by sprawdzić Twoje zrozumienie tematu.
+
+---
+
+### 📘 **Quiz: FontExtensions i JetBrains Runtime**
+
+#### **Pytania zamknięte (jednokrotny wybór):**
+
+**1. W jakim celu prawdopodobnie została stworzona klasa `FontExtensions` w JBR?**
+A. Do zarządzania dostępem do sieci
+B. Do rozszerzania funkcjonalności związanej z czcionkami
+C. Do obsługi baz danych
+D. Do zarządzania wątkami
+
+**2. JetBrains Runtime (JBR) to:**
+A. Framework do budowy aplikacji webowych
+B. System operacyjny JetBrains
+C. Zmodyfikowana wersja OpenJDK
+D. Narzędzie do testowania aplikacji
+
+**3. Która biblioteka korzysta z usług takich jak `FontExtensions`?**
+A. JavaFX
+B. Apache POI
+C. Jewel
+D. JUnit
+
+---
+
+#### **Pytania otwarte:**
+
+**4. Podaj dwa możliwe zastosowania `FontExtensions` w aplikacji desktopowej.**
+*(np. ...)*
+
+**5. W jakim przypadku użycie `FontExtensions` może być przydatne dla dewelopera interfejsu użytkownika?**
+
+**6. Jakie inne funkcje (oprócz zarządzania czcionkami) oferuje JetBrains Runtime w porównaniu do standardowego OpenJDK?**
+
+---
+
+### ✅ **Chcesz sprawdzić swoje odpowiedzi?**
+
+Odpowiedz na pytania tutaj, a ja je od razu sprawdzę i wyjaśnię każde z nich!
+
+Chcesz więcej pytań lub wersję interaktywną (np. do ćwiczeń z klasą)?

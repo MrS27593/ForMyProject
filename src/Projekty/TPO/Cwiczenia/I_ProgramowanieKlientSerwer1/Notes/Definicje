@@ -1,0 +1,29 @@
+Klient to program lub proces, który - oprócz wykonywania swoistych dla niego działań -
+łączy się z innym programem lub procesem, zwanym serwerem i poprzez kanały komunikacyjne zleca mu wykonanie określonych działań;
+w szczególności dostarczenia jakichś danych lub wyników przetwarzania danych
+
+Serwer jest programem lub procesem, który - na zlecenie klientów - świadczy określone usługi - np.
+dostarcza im dane lub wyniki przetwarzania jakichś danych
+
+Protokół - to swoisty język i zasady za pomocą których komunikują się programy i procesy,
+w szczególności serwery i klienci
+
+Gniazdo (socket) - to abstrakcja programistyczna,
+oznaczająca punkt docelowy dwustronnej komunikacji dwóch procesów działających równolegle w sieci
+
+Termin port używany jest rownież w innych znaczeniach, dotyczących fizycznego łączenia urządzeń np. port szeregowy czy USB
+
+HTTP (Hypertext Transfer Protocol) służący m.in. do uzyskiwania dostępu do stron WWW oraz przesyłania fromularzy
+(jego wersja HTTPS, oparta na protokole TSL/ SSL - Transport Security Layer/Secure Sockets Layer - pozwala na bezpieczną transmisję danych),
+FTP (File Transfer Protocol) służący do pobierania/zapisywania plików (i jego bezpieczna wersja oparta na TSL/SSL - FTPS)
+SMTP (Simple Mail Transfer Protocol)  służący do przesyłania poczty elektronicznej (ESMPT -  SMPT z rozszerzeniami).
+POP3 (Post Office Protocol) służący do pobierania poczty z serwera
+IMAP (Internet Message Access Protocol) j.w., z dodatkowymi możliwościami.
+TELNET - umożliwiający zdalną prace na komputerze-hoście
+TIME  - proste uzyskiwanie aktualnego czasu od serwerów czasu
+DAYTIME - proste uzyskiwanie daty i czasu
+NTP (Network Time Protocol) - zaawansowane możliwości uzyskiwania dokładnego czasu
+NNTP (Network News Transfer Protocol) - przesyłanie, dystrybucja i odbiór wiadomości z tzw. newsgroups.
+IRC - Internet Relay Chat - znane wszystkim internetowe "czaty",
+ECHO -  "odbijający" dane posyłane przez klienta (służy głównie do celów testowania klientów)
+DICT - wyszukiwanie definicji w bazach słownikowych.

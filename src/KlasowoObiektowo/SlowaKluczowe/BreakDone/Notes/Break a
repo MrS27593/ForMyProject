@@ -1,0 +1,115 @@
+Świetnie 👍
+Oto **kompletne odpowiedzi do quizu `break` w Javie** wraz z wyjaśnieniami.
+
+---
+
+## ✅ Odpowiedzi – `break` w Java
+
+---
+
+### **1. Do czego służy słowo kluczowe `break`?**
+
+**✔ B. Przerwania pętli lub `switch`**
+`break` natychmiast kończy **bieżącą strukturę sterującą** i wychodzi poza nią.
+
+---
+
+### **2. Co się stanie w poniższym kodzie?**
+
+```java
+for (int i = 0; i < 5; i++) {
+    if (i == 3) break;
+    System.out.println(i);
+}
+```
+
+**✔ B. Wypisze `0 1 2`**
+Pętla kończy się, gdy `i == 3`.
+
+---
+
+### **3. Co się stanie, jeśli w `switch` zabraknie `break`?**
+
+**✔ C. Nastąpi fall-through (wykonanie kolejnych `case`)**
+Każdy kolejny `case` zostanie wykonany, aż do napotkania `break` lub końca `switch`.
+
+---
+
+### **4. Czy `break` można użyć poza pętlą lub `switch`?**
+
+**✔ B. Nie, to spowoduje błąd kompilacji**
+`break` nie może być stosowany w metodach ani blokach kodu bez pętli / `switch`.
+
+---
+
+### **5. Jak działa `break` z etykietą (label)?**
+
+**✔ C. Przerywa wskazaną etykietą pętlę zewnętrzną**
+Przydatne w zagnieżdżonych pętlach, gdy trzeba przerwać **bardziej niż jedną**.
+
+---
+
+### **6. Co zrobi `break` w pętli `while(true)`?**
+
+**✔ B. Przerwie pętlę natychmiast, jeśli napotka `break`**
+`break` jest jedynym sposobem na bezpieczne wyjście z pętli nieskończonej.
+
+---
+
+### **7. Który fragment w `switch` jest poprawny?**
+
+**✔ B.**
+
+```java
+case 1:
+    System.out.println("A");
+    break;
+case 2:
+    System.out.println("B");
+    break;
+```
+
+* Zapobiega fall-through i jest poprawną składnią.
+
+---
+
+### **8. Co odróżnia `break` od `continue`?**
+
+**✔ A. `break` kończy pętlę, `continue` pomija iterację**
+
+| break                   | continue                         |
+| ----------------------- | -------------------------------- |
+| kończy pętlę            | przechodzi do następnej iteracji |
+| działa w pętli i switch | działa tylko w pętli             |
+
+---
+
+### **9. (Otwarte)**
+
+**Przykład poprawny:**
+
+```java
+outer:
+for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+        if (i == 1 && j == 1) {
+            break outer; // wychodzi z obu pętli
+        }
+        System.out.println(i + "," + j);
+    }
+}
+```
+
+---
+
+### **10. (Otwarte)**
+
+**Dlaczego nie powinno się nadużywać `break`?**
+
+* Może **psuć czytelność kodu** („spaghetti code”)
+* Utrudnia analizę pętli i logiki
+* Często lepiej jest **zapisać logiczny warunek pętli** zamiast przerywać ją sztucznie
+
+---
+
+Chcesz, żebym następnie przygotował **temat `byte`** w Javie z praktyką, quizem i odpowiedziami?

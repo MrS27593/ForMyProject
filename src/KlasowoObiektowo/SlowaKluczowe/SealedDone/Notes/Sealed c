@@ -1,0 +1,99 @@
+## WIEDZA – `sealed` w Java
+
+---
+
+### 1️⃣ Czym jest `sealed`?
+
+`sealed` to słowo kluczowe w Javie wprowadzone w **Java 17**, które pozwala **kontrolować, które klasy mogą dziedziczyć po danej klasie**.
+
+📌 Pozwala na **bezpieczne dziedziczenie**, ograniczając nieautoryzowane rozszerzenia.
+
+---
+
+### 2️⃣ Podstawowe zasady
+
+* Klasa oznaczona jako `sealed` **musi wskazać, które klasy mogą ją rozszerzać** za pomocą słowa `permits`.
+* Każda podklasa musi być **`final`**, **`sealed`** lub **`non-sealed`**.
+
+---
+
+### 3️⃣ Składnia `sealed` + `permits`
+
+```java
+sealed class Shape permits Circle, Rectangle, Triangle {
+    // pola i metody wspólne dla wszystkich kształtów
+}
+
+final class Circle extends Shape { }
+non-sealed class Rectangle extends Shape { }
+sealed class Triangle extends Shape permits EquilateralTriangle, IsoscelesTriangle { }
+```
+
+📌 `permits` wymienia **tylko klasy, które mogą dziedziczyć**.
+
+---
+
+### 4️⃣ Typy klas dziedziczących po `sealed`
+
+| Typ          | Znaczenie                                              |
+| ------------ | ------------------------------------------------------ |
+| `final`      | Klasa nie może mieć dalszych podklas                   |
+| `non-sealed` | Klasa otwarta dla dalszego dziedziczenia               |
+| `sealed`     | Klasa nadal ogranicza dziedziczenie i wymaga `permits` |
+
+---
+
+### 5️⃣ Praktyczny przykład – system płatności
+
+```java
+sealed class Payment permits CardPayment, BlikPayment, CashPayment {
+    abstract void pay(double amount);
+}
+
+final class CardPayment extends Payment {
+    @Override
+    void pay(double amount) {
+        System.out.println("Płatność kartą: " + amount);
+    }
+}
+
+non-sealed class BlikPayment extends Payment {
+    @Override
+    void pay(double amount) {
+        System.out.println("Płatność BLIK: " + amount);
+    }
+}
+```
+
+* `CardPayment` = final → brak dalszych podklas
+* `BlikPayment` = non-sealed → można tworzyć dalsze podklasy
+
+---
+
+### 6️⃣ Zastosowania `sealed`
+
+* Kontrola **hierarchii klas**
+* Bezpieczne dziedziczenie w bibliotekach
+* Ułatwia współpracę z **switch expressions** (Java 17+)
+* Zapewnia **kompilatorowi pewność**, że wszystkie przypadki są obsłużone
+
+---
+
+### 7️⃣ Ograniczenia
+
+❌ Klasa `sealed` musi być **abstrakcyjna lub mieć co najmniej jedną podklasę** w `permits`
+❌ `permits` musi dokładnie wymieniać klasy, które dziedziczą
+❌ Nie można pominąć modyfikatora dla podklasy – musi być `final`, `non-sealed` lub `sealed`
+
+---
+
+### 8️⃣ Podsumowanie
+
+* `sealed` = kontrola dziedziczenia
+* `permits` = lista dopuszczonych podklas
+* Podklasy muszą być `final`, `sealed` lub `non-sealed`
+* Przydatne w: **API, frameworkach, bezpieczeństwie kodu, switch expressions**
+
+---
+
+Chcesz, żebym teraz przygotował **quiz do `sealed`**?

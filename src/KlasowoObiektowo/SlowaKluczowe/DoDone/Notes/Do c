@@ -1,0 +1,92 @@
+Oczywiście! Opowiem Ci szczegółowo o słowie kluczowym `do` w języku Java oraz pokażę, jak działa w praktyce. A jeśli chcesz — mogę rozszerzyć to o naukę programowania w Java od podstaw.
+
+---
+
+### 🔹 Czym jest `do` w Java?
+
+W języku Java `do` jest częścią instrukcji **pętli do-while** — to jedna z trzech głównych pętli, obok `for` i `while`.
+
+#### 📌 Składnia `do-while`:
+
+```java
+do {
+    // blok kodu do wykonania
+} while (warunek);
+```
+
+### 🔹 Jak to działa?
+
+- **Najpierw** wykona się kod w bloku `do`.
+- **Dopiero potem** zostanie sprawdzony warunek w `while`.
+- Jeśli **warunek jest prawdziwy**, kod wykona się ponownie.
+- Jeśli **fałszywy**, pętla się zakończy.
+
+---
+
+### 🧠 Różnica między `while` a `do-while`
+
+| Cecha             | `while`                      | `do-while`                               |
+|------------------|------------------------------|------------------------------------------|
+| Sprawdzenie warunku | Na początku                | Po wykonaniu pierwszego obiegu           |
+| Gwarancja wykonania | Może się **nie wykonać nigdy** | **Zawsze wykona się co najmniej raz**    |
+
+---
+
+### 🔧 Przykład działania:
+
+```java
+int licznik = 0;
+
+do {
+    System.out.println("Licznik: " + licznik);
+    licznik++;
+} while (licznik < 5);
+```
+
+**Wynik:**
+```
+Licznik: 0
+Licznik: 1
+Licznik: 2
+Licznik: 3
+Licznik: 4
+```
+
+---
+
+### 🛠 Kiedy używać `do-while`?
+
+- Gdy **chcesz mieć pewność**, że kod wykona się **przynajmniej raz**.
+- Przykłady:
+  - Wczytywanie danych od użytkownika do skutku.
+  - Pokazywanie menu aż do wybrania opcji „Wyjdź”.
+
+---
+
+### 🧪 Przykład z użytkownikiem:
+
+```java
+import java.util.Scanner;
+
+public class MenuExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int wybor;
+
+        do {
+            System.out.println("=== MENU ===");
+            System.out.println("1. Start");
+            System.out.println("2. Pomoc");
+            System.out.println("3. Wyjście");
+            System.out.print("Wybierz opcję: ");
+            wybor = scanner.nextInt();
+        } while (wybor != 3);
+
+        System.out.println("Zamknięcie programu...");
+    }
+}
+```
+
+---
+
+Jeśli chcesz, mogę nauczyć Cię kolejnych elementów Javy krok po kroku: zmiennych, typów danych, klas, metod itd. — od zera albo od wybranego poziomu. Od czego chcesz zacząć?

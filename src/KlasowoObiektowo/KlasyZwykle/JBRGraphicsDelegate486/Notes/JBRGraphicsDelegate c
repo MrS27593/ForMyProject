@@ -1,0 +1,29 @@
+Klasa `JBRGraphicsDelegate` z pakietu `com.jetbrains.desktop` jest częścią JetBrains Runtime (JBR) — zmodyfikowanej wersji OpenJDK opracowanej przez JetBrains, która zawiera ulepszenia specyficzne dla aplikacji opartych na IntelliJ Platform.([JetBrains Marketplace][1])
+
+### Co to jest `JBRGraphicsDelegate`?
+
+`JBRGraphicsDelegate` to klasa wprowadzona w ramach JBR API w wersji 1.5.0, dodana w kontekście rozszerzeń graficznych, takich jak `GraphicsUtils`. Jej głównym celem jest dostarczanie dodatkowych funkcji graficznych, które nie są dostępne w standardowym OpenJDK. Klasa ta umożliwia bardziej zaawansowane operacje graficzne, takie jak lepsze zarządzanie buforami, obsługa HiDPI czy integracja z natywnymi funkcjami systemowymi.([Google Android Repositories][2])
+
+### Praktyczne zastosowania
+
+`JBRGraphicsDelegate` znajduje zastosowanie w sytuacjach, gdzie standardowe możliwości graficzne Java są niewystarczające. Przykłady obejmują:
+
+* **Zaawansowane renderowanie**: Umożliwia bardziej efektywne i precyzyjne renderowanie grafiki w aplikacjach opartych na IntelliJ Platform.([JetBrains Marketplace][1])
+
+* **Obsługa HiDPI**: Poprawia skalowanie i jakość wyświetlania na monitorach o wysokiej rozdzielczości, co jest szczególnie istotne w nowoczesnych środowiskach graficznych.
+
+* **Integracja z natywnymi systemami graficznymi**: Pozwala na lepszą współpracę z natywnymi bibliotekami graficznymi systemu operacyjnego, co może prowadzić do zwiększenia wydajności i jakości renderowania.
+
+### Przykład użycia
+
+Choć `JBRGraphicsDelegate` jest klasą wewnętrzną i nie jest przeznaczona do bezpośredniego użycia przez programistów, jej funkcjonalności są wykorzystywane przez inne komponenty JBR. Na przykład, w przypadku zaawansowanego renderowania w aplikacjach IntelliJ, `JBRGraphicsDelegate` może być używana przez `ConstrainableGraphics2D` do zarządzania ograniczeniami rysowania.([GitHub][3])
+
+### Uwagi końcowe
+
+`JBRGraphicsDelegate` jest integralną częścią JetBrains Runtime i jest używana wewnętrznie przez komponenty IntelliJ Platform. Nie jest przeznaczona do bezpośredniego użycia w aplikacjach zewnętrznych. Jeśli tworzysz pluginy lub aplikacje oparte na IntelliJ Platform, korzystanie z JBR zapewni dostęp do tych zaawansowanych funkcji graficznych.([JetBrains Marketplace][1])
+
+Jeśli potrzebujesz więcej informacji na temat JetBrains Runtime lub tworzenia pluginów dla IntelliJ Platform, chętnie pomogę!
+
+[1]: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-jetbrains-runtime.html?utm_source=chatgpt.com "JetBrains Runtime (JBR) | IntelliJ Platform Plugin SDK"
+[2]: https://android.googlesource.com/platform/external/jetbrains/JetBrainsRuntime/%2B/9870d8ef4d51a36305d789cf29bcebc99b5314a5%5E%21/?utm_source=chatgpt.com "Diff - 9870d8ef4d51a36305d789cf29bcebc99b5314a5^! - platform/external ..."
+[3]: https://github.com/JetBrains/JetBrainsRuntime/blob/main/src/java.desktop/share/classes/com/jetbrains/desktop/JBRApiModule.java?utm_source=chatgpt.com "GitHub"

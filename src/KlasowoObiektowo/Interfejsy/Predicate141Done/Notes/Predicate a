@@ -1,0 +1,97 @@
+Super 👍
+Oto **ODPOWIEDZI do quizu o interfejsie `java.util.function.Predicate<T>`** wraz z jasnymi wyjaśnieniami.
+
+---
+
+## ✅ **Odpowiedzi – Quiz `Predicate`**
+
+---
+
+### **1️⃣ Czym jest interfejs `Predicate<T>`?**
+
+**Odpowiedź:** **b) Interfejsem funkcyjnym**
+➡️ Ma dokładnie jedną metodę abstrakcyjną.
+
+---
+
+### **2️⃣ Jaką metodę definiuje `Predicate<T>`?**
+
+**Odpowiedź:** **c) `boolean test(T t)`**
+
+---
+
+### **3️⃣ Co zwraca metoda `test()`?**
+
+**Odpowiedź:** **d) `boolean`**
+➡️ Prymityw, nie `Boolean`.
+
+---
+
+### **4️⃣ W jakim pakiecie znajduje się `Predicate`?**
+
+**Odpowiedź:** **c) java.util.function**
+
+---
+
+### **5️⃣ Która metoda pozwala połączyć dwa warunki logiczne AND?**
+
+**Odpowiedź:** **b) `and()`**
+
+---
+
+### **6️⃣ Co robi metoda `negate()`?**
+
+**Odpowiedź:** **c) Odwraca wynik logiczny**
+➡️ `true` → `false`, `false` → `true`.
+
+---
+
+### **7️⃣ Która metoda Stream API przyjmuje `Predicate` jako argument?**
+
+**Odpowiedź:** **c) `filter()`**
+
+---
+
+### **8️⃣ Jaki będzie wynik?**
+
+```java
+Predicate<Integer> p = x -> x > 10;
+System.out.println(p.test(10));
+```
+
+**Odpowiedź:** **b) `false`**
+➡️ 10 **nie** jest większe od 10.
+
+---
+
+### **9️⃣ Do czego służy metoda statyczna `Predicate.isEqual()`?**
+
+**Odpowiedź:** **b) Do bezpiecznego porównania z `equals()`**
+➡️ Bezpieczna także przy `null`.
+
+---
+
+### **🔟 Które zdanie jest PRAWIDŁOWE?**
+
+**Odpowiedź:** **c) `Predicate` często używany jest do filtrowania**
+
+---
+
+## 🧠 **Egzaminacyjna ściąga**
+
+* `Predicate<T>` → `boolean test(T t)`
+* interfejs funkcyjny → lambda
+* najczęściej: `filter()`
+* metody: `and`, `or`, `negate`
+* `Predicate.isEqual()` → null-safe equals
+
+---
+
+Jeśli chcesz iść dalej logicznym ciągiem:
+
+* 🔹 **Consumer**
+* 🔹 **Supplier**
+* 🔹 **BiPredicate**
+* 🔹 **zadania rekrutacyjne z Predicate + Stream**
+
+👉 Co następne? 💪

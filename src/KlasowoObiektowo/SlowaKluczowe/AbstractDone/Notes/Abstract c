@@ -1,0 +1,215 @@
+Świetnie, **`abstract`** to bardzo ważne słowo kluczowe w Javie 💡
+Jak zawsze – **najpierw WIEDZA**, potem na Twoje hasło zrobimy **QUIZ**, a na końcu **ODPOWIEDZI**.
+
+---
+
+# 🧠 `abstract` w języku Java — WIEDZA
+
+## 1️⃣ Co oznacza słowo kluczowe `abstract`?
+
+`abstract` oznacza **„niepełny” / „niedokończony”**.
+
+W Javie używamy go, gdy:
+
+* **nie da się sensownie utworzyć obiektu danej klasy**
+* chcemy wymusić, aby klasy potomne **zaimplementowały określone metody**
+
+Może być używane dla:
+
+* **klas**
+* **metod**
+
+---
+
+## 2️⃣ Klasa abstrakcyjna (`abstract class`)
+
+### 🔹 Definicja
+
+Klasa abstrakcyjna to klasa:
+
+* której **nie można utworzyć obiektu**
+* może zawierać **metody abstrakcyjne i zwykłe**
+* służy jako **szablon / baza** dla klas potomnych
+
+### ✅ Przykład
+
+```java
+abstract class Vehicle {
+    abstract void move();   // metoda abstrakcyjna
+
+    void stop() {            // metoda zwykła
+        System.out.println("Pojazd się zatrzymał");
+    }
+}
+```
+
+❌ Niedozwolone:
+
+```java
+Vehicle v = new Vehicle(); // BŁĄD kompilacji
+```
+
+---
+
+## 3️⃣ Metoda abstrakcyjna
+
+### 🔹 Cechy
+
+Metoda abstrakcyjna:
+
+* **nie ma ciała**
+* kończy się średnikiem `;`
+* **musi zostać zaimplementowana** w klasie potomnej
+
+```java
+abstract void move();
+```
+
+---
+
+## 4️⃣ Klasa dziedzicząca po abstrakcyjnej (`extends`)
+
+Każda **konkretna** klasa dziedzicząca:
+
+* MUSI zaimplementować wszystkie metody abstrakcyjne
+  (jeśli tego nie zrobi → sama też musi być `abstract`)
+
+### ✅ Przykład
+
+```java
+class Car extends Vehicle {
+
+    @Override
+    void move() {
+        System.out.println("Samochód jedzie");
+    }
+}
+```
+
+Teraz:
+
+```java
+Vehicle v = new Car(); // OK (polimorfizm)
+v.move();              // "Samochód jedzie"
+v.stop();              // "Pojazd się zatrzymał"
+```
+
+---
+
+## 5️⃣ Po co używać `abstract`? (BARDZO WAŻNE)
+
+### ✅ 1. Wymuszanie implementacji
+
+Każda klasa potomna **musi** zaimplementować metody abstrakcyjne.
+
+### ✅ 2. Wspólny kontrakt
+
+Każdy obiekt typu `Vehicle` **na pewno ma metodę `move()`**.
+
+### ✅ 3. Polimorfizm
+
+Możesz pisać kod oparty na typie bazowym:
+
+```java
+void startVehicle(Vehicle v) {
+    v.move();
+}
+```
+
+---
+
+## 6️⃣ Bardziej złożony, praktyczny przykład 🧩
+
+### 🏦 System płatności
+
+```java
+abstract class Payment {
+
+    protected double amount;
+
+    Payment(double amount) {
+        this.amount = amount;
+    }
+
+    abstract void pay();
+
+    void printReceipt() {
+        System.out.println("Kwota: " + amount);
+    }
+}
+```
+
+#### Implementacje:
+
+```java
+class CardPayment extends Payment {
+
+    CardPayment(double amount) {
+        super(amount);
+    }
+
+    @Override
+    void pay() {
+        System.out.println("Płatność kartą");
+    }
+}
+```
+
+```java
+class BlikPayment extends Payment {
+
+    BlikPayment(double amount) {
+        super(amount);
+    }
+
+    @Override
+    void pay() {
+        System.out.println("Płatność BLIK");
+    }
+}
+```
+
+#### Użycie:
+
+```java
+Payment payment = new BlikPayment(200);
+payment.pay();
+payment.printReceipt();
+```
+
+---
+
+## 7️⃣ `abstract` vs `interface` (krótkie porównanie)
+
+| Cecha           | abstract class      | interface                   |
+| --------------- | ------------------- | --------------------------- |
+| Konstruktor     | ✅ Tak               | ❌ Nie                       |
+| Pola            | ✅ Tak               | tylko `public static final` |
+| Metody z ciałem | ✅ Tak               | od Java 8                   |
+| Dziedziczenie   | `extends` (1 klasa) | `implements` (wiele)        |
+
+---
+
+## 8️⃣ Ograniczenia `abstract`
+
+❌ Nie można:
+
+* tworzyć obiektów klasy abstrakcyjnej
+* oznaczyć metody jako `abstract` i `private`
+* oznaczyć metody jako `abstract` i `final`
+* używać `abstract` z `static`
+
+---
+
+## 9️⃣ Najważniejsze do zapamiętania 🧠
+
+✔ `abstract` = klasa lub metoda niekompletna
+✔ Klasa abstrakcyjna = SZABLON
+✔ Metody abstrakcyjne MUSZĄ być zaimplementowane
+✔ Bardzo często używane w **architekturze aplikacji**
+
+---
+
+👉 **Gdy będziesz gotowy, napisz tylko:**
+**`quiz`**
+a przygotuję Ci solidny quiz z `abstract` (od podstaw do tricky pytań).

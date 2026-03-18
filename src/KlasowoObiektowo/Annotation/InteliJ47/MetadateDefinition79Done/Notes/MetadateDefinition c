@@ -1,0 +1,62 @@
+Super 😄 lecimy teraz z **`@MetadataDefinition`** – adnotacją często spotykaną w kontekście **Java Flight Recorder (JFR)** i innych frameworków narzędziowych.
+
+---
+
+# 📌 `@MetadataDefinition` – co to jest?
+
+`@MetadataDefinition` to **adnotacja meta**, która oznacza, że:
+
+> Klasa lub adnotacja definiuje **metadane**, które mogą być używane przez narzędzia lub frameworki do generowania informacji o zdarzeniach, polach lub konfiguracji.
+
+W JFR jest używana głównie przy definiowaniu **custom annotations** takich jak `@Label`, `@Description`, `@Category`, `@ContentType`.
+
+---
+
+## 🔎 Pakiet
+
+```java
+jdk.jfr.MetadataDefinition
+```
+
+Od wersji: Java 9+
+
+---
+
+# ✅ Przykład użycia
+
+```java id="n8f1dx"
+import jdk.jfr.*;
+
+@MetadataDefinition
+@Label("Frequency")
+@Description("Measure of how often something occurs, in Hertz")
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.FIELD, ElementType.METHOD})
+public @interface Frequency {
+}
+```
+
+➡ Tutaj `@MetadataDefinition` oznacza, że `@Frequency` jest **adnotacją definiującą metadane**, które mogą być odczytane przez narzędzia JFR.
+
+---
+
+# 🧠 Uwagi
+
+1. **Tylko informacyjna** – nie zmienia logiki programu.
+2. Stosowana głównie do **custom annotations JFR**, aby IDE i narzędzia wiedziały, że dana adnotacja jest metadanymi.
+3. Często występuje razem z:
+
+   * `@Label` – nazwa pola
+   * `@Description` – opis pola
+   * `@ContentType` – typ danych
+   * `@Category` – grupa pól
+
+---
+
+# 🎯 Definicja egzaminacyjna
+
+> `@MetadataDefinition` oznacza, że adnotacja lub klasa definiuje **metadane** używane przez narzędzia i frameworki (np. JFR) do dokumentowania, wizualizacji lub analizy danych zdarzeń.
+
+---
+
+Chcesz, żebym od razu zrobił **quiz z `@MetadataDefinition`**?

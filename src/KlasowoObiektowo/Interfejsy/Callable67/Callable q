@@ -1,0 +1,90 @@
+Oczywiście! Oto quiz sprawdzający Twoją wiedzę na temat interfejsu `Callable` w Javie. Składa się z różnych typów pytań, od wielokrotnego wyboru po pytania otwarte.
+
+---
+
+### 1. **Wybór odpowiedzi:**
+Które z poniższych stwierdzeń jest prawdziwe o interfejsie `Callable`?
+
+a) `Callable` zwraca wynik, a `Runnable` nie.
+b) `Callable` nie może rzucać wyjątków.
+c) `Runnable` zwraca wynik, a `Callable` nie.
+d) `Callable` zawsze używa metody `run()`.
+
+---
+
+### 2. **Wybór odpowiedzi:**
+Jaka jest główna różnica pomiędzy metodą `run()` w interfejsie `Runnable` a metodą `call()` w interfejsie `Callable`?
+
+a) `run()` nie może rzucać wyjątków, podczas gdy `call()` może.
+b) `run()` zwraca wynik, a `call()` nie.
+c) `run()` może rzucać wyjątki, a `call()` nie.
+d) `run()` jest używana w `ExecutorService`, a `call()` w `Thread`.
+
+---
+
+### 3. **Prawda/Fałsz:**
+Metoda `call()` w interfejsie `Callable` musi zawsze zwracać wartość.
+
+---
+
+### 4. **Wybór odpowiedzi:**
+Co zwraca metoda `submit()` w kontekście interfejsu `Callable`?
+
+a) `Future<T>`
+b) `Thread`
+c) `Runnable`
+d) `boolean`
+
+---
+
+### 5. **Wybór odpowiedzi:**
+Co się stanie, jeśli zadanie wykonujące `Callable` zakończy się rzuceniem wyjątku?
+
+a) Program natychmiast się zakończy.
+b) Zwróci się domyślna wartość w przypadku wyjątku.
+c) `Future.get()` rzuci wyjątek, który musi być obsłużony przez kod wywołujący.
+d) Wyjątek zostanie zignorowany i zadanie będzie uznane za zakończone.
+
+---
+
+### 6. **Wybór odpowiedzi:**
+Jakie są potencjalne korzyści z użycia `ExecutorService` do uruchamiania zadań `Callable`?
+
+a) Może zarządzać pulą wątków, co poprawia wydajność.
+b) Może uruchomić zadania na jednym wątku, ale nie zwróci żadnej wartości.
+c) Może używać `Future` do anulowania zadań.
+d) Wszystkie odpowiedzi są poprawne.
+
+---
+
+### 7. **Pytanie otwarte:**
+Jakie są różnice między `ExecutorService.submit()` i `ExecutorService.invokeAll()` w kontekście `Callable`?
+
+---
+
+### 8. **Wybór odpowiedzi:**
+Jakie jest domyślne zachowanie metody `Future.get()`?
+
+a) Blokuje aż zadanie zakończy się i zwróci wynik.
+b) Zwraca natychmiastowy wynik, nawet jeśli zadanie nie zostało jeszcze zakończone.
+c) Zwraca `null`, jeśli zadanie zakończy się bez błędów.
+d) Ignoruje wyjątki rzucane przez zadanie.
+
+---
+
+### 9. **Wybór odpowiedzi:**
+W jaki sposób można anulować zadanie z użyciem `Future`?
+
+a) `future.cancel(true)`
+b) `future.stop()`
+c) `future.abort()`
+d) `future.terminate()`
+
+---
+
+### 10. **Pytanie otwarte:**
+Zademonstruj, jak można użyć `Callable` do równoległego wykonania trzech prostych zadań, które zwracają różne wyniki, a następnie je połączyć.
+
+---
+
+Mam nadzieję, że quiz pomoże w utrwaleniu wiedzy! Daj znać, jak Ci poszło lub jeśli chciałbyś sprawdzić odpowiedzi!

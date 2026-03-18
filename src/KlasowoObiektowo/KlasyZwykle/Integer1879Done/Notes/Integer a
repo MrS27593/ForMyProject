@@ -1,0 +1,100 @@
+Świetnie! 🚀
+Oto **poprawne odpowiedzi do quizu o klasie `Integer`** wraz z krótkim wyjaśnieniem każdego pytania:
+
+---
+
+## ✅ **Odpowiedzi – Klasa `Integer`**
+
+---
+
+**1. Do czego służy klasa `Integer`?**
+✅ **b) Do przechowywania liczb całkowitych jako obiektów**
+
+* `Integer` jest klasą opakowującą typ prosty `int`.
+
+---
+
+**2. Jak utworzyć obiekt Integer w nowoczesnej Javie?**
+✅ **b) `Integer i = Integer.valueOf(10);`**
+
+* Konstruktor `new Integer(10)` jest **przestarzały (deprecated)**.
+* Najlepiej używać `valueOf()` lub autoboxingu: `Integer i = 10;`.
+
+---
+
+**3. Jak zamienić napis `"123"` na typ `int`?**
+✅ **b) `Integer.parseInt("123")`**
+
+* `parseInt()` zwraca typ prosty `int`.
+* `valueOf()` zwraca obiekt `Integer`.
+
+---
+
+**4. Jak pobrać wartość typu `int` z obiektu `Integer i`?**
+✅ **b) `i.intValue()`**
+
+* Inne metody (`byteValue()`, `longValue()`, itp.) konwertują na inne typy.
+
+---
+
+**5. Które pola są statyczne w klasie Integer?**
+✅ **a) `MIN_VALUE`, `MAX_VALUE`, `SIZE`**
+
+* To pola statyczne klasy, dostępne bez tworzenia obiektu.
+
+---
+
+**6. Co robi metoda `Integer.compare(int x, int y)`?**
+✅ **c) Porównuje dwa inty i zwraca -1, 0 lub 1**
+
+* Zwraca:
+
+  * `< 0` jeśli x < y
+  * `0` jeśli x = y
+  * `> 0` jeśli x > y
+
+---
+
+**7. Co zwróci `Integer.toBinaryString(10)`?**
+✅ **a) `"1010"`**
+
+* Zamienia liczbę 10 na **reprezentację binarną**.
+
+---
+
+**8. Dlaczego nie zawsze należy używać `==` do porównania Integerów?**
+✅ **b) Bo porównuje tylko referencje obiektów**
+
+* `==` sprawdza, czy dwa obiekty **wskazują na ten sam adres w pamięci**, a nie ich wartości.
+* Dla wartości z cache (-128 do 127) czasem działa, poza tym **niebezpieczne**.
+* Zawsze lepiej używać `equals()`.
+
+---
+
+**9. Jak zamienić String `"456"` na obiekt `Integer`?**
+✅ **a) `Integer.valueOf("456")`**
+
+* `parseInt()` zwraca `int`, a `valueOf()` zwraca **Integer**.
+
+---
+
+**10. Ile bitów zajmuje typ `int` w Javie?**
+✅ **b) 32**
+
+* `Integer.SIZE` również zwraca 32.
+
+---
+
+💡 **Podsumowanie:**
+Klasa `Integer` to **kluczowa klasa opakowująca** w Javie, pozwalająca:
+
+* używać intów jako obiektów w kolekcjach
+* konwertować między String → int / Integer
+* porównywać liczby
+* pracować z systemami liczbowymi (binarny, szesnastkowy, oktalny)
+
+---
+
+Jeśli chcesz, możemy teraz przejść do **klasy `Double`**, żeby kontynuować naukę wszystkich klas opakowujących liczby w Javie.
+
+Chcesz, żebym to zrobił?

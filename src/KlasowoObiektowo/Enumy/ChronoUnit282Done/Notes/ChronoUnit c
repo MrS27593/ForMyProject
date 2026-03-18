@@ -1,0 +1,208 @@
+Świetnie 🔥
+`ChronoUnit` to **kluczowy enum w `java.time`**, często pojawia się na **rekrutacjach i egzaminach**. Nauczymy go **od podstaw do poziomu eksperckiego**, logicznie i z przykładami.
+
+---
+
+# ⏱️ `java.time.temporal.ChronoUnit` – kompletny przewodnik
+
+## 1️⃣ Czym jest `ChronoUnit`?
+
+`ChronoUnit` to **enum reprezentujący jednostki czasu**, zgodny z ISO-8601.
+
+Pakiet:
+
+```java
+java.time.temporal.ChronoUnit
+```
+
+---
+
+## 2️⃣ Najważniejsze jednostki (`ChronoUnit`)
+
+### Data:
+
+* `DAYS`
+* `WEEKS`
+* `MONTHS`
+* `YEARS`
+* `DECADES`
+* `CENTURIES`
+* `MILLENNIA`
+
+### Czas:
+
+* `NANOS`
+* `MICROS`
+* `MILLIS`
+* `SECONDS`
+* `MINUTES`
+* `HOURS`
+* `HALF_DAYS`
+
+---
+
+## 3️⃣ Podstawowe użycie – `plus` / `minus`
+
+```java
+LocalDate date = LocalDate.of(2026, 1, 1);
+
+date = date.plus(5, ChronoUnit.DAYS);
+date = date.minus(1, ChronoUnit.MONTHS);
+
+System.out.println(date);
+```
+
+📌 `ChronoUnit` określa **jednostkę**, a liczba określa **ile**.
+
+---
+
+## 4️⃣ Obliczanie różnicy czasu (`between`)
+
+### 4.1️⃣ Dni między datami
+
+```java
+LocalDate start = LocalDate.of(2026, 1, 1);
+LocalDate end   = LocalDate.of(2026, 1, 31);
+
+long days = ChronoUnit.DAYS.between(start, end);
+System.out.println(days); // 30
+```
+
+---
+
+### 4.2️⃣ Godziny / minuty
+
+```java
+LocalTime t1 = LocalTime.of(10, 0);
+LocalTime t2 = LocalTime.of(12, 30);
+
+long minutes = ChronoUnit.MINUTES.between(t1, t2);
+System.out.println(minutes); // 150
+```
+
+---
+
+## 5️⃣ `ChronoUnit` jako `TemporalUnit`
+
+Każdy `ChronoUnit` implementuje interfejs:
+
+```java
+TemporalUnit
+```
+
+Dzięki temu można używać go w:
+
+```java
+temporal.plus(1, ChronoUnit.DAYS);
+temporal.until(other, ChronoUnit.HOURS);
+```
+
+---
+
+## 6️⃣ Sprawdzanie czy jednostka jest datą czy czasem
+
+```java
+ChronoUnit.DAYS.isDateBased(); // true
+ChronoUnit.HOURS.isTimeBased(); // true
+```
+
+---
+
+## 7️⃣ Długość jednostki (`getDuration()`)
+
+```java
+Duration d = ChronoUnit.HOURS.getDuration();
+System.out.println(d); // PT1H
+```
+
+Przykłady:
+
+* `DAYS` → PT24H
+* `MINUTES` → PT1M
+* `SECONDS` → PT1S
+
+---
+
+## 8️⃣ ChronoUnit vs Duration vs Period
+
+| Klasa        | Do czego                        |
+| ------------ | ------------------------------- |
+| `ChronoUnit` | jednostka czasu                 |
+| `Duration`   | ilość czasu (sekundy, nanos)    |
+| `Period`     | ilość dat (dni, miesiące, lata) |
+
+```java
+Period p = Period.of(1, 2, 10);
+Duration d = Duration.of(5, ChronoUnit.HOURS);
+```
+
+---
+
+## 9️⃣ Najczęstsze pułapki ❗
+
+❌ `ChronoUnit.MONTHS.getDuration()`
+✔ Nie zawsze dokładne (miesiąc ≠ stała liczba dni)
+
+❌ Liczenie miesięcy `DAYS.between()`
+✔ Użyj `MONTHS.between()`
+
+❌ Mieszanie `LocalDate` z `HOURS`
+
+```java
+ChronoUnit.HOURS.between(LocalDate.now(), LocalDate.now()) // ❌
+```
+
+---
+
+## 🔟 Przykłady rekrutacyjne
+
+### 🔹 Ile dni do końca roku?
+
+```java
+LocalDate now = LocalDate.now();
+LocalDate end = LocalDate.of(now.getYear(), 12, 31);
+
+long days = ChronoUnit.DAYS.between(now, end);
+```
+
+---
+
+### 🔹 Sprawdź czy termin minął
+
+```java
+boolean expired = ChronoUnit.DAYS.between(deadline, LocalDate.now()) > 0;
+```
+
+---
+
+## 1️⃣1️⃣ Najważniejsze jednostki do zapamiętania
+
+⭐ `DAYS`
+⭐ `HOURS`
+⭐ `MINUTES`
+⭐ `SECONDS`
+⭐ `MONTHS`
+⭐ `YEARS`
+
+---
+
+## 🧠 Podsumowanie
+
+✔ `ChronoUnit` to enum
+✔ Reprezentuje jednostki czasu
+✔ Używany z `plus`, `minus`, `between`
+✔ Implementuje `TemporalUnit`
+✔ Kluczowy w `java.time`
+
+---
+
+### 🔥 Co dalej?
+
+Mogę:
+
+* zrobić **quiz z `ChronoUnit`**
+* porównać **`ChronoUnit` vs `TimeUnit`**
+* dać **zadania rekrutacyjne z czasem**
+* przejść do **`Duration` i `Period`**
+
+👉 Co wybierasz?

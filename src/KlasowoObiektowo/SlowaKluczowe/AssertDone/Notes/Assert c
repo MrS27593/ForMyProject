@@ -1,0 +1,175 @@
+### `assert` w języku Java — **WIEDZA**
+
+`assert` to słowo kluczowe służące do **sprawdzania założeń (warunków), które powinny być zawsze prawdziwe w trakcie działania programu**. Jest używane głównie do **debugowania i testowania**, a nie do normalnej obsługi błędów w aplikacji produkcyjnej.
+
+---
+
+## 1️⃣ Do czego służy `assert`?
+
+* wykrywanie **błędów logicznych** w kodzie
+* sprawdzanie **niezmienników** (np. „ta wartość nigdy nie powinna być ujemna”)
+* pomoc programiście w czasie developmentu
+* **nie zastępuje** `if + exception`
+
+📌 `assert` **może być wyłączony** w czasie uruchamiania programu.
+
+---
+
+## 2️⃣ Podstawowa składnia
+
+### 🔹 Prosta forma
+
+```java
+assert warunek;
+```
+
+Jeśli `warunek == false` → rzucany jest `AssertionError`.
+
+---
+
+### 🔹 Forma z komunikatem
+
+```java
+assert warunek : "Komunikat błędu";
+```
+
+Przykład:
+
+```java
+int age = -5;
+assert age >= 0 : "Wiek nie może być ujemny";
+```
+
+---
+
+## 3️⃣ Co się stanie, gdy `assert` zawiedzie?
+
+* JVM rzuci **`AssertionError`**
+* program **zatrzyma się**
+* jest to **Error**, a nie `Exception` ❗
+
+```java
+Exception ❌
+AssertionError ✅
+```
+
+---
+
+## 4️⃣ `assert` a JVM – bardzo ważne ❗
+
+`assert` **DOMYŚLNIE JEST WYŁĄCZONY**
+
+Aby go włączyć w IntelliJ / JVM:
+
+```
+-ea
+```
+
+lub
+
+```
+-enableassertions
+```
+
+📌 Bez tego **`assert` jest ignorowany** (kod się nawet nie wykona).
+
+---
+
+## 5️⃣ `assert` vs `if`
+
+❌ ZŁE użycie:
+
+```java
+if (x < 0) {
+    throw new IllegalArgumentException();
+}
+```
+
+✅ DOBRE użycie `assert`:
+
+```java
+assert x >= 0 : "x nie może być ujemne";
+```
+
+👉 `assert` zakłada, że **błąd nigdy nie powinien się wydarzyć**,
+`if` obsługuje **normalne błędy użytkownika / danych wejściowych**.
+
+---
+
+## 6️⃣ Gdzie NIE używać `assert`?
+
+🚫 Do:
+
+* walidacji danych od użytkownika
+* sprawdzania parametrów publicznych API
+* obsługi błędów biznesowych
+* logiki aplikacyjnej
+
+Bo:
+
+* może być wyłączony
+* nie gwarantuje wykonania
+
+---
+
+## 7️⃣ Gdzie używać `assert`? (praktyka)
+
+### ✔ Sprawdzanie stanu obiektu
+
+```java
+void withdraw(double amount) {
+    assert amount > 0;
+    balance -= amount;
+}
+```
+
+### ✔ Sprawdzanie niezmienników
+
+```java
+assert list != null;
+```
+
+### ✔ Algorytmy / struktury danych
+
+```java
+assert left <= right;
+```
+
+---
+
+## 8️⃣ Czy można złapać `AssertionError`?
+
+Technicznie: **TAK**
+Praktycznie: **NIE RÓB TEGO**
+
+```java
+try {
+    assert false;
+} catch (AssertionError e) {
+    // bardzo zła praktyka
+}
+```
+
+---
+
+## 9️⃣ Najczęstsze błędy początkujących
+
+❌ Myślenie, że `assert` zawsze działa
+❌ Używanie `assert` zamiast walidacji
+❌ Brak `-ea` w JVM
+❌ Logika programu zależna od `assert`
+
+---
+
+## 10️⃣ Podsumowanie (do zapamiętania)
+
+* `assert` = **narzędzie debugujące**
+* rzuca `AssertionError`
+* może być wyłączony
+* NIE do walidacji użytkownika
+* Świetny do **testów i algorytmów**
+
+---
+
+Gdy będziesz gotowy, napisz: **`quiz`**
+a przygotuję **mocny quiz z `assert` (w tym pytania-pułapki egzaminacyjne)** ✅

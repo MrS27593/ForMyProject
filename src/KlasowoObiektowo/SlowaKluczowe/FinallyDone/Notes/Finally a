@@ -1,0 +1,107 @@
+### ✅ Odpowiedzi – QUIZ `finally` w Java
+
+---
+
+### 1️⃣ Kiedy blok `finally` jest wykonywany?
+
+**✅ C. Zawsze po `try`/`catch`**
+
+➡ Niezależnie od tego, czy wystąpi wyjątek, czy nie (z wyjątkami omówionymi niżej).
+
+---
+
+### 2️⃣ Do czego najczęściej używa się bloku `finally`?
+
+**✅ C. Do zamykania zasobów**
+
+➡ Pliki, połączenia z bazą danych, strumienie, transakcje.
+
+---
+
+### 3️⃣ Czy blok `finally` wykona się, jeśli w `try` znajduje się `return`?
+
+**✅ B. Tak, zawsze**
+
+➡ `finally` wykona się **przed faktycznym zwróceniem wartości**.
+
+---
+
+### 4️⃣ Która konstrukcja jest poprawna?
+
+**✅ A.**
+
+```java
+try { ... } finally { ... }
+```
+
+➡ `catch` nie jest obowiązkowy, `finally` już tak (jeśli występuje).
+
+---
+
+### 5️⃣ Kiedy blok `finally` może się NIE wykonać?
+
+**✅ C. Gdy wywołany zostanie `System.exit()`**
+
+➡ JVM kończy działanie natychmiast.
+
+---
+
+### 6️⃣ Dlaczego `return` w `finally` jest złą praktyką?
+
+**✅ B. Może nadpisać wyjątek lub wartość zwracaną**
+
+➡ Może „połknąć” wyjątek i utrudnić debugowanie.
+
+---
+
+### 7️⃣ Czy można użyć `finally` bez `catch`?
+
+**✅ C. Tak, z `try`**
+
+```java
+try {
+    doSomething();
+} finally {
+    cleanup();
+}
+```
+
+---
+
+### 8️⃣ Co jest lepszą alternatywą dla `finally` przy pracy z zasobami?
+
+**✅ B. `try-with-resources`**
+
+➡ Automatycznie zamyka zasoby i jest czytelniejsze.
+
+---
+
+### 9️⃣ Pytanie otwarte – przykładowa odpowiedź
+
+```java
+Connection conn = null;
+try {
+    conn = DriverManager.getConnection(url);
+    // operacje na bazie
+} finally {
+    if (conn != null) {
+        conn.close();
+    }
+}
+```
+
+➡ Gwarantuje zamknięcie połączenia.
+
+---
+
+### 🔟 Pytanie otwarte – przykładowa odpowiedź
+
+Blok `finally` może się nie wykonać, gdy:
+
+* wywołany zostanie `System.exit()`
+* JVM ulegnie awarii
+* proces zostanie brutalnie przerwany (np. kill -9)
+
+---
+
+Jeśli chcesz kontynuować kurs, kolejnym naturalnym tematem będzie **`catch`**, **`throw`**, albo **`try-with-resources`**.

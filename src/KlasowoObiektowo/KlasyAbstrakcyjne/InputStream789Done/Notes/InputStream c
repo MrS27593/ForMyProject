@@ -1,0 +1,157 @@
+Super! 🌊 Przejdźmy teraz do **`InputStream`** – kluczowej klasy abstrakcyjnej w Javie do odczytu danych bajt po bajcie.
+
+---
+
+# 🧩 `java.io.InputStream` – pełne omówienie
+
+## 1️⃣ Czym jest `InputStream`?
+
+```java
+public abstract class InputStream implements Closeable
+```
+
+📌 **Najważniejsze fakty**
+
+* Jest **klasą abstrakcyjną** w pakiecie `java.io`.
+* Służy do **odczytu danych bajt po bajcie**.
+* Wszystkie klasy odczytujące dane bajtowe dziedziczą po niej, np.:
+
+  * `FileInputStream` – odczyt plików
+  * `ByteArrayInputStream` – odczyt z tablicy bajtów
+  * `BufferedInputStream` – buforowany odczyt
+
+---
+
+## 2️⃣ Metody abstrakcyjne
+
+**Jedyna metoda abstrakcyjna** w `InputStream`:
+
+```java
+public abstract int read() throws IOException;
+```
+
+📌 **Co robi**:
+
+* Zwraca **następny bajt jako `int` (0–255)**
+* Zwraca `-1` jeśli **koniec strumienia**
+
+---
+
+## 3️⃣ Ważniejsze metody z `InputStream` (już zaimplementowane)
+
+| Metoda                             | Co robi                                                      |
+| ---------------------------------- | ------------------------------------------------------------ |
+| `read(byte[] b)`                   | Odczytuje bajty do tablicy `b`                               |
+| `read(byte[] b, int off, int len)` | Odczytuje maks. `len` bajtów do tablicy `b` od offsetu `off` |
+| `skip(long n)`                     | Pomija `n` bajtów w strumieniu                               |
+| `available()`                      | Zwraca przybliżoną liczbę dostępnych bajtów                  |
+| `close()`                          | Zamyka strumień i zwalnia zasoby                             |
+
+📌 Większość klas pochodnych **nadpisuje te metody** dla wydajności.
+
+---
+
+## 4️⃣ Dlaczego `InputStream` jest abstrakcyjny?
+
+✅ Bo różne źródła danych (plik, tablica, sieć) **mają różne mechanizmy odczytu**, ale wszystkie można traktować **jednoznacznie** przez `InputStream`.
+
+---
+
+## 5️⃣ Prosty przykład użycia `FileInputStream`
+
+```java
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+public class Main {
+    public static void main(String[] args) {
+        try (InputStream in = new FileInputStream("plik.txt")) {
+            int b;
+            while ((b = in.read()) != -1) {
+                System.out.print((char) b);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+📌 Zauważ: użycie **try-with-resources**, żeby automatycznie zamknąć strumień.
+
+---
+
+## 6️⃣ Przykład własnej klasy dziedziczącej po `InputStream`
+
+### 🔹 Klasa odczytująca tylko cyfry z tekstu
+
+```java
+import java.io.IOException;
+import java.io.InputStream;
+
+public class DigitInputStream extends InputStream {
+
+    private final byte[] data;
+    private int pos = 0;
+
+    public DigitInputStream(String text) {
+        data = text.getBytes();
+    }
+
+    @Override
+    public int read() throws IOException {
+        while (pos < data.length) {
+            int b = data[pos++];
+            if (Character.isDigit((char) b)) {
+                return b;
+            }
+        }
+        return -1; // koniec strumienia
+    }
+}
+```
+
+### Użycie:
+
+```java
+public class Main {
+    public static void main(String[] args) throws IOException {
+        InputStream in = new DigitInputStream("a1b2c3");
+        int b;
+        while ((b = in.read()) != -1) {
+            System.out.print((char) b + " "); // 1 2 3
+        }
+    }
+}
+```
+
+---
+
+## 7️⃣ Typowe pułapki początkujących
+
+1. **Zapominasz sprawdzić `-1`** → nieskończona pętla
+2. **Nie zamykasz strumienia** → wyciek zasobów
+3. **Konwertujesz bajty do `char` bez uwzględnienia kodowania** → błędy znaków
+4. **Nie nadpisujesz `read()`** w własnym strumieniu → klasa nie działa
+
+---
+
+## 8️⃣ Podsumowanie – najważniejsze punkty
+
+* `InputStream` = **abstrakcyjny odczyt danych bajtowych**
+* Metoda abstrakcyjna: **`read()`**
+* Kluczowe klasy dziedziczące: `FileInputStream`, `BufferedInputStream`, `ByteArrayInputStream`
+* Pozwala tworzyć **polimorficzne operacje na strumieniach**
+
+---
+
+💡 **Analogia:**
+`InputStream` = **uniwersalna rura** do pobierania danych, a konkretne strumienie (`FileInputStream`, `ByteArrayInputStream`) to **różne źródła wody** (plik, tablica, sieć).
+
+---
+
+Mogę teraz zrobić **quiz o InputStream** – idealny do sprawdzenia wiedzy i przygotowania do rozmów rekrutacyjnych.
+
+Chcesz, żebym zrobił quiz?
+

@@ -1,0 +1,72 @@
+Świetnie! Oto **quiz wielokrotnego wyboru** (jedna prawidłowa odpowiedź na pytanie) dotyczący klasy `Choice` w języku Java. Na końcu mogę podać odpowiedzi i omówić je, jeśli chcesz.
+
+---
+
+### 🧪 **Quiz: Klasa `Choice` w Java (AWT)**
+
+---
+
+**1. Który pakiet zawiera klasę `Choice`?**
+
+A) `java.swing`
+B) `javax.awt`
+C) `java.awt`
+D) `java.util.gui`
+
+---
+
+**2. Co robi metoda `getSelectedItem()` w klasie `Choice`?**
+
+A) Zwraca wszystkie elementy z listy
+B) Zwraca indeks wybranego elementu
+C) Zwraca nazwę komponentu
+D) Zwraca tekst aktualnie wybranego elementu
+
+---
+
+**3. Jak można usunąć wszystkie elementy z obiektu `Choice`?**
+
+A) `clearAll()`
+B) `removeAll()`
+C) `deleteAllItems()`
+D) `clearItems()`
+
+---
+
+**4. Ile elementów może wybrać użytkownik z komponentu `Choice`?**
+
+A) Dowolną liczbę
+B) Dokładnie dwa
+C) Tylko jeden
+D) Żadnego – to tylko etykieta
+
+---
+
+**5. Której z poniższych cech NIE posiada `Choice` w AWT?**
+
+A) Możliwość dynamicznego dodawania elementów
+B) Obsługa zdarzeń przez `ItemListener`
+C) Obsługa ikon i stylów tekstu
+D) Pobieranie liczby dostępnych opcji
+
+---
+
+**6. Która z metod ustawia zaznaczenie w komponencie `Choice`?**
+
+A) `setChoice(int index)`
+B) `select(int index)`
+C) `chooseItem(int index)`
+D) `highlight(int index)`
+
+---
+
+**7. Jakie zdarzenie nasłuchuje zmiany wyboru w `Choice`?**
+
+A) `ActionListener`
+B) `WindowListener`
+C) `MouseListener`
+D) `ItemListener`
+
+---
+
+Daj znać, kiedy będziesz gotowy na sprawdzenie odpowiedzi albo jeśli chcesz wersję interaktywną w kodzie Java!

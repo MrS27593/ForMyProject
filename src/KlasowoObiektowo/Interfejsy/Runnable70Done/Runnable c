@@ -1,0 +1,172 @@
+Interfejs `Runnable` w języku Java jest kluczowym elementem programowania współbieżnego (wielowątkowości). Umożliwia tworzenie kodu, który może być wykonywany w osobnym wątku. Poniżej znajdziesz dokładne omówienie:
+
+---
+
+## 🔧 **1. Czym jest `Runnable`?**
+
+`Runnable` to interfejs funkcyjny zdefiniowany w pakiecie `java.lang`. Zawiera tylko **jedną metodę**:
+
+```java
+void run();
+```
+
+Oznacza to, że dowolna klasa, która implementuje `Runnable`, musi zaimplementować metodę `run()`. Ten kod zostanie uruchomiony, gdy wątek (Thread) wystartuje.
+
+---
+
+## 🧠 **2. Po co używać `Runnable`?**
+
+`Runnable` oddziela **zadanie** od **wątku**. To znaczy:
+
+* `Runnable` = co ma być zrobione (logika),
+* `Thread` = kto ma to zrobić (maszyna wykonująca kod).
+
+To pozwala lepiej kontrolować i organizować kod wielowątkowy.
+
+---
+
+## ✅ **3. Przykład użycia `Runnable`**
+
+```java
+public class MyRunnable implements Runnable {
+    @Override
+    public void run() {
+        System.out.println("Wątek działa: " + Thread.currentThread().getName());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Runnable myTask = new MyRunnable();
+        Thread thread = new Thread(myTask); // przekazujemy Runnable do Thread
+        thread.start(); // uruchamiamy nowy wątek
+    }
+}
+```
+
+🔍 **Wyjście:**
+
+```
+Wątek działa: Thread-0
+```
+
+---
+
+## 🔁 **4. Alternatywa z klasą anonimową**
+
+```java
+Thread thread = new Thread(new Runnable() {
+    @Override
+    public void run() {
+        System.out.println("Zadanie w wątku anonimowym.");
+    }
+});
+thread.start();
+```
+
+---
+
+## 🧪 **5. Przykład z użyciem lambdy (Java 8+)**
+
+Ponieważ `Runnable` to **interfejs funkcyjny**, możesz użyć **wyrażenia lambda**:
+
+```java
+Thread thread = new Thread(() -> {
+    System.out.println("Lambda działa w osobnym wątku.");
+});
+thread.start();
+```
+
+---
+
+## 🛠 **6. Praktyczne zastosowania `Runnable`**
+
+### 📌 6.1. Równoległe pobieranie danych:
+
+```java
+Thread downloadThread = new Thread(() -> {
+    // symulacja pobierania pliku
+    try {
+        Thread.sleep(2000); // udawane opóźnienie
+        System.out.println("Pobieranie zakończone.");
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+});
+downloadThread.start();
+```
+
+### 📌 6.2. Przetwarzanie w tle (np. logowanie, backup, obliczenia):
+
+```java
+Runnable backgroundTask = () -> {
+    while (true) {
+        try {
+            Thread.sleep(5000);
+            System.out.println("W tle wykonuję backup...");
+        } catch (InterruptedException e) {
+            break;
+        }
+    }
+};
+Thread backgroundThread = new Thread(backgroundTask);
+backgroundThread.setDaemon(true); // wątek-demon
+backgroundThread.start();
+```
+
+### 📌 6.3. Wykonywanie wielu zadań równolegle:
+
+```java
+for (int i = 0; i < 5; i++) {
+    int finalI = i;
+    new Thread(() -> System.out.println("Zadanie " + finalI)).start();
+}
+```
+
+---
+
+## ⚠️ **7. `Runnable` vs `Callable`**
+
+Jeśli chcesz, by zadanie zwracało wynik lub rzucało wyjątek:
+
+* użyj `Callable<T>` (który zwraca `T`)
+* `Runnable` nie zwraca wyniku i nie może rzucać sprawdzanych wyjątków
+
+---
+
+## 🧰 **8. W połączeniu z ExecutorService (lepsze zarządzanie wątkami)**
+
+```java
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class Example {
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newFixedThreadPool(2);
+
+        executor.submit(() -> {
+            System.out.println("Zadanie wykonane przez ExecutorService.");
+        });
+
+        executor.shutdown(); // zamykamy pulę wątków
+    }
+}
+```
+
+---
+
+## 📚 Podsumowanie
+
+| Cecha           | Runnable                            |
+| --------------- | ----------------------------------- |
+| Typ             | Interfejs funkcyjny                 |
+| Metoda          | `void run()`                        |
+| Zastosowanie    | Wielowątkowość, zadania współbieżne |
+| Zwraca wynik?   | ❌ Nie                               |
+| Rzuca wyjątek?  | ❌ Nie (tylko niejawnie)             |
+| Wersja z lambdą | ✅ Tak, od Java 8                    |
+| Używany z       | `Thread`, `ExecutorService`         |
+
+---
+
+Jeśli chcesz, mogę też przygotować **mały projekt z zastosowaniem `Runnable`**, np. **symulację pobierania plików z wielu źródeł jednocześnie** albo **wielowątkowy kalkulator**. Chcesz?

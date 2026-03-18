@@ -1,0 +1,74 @@
+Oto **poprawne odpowiedzi do quizu o `@Period`** wraz z krótkim wyjaśnieniem:
+
+---
+
+### 1️⃣ Co oznacza adnotacja `@Period` w JFR?
+
+**A – Określa częstotliwość próbkowania zdarzenia**
+➡ Definiuje, co ile czasu zdarzenie jest rejestrowane w Java Flight Recorder.
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Period`?
+
+**B – `jdk.jfr`**
+
+---
+
+### 3️⃣ Czy `@Period` wpływa na logikę programu w runtime?
+
+**B – Nie**
+➡ Kontroluje tylko częstotliwość rejestrowania zdarzeń w JFR, nie zmienia zachowania kodu.
+
+---
+
+### 4️⃣ Na czym można stosować `@Period`?
+
+**B – Na klasach zdarzeń JFR**
+➡ Nie stosuje się na polach ani metodach – dotyczy całych zdarzeń.
+
+---
+
+### 5️⃣ W jakich jednostkach można podać wartość w `@Period`?
+
+**B – `"ns"`, `"ms"`, `"s"`**
+➡ Nanosekundy, milisekundy lub sekundy.
+
+---
+
+### 6️⃣ Czy `@Period` jest obowiązkowa dla zdarzeń w JFR?
+
+**B – Nie**
+➡ Jeśli nie podano, zdarzenie może mieć domyślny interwał próbkowania.
+
+---
+
+### 7️⃣ Czy narzędzia monitorujące, takie jak Java Mission Control, wykorzystują `@Period`?
+
+**A – Tak**
+➡ Dzięki temu JMC wie, jak agregować zdarzenia w raportach.
+
+---
+
+### 8️⃣ Czy `@Period` może być stosowana na polach prywatnych zdarzenia?
+
+**B – Nie**
+➡ Stosuje się tylko na klasach zdarzeń.
+
+---
+
+### 9️⃣ Czy wartość `@Period` może być podana w sekundach?
+
+**A – Tak**
+➡ Można użyć formatu `"1 s"`, `"10 s"` itp.
+
+---
+
+### 🔟 Czy `@Period` jest częścią standardowego JDK od Java 9?
+
+**A – Tak**
+➡ Wprowadzona w JDK 9 w pakiecie `jdk.jfr`.
+
+---
+
+Chcesz, żebym teraz zrobił **quiz zbiorczy wszystkich adnotacji JFR**, które przerobiliśmy do tej pory (np. `@Deprecated` → `@Period`) w jednym miejscu do powtórki?

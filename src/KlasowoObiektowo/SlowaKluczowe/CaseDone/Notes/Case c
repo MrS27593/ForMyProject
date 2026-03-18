@@ -1,0 +1,135 @@
+### `case` w języku Java — **WIEDZA**
+
+`case` to słowo kluczowe używane w **instrukcji `switch`**, które pozwala określić **różne ścieżki wykonania programu w zależności od wartości zmiennej**.
+
+---
+
+## 1️⃣ Składnia podstawowa
+
+```java
+int day = 2;
+
+switch (day) {
+    case 1:
+        System.out.println("Poniedziałek");
+        break;
+    case 2:
+        System.out.println("Wtorek");
+        break;
+    case 3:
+        System.out.println("Środa");
+        break;
+    default:
+        System.out.println("Inny dzień");
+}
+```
+
+* `case` określa wartość do porównania.
+* `break` kończy dany przypadek, zapobiegając **fall-through**.
+* `default` obsługuje wszystkie przypadki niepasujące do żadnego `case`.
+
+---
+
+## 2️⃣ Fall-through
+
+Jeśli **brak `break`**, wykonają się kolejne przypadki:
+
+```java
+int x = 1;
+switch (x) {
+    case 1:
+        System.out.println("Jeden");
+    case 2:
+        System.out.println("Dwa");
+    default:
+        System.out.println("Default");
+}
+```
+
+**Wynik:**
+
+```
+Jeden
+Dwa
+Default
+```
+
+---
+
+## 3️⃣ Typy zmiennych dopuszczone w `switch` (od Javy 7+)
+
+* `byte`, `short`, `char`, `int`
+* `String`
+* Enumy (`enum`)
+
+❌ Nie można używać typów `long`, `float`, `double`, `boolean`.
+
+---
+
+## 4️⃣ Zastosowanie `case`
+
+* Wybór akcji w menu
+* Obsługa różnych typów danych lub sygnałów
+* Decyzje zależne od wartości liczbowych lub stringów
+
+---
+
+## 5️⃣ Przykład z `String`
+
+```java
+String command = "start";
+
+switch (command) {
+    case "start":
+        System.out.println("Uruchamianie programu");
+        break;
+    case "stop":
+        System.out.println("Zatrzymywanie programu");
+        break;
+    default:
+        System.out.println("Nieznana komenda");
+}
+```
+
+---
+
+## 6️⃣ Enumy i `case`
+
+```java
+enum Day { MONDAY, TUESDAY, WEDNESDAY }
+
+Day today = Day.TUESDAY;
+
+switch (today) {
+    case MONDAY:
+        System.out.println("Poniedziałek");
+        break;
+    case TUESDAY:
+        System.out.println("Wtorek");
+        break;
+}
+```
+
+* `case` może używać wartości `enum` bezpośrednio.
+
+---
+
+## 7️⃣ Pułapki i dobre praktyki
+
+* **Always use `break`**, chyba że świadomie chcesz **fall-through**.
+* `default` nie jest obowiązkowy, ale zalecany.
+* `case` musi być **stałą wartością** (literals lub enum).
+
+---
+
+## 8️⃣ Podsumowanie
+
+* `case` = przypadek w `switch`
+* Porównuje zmienną z wartością literalną lub enum
+* `break` kończy blok, inaczej następuje **fall-through**
+* `default` obsługuje sytuacje niepasujące do żadnego `case`
+
+---
+
+Gdy będziesz gotowy, napisz: **`quiz`**,
+a przygotuję **quiz z `case`** z pytaniami o `switch`, fall-through i enumy.

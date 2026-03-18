@@ -1,0 +1,89 @@
+Jasne! **`BooleanFlag`** to nazwa **adnotacji z modułu `jdk.jfr`** (Java Flight Recorder) w JDK — i nie ma nic wspólnego z ogólnym typem `boolean` 😊
+Poniżej masz **pełne wyjaśnienie** tej adnotacji.
+
+---
+
+## 📌 Co to jest `@BooleanFlag`?
+
+`@BooleanFlag` to **adnotacja w pakiecie `jdk.jfr`** używana w kontekście **Java Flight Recorder (JFR)** — narzędzia do rejestrowania zdarzeń i danych wydajnościowych w aplikacjach Java. ([Oracle Docs][1])
+
+➡️ Jej zadaniem jest **oznaczenie wartości jako flagi logicznej (`true` / `false`)**, czyli typu *boolean*. ([Oracle Docs][2])
+
+---
+
+## 🧠 Jak działa `@BooleanFlag`
+
+Kiedy oznaczysz pole/metrykę adnotacją `@BooleanFlag`, mówisz:
+
+➡️ *Ta wartość jest flagą logiczną — prawdą lub fałszem*.
+
+To przydaje się np. w narzędziach graficznych lub analizatorach JFR, które np. może wyświetlić taką flagę jako **checkbox** (pole wyboru). ([Oracle Docs][1])
+
+---
+
+## 📍 Gdzie można jej użyć
+
+```java
+@Retention(RUNTIME)
+@Target({FIELD,TYPE,METHOD})
+public @interface BooleanFlag
+```
+
+Można ją stosować do:
+✔️ pól
+✔️ typów (klas/enumów)
+✔️ metod
+— które reprezentują logiczną flagę. ([Oracle Docs][2])
+
+---
+
+## 🧪 Przykład użycia (z JFR)
+
+Poniżej fragment przykładowego kodu pokazującego `@BooleanFlag` w scenariuszu Java Flight Recorder:
+
+```java
+@BooleanFlag
+@Name("example.Rollback")
+@Label("Rollback")
+@Description("Include transactions that are rollbacked")
+public static class RollbackSetting extends SettingControl {
+    private boolean value = true;
+
+    @Override
+    public String getValue() {
+        return Boolean.toString(value);
+    }
+
+    public boolean shouldEmit() {
+        return value;
+    }
+}
+```
+
+➡️ Adnotacja mówi, że **wartość `value` jest flagą logiczną**, którą narzędzia JFR mogą odpowiednio interpretować (np. jako checkbox). ([Oracle Docs][1])
+
+---
+
+## ⚙️ Gdzie `@BooleanFlag` się przydaje?
+
+Ta adnotacja jest używana głównie w:
+
+📌 **Java Flight Recorder (JFR)** – narzędziu JVM do zbierania metryk/zdarzeń
+📌 automatycznych narzędziach do prezentacji danych (checkbox GUI itp.)
+📌 sytuacjach, w których chcesz opisać dane konfiguracyjne/logiczne dla narzędzi analizujących eventy JFR
+
+---
+
+## 🧠 Podsumowanie
+
+* **`@BooleanFlag`** — adnotacja z modułu **`jdk.jfr`**. ([Oracle Docs][2])
+* Oznacza, że wartość jest **flagą `true`/`false`**. ([Oracle Docs][1])
+* Ma **retencję `RUNTIME`** i może być używana na **polem, typie lub metodzie**. ([Oracle Docs][2])
+* Wykorzystywana głównie przy **Java Flight Recorder** do opisu pola logicznego. ([Oracle Docs][1])
+
+---
+
+Chcesz quiz o `@BooleanFlag` i innych adnotacjach z **Java Flight Recorder (JFR)**? 😄
+
+[1]: https://docs.oracle.com/en/java/javase/25/docs/api/jdk.jfr/jdk/jfr/BooleanFlag.html?utm_source=chatgpt.com "BooleanFlag (Java SE 25 & JDK 25)"
+[2]: https://docs.oracle.com/en/java/javase/21/docs/api/jdk.jfr/jdk/jfr/BooleanFlag.html?utm_source=chatgpt.com "BooleanFlag (Java SE 21 & JDK 21)"

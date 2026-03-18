@@ -1,0 +1,101 @@
+Świetnie 👍
+Oto **QUIZ dotyczący interfejsu `BiFunction<T, U, R>` w Javie**
+❗ **Bez odpowiedzi** — odpowiedzi podam dopiero, gdy o nie poprosisz.
+
+---
+
+## 🧠 **QUIZ – `BiFunction<T, U, R>`**
+
+---
+
+### **1️⃣ Czym jest `BiFunction<T, U, R>`?**
+
+a) Interfejsem markerowym
+b) Interfejsem funkcyjnym
+c) Klasą abstrakcyjną
+d) Specjalizacją `Function<T,R>`
+
+---
+
+### **2️⃣ Jaką metodę definiuje `BiFunction`?**
+
+a) `R apply(T t)`
+b) `R apply(T t, U u)`
+c) `boolean test(T t, U u)`
+d) `void accept(T t, U u)`
+
+---
+
+### **3️⃣ Ile argumentów przyjmuje `BiFunction`?**
+
+a) 0
+b) 1
+c) 2
+d) 3
+
+---
+
+### **4️⃣ Co zwraca metoda `apply()`?**
+
+a) void
+b) boolean
+c) R
+d) T
+
+---
+
+### **5️⃣ W jakim pakiecie znajduje się `BiFunction`?**
+
+a) java.lang
+b) java.util.function
+c) java.util
+d) java.io
+
+---
+
+### **6️⃣ Co robi metoda domyślna `andThen()` w `BiFunction`?**
+
+a) Łączy dwa BiFunction w jeden z dwoma argumentami
+b) Wywołuje funkcję po apply()
+c) Odwraca kolejność argumentów
+d) Zamienia BiFunction na Consumer
+
+---
+
+### **7️⃣ Jak BiFunction różni się od BinaryOperator?**
+
+a) BinaryOperator przyjmuje różne typy argumentów
+b) BinaryOperator przyjmuje dwa te same typy i zwraca ten sam typ
+c) BiFunction nie przyjmuje argumentów
+d) Nie ma różnicy
+
+---
+
+### **8️⃣ Który z przykładów jest poprawnym BiFunction?**
+
+a) `(a, b) -> a + b` gdzie a,b to String, zwraca int
+b) `(a) -> a * 2`
+c) `(a, b) -> a > b`
+d) `(a, b, c) -> a + b + c`
+
+---
+
+### **9️⃣ Gdzie najczęściej używa się BiFunction w Javie?**
+
+a) Stream.map()
+b) Map.compute() / Map.merge()
+c) List.forEach()
+d) Predicate.filter()
+
+---
+
+### **🔟 Czego BiFunction NIE robi?**
+
+a) Przyjmuje dwa argumenty
+b) Zwraca wynik
+c) Może być użyty z lambdą
+d) Zwraca boolean (do tego służy BiPredicate)
+
+---
+
+Gdy będziesz gotowy, napisz: **„odpowiedzi”** i przejdziemy przez nie krok po kroku ✅

@@ -1,0 +1,160 @@
+## WIEDZA – `strictfp` w Java
+
+---
+
+### 1️⃣ Czym jest `strictfp`?
+
+`strictfp` (**strict floating-point**) to **słowo kluczowe w Javie**, które wymusza **ścisłą, deterministyczną arytmetykę zmiennoprzecinkową** (`float`, `double`) **niezależnie od platformy sprzętowej**.
+
+📌 Ten sam kod → **identyczne wyniki obliczeń** na:
+
+* Windows / Linux / macOS
+* różnych procesorach (x86, ARM)
+* różnych JVM
+
+---
+
+### 2️⃣ Dlaczego `strictfp` istnieje?
+
+Procesory mogą:
+
+* używać różnej precyzji obliczeń (np. rejestry 80-bitowe)
+* zaokrąglać wyniki w inny sposób
+
+Bez `strictfp`:
+
+* wyniki obliczeń mogą **minimalnie się różnić**
+
+Z `strictfp`:
+
+* Java wymusza standard **IEEE 754 (32/64 bity)**
+
+---
+
+### 3️⃣ Gdzie można użyć `strictfp`?
+
+`strictfp` można zastosować do:
+
+✔ **klasy**
+✔ **interfejsu**
+✔ **metody**
+
+❌ Nie można użyć do:
+
+* pól
+* konstruktorów
+* bloków statycznych
+
+---
+
+### 4️⃣ `strictfp` na poziomie klasy
+
+```java
+strictfp class PhysicsCalculator {
+
+    double calculateEnergy(double mass) {
+        return mass * 299792458.0 * 299792458.0;
+    }
+}
+```
+
+📌 Wszystkie metody w klasie są objęte `strictfp`.
+
+---
+
+### 5️⃣ `strictfp` tylko dla jednej metody
+
+```java
+class FinanceCalculator {
+
+    strictfp double calculateInterest(double capital, double rate) {
+        return capital * rate / 100;
+    }
+}
+```
+
+✔ Reszta klasy działa normalnie
+✔ Tylko ta metoda ma gwarancję identycznych wyników
+
+---
+
+### 6️⃣ Praktyczny przykład „projektowy” – system finansowy
+
+```java
+class BankSystem {
+
+    strictfp double calculateMonthlyRate(double balance, double rate) {
+        double result = balance * rate / 12.0;
+        return result;
+    }
+}
+```
+
+📌 W systemach finansowych:
+
+* nawet **0.0000001 różnicy** może być krytyczne
+* `strictfp` gwarantuje **powtarzalność wyników**
+
+---
+
+### 7️⃣ `strictfp` a wydajność
+
+⚠️ `strictfp` może:
+
+* być **minimalnie wolniejsze**
+* blokować optymalizacje sprzętowe
+
+📌 Dlatego:
+
+* **nie używa się go domyślnie**
+* stosuje się tylko tam, gdzie **dokładność > wydajność**
+
+---
+
+### 8️⃣ Czy `strictfp` jest dziś potrzebne?
+
+Od **Java 17+**:
+
+* JVM i procesory są bardziej spójne
+* `strictfp` jest **rzadziej używane**
+
+ALE:
+✔ w bibliotekach
+✔ w symulacjach
+✔ w systemach finansowych
+✔ w testach deterministycznych
+
+— nadal ma sens.
+
+---
+
+### 9️⃣ Czego `strictfp` NIE robi?
+
+❌ Nie zwiększa dokładności
+❌ Nie zapobiega błędom zaokrągleń
+❌ Nie zastępuje `BigDecimal`
+
+📌 `strictfp` = **spójność**, nie **precyzja**
+
+---
+
+### 🔟 Podsumowanie
+
+* `strictfp` wymusza **deterministyczne obliczenia float/double**
+* Działa na poziomie:
+
+  * klasy
+  * metody
+  * interfejsu
+* Kluczowe w:
+
+  * finansach
+  * fizyce
+  * symulacjach
+* Rzadko spotykane, ale **warto znać**
+
+---
+
+Gdy będziesz gotowy:
+👉 **quiz do `strictfp`**
+👉 albo **porównanie `strictfp` vs `BigDecimal` w mini-projekcie**

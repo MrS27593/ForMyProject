@@ -1,0 +1,64 @@
+Świetnie! 😎 Oto **poprawne odpowiedzi do quizu o `Writer`** wraz z wyjaśnieniami:
+
+---
+
+## ✅ **Poprawne odpowiedzi**
+
+**1️⃣ C**
+`Writer` jest **klasą abstrakcyjną** – nie można jej instancjonować bezpośrednio.
+
+**2️⃣ A**
+Każda podklasa **musi zaimplementować `write(int c)`** – zapis pojedynczego znaku.
+
+**3️⃣ A**
+`write(int c)` zapisuje **pojedynczy znak (char)**, nie bajt.
+
+**4️⃣ B**
+`flush()` wypycha **bufor do docelowego medium**, np. do pliku czy sieci.
+
+**5️⃣ A**
+`write(char[] cbuf)` zapisuje **wszystkie znaki z tablicy**.
+
+**6️⃣ D**
+`FileInputStream` nie dziedziczy po Writer – służy do odczytu bajtów.
+
+**7️⃣ B**
+Nie można instancjonować klasy abstrakcyjnej `Writer` bezpośrednio.
+
+**8️⃣ B**
+`append(char c)` dodaje **pojedynczy znak w stylu append**, zgodnie z interfejsem `Appendable`.
+
+**9️⃣ B**
+Poprawny i bezpieczny zapis do pliku to **try-with-resources**, aby automatycznie zamknąć strumień.
+
+**🔟 B**
+Główna rola `Writer` to **zapis znaków (char)**, a nie bajtów ani odczyt.
+
+---
+
+### 🏆 **Wynik**
+
+10/10 🔥 – perfekcyjnie rozumiesz mechanizm `Writer` i różnice między znakami a bajtami.
+
+---
+
+💡 **Pułapki rekrutacyjne**:
+
+1. `Writer` ≠ `OutputStream` – Writer = znaki, OutputStream = bajty.
+2. `write(int c)` zapisuje **pojedynczy znak**, a nie cały String.
+3. Niezamknięty Writer = wyciek zasobów.
+4. Buforowane Writer’y wymagają `flush()`.
+
+---
+
+Jeśli chcesz, mogę teraz zrobić **mega quiz łączony wszystkich klas abstrakcyjnych i strumieni**:
+
+* **Number**
+* **AbstractCollection**
+* **InputStream**
+* **OutputStream**
+* **Writer**
+
+To będzie świetny test całej wiedzy.
+
+Chcesz taki mega quiz?

@@ -1,0 +1,135 @@
+Świetnie 👍 teraz **`@Generated`** — bardzo ciekawa adnotacja, bo ma **historię i kilka wersji**.
+
+---
+
+# 📌 Co to jest `@Generated`?
+
+Adnotacja oznaczająca, że:
+
+> Kod został wygenerowany automatycznie przez narzędzie.
+
+---
+
+# 🕰 Historia `@Generated`
+
+## 1️⃣ Java 6–8
+
+Istniała w:
+
+```java
+javax.annotation.Generated
+```
+
+Pochodzenie:
+JSR-250 (Common Annotations)
+
+---
+
+## 2️⃣ Problem w Java 9+
+
+Pakiet `javax.annotation` został usunięty z JDK.
+
+I wtedy zaczęły się migracje 👇
+
+---
+
+## 3️⃣ Nowa wersja (Java 9+)
+
+Obecnie w JDK istnieje:
+
+```java
+javax.annotation.processing.Generated
+```
+
+Od:
+Java 9
+
+To ta oficjalna wersja.
+
+---
+
+# 🔎 Do czego służy?
+
+Typowe użycie:
+
+```java id="8m0hox"
+import javax.annotation.processing.Generated;
+
+@Generated("com.example.MyCodeGenerator")
+public class MyDto {
+}
+```
+
+Argument zwykle zawiera:
+
+* nazwę generatora
+* czasem wersję
+* czasem timestamp
+
+---
+
+# 🧠 Po co to w ogóle?
+
+1. 🔹 IDE może oznaczyć plik jako wygenerowany
+2. 🔹 Narzędzia mogą ignorować ten kod (np. coverage)
+3. 🔹 Programista wie, że nie powinien ręcznie edytować
+
+---
+
+# 🏗 Kto używa `@Generated`?
+
+Popularne narzędzia:
+
+* Lombok
+* MapStruct
+* Dagger
+* Hibernate (metamodel)
+
+---
+
+# ❗ Ważne różnice
+
+| Wersja                                  | Status              |
+| --------------------------------------- | ------------------- |
+| `javax.annotation.Generated`            | ❌ usunięta z JDK 9  |
+| `javax.annotation.processing.Generated` | ✅ aktualna          |
+| `jakarta.annotation.Generated`          | ✅ wersja Jakarta EE |
+
+---
+
+# 🧪 Czy `@Generated` coś zmienia w runtime?
+
+❌ Nie.
+
+To tylko:
+
+* metadane
+* informacja dla narzędzi
+* brak wpływu na logikę
+
+---
+
+# 🎯 Najkrótsza definicja
+
+> `@Generated` oznacza, że dany element kodu został wygenerowany przez narzędzie, a nie napisany ręcznie.
+
+---
+
+# 🔥 Pytanie rekrutacyjne
+
+Dlaczego `@Generated` przeniesiono do `javax.annotation.processing`?
+
+Odpowiedź:
+Bo dotyczy generowania kodu w kontekście **annotation processing** (APT).
+
+---
+
+Chcesz teraz:
+
+* 🔥 quiz z `@Generated`
+* 🔥 różnice: Generated vs Deprecated vs SuppressWarnings
+* 🔥 jak działa annotation processing?
+* 🔥 jak napisać własny generator kodu?
+
+Co wybierasz? 😄
+

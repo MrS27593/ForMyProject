@@ -1,0 +1,110 @@
+Świetnie 👍
+Oto **quiz z `java.net.http.HttpClient.Version`** — poziom **Java 11+ / rekrutacja / praktyka**.
+
+---
+
+# ✅ **Quiz: `HttpClient.Version`**
+
+## 1️⃣ Prawda / Fałsz
+
+1. `HttpClient.Version` jest enumem.
+
+   * A) Prawda
+   * B) Fałsz
+
+2. `HttpClient.Version` znajduje się w pakiecie `java.net.http`.
+
+   * A) Prawda
+   * B) Fałsz
+
+3. Java `HttpClient` obsługuje HTTP/3.
+
+   * A) Prawda
+   * B) Fałsz
+
+4. Jeśli nie ustawimy wersji w `HttpClient`, domyślnie używany jest tylko HTTP/1.1.
+
+   * A) Prawda
+   * B) Fałsz
+
+---
+
+## 2️⃣ Wybór jednokrotny
+
+5. Jakie wartości zawiera enum `HttpClient.Version`?
+
+* A) HTTP_1, HTTP_2
+* B) HTTP_1_0, HTTP_1_1, HTTP_2
+* C) HTTP_1_1, HTTP_2
+* D) HTTP_2, HTTP_3
+
+---
+
+6. Co oznacza ustawienie:
+
+```java
+HttpClient.newBuilder()
+    .version(HttpClient.Version.HTTP_2)
+    .build();
+```
+
+* A) Klient zawsze użyje HTTP/2
+* B) Klient spróbuje HTTP/2, a w razie braku wsparcia cofnie się
+* C) Klient użyje HTTP/1.1
+* D) Wystąpi błąd w czasie budowy klienta
+
+---
+
+## 3️⃣ Wybór wielokrotny
+
+7. Które stwierdzenia są prawdziwe?
+
+* A) `HTTP_2` oferuje multiplexing
+* B) `HTTP_2` jest szybsze w każdym przypadku
+* C) `HttpResponse.version()` zwraca `HttpClient.Version`
+* D) `HTTP_1_1` może być wymuszone
+
+---
+
+## 4️⃣ Analiza kodu
+
+8. Co może wypisać poniższy kod?
+
+```java
+HttpResponse<String> response = client.send(request,
+        HttpResponse.BodyHandlers.ofString());
+
+System.out.println(response.version());
+```
+
+* A) Tylko HTTP_1_1
+* B) Tylko HTTP_2
+* C) HTTP_1_1 lub HTTP_2
+* D) HTTP_3
+
+---
+
+## 5️⃣ Pytanie praktyczne
+
+9. Uzupełnij kod tak, aby **wymusić HTTP/1.1**:
+
+```java
+HttpClient client = HttpClient.newBuilder()
+        // ?
+        .build();
+```
+
+---
+
+## 6️⃣ Pytanie podchwytliwe (rekrutacyjne!)
+
+10. Które zdanie najlepiej opisuje `HttpClient.Version.HTTP_2`?
+
+* A) Gwarantuje HTTP/2 niezależnie od serwera
+* B) Jest preferencją, a nie bezwzględnym wymuszeniem
+* C) Działa tylko dla HTTPS
+* D) Zastępuje HTTP/1.1
+
+---
+
+👉 Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam **pełne rozwiązania z wyjaśnieniami** 🔥

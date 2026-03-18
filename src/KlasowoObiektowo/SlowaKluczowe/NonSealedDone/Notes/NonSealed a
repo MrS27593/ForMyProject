@@ -1,0 +1,95 @@
+## ✅ Odpowiedzi – QUIZ `non-sealed` w Java
+
+---
+
+### **1. Co oznacza słowo kluczowe `non-sealed`?**
+
+**✅ B. Klasa jest częścią `sealed` i pozwala dalsze dziedziczenie**
+
+* `non-sealed` otwiera klasę potomną dla dziedziczenia, mimo że klasa bazowa jest `sealed`.
+
+---
+
+### **2. `non-sealed` może być użyte tylko w:**
+
+**✅ C. Klasie potomnej klasy sealed**
+
+* Nie można użyć `non-sealed` w dowolnej klasie – tylko tam, gdzie klasa bazowa jest `sealed`.
+
+---
+
+### **3. Co umożliwia klasa oznaczona `non-sealed`?**
+
+**✅ B. Pozwala dalsze dziedziczenie niezależnie od klasy bazowej**
+
+* W odróżnieniu od `final`, `non-sealed` **otwiera drzwi** dla kolejnych klas potomnych.
+
+---
+
+### **4. Jaka jest różnica między `non-sealed` a `final`?**
+
+**✅ B. `non-sealed` pozwala dziedziczyć, `final` zabrania dziedziczenia**
+
+---
+
+### **5. Które zdanie jest prawdziwe?**
+
+**✅ C. `non-sealed` może być użyte tylko w klasach potomnych klasy sealed**
+
+---
+
+### **6. (OTWARTE)**
+
+**Przykład użycia `non-sealed`:**
+
+```java
+sealed class Vehicle permits Car, Bike {}
+
+non-sealed class Car extends Vehicle {} // umożliwia dalsze dziedziczenie
+
+class SportsCar extends Car {} // możliwe dzięki Car non-sealed
+```
+
+* Przydatne przy elastycznych hierarchiach klas, np. w frameworkach lub systemach z wieloma typami obiektów.
+
+---
+
+### **7. (OTWARTE)**
+
+**Dlaczego `non-sealed` pozwala tworzyć bardziej elastyczne hierarchie?**
+
+* Ponieważ umożliwia podklasom **rozszerzanie klasy sealed**, zachowując kontrolę nad klasą bazową.
+* Daje możliwość mieszania ograniczeń (`sealed`) i swobody (`non-sealed`) w hierarchii.
+
+---
+
+### **8. Który kod jest poprawny?**
+
+**✅ A.**
+
+```java
+public sealed class Shape permits Circle, Square {}
+non-sealed class Circle extends Shape {}
+class RedCircle extends Circle {}
+```
+
+* Pozwala tworzyć podklasy `RedCircle` po `Circle`, mimo że `Shape` jest `sealed`.
+* Inne opcje są składniowo lub logicznie błędne.
+
+---
+
+### **9. Które zdanie o `non-sealed` jest prawdziwe?**
+
+**✅ B. `non-sealed` pozwala na dalsze dziedziczenie klasy sealed**
+
+---
+
+### **10. Czy klasa `non-sealed` musi mieć swoje własne podklasy?**
+
+**✅ B. Nie, może nie mieć żadnych podklas**
+
+* `non-sealed` otwiera możliwość dziedziczenia, ale nie wymaga, aby natychmiast były tworzone podklasy.
+
+---
+
+Chcesz, żebym teraz przeszedł do **kolejnego słowa kluczowego w Javie**, np. `instanceof`?

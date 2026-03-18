@@ -1,0 +1,51 @@
+Świetnie! 😎 Oto **poprawne odpowiedzi do quizu o `AbstractCollection`** z krótkim wyjaśnieniem każdego pytania.
+
+---
+
+## ✅ **Poprawne odpowiedzi**
+
+**1️⃣ C**
+`AbstractCollection` jest **klasą abstrakcyjną** – nie można jej instancjonować bezpośrednio.
+
+**2️⃣ B**
+Każda klasa dziedzicząca MUSI zaimplementować:
+
+* `iterator()`
+* `size()`
+
+**3️⃣ C**
+Domyślna metoda `add(E e)` w `AbstractCollection` **rzuca `UnsupportedOperationException`**, jeśli nie nadpiszesz jej w podklasie.
+
+**4️⃣ C**
+`isEmpty()` jest **już zaimplementowana** w `AbstractCollection` – sprawdza `size() == 0`.
+
+**5️⃣ A**
+Dziedziczenie po `AbstractCollection` pozwala **tworzyć własną kolekcję z minimalnym kodem**, bo większość metod jest już zaimplementowana.
+
+**6️⃣ B**
+`contains(Object o)` w `AbstractCollection` działa **przez iterowanie po elementach przy pomocy iteratora** i porównywanie `equals()`.
+
+**7️⃣ B**
+Nie można instancjonować klasy abstrakcyjnej `AbstractCollection` bezpośrednio.
+
+**8️⃣ B**
+Bezpośrednią podklasą jest np. **`AbstractList`**, `AbstractSet` – natomiast `ArrayList` dziedziczy po `AbstractList`.
+
+**9️⃣ B**
+Jeżeli iterator działa źle, **metody takie jak `contains()` lub `remove()` będą działały niepoprawnie**, bo bazują na iteratorze.
+
+**🔟 A**
+`AbstractCollection` istnieje w JDK po to, aby **być podstawą dla wszystkich kolekcji w Javie** i udostępnić wspólne metody.
+
+---
+
+### 🏆 **Wynik**
+
+Jeżeli wszystkie odpowiedzi są poprawne → **10/10** 🔥
+Masz już bardzo solidne zrozumienie klas abstrakcyjnych w Javie i mechanizmów kolekcji.
+
+---
+
+Jeśli chcesz, możemy teraz przejść do **`AbstractList`**, która jest bardziej konkretna i używana praktycznie w każdej liście w Javie – albo zrobić **porównanie AbstractCollection vs AbstractList vs AbstractSet**.
+
+Chcesz iść w **AbstractList** czy w **porównanie**?

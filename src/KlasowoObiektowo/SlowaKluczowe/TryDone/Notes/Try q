@@ -1,0 +1,129 @@
+# 🧠 QUIZ – `try` w Java (10 pytań)
+
+---
+
+### **1. Do czego służy `try`?**
+
+A. Do sprawdzania warunków
+B. Do obsługi wyjątków
+C. Do pętli
+D. Do tworzenia obiektów
+
+---
+
+### **2. Co MUSI wystąpić po `try`?**
+
+A. `catch`
+B. `finally`
+C. `catch` lub `finally`
+D. Nic
+
+---
+
+### **3. Co się stanie, gdy w `try` wystąpi wyjątek?**
+
+A. Program się kończy
+B. Wykona się `finally`
+C. JVM szuka pasującego `catch`
+D. Kod w `try` działa dalej
+
+---
+
+### **4. Która kolejność `catch` jest poprawna?**
+
+A.
+
+```java
+catch (Exception e)
+catch (ArithmeticException e)
+```
+
+B.
+
+```java
+catch (ArithmeticException e)
+catch (Exception e)
+```
+
+C.
+
+```java
+catch (Throwable e)
+catch (Exception e)
+```
+
+D.
+
+```java
+catch (Exception e)
+catch (RuntimeException e)
+```
+
+---
+
+### **5. Kiedy wykona się `finally`?**
+
+A. Tylko przy błędzie
+B. Tylko bez błędu
+C. Zawsze
+D. Nigdy
+
+---
+
+### **6. Co robi `try-with-resources`?**
+
+A. Tworzy nowy wątek
+B. Obsługuje wyjątki sieciowe
+C. Automatycznie zamyka zasoby
+D. Przyspiesza program
+
+---
+
+### **7. Czy `try` może istnieć bez `catch`?**
+
+A. Nie
+B. Tak, jeśli jest `finally`
+C. Tylko w metodzie `main`
+D. Tylko z `throw`
+
+---
+
+### **8. Który kod jest poprawny?**
+
+A.
+
+```java
+try { int x = 10 / 0; }
+```
+
+B.
+
+```java
+try { int x = 10 / 0; } catch (Exception e) {}
+```
+
+C.
+
+```java
+try { int x = 10 / 0; } catch {}
+```
+
+D.
+
+```java
+try int x = 10 / 0;
+```
+
+---
+
+### **9. (OTWARTE)**
+
+Dlaczego **nie powinno się łapać** ogólnego `Exception`, jeśli nie jest to konieczne?
+
+---
+
+### **10. (OTWARTE)**
+
+Podaj przykład sytuacji, w której użycie `try` jest konieczne.
+
+---

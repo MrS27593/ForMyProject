@@ -1,0 +1,140 @@
+Świetny temat 👍
+`java.net.http.HttpClient.Version` to **ważny enum w nowoczesnej Javie (11+)**, często pomijany, a bardzo lubiany w pytaniach o **HTTP Client API**.
+
+---
+
+# 🌐 `java.net.http.HttpClient.Version` — wszystko, co musisz wiedzieć
+
+## 📦 Gdzie się znajduje?
+
+```java
+java.net.http.HttpClient.Version
+```
+
+Jest to **enum**.
+
+---
+
+## 🎯 Do czego służy?
+
+Określa **wersję protokołu HTTP**, której ma używać `HttpClient`.
+
+Ustawiasz ją podczas budowania klienta:
+
+```java
+HttpClient client = HttpClient.newBuilder()
+        .version(HttpClient.Version.HTTP_2)
+        .build();
+```
+
+---
+
+## 🧩 Dostępne wartości enumu
+
+```java
+HTTP_1_1
+HTTP_2
+```
+
+📌 **Nie ma HTTP/3** (stan na Java 21).
+
+---
+
+## 🔧 Jak działa w praktyce?
+
+### 🔹 Wymuszenie wersji HTTP
+
+```java
+HttpClient client = HttpClient.newBuilder()
+        .version(HttpClient.Version.HTTP_1_1)
+        .build();
+```
+
+➡ Klient **nie spróbuje HTTP/2**.
+
+---
+
+### 🔹 Domyślne zachowanie (ważne!)
+
+Jeśli **nie ustawisz wersji**:
+
+```java
+HttpClient client = HttpClient.newHttpClient();
+```
+
+➡ JVM **spróbuje HTTP/2**, a jeśli się nie uda — cofnie się do **HTTP/1.1**.
+
+---
+
+## ⚠️ Bardzo ważne fakty
+
+### ❗ `HTTP_2` ≠ zawsze HTTP/2
+
+➡ Serwer **musi wspierać HTTP/2**
+➡ W przeciwnym razie klient **fallbackuje**
+
+---
+
+### ❗ Wersja ≠ gwarancja
+
+To jest **preferencja**, nie twarde wymuszenie (poza HTTP/1.1).
+
+---
+
+## 🧪 Przykład użycia
+
+```java
+HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create("https://example.com"))
+        .GET()
+        .build();
+
+HttpResponse<String> response =
+        client.send(request, HttpResponse.BodyHandlers.ofString());
+
+System.out.println(response.version());
+```
+
+Możliwe wyniki:
+
+```java
+HTTP_1_1
+HTTP_2
+```
+
+---
+
+## 🧠 Kiedy używać `HTTP_2`?
+
+✔ mikroserwisy
+✔ wiele równoległych requestów
+✔ mniejsze opóźnienia
+✔ multiplexing
+
+---
+
+## 🧠 Kiedy wymusić `HTTP_1_1`?
+
+✔ starsze serwery
+✔ debugowanie
+✔ proxy / firewall
+
+---
+
+## 🔥 Podsumowanie (must-know)
+
+✔ `HttpClient.Version` = enum
+✔ Java 11+
+✔ `HTTP_1_1`, `HTTP_2`
+✔ domyślnie próba HTTP/2
+✔ brak HTTP/3
+
+---
+
+Chcesz teraz:
+
+* 🧠 **quiz z `HttpClient.Version`**
+* 🔍 **porównanie HTTP/1.1 vs HTTP/2**
+* 🚀 **pełny przykład REST Client w Javie**
+
+👉 Co dalej?

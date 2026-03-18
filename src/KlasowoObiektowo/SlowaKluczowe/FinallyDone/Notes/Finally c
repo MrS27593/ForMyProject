@@ -1,0 +1,163 @@
+## WIEDZA – `finally` w Java
+
+---
+
+### 1️⃣ Czym jest `finally`?
+
+* `finally` to **blok kodu używany razem z `try` i `catch`**.
+* Kod w `finally` **zawsze zostanie wykonany**, niezależnie od tego:
+
+  * czy wystąpi wyjątek
+  * czy wyjątek został złapany
+  * czy w `try` był `return`
+
+```java
+try {
+    int x = 10 / 2;
+} catch (ArithmeticException e) {
+    System.out.println("Błąd dzielenia");
+} finally {
+    System.out.println("Ten kod wykona się zawsze");
+}
+```
+
+---
+
+### 2️⃣ Do czego używa się `finally`?
+
+Najczęściej do **sprzątania zasobów**, np.:
+
+* zamykania plików
+* zamykania połączeń z bazą danych
+* zwalniania zasobów systemowych
+
+```java
+FileReader reader = null;
+
+try {
+    reader = new FileReader("data.txt");
+    // operacje na pliku
+} catch (IOException e) {
+    e.printStackTrace();
+} finally {
+    if (reader != null) {
+        try {
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+---
+
+### 3️⃣ Czy `finally` wykona się zawsze?
+
+**Prawie zawsze**, wyjątki:
+
+❌ `System.exit()`
+❌ awaria JVM
+❌ przerwanie procesu (np. kill -9)
+
+```java
+try {
+    System.exit(0);
+} finally {
+    System.out.println("To się NIE wykona");
+}
+```
+
+---
+
+### 4️⃣ `finally` a `return`
+
+* `finally` wykona się **nawet jeśli w `try` lub `catch` jest `return`**.
+
+```java
+public static int test() {
+    try {
+        return 10;
+    } finally {
+        System.out.println("finally");
+    }
+}
+```
+
+➡ Metoda zwróci `10`, ale `finally` zostanie wykonane.
+
+📌 **Uwaga:** `return` w `finally` jest **złą praktyką**.
+
+---
+
+### 5️⃣ `finally` bez `catch`
+
+* Możliwe jest użycie `try` + `finally` (bez `catch`):
+
+```java
+try {
+    openConnection();
+} finally {
+    closeConnection();
+}
+```
+
+➡ Wyjątek poleci dalej, ale zasoby zostaną zamknięte.
+
+---
+
+### 6️⃣ `finally` a try-with-resources
+
+Od Java 7 często zamiast `finally` używa się:
+
+```java
+try (FileReader reader = new FileReader("data.txt")) {
+    // praca z plikiem
+}
+```
+
+➡ Zasób zamykany automatycznie – **czytelniej i bezpieczniej**.
+
+---
+
+### 7️⃣ Przykład praktyczny – transakcja bankowa
+
+```java
+public void transferMoney(Account from, Account to, double amount) {
+    try {
+        from.withdraw(amount);
+        to.deposit(amount);
+        commitTransaction();
+    } catch (Exception e) {
+        rollbackTransaction();
+        throw e;
+    } finally {
+        closeTransaction();
+    }
+}
+```
+
+➡ `finally` gwarantuje zamknięcie transakcji **niezależnie od wyniku**.
+
+---
+
+### 8️⃣ Najczęstsze błędy
+
+❌ `return` w `finally` (maskuje wyjątki)
+❌ Pusta sekcja `finally`
+❌ Duża logika biznesowa w `finally`
+❌ Zapominanie o `try-with-resources`
+
+---
+
+### ✅ Podsumowanie
+
+* `finally` = kod, który **zawsze się wykona**
+* Idealne do **zamykania zasobów**
+* Może być użyte bez `catch`
+* `try-with-resources` często jest lepszą alternatywą
+* Nie powinno zawierać logiki decyzyjnej ani `return`
+
+---
+
+Gdy będziesz gotowy, napisz **„quiz”**, a przygotuję pytania 👍

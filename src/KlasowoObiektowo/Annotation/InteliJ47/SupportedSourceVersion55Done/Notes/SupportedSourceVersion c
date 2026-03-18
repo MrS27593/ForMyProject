@@ -1,0 +1,201 @@
+Świetny wybór 👌
+**`@SupportedSourceVersion`** to adnotacja **zaawansowana**, ale **bardzo ważna**, jeśli interesują Cię **annotation processors**, **kompilator** i **narzędzia typu Lombok**.
+
+Wyjaśnię ją **od podstaw → do praktyki**, spokojnie i logicznie.
+
+---
+
+# 📘 `@SupportedSourceVersion` w Javie — kompletny przewodnik
+
+## 1️⃣ Czym jest `@SupportedSourceVersion`?
+
+`@SupportedSourceVersion` to **adnotacja z pakietu**:
+
+```java
+javax.annotation.processing
+```
+
+👉 Służy do **określenia, jaką wersję Javy obsługuje procesor adnotacji**
+
+📌 **Używana WYŁĄCZNIE w klasach dziedziczących po `AbstractProcessor`**
+
+---
+
+## 2️⃣ Do czego służy?
+
+Informuje **kompilator (`javac`)**:
+
+> „Ten annotation processor działa poprawnie od wersji Javy X”
+
+---
+
+## 3️⃣ Najprostszy przykład
+
+```java
+@SupportedSourceVersion(SourceVersion.RELEASE_17)
+public class MyProcessor extends AbstractProcessor {
+}
+```
+
+➡️ Oznacza:
+
+* procesor wspiera **Java 17**
+* kompilator nie zgłosi ostrzeżeń
+
+---
+
+## 4️⃣ Co się stanie, jeśli jej NIE użyjesz?
+
+❌ Kompilator zgłosi warning:
+
+```text
+No SupportedSourceVersion annotation found on processor
+```
+
+📌 Processor nadal zadziała, ale:
+
+* pojawi się ostrzeżenie
+* API wygląda „nieprofesjonalnie”
+
+---
+
+## 5️⃣ Skąd bierze się `SourceVersion`?
+
+Enum:
+
+```java
+javax.lang.model.SourceVersion
+```
+
+Przykładowe wartości:
+
+```java
+RELEASE_8
+RELEASE_11
+RELEASE_17
+RELEASE_21
+```
+
+---
+
+## 6️⃣ Częsty błąd ❌
+
+❌ Hardcode starej wersji:
+
+```java
+@SupportedSourceVersion(SourceVersion.RELEASE_8)
+```
+
+➡️ Procesor przestaje być aktualny
+
+---
+
+## 7️⃣ Lepsze rozwiązanie (BEST PRACTICE) ⭐
+
+```java
+@SupportedSourceVersion(SourceVersion.RELEASE_17)
+// albo
+@SupportedSourceVersion(SourceVersion.latestSupported())
+```
+
+### 🔥 Najlepsze:
+
+```java
+@SupportedSourceVersion(SourceVersion.latestSupported())
+```
+
+➡️ zawsze wspiera **najwyższą wersję znaną kompilatorowi**
+
+---
+
+## 8️⃣ Alternatywa: metoda zamiast adnotacji
+
+Możesz **zamiast adnotacji** nadpisać metodę:
+
+```java
+@Override
+public SourceVersion getSupportedSourceVersion() {
+    return SourceVersion.latestSupported();
+}
+```
+
+📌 Ale:
+
+* adnotacja = prostsza
+* metoda = dynamiczna
+
+---
+
+## 9️⃣ Pełny przykład procesora
+
+```java
+@SupportedAnnotationTypes("com.example.MyAnnotation")
+@SupportedSourceVersion(SourceVersion.RELEASE_17)
+public class MyProcessor extends AbstractProcessor {
+
+    @Override
+    public boolean process(Set<? extends TypeElement> annotations,
+                           RoundEnvironment roundEnv) {
+        return true;
+    }
+}
+```
+
+---
+
+## 🔟 `@SupportedSourceVersion` vs inne adnotacje
+
+| Adnotacja                   | Rola                  |
+| --------------------------- | --------------------- |
+| `@SupportedSourceVersion`   | wersja Javy           |
+| `@SupportedAnnotationTypes` | jakie adnotacje       |
+| `@SupportedOptions`         | opcje kompilatora     |
+| `@AutoService`              | rejestracja procesora |
+
+📌 Wszystkie razem = **pełnoprawny processor**
+
+---
+
+## 1️⃣1️⃣ Czy ma wpływ na runtime?
+
+❌ **NIE**
+
+* działa tylko podczas kompilacji
+* używana przez `javac`
+
+---
+
+## 1️⃣2️⃣ Kiedy jej potrzebujesz?
+
+✅ Gdy:
+
+* tworzysz annotation processor
+* piszesz plugin do kompilatora
+* tworzysz framework typu Lombok / MapStruct
+
+❌ Gdy:
+
+* zwykłe adnotacje
+* Spring / JPA / runtime annotations
+
+---
+
+## 🧠 Podsumowanie (egzaminacyjne)
+
+> **`@SupportedSourceVersion` mówi kompilatorowi, jaką wersję Javy obsługuje processor adnotacji**
+
+* tylko dla `AbstractProcessor`
+* tylko compile-time
+* zapobiega warningom
+* BEST PRACTICE: `latestSupported()`
+
+---
+
+Jeśli chcesz kontynuować:
+
+* ➡️ **quiz z `@SupportedSourceVersion`**
+* ➡️ **`@SupportedAnnotationTypes`**
+* ➡️ **jak napisać własny annotation processor**
+* ➡️ **pełna mapa annotation processing**
+
+Napisz 👉 **quiz** 😄

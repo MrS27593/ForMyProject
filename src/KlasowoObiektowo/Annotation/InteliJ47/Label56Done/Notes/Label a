@@ -1,0 +1,76 @@
+Oto **poprawne odpowiedzi do quizu o `@Label`** wraz z krótkim wyjaśnieniem:
+
+---
+
+### 1️⃣ Co robi adnotacja `@Label`?
+
+**B – Przypisuje czytelną nazwę lub opis elementowi kodu**
+➡ Pozwala narzędziom (np. JMC) wyświetlać przyjazne nazwy pól lub metod.
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Label` w JDK?
+
+**B – `jdk.jfr`**
+
+---
+
+### 3️⃣ Czy `@Label` wpływa na logikę programu w runtime?
+
+**B – Nie**
+➡ To tylko metadane dla narzędzi i dokumentacji.
+
+---
+
+### 4️⃣ Z którą adnotacją często współpracuje `@Label` w JFR?
+
+**B – `@Description`**
+➡ `@Label` daje krótką nazwę, a `@Description` pozwala dodać dłuższy opis pola zdarzenia.
+
+---
+
+### 5️⃣ Czy można stosować `@Label` na metodach?
+
+**A – Tak**
+➡ W JFR można oznaczać zarówno pola, jak i metody zdarzeń.
+
+---
+
+### 6️⃣ Czy `@Label` jest obowiązkowa w JFR dla każdego pola zdarzenia?
+
+**B – Nie**
+➡ Jest opcjonalna; jeśli nie ma, narzędzia wyświetlą nazwę pola.
+
+---
+
+### 7️⃣ Jakie narzędzie najczęściej wykorzystuje informacje z `@Label`?
+
+**B – Java Mission Control (JMC)**
+➡ W JMC pola zdarzeń są wyświetlane z nazwami z `@Label`.
+
+---
+
+### 8️⃣ Czy adnotacja `@Label` może mieć długi opis w wielu językach?
+
+**B – Nie, tylko krótki tekst w jednej wersji językowej**
+➡ Dłuższy opis używa się w `@Description`, lokalizacja nie jest wspierana przez `@Label`.
+
+---
+
+### 9️⃣ Czy `@Label` może być stosowana na polach prywatnych klasy JFR?
+
+**A – Tak**
+➡ Adnotacje JFR działają nawet na polach prywatnych; narzędzia odczytują je przez reflection.
+
+---
+
+### 🔟 Czy `@Label` jest częścią standardowego JDK od wersji 9?
+
+**A – Tak**
+➡ Wprowadzona w Java 9 w pakiecie `jdk.jfr`.
+
+---
+
+Jeżeli chcesz, mogę teraz zrobić **quiz łączony z wszystkich przerobionych adnotacji JFR** (`@Frequency`, `@Label`, `@Description`, `@Category`) w jednym miejscu – mega powtórka do nauki.
+
+Chcesz, żebym to zrobił?

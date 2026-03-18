@@ -1,0 +1,31 @@
+JDBC  jest zestawem klas i interfejsów, umożliwiających:
+Połączenie z bazą danych
+Wykonywanie instrukcji SQL na bazie danych
+Otrzymywanie i przetwarzanie wyników instrukcji SQL (np. tabel wynikowych)
+
+Wersja JDBC 1.0 dostarcza podstawowych środków działania na BD.
+Wersje JDBC 2.0 i - aktualna JDBC 4.0 dają dodatkowe możliwości  np.
+przewijalne i modyfikowalne tabele wynikowe,
+bezpośrednie modyfikowanie tabel wynikowych za pomoc metod klasy Statement
+wsadowe przetwarzanie instrukcji SQL
+obsługę typów danych SQL3
+wspomaganie  JNDI (Java Naming and Directory Services) – czyli możliwość katalogowania i prowadzenia nazw źródeł danych na poziomie logicznym (podobnie jak to jest w hierarchicznym systemie plikowym)
+pooling połączeń (przechowywanie puli połączeń w pamięci w celu ew. ponownego użycia i przyspieszenia transakcji)
+transakcje rozproszone (przesyłanie danych w sieci do takich klientów jak np. przeglądarki lub laptopy)
+dostęp do praktycznie każdej formy tabularyzowanych danych (w tym arkuszy kalkulacyjnych i zwykłych plików),
+obsługę typu XML.
+JDBC pozwala na działanie w architekturze dwu- i trzy-warstwowej.
+
+Architektura dwuwarstwowa
+
+r
+
+Źródło: JDBC User's Guide. Javasoft
+
+Architektura trzywarstwowa
+
+r
+
+Źródło: JDBC User's Guide. Javasoft
+
+Zalety warstwy pośredniej: efektywność, kontrola, bezpieczeństwo, ułatwienie utrzymywania i rozwoju systemu, możliwości integracji z innymi podsystemami (middleware).

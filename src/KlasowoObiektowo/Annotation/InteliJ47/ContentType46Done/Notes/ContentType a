@@ -1,0 +1,114 @@
+Jedziemy 😎
+Poniżej masz **pełny klucz odpowiedzi do quizu „`@ContentType` i okolice”** + komentarze egzaminacyjne (czyli *dlaczego właśnie tak*).
+
+---
+
+# ✅ Odpowiedzi – Quiz `@ContentType`
+
+## 🔹 Część I – Prawda / Fałsz
+
+### 1️⃣ W standardowej Javie istnieje adnotacja `@ContentType`.
+
+**❌ B – Fałsz**
+
+📌 **Nie istnieje** taka adnotacja w JDK.
+
+---
+
+### 2️⃣ `Content-Type` to nagłówek HTTP.
+
+**✅ A – Prawda**
+
+➡️ Określa format danych w body żądania / odpowiedzi.
+
+---
+
+### 3️⃣ `org.apache.http.entity.ContentType` to adnotacja.
+
+**❌ B – Fałsz**
+
+➡️ To **klasa**, nie adnotacja.
+
+---
+
+## 🔹 Część II – JAX-RS
+
+### 4️⃣ Która adnotacja określa, jaki Content-Type metoda przyjmuje?
+
+**✅ B – `@Consumes`**
+
+---
+
+### 5️⃣ Która adnotacja określa, jaki Content-Type metoda zwraca?
+
+**✅ B – `@Produces`**
+
+---
+
+### 6️⃣ Pakiet `@Consumes` i `@Produces`?
+
+**✅ C – `jakarta.ws.rs`**
+
+📌 W starszych wersjach: `javax.ws.rs`.
+
+---
+
+## 🔹 Część III – Spring
+
+### 7️⃣ Jak w Springu określić Content-Type żądania?
+
+**✅ C – `consumes` w `@RequestMapping`**
+
+```java
+@PostMapping(consumes = "application/json")
+```
+
+---
+
+### 8️⃣ Jak pobrać Content-Type nagłówka w Springu?
+
+**✅ B – `@RequestHeader("Content-Type")`**
+
+---
+
+## 🔹 Część IV – Pułapki
+
+### 9️⃣ `MediaType.APPLICATION_JSON` to:
+
+**✅ C – stała opisująca MIME type**
+
+📌 NIE adnotacja.
+
+---
+
+### 🔟 Najbliższy odpowiednik fikcyjnej `@ContentType`?
+
+**✅ B – `@Consumes` / `@Produces`**
+
+---
+
+## ✍️ 1️⃣1️⃣ Odpowiedź opisowa (wzorcowa)
+
+> `@ContentType` nie została wprowadzona, ponieważ Content-Type w HTTP jest dwukierunkowy — dotyczy zarówno danych przyjmowanych, jak i zwracanych. Zamiast jednej ogólnej adnotacji, Java w JAX-RS rozdzieliła odpowiedzialność na `@Consumes` i `@Produces`, co daje większą precyzję i czytelność API.
+
+---
+
+## 🧠 Egzaminacyjna ściąga
+
+* ❌ `@ContentType` — **nie istnieje**
+* ✅ Content-Type = nagłówek HTTP
+* ✅ JAX-RS → `@Consumes`, `@Produces`
+* ✅ Spring → `consumes`, `produces`
+* ❌ `ContentType` ≠ adnotacja
+* ❌ `MediaType` ≠ adnotacja
+
+---
+
+Jeśli chcesz, następne fajne kroki 👇
+
+* 🔥 **quiz: „Adnotacja czy klasa?”**
+* 🔥 **`MediaType` vs `ContentType` vs String**
+* 🔥 **pełna mapa adnotacji REST (Spring + JAX-RS)**
+* 🔥 **typowe pytania rekrutacyjne o Content-Type**
+
+Co bierzemy dalej? 😄

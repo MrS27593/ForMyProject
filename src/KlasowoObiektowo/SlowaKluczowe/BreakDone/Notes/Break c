@@ -1,0 +1,178 @@
+Świetnie, bardzo dobre i konkretne pytanie! 🔥
+Słowo kluczowe `break` w Javie jest **małe**, ale **bardzo ważne**.
+Pozwól, że wytłumaczę Ci **pełny obraz** — spokojnie i krok po kroku.
+
+---
+
+# 📚 Co to jest `break` w Javie?
+
+- `break` to **słowo kluczowe** (ang. "przerwać", "zatrzymać")
+- Używamy go, aby **przerwać**:
+  - pętlę (`for`, `while`, `do-while`)
+  - instrukcję `switch`
+- Kiedy program dochodzi do `break`, **natychmiast wychodzi** z danej pętli lub `switch`, **nie wykonując reszty kodu**.
+
+---
+
+# 🔥 Najważniejsze zastosowania `break`
+
+## 1. `break` w pętli
+
+Przerywamy **całą pętlę**, kiedy osiągniemy jakiś warunek.
+
+### Przykład:
+
+```java
+for (int i = 0; i < 10; i++) {
+    if (i == 5) {
+        break; // kończy pętlę gdy i == 5
+    }
+    System.out.println(i);
+}
+```
+
+**Wynik:**
+```
+0
+1
+2
+3
+4
+```
+✅ Gdy `i == 5`, `break` przerywa pętlę.
+
+---
+
+## 2. `break` w `while` lub `do-while`
+
+Dokładnie tak samo działa!
+
+```java
+int i = 0;
+while (i < 10) {
+    if (i == 3) {
+        break;
+    }
+    System.out.println(i);
+    i++;
+}
+```
+
+---
+
+## 3. `break` w instrukcji `switch`
+
+**Przerywa wykonanie danego `case`**, żeby nie "przeleciało" na kolejne `case`.
+
+### Przykład:
+
+```java
+int day = 3;
+
+switch (day) {
+    case 1:
+        System.out.println("Poniedziałek");
+        break;
+    case 2:
+        System.out.println("Wtorek");
+        break;
+    case 3:
+        System.out.println("Środa");
+        break;
+    default:
+        System.out.println("Inny dzień");
+        break;
+}
+```
+
+**Wynik:**
+```
+Środa
+```
+
+✅ Jeśli nie ma `break`, Java **wpadnie** w kolejne `case` ("fall-through" — przechodzenie).
+
+---
+
+# ✨ Ważne cechy `break`:
+
+| Cecha | Opis |
+|:------|:-----|
+| Przerywa | tylko najbliższą pętlę lub `switch` |
+| Może być użyte | w `for`, `while`, `do-while`, `switch` |
+| W `for` | nie wykonuje już `increment/decrement` po `break` |
+| W `switch` | zatrzymuje przechodzenie przez kolejne `case` |
+
+---
+
+# 🎯 Przykład bardziej zaawansowany: `break` w zagnieżdżonych pętlach
+
+Kiedy masz pętle w pętli — `break` przerywa **tylko tę najbliższą**.
+
+```java
+for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 5; j++) {
+        if (j == 2) {
+            break; // przerywa tylko wewnętrzną pętlę
+        }
+        System.out.println("i=" + i + ", j=" + j);
+    }
+}
+```
+
+**Wynik:**
+```
+i=0, j=0
+i=0, j=1
+i=1, j=0
+i=1, j=1
+i=2, j=0
+i=2, j=1
+```
+
+✅ Widzisz, tylko **wewnętrzna** pętla została przerwana!
+
+---
+
+# ⚡ Bardzo zaawansowane: **break z etykietą** (`label`)
+
+Java pozwala użyć `break` z **etykietą**, żeby wyjść nawet z **kilku pętli naraz**.
+
+### Przykład:
+
+```java
+outerLoop:
+for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 5; j++) {
+        if (j == 2) {
+            break outerLoop; // wychodzi z obu pętli naraz
+        }
+        System.out.println("i=" + i + ", j=" + j);
+    }
+}
+```
+
+**Wynik:**
+```
+i=0, j=0
+i=0, j=1
+```
+
+✅ `break outerLoop;` — wychodzi od razu ze wszystkiego, nie tylko z wewnętrznej pętli!
+
+---
+
+# 🚀 Podsumowanie: `break`
+
+| Funkcja | Wyjaśnienie |
+|:--------|:------------|
+| W pętli | Przerywa wykonanie pętli |
+| W `switch` | Przerywa wykonanie danego `case` |
+| W zagnieżdżeniu | Przerywa tylko najbliższą pętlę, chyba że użyjesz etykiety |
+| Gdzie nie wolno | Poza pętlą i `switch` nie możesz używać `break` |
+
+---
+
+# 📣 Czy chcesz, żebym dał Ci **kilka małych zadań** na `break` do samodzielnego rozwiązania?
+(np. "wypisz pierwsze 3 liczby podzielne przez 7" itp.) 🚀
+Będzie super trening! 🔥 Chcesz?

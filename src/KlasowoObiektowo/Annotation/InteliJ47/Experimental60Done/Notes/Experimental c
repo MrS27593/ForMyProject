@@ -1,0 +1,128 @@
+Świetne pytanie 😄
+`@Experimental` to **jedna z najbardziej mylących nazw w świecie Javy**.
+
+---
+
+# ❗ Czy istnieje standardowa adnotacja `@Experimental` w Javie?
+
+## ❌ **Nie istnieje w JDK**
+
+W:
+
+* `java.lang`
+* `java.util`
+* `java.annotation`
+* `java.beans`
+* `javax.*`
+
+➡️ **Brak takiej adnotacji w standardowej Javie**
+
+---
+
+# ✅ Ale… `@Experimental` ISTNIEJE w różnych bibliotekach
+
+To jest **adnotacja bibliotekowa**, nie JDK.
+
+---
+
+## 1️⃣ Kotlin
+
+```kotlin
+@Experimental
+```
+
+W Kotlinie oznacza:
+
+> API eksperymentalne — może się zmienić lub zniknąć
+
+---
+
+## 2️⃣ Google Guava
+
+```java
+@Beta
+```
+
+To odpowiednik „experimental”.
+
+---
+
+## 3️⃣ JetBrains / IntelliJ
+
+```java
+org.jetbrains.annotations.ApiStatus.Experimental
+```
+
+Oznacza:
+
+* API niestabilne
+* może się zmienić
+* brak gwarancji kompatybilności
+
+---
+
+## 4️⃣ Android
+
+W Android SDK są oznaczenia eksperymentalne (często przez `@RequiresApi` + dokumentację).
+
+---
+
+## 5️⃣ Spring?
+
+❌ Spring **nie ma globalnego `@Experimental`**
+
+Czasem używa:
+
+* `@Deprecated`
+* `@Incubating` (w niektórych projektach ekosystemu)
+
+---
+
+# 🧠 Dlaczego nie ma `@Experimental` w JDK?
+
+Bo JDK używa:
+
+```java
+@Deprecated
+```
+
+i dokumentacji Javadoc.
+
+---
+
+# 🔎 Różnica: `@Experimental` vs `@Deprecated`
+
+| Cecha                   | Experimental            | Deprecated |
+| ----------------------- | ----------------------- | ---------- |
+| API niestabilne         | ✅                       | ❌          |
+| API do usunięcia        | ❌                       | ✅          |
+| Ostrzeżenie kompilatora | zależy od implementacji | ✅          |
+| Standard JDK            | ❌                       | ✅          |
+
+---
+
+# 🧪 Egzaminacyjna odpowiedź
+
+> `@Experimental` nie jest standardową adnotacją Javy. Występuje w niektórych bibliotekach (np. Kotlin, JetBrains) i oznacza API niestabilne, które może ulec zmianie. W standardowej Javie do oznaczania przestarzałego API używa się `@Deprecated`.
+
+---
+
+# 📌 Najczęstsza pułapka
+
+❌ Mylenie z:
+
+* `@Deprecated`
+* `@Incubating`
+* `@Beta`
+* `@PreviewFeature` (JDK!)
+
+---
+
+Jeśli chcesz, możemy zrobić:
+
+* 🔥 quiz „Experimental vs Deprecated”
+* 🔥 przegląd wszystkich „statusowych” adnotacji w Javie
+* 🔥 różnice: `@PreviewFeature` vs `@Experimental`
+* 🔥 napisać własną `@Experimental`
+
+Jak zwykle — napisz 👉 **quiz** 😄

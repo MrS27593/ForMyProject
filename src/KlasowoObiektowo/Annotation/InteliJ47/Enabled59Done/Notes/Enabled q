@@ -1,0 +1,108 @@
+No to lecimy 😄
+**QUIZ: adnotacja `@Enabled` i „enabled” w Javie**
+(dużo pułapek, dokładnie jak lubisz 🧠🔥)
+
+---
+
+# 📝 Quiz – `@Enabled`
+
+## 🔹 Część I – Prawda / Fałsz
+
+### 1️⃣ W standardowej Javie (JDK) istnieje adnotacja `@Enabled`.
+
+A. Prawda
+B. Fałsz
+
+---
+
+### 2️⃣ W JUnit 5 istnieje adnotacja `@Enabled`.
+
+A. Prawda
+B. Fałsz
+
+---
+
+### 3️⃣ W JUnit 5 istnieją adnotacje zaczynające się od `@Enabled…`.
+
+A. Prawda
+B. Fałsz
+
+---
+
+## 🔹 Część II – JUnit
+
+### 4️⃣ Która adnotacja **włącza test tylko na danym systemie operacyjnym**?
+
+A. `@EnabledOnOs`
+B. `@Enabled`
+C. `@ActiveOnOs`
+D. `@ConditionalOnOs`
+
+---
+
+### 5️⃣ Przeciwieństwem warunkowych adnotacji `@EnabledOn…` w JUnit 5 jest:
+
+A. `@Ignore`
+B. `@Inactive`
+C. `@Disabled`
+D. `@Off`
+
+---
+
+### 6️⃣ W jakim pakiecie znajdują się adnotacje `@EnabledOnOs`, `@EnabledOnJre`?
+
+A. `org.junit.jupiter.api`
+B. `org.junit.jupiter.api.condition`
+C. `org.junit.condition`
+D. `org.junit.platform.api`
+
+---
+
+## 🔹 Część III – Spring
+
+### 7️⃣ Jak w Springu warunkowo „włączyć” funkcję na podstawie property?
+
+A. `@Enabled`
+B. `@EnableProperty`
+C. `@ConditionalOnProperty`
+D. `@PropertyEnabled`
+
+---
+
+### 8️⃣ Co robi adnotacja `@EnableScheduling`?
+
+A. Włącza testy
+B. Warunkowo uruchamia metody
+C. Importuje konfigurację i aktywuje mechanizm
+D. Ustawia flagę `enabled = true`
+
+---
+
+## 🔹 Część IV – Pułapki
+
+### 9️⃣ Które stwierdzenie jest prawdziwe?
+
+A. `@Enabled` to skrót do `@EnabledOnOs`
+B. `@Enabled` istnieje w Spring Boot
+C. „Enabled” to pojęcie, nie standardowa adnotacja
+D. `@Enabled` zastępuje `@Disabled`
+
+---
+
+### 🔟 Gdzie NAJCZĘŚCIEJ spotyka się „enabled/disabled” w postaci adnotacji?
+
+A. JDK
+B. JUnit
+C. java.beans
+D. java.util
+
+---
+
+## ✍️ 1️⃣1️⃣ (opisowe)
+
+Dlaczego Java i frameworki **nie wprowadziły jednej uniwersalnej adnotacji `@Enabled`**?
+
+---
+
+Jak skończysz — pisz 👉 **odpowiedzi**
+a ja dam Ci **klucz + komentarze egzaminacyjne / rekrutacyjne** 😄💪

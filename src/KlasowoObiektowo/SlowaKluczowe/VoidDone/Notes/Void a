@@ -1,0 +1,96 @@
+✅ ODPOWIEDZI DO QUIZU: void w Java
+1. Co oznacza słowo kluczowe void w deklaracji metody?
+
+✅ Poprawna odpowiedź: C
+
+Metoda nic nie zwraca
+
+🔹 void nie oznacza null, tylko brak wartości zwracanej.
+
+2. Która z poniższych metod została poprawnie zadeklarowana jako void?
+
+✅ Poprawna odpowiedź: A
+
+public void pokazTekst() { System.out.println("Hej"); }
+
+
+🔹 Poprawna składnia:
+[modyfikator] void nazwaMetody() { }
+
+3. Czy metoda typu void może zawierać instrukcję return?
+
+✅ Poprawna odpowiedź: A
+
+Tak, ale tylko return; bez wartości
+
+🔹 return;:
+
+kończy metodę wcześniej
+
+nie zwraca żadnej wartości
+
+4. Jakiego typu metoda NIE powinna używać słowa void?
+
+✅ Poprawna odpowiedź: B
+
+Taka, która wykonuje operację matematyczną i zwraca wynik
+
+🔹 Jeśli potrzebujesz wyniku → nie używasz void, tylko np. int, double.
+
+5. Co się stanie, jeśli spróbujesz zwrócić wartość w metodzie void?
+
+✅ Poprawna odpowiedź: B
+
+Kompilator zgłosi błąd
+
+🔹 Przykład błędu:
+
+void test() {
+    return 5; // ❌ błąd kompilacji
+}
+
+6. Gdzie występuje metoda void w typowym programie Java?
+
+✅ Poprawna odpowiedź: B
+
+W metodzie main
+
+public static void main(String[] args)
+
+
+🔹 JVM nie oczekuje wyniku z main.
+
+7. Jaka jest poprawna składnia metody void bez parametrów?
+
+✅ Poprawna odpowiedź: B
+
+public void metoda() {}
+
+
+🔹 To klasyczna i poprawna definicja.
+
+8. Czy metoda void może mieć parametry wejściowe?
+
+✅ Poprawna odpowiedź: C
+
+Tak, dowolną liczbę
+
+🔹 void nie ogranicza parametrów, tylko brak wartości zwracanej.
+
+9. Czego NIE można zrobić w metodzie void?
+
+✅ Poprawna odpowiedź: B
+
+Zwrócić liczbę całkowitą
+
+🔹 Wszystko inne (println, zmiana stanu, wywołanie metody) jest dozwolone.
+
+10. Jak poprawnie zakończyć metodę void wcześniej?
+
+✅ Poprawna odpowiedź: D
+
+return;
+
+
+🔹 break → tylko dla pętli
+🔹 return; → kończy metodę

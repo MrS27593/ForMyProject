@@ -1,0 +1,211 @@
+## WIEDZA – `implements` w Java
+
+---
+
+### 1️⃣ Czym jest `implements`?
+
+* `implements` to **słowo kluczowe**, które mówi, że **klasa realizuje (implementuje) interfejs**.
+* Klasa zobowiązuje się do **zaimplementowania wszystkich metod interfejsu**.
+
+```java
+interface RunnableTask {
+    void run();
+}
+
+class Job implements RunnableTask {
+    @Override
+    public void run() {
+        System.out.println("Job running");
+    }
+}
+```
+
+---
+
+### 2️⃣ `implements` vs `extends`
+
+| `implements`    | `extends`                |
+| --------------- | ------------------------ |
+| Dla interfejsów | Dla klas                 |
+| Można wiele     | Tylko jedna klasa        |
+| Brak stanu      | Może mieć stan           |
+| Kontrakt        | Dziedziczenie zachowania |
+
+```java
+class A extends B implements C, D {}
+```
+
+📌 Najpierw zawsze `extends`, potem `implements`.
+
+---
+
+### 3️⃣ Implementacja wielu interfejsów
+
+```java
+interface Flyable { void fly(); }
+interface Swimable { void swim(); }
+
+class Duck implements Flyable, Swimable {
+    public void fly() { }
+    public void swim() { }
+}
+```
+
+➡ To jest **legalne i bardzo często używane**.
+
+---
+
+### 4️⃣ Metody z interfejsu muszą być `public`
+
+```java
+interface Service {
+    void execute();
+}
+
+class MyService implements Service {
+    // ❌ błąd
+    // void execute() {}
+
+    // ✅ poprawnie
+    public void execute() {}
+}
+```
+
+➡ Nie wolno zawężać widoczności.
+
+---
+
+### 5️⃣ `implements` + klasy abstrakcyjne
+
+```java
+interface Task {
+    void run();
+}
+
+abstract class AbstractTask implements Task {
+    // brak implementacji – OK
+}
+```
+
+➡ Klasa abstrakcyjna **nie musi** implementować metod interfejsu.
+
+---
+
+### 6️⃣ `implements` + `default methods`
+
+```java
+interface Logger {
+    default void log() {
+        System.out.println("Log");
+    }
+}
+
+class FileLogger implements Logger {
+    // nie musi implementować log()
+}
+```
+
+➡ `default` = gotowa implementacja.
+
+---
+
+### 7️⃣ Konflikt metod `default`
+
+```java
+interface A {
+    default void test() {}
+}
+
+interface B {
+    default void test() {}
+}
+
+class C implements A, B {
+    @Override
+    public void test() {
+        A.super.test();
+        B.super.test();
+    }
+}
+```
+
+📌 Konflikt **musi być rozwiązany ręcznie**.
+
+---
+
+### 8️⃣ Praktyczny przykład – większy, realny
+
+#### Kontrakt:
+
+```java
+interface NotificationSender {
+    void send(String message);
+}
+```
+
+#### Implementacje:
+
+```java
+class EmailSender implements NotificationSender {
+    public void send(String message) {
+        System.out.println("Email: " + message);
+    }
+}
+
+class SmsSender implements NotificationSender {
+    public void send(String message) {
+        System.out.println("SMS: " + message);
+    }
+}
+```
+
+#### Użycie (polimorfizm):
+
+```java
+class NotificationService {
+    private final NotificationSender sender;
+
+    NotificationService(NotificationSender sender) {
+        this.sender = sender;
+    }
+
+    void notifyUser(String msg) {
+        sender.send(msg);
+    }
+}
+```
+
+➡ **luźne powiązania**
+➡ **łatwa podmiana implementacji**
+➡ **testowalność (mocki)**
+
+---
+
+### 9️⃣ Czego NIE można zrobić z `implements`?
+
+❌ Implementować klasy
+❌ Implementować prywatnych metod interfejsu
+❌ Zmniejszyć widoczności metod
+❌ Dziedziczyć stanu
+
+---
+
+### 🔟 Najczęstsze błędy
+
+❌ Mylenie `extends` z `implements`
+❌ Brak `public` przy metodach
+❌ Nadużywanie `instanceof` zamiast polimorfizmu
+❌ Zbyt „grube” interfejsy (łamanie ISP)
+
+---
+
+### ✅ Podsumowanie
+
+* `implements` = realizacja kontraktu
+* Można implementować **wiele interfejsów**
+* Fundament SOLID, Spring, testów
+* Jedno z **najważniejszych słów kluczowych w Javie**
+
+---
+
+Gdy chcesz, napisz **„quiz”** 👍

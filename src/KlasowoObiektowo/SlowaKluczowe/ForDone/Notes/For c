@@ -1,0 +1,127 @@
+## WIEDZA – `for` w Java
+
+---
+
+### 1️⃣ Czym jest `for`?
+
+* `for` to **pętla sterowana licznikowo**, pozwalająca wykonać blok kodu określoną liczbę razy.
+* Składnia podstawowa:
+
+```java
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}
+```
+
+* `i = 0` – inicjalizacja zmiennej
+* `i < 5` – warunek kontynuacji
+* `i++` – aktualizacja zmiennej po każdej iteracji
+
+---
+
+### 2️⃣ Pętla `for-each` (enhanced for)
+
+* Używana do iteracji po tablicach i kolekcjach:
+
+```java
+String[] names = {"Ala", "Ola", "Ela"};
+
+for (String name : names) {
+    System.out.println(name);
+}
+```
+
+➡ `for-each` jest czytelniejszy i bezpieczniejszy – brak ryzyka błędów indeksowania.
+
+---
+
+### 3️⃣ Pętla `for` z wieloma zmiennymi
+
+```java
+for (int i = 0, j = 10; i < j; i++, j--) {
+    System.out.println(i + " " + j);
+}
+```
+
+➡ Można inicjalizować i aktualizować kilka zmiennych naraz.
+
+---
+
+### 4️⃣ Pętla nieskończona z `for`
+
+```java
+for (;;) {
+    System.out.println("Nieskończona pętla");
+    break; // zwykle dodajemy warunek zakończenia
+}
+```
+
+➡ Jeśli nie podamy warunku, `for` może działać nieskończono.
+
+---
+
+### 5️⃣ Zagnieżdżone pętle `for`
+
+```java
+for (int i=1; i<=3; i++) {
+    for (int j=1; j<=2; j++) {
+        System.out.println("i=" + i + " j=" + j);
+    }
+}
+```
+
+➡ Przydatne np. przy pracy z macierzami lub generowaniu tabel.
+
+---
+
+### 6️⃣ `break` i `continue` w pętli `for`
+
+```java
+for (int i=0; i<10; i++) {
+    if (i == 5) break;      // przerywa pętlę
+    if (i % 2 == 0) continue; // pomija parzyste
+    System.out.println(i);  // wypisuje tylko nieparzyste < 5
+}
+```
+
+---
+
+### 7️⃣ Przykład praktyczny – system zamówień
+
+```java
+double[] orders = {120, 50, 300, 80};
+
+double total = 0;
+for (double order : orders) {
+    if (order > 100) {
+        total += order * 0.9; // 10% rabatu
+    } else {
+        total += order;
+    }
+}
+
+System.out.println("Suma: " + total);
+```
+
+➡ Czytelny sposób sumowania i stosowania logiki biznesowej.
+
+---
+
+### 8️⃣ Najczęstsze błędy początkujących
+
+❌ Błędna inicjalizacja lub warunek (np. `i <= array.length` w tablicy)
+❌ Zapomnienie o `i++` – nieskończona pętla
+❌ Nadmierne zagnieżdżanie – kod trudny do czytania
+
+---
+
+### ✅ Podsumowanie
+
+* `for` = pętla licznikowa
+* `for-each` = bezpieczna iteracja po tablicach i kolekcjach
+* `break`/`continue` pozwalają kontrolować przepływ
+* Pętle zagnieżdżone przydatne np. w tablicach 2D i większych projektach
+
+---
+
+Jeśli chcesz, mogę teraz przygotować **quiz** do pętli `for`. Napisz **„quiz”**, a stworzę pytania.

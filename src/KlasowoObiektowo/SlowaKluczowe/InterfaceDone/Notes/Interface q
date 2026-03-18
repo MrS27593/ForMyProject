@@ -1,0 +1,95 @@
+### 📘 QUIZ – `interface` w Java
+
+**10 pytań: 8 zamkniętych (A–D) + 2 otwarte**
+
+---
+
+#### 1️⃣ Czym najlepiej opisać rolę `interface` w Javie?
+
+A. Jest to klasa, która może mieć tylko metody statyczne
+B. Jest to kontrakt definiujący zachowanie klas
+C. Jest to obiekt tworzony w czasie kompilacji
+D. Jest to alternatywa dla pakietów
+
+---
+
+#### 2️⃣ Jakiego słowa kluczowego używa klasa do skorzystania z interfejsu?
+
+A. `extends`
+B. `uses`
+C. `implements`
+D. `inherits`
+
+---
+
+#### 3️⃣ Które stwierdzenie o metodach w interfejsie jest prawdziwe?
+
+A. Metody w interfejsie są domyślnie `private`
+B. Metody w interfejsie muszą być `static`
+C. Metody w interfejsie są domyślnie `public abstract`
+D. Metody w interfejsie muszą mieć implementację
+
+---
+
+#### 4️⃣ Co stanie się, jeśli klasa nie zaimplementuje wszystkich metod interfejsu?
+
+A. Kod się skompiluje, ale rzuci wyjątek w runtime
+B. Klasa musi być oznaczona jako `abstract`
+C. Kompilator doda puste implementacje
+D. Metody zostaną pominięte
+
+---
+
+#### 5️⃣ Które elementy mogą znajdować się w interfejsie?
+
+A. Pola instancyjne i konstruktory
+B. Metody abstrakcyjne, `default`, `static`
+C. Metody `protected` i `private` bez implementacji
+D. Konstruktory i bloki inicjalizacyjne
+
+---
+
+#### 6️⃣ Co oznacza fakt, że pola w interfejsie są `public static final`?
+
+A. Każdy obiekt interfejsu ma własną kopię pola
+B. Pole może być zmieniane przez klasy implementujące
+C. Pole jest stałą współdzieloną przez wszystkie klasy
+D. Pole jest inicjalizowane w konstruktorze
+
+---
+
+#### 7️⃣ Która linia kodu jest POPRAWNA?
+
+A. `interface Test { private int x; }`
+B. `interface Test { int x = 10; }`
+C. `interface Test { protected void run(); }`
+D. `interface Test { Test(); }`
+
+---
+
+#### 8️⃣ Dlaczego w Javie stosuje się interfejsy zamiast wielodziedziczenia klas?
+
+A. Dla poprawy wydajności
+B. Aby umożliwić implementację wielu zachowań
+C. Ponieważ klasy nie mogą mieć metod
+D. Aby uprościć składnię języka
+
+---
+
+#### 9️⃣ (Pytanie otwarte)
+
+Podaj **jedną praktyczną korzyść** używania interfejsów w dużych projektach.
+
+---
+
+#### 🔟 (Pytanie otwarte)
+
+Czym różni się `default method` w interfejsie od metody abstrakcyjnej?
+
+---
+
+Kiedy chcesz, napisz **„odpowiedzi”**, a:
+
+* podam poprawne odpowiedzi
+* wyjaśnię **dlaczego**
+* wskażę typowe pułapki egzaminacyjne i rekrutacyjne 👌

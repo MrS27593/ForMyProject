@@ -1,0 +1,205 @@
+Świetnie 🔥
+`ChronoField` to **ostatni filar `java.time`**, który idealnie domyka wiedzę o `DayOfWeek`, `Month` i `ChronoUnit`. Jedziemy **od podstaw do poziomu egzamin / rekrutacja**.
+
+---
+
+# 🧭 `java.time.temporal.ChronoField` – kompletny przewodnik
+
+## 1️⃣ Czym jest `ChronoField`?
+
+`ChronoField` to **enum reprezentujący konkretne pola czasowe**, czyli **„konkretne wartości” daty/czasu**.
+
+📌 **Różnica kluczowa:**
+
+| Typ           | Co reprezentuje                     |
+| ------------- | ----------------------------------- |
+| `ChronoUnit`  | jednostkę (dni, miesiące)           |
+| `ChronoField` | pole (dzień miesiąca, miesiąc roku) |
+
+Pakiet:
+
+```java
+java.time.temporal.ChronoField
+```
+
+---
+
+## 2️⃣ Najważniejsze pola (`ChronoField`)
+
+### Data:
+
+* `DAY_OF_MONTH`
+* `DAY_OF_WEEK`
+* `DAY_OF_YEAR`
+* `MONTH_OF_YEAR`
+* `YEAR`
+* `ERA`
+
+### Czas:
+
+* `HOUR_OF_DAY`
+* `MINUTE_OF_HOUR`
+* `SECOND_OF_MINUTE`
+* `NANO_OF_SECOND`
+
+### Zaawansowane:
+
+* `ALIGNED_WEEK_OF_YEAR`
+* `CLOCK_HOUR_OF_DAY`
+* `AMPM_OF_DAY`
+
+---
+
+## 3️⃣ Podstawowe użycie – `get()`
+
+```java
+LocalDate date = LocalDate.of(2026, 3, 15);
+
+int day = date.get(ChronoField.DAY_OF_MONTH);
+int month = date.get(ChronoField.MONTH_OF_YEAR);
+int year = date.get(ChronoField.YEAR);
+
+System.out.println(day);   // 15
+System.out.println(month); // 3
+System.out.println(year);  // 2026
+```
+
+---
+
+## 4️⃣ `ChronoField` vs dedykowane metody
+
+❌ Gorsze:
+
+```java
+date.get(ChronoField.MONTH_OF_YEAR);
+```
+
+✔ Lepsze:
+
+```java
+date.getMonthValue();
+```
+
+📌 `ChronoField` używaj, gdy:
+
+* piszesz kod generyczny (`Temporal`)
+* pracujesz z dynamicznym polem
+
+---
+
+## 5️⃣ Zmiana wartości pola – `with()`
+
+```java
+LocalDate date = LocalDate.of(2026, 3, 15);
+
+date = date.with(ChronoField.DAY_OF_MONTH, 1);
+date = date.with(ChronoField.MONTH_OF_YEAR, 12);
+
+System.out.println(date); // 2026-12-01
+```
+
+---
+
+## 6️⃣ Sprawdzanie zakresu wartości
+
+```java
+ValueRange range = ChronoField.DAY_OF_MONTH.range();
+System.out.println(range); // 1 - 31
+```
+
+Lub dla konkretnej daty:
+
+```java
+date.range(ChronoField.DAY_OF_MONTH); // np. luty → 1–28
+```
+
+---
+
+## 7️⃣ ChronoField + LocalTime
+
+```java
+LocalTime time = LocalTime.of(14, 30, 45);
+
+int hour   = time.get(ChronoField.HOUR_OF_DAY);
+int minute = time.get(ChronoField.MINUTE_OF_HOUR);
+int second = time.get(ChronoField.SECOND_OF_MINUTE);
+```
+
+---
+
+## 8️⃣ Sprawdzanie czy pole jest obsługiwane
+
+```java
+date.isSupported(ChronoField.HOUR_OF_DAY); // false
+time.isSupported(ChronoField.DAY_OF_MONTH); // false
+```
+
+---
+
+## 9️⃣ Najczęstsze pułapki ❗
+
+❌ `MONTH_OF_YEAR` ≠ enum `Month`
+➡ zwraca **int (1–12)**
+
+❌ `DAY_OF_WEEK`
+➡ zwraca **1–7**, a nie enum `DayOfWeek`
+
+```java
+int dow = date.get(ChronoField.DAY_OF_WEEK);
+DayOfWeek day = DayOfWeek.of(dow);
+```
+
+---
+
+## 🔟 Przykłady rekrutacyjne
+
+### 🔹 Zmień tylko godzinę
+
+```java
+LocalDateTime dt = LocalDateTime.now();
+dt = dt.with(ChronoField.HOUR_OF_DAY, 9);
+```
+
+---
+
+### 🔹 Sprawdź czy dzień to weekend
+
+```java
+int dow = date.get(ChronoField.DAY_OF_WEEK);
+boolean weekend = dow == 6 || dow == 7;
+```
+
+---
+
+## 1️⃣1️⃣ ChronoField vs ChronoUnit (mega ważne!)
+
+| Cecha        | ChronoField  | ChronoUnit     |
+| ------------ | ------------ | -------------- |
+| Typ          | enum         | enum           |
+| Reprezentuje | pole         | jednostkę      |
+| Przykład     | DAY_OF_MONTH | DAYS           |
+| Użycie       | get / with   | plus / between |
+
+---
+
+## 🧠 Podsumowanie
+
+✔ `ChronoField` = enum
+✔ Reprezentuje **konkretne pola czasu**
+✔ Używany z `get()` i `with()`
+✔ Implementuje `TemporalField`
+✔ Idealny do kodu generycznego
+
+---
+
+### 🔥 Co dalej?
+
+Mogę:
+
+* zrobić **quiz z `ChronoField`**
+* dać **zadania rekrutacyjne łączące Field + Unit**
+* porównać **ChronoField vs getters (`getDayOfMonth`)**
+* albo przejść do **podsumowania całego `java.time`**
+
+👉 Co wybierasz?
+

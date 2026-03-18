@@ -1,0 +1,135 @@
+Oczywiście! Klasa `Dimension2D` w Javie jest częścią pakietu `javafx.geometry` lub `java.awt.geom`, w zależności od kontekstu, w którym chcesz jej użyć. W tym przypadku skupię się na wersji z `java.awt.geom`, bo to jest najczęściej używana wersja w klasycznych aplikacjach desktopowych. Poniżej znajdziesz pełne omówienie.
+
+---
+
+## 📦 Pakiet
+
+```java
+import java.awt.geom.Dimension2D;
+```
+
+---
+
+## 🔍 Co to jest `Dimension2D`?
+
+`Dimension2D` to **abstrakcyjna klasa**, która reprezentuje wymiary (szerokość i wysokość) w przestrzeni 2D. Jest to odpowiednik klasy `Dimension`, ale obsługujący zmiennoprzecinkowe wartości (`double`) zamiast liczb całkowitych (`int`).
+
+---
+
+## 🧱 Struktura klasy
+
+Jako klasa abstrakcyjna, `Dimension2D` **nie może być bezpośrednio instancjonowana**. Musisz skorzystać z podklasy lub utworzyć własną. Jedna z gotowych implementacji to `javafx.geometry.Dimension2D` lub możesz stworzyć klasę własną:
+
+```java
+Dimension2D dim = new Dimension2D() {
+    private double width = 100;
+    private double height = 50;
+
+    @Override
+    public double getWidth() {
+        return width;
+    }
+
+    @Override
+    public double getHeight() {
+        return height;
+    }
+
+    @Override
+    public void setSize(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+};
+```
+
+Ale częściej zamiast tej klasy używa się:
+
+* `java.awt.Dimension` dla typu `int`
+* `javafx.geometry.Dimension2D` dla typu `double` i jeśli korzystasz z JavaFX
+
+---
+
+## 🧪 Metody w `Dimension2D`
+
+Oto najważniejsze metody:
+
+### ✅ `getWidth()`
+
+Zwraca szerokość jako `double`.
+
+### ✅ `getHeight()`
+
+Zwraca wysokość jako `double`.
+
+### ✅ `setSize(double width, double height)`
+
+Ustawia nowe wartości szerokości i wysokości.
+
+---
+
+## ✅ Przykład użycia z własną klasą
+
+```java
+public class MyDimension extends Dimension2D {
+    private double width;
+    private double height;
+
+    public MyDimension(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public double getWidth() {
+        return width;
+    }
+
+    @Override
+    public double getHeight() {
+        return height;
+    }
+
+    @Override
+    public void setSize(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+}
+```
+
+I użycie:
+
+```java
+MyDimension dim = new MyDimension(150.5, 200.25);
+System.out.println("Width: " + dim.getWidth());
+System.out.println("Height: " + dim.getHeight());
+```
+
+---
+
+## ⚠️ Różnice względem `java.awt.Dimension`
+
+| cecha      | `Dimension` | `Dimension2D`   |
+| ---------- | ----------- | --------------- |
+| Typ danych | `int`       | `double`        |
+| Klasa      | konkretna   | abstrakcyjna    |
+| Pakiet     | `java.awt`  | `java.awt.geom` |
+
+---
+
+## 📦 Alternatywa: `javafx.geometry.Dimension2D`
+
+Jeśli używasz JavaFX, lepiej użyć gotowej klasy `javafx.geometry.Dimension2D`, która jest **niemutowalna** i prosta w użyciu:
+
+```java
+import javafx.geometry.Dimension2D;
+
+Dimension2D dim = new Dimension2D(100.0, 50.0);
+System.out.println(dim.getWidth());
+System.out.println(dim.getHeight());
+```
+
+---
+
+Czy chcesz przykład użycia `Dimension2D` w aplikacji graficznej, np. Swing lub JavaFX?

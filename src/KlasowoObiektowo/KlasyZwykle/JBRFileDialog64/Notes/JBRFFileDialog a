@@ -1,0 +1,50 @@
+Świetnie! Oto poprawne odpowiedzi do quizu:
+
+---
+
+### ✅ **Odpowiedzi – Quiz o `JBRFileDialog`**
+
+#### **1. W jakim pakiecie znajduje się klasa `JBRFileDialog`?**
+
+**✅ Odpowiedź: C. `com.jetbrains.desktop`**
+
+---
+
+#### **2. Która z poniższych stałych służy do wyboru katalogów?**
+
+**✅ Odpowiedź: C. `SELECT_DIRECTORIES_HINT`**
+
+---
+
+#### **3. Co umożliwia metoda `get(FileDialog dialog)` w klasie `JBRFileDialog`?**
+
+**✅ Odpowiedź: B. Pobiera instancję `JBRFileDialog` z istniejącego `FileDialog`**
+
+---
+
+#### **4. Która metoda pozwala ustawić niestandardowy tekst przycisku otwierania pliku?**
+
+**✅ Odpowiedź: C. `setLocalizationString()`**
+
+---
+
+#### **5. W jakim celu używa się metody `setFileFilterExtensions()`?**
+
+**✅ Odpowiedź: B. Do filtrowania rozszerzeń plików**
+
+---
+
+#### **6. \[Pytanie otwarte] Przykładowe odpowiedzi:**
+
+Można było podać dowolne 2 z poniższych:
+
+* Tworzenie niestandardowych okien dialogowych do otwierania/zapisywania plików w aplikacjach desktopowych.
+* Zastosowanie w pluginach do IntelliJ IDEA (np. wybór plików konfiguracyjnych lub folderów projektowych).
+* Obsługa lokalizacji interfejsu użytkownika (np. polskie tłumaczenia przycisków).
+* Filtrowanie tylko wybranych typów plików (np. tylko .xml lub .json).
+* Wsparcie dla tworzenia folderów na macOS.
+
+---
+
+🎉 **Gratulacje! Jeśli odpowiedziałeś poprawnie na większość pytań, masz solidną wiedzę o `JBRFileDialog`.**
+Chcesz teraz quiz programistyczny – np. uzupełnij kod z błędami lub wybierz właściwą implementację?

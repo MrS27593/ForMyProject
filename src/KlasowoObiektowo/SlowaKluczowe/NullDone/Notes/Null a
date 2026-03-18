@@ -1,0 +1,97 @@
+## ✅ Odpowiedzi – QUIZ `null` w Java
+
+---
+
+### **1. Co oznacza wartość `null` w Javie?**
+
+**✅ B. Brak referencji do obiektu**
+
+* `null` oznacza, że zmienna obiektowa **nie wskazuje na żaden obiekt**.
+
+---
+
+### **2. Czy zmienna typu `int` może być ustawiona na `null`?**
+
+**✅ B. Nie, typy proste nie mogą być `null`**
+
+* Typy proste (`int`, `double`, `boolean`) zawsze mają wartość domyślną (0, false), nie `null`.
+
+---
+
+### **3. Co się stanie, jeśli wywołasz metodę na `null`?**
+
+**✅ D. Wystąpi `NullPointerException`**
+
+* Próba użycia metody na `null` kończy się wyjątkiem w czasie wykonywania.
+
+---
+
+### **4. Jak poprawnie sprawdzić, czy zmienna jest `null`?**
+
+**✅ B. `if (text == null)`**
+
+* Porównanie przy użyciu `==` jest poprawne dla sprawdzania `null`.
+
+---
+
+### **5. Który przykład jest poprawny dla typu obiektowego?**
+
+**✅ A. `String s = null;`**
+
+* Typy obiektowe mogą przyjmować `null`. Typy proste nie.
+
+---
+
+### **6. Jakie metody z klasy `Objects` mogą sprawdzić `null`?**
+
+**✅ A. `Objects.isNull(obj)` i `Objects.nonNull(obj)`**
+
+* W Javie 8+ wygodne do sprawdzania wartości `null`.
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład sytuacji prowadzącej do `NullPointerException`:**
+
+```java
+String text = null;
+System.out.println(text.length()); // ❌ NullPointerException
+```
+
+* Próba wywołania metody na zmiennej, która ma wartość `null`.
+
+---
+
+### **8. (OTWARTE)**
+
+**Dlaczego warto używać `Optional` zamiast `null`?**
+
+* Pozwala **uniknąć NullPointerException**
+* Wymusza jawne sprawdzenie obecności wartości
+* Poprawia czytelność kodu i bezpieczeństwo
+
+```java
+Optional<String> maybeText = Optional.ofNullable(text);
+maybeText.ifPresent(System.out::println);
+```
+
+---
+
+### **9. Czy kolekcje Java mogą zawierać `null`?**
+
+**✅ C. Tak, niektóre kolekcje dopuszczają `null` (np. `ArrayList`)**
+
+* Niektóre kolekcje, jak `HashSet` czy `HashMap`, też dopuszczają `null` (klucz lub wartość zależnie od implementacji).
+
+---
+
+### **10. Które zdanie o `null` jest prawdziwe?**
+
+**✅ B. `null` oznacza brak referencji do obiektu**
+
+* `null` **nie inicjalizuje** typów prostych ani nie tworzy obiektu.
+
+---
+
+Chcesz, żebym teraz przeszedł do **next słowa kluczowego w Javie**, np. `instanceof`, czy robimy teraz **podsumowanie wszystkich słów kluczowych i modyfikatorów**?

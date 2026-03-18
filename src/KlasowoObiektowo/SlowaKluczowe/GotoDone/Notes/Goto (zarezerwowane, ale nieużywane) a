@@ -1,0 +1,107 @@
+### ✅ Odpowiedzi – QUIZ `goto` w Java
+
+---
+
+### 1️⃣ Czy można użyć słowa kluczowego `goto` w Javie?
+
+**✅ B. Nie, to zarezerwowane słowo kluczowe, nieużywane**
+
+➡ `goto` istnieje tylko w Javie jako zarezerwowane słowo, **nie można go używać** w kodzie.
+
+---
+
+### 2️⃣ Dlaczego Java nie wspiera klasycznego `goto`?
+
+**✅ A. Ponieważ jest nieczytelne i prowadzi do „spaghetti code”**
+
+➡ Java stawia na **czytelne struktury sterujące**.
+
+---
+
+### 3️⃣ Co można użyć zamiast `goto` w Javie do wyjścia z pętli?
+
+**✅ C. `break` lub `continue` z etykietą**
+
+➡ Pozwala kontrolować przepływ w zagnieżdżonych pętlach.
+
+---
+
+### 4️⃣ Która opcja poprawnie pokazuje użycie etykiety (`label`) z `break`?
+
+**✅ A.**
+
+```java
+outer:
+for (int i=0; i<5; i++) break outer;
+```
+
+➡ Etykieta musi być powiązana z blokiem pętli.
+
+---
+
+### 5️⃣ Co się stanie, jeśli spróbujesz użyć `goto` w Javie?
+
+**✅ B. Kompilator zgłosi błąd**
+
+➡ `goto` jest zarezerwowane, ale nieużywane.
+
+---
+
+### 6️⃣ Czy etykiety (`label`) mogą być użyte do `continue`?
+
+**✅ A. Tak, aby przeskoczyć do początku zewnętrznej pętli**
+
+```java
+outer:
+for (int i=0;i<3;i++) {
+    for (int j=0;j<3;j++) {
+        if (j==1) continue outer;
+    }
+}
+```
+
+---
+
+### 7️⃣ Dlaczego `break` z etykietą jest bezpieczniejszy niż `goto`?
+
+**✅ A. Bo działa tylko w pętli lub switch**
+
+➡ Nie pozwala przeskakiwać w dowolne miejsce, więc kod pozostaje czytelny.
+
+---
+
+### 8️⃣ Które zdanie o `goto` w Javie jest prawdziwe?
+
+**✅ B. Jest zarezerwowane, nieużywane i nie można go użyć**
+
+---
+
+### 9️⃣ Pytanie otwarte – przykładowa odpowiedź
+
+**✔ Przykład użycia etykiety zamiast `goto`:**
+
+```java
+search:
+for (int i=0;i<5;i++) {
+    for (int j=0;j<5;j++) {
+        if (matrix[i][j]==5) break search; // zamiast goto
+    }
+}
+```
+
+➡ Przerwanie zagnieżdżonych pętli w kontrolowany sposób.
+
+---
+
+### 🔟 Pytanie otwarte – przykładowa odpowiedź
+
+**✔ Stosowanie `goto` w innych językach prowadzi do:**
+
+* trudnego do czytania „spaghetti code”
+* problemów z debugowaniem
+* wysokiego ryzyka błędów logicznych
+* złamania zasad SOLID
+
+---
+
+Chcesz, żebym teraz przeszedł do **`while`** lub kolejnego słowa kluczowego jak `instanceof`, czy wolisz inny temat?

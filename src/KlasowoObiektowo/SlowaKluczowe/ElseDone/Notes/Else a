@@ -1,0 +1,59 @@
+Świetnie, oto **odpowiedzi do quizu** wraz z krótkim wyjaśnieniem każdego pytania:
+
+---
+
+## ✅ **ODPOWIEDZI – Quiz `if`, `else`, `else if` w Java**
+
+### 🧠 **PYTANIA WYBORU**
+
+**1.** ✅ **C) Wykona się blok `else`**
+→ Jeśli `if` jest fałszywy, a mamy `else`, to właśnie jego kod się wykona.
+
+**2.** ✅ **B) `else if (x < 0) {}`** oraz ✅ **D) `if (x > 0) {}`**
+→ A i C są błędne składniowo (`else` nie przyjmuje warunku, a `if` musi mieć nawiasy).
+
+**3.** ✅ **B) Tylko jeden**
+→ Można mieć wiele `else if`, ale **tylko jeden** końcowy `else`.
+
+**4.** ✅ **B) Nie większe niż 10**
+→ `a = 5`, więc `a > 10` to fałsz, zatem wykona się `else`.
+
+**5.** ✅ **B) Warunkowanie wielopoziomowe**
+→ Taki łańcuch `if`, `else if`, `else` to struktura wielopoziomowa warunkowa.
+
+---
+
+### ✅ **PYTANIA PRAWDA / FAŁSZ**
+
+**6.** ❌ **Fałsz**
+→ `else` **musi** być połączone z wcześniejszym `if`.
+
+**7.** ✅ **Prawda**
+→ Możesz mieć dowolną liczbę `else if`, np. do sprawdzania różnych przypadków.
+
+**8.** ✅ **Prawda**
+→ Jeśli żadna wcześniejsza gałąź (`if`, `else if`) się nie wykonała, to `else` zostanie wykonane.
+
+---
+
+### ✅ **PYTANIA KODOWE / UZUPEŁNIJ**
+
+**9.**
+```java
+} else {
+```
+→ `else` to poprawne słowo kluczowe kończące konstrukcję warunkową.
+
+**10.** ✅ **Odpowiedź: `Zero`**
+→ `x = 0`, więc oba warunki `x > 0` i `x < 0` są fałszywe → wykonuje się `else`.
+
+---
+
+### 🏁 **Twój wynik?**
+- Policz punkty (max 10).
+- 9–10: Świetnie!
+- 7–8: Dobrze, ale warto poćwiczyć.
+- 5–6: Masz podstawy, ale przyda się praktyka.
+- 0–4: Czas wrócić do teorii i poćwiczyć z przykładami – mogę pomóc!
+
+Chcesz dodatkowy quiz, zadanie do napisania kodu, czy wolisz przejść do kolejnego tematu z Javy?

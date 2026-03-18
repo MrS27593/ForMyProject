@@ -1,0 +1,150 @@
+Super! 🌟 Przejdźmy krok po kroku do **`AbstractCollection`** – jednej z najważniejszych klas abstrakcyjnych w Javie dla kolekcji.
+
+---
+
+# 🧩 `java.util.AbstractCollection` – pełne omówienie
+
+## 1️⃣ Czym jest `AbstractCollection`?
+
+```java
+public abstract class AbstractCollection<E> implements Collection<E>
+```
+
+📌 **Najważniejsze fakty**
+
+* Jest **klasą abstrakcyjną**, częścią pakietu `java.util`.
+* Implementuje **interfejs `Collection`**, ale **nie wszystkie metody**.
+* Służy jako **bazowa klasa dla innych kolekcji** (np. `AbstractList`, `AbstractSet`).
+* Pozwala twórcom nowych kolekcji **zaoszczędzić implementację wielu metod**.
+
+---
+
+## 2️⃣ Co `AbstractCollection` daje „za darmo”?
+
+Metody, które **są już zaimplementowane** w `AbstractCollection`:
+
+| Metoda                              | Co robi                                                             |
+| ----------------------------------- | ------------------------------------------------------------------- |
+| `isEmpty()`                         | Sprawdza, czy `size() == 0`                                         |
+| `contains(Object o)`                | Sprawdza, czy kolekcja zawiera dany element (przy pomocy iteratora) |
+| `toArray()`                         | Tworzy tablicę z elementami kolekcji                                |
+| `toString()`                        | Zwraca reprezentację kolekcji w formie `[e1, e2, ...]`              |
+| `addAll(Collection<? extends E> c)` | Dodaje wszystkie elementy z podanej kolekcji                        |
+| `remove(Object o)`                  | Usuwa pierwszy napotkany element równy `o`                          |
+| `containsAll(Collection<?> c)`      | Sprawdza, czy kolekcja zawiera wszystkie elementy `c`               |
+| `removeAll(Collection<?> c)`        | Usuwa wszystkie elementy występujące w `c`                          |
+| `retainAll(Collection<?> c)`        | Zachowuje tylko elementy występujące w `c`                          |
+
+📌 Dzięki temu, jeśli tworzysz **własną kolekcję**, **wystarczy zaimplementować `iterator()` i `size()`**, a reszta „działa automatycznie”.
+
+---
+
+## 3️⃣ Metody abstrakcyjne
+
+Każda klasa dziedzicząca **musi zaimplementować**:
+
+1. `Iterator<E> iterator()` – zwraca iterator po kolekcji
+2. `int size()` – zwraca liczbę elementów
+
+Opcjonalnie można nadpisać:
+
+* `add(E e)` – domyślnie **rzuca `UnsupportedOperationException`**
+* `remove()` – również domyślnie niedozwolone
+
+---
+
+## 4️⃣ Dlaczego warto używać `AbstractCollection`?
+
+✅ Oszczędza implementację większości metod z `Collection`.
+✅ Umożliwia **tworzenie własnych kolekcji** z minimalnym kodem.
+✅ Jest **bazą dla `AbstractList`, `AbstractSet`, `AbstractQueue`**, które z kolei są bazą dla większości klas Javy (`ArrayList`, `HashSet`, `LinkedList`).
+
+---
+
+## 5️⃣ Prosty przykład własnej kolekcji
+
+### 🔹 Tworzymy prostą kolekcję liczb nieparzystych
+
+```java
+import java.util.AbstractCollection;
+import java.util.Iterator;
+
+public class OddNumbers extends AbstractCollection<Integer> {
+
+    private final int max;
+
+    public OddNumbers(int max) {
+        this.max = max;
+    }
+
+    @Override
+    public Iterator<Integer> iterator() {
+        return new Iterator<>() {
+            private int current = 1;
+
+            @Override
+            public boolean hasNext() {
+                return current <= max;
+            }
+
+            @Override
+            public Integer next() {
+                int val = current;
+                current += 2;
+                return val;
+            }
+        };
+    }
+
+    @Override
+    public int size() {
+        return (max + 1) / 2;
+    }
+}
+```
+
+### Użycie:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        AbstractCollection<Integer> oddNumbers = new OddNumbers(10);
+
+        System.out.println("Size: " + oddNumbers.size()); // 5
+        for (int n : oddNumbers) {
+            System.out.print(n + " "); // 1 3 5 7 9
+        }
+    }
+}
+```
+
+📌 Zauważ, że **nie zaimplementowaliśmy większości metod**, a kolekcja **działa od razu** dzięki `AbstractCollection`.
+
+---
+
+## 6️⃣ Typowe pułapki początkujących
+
+1. **Nie implementujesz `iterator()` lub `size()`** → kompilator nie pozwoli utworzyć instancji.
+2. **Dodawanie elementów (`add`) domyślnie nie działa** – trzeba nadpisać, jeśli chcemy kolekcję modyfikowalną.
+3. **Nie używaj `AbstractCollection` dla dużych zbiorów bez sensownego iteratora** – wydajność może spaść.
+
+---
+
+## 7️⃣ Podsumowanie – najważniejsze punkty
+
+* `AbstractCollection` to **klasa bazowa dla wszystkich kolekcji w Javie**
+* **Wystarczy implementacja `iterator()` i `size()`**, reszta metod jest dostępna
+* Ułatwia **tworzenie własnych kolekcji**
+* Bazowe klasy Javy (`AbstractList`, `AbstractSet`) dziedziczą po niej
+
+---
+
+💡 **Krótka analogia:**
+`AbstractCollection` = „szkielet kolekcji”.
+Dajesz **dwóch kluczowych pomocników (`iterator()` i `size()`)**, a klasa automatycznie „buduje ciało” wszystkich standardowych metod kolekcji.
+
+---
+
+Mogę teraz zrobić **quiz o AbstractCollection**, tak jak robiliśmy z `Number` – idealne do sprawdzenia wiedzy i utrwalenia.
+
+Chcesz, żebym zrobił quiz?

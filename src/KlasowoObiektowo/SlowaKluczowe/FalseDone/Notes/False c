@@ -1,0 +1,180 @@
+`false` w Javie to **literał logiczny** (boolean literal). Omówmy go konkretnie i technicznie, tak jak pod naukę i praktykę w IntelliJ.
+
+---
+
+## `false` – podstawowe informacje
+
+* `false` jest **jedną z dwóch wartości typu `boolean`**
+* Druga to: `true`
+* Jest **słowem kluczowym / literałem**, zapis zawsze **małymi literami**
+* Reprezentuje **logiczny fałsz**
+
+```java
+boolean isLoggedIn = false;
+```
+
+---
+
+## Typ `boolean`
+
+* `boolean` może przyjmować tylko:
+
+  * `true`
+  * `false`
+* Nie ma wartości pośrednich (jak 0/1 w C)
+
+```java
+boolean active = false;
+```
+
+❌ Niedozwolone:
+
+```java
+boolean x = 0;      // błąd
+boolean y = "false"; // błąd
+```
+
+---
+
+## `false` w instrukcjach warunkowych (`if`, `while`, `for`)
+
+### `if`
+
+```java
+boolean hasAccess = false;
+
+if (hasAccess) {
+    System.out.println("Dostęp przyznany");
+} else {
+    System.out.println("Brak dostępu");
+}
+```
+
+➡ wykona się `else`
+
+---
+
+### `while`
+
+```java
+while (false) {
+    System.out.println("To się nigdy nie wykona");
+}
+```
+
+➡ pętla **nigdy się nie uruchomi**
+
+---
+
+### `for`
+
+```java
+for (; false; ) {
+    System.out.println("Nigdy");
+}
+```
+
+➡ również nigdy się nie wykona
+
+---
+
+## `false` jako wartość domyślna
+
+Pola klasowe typu `boolean` **domyślnie mają wartość `false`**:
+
+```java
+class User {
+    boolean active; // domyślnie false
+}
+```
+
+⚠️ Lokalne zmienne **nie mają wartości domyślnej**:
+
+```java
+void test() {
+    boolean x;
+    // System.out.println(x); // błąd kompilacji
+}
+```
+
+---
+
+## Porównania zwracające `false`
+
+Operatory porównań często zwracają `false`:
+
+```java
+int a = 5;
+int b = 10;
+
+boolean result = a > b; // false
+```
+
+---
+
+## `false` a operatory logiczne
+
+```java
+false && true   // false
+false || true   // true
+!false          // true
+```
+
+Przykład praktyczny:
+
+```java
+boolean isAdmin = false;
+boolean canEdit = isAdmin || hasPermission;
+```
+
+---
+
+## Częsty błąd początkujących ❌
+
+```java
+if (x = false) { } // BŁĄD LOGICZNY
+```
+
+Poprawnie:
+
+```java
+if (x == false) { }
+// lub lepiej:
+if (!x) { }
+```
+
+---
+
+## Dobra praktyka
+
+Zamiast:
+
+```java
+if (isActive == false)
+```
+
+👉 **lepiej**:
+
+```java
+if (!isActive)
+```
+
+Czytelniej i bardziej „javowo”.
+
+---
+
+## Podsumowanie
+
+* `false` to literał typu `boolean`
+* Oznacza logiczny fałsz
+* Często używany w:
+
+  * warunkach
+  * pętlach
+  * flagach stanu
+* Domyślna wartość pól `boolean`
+* Bardzo ważny w logice aplikacji
+
+---
+
+Kiedy będziesz gotowy, napisz **„quiz”**, a przygotuję solidny quiz jak wcześniej 👌

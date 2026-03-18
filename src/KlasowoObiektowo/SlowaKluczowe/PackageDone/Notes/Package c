@@ -1,0 +1,137 @@
+## WIEDZA – **package-private** (domyślny brak modyfikatora) w Java
+
+---
+
+### 1️⃣ Czym jest package-private?
+
+* **Brak modyfikatora** w Javie oznacza **domyślny dostęp pakietowy**.
+* Element oznaczony w ten sposób jest dostępny **tylko w klasach tego samego pakietu**.
+
+📌 Nie piszesz `package` – po prostu nie dodajesz `public`, `protected` ani `private`.
+
+---
+
+### 2️⃣ Zakres dostępu package-private
+
+| Miejsce użycia                 | Dostęp |
+| ------------------------------ | ------ |
+| Ta sama klasa                  | ✔      |
+| Ten sam pakiet                 | ✔      |
+| Klasa potomna w innym pakiecie | ❌      |
+| Inny pakiet                    | ❌      |
+
+* W skrócie: **widoczność ograniczona do pakietu**.
+
+---
+
+### 3️⃣ package-private przy klasie
+
+```java
+class User {
+    String name;
+}
+```
+
+* Klasa jest dostępna **tylko w tym samym pakiecie**.
+* Nie może być użyta w innych pakietach.
+
+---
+
+### 4️⃣ package-private przy metodach
+
+```java
+class Calculator {
+
+    int add(int a, int b) {
+        return a + b;
+    }
+}
+```
+
+* Metoda `add` jest dostępna tylko dla klas w tym samym pakiecie.
+* Nie wymaga modyfikatora `public` ani `protected`.
+
+---
+
+### 5️⃣ package-private przy polach
+
+```java
+class Account {
+    double balance; // package-private
+}
+```
+
+* Pola są dostępne tylko dla klas w tym samym pakiecie.
+* Brak dostępu z podklas w innym pakiecie.
+
+---
+
+### 6️⃣ package-private a dziedziczenie
+
+```java
+package banking;
+
+class BankAccount {
+    void logTransaction() {}
+}
+
+package banking.sub;
+
+import banking.BankAccount;
+
+class SavingsAccount extends BankAccount {
+    void test() {
+        logTransaction(); // ❌ niedostępne, inny pakiet
+    }
+}
+```
+
+* Podklasa w innym pakiecie **nie ma dostępu** do package-private elementów klasy bazowej.
+
+---
+
+### 7️⃣ package-private w praktyce
+
+* Idealny do **ukrywania implementacji** w obrębie pakietu
+* Stosowany w **frameworkach i bibliotekach** dla elementów pomocniczych, które **nie są częścią publicznego API**
+
+---
+
+### 8️⃣ package-private a `public`/`protected`/`private`
+
+| Modyfikator | Dostęp                 |
+| ----------- | ---------------------- |
+| `private`   | tylko klasa            |
+| *(brak)*    | pakiet                 |
+| `protected` | pakiet + dziedziczenie |
+| `public`    | wszędzie               |
+
+---
+
+### 9️⃣ Przykład praktyczny
+
+```java
+package utils;
+
+class Helper {
+    static void printMessage(String msg) {
+        System.out.println(msg);
+    }
+}
+```
+
+* Funkcja `printMessage` dostępna **tylko w pakiecie `utils`**
+* Ukrywa szczegóły przed resztą aplikacji
+
+---
+
+### 🔟 Podsumowanie
+
+* **Package-private = brak modyfikatora**
+* Widoczność ograniczona do pakietu
+* Chroni implementację, ale umożliwia współpracę klas w tym samym pakiecie
+* Wybór dobrego modyfikatora = ważna część projektowania klas w Javie
+
+---
+
+Gdy będziesz gotowy, napisz **„quiz”**, a przygotuję quiz o **package-private** w tym samym stylu co poprzednie ✅

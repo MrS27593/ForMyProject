@@ -1,0 +1,78 @@
+Jasne! Oto **quiz o pętli `do-while` w Javie** w klasycznej, przyjemnej formie — takiej, jaką możesz wydrukować, rozwiązać na kartce, albo po prostu przeanalizować krok po kroku.
+
+---
+
+## 🧪 Quiz: Pętla `do-while` w języku Java
+
+**Instrukcja:**
+Przeczytaj każde pytanie i wybierz jedną poprawną odpowiedź (A, B lub C). Odpowiedzi znajdziesz na końcu.
+
+---
+
+### **1. Co robi pętla `do-while` w Javie?**
+
+A. Sprawdza warunek przed wykonaniem bloku kodu
+B. Wykonuje blok kodu przynajmniej raz, potem sprawdza warunek
+C. Nigdy nie sprawdza warunku
+
+---
+
+### **2. Co wypisze poniższy kod?**
+
+```java
+int x = 0;
+do {
+    System.out.println(x);
+    x++;
+} while (x < 3);
+```
+
+A. 1
+B. 0 1 2
+C. 0 1 2 3
+
+---
+
+### **3. W jakiej sytuacji warto użyć `do-while` zamiast zwykłego `while`?**
+
+A. Gdy nie wiesz, czy kod w ogóle ma się wykonać
+B. Gdy chcesz wykonać kod przynajmniej raz, np. wyświetlić menu
+C. Gdy chcesz uniknąć używania pętli
+
+---
+
+### **4. Które z poniższych zdań jest prawdziwe o `do-while`?**
+
+A. Kod może się nie wykonać ani razu
+B. Pętla `do-while` jest szybsza od `for`
+C. Pętla `do-while` zawsze wykona ciało przynajmniej raz
+
+---
+
+### **5. Która z tych pętli lepiej nadaje się do menu użytkownika z opcją wyjścia?**
+
+A. `for`
+B. `while`
+C. `do-while`
+
+---
+
+## ✅ Odpowiedzi:
+
+1. **B**
+2. **B**
+3. **B**
+4. **C**
+5. **C**
+
+---
+
+## 📊 Klucz punktowy:
+
+- **5/5** – Brawo! Masz świetne pojęcie o pętli `do-while`.
+- **3–4/5** – Dobrze! Wystarczy odrobina powtórki.
+- **0–2/5** – Warto jeszcze raz przejrzeć temat. Jeśli chcesz, mogę Ci go dokładnie wytłumaczyć!
+
+---
+
+Chcesz, żebym przygotował podobny quiz do innego tematu z Javy (np. `for`, `if`, klasy, metody, dziedziczenie)?

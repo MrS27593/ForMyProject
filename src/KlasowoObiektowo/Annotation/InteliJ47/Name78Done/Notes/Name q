@@ -1,0 +1,83 @@
+Jasne 😄 oto **quiz o `@Name`** – czysty i zróżnicowany poziom:
+
+---
+
+# 🟢 Quiz – `@Name`
+
+### 1️⃣ Co oznacza adnotacja `@Name` w JFR?
+
+A. Nadaje unikalną nazwę zdarzeniu, polu lub metodzie
+B. Automatycznie generuje getter i setter
+C. Oznacza pole jako prywatne
+D. Powoduje, że zmienna staje się statyczna
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Name`?
+
+A. `java.lang.annotation`
+B. `jdk.jfr`
+C. `javax.annotation`
+D. `org.jetbrains.annotations`
+
+---
+
+### 3️⃣ Czy `@Name` wpływa na logikę programu w runtime?
+
+A. Tak
+B. Nie
+
+---
+
+### 4️⃣ Gdzie można stosować `@Name`?
+
+A. Tylko na polach
+B. Na klasach zdarzeń, polach i metodach
+C. Tylko na metodach
+D. Tylko na klasach abstrakcyjnych
+
+---
+
+### 5️⃣ Czy nazwa w `@Name` musi być unikalna?
+
+A. Tak
+B. Nie
+
+---
+
+### 6️⃣ Z którymi adnotacjami JFR często współpracuje `@Name`?
+
+A. `@Label` i `@Description`
+B. `@Deprecated` i `@SuppressWarnings`
+C. `@FunctionalInterface` i `@SafeVarargs`
+D. `@MXBean` i `@JavaBean`
+
+---
+
+### 7️⃣ Czy `@Name` jest obowiązkowa dla każdego pola zdarzenia w JFR?
+
+A. Tak
+B. Nie
+
+---
+
+### 8️⃣ Do czego najczęściej używa się `@Name` w narzędziach monitorujących?
+
+A. Do kompilacji klasy
+B. Do identyfikacji zdarzeń i pól w raportach
+C. Do generowania getterów/setterów
+D. Do serializacji obiektów
+
+---
+
+### 9️⃣ Czy można stosować `@Name` na polach prywatnych klasy JFR?
+
+A. Tak
+B. Nie
+
+---
+
+### 🔟 Czy `@Name` jest częścią standardowego JDK od wersji 9?
+
+A. Tak
+B. Nie

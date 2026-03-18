@@ -1,0 +1,65 @@
+Świetnie! Oto **quiz** o słowie kluczowym `volatile` w Javie – zróżnicowany poziom trudności: od podstaw do zaawansowanych. Każde pytanie ma **jedną poprawną odpowiedź**.
+
+---
+
+### 🧠 **Quiz: Volatile w Java**
+
+#### **1. Co gwarantuje zmienna oznaczona jako `volatile`?**
+
+A) Że operacje na niej są atomowe
+B) Że dostęp do niej jest szybszy
+C) Że zmiana wartości jest natychmiast widoczna w innych wątkach
+D) Że jest tylko do odczytu
+
+---
+
+#### **2. Co NIE jest gwarantowane przez `volatile`?**
+
+A) Widoczność zmiany w innych wątkach
+B) Unikanie cache'owania zmiennej
+C) Synchronizacja z innymi operacjami
+D) Atomowość operacji takich jak `count++`
+
+---
+
+#### **3. Który zapis zmiennej jest bezpieczny z użyciem `volatile`?**
+
+A) `i++`
+B) `list.add(value)`
+C) `flag = true`
+D) `balance = balance + 100`
+
+---
+
+#### **4. Kiedy należy użyć `volatile` zamiast `synchronized`?**
+
+A) Gdy zależy Ci na blokadzie wielu wątków
+B) Gdy operujesz na kolekcjach
+C) Gdy chcesz zagwarantować widoczność prostej flagi między wątkami
+D) Gdy chcesz chronić wiele współdzielonych zmiennych naraz
+
+---
+
+#### **5. Które z poniższych stwierdzeń jest PRAWIDŁOWE?**
+
+A) `volatile` zastępuje `synchronized` w każdym przypadku
+B) `volatile` sprawia, że JVM używa różnych wątków
+C) `volatile` eliminuje ryzyko uszkodzenia danych przy wielu operacjach
+D) `volatile` wpływa na widoczność, ale nie zapewnia spójności wielu operacji
+
+---
+
+#### **6. Jaka klasa z `java.util.concurrent.atomic` jest bezpieczna do operacji takich jak `i++`?**
+
+A) `AtomicBoolean`
+B) `AtomicInteger`
+C) `ThreadLocal`
+D) `CopyOnWriteArrayList`
+
+---
+
+7. Co może się stać bez volatile?
+
+8. Czy volatile zastępuje synchronized?
+
+Chcesz od razu odpowiedzi i wyjaśnienia, czy wolisz najpierw sam odpowiedzieć i potem sprawdzimy?

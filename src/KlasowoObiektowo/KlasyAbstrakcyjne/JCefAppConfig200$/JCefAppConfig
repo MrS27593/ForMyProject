@@ -1,0 +1,17 @@
+Aby dobrze umieć Klasę JCefAppconfig warto znać:
+Interface:
+List
+
+
+Class:
+String
+Double
+CefSettings
+Component
+GraphicsEnvironment
+GraphicsDevice
+Throwable
+System
+OS
+
+Exceptions:

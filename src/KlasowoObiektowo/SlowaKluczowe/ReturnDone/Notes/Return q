@@ -1,0 +1,96 @@
+## QUIZ – `return` w Java (10 pytań)
+
+---
+
+### **1. Do czego służy słowo kluczowe `return`?**
+
+A. Do deklaracji zmiennej
+B. Do zakończenia metody i opcjonalnie zwrócenia wartości
+C. Do pętli `for`
+D. Do tworzenia obiektu
+
+---
+
+### **2. Co się stanie, jeśli metoda typu `int` nie zawiera `return`?**
+
+A. Kompilator zgłosi błąd
+B. Metoda zwróci `0` automatycznie
+C. JVM zakończy program
+D. Nic się nie stanie
+
+---
+
+### **3. Czy metoda typu `void` może zawierać `return`?**
+
+A. Tak, zawsze z wartością
+B. Tak, bez wartości (`return;`)
+C. Nie, nigdy
+D. Tak, ale tylko w pętli
+
+---
+
+### **4. Co się stanie z kodem po instrukcji `return`?**
+
+A. Jest wykonywany normalnie
+B. Jest ignorowany – metoda się kończy
+C. Kod zostaje powielony
+D. Kod zostaje wywołany później
+
+---
+
+### **5. Która instrukcja jest poprawna w metodzie `int`?**
+
+A. `return;`
+B. `return 5;`
+C. `return "5";`
+D. `return null;`
+
+---
+
+### **6. Która instrukcja jest poprawna w metodzie `void`?**
+
+A. `return 5;`
+B. `return;`
+C. `return "text";`
+D. `return null;`
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład użycia `return` w metodzie, która zwraca wartość i kończy działanie wcześniej w przypadku błędu.
+
+---
+
+### **8. (OTWARTE)**
+
+Dlaczego warto stosować wielokrotne instrukcje `return` w metodzie?
+
+---
+
+### **9. Co się stanie w poniższym kodzie?**
+
+```java
+int square(int x) {
+    if (x < 0) return -1;
+    return x * x;
+}
+```
+
+A. Zawsze zwraca `x * x`
+B. Zwraca -1 dla liczb ujemnych, inaczej `x * x`
+C. Kompilator zgłosi błąd
+D. Nie można używać `return` w warunkach
+
+---
+
+### **10. Które zdanie o `return` jest prawdziwe?**
+
+A. `return` zawsze musi zwracać wartość
+B. W metodzie `void` `return` z wartością jest poprawne
+C. `return` kończy metodę natychmiast
+D. `return` może być używane tylko raz w metodzie
+
+---
+
+Napisz **„odpowiedzi”**, a podam komplet poprawnych odpowiedzi z wyjaśnieniami.

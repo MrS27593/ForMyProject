@@ -1,0 +1,113 @@
+Interfejs `Enumeration` w Javie to jedna z najstarszych struktur do iterowania po kolekcjach, wprowadzona w Java 1.0, zanim pojawiły się bardziej nowoczesne iteratory (`Iterator`, `ListIterator`, `Stream`, itp.). Mimo że dziś rzadziej się go używa, wciąż występuje w starszym kodzie i bibliotekach (np. `Vector`, `Hashtable`).
+
+---
+
+## 🔹 1. Co to jest `Enumeration`?
+
+`Enumeration` to interfejs w pakiecie `java.util` umożliwiający sekwencyjny dostęp do elementów w kolekcji.
+
+### Metody interfejsu `Enumeration<E>`:
+
+```java
+public interface Enumeration<E> {
+    boolean hasMoreElements(); // sprawdza, czy są jeszcze elementy
+    E nextElement();           // zwraca następny element
+}
+```
+
+Działa podobnie do pętli `Iterator`, ale:
+
+* Nie pozwala na usuwanie elementów.
+* Jest jedynie jednokierunkowy.
+* Ma prostszą składnię.
+
+---
+
+## 🔹 2. Gdzie się go używa?
+
+Typowo w starszych kolekcjach, jak:
+
+* `Vector`
+* `Stack`
+* `Hashtable`
+
+Nowoczesne kolekcje (`ArrayList`, `HashMap`, itp.) używają `Iterator`.
+
+---
+
+## 🔹 3. Praktyczny przykład użycia `Enumeration`
+
+Załóżmy, że mamy klasę zarządzającą użytkownikami i przechowujemy ich w `Vector`.
+
+### ✅ Kod:
+
+```java
+import java.util.Enumeration;
+import java.util.Vector;
+
+public class UserManager {
+    public static void main(String[] args) {
+        // Tworzymy wektor użytkowników
+        Vector<String> users = new Vector<>();
+        users.add("Anna");
+        users.add("Bartek");
+        users.add("Celina");
+
+        // Użycie Enumeration do iteracji
+        Enumeration<String> userEnum = users.elements();
+
+        System.out.println("Lista użytkowników:");
+        while (userEnum.hasMoreElements()) {
+            String user = userEnum.nextElement();
+            System.out.println("- " + user);
+        }
+    }
+}
+```
+
+### ✅ Wynik działania:
+
+```
+Lista użytkowników:
+- Anna
+- Bartek
+- Celina
+```
+
+---
+
+## 🔹 4. Różnice między `Enumeration` a `Iterator`
+
+| Cecha              | Enumeration                          | Iterator                                         |
+| ------------------ | ------------------------------------ | ------------------------------------------------ |
+| Metody             | `hasMoreElements()`, `nextElement()` | `hasNext()`, `next()`, `remove()`                |
+| Usuwanie elementów | ❌ Nie                                | ✅ Tak                                            |
+| Wprowadzenie       | Java 1.0                             | Java 1.2                                         |
+| Kolekcje           | Starsze (`Vector`, `Hashtable`)      | Wszystkie kolekcje                               |
+| Bezpieczeństwo     | Niebezpieczny dla współbieżności     | Może być bezpieczny (np. `CopyOnWriteArrayList`) |
+
+---
+
+## 🔹 5. Kiedy jeszcze się przydaje?
+
+* Kiedy pracujesz z bibliotekami, które zwracają `Enumeration`.
+* Do odczytu danych z `ResourceBundle`, `ClassLoader`, itp.
+* W `javax.servlet.ServletContext.getAttributeNames()` – zwraca `Enumeration`.
+
+---
+
+## 🔹 6. Konwersja Enumeration do Listy (nowoczesny kod)
+
+```java
+List<String> userList = Collections.list(userEnum);
+```
+
+---
+
+## Podsumowanie:
+
+* `Enumeration` to przestarzały, ale prosty sposób iteracji.
+* Nadal spotykany w starych API i niektórych frameworkach.
+* W nowym kodzie preferujemy `Iterator`, `for-each` lub `Stream`.
+
+Jeśli chcesz, mogę pokazać, jak napisać własną klasę, która implementuje `Enumeration`, albo jak go używać w projektach typu Java EE (np. z `ServletContext`). Czy chcesz?

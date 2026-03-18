@@ -1,0 +1,87 @@
+Jasne! Przejdźmy przez wszystko, co warto wiedzieć o interfejsie `DataInput` w Javie — krok po kroku.
+
+---
+
+## 🔷 Co to jest `DataInput`?
+
+`DataInput` to **interfejs** w Java, który definiuje metody do odczytywania prymitywnych typów danych (takich jak `int`, `long`, `float`, `boolean`, itd.) z jakiegoś źródła danych w formacie binarnym.
+
+### 📦 Pakiet:
+
+```java
+java.io.DataInput
+```
+
+Zazwyczaj używa się go z klasami takimi jak `DataInputStream`, która **implementuje** ten interfejs.
+
+---
+
+## 🔧 Główne metody `DataInput`
+
+| Metoda                | Opis                                                       |
+| --------------------- | ---------------------------------------------------------- |
+| `readBoolean()`       | Czyta 1 bajt i zwraca `true` lub `false`                   |
+| `readByte()`          | Czyta 1 bajt i zwraca jako `byte`                          |
+| `readUnsignedByte()`  | Czyta 1 bajt i zwraca jako `int` (0–255)                   |
+| `readShort()`         | Czyta 2 bajty i zwraca `short`                             |
+| `readUnsignedShort()` | Czyta 2 bajty i zwraca `int` (0–65535)                     |
+| `readChar()`          | Czyta 2 bajty i zwraca `char`                              |
+| `readInt()`           | Czyta 4 bajty i zwraca `int`                               |
+| `readLong()`          | Czyta 8 bajtów i zwraca `long`                             |
+| `readFloat()`         | Czyta 4 bajty i zwraca `float`                             |
+| `readDouble()`        | Czyta 8 bajtów i zwraca `double`                           |
+| `readFully(byte[] b)` | Czyta dokładnie `b.length` bajtów i zapisuje je do tablicy |
+| `readUTF()`           | Czyta ciąg znaków w formacie UTF (z zakodowaną długością)  |
+| `skipBytes(int n)`    | Pomija `n` bajtów                                          |
+
+---
+
+## 📘 Przykład użycia: `DataInputStream`
+
+```java
+import java.io.*;
+
+public class DataInputExample {
+    public static void main(String[] args) throws IOException {
+        // Plik binarny z danymi
+        byte[] data = {
+            0, 0, 0, 42,             // int (42)
+            0, 65,                   // char ('A')
+            1                        // boolean (true)
+        };
+
+        ByteArrayInputStream bais = new ByteArrayInputStream(data);
+        DataInputStream dis = new DataInputStream(bais);
+
+        int number = dis.readInt();         // 42
+        char letter = dis.readChar();       // 'A'
+        boolean flag = dis.readBoolean();   // true
+
+        System.out.println("Int: " + number);
+        System.out.println("Char: " + letter);
+        System.out.println("Boolean: " + flag);
+
+        dis.close();
+    }
+}
+```
+
+---
+
+## 🧠 Ważne informacje
+
+* **`DataInput` nie przechowuje danych** – on tylko je czyta.
+* Najczęściej używa się go razem z `DataInputStream`, który pobiera dane z `InputStream` (np. pliku).
+* Przeciwieństwem `DataInput` jest `DataOutput` – zapis danych binarnych.
+
+---
+
+## 📚 Zastosowania
+
+* Odczyt danych zapisanych w plikach binarnych (np. formaty własne lub eksportowane z innych aplikacji).
+* Odczyt danych przez sieć (np. sockety TCP).
+* Deserializacja prostych struktur danych.
+
+---
+
+Czy chciałbyś, żebym pokazał też jak tworzyć i zapisywać dane przy pomocy `DataOutput` (czyli odwrotność tego)?

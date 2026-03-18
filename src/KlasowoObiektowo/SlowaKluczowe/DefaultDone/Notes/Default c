@@ -1,0 +1,100 @@
+## `default` w Java
+
+---
+
+### 1️⃣ Czym jest `default`?
+
+Słowo kluczowe `default` w Javie ma kilka zastosowań, zależnie od kontekstu:
+
+1. **W instrukcji `switch`** – określa **domyślną ścieżkę** wykonywania, jeśli żaden `case` nie pasuje.
+2. **W interfejsach (Java 8+)** – pozwala na **zdefiniowanie domyślnej implementacji metody** w interfejsie.
+3. **W pakietach (opcjonalnie)** – w deklaracji modyfikatora dostępu „domyślny” (brak `public/protected/private`) dla klasy lub pola.
+
+---
+
+### 2️⃣ `default` w `switch`
+
+```java
+int day = 10;
+
+switch (day) {
+    case 1:
+        System.out.println("Poniedziałek");
+        break;
+    case 2:
+        System.out.println("Wtorek");
+        break;
+    default:
+        System.out.println("Niepoprawny dzień");
+}
+```
+
+✅ Jeśli żaden `case` nie pasuje, wykona się blok `default`.
+
+---
+
+### 3️⃣ `default` w interfejsach
+
+Od Javy 8 możliwe jest nadawanie **domyślnej implementacji metod w interfejsie**.
+
+```java
+interface Logger {
+    default void log(String message) {
+        System.out.println("LOG: " + message);
+    }
+}
+
+class FileLogger implements Logger {
+    // Nie trzeba implementować log() jeśli wystarczy domyślna wersja
+}
+```
+
+➡ Ułatwia **rozszerzanie interfejsów bez łamania istniejącego kodu**.
+
+---
+
+### 4️⃣ „Default access” – brak modyfikatora
+
+```java
+class MyClass { // default access (pakietowy)
+    void myMethod() {} // default access
+}
+```
+
+* Widoczność w obrębie **tego samego pakietu**
+* Brak słowa kluczowego `public`, `protected` lub `private`
+
+---
+
+### 5️⃣ Praktyczny przykład – `switch` + `default`
+
+```java
+String role = "GUEST";
+
+switch (role) {
+    case "ADMIN":
+        System.out.println("Pełny dostęp");
+        break;
+    case "USER":
+        System.out.println("Dostęp ograniczony");
+        break;
+    default:
+        System.out.println("Brak dostępu");
+}
+```
+
+➡ Każdy możliwy przypadek jest obsłużony, w tym nieznane role.
+
+---
+
+### 6️⃣ Podsumowanie
+
+| Kontekst          | Znaczenie                                  |
+| ----------------- | ------------------------------------------ |
+| `switch`          | blok domyślny, gdy żaden `case` nie pasuje |
+| Interfejs         | domyślna implementacja metody              |
+| Brak modyfikatora | dostęp pakietowy (default access)          |
+
+---
+
+Kiedy będziesz gotowy, napisz **„quiz”**, a przygotuję pytania z `default` w Javie.

@@ -1,0 +1,67 @@
+Pewnie! Oto **quiz z wiedzy o `Future` w Javie** – idealny do sprawdzenia i utrwalenia tego, czego się właśnie nauczyłeś. Składa się z 10 pytań: 7 zamkniętych (ABC/D) i 3 otwartych.
+
+---
+
+### 🧠 **QUIZ – Java `Future`**
+
+#### 🔹 **Pytania zamknięte (jedna poprawna odpowiedź)**
+
+1. **Czym jest `Future` w Javie?**
+   A) Interfejsem do obsługi błędów
+   B) Klasą do przetwarzania danych w strumieniu
+   C) Obiektem reprezentującym wynik operacji asynchronicznej
+   D) Wątkiem działającym w tle
+
+2. **Która metoda `Future` blokuje do momentu zakończenia zadania?**
+   A) `start()`
+   B) `get()`
+   C) `run()`
+   D) `submit()`
+
+3. **Co się stanie po wywołaniu `future.cancel(true)`?**
+   A) Nic – ta metoda nic nie robi
+   B) Wątek zostanie zakończony natychmiast bez wyjątku
+   C) Zadanie zostanie anulowane, jeśli jeszcze się nie rozpoczęło
+   D) Zadanie będzie kontynuowane bez zmian
+
+4. **Jak sprawdzić, czy `Future` zakończył działanie?**
+   A) `future.isRunning()`
+   B) `future.status()`
+   C) `future.isDone()`
+   D) `future.check()`
+
+5. **Które z poniższych NIE jest wadą `Future`?**
+   A) Blokujący charakter
+   B) Brak reakcji na zakończenie zadania
+   C) Możliwość asynchronicznego wykonania
+   D) Brak łańcuchowania
+
+6. **Czym różni się `CompletableFuture` od `Future`?**
+   A) `CompletableFuture` nie działa z `ExecutorService`
+   B) `CompletableFuture` nie obsługuje wyjątków
+   C) `CompletableFuture` umożliwia reakcje po zakończeniu zadania
+   D) Nie różni się – to tylko nowa nazwa
+
+7. **Które z poniższych metod użyjesz, by dodać akcję po zakończeniu `CompletableFuture`?**
+   A) `thenAccept()`
+   B) `onComplete()`
+   C) `addCallback()`
+   D) `joinAction()`
+
+---
+
+#### 🔹 **Pytania otwarte**
+
+8. **Opisz, co się stanie, jeśli wywołasz `future.get()` zanim zadanie się zakończy.**
+
+---
+
+9. **Dlaczego warto używać `CompletableFuture` zamiast `Future` w nowoczesnych aplikacjach?**
+
+---
+
+10. **Napisz przykład kodu, w którym uruchamiasz zadanie asynchroniczne z `Future` i pobierasz wynik.**
+
+---
+
+Chcesz, żebym przygotował do tego **klucz odpowiedzi** albo **interaktywną wersję quizu** (np. HTML/terminal)?

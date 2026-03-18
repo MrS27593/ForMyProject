@@ -1,0 +1,116 @@
+Świetnie 👍
+Poniżej masz **kompletny klucz odpowiedzi do quizu: `@Documented` w Javie** wraz z krótkimi, egzaminacyjnymi wyjaśnieniami.
+
+---
+
+# ✅ **Odpowiedzi: Quiz `@Documented`**
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Czym jest `@Documented`?
+
+**✅ B – meta-adnotacją**
+
+---
+
+### 2️⃣ Do czego służy `@Documented`?
+
+**✅ C** – do pokazania adnotacji w **JavaDoc**
+
+---
+
+### 3️⃣ Czy adnotacje są domyślnie widoczne w JavaDoc?
+
+**✅ B – NIE**
+
+---
+
+## 🔹 Część II – Działanie
+
+### 4️⃣ Czy `@Documented` ma wpływ na runtime?
+
+**✅ C – NIE**
+
+---
+
+### 5️⃣ Gdzie stosuje się `@Documented`?
+
+**✅ D – na definicjach adnotacji**
+
+---
+
+### 6️⃣ Co się stanie bez `@Documented`?
+
+**✅ C** – adnotacja **nie pojawi się w JavaDoc**
+
+---
+
+## 🔹 Część III – Porównania
+
+### 7️⃣ Adnotacja od JavaDoc?
+
+**✅ D – `@Documented`**
+
+---
+
+### 8️⃣ Poprawne połączenie?
+
+**✅ D – wszystkie powyższe**
+
+➡️ `@Documented` można łączyć z `@Target`, `@Retention`, `@Inherited`
+
+---
+
+## 🔹 Część IV – Praktyka
+
+### 9️⃣ Kiedy warto używać?
+
+**✅ C** – w **publicznych adnotacjach API**
+
+---
+
+### 🔟 Która adnotacja JDK?
+
+**✅ C – `@FunctionalInterface`**
+
+📌 Jest widoczna w JavaDoc
+
+---
+
+## ✍️ 1️⃣1️⃣ Przykładowa poprawna odpowiedź (wzorcowa)
+
+```java
+import java.lang.annotation.*;
+
+@Documented
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Example {
+}
+```
+
+✔️ widoczna w JavaDoc
+✔️ działa na metodach
+✔️ dostępna w runtime
+
+---
+
+## 🧠 Podsumowanie do zapamiętania
+
+> **`@Documented` = „pokaż adnotację w JavaDoc”**
+
+* meta-adnotacja
+* tylko dokumentacja
+* brak wpływu na runtime
+* MUST-HAVE w publicznych API
+
+---
+
+Jeśli chcesz kontynuować (idealna ścieżka 👇):
+
+* ➡️ **`@Inherited` (kolejna meta-adnotacja)**
+* ➡️ **porównanie wszystkich meta-annotations**
+* ➡️ **zadania egzaminacyjne OCA/OCP**
+* ➡️ **mapa adnotacji JDK**
+
+Co następne? 😄

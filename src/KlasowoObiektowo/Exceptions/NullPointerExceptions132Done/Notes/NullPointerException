@@ -1,0 +1,10 @@
+Aby dobrze umieć Exception NullPointerException warto znać:
+Interface:
+
+
+Class:
+String
+Throwable
+
+Exceptions:
+RuntimeException

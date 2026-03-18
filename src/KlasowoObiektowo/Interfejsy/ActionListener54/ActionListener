@@ -1,0 +1,9 @@
+Aby dobrze umieć Interfejs ActionListener warto znać:
+Interface:
+EventListener
+
+Class:
+ActionEvent
+
+Exceptions:
+brak

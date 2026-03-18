@@ -1,0 +1,16 @@
+Aby dobrze umieć AbstractClass Reader warto znać:
+Interface:
+
+
+Class i Abstract Class:
+Math
+CharBuffer
+Object
+Writer
+
+Exceptions:
+IOException
+NullPointerException
+
+Enum:
+

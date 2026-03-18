@@ -1,0 +1,107 @@
+Świetnie! Oto **quiz z instrukcji warunkowej `if-else` w Java**, który pomoże Ci utrwalić wiedzę. Składa się z **10 pytań** – są pytania jednokrotnego wyboru, prawda/fałsz i fragmenty kodu do uzupełnienia lub analizy.
+
+---
+
+## ✅ **Quiz – `if`, `else`, `else if` w Java**
+
+### 🧠 **PYTANIA WYBORU (1 punkt każde)**
+
+**1.** Co się stanie, jeśli warunek w `if` jest fałszywy, a mamy `else`?
+A) Zostanie pominięty cały blok
+B) Wykona się blok `if`
+C) Wykona się blok `else`
+D) Program się zatrzyma z błędem
+
+---
+
+**2.** Które z poniższych instrukcji są poprawne?
+A) `else (x > 0) {}`
+B) `else if (x < 0) {}`
+C) `if x > 0 {}`
+D) `if (x > 0) {}`
+
+---
+
+**3.** Ile bloków `else` można mieć przy jednym `if`?
+A) Dowolną ilość
+B) Tylko jeden
+C) Tyle, ile `else if`
+D) Zero lub jeden
+
+---
+
+**4.** Co wypisze poniższy kod?
+```java
+int a = 5;
+
+if (a > 10) {
+    System.out.println("Większe niż 10");
+} else {
+    System.out.println("Nie większe niż 10");
+}
+```
+A) Większe niż 10
+B) Nie większe niż 10
+C) Błąd kompilacji
+D) Nic
+
+---
+
+**5.** Jak nazywa się struktura:
+```java
+if (...) { ... }
+else if (...) { ... }
+else { ... }
+```
+A) Pętla
+B) Warunkowanie wielopoziomowe
+C) Wyjątek
+D) Switch
+
+---
+
+### ✅ **PYTANIA PRAWDA / FAŁSZ**
+
+**6.** `else` może być użyte bez `if`.
+Prawda / Fałsz
+
+---
+
+**7.** `else if` można powtarzać wiele razy.
+Prawda / Fałsz
+
+---
+
+**8.** Blok `else` wykona się zawsze, jeśli wcześniejsze warunki są fałszywe.
+Prawda / Fałsz
+
+---
+
+### ✅ **PYTANIA KODOWE / UZUPEŁNIJ**
+
+**9.** Uzupełnij brakujące słowo:
+```java
+if (x > 0) {
+    System.out.println("Dodatnia");
+} _____ {
+    System.out.println("Niedodatnia");
+}
+```
+
+---
+
+**10.** Co wypisze poniższy kod?
+```java
+int x = 0;
+
+if (x > 0)
+    System.out.println("Dodatnia");
+else if (x < 0)
+    System.out.println("Ujemna");
+else
+    System.out.println("Zero");
+```
+
+---
+
+Chcesz teraz sprawdzić odpowiedzi czy chcesz najpierw samodzielnie spróbować rozwiązać?

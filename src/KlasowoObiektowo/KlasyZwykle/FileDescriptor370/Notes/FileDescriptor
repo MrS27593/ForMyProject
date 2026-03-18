@@ -1,0 +1,11 @@
+Aby dobrze umieć Klasę FileDescriptor warto znać:
+Interface:
+Closeable:
+List
+
+Class:
+SharedSecrets
+JavaIOFileDescriptorAccess
+PhantomCleanable
+
+Exceptions:

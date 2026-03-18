@@ -1,0 +1,105 @@
+Świetnie, oto **ODPOWIEDZI do quizu o interfejsie `Runnable`** wraz z krótkimi wyjaśnieniami, punkt po punkcie 👇
+
+---
+
+## ✅ **Odpowiedzi: Quiz – Runnable**
+
+---
+
+### **1️⃣ Co definiuje interfejs `Runnable`?**
+
+**Odpowiedź:** **B. `void run();`**
+➡️ `Runnable` zawiera dokładnie jedną metodę: `run()`.
+
+---
+
+### **2️⃣ Co robi metoda `start()` w klasie `Thread`?**
+
+**Odpowiedź:** **B. Tworzy nowy wątek i wywołuje `run()`**
+➡️ `start()` uruchamia nowy wątek wykonania, który następnie wywołuje `run()`.
+
+---
+
+### **3️⃣ Które z poniższych to prawidłowe użycie `Runnable` z lambdą?**
+
+**Odpowiedź:** **A**
+
+```java
+Runnable r = () -> System.out.println("Hello");
+```
+
+➡️ Lambda pasuje do sygnatury `void run()`.
+
+---
+
+### **4️⃣ Co się stanie, gdy wywołasz `run()` zamiast `start()`?**
+
+**Odpowiedź:** **C. Kod `run()` wykona się w bieżącym wątku**
+➡️ Nie powstaje nowy wątek.
+
+---
+
+### **5️⃣ Czym różni się `Runnable` od `Callable`?**
+
+**Odpowiedź:** **C. `Callable` może zwracać wynik i rzucać wyjątki**
+➡️ `Runnable` → brak wyniku, brak checked exceptions.
+
+---
+
+### **6️⃣ Jak najlepiej zakończyć działanie wątku typu `Runnable`?**
+
+**Odpowiedź:** **C. Użyć flagi/przerwania (`Thread.interrupt()`)**
+➡️ `thread.stop()` jest przestarzałe i niebezpieczne ❌.
+
+---
+
+### **7️⃣ Które z poniższych NIE jest zaletą używania `Runnable`?**
+
+**Odpowiedź:** **C. Obsługa zwracania wartości**
+➡️ `Runnable` **nie zwraca wyniku**.
+
+---
+
+### **8️⃣ Jakie będzie wyjście?**
+
+```java
+Runnable task = () -> System.out.println(Thread.currentThread().getName());
+new Thread(task).start();
+```
+
+**Odpowiedź:** **B. `Thread-0` (lub podobne)**
+➡️ Kod wykonuje się w nowym wątku, nie w `main`.
+
+---
+
+### **9️⃣ Gdzie znajduje się interfejs `Runnable`?**
+
+**Odpowiedź:** **C. `java.lang`**
+➡️ Import nie jest wymagany.
+
+---
+
+### **🔟 Czy `Runnable` można używać z `ExecutorService`?**
+
+**Odpowiedź:** **B. Tak, ale bez zwracania wartości**
+➡️ Metoda `submit(Runnable)` zwraca `Future<?>`, ale bez wyniku.
+
+---
+
+## 🧠 **Szybka ściąga egzaminacyjna**
+
+* `Runnable` → `void run()`
+* `start()` ≠ `run()`
+* brak wyniku
+* interfejs funkcyjny → lambda
+* działa z `Thread` i `ExecutorService`
+
+---
+
+Jeśli chcesz, kolejne logiczne kroki to:
+
+* 🔹 **QUIZ z `Callable`**
+* 🔹 **Runnable vs Callable vs Thread**
+* 🔹 **praktyczne zadania z wątkami**
+
+👉 Co robimy dalej? 💪

@@ -1,0 +1,119 @@
+## WIEDZA – `throws` w Java
+
+---
+
+### 1️⃣ Czym jest `throws`?
+
+`throws` to **słowo kluczowe używane w deklaracji metody**, które informuje **kompilator i programistów**, że metoda **może wyrzucić wyjątek**.
+
+```java
+void readFile() throws IOException {
+    // kod, który może rzucić IOException
+}
+```
+
+📌 Wskazuje **rodzaj wyjątku**, który metoda może przekazać do wywołującego.
+
+---
+
+### 2️⃣ `throws` a `throw` – różnica
+
+| `throw`                                | `throws`                                        |
+| -------------------------------------- | ----------------------------------------------- |
+| Służy do **rzucania wyjątku** w kodzie | Deklaruje wyjątki, które metoda **może rzucić** |
+| Przykład: `throw new IOException();`   | Przykład: `void read() throws IOException`      |
+
+---
+
+### 3️⃣ Deklaracja metody z `throws`
+
+```java
+import java.io.*;
+
+public class Main {
+    static void readFile() throws IOException {
+        FileReader file = new FileReader("file.txt");
+        BufferedReader br = new BufferedReader(file);
+        String line = br.readLine();
+        br.close();
+    }
+
+    public static void main(String[] args) {
+        try {
+            readFile();
+        } catch (IOException e) {
+            System.out.println("Błąd odczytu pliku");
+        }
+    }
+}
+```
+
+* `readFile()` **deklaruje**, że może rzucić `IOException`
+* Wywołujący (`main`) musi albo **obsłużyć** (`try-catch`), albo **sam zadeklarować** `throws`.
+
+---
+
+### 4️⃣ Główne zasady użycia `throws`
+
+1. `throws` deklarujemy **po nawiasach metody**:
+
+```java
+void metoda() throws IOException, SQLException { }
+```
+
+2. Można deklarować **wiele wyjątków**, rozdzielając przecinkami
+
+3. Nie trzeba deklarować **unchecked exceptions** (RuntimeException i jej podklasy), ale można
+
+4. Każdy **checked exception** musi być zadeklarowany lub obsłużony
+
+---
+
+### 5️⃣ Checked vs Unchecked exceptions
+
+* **Checked** – kompilator wymusza obsługę lub deklarację (`IOException`, `SQLException`)
+* **Unchecked** – nie wymaga deklaracji (`NullPointerException`, `ArithmeticException`)
+
+```java
+void risky() throws IOException { }   // checked
+void risky2() { throw new NullPointerException(); } // unchecked
+```
+
+---
+
+### 6️⃣ Łączenie `throws` z metodami wywołującymi
+
+```java
+void method1() throws IOException {
+    method2(); // może rzucić IOException
+}
+
+void method2() throws IOException {
+    throw new IOException("Błąd");
+}
+```
+
+* Metoda wywołująca może **przekazać dalej** wyjątek zamiast obsługiwać go sama
+
+---
+
+### 7️⃣ Typowe błędy początkujących
+
+❌ Zapomnienie o `throws` przy checked exception → **błąd kompilacji**
+❌ Próba zadeklarowania `throws` przy unchecked exception → **niepotrzebne, ale dozwolone**
+❌ Próba użycia `throw` zamiast `throws` w deklaracji
+
+---
+
+### 8️⃣ Podsumowanie
+
+* `throws` = deklaracja wyjątków w **sygnaturze metody**
+* Wymusza obsługę wyjątków **checked**
+* Unchecked exceptions **nie wymagają** `throws`
+* Działa w połączeniu z `throw` i `try-catch`
+
+---
+
+Gdy będziesz gotowy, mogę przygotować **quiz do `throws`** z pytaniami A–D i otwartymi.
+
+Chcesz, żebym zrobił quiz teraz?

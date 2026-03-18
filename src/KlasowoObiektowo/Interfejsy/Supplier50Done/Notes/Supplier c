@@ -1,0 +1,118 @@
+Oczywiście! Interfejs `Supplier<T>` w Javie pochodzi z pakietu `java.util.function` i jest częścią funkcjonalnych
+interfejsów wprowadzonych w Java 8. To prosty, ale bardzo przydatny interfejs,
+szczególnie w programowaniu funkcyjnym i z wykorzystaniem strumieni (Streams).
+
+---
+
+### 📌 Definicja interfejsu `Supplier`
+
+```java
+@FunctionalInterface
+public interface Supplier<T> {
+    T get();
+}
+```
+
+* `T` — typ danych, który ma być dostarczony.
+* `get()` — metoda abstrakcyjna, która **nie przyjmuje żadnych argumentów** i **zwraca obiekt typu `T`**.
+
+---
+
+### 🔍 Kiedy używać `Supplier<T>`?
+
+Gdy chcesz odroczyć wykonanie jakiegoś kodu **do momentu, gdy wynik będzie potrzebny**,
+albo gdy potrzebujesz **dostarczyć (generować) dane bez przekazywania wejścia**. Przykłady:
+
+* Generowanie wartości losowych
+* Tworzenie nowych obiektów
+* Leniva inicjalizacja danych
+
+---
+
+### ✅ Przykład podstawowy
+
+```java
+import java.util.function.Supplier;
+
+public class Main {
+    public static void main(String[] args) {
+        Supplier<String> messageSupplier = () -> "Witaj, świecie!";
+        System.out.println(messageSupplier.get());  // Witaj, świecie!
+    }
+}
+```
+
+---
+
+### 🛠️ Przykład z obiektem
+
+```java
+Supplier<Person> personSupplier = () -> new Person("Anna", 30);
+Person p = personSupplier.get();
+```
+
+---
+
+### 🔄 Integracja z API Stream
+
+```java
+import java.util.stream.Stream;
+import java.util.function.Supplier;
+
+public class Main {
+    public static void main(String[] args) {
+        Supplier<Double> randomSupplier = Math::random;
+
+        Stream.generate(randomSupplier)
+              .limit(5)
+              .forEach(System.out::println);
+    }
+}
+```
+
+Wygeneruje 5 losowych liczb — `Supplier` dostarcza dane do `Stream.generate`.
+
+---
+
+### ⚠️ Różnice między `Supplier<T>` a innymi interfejsami funkcyjnymi
+
+| Interfejs       | Wejście | Wyjście | Przykład                      |
+| --------------- | ------- | ------- | ----------------------------- |
+| `Supplier<T>`   | brak    | T       | Dostarcza dane                |
+| `Consumer<T>`   | T       | brak    | Konsumuje dane (np. wypisuje) |
+| `Function<T,R>` | T       | R       | Przekształca dane             |
+| `Predicate<T>`  | T       | boolean | Sprawdza warunek              |
+
+---
+
+### 🧠 Zaawansowane zastosowanie
+
+**Leniva inicjalizacja:**
+
+```java
+public class Lazy<T> {
+    private Supplier<T> supplier;
+    private T value;
+
+    public Lazy(Supplier<T> supplier) {
+        this.supplier = supplier;
+    }
+
+    public T get() {
+        if (value == null) {
+            value = supplier.get();
+        }
+        return value;
+    }
+}
+```
+
+---
+
+### 📚 Podsumowanie
+
+* `Supplier<T>` nie przyjmuje żadnych argumentów i zwraca obiekt typu `T`.
+* Jest często używany w sytuacjach, gdy potrzebujemy **dostawcy wartości** – np. losowych, domyślnych, generowanych na żądanie.
+* Bardzo dobrze integruje się z API Stream i programowaniem funkcyjnym w Javie.
+
+Chcesz teraz zobaczyć, jak można użyć `Supplier` w bardziej praktycznym projekcie, np. z bazą danych, konfiguracją lub testami jednostkowymi?

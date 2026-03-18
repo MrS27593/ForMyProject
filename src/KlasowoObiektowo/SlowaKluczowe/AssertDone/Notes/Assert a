@@ -1,0 +1,115 @@
+Świetnie 👍
+Poniżej masz **kompletne odpowiedzi do quizu `assert`** z **krótkimi, ale konkretnymi wyjaśnieniami**.
+
+---
+
+## ✅ Odpowiedzi – `assert` w Java
+
+---
+
+### **1. Do czego służy słowo kluczowe `assert` w Javie?**
+
+**✔ C. Do sprawdzania założeń w kodzie**
+
+`assert` służy do weryfikowania warunków, które **zawsze powinny być prawdziwe**, jeśli program działa poprawnie.
+
+---
+
+### **2. Co się stanie, jeśli warunek w `assert` będzie fałszywy?**
+
+**✔ C. Zostanie rzucony `AssertionError`**
+
+Jest to **Error**, a nie `Exception`.
+
+---
+
+### **3. Która składnia `assert` jest poprawna?**
+
+**✔ B**
+
+```java
+assert x > 0 : "x musi być dodatnie";
+```
+
+---
+
+### **4. Co jest prawdą o `assert` w Javie?**
+
+**✔ B. Jest domyślnie wyłączony**
+
+Jeśli nie uruchomisz JVM z `-ea`, `assert` **nie zadziała**.
+
+---
+
+### **5. Jak włączyć obsługę `assert` w JVM?**
+
+**✔ D. `-ea`**
+
+lub:
+
+```
+-enableassertions
+```
+
+---
+
+### **6. Które z poniższych zastosowań `assert` jest POPRAWNE?**
+
+**✔ C. Sprawdzanie niezmiennika wewnętrznego klasy**
+
+`assert` jest idealny do **sprawdzania stanu wewnętrznego**, a nie danych z zewnątrz.
+
+---
+
+### **7. Dlaczego nie powinno się używać `assert` w logice biznesowej?**
+
+**✔ B. Może być wyłączone**
+
+Kod aplikacji **nie może zależeć od czegoś, co może nie zostać wykonane**.
+
+---
+
+### **8. Jakiego typu jest błąd rzucany przez `assert`?**
+
+**✔ C. `AssertionError`**
+
+Dziedziczy po `Error`.
+
+---
+
+### **9. (Otwarte)**
+
+**Przykładowe poprawne odpowiedzi:**
+
+* sprawdzanie niezmienników (np. `assert size >= 0`)
+* algorytmy (np. indeksy tablic)
+* kod testowy / debug
+* sprawdzanie wewnętrznych założeń metody prywatnej
+
+---
+
+### **10. (Otwarte)**
+
+**Ponieważ:**
+
+* `assert` może być wyłączony
+* nie służy do walidacji danych
+* nie jest mechanizmem obsługi błędów
+* nie daje gwarancji wykonania
+
+---
+
+## 🧠 PODSUMOWANIE EGZAMINACYJNE
+
+* `assert` ≠ obsługa wyjątków
+* `assert` ≠ walidacja danych
+* `assert` = debug / testy
+* `AssertionError` ≠ `Exception`
+* JVM flag `-ea` jest kluczowy
+
+---
+
+Jeśli chcesz, kolejne logiczne tematy to:
+👉 **`assert` vs `Objects.requireNonNull`**
+👉 **`assert` w testach i algorytmach**
+👉 **różnice `assert`, `throw`, `throws` (quiz-pułapki)**

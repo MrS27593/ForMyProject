@@ -1,0 +1,16 @@
+Aby dobrze umieć Klasę UUID warto znać:
+Interface:
+Serializable
+Comparable
+JavaLangAccess
+
+
+Class i Abstract Class:
+SharedSecrets
+SecureRandom
+MessageDigest
+Arrays
+Long
+
+Exceptions:
+NoSuchAlgorithmException

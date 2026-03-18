@@ -1,0 +1,96 @@
+Świetnie! 🚀
+Oto **poprawne odpowiedzi do quizu o klasie `System`** wraz z krótkim wyjaśnieniem każdego pytania:
+
+---
+
+## ✅ **Odpowiedzi – Klasa `System`**
+
+**1. Czy można utworzyć obiekt klasy `System`?**
+✅ **b) Nie**
+
+* `System` jest **final** i ma **prywatny konstruktor** → nie można zrobić `new System()`.
+
+---
+
+**2. Co robi `System.exit(0)`?**
+✅ **a) Zamyka program**
+
+* Kod `0` oznacza **sukces**, inne liczby → błąd. Program kończy się natychmiast.
+
+---
+
+**3. Jaka metoda zwraca czas w milisekundach od 1 stycznia 1970?**
+✅ **b) `System.currentTimeMillis()`**
+
+* `nanoTime()` służy do **mierzenia czasu trwania kodu**, a nie czasu systemowego.
+
+---
+
+**4. Do czego służy `System.arraycopy()`?**
+✅ **a) Do kopiowania elementów tablicy**
+
+* Szybsze niż ręczna pętla.
+
+```java
+int[] src = {1,2,3};
+int[] dest = new int[3];
+System.arraycopy(src, 0, dest, 0, src.length);
+```
+
+---
+
+**5. Jak pobrać nazwę systemu operacyjnego?**
+✅ **b) `System.getProperty("os.name")`**
+
+* `getProperty()` → właściwości systemu i JVM
+* `getenv()` → zmienne środowiskowe
+
+---
+
+**6. Które pole jest standardowym wyjściem w Javie?**
+✅ **c) `System.out`**
+
+* `System.in` → wejście, `System.err` → wyjście błędów, `System.console()` → obiekt konsoli.
+
+---
+
+**7. Co robi `System.gc()`?**
+✅ **b) Wywołuje garbage collector**
+
+* Nie gwarantuje natychmiastowego sprzątania, ale sugeruje JVM, że warto uruchomić GC.
+
+---
+
+**8. Jak pobrać zmienną środowiskową PATH?**
+✅ **b) `System.getenv("PATH")`**
+
+* `getenv()` pobiera zmienne środowiskowe, np. `PATH`, `HOME`, `JAVA_HOME`.
+
+---
+
+**9. Która metoda służy do pobrania konsoli?**
+✅ **a) `System.console()`**
+
+* Zwraca obiekt `Console` do wygodnego czytania z konsoli, np. `readLine()`.
+
+---
+
+**10. Co jest prawdą o polach `System.in`, `System.out`, `System.err`?**
+✅ **b) Wszystkie są statyczne**
+
+* To pola **statyczne**, więc używamy ich bez tworzenia obiektu.
+
+---
+
+💡 **Podsumowanie:**
+Klasa `System` to **narzędzie statyczne**, które daje dostęp do:
+
+* standardowego wejścia i wyjścia
+* właściwości i zmiennych systemowych
+* metod pomocniczych: `gc()`, `arraycopy()`, `exit()`, `currentTimeMillis()`
+
+---
+
+Jeśli chcesz, możemy teraz przejść do **klasy `Math`** – dokładne nauczanie jej metod i pól, tak jak z `System`.
+
+Chcesz, żebym to zrobił teraz?

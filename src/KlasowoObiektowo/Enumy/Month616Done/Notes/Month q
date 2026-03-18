@@ -1,0 +1,126 @@
+Świetnie 😄
+Oto **quiz z Enum `java.time.Month`** – poziom **solidne podstawy + egzamin + rekrutacja**.
+
+---
+
+# ✅ **Quiz: Enum `Month` w Javie**
+
+## 1️⃣ Prawda / Fałsz
+
+1. `Month` znajduje się w pakiecie `java.util`.
+
+   * A) Prawda
+   * B) Fałsz
+
+2. `Month` jest enumem.
+
+   * A) Prawda
+   * B) Fałsz
+
+3. `Month.JANUARY.getValue()` zwraca `0`.
+
+   * A) Prawda
+   * B) Fałsz
+
+4. `Month.FEBRUARY.maxLength()` zawsze zwraca `28`.
+
+   * A) Prawda
+   * B) Fałsz
+
+---
+
+## 2️⃣ Wybór jednokrotny
+
+5. Który miesiąc ma wartość `12`?
+
+* A) NOVEMBER
+* B) DECEMBER
+* C) JANUARY
+* D) OCTOBER
+
+---
+
+6. Co wypisze poniższy kod?
+
+```java
+Month month = Month.OCTOBER;
+System.out.println(month.plus(5));
+```
+
+* A) MARCH
+* B) FEBRUARY
+* C) APRIL
+* D) JANUARY
+
+---
+
+## 3️⃣ Wybór wielokrotny
+
+7. Które metody istnieją w enumie `Month`?
+
+* A) `getValue()`
+* B) `length(boolean leapYear)`
+* C) `getDays()`
+* D) `plus(long months)`
+
+---
+
+## 4️⃣ Analiza kodu
+
+8. Co zostanie wypisane?
+
+```java
+LocalDate date = LocalDate.of(2025, 2, 10);
+System.out.println(date.getMonth());
+```
+
+* A) JANUARY
+* B) FEBRUARY
+* C) MARCH
+* D) APRIL
+
+---
+
+## 5️⃣ Pytanie praktyczne
+
+9. Uzupełnij metodę tak, aby zwracała numer kwartału (1–4):
+
+```java
+public int getQuarter(Month month) {
+    // Twój kod
+}
+```
+
+---
+
+## 6️⃣ Pytanie podchwytliwe (ważne!)
+
+10. Który zapis jest **najlepszy** do sprawdzenia, czy miesiąc ma **31 dni**?
+
+* A)
+
+```java
+month.ordinal() == 0 || month.ordinal() == 2
+```
+
+* B)
+
+```java
+month.getValue() == 1 || month.getValue() == 3
+```
+
+* C)
+
+```java
+month.length(true) == 31
+```
+
+* D)
+
+```java
+month.toString().contains("31")
+```
+
+---
+
+👉 Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam **pełne rozwiązania z wyjaśnieniami** 👌

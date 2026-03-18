@@ -1,0 +1,396 @@
+Świetnie 👍
+`try` to **kluczowy element obsługi błędów w Javie**. Zrobimy to **kursowo**, jasno, z przykładami do IntelliJ, a na końcu **dobry quiz (10 pytań, A–D + 1–2 otwarte)**.
+
+---
+
+# 1️⃣ Czym jest `try` w Javie?
+
+## 🔹 Do czego służy `try`?
+
+`try` służy do **obsługi wyjątków (exceptions)** — czyli błędów, które **mogą wystąpić w trakcie działania programu**.
+
+> Dzięki `try` program **nie musi się wywalać**, tylko może **zareagować na błąd**.
+
+---
+
+## 2️⃣ Podstawowa składnia `try-catch`
+
+```java
+try {
+    // kod, który może rzucić wyjątek
+} catch (Exception e) {
+    // co zrobić, gdy wystąpi błąd
+}
+```
+
+📌 Zasady:
+
+* `try` **musi** mieć `catch` lub `finally`
+* kod w `catch` wykona się **tylko gdy wystąpi wyjątek**
+
+---
+
+## 3️⃣ Najprostszy przykład
+
+### ❌ Bez `try` (program się wywali)
+
+```java
+int a = 10 / 0;
+System.out.println("Dalej...");
+```
+
+➡️ `ArithmeticException`
+
+---
+
+### ✅ Z `try-catch`
+
+```java
+try {
+    int a = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Nie dziel przez zero!");
+}
+
+System.out.println("Program działa dalej");
+```
+
+📤 Wynik:
+
+```
+Nie dziel przez zero!
+Program działa dalej
+```
+
+---
+
+## 4️⃣ Jak działa `try` krok po kroku?
+
+1. Program wchodzi do `try`
+2. Występuje błąd
+3. JVM **przerywa try**
+4. Szuka pasującego `catch`
+5. Wykonuje `catch`
+6. Program idzie dalej
+
+---
+
+## 5️⃣ Wiele bloków `catch`
+
+```java
+try {
+    int[] tab = new int[3];
+    System.out.println(tab[5]);
+} catch (ArrayIndexOutOfBoundsException e) {
+    System.out.println("Poza zakresem tablicy");
+} catch (Exception e) {
+    System.out.println("Inny błąd");
+}
+```
+
+📌 Kolejność ma znaczenie:
+
+* **od najbardziej szczegółowego**
+* do najbardziej ogólnego (`Exception` na końcu)
+
+---
+
+## 6️⃣ `finally` – kod, który wykona się ZAWSZE
+
+```java
+try {
+    int x = 10 / 2;
+} catch (Exception e) {
+    System.out.println("Błąd");
+} finally {
+    System.out.println("Zamykanie zasobów");
+}
+```
+
+✔️ `finally` wykona się:
+
+* gdy nie ma błędu
+* gdy jest błąd
+* nawet przy `return`
+
+---
+
+## 7️⃣ `try` bez `catch` (z `finally`)
+
+```java
+try {
+    System.out.println("Praca...");
+} finally {
+    System.out.println("Sprzątanie");
+}
+```
+
+📌 Rzadziej spotykane, ale poprawne.
+
+---
+
+## 8️⃣ `try-with-resources` (BARDZO WAŻNE)
+
+Automatyczne zamykanie zasobów (`Scanner`, pliki, streamy):
+
+```java
+try (Scanner scanner = new Scanner(System.in)) {
+    System.out.println(scanner.nextLine());
+}
+```
+
+✔️ `scanner.close()` wykona się automatycznie
+✔️ Kod czystszy i bezpieczny
+
+---
+
+## 9️⃣ Częste błędy początkujących
+
+❌ Łapanie wszystkiego:
+
+```java
+catch (Exception e) {
+}
+```
+
+❌ Pusty `catch`
+
+❌ Używanie `try` do normalnej logiki programu
+
+---
+
+## 10️⃣ Kiedy używać `try`?
+
+Używaj `try`, gdy:
+
+* 📂 pracujesz z plikami
+* 🌐 operacje sieciowe
+* 📥 dane od użytkownika
+* 🔢 ryzyko błędów runtime
+
+---
+
+# 🧠 QUIZ – `try` w Java (10 pytań)
+
+---
+
+### **1. Do czego służy `try`?**
+
+A. Do sprawdzania warunków
+B. Do obsługi wyjątków
+C. Do pętli
+D. Do tworzenia obiektów
+
+---
+
+### **2. Co MUSI wystąpić po `try`?**
+
+A. `catch`
+B. `finally`
+C. `catch` lub `finally`
+D. Nic
+
+---
+
+### **3. Co się stanie, gdy w `try` wystąpi wyjątek?**
+
+A. Program się kończy
+B. Wykona się `finally`
+C. JVM szuka pasującego `catch`
+D. Kod w `try` działa dalej
+
+---
+
+### **4. Która kolejność `catch` jest poprawna?**
+
+A.
+
+```java
+catch (Exception e)
+catch (ArithmeticException e)
+```
+
+B.
+
+```java
+catch (ArithmeticException e)
+catch (Exception e)
+```
+
+C.
+
+```java
+catch (Throwable e)
+catch (Exception e)
+```
+
+D.
+
+```java
+catch (Exception e)
+catch (RuntimeException e)
+```
+
+---
+
+### **5. Kiedy wykona się `finally`?**
+
+A. Tylko przy błędzie
+B. Tylko bez błędu
+C. Zawsze
+D. Nigdy
+
+---
+
+### **6. Co robi `try-with-resources`?**
+
+A. Tworzy nowy wątek
+B. Obsługuje wyjątki sieciowe
+C. Automatycznie zamyka zasoby
+D. Przyspiesza program
+
+---
+
+### **7. Czy `try` może istnieć bez `catch`?**
+
+A. Nie
+B. Tak, jeśli jest `finally`
+C. Tylko w metodzie `main`
+D. Tylko z `throw`
+
+---
+
+### **8. Który kod jest poprawny?**
+
+A.
+
+```java
+try { int x = 10 / 0; }
+```
+
+B.
+
+```java
+try { int x = 10 / 0; } catch (Exception e) {}
+```
+
+C.
+
+```java
+try { int x = 10 / 0; } catch {}
+```
+
+D.
+
+```java
+try int x = 10 / 0;
+```
+
+---
+
+### **9. (OTWARTE)**
+
+Dlaczego **nie powinno się łapać** ogólnego `Exception`, jeśli nie jest to konieczne?
+
+---
+
+### **10. (OTWARTE)**
+
+Podaj przykład sytuacji, w której użycie `try` jest konieczne.
+
+---
+
+## ✅ ODPOWIEDZI I WYJAŚNIENIA
+
+### **1.** ✅ B
+
+`try` służy do obsługi wyjątków
+
+---
+
+### **2.** ✅ C
+
+Musi być `catch` **lub** `finally`
+
+---
+
+### **3.** ✅ C
+
+JVM szuka pasującego `catch`
+
+---
+
+### **4.** ✅ B
+
+Najpierw wyjątek szczegółowy
+
+---
+
+### **5.** ✅ C
+
+`finally` wykonuje się zawsze
+
+---
+
+### **6.** ✅ C
+
+Zamyka zasoby automatycznie
+
+---
+
+### **7.** ✅ B
+
+`try` może być z samym `finally`
+
+---
+
+### **8.** ✅ B
+
+Pełna poprawna składnia
+
+---
+
+### **9. (otwarte)**
+
+Bo:
+
+* maskuje błędy
+* utrudnia debugowanie
+* łapie wyjątki, których nie oczekujemy
+
+---
+
+### **10. (otwarte)**
+
+Np.:
+
+* odczyt pliku
+* dzielenie przez 0
+* operacje na tablicach
+* wejście użytkownika
+
+---
+
+## 🎯 PODSUMOWANIE
+
+Jeśli rozumiesz:
+
+* różnicę `try / catch / finally`
+* kiedy i po co je stosować
+* że `try` to **ochrona przed crashem**
+
+👉 **jesteś na bardzo dobrym poziomie podstaw Javy 💪**
+
+---
+
+## 🔜 Co następne?
+
+Naturalne kolejne kroki:
+
+* ➡️ `catch` (szczegółowo)
+* ➡️ `throw` / `throws`
+* ➡️ hierarchia wyjątków
+* ➡️ własne wyjątki
+* ➡️ ćwiczenia praktyczne
+
+**Powiedz, co robimy dalej 🚀**

@@ -1,0 +1,93 @@
+Chętnie! Interfejs `ToDoubleFunction<T>` w języku Java to **funkcyjny interfejs** należący do pakietu `java.util.function`, wprowadzonego w Java 8. Używany jest, gdy chcesz przekazać funkcję, która przyjmuje **jeden argument dowolnego typu `T`** i zwraca **wartość typu `double`**.
+
+---
+
+## 📌 Sygnatura interfejsu
+
+```java
+@FunctionalInterface
+public interface ToDoubleFunction<T> {
+    double applyAsDouble(T value);
+}
+```
+
+### ✔ Co to oznacza?
+
+* `T` – typ wejściowego argumentu
+* Zwracany typ to `double`
+* Jako interfejs funkcyjny ma tylko **jedną metodę abstrakcyjną** – `applyAsDouble(T value)`
+
+---
+
+## 🧠 Przykłady użycia
+
+### 1. Użycie z klasą anonimową
+
+```java
+ToDoubleFunction<String> stringLength = new ToDoubleFunction<String>() {
+    @Override
+    public double applyAsDouble(String value) {
+        return value.length();
+    }
+};
+```
+
+### 2. Użycie z wyrażeniem lambda
+
+```java
+ToDoubleFunction<String> stringLength = s -> s.length();
+```
+
+Tutaj `s` to `String`, a zwracana wartość to długość tego stringa jako `double`.
+
+---
+
+## 🎯 Praktyczne zastosowanie
+
+Przykład – obliczanie średniego wyniku na podstawie listy obiektów `Student`.
+
+```java
+import java.util.*;
+import java.util.function.ToDoubleFunction;
+
+class Student {
+    String name;
+    double grade;
+
+    Student(String name, double grade) {
+        this.name = name;
+        this.grade = grade;
+    }
+}
+
+public class Example {
+    public static void main(String[] args) {
+        List<Student> students = Arrays.asList(
+            new Student("Ala", 4.5),
+            new Student("Jan", 3.7),
+            new Student("Ola", 5.0)
+        );
+
+        double average = students.stream()
+            .mapToDouble(student -> student.grade)
+            .average()
+            .orElse(0.0);
+
+        System.out.println("Średnia ocena: " + average);
+    }
+}
+```
+
+Tu `student -> student.grade` to właśnie implementacja `ToDoubleFunction<Student>`.
+
+---
+
+## 🧩 Kiedy używać `ToDoubleFunction<T>`?
+
+* Gdy pracujesz z **strumieniami (Streams)** i potrzebujesz operować na `double`
+* Gdy chcesz **wyodrębnić wartość liczbową typu `double`** z obiektu typu `T`
+* W operacjach takich jak `mapToDouble()`, `average()`, `sum()` itd.
+
+---
+
+Czy chciałbyś przykład z własną klasą lub bardziej zaawansowany przypadek?

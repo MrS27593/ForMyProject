@@ -1,0 +1,92 @@
+Świetnie! Oto **krótki quiz** (7 pytań) sprawdzający Twoje zrozumienie `enum` w Javie. Na końcu chętnie sprawdzę Twoje odpowiedzi i wyjaśnię ewentualne wątpliwości.
+
+---
+
+### 🧠 **Quiz: Enum w Javie**
+
+#### **1. Jaką wartość zwróci `Day.FRIDAY.ordinal()`?**
+a) `"FRIDAY"`
+b) `5`
+c) `4`
+d) `null`
+
+---
+
+#### **2. Które z poniższych zdań o `enum` w Javie jest prawdziwe?**
+a) `enum` może rozszerzać klasę `Object`
+b) `enum` może dziedziczyć po innej klasie
+c) `enum` może implementować interfejs
+d) `enum` musi mieć co najmniej jedno pole
+
+---
+
+#### **3. Co zostanie wypisane?**
+
+```java
+enum Status { OK, FAIL, UNKNOWN }
+
+public class Test {
+    public static void main(String[] args) {
+        System.out.println(Status.valueOf("FAIL"));
+    }
+}
+```
+
+a) `FAIL`
+b) `Status.FAIL`
+c) `Exception`
+d) `0`
+
+---
+
+#### **4. Czy można przypisać `null` do zmiennej typu `enum`?**
+
+a) Tak
+b) Nie
+c) Tylko w metodzie `switch`
+d) Tylko jeśli enum ma konstruktor
+
+---
+
+#### **5. Co robi metoda `values()` dla `enum`?**
+
+a) Zwraca liczbę elementów w `enum`
+b) Zwraca nazwę aktualnego elementu
+c) Zwraca tablicę wszystkich wartości `enum`
+d) Zwraca wartości liczbowe elementów `enum`
+
+---
+
+#### **6. Co wypisze ten kod?**
+
+```java
+enum Level {
+    LOW, MEDIUM, HIGH
+}
+
+public class Test {
+    public static void main(String[] args) {
+        for (Level l : Level.values()) {
+            System.out.print(l + " ");
+        }
+    }
+}
+```
+
+a) `LOW MEDIUM HIGH`
+b) `0 1 2`
+c) `Level@hashcode`
+d) `null`
+
+---
+
+#### **7. Czy enum może mieć konstruktor z parametrem?**
+
+a) Tak, i można go wywołać za pomocą `new`
+b) Tak, ale tylko prywatny i używany wewnętrznie
+c) Nie, enumy nie mogą mieć konstruktorów
+d) Tylko jeśli rozszerza klasę
+
+---
+
+Gdy będziesz gotów, napisz swoje odpowiedzi w formacie np.: `1c, 2b, 3a...` — a ja od razu sprawdzę i wytłumaczę każdy wynik. Gotowy?

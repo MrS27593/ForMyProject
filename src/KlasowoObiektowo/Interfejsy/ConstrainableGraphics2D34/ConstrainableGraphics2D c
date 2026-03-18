@@ -1,0 +1,51 @@
+🧩 Co to jest ConstrainableGraphics2D w com.jetbrains.desktop?
+Interfejs ConstrainableGraphics2D rozszerza sun.awt.ConstrainableGraphics i jest zdefiniowany w pakiecie com.jetbrains.desktop. Został on wprowadzony w ramach JetBrains Runtime API w wersji 1.5.0.
+android.googlesource.com
+
+Interfejs ten umożliwia:
+
+Ograniczanie obszaru rysowania do określonego prostokąta (Rectangle2D).
+
+Pobieranie obiektu docelowego rysowania za pomocą metody getDestination().
+android.googlesource.com
++1
+android.googlesource.com
++1
+
+Jest on wykorzystywany w klasie GraphicsUtils do tworzenia instancji Graphics2D z możliwością nakładania ograniczeń.
+android.googlesource.com
+
+🛠 Praktyczne zastosowania
+Interfejs ConstrainableGraphics2D znajduje zastosowanie w:
+
+Renderowaniu komponentów GUI: Umożliwia rysowanie elementów interfejsu użytkownika w określonych obszarach, co jest przydatne przy tworzeniu złożonych interfejsów graficznych.
+
+Obsłudze ekranów HiDPI: Pomaga w skalowaniu i renderowaniu grafiki na ekranach o wysokiej rozdzielczości, zapewniając ostrość i czytelność interfejsu.
+
+Tworzeniu wtyczek do IntelliJ IDEA: Deweloperzy mogą korzystać z tego interfejsu przy tworzeniu własnych komponentów graficznych w ramach wtyczek.
+
+🧪 Przykład użycia
+Aby skorzystać z ConstrainableGraphics2D, można użyć metody createConstrainableGraphics z klasy GraphicsUtils:
+android.googlesource.com
++1
+android.googlesource.com
++1
+
+java
+Kopiuj
+Edytuj
+Graphics2D g2d = ...; // istniejący kontekst graficzny
+ConstrainableGraphics2D cg2d = GraphicsUtils.createConstrainableGraphics(g2d, new MyConstrainableGraphics2D());
+cg2d.constrain(new Rectangle2D.Double(0, 0, 100, 100));
+W tym przykładzie tworzymy nowy kontekst graficzny z ograniczonym obszarem rysowania.
+
+📌 Podsumowanie
+Interfejs com.jetbrains.desktop.ConstrainableGraphics2D jest specjalistycznym rozszerzeniem Graphics2D w JetBrains Runtime, umożliwiającym rysowanie w ograniczonych obszarach. Jest szczególnie przydatny w kontekście tworzenia złożonych interfejsów graficznych, obsługi ekranów HiDPI oraz rozwoju wtyczek do produktów JetBrains.
+
+Jeśli potrzebujesz bardziej szczegółowego przykładu lub masz dodatkowe pytania, chętnie pomogę!
+
+
+
+
+
+Źródła

@@ -1,0 +1,118 @@
+Oczywiście! Interfejs `Callable` w Javie to część pakietu `java.util.concurrent` i został wprowadzony w Java 5 jako alternatywa dla `Runnable`. Pozwala pisać zadania, które mogą **zwracać wartość** i **rzucać wyjątki**. Jest kluczowy przy programowaniu współbieżnym, np. gdy chcesz wykonać coś w tle i uzyskać wynik.
+
+---
+
+## 🔹 1. Co to jest `Callable`?
+
+`Callable` to interfejs funkcyjny (ma tylko jedną metodę abstrakcyjną), który wygląda tak:
+
+```java
+@FunctionalInterface
+public interface Callable<V> {
+    V call() throws Exception;
+}
+```
+
+- `V` – typ wyniku, który ma zwrócić metoda `call()`.
+- `call()` – metoda, którą implementujesz. Może zwracać wartość i rzucać **checked exception**.
+
+---
+
+## 🔹 2. Porównanie z `Runnable`
+
+| Cecha         | `Runnable`                    | `Callable<V>`                 |
+|---------------|-------------------------------|-------------------------------|
+| Zwraca wartość| ❌ `void run()`               | ✅ `V call()`                  |
+| Rzuca wyjątki | ❌ nie może rzucać checked    | ✅ może rzucać Exception       |
+| Użycie z      | `Thread`, `ExecutorService`   | `ExecutorService` + `Future`  |
+
+---
+
+## 🔹 3. Przykład użycia `Callable`
+
+```java
+import java.util.concurrent.*;
+
+public class CallableExample {
+    public static void main(String[] args) throws Exception {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+        Callable<Integer> task = () -> {
+            TimeUnit.SECONDS.sleep(2);
+            return 42;
+        };
+
+        Future<Integer> future = executor.submit(task);
+
+        System.out.println("Zadanie wysłane, czekam...");
+
+        Integer result = future.get();  // blokuje do czasu zakończenia
+        System.out.println("Wynik: " + result);
+
+        executor.shutdown();
+    }
+}
+```
+
+### Co tu się dzieje?
+
+- Tworzymy `Callable`, który po 2 sekundach zwróci 42.
+- Wysyłamy go do `ExecutorService`.
+- `submit()` zwraca `Future`, z którego później pobieramy wynik przez `get()`.
+
+---
+
+## 🔹 4. Co to jest `Future`?
+
+`Future<T>` to uchwyt na wynik, który jeszcze nie jest gotowy. Umożliwia:
+
+- `get()` – pobiera wynik (blokuje wątek, jeśli trzeba).
+- `isDone()` – sprawdza, czy zadanie się zakończyło.
+- `cancel()` – próbuje anulować zadanie.
+
+---
+
+## 🔹 5. Zastosowania `Callable`
+
+- Operacje IO: np. pobieranie danych z sieci.
+- Obliczenia, które zajmują czas.
+- Równoległe przetwarzanie danych (np. przy map-reduce).
+- Zadania, które mogą się nie powieść i muszą rzucać wyjątki.
+
+---
+
+## 🔹 6. Uwaga praktyczna: wiele wątków
+
+Możesz zrealizować wiele zadań jednocześnie:
+
+```java
+List<Callable<String>> tasks = List.of(
+    () -> "A",
+    () -> "B",
+    () -> "C"
+);
+
+ExecutorService executor = Executors.newFixedThreadPool(3);
+
+List<Future<String>> results = executor.invokeAll(tasks);
+
+for (Future<String> f : results) {
+    System.out.println(f.get());
+}
+```
+
+---
+
+## 🔹 7. Podsumowanie
+
+| Cecha                    | Opis |
+|--------------------------|------|
+| Interfejs funkcyjny      | ✅ Tak |
+| Zwraca wartość           | ✅ Tak |
+| Rzuca wyjątki            | ✅ Tak |
+| Główna metoda            | `call()` |
+| Najczęstsze użycie       | `ExecutorService.submit()` |
+
+---
+
+Chcesz przykład użycia `Callable` z zadaniami równoległymi albo w połączeniu z `CompletableFuture`?

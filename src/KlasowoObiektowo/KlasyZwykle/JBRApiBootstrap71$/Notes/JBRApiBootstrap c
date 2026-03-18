@@ -1,0 +1,48 @@
+Klasa `JBRApiBootstrap` jest częścią JetBrains Runtime (JBR), czyli zmodyfikowanej wersji OpenJDK używanej przez JetBrains w produktach takich jak IntelliJ IDEA. Jej głównym zadaniem jest inicjalizacja wewnętrznego API JBR, umożliwiającego dostęp do specyficznych funkcji środowiska uruchomieniowego JetBrains.([GitHub][1])
+
+---
+
+### 📘 Co to jest `JBRApiBootstrap`?
+
+Klasa `JBRApiBootstrap` znajduje się w pakiecie `com.jetbrains.bootstrap` i jest oznaczona jako przestarzała (`@Deprecated`). Została zastąpiona przez `com.jetbrains.exported.JBRApiSupport` .([GitHub][1])
+
+Jej główna metoda:
+
+```java
+public static synchronized Object bootstrap(MethodHandles.Lookup outerLookup)
+```
+
+służy do inicjalizacji interfejsu `ServiceApi` poprzez mechanizm refleksji i `MethodHandles.Lookup`. Jeśli API JBR jest aktywne (`JBRApi.ENABLED`), metoda próbuje znaleźć klasę `com.jetbrains.JBR$ServiceApi` i przekazuje ją do `JBRApiSupport.bootstrap(...)`.([GitHub][1])
+
+---
+
+### 🛠 Praktyczne zastosowanie
+
+`JBRApiBootstrap` jest wykorzystywana w aplikacjach opartych na JBR, które potrzebują dostępu do wewnętrznych usług środowiska uruchomieniowego. Przykładowo, w klasie `JBR` znajduje się statyczny blok inicjalizacyjny:
+
+```java
+api = (ServiceApi) Class.forName("com.jetbrains.bootstrap.JBRApiBootstrap")
+    .getMethod("bootstrap", MethodHandles.Lookup.class)
+    .invoke(null, MethodHandles.lookup());
+```
+
+Ten kod dynamicznie ładuje i inicjalizuje API JBR, umożliwiając aplikacji korzystanie z usług zdefiniowanych w `ServiceApi` .
+
+---
+
+### ⚠️ Ważne uwagi
+
+* **Przestarzałość**: `JBRApiBootstrap` jest oznaczona jako przestarzała i została zastąpiona przez `JBRApiSupport`. Nowe projekty powinny korzystać z nowszego API.
+
+* **Zależność od JBR**: Klasa ta działa tylko w środowisku JetBrains Runtime. Próba jej użycia w standardowym OpenJDK może prowadzić do błędów, takich jak `ClassNotFoundException` dla `com.jetbrains.JBR$Metadata` .([GitHub][2])
+
+---
+
+### ✅ Podsumowanie
+
+`JBRApiBootstrap` to wewnętrzna klasa używana do inicjalizacji API JBR w środowisku JetBrains Runtime. Choć obecnie jest przestarzała, odgrywała ważną rolę w umożliwianiu aplikacjom dostępu do specyficznych funkcji JBR. Dla nowych projektów zaleca się korzystanie z `JBRApiSupport`.
+
+Jeśli potrzebujesz pomocy w migracji kodu z `JBRApiBootstrap` do `JBRApiSupport` lub masz inne pytania dotyczące JBR, chętnie pomogę!
+
+[1]: https://github.com/JetBrains/JetBrainsRuntime/blob/main/src/java.base/share/classes/com/jetbrains/bootstrap/JBRApiBootstrap.java?utm_source=chatgpt.com "JBRApiBootstrap.java - GitHub"
+[2]: https://github.com/JetBrains/jewel/issues/323?utm_source=chatgpt.com "DecoratedWindow produces JRE / JBR related error in Release ... - GitHub"

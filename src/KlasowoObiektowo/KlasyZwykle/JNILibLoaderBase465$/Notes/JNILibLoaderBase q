@@ -1,0 +1,99 @@
+Pewnie! Oto **quiz dotyczący klasy `JNILibLoaderBase` z pakietu `com.jogamp.common.jvm` w Javie**. Składa się z 10 pytań (wielokrotnego lub pojedynczego wyboru). Odpowiedzi znajdziesz na końcu — lub możesz najpierw spróbować sam!
+
+---
+
+### 📘 **Quiz: `JNILibLoaderBase` i ładowanie bibliotek JNI**
+
+#### 1. Jaką funkcję pełni klasa `JNILibLoaderBase`?
+
+a) Tworzy interfejsy graficzne
+b) Ładuje natywne biblioteki JNI
+c) Kompiluje kod Java do natywnego
+d) Zastępuje `System.loadLibrary()`
+
+---
+
+#### 2. Która metoda ładuje bibliotekę wraz z zależnościami?
+
+a) `addLoaded()`
+b) `addNativeJarLibs()`
+c) `loadLibrary(String libname, String[] preload, boolean preloadIgnoreError, ClassLoader cl)`
+d) `isLoaded()`
+
+---
+
+#### 3. Co robi metoda `isLoaded(String libName)`?
+
+a) Ładuje bibliotekę, jeśli nie została załadowana
+b) Zwraca `true` lub `false`, w zależności od tego, czy biblioteka została załadowana
+c) Wyświetla listę dostępnych bibliotek
+d) Tworzy nową instancję biblioteki JNI
+
+---
+
+#### 4. Jakiej klasy możesz użyć, by załadować natywne biblioteki z pliku JAR?
+
+a) `System.Loader`
+b) `JNIUtil`
+c) `JNILibLoaderBase.addNativeJarLibs()`
+d) `JarLoader.loadNatives()`
+
+---
+
+#### 5. Jakie błędy wskazują na problem z ładowaniem biblioteki JNI? *(Wybierz wszystkie poprawne)*
+
+a) `NullPointerException`
+b) `UnsatisfiedLinkError`
+c) `ClassNotFoundException`
+d) `java.lang.UnsatisfiedLinkError: no libXYZ in java.library.path`
+
+---
+
+#### 6. Co umożliwia interfejs `LoaderAction`?
+
+a) Zarządzanie wątkiem ładowania
+b) Implementację własnej strategii ładowania bibliotek
+c) Konfigurację JVM
+d) Kompilację kodu natywnego
+
+---
+
+#### 7. Czy można wyłączyć automatyczne ładowanie bibliotek?
+
+a) Tak, metodą `disableLoading()`
+b) Nie, ładowanie zawsze jest automatyczne
+c) Tylko przy użyciu JNI w C++
+d) Tylko jeśli biblioteki są w JAR-ze
+
+---
+
+#### 8. Co robi `addLoaded(String libName)`?
+
+a) Usuwa bibliotekę z listy załadowanych
+b) Ręcznie oznacza bibliotekę jako załadowaną
+c) Tworzy nowy plik JAR
+d) Sprawdza zależności
+
+---
+
+#### 9. Jakie formaty plików są zazwyczaj ładowane przez `JNILibLoaderBase`?
+
+a) `.class`
+b) `.jar`
+c) `.dll`, `.so`, `.dylib`
+d) `.java`
+
+---
+
+#### 10. Co oznacza "preload" w metodzie `loadLibrary`?
+
+a) Pominięcie ładowania
+b) Wczytanie klasy Java z pamięci podręcznej
+c) Załadowanie bibliotek zależnych przed główną
+d) Wstępna kompilacja kodu Java
+
+---
+
+
+
+

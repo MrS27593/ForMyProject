@@ -1,0 +1,127 @@
+### 📘 QUIZ – `instanceof` w Java
+
+**10 pytań: 8 zamkniętych (A–D) + 2 otwarte**
+
+---
+
+#### 1️⃣ Czym jest `instanceof` w Javie?
+
+A. Metodą klasy `Object`
+B. Słowem kluczowym do tworzenia obiektów
+C. Operatorem sprawdzającym typ obiektu w runtime
+D. Instrukcją sterującą jak `if`
+
+---
+
+#### 2️⃣ Jaki typ wartości zwraca wyrażenie z użyciem `instanceof`?
+
+A. `Object`
+B. `boolean`
+C. `Class<?>`
+D. `int`
+
+---
+
+#### 3️⃣ Co zwróci poniższy kod?
+
+```java
+Object o = null;
+System.out.println(o instanceof String);
+```
+
+A. `true`
+B. `false`
+C. `NullPointerException`
+D. Błąd kompilacji
+
+---
+
+#### 4️⃣ Co zostanie wypisane?
+
+```java
+class A {}
+class B extends A {}
+
+A obj = new B();
+System.out.println(obj instanceof B);
+```
+
+A. `false`
+B. `true`
+C. Błąd kompilacji
+D. Zależne od JVM
+
+---
+
+#### 5️⃣ Która sytuacja NAJLEPIEJ uzasadnia użycie `instanceof`?
+
+A. Zawsze, gdy mamy dziedziczenie
+B. Gdy chcemy wywołać metodę wspólną dla wszystkich klas
+C. Gdy musimy bezpiecznie wykonać rzutowanie
+D. Gdy chcemy zastąpić polimorfizm
+
+---
+
+#### 6️⃣ Co się stanie, jeśli wykonasz rzutowanie bez sprawdzenia `instanceof`?
+
+A. Nic, Java sprawdzi typ automatycznie
+B. Zawsze błąd kompilacji
+C. Możliwy `ClassCastException` w runtime
+D. JVM zignoruje rzutowanie
+
+---
+
+#### 7️⃣ Która wersja kodu jest NOWOCZESNA (Java 16+) i poprawna?
+
+A.
+
+```java
+if (obj instanceof String) {
+    String s = (String) obj;
+}
+```
+
+B.
+
+```java
+if (obj instanceof String s) {
+    System.out.println(s.length());
+}
+```
+
+C.
+
+```java
+if (obj instanceof s String) {}
+```
+
+D.
+
+```java
+if (instanceof obj String) {}
+```
+
+---
+
+#### 8️⃣ Które zdanie o `instanceof` jest PRAWDZIWE?
+
+A. Sprawdza typ zmiennej referencyjnej
+B. Sprawdza rzeczywisty typ obiektu
+C. Działa tylko z klasami
+D. Nie działa z interfejsami
+
+---
+
+#### 9️⃣ (Pytanie otwarte)
+
+Dlaczego **nadużywanie** `instanceof` jest uznawane za złą praktykę w OOP?
+
+---
+
+#### 🔟 (Pytanie otwarte)
+
+Podaj **jedną alternatywę** dla `instanceof` w dobrze zaprojektowanym kodzie.
+
+---
+
+Gdy będziesz gotowy, napisz **„odpowiedzi”** 👍

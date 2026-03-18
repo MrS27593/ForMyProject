@@ -1,0 +1,110 @@
+## ✅ Odpowiedzi – QUIZ `package-private` w Java
+
+---
+
+### **1. Co oznacza brak modyfikatora dostępu w Javie?**
+
+**✅ C. Dostęp pakietowy (package-private)**
+
+* Brak modyfikatora = domyślny dostęp w obrębie pakietu.
+
+---
+
+### **2. Gdzie element package-private jest dostępny?**
+
+**✅ B. W klasach tego samego pakietu**
+
+---
+
+### **3. Czy package-private działa dla klas najwyższego poziomu?**
+
+**✅ A. Tak, wtedy klasa jest dostępna tylko w pakiecie**
+
+* Klasy bez modyfikatora nie są widoczne poza pakietem.
+
+---
+
+### **4. Czy klasa w innym pakiecie ma dostęp do package-private metody?**
+
+**✅ C. Nie**
+
+---
+
+### **5. Która deklaracja pokazuje poprawny przykład package-private metody?**
+
+**✅ A.**
+
+```java
+void calculate() {}
+```
+
+* Brak modyfikatora = package-private.
+
+---
+
+### **6. Czy package-private pola są dostępne w podklasach w tym samym pakiecie?**
+
+**✅ A. Tak**
+
+* W tym samym pakiecie są dostępne zarówno dla klas bazowych, jak i podklas.
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład użycia package-private:**
+
+```java
+package utils;
+
+class Helper {
+    static void log(String msg) {
+        System.out.println(msg);
+    }
+}
+```
+
+* Klasa `Helper` i metoda `log` są dostępne tylko w pakiecie `utils`.
+
+---
+
+### **8. (OTWARTE)**
+
+**Dlaczego package-private jest użyteczny?**
+
+* Pozwala współdzielić elementy między klasami w pakiecie
+* Chroni przed dostępem z innych pakietów
+* Ułatwia projektowanie modularnych aplikacji
+
+---
+
+### **9. Który modyfikator ma szerszy zakres od package-private?**
+
+**✅ D. public**
+
+* `public` = dostęp wszędzie
+* `protected` = pakiet + dziedziczenie (ale nie wszędzie)
+* `private` = tylko klasa
+
+---
+
+### **10. Które zdanie jest prawdziwe o package-private?**
+
+**✅ B. Elementy są dostępne tylko w pakiecie**
+
+---
+
+### 🧠 Podsumowanie
+
+* **Package-private** = brak modyfikatora
+* Widoczność ograniczona do pakietu
+* Idealny do elementów pomocniczych w pakiecie
+* Pozwala na enkapsulację w obrębie pakietu, ale nie uniemożliwia współpracy klas
+
+---
+
+Teraz mamy **pełny przegląd wszystkich modyfikatorów dostępu w Javie**: `public`, `protected`, `private`, **package-private**.
+
+Możemy następnie przejść do innych słów kluczowych lub zacząć robić **podsumowujący quiz praktyczny**, jeśli chcesz 🔥.
+
+Chcesz, żebym zrobił takie podsumowanie?

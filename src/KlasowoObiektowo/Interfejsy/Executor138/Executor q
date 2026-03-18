@@ -1,0 +1,89 @@
+Świetnie! Oto **quiz z 10 pytaniami** na temat interfejsu `Executor` i jego implementacji w Javie – w sam raz, by sprawdzić i utrwalić wiedzę.
+
+---
+
+## ✅ Quiz – Interfejs `Executor` w Javie
+
+**1. Co robi metoda `execute(Runnable command)` w interfejsie `Executor`?**
+a) Zwraca wynik zadania
+b) Wykonuje zadanie w nowym wątku lub puli wątków
+c) Dodaje zadanie do listy
+d) Wstrzymuje wykonanie wątku głównego
+
+---
+
+**2. Która klasa służy do tworzenia instancji `ExecutorService`?**
+a) Threads
+b) Executors
+c) ThreadPool
+d) ExecutorFactory
+
+---
+
+**3. Co zwraca metoda `submit()` z `ExecutorService`?**
+a) Runnable
+b) Callable
+c) Future
+d) Thread
+
+---
+
+**4. Czym różni się `Runnable` od `Callable`?**
+a) `Runnable` może zwracać wynik, `Callable` nie
+b) `Callable` może rzucać wyjątki, `Runnable` nie
+c) `Callable` nie może być używany z `Executor`
+d) Oba są identyczne
+
+---
+
+**5. Jak zatrzymać `ExecutorService` po zakończeniu wszystkich zadań?**
+a) `stop()`
+b) `exit()`
+c) `shutdown()`
+d) `close()`
+
+---
+
+**6. Co się stanie, jeśli spróbujesz ponownie dodać zadanie po `shutdown()`?**
+a) Zadanie zostanie wykonane
+b) Zadanie zostanie dodane do kolejki
+c) Rzuci wyjątek `RejectedExecutionException`
+d) Nic się nie stanie
+
+---
+
+**7. Do czego służy `ScheduledExecutorService`?**
+a) Do wykonywania zadań w nieskończonej pętli
+b) Do uruchamiania zadań jednorazowo z opóźnieniem lub cyklicznie
+c) Do tworzenia nowych wątków
+d) Do odczytywania zegara systemowego
+
+---
+
+**8. Co robi `newFixedThreadPool(4)`?**
+a) Tworzy cztery oddzielne wątki główne
+b) Tworzy pulę z maksymalnie czterema jednoczesnymi wątkami
+c) Tworzy cztery klasy `Runnable`
+d) Tworzy harmonogram dla czterech zadań
+
+---
+
+**9. Jakiego typu zadanie można przekazać do `Executor.execute()`?**
+a) Callable
+b) Supplier
+c) Runnable
+d) Thread
+
+---
+
+**10. Co umożliwia `Future.get()`?**
+a) Zakończenie zadania
+b) Zatrzymanie zadania
+c) Pobranie wyniku lub oczekiwanie aż zadanie się zakończy
+d) Utworzenie nowego wątku
+
+---
+
+## 🧠 Chcesz sprawdzić swoje odpowiedzi?
+
+Mogę od razu je ocenić lub przygotować wersję z odpowiedziami do samodzielnej nauki – jak wolisz?

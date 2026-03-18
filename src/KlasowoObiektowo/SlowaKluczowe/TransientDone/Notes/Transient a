@@ -1,0 +1,99 @@
+## ODPOWIEDZI – QUIZ `transient` w Java
+
+---
+
+### **1. Czym jest `transient` w Javie?**
+
+✅ **B. Modyfikatorem pola, które nie jest serializowane**
+
+`transient` oznacza, że pole **nie zostanie zapisane przy serializacji** obiektu.
+
+---
+
+### **2. Co stanie się z polem oznaczonym jako `transient` po deserializacji?**
+
+✅ **B. Przyjmie wartość domyślną (`null`, `0`, `false`)**
+
+Przykład: `transient String password` → `null` po deserializacji.
+
+---
+
+### **3. Które pole nie można oznaczyć jako `transient`?**
+
+✅ **C. `static int counter`**
+
+Statyczne pola **nie są serializowane domyślnie**, więc `transient` nie ma sensu.
+
+---
+
+### **4. Czy `transient` działa na polach statycznych (`static`)?**
+
+✅ **B. Nie, nie ma sensu**
+
+`static` = wspólne dla klasy, nie dla obiektu → serializacja dotyczy obiektów.
+
+---
+
+### **5. Czy pole `transient` może być final?**
+
+✅ **A. Tak**
+
+Można użyć `final transient`, choć rzadko spotykane.
+
+---
+
+### **6. Dlaczego używamy `transient`?**
+
+✅ **B. Aby pominąć pole podczas serializacji**
+
+Najczęściej dla haseł, tokenów lub tymczasowych danych.
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład pola, które warto oznaczyć jako `transient`:**
+
+```java
+transient String password;
+transient int cache;
+transient Session session;
+```
+
+---
+
+### **8. (OTWARTE)**
+
+**Co się stanie, jeśli obiekt zawiera pole, które nie jest `Serializable`, i próbujesz go zserializować?**
+
+* JVM wyrzuci **`NotSerializableException`**, chyba że pole jest `transient`.
+
+---
+
+### **9. Czy `transient` chroni pole przed dostępem z innych wątków?**
+
+✅ **B. Nie**
+
+`transient` dotyczy **serializacji**, nie synchronizacji ani bezpieczeństwa wątkowego.
+
+---
+
+### **10. Co będzie wartością domyślną pola `transient int temp` po deserializacji?**
+
+✅ **B. 0**
+
+* Typ `int` → domyślnie `0`
+* Typ `boolean` → `false`
+* Typ `Object` → `null`
+
+---
+
+## 📌 Podsumowanie
+
+* `transient` = **pomija pole przy serializacji**
+* **Nie chroni wątków**, nie dotyczy `static`
+* Po deserializacji → **wartość domyślna**
+
+---
+
+Jeśli chcesz, mogę teraz przygotować **wiedzę i przykłady do `final`**, kolejne ważne słowo kluczowe. Chcesz, żebym zrobił `final`?

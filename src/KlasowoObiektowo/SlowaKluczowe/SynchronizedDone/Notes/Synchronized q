@@ -1,0 +1,118 @@
+## QUIZ – `synchronized` w Java (10 pytań, poziom praktyczny)
+
+---
+
+### **1. Jaki problem rozwiązuje `synchronized`?**
+
+A. Błąd kompilacji
+B. Race condition (współbieżny dostęp do danych)
+C. Błąd logiczny w pętli
+D. Wycieki pamięci
+
+---
+
+### **2. Co gwarantuje `synchronized`?**
+
+A. Tylko widoczność zmiennych
+B. Tylko atomowość operacji
+C. Wzajemne wykluczanie i widoczność pamięci
+D. Szybsze wykonanie kodu
+
+---
+
+### **3. Na czym działa `synchronized`?**
+
+A. Na wątku
+B. Na metodzie
+C. Na obiekcie (monitorze)
+D. Na klasie `Thread`
+
+---
+
+### **4. Co się stanie, jeśli dwa wątki wejdą do metody `synchronized` tego samego obiektu?**
+
+A. Oba wykonają metodę jednocześnie
+B. Jeden wątek poczeka, aż drugi skończy
+C. Program się zawiesi
+D. Metoda wykona się tylko raz
+
+---
+
+### **5. Który kod poprawnie synchronizuje fragment metody?**
+
+A.
+
+```java
+synchronized void test() {
+    count++;
+}
+```
+
+B.
+
+```java
+synchronized(this) {
+    count++;
+}
+```
+
+C.
+
+```java
+void test() {
+    synchronized (this) {
+        count++;
+    }
+}
+```
+
+D.
+
+```java
+void test() synchronized {
+    count++;
+}
+```
+
+---
+
+### **6. Jaka jest różnica między `synchronized` a `volatile`?**
+
+A. Brak różnicy
+B. `volatile` zapewnia atomowość, `synchronized` nie
+C. `synchronized` zapewnia wykluczanie, `volatile` tylko widoczność
+D. `volatile` jest wolniejsze
+
+---
+
+### **7. (OTWARTE)**
+
+Dlaczego w systemie bankowym operacja wypłaty powinna być zsynchronizowana?
+
+---
+
+### **8. (OTWARTE)**
+
+Na jakim obiekcie synchronizuje się metoda `static synchronized`?
+
+---
+
+### **9. Co jest potencjalną wadą nadużywania `synchronized`?**
+
+A. Brak bezpieczeństwa wątkowego
+B. Spadek wydajności
+C. Błędy kompilacji
+D. Brak widoczności danych
+
+---
+
+### **10. Który scenariusz NAJBARDZIEJ wymaga użycia `synchronized`?**
+
+A. Odczyt stałej (`final`)
+B. Prosta flaga logiczna `volatile boolean`
+C. Modyfikacja wspólnego stanu przez wiele wątków
+D. Metoda pomocnicza bez pól klasy
+
+---
+
+Napisz **„odpowiedzi”**, a podam poprawne odpowiedzi z dokładnym omówieniem i analizą kodu 🔍

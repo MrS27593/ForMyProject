@@ -1,0 +1,93 @@
+## ✅ Odpowiedzi – QUIZ `long` w Java
+
+---
+
+### **1. Co oznacza typ `long` w Javie?**
+
+**✅ B. Liczbę całkowitą 64-bitową**
+
+* `long` to typ prymitywny służący do dużych liczb całkowitych.
+
+---
+
+### **2. Ile bitów zajmuje typ `long`?**
+
+**✅ C. 64**
+
+* Typ `long` zajmuje **64 bity (8 bajtów)**.
+
+---
+
+### **3. Jaka jest domyślna wartość zmiennej `long`?**
+
+**✅ C. `0L`**
+
+* Domyślna wartość typu `long` w Javie to `0L`.
+
+---
+
+### **4. Które zdanie jest prawdziwe?**
+
+**✅ A. `long` może przechowywać liczby większe niż `int`**
+
+* Zakres `long` jest znacznie większy niż `int`.
+
+---
+
+### **5. Jak oznaczyć literę L w liczbie typu `long`?**
+
+**✅ B. Na końcu liczby, np. `12345L`**
+
+* Duże liczby należy kończyć literą `L` (lub `l`, ale zaleca się `L` dla czytelności).
+
+---
+
+### **6. Co się stanie, jeśli operacja łączy `int` i `long`?**
+
+**✅ B. `int` automatycznie konwertowane do `long`**
+
+* W operacjach mieszanych `int` jest konwertowane do `long`, aby uniknąć utraty danych.
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład użycia `long` dla dużej liczby:**
+
+```java
+long worldPopulation = 7_900_000_000L;
+```
+
+* Liczba ludności świata – za duża dla `int`.
+
+---
+
+### **8. (OTWARTE)**
+
+**Dlaczego warto używać `long` zamiast `int` dla dużych liczb?**
+
+* Ponieważ `long` ma **większy zakres** i pozwala przechowywać liczby przekraczające limit `int` (ponad 2 miliardy).
+
+---
+
+### **9. Czy `long` może przechowywać liczby ujemne?**
+
+**✅ A. Tak**
+
+* Typ `long` przechowuje liczby całkowite dodatnie i ujemne.
+
+---
+
+### **10. Które zdanie jest prawdziwe o tablicach typu `long`?**
+
+**✅ A. Można je tworzyć jak każdą tablicę typu prymitywnego**
+
+```java
+long[] timestamps = new long[5];
+```
+
+* Tworzenie tablic typu prymitywnego działa standardowo.
+
+---
+
+Chcesz, żebym teraz przeszedł do **następnego słowa kluczowego w Javie**, np. `float`?

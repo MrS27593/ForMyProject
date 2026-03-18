@@ -1,0 +1,119 @@
+## ODPOWIEDZI – QUIZ `throws` w Java
+
+---
+
+### **1. Czym jest `throws` w Javie?**
+
+✅ **B. Słowem kluczowym w deklaracji metody, informującym o możliwych wyjątkach**
+
+`throws` deklaruje wyjątki, które metoda może przekazać dalej.
+
+---
+
+### **2. Gdzie umieszczamy `throws` w metodzie?**
+
+✅ **B. Po nawiasach metody, przed `{`**
+
+Przykład:
+
+```java
+void readFile() throws IOException { }
+```
+
+---
+
+### **3. Która metoda poprawnie deklaruje wyjątek?**
+
+✅ **C. `void read() throws IOException { throw new IOException(); }`**
+
+* `throw` → rzucenie wyjątku
+* `throws` → deklaracja w sygnaturze
+* D i A są błędne składniowo, B deklaruje wyjątek, ale nie rzuca go w ciele metody (może być poprawne, ale pełna forma to C)
+
+---
+
+### **4. Czy `throws` jest wymagane dla `RuntimeException`?**
+
+✅ **B. Nie, nie jest wymagane**
+
+Unchecked exceptions (`RuntimeException` i podklasy) nie muszą być deklarowane.
+
+---
+
+### **5. Co musi zrobić wywołujący metodę, która deklaruje checked exception?**
+
+✅ **B. Obsłużyć go w `try-catch` lub zadeklarować `throws`**
+
+Przykład:
+
+```java
+try {
+    readFile();
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+lub
+
+```java
+void myMethod() throws IOException { readFile(); }
+```
+
+---
+
+### **6. Czy można deklarować więcej niż jeden wyjątek w `throws`?**
+
+✅ **B. Tak, rozdzielając przecinkami**
+
+```java
+void test() throws IOException, SQLException { }
+```
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład metody deklarującej IOException:**
+
+```java
+void readFile() throws IOException {
+    FileReader file = new FileReader("file.txt");
+}
+```
+
+**Dlaczego warto użyć `throws`?**
+
+* Informuje wywołującego o możliwości wystąpienia wyjątku
+* Wymusza jego obsługę lub dalsze przekazanie
+* Zwiększa czytelność i bezpieczeństwo kodu
+
+---
+
+### **8. (OTWARTE)**
+
+**Różnica między `throw` a `throws`:**
+
+* `throw` → służy do **rzucania wyjątku w kodzie**
+* `throws` → służy do **deklarowania wyjątków w sygnaturze metody**
+
+---
+
+### **9. Co się stanie, jeśli metoda nie zadeklaruje checked exception ani go nie obsłuży?**
+
+✅ **B. Kompilator zgłosi błąd**
+
+Java wymusza obsługę wszystkich checked exceptions.
+
+---
+
+### **10. Które z poniższych jest prawidłową sygnaturą metody?**
+
+✅ **A. `void test() throws IOException, SQLException { }`**
+
+* B i D mają błędną składnię (`throw` zamiast `throws`, brak przecinka)
+* C – średnik zamiast `{}` → niepoprawne dla metody w klasie (chyba że jest abstrakcyjna)
+
+---
+
+Jeśli chcesz, mogę teraz przygotować **wiedzę o `final`**, kolejnym często używanym słowie kluczowym w Javie. Chcesz, żebym to zrobił?

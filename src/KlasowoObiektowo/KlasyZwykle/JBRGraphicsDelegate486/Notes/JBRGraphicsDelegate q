@@ -1,0 +1,85 @@
+Oczywiście! Oto **quiz z 10 pytaniami** dotyczącymi klasy `JBRGraphicsDelegate` i ogólnego kontekstu JetBrains Runtime (JBR). Quiz zawiera pytania wielokrotnego wyboru i otwarte.
+
+---
+
+### 🧠 **Quiz: JBRGraphicsDelegate i JetBrains Runtime (JBR)**
+
+#### 1. Co to jest `JBRGraphicsDelegate`?
+
+A) Klasa do obsługi sieci w IntelliJ
+B) Klasa do zaawansowanego renderowania grafiki w JBR
+C) Framework do tworzenia gier
+D) Biblioteka do parsowania XML
+
+---
+
+#### 2. W jakim pakiecie znajduje się klasa `JBRGraphicsDelegate`?
+
+A) `org.jetbrains.graphics`
+B) `java.awt.graphics`
+C) `com.jetbrains.desktop`
+D) `com.intellij.ui`
+
+---
+
+#### 3. JetBrains Runtime (JBR) to:
+
+A) IDE stworzone przez JetBrains
+B) Biblioteka GUI
+C) Zmodyfikowana wersja OpenJDK
+D) Serwer aplikacyjny
+
+---
+
+#### 4. Jakie jest główne zastosowanie `JBRGraphicsDelegate`?
+
+A) Tworzenie aplikacji mobilnych
+B) Efektywne renderowanie grafiki i wsparcie dla HiDPI
+C) Debugowanie kodu
+D) Tworzenie interfejsów webowych
+
+---
+
+#### 5. Czy `JBRGraphicsDelegate` jest przeznaczona do bezpośredniego użycia przez programistów?
+
+A) Tak
+B) Nie
+
+---
+
+#### 6. Jakie IDE korzystają z JetBrains Runtime? (możesz zaznaczyć kilka)
+
+A) IntelliJ IDEA
+B) Android Studio
+C) Visual Studio Code
+D) PyCharm
+
+---
+
+#### 7. Czym różni się JBR od standardowego OpenJDK?
+
+A) Niczym — to ta sama wersja
+B) Zawiera poprawki i rozszerzenia graficzne dla IntelliJ Platform
+C) Obsługuje tylko Linuxa
+D) Jest wolniejszy
+
+---
+
+#### 8. Co oznacza "HiDPI"?
+
+A) Wysoka rozdzielczość i skalowanie
+B) Protokół sieciowy
+C) Narzędzie do kompresji grafiki
+D) Debugowanie interfejsów
+
+---
+
+#### 9. (Otwarte) Jakie korzyści może przynieść aplikacji używanie JBR zamiast standardowego JDK?
+
+---
+
+#### 10. (Otwarte) Czy korzystałeś wcześniej z jakichkolwiek funkcji graficznych w Javie, np. `Graphics2D` lub `BufferedImage`? Jeśli tak, opisz krótko, co robiłeś.
+
+---
+
+Daj znać, kiedy chcesz sprawdzić odpowiedzi lub jeśli chcesz quiz w wersji interaktywnej z oceną!

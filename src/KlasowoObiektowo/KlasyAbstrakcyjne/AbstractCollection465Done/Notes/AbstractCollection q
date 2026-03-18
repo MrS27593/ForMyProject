@@ -1,0 +1,101 @@
+Super! 🔥
+Oto **quiz o klasie `AbstractCollection`** – 10 pytań, wielokrotnego i jednokrotnego wyboru, tak jak przy `Number`.
+
+---
+
+# 🧠 QUIZ – `java.util.AbstractCollection`
+
+### **1️⃣ Czym jest `AbstractCollection`?**
+
+A. Interfejsem
+B. Klasą finalną
+C. Klasą abstrakcyjną
+D. Typem prymitywnym
+
+---
+
+### **2️⃣ Które metody MUSISZ zaimplementować, tworząc własną klasę dziedziczącą po `AbstractCollection`?**
+
+A. `add(E e)` i `remove(Object o)`
+B. `iterator()` i `size()`
+C. `toArray()` i `contains()`
+D. `isEmpty()` i `addAll()`
+
+---
+
+### **3️⃣ Co dzieje się, jeśli nie nadpiszesz metody `add(E e)` w klasie dziedziczącej `AbstractCollection`?**
+
+A. Elementy dodawane są normalnie
+B. Kompilator zgłasza błąd
+C. Rzucany jest `UnsupportedOperationException`
+D. Elementy są ignorowane
+
+---
+
+### **4️⃣ Która z poniższych metod jest JUŻ zaimplementowana w `AbstractCollection`?**
+
+A. `iterator()`
+B. `size()`
+C. `isEmpty()`
+D. `add(E e)`
+
+---
+
+### **5️⃣ Co umożliwia dziedziczenie po `AbstractCollection`?**
+
+A. Tworzenie własnej kolekcji z minimalnym kodem
+B. Automatyczne sortowanie elementów
+C. Automatyczne filtrowanie duplikatów
+D. Bezpośrednie korzystanie z `ArrayList`
+
+---
+
+### **6️⃣ Jak `AbstractCollection` implementuje metodę `contains(Object o)`?**
+
+A. Za pomocą hashCode()
+B. Iteruje po elementach przy pomocy iteratora
+C. Przechowuje elementy w tablicy i szuka binarnie
+D. Nie implementuje metody
+
+---
+
+### **7️⃣ Czy `AbstractCollection` można instancjonować bezpośrednio?**
+
+A. Tak
+B. Nie
+C. Tylko w pakiecie java.util
+D. Tylko w wersji JDK 17+
+
+---
+
+### **8️⃣ Która klasa jest bezpośrednim podklasą `AbstractCollection`?**
+
+A. `ArrayList`
+B. `AbstractList`
+C. `HashMap`
+D. `LinkedHashMap`
+
+---
+
+### **9️⃣ Co się stanie, jeśli Twój iterator w klasie dziedziczącej nie działa poprawnie?**
+
+A. Kompilator zgłosi błąd
+B. Metody takie jak `contains()` czy `remove()` mogą działać niepoprawnie
+C. Program będzie szybszy
+D. Nic się nie stanie
+
+---
+
+### **🔟 Po co w ogóle używa się `AbstractCollection` w JDK?**
+
+A. Aby stworzyć podstawę dla wszystkich kolekcji w Javie
+B. Aby zastąpić prymitywy
+C. Aby obsługiwać tylko liczby
+D. Aby tworzyć GUI
+
+---
+
+✍️ Podaj odpowiedzi w formie jednej linii:
+np. `1C, 2B, 3C…`
+
+Po tym sprawdzimy wynik i przeanalizujemy **każde pytanie**.

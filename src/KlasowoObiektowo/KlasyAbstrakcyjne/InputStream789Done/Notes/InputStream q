@@ -1,0 +1,127 @@
+Świetnie 🔥
+Oto **quiz o klasie abstrakcyjnej `InputStream`** – 10 pytań, dokładnie pod egzamin i rozmowy techniczne.
+
+---
+
+# 🧠 QUIZ – `java.io.InputStream`
+
+### **1️⃣ Czym jest `InputStream`?**
+
+A. Interfejsem
+B. Klasą abstrakcyjną
+C. Klasą finalną
+D. Typem prymitywnym
+
+---
+
+### **2️⃣ Jaka jest JEDYNA metoda abstrakcyjna w `InputStream`?**
+
+A. `close()`
+B. `available()`
+C. `read()`
+D. `skip()`
+
+---
+
+### **3️⃣ Co zwraca metoda `read()`?**
+
+A. `byte`
+B. `char`
+C. `int`
+D. `long`
+
+---
+
+### **4️⃣ Jaką wartość zwraca `read()` przy końcu strumienia?**
+
+A. `0`
+B. `null`
+C. `-1`
+D. `IOException`
+
+---
+
+### **5️⃣ Dlaczego `read()` zwraca `int`, a nie `byte`?**
+
+A. Bo Java nie ma typu `byte`
+B. Aby móc zwrócić zakres 0–255 oraz `-1`
+C. Aby przyspieszyć działanie
+D. Z powodu autoboxingu
+
+---
+
+### **6️⃣ Która klasa NIE dziedziczy po `InputStream`?**
+
+A. `FileInputStream`
+B. `BufferedInputStream`
+C. `ByteArrayInputStream`
+D. `FileReader`
+
+---
+
+### **7️⃣ Co się stanie, jeśli zapomnisz zamknąć `InputStream`?**
+
+A. Nic
+B. Program się nie skompiluje
+C. Może dojść do wycieku zasobów
+D. Zawsze zostanie rzucony wyjątek
+
+---
+
+### **8️⃣ Który zapis jest POPRAWNY i bezpieczny?**
+
+A.
+
+```java
+InputStream in = new FileInputStream("a.txt");
+```
+
+B.
+
+```java
+InputStream in = null;
+```
+
+C.
+
+```java
+try (InputStream in = new FileInputStream("a.txt")) { }
+```
+
+D.
+
+```java
+FileInputStream in = new InputStream();
+```
+
+---
+
+### **9️⃣ Która metoda pozwala odczytać wiele bajtów naraz?**
+
+A. `read()`
+B. `read(byte[])`
+C. `skip()`
+D. `available()`
+
+---
+
+### **🔟 Główna rola `InputStream` to:**
+
+A. Obsługa znaków Unicode
+B. Odczyt danych bajtowych
+C. Zapis danych
+D. Serializacja obiektów
+
+---
+
+✍️ Podaj odpowiedzi w jednej linii, np.:
+`1B, 2C, 3C, ...`
+
+Po odpowiedziach:
+
+* podam **wynik**
+* wyjaśnię **pułapki rekrutacyjne**
+* pokażę różnice **InputStream vs Reader**
+
+Czekam 😎
+

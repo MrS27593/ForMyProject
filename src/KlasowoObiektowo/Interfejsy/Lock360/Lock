@@ -1,0 +1,10 @@
+Aby dobrze umieć Interfejs Lock warto znać:
+Interface:
+Condition
+
+Class:
+long
+TimeUnit
+
+Exceptions:
+InterruptedException

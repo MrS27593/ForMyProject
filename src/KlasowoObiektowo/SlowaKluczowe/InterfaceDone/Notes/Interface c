@@ -1,0 +1,182 @@
+## WIEDZA – `interface` w Java
+
+---
+
+### 1️⃣ Czym jest `interface`?
+
+* `interface` to **kontrakt**, który określa **jakie metody klasa musi posiadać**, ale **nie jak są zaimplementowane**.
+* Interfejs **nie przechowuje stanu obiektu** (z wyjątkami – stałe).
+
+```java
+public interface Flyable {
+    void fly();
+}
+```
+
+* Każda klasa, która **implementuje** `Flyable`, musi dostarczyć metodę `fly()`.
+
+---
+
+### 2️⃣ Implementacja interfejsu
+
+```java
+public class Bird implements Flyable {
+    @Override
+    public void fly() {
+        System.out.println("Bird is flying");
+    }
+}
+```
+
+* Słowo kluczowe: `implements`
+* Metody z interfejsu **muszą być publiczne**
+
+---
+
+### 3️⃣ Interfejs vs klasa abstrakcyjna (kluczowe różnice)
+
+| Interface                                  | Abstract class            |
+| ------------------------------------------ | ------------------------- |
+| Brak stanu (pola są `public static final`) | Może mieć pola            |
+| Brak konstruktorów                         | Może mieć konstruktory    |
+| Wielokrotne implementowanie                | Tylko jedno dziedziczenie |
+| Skupiony na „co?”                          | Skupiona na „co + jak?”   |
+
+---
+
+### 4️⃣ Metody w interfejsie
+
+#### 🔹 Metody abstrakcyjne (domyślne)
+
+```java
+void run();
+```
+
+* Domyślnie: `public abstract`
+
+---
+
+#### 🔹 Metody `default` (Java 8+)
+
+```java
+default void start() {
+    System.out.println("Start");
+}
+```
+
+* Mają **implementację**
+* Klasa może je **nadpisać**
+
+---
+
+#### 🔹 Metody `static`
+
+```java
+static void stop() {
+    System.out.println("Stop");
+}
+```
+
+* Wywoływane przez nazwę interfejsu
+* Nie są dziedziczone przez klasy
+
+---
+
+### 5️⃣ Pola w interfejsie
+
+```java
+public interface Config {
+    int MAX_USERS = 100;
+}
+```
+
+📌 Każde pole w interfejsie jest **automatycznie**:
+
+* `public`
+* `static`
+* `final`
+
+---
+
+### 6️⃣ Wielokrotna implementacja (BARDZO ważne)
+
+```java
+interface A { void a(); }
+interface B { void b(); }
+
+class C implements A, B {
+    public void a() {}
+    public void b() {}
+}
+```
+
+* Java **nie pozwala na wielodziedziczenie klas**
+* Ale **pozwala na implementację wielu interfejsów**
+
+---
+
+### 7️⃣ Interfejs jako typ
+
+```java
+Flyable f = new Bird();
+f.fly();
+```
+
+* Programowanie do interfejsu, nie do implementacji
+* Podstawa **polimorfizmu**
+
+---
+
+### 8️⃣ Praktyczny przykład – system płatności
+
+```java
+interface Payment {
+    void pay(double amount);
+}
+
+class CardPayment implements Payment {
+    public void pay(double amount) {
+        System.out.println("Card payment: " + amount);
+    }
+}
+
+class BlikPayment implements Payment {
+    public void pay(double amount) {
+        System.out.println("Blik payment: " + amount);
+    }
+}
+```
+
+```java
+Payment payment = new BlikPayment();
+payment.pay(100);
+```
+
+✔ łatwa rozbudowa
+✔ luźne powiązania
+✔ testowalność
+
+---
+
+### 9️⃣ Od Java 17 – interfejsy + sealed
+
+```java
+public sealed interface Shape permits Circle, Square {}
+```
+
+* Interfejsy też mogą być `sealed`
+* Kontrola nad implementacjami
+
+---
+
+### 🔟 Podsumowanie
+
+* `interface` = **kontrakt**
+* Brak stanu obiektu
+* Wiele implementacji
+* Podstawa OOP, SOLID, clean code
+* Bardzo często używane w Springu, API, frameworkach
+
+---
+
+Kiedy będziesz gotowy, napisz **„quiz”**, a przygotuję **dobry jakościowo quiz o `interface`** (jak zawsze: pytania ABCD + otwarte).

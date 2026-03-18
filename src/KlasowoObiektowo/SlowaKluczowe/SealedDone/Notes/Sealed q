@@ -1,0 +1,89 @@
+## QUIZ – `sealed` w Java (10 pytań)
+
+---
+
+### **1. Czym jest klasa `sealed`?**
+
+A. Klasa, którą można dziedziczyć bez ograniczeń
+B. Klasa, która kontroluje, które klasy mogą ją dziedziczyć
+C. Klasa, która nie może mieć żadnych metod
+D. Klasa, która jest zawsze abstrakcyjna
+
+---
+
+### **2. Co oznacza słowo `permits` w klasie `sealed`?**
+
+A. Wskazuje metody, które można nadpisać
+B. Wskazuje pola, które są dostępne dla podklas
+C. Wymienia klasy, które mogą dziedziczyć po klasie `sealed`
+D. Wymienia klasy, które są zabronione do dziedziczenia
+
+---
+
+### **3. Która z poniższych podklas jest poprawna po klasie `sealed`?**
+
+A. `class Circle extends Shape {}`
+B. `final class Circle extends Shape {}`
+C. `private class Circle extends Shape {}`
+D. `abstract class Circle extends Shape {}`
+
+---
+
+### **4. Co oznacza modyfikator `non-sealed`?**
+
+A. Klasa nie może mieć podklas
+B. Klasa nadal ogranicza dziedziczenie
+C. Klasa jest otwarta dla dalszego dziedziczenia
+D. Klasa jest zawsze abstrakcyjna
+
+---
+
+### **5. Jakie modyfikatory mogą mieć podklasy `sealed`?**
+
+A. `private`, `final`, `sealed`
+B. `final`, `non-sealed`, `sealed`
+C. `static`, `final`, `abstract`
+D. `final`, `abstract`, `private`
+
+---
+
+### **6. (OTWARTE)**
+
+Podaj przykład hierarchii `sealed` dla systemu płatności z trzema rodzajami płatności.
+
+---
+
+### **7. (OTWARTE)**
+
+Dlaczego użycie `sealed` może być przydatne w `switch expressions`?
+
+---
+
+### **8. Czy klasa `sealed` musi być abstrakcyjna?**
+
+A. Tak, zawsze
+B. Nie, może być normalną klasą
+C. Tylko jeśli nie ma żadnych podklas
+D. Tylko w Java 17+
+
+---
+
+### **9. Co się stanie, jeśli nie wymienisz poprawnie klas w `permits`?**
+
+A. Kompilator zgłosi błąd
+B. JVM automatycznie uzupełni listę
+C. Program działa, ale ostrzeżenie się pojawi
+D. Klasa nie będzie dziedziczona
+
+---
+
+### **10. Które zdanie o `sealed` jest prawdziwe?**
+
+A. Wszystkie podklasy muszą być `final`
+B. `sealed` zastępuje słowo `abstract`
+C. Podklasy muszą być `final`, `non-sealed` lub `sealed`
+D. `sealed` może być używane tylko dla interfejsów
+
+---
+
+Napisz **„odpowiedzi”**, a podam komplet poprawnych odpowiedzi z wyjaśnieniami.

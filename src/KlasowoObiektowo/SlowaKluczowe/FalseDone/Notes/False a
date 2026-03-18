@@ -1,0 +1,107 @@
+### ✅ Odpowiedzi – `false` w Java (z wyjaśnieniami)
+
+---
+
+#### 1️⃣ Czym jest `false` w języku Java?
+
+**✅ B. Literałem logicznym typu `boolean`**
+`false` to wbudowany literał reprezentujący logiczny fałsz.
+
+---
+
+#### 2️⃣ Które przypisanie jest poprawne?
+
+**✅ D. `boolean x = false;`**
+`false` musi być zapisane małymi literami i bez cudzysłowów.
+
+---
+
+#### 3️⃣ Co zrobi poniższy kod?
+
+```java
+if (false) {
+    System.out.println("Hello");
+}
+```
+
+**✅ C. Nie wykona się**
+Kod wewnątrz `if` nigdy się nie uruchomi.
+
+---
+
+#### 4️⃣ Jaka jest domyślna wartość pola klasy typu `boolean`?
+
+**✅ B. `false`**
+Pola klasowe mają wartości domyślne – dla `boolean` jest to `false`.
+
+---
+
+#### 5️⃣ Które wyrażenie zwróci `false`?
+
+**✅ D. `false && true`**
+Operator `&&` zwraca `true` tylko wtedy, gdy oba operandy są `true`.
+
+---
+
+#### 6️⃣ Co oznacza warunek `if (!isActive)`?
+
+**✅ B. `isActive` jest równe `false`**
+Operator `!` neguje wartość logiczną.
+
+---
+
+#### 7️⃣ Co się stanie w tym kodzie?
+
+```java
+boolean flag = false;
+
+while (flag) {
+    System.out.println("Loop");
+}
+```
+
+**✅ C. Pętla nie wykona się wcale**
+Warunek `while` od razu jest `false`.
+
+---
+
+#### 8️⃣ Który zapis jest **najlepszą praktyką**?
+
+**✅ C. `if (!x)`**
+Najbardziej czytelny i idiomatyczny zapis w Javie.
+
+---
+
+#### 9️⃣ (Otwarte) Przykład praktycznego użycia `false`
+
+**Poprawna odpowiedź (przykład):**
+
+```java
+boolean isEmailVerified = false;
+
+if (!isEmailVerified) {
+    sendVerificationEmail();
+}
+```
+
+---
+
+#### 🔟 (Otwarte) Dlaczego nie można przypisać `0` lub `1` do `boolean`?
+
+**Poprawna odpowiedź:**
+Java ma **ściśle typowany system** – `boolean` jest osobnym typem logicznym i **nie jest liczbą**, w przeciwieństwie do języków takich jak C/C++.
+
+---
+
+### 🧠 Podsumowanie
+
+* `false` = logiczny fałsz
+* Tylko dla typu `boolean`
+* Domyślna wartość pól
+* Kluczowy w warunkach i pętlach
+* Preferuj `!x` zamiast `x == false`
+
+---
+
+Świetna robota 👏
+Następny naturalny krok: **`boolean` (wrapper `Boolean`)**, **`true` vs `false` w porównaniach**, albo kolejny keyword — daj znać 🚀

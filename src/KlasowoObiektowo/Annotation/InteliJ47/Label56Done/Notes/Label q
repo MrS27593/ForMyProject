@@ -1,0 +1,81 @@
+Jasne 😄 oto **quiz o `@Label`** – czysty i zróżnicowany poziom:
+
+---
+
+# 🟢 Quiz – `@Label`
+
+### 1️⃣ Co robi adnotacja `@Label`?
+
+A. Zmienia nazwę pola w runtime
+B. Przypisuje czytelną nazwę lub opis elementowi kodu
+C. Automatycznie generuje getter i setter
+D. Oznacza pole jako deprecated
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Label` w JDK?
+
+A. `java.lang.annotation`
+B. `jdk.jfr`
+C. `javax.annotation`
+D. `org.jetbrains.annotations`
+
+---
+
+### 3️⃣ Czy `@Label` wpływa na logikę programu w runtime?
+
+A. Tak
+B. Nie
+
+---
+
+### 4️⃣ Z którą adnotacją często współpracuje `@Label` w JFR?
+
+A. `@SuppressWarnings`
+B. `@Description`
+C. `@Deprecated`
+D. `@FunctionalInterface`
+
+---
+
+### 5️⃣ Czy można stosować `@Label` na metodach?
+
+A. Tak
+B. Nie
+
+---
+
+### 6️⃣ Czy `@Label` jest obowiązkowa w JFR dla każdego pola zdarzenia?
+
+A. Tak
+B. Nie
+
+---
+
+### 7️⃣ Jakie narzędzie najczęściej wykorzystuje informacje z `@Label`?
+
+A. Eclipse IDE
+B. Java Mission Control (JMC)
+C. IntelliJ IDEA
+D. Maven
+
+---
+
+### 8️⃣ Czy adnotacja `@Label` może mieć długi opis w wielu językach?
+
+A. Tak, obsługuje lokalizację
+B. Nie, tylko krótki tekst w jednej wersji językowej
+
+---
+
+### 9️⃣ Czy `@Label` może być stosowana na polach prywatnych klasy JFR?
+
+A. Tak
+B. Nie
+
+---
+
+### 🔟 Czy `@Label` jest częścią standardowego JDK od wersji 9?
+
+A. Tak
+B. Nie

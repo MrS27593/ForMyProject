@@ -1,0 +1,89 @@
+## QUIZ – `static` w Java (10 pytań)
+
+---
+
+### **1. Co oznacza słowo kluczowe `static`?**
+
+A. Element należy do obiektu klasy
+B. Element należy do klasy, a nie do obiektu
+C. Element jest prywatny
+D. Element jest tylko do odczytu
+
+---
+
+### **2. Które z poniższych jest poprawnym statycznym polem?**
+
+A. `static int count;`
+B. `int static count;`
+C. `static void count;`
+D. `void static count;`
+
+---
+
+### **3. Która metoda może być wywołana bez tworzenia obiektu?**
+
+A. Niestatyczna metoda instancji
+B. Statyczna metoda klasy
+C. Konstruktor
+D. Metoda prywatna
+
+---
+
+### **4. Co jest prawdą o statycznych blokach inicjalizacyjnych?**
+
+A. Wykonują się przy każdym utworzeniu obiektu
+B. Wykonują się raz przy pierwszym odwołaniu do klasy
+C. Mogą używać `this`
+D. Mogą inicjalizować tylko metody
+
+---
+
+### **5. Czy metoda statyczna może odwoływać się do pól niestatycznych bez obiektu?**
+
+A. Tak
+B. Nie
+C. Tylko jeśli jest publiczna
+D. Tylko jeśli jest final
+
+---
+
+### **6. Jakie ograniczenia ma metoda statyczna?**
+
+A. Nie może używać `this` ani `super`
+B. Nie może przyjmować parametrów
+C. Nie może zwracać wartości
+D. Nie może być wywoływana przez obiekt
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład użycia statycznego pola i statycznej metody w systemie bankowym.
+
+---
+
+### **8. (OTWARTE)**
+
+Dlaczego warto używać `static` w klasach narzędziowych typu `Math`?
+
+---
+
+### **9. Co oznacza połączenie `final static`?**
+
+A. Pole jest prywatne i zmienne
+B. Pole jest stałe i współdzielone przez wszystkie instancje
+C. Metoda nie może być nadpisana
+D. Pole jest prywatne i nieosiągalne
+
+---
+
+### **10. Która statyczna klasa wewnętrzna jest poprawna?**
+
+A. `class Outer { static class Inner {} }`
+B. `class Outer { class static Inner {} }`
+C. `class Outer { static void Inner {} }`
+D. `static class Outer { class Inner {} }`
+
+---
+
+Napisz **„odpowiedzi”**, a podam komplet poprawnych odpowiedzi z wyjaśnieniami i analizą kodu.

@@ -1,0 +1,164 @@
+## WIEDZA – `protected` w Java
+
+---
+
+### 1️⃣ Czym jest `protected`?
+
+`protected` to **modyfikator dostępu**, który daje **szerszy dostęp niż `private`**, ale **węższy niż `public`**.
+
+Element oznaczony jako `protected` jest dostępny:
+
+* ✔ w **tej samej klasie**
+* ✔ w **tym samym pakiecie**
+* ✔ w **klasach dziedziczących** (nawet w innym pakiecie)
+
+---
+
+### 2️⃣ Zakres dostępu `protected`
+
+| Miejsce użycia                               | Dostęp |
+| -------------------------------------------- | ------ |
+| Ta sama klasa                                | ✔      |
+| Ten sam pakiet                               | ✔      |
+| Klasa potomna (inny pakiet)                  | ✔      |
+| Inne klasy (inny pakiet, brak dziedziczenia) | ❌      |
+
+📌 To kluczowa różnica względem domyślnego (package-private).
+
+---
+
+### 3️⃣ `protected` przy metodzie
+
+```java
+public class Vehicle {
+
+    protected void startEngine() {
+        System.out.println("Silnik uruchomiony");
+    }
+}
+```
+
+```java
+public class Car extends Vehicle {
+
+    public void drive() {
+        startEngine(); // OK – dziedziczenie
+    }
+}
+```
+
+---
+
+### 4️⃣ `protected` przy polach
+
+```java
+public class Account {
+    protected double balance;
+}
+```
+
+✔ Często spotykane w klasach bazowych
+⚠ Nadal trzeba uważać – lepsze są metody niż bezpośredni dostęp do pola
+
+---
+
+### 5️⃣ `protected` vs brak modyfikatora
+
+```java
+// package-private
+void helper() { }
+
+// protected
+protected void helper() { }
+```
+
+Różnica:
+
+* brak modyfikatora → **tylko pakiet**
+* `protected` → pakiet **+ dziedziczenie**
+
+---
+
+### 6️⃣ Przykład praktyczny – system użytkowników
+
+```java
+public abstract class User {
+
+    protected String username;
+
+    protected void logAccess() {
+        System.out.println("Dostęp użytkownika: " + username);
+    }
+}
+```
+
+```java
+public class Admin extends User {
+
+    public Admin(String username) {
+        this.username = username;
+    }
+
+    public void manage() {
+        logAccess(); // dostęp dzięki protected
+        System.out.println("Zarządzanie systemem");
+    }
+}
+```
+
+---
+
+### 7️⃣ `protected` a pakiety (ważna pułapka!)
+
+```java
+// inny pakiet, brak dziedziczenia
+User user = new User();
+user.logAccess(); // ❌ błąd
+```
+
+📌 `protected` **nie działa jak public dla pakietów**
+Dostęp w innym pakiecie tylko przez **dziedziczenie**
+
+---
+
+### 8️⃣ Kiedy używać `protected`?
+
+✔ Gdy:
+
+* projektujesz **klasę bazową**
+* chcesz dać dostęp **tylko podklasom**
+* tworzysz framework / bibliotekę
+
+❌ Gdy:
+
+* element jest częścią publicznego API
+* element nie powinien być nadpisywany
+
+---
+
+### 9️⃣ `protected` a override
+
+```java
+@Override
+protected void startEngine() {
+    System.out.println("Silnik auta uruchomiony");
+}
+```
+
+📌 Przy nadpisywaniu:
+
+* nie możesz **zmniejszyć** widoczności
+* możesz ją **zwiększyć** (`protected` → `public`)
+
+---
+
+### 10️⃣ Podsumowanie
+
+* `protected` = pakiet + dziedziczenie
+* Idealny do klas bazowych
+* Często używany w OOP i frameworkach
+* Ostrożnie z polami `protected`
+
+---
+
+Gdy będziesz gotowy, napisz **„quiz”**, a przygotuję **quiz o `protected`** w tym samym standardzie co poprzednie 🔥

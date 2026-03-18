@@ -1,0 +1,176 @@
+## WIEDZA – `record` w Java
+
+---
+
+### 1️⃣ Czym jest `record`?
+
+`record` to **specjalny typ klasy w Javie** (od Java 16), służący do tworzenia **niemutowalnych (immutable) obiektów danych**.
+Jego głównym celem jest **przechowywanie danych**, a nie logiki biznesowej.
+
+👉 `record` **automatycznie generuje**:
+
+* prywatne, finalne pola
+* konstruktor
+* metody `get` (bez `get`, nazwa = pole)
+* `equals()`
+* `hashCode()`
+* `toString()`
+
+---
+
+### 2️⃣ Podstawowa składnia
+
+```java
+public record User(String name, int age) {}
+```
+
+To zastępuje kilkadziesiąt linii klasy:
+
+```java
+public final class User {
+    private final String name;
+    private final int age;
+
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String name() { return name; }
+    public int age() { return age; }
+
+    // equals, hashCode, toString
+}
+```
+
+---
+
+### 3️⃣ Kluczowe cechy `record`
+
+| Cecha         | `record`               |
+| ------------- | ---------------------- |
+| Dziedziczenie | ❌ Nie (zawsze `final`) |
+| Mutowalność   | ❌ Niemutowalne         |
+| Pola          | `private final`        |
+| Settery       | ❌ Brak                 |
+| Konstruktor   | ✔ Automatyczny         |
+| Metody        | ✔ Można dodawać        |
+
+---
+
+### 4️⃣ Dostęp do danych
+
+```java
+User user = new User("Anna", 25);
+
+System.out.println(user.name()); // Anna
+System.out.println(user.age());  // 25
+```
+
+📌 **Nie używamy `getName()`** – metoda nazywa się dokładnie jak pole.
+
+---
+
+### 5️⃣ Własny konstruktor (walidacja)
+
+Możesz dodać **konstruktor kanoniczny**:
+
+```java
+public record Product(String name, double price) {
+
+    public Product {
+        if (price < 0) {
+            throw new IllegalArgumentException("Cena nie może być ujemna");
+        }
+    }
+}
+```
+
+* Nie przypisujesz pól ręcznie
+* Java robi to automatycznie
+
+---
+
+### 6️⃣ Metody w `record`
+
+`record` **może zawierać metody**:
+
+```java
+public record Rectangle(double width, double height) {
+
+    public double area() {
+        return width * height;
+    }
+}
+```
+
+---
+
+### 7️⃣ Przykład praktyczny – system zamówień
+
+```java
+public record OrderItem(
+        String productName,
+        int quantity,
+        double pricePerUnit
+) {
+    public double totalPrice() {
+        return quantity * pricePerUnit;
+    }
+}
+```
+
+Użycie:
+
+```java
+OrderItem item = new OrderItem("Laptop", 2, 3500);
+System.out.println(item.totalPrice());
+```
+
+---
+
+### 8️⃣ `record` a `class`
+
+| Kiedy `record`     | Kiedy `class`    |
+| ------------------ | ---------------- |
+| DTO / dane         | Logika biznesowa |
+| Niezmienność       | Zmienny stan     |
+| Mało kodu          | Dużo zachowania  |
+| `equals` po polach | `equals` ręcznie |
+
+---
+
+### 9️⃣ `record` + `sealed`
+
+```java
+public sealed interface Payment permits Card, Cash {}
+
+public record Card(String number) implements Payment {}
+public record Cash() implements Payment {}
+```
+
+✔ Idealne do **modelowania domeny**
+
+---
+
+### 10️⃣ Ograniczenia `record`
+
+❌ Nie można:
+
+* dziedziczyć po innej klasie
+* mieć pól innych niż w nagłówku
+* mieć setterów
+* zmieniać pól po utworzeniu
+
+---
+
+### 11️⃣ Podsumowanie
+
+* `record` = **niemutowalny nośnik danych**
+* Mniej kodu, więcej czytelności
+* Idealny do DTO, wyników, komunikacji między warstwami
+* Świetnie współpracuje z `sealed` i `switch`
+
+---
+
+Gdy będziesz gotowy, napisz **„quiz”**, a przygotuję **quiz o `record`** (wysokiej jakości, jak wcześniej 💪).

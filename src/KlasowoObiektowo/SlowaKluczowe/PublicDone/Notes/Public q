@@ -1,0 +1,109 @@
+## QUIZ – `public` w Java (10 pytań)
+
+---
+
+### **1. Co oznacza modyfikator `public` w Javie?**
+
+A. Dostęp tylko w tej samej klasie
+B. Dostęp tylko w tym samym pakiecie
+C. Dostęp w klasach dziedziczących
+D. Dostęp z każdego miejsca programu
+
+---
+
+### **2. Gdzie NIE można użyć modyfikatora `public`?**
+
+A. Przy klasie
+B. Przy metodzie
+C. Przy zmiennej lokalnej w metodzie
+D. Przy konstruktorze
+
+---
+
+### **3. Ile klas `public` może znajdować się w jednym pliku `.java`?**
+
+A. Dowolna liczba
+B. Dwie
+C. Jedna
+D. Zero
+
+---
+
+### **4. Co jest wymagane, gdy klasa jest `public`?**
+
+A. Musi mieć konstruktor bezargumentowy
+B. Plik musi mieć taką samą nazwę jak klasa
+C. Musi dziedziczyć po `Object`
+D. Musi zawierać metodę `main`
+
+---
+
+### **5. Dlaczego `public` pola są zwykle złą praktyką?**
+
+A. Spowalniają program
+B. Zajmują więcej pamięci
+C. Łamią enkapsulację
+D. Nie działają z `record`
+
+---
+
+### **6. Która deklaracja jest najlepszą praktyką?**
+
+A.
+
+```java
+public int age;
+```
+
+B.
+
+```java
+protected int age;
+```
+
+C.
+
+```java
+private int age;
+public int getAge() { return age; }
+```
+
+D.
+
+```java
+public int getAge;
+```
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład metody, która **powinna być `public`**, i krótko wyjaśnij dlaczego.
+
+---
+
+### **8. (OTWARTE)**
+
+Dlaczego warto stosować zasadę „najmniejszego możliwego dostępu”?
+
+---
+
+### **9. Które zdanie o `public` jest prawdziwe?**
+
+A. `public` elementy są dostępne tylko w pakiecie
+B. `public` metody nie mogą być `static`
+C. `public` jest najszerszym modyfikatorem dostępu
+D. `public` nie działa w `record`
+
+---
+
+### **10. Która metoda powinna być `public`?**
+
+A. Metoda pomocnicza używana tylko wewnątrz klasy
+B. Metoda walidująca prywatne dane
+C. Metoda będąca częścią API klasy
+D. Metoda testowa
+
+---
+
+Napisz **„odpowiedzi”**, a podam komplet poprawnych odpowiedzi z wyjaśnieniami ✅

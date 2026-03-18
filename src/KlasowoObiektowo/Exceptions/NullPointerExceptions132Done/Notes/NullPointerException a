@@ -1,0 +1,49 @@
+Pewnie 👍 Oto **ODPOWIEDZI do quizu: `NullPointerException`** wraz z krótkimi wyjaśnieniami 👇
+
+---
+
+## ✅ **ODPOWIEDZI – NullPointerException (NPE)**
+
+1️⃣ **C** – `NullPointerException` jest **unchecked exception** (`RuntimeException`)
+
+2️⃣ **B** – NPE powstaje przy **wywołaniu metody na obiekcie `null`**
+
+3️⃣ **B** – `System.out.println(s)` wypisze `null` (bez wyjątku)
+
+4️⃣ **D** – `System.out.println(null)` **nie powoduje NPE**
+
+5️⃣ **C** – `list.get(0)` zwraca `null`, a wywołanie `length()` → **NPE**
+
+6️⃣ **B** – `Objects.requireNonNull()` (fail-fast, czytelny komunikat)
+
+7️⃣ **C** – łapanie `NullPointerException` to **zła praktyka**
+
+8️⃣ **C** – `ifPresent` nic nie zrobi (brak wartości)
+
+9️⃣ **C** – `Optional` jako pole komplikuje API i serializację
+
+🔟 **C** – Java 14+ wypisuje **czytelny komunikat**, co jest `null`
+
+1️⃣1️⃣ **B** – NPE może być akceptowalny jako **fail-fast** przy błędzie programisty
+
+1️⃣2️⃣ **C** – `IllegalArgumentException` to najlepsza alternatywa w publicznym API
+
+---
+
+## 🧠 **Złote wnioski (rekrutacyjne)**
+
+✔️ Nie łap `NullPointerException`
+✔️ Waliduj dane wcześniej
+✔️ Zwracaj puste kolekcje zamiast `null`
+✔️ `Optional` ≠ brak NPE, tylko jawna obsługa
+✔️ Java 14+ pomaga w debugowaniu NPE
+
+---
+
+Chcesz iść dalej?
+👉 **Hard quiz – pułapki z null**
+👉 **Optional vs null – bardzo głęboko**
+👉 **Top 10 NullPointerException z projektów**
+👉 **kolejny wyjątek: IllegalArgumentException / IndexOutOfBoundsException**
+
+Co wybieramy? 😄

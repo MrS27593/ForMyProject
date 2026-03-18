@@ -1,0 +1,72 @@
+Oczywiście! Oto kompletne **odpowiedzi do quizu o `ItemSelectable`**:
+
+---
+
+### ✅ **Odpowiedzi do quizu**
+
+#### **Pytanie 1 — jednokrotny wybór**
+
+**Prawidłowa odpowiedź:** C. `Checkbox`
+✅ `Checkbox` implementuje `ItemSelectable`. Pozostałe nie.
+
+---
+
+#### **Pytanie 2 — wielokrotny wybór**
+
+**Prawidłowe odpowiedzi:** A, B, D
+✅ Metody `ItemSelectable` to:
+
+* `addItemListener(ItemListener l)`
+* `removeItemListener(ItemListener l)`
+* `getSelectedObjects()`
+
+---
+
+#### **Pytanie 3 — prawda/fałsz**
+
+**Prawidłowa odpowiedź:** ✅ Prawda
+✅ Interfejs `ItemSelectable` pozwala komponentom obsługiwać zdarzenia wyboru.
+
+---
+
+#### **Pytanie 4 — jednokrotny wybór**
+
+**Prawidłowa odpowiedź:** C. `null`
+✅ `getSelectedObjects()` może zwrócić `null`, jeśli nic nie jest zaznaczone.
+
+---
+
+#### **Pytanie 5 — otwarte**
+
+**Odpowiedź:**
+`ItemListener` służy do nasłuchiwania zdarzeń zaznaczenia/odznaczenia komponentu, który implementuje `ItemSelectable`. Pozwala wykryć zmianę stanu wyboru przez użytkownika.
+
+---
+
+#### **Pytanie 6 — kod**
+
+**Prawidłowa odpowiedź:** C. `"Nic nie zaznaczono"`
+✅ Jeśli `getSelectedObjects()` zwraca `null`, wypisze się `"Nic nie zaznaczono"`.
+
+---
+
+#### **Pytanie 7 — prawda/fałsz**
+
+**Prawidłowa odpowiedź:** ❌ Fałsz
+✅ `ItemSelectable` znajduje się w pakiecie `java.awt`, a nie `javax.swing`.
+
+---
+
+#### **Pytanie 8 — otwarte**
+
+**Odpowiedź:**
+Przykłady komponentów implementujących `ItemSelectable`:
+
+* `JCheckBox`
+* `JRadioButton`
+* `JComboBox`
+* `Checkbox` (z AWT)
+
+---
+
+Czy chcesz teraz quiz w formie testu do wydrukowania albo interaktywnego formularza (np. Google Forms)?

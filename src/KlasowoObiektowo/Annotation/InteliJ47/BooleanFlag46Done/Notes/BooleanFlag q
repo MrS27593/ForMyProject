@@ -1,0 +1,115 @@
+Świetnie 👍
+Oto **quiz z adnotacji `@BooleanFlag` (Java Flight Recorder)** — poziom **średnio-zaawansowany / narzędziowy**.
+Jak zawsze: **bez odpowiedzi**.
+Po rozwiązaniu napisz **„odpowiedzi”** ✅
+
+---
+
+# 🧠 **Quiz: `@BooleanFlag` (JFR)**
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Czym jest `@BooleanFlag`?
+
+A. Zwykłą adnotacją Javy
+B. Meta-adnotacją
+C. Adnotacją związaną z Java Flight Recorder
+D. Adnotacją walidującą `boolean`
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@BooleanFlag`?
+
+A. `java.lang.annotation`
+B. `java.util`
+C. `jdk.jfr`
+D. `javax.annotation.processing`
+
+---
+
+### 3️⃣ Jaki jest główny cel `@BooleanFlag`?
+
+A. Wymuszenie typu `boolean`
+B. Oznaczenie wartości jako flagi logicznej dla narzędzi JFR
+C. Sprawdzenie warunku w runtime
+D. Optymalizacja kodu JVM
+
+---
+
+## 🔹 Część II – Techniczne szczegóły
+
+### 4️⃣ Jaki typ danych najczęściej opisuje `@BooleanFlag`?
+
+A. `Boolean`
+B. `int`
+C. `boolean`
+D. Dowolny typ
+
+---
+
+### 5️⃣ Jaka jest retencja `@BooleanFlag`?
+
+A. `SOURCE`
+B. `CLASS`
+C. `RUNTIME`
+D. Brak retencji
+
+---
+
+### 6️⃣ Gdzie MOŻNA użyć `@BooleanFlag`?
+
+A. Na polach
+B. Na metodach
+C. Na typach (klasach)
+D. Na pakietach
+E. A, B i C
+
+---
+
+## 🔹 Część III – JFR
+
+### 7️⃣ W jakim kontekście `@BooleanFlag` jest faktycznie wykorzystywana?
+
+A. Spring Framework
+B. JPA / Hibernate
+C. Java Flight Recorder
+D. Java Reflection API
+
+---
+
+### 8️⃣ Jak narzędzia JFR mogą interpretować `@BooleanFlag`?
+
+A. Jako liczbę
+B. Jako tekst
+C. Jako checkbox / przełącznik
+D. Jako timestamp
+
+---
+
+## 🔹 Część IV – Porównania
+
+### 9️⃣ Czy `@BooleanFlag` wpływa na logikę programu?
+
+A. Tak, zmienia zachowanie JVM
+B. Tak, wymusza walidację
+C. Nie, jest opisowa
+D. Tylko w testach
+
+---
+
+### 🔟 Z którą adnotacją JFR najczęściej występuje razem?
+
+A. `@Override`
+B. `@Label`
+C. `@SuppressWarnings`
+D. `@Deprecated`
+
+---
+
+## ✍️ Pytanie otwarte
+
+### 1️⃣1️⃣ Podaj przykład sytuacji, w której użycie `@BooleanFlag` ma sens w aplikacji Java.
+
+---
+
+Gdy skończysz 👉 napisz **„odpowiedzi”** 💪

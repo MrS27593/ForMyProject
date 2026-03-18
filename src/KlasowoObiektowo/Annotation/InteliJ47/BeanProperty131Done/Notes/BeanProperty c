@@ -1,0 +1,226 @@
+Świetnie — **`@BeanProperty`** to logiczna kontynuacja tego, co właśnie przerabialiśmy z `@ConstructorProperties` 👌
+To adnotacja **mniej znana**, ale **bardzo czysta koncepcyjnie**, bo dotyka **JavaBeans + introspekcji**.
+
+---
+
+# 📘 `@BeanProperty` w Javie
+
+## 1️⃣ Czym jest `@BeanProperty`?
+
+`@BeanProperty` to adnotacja z pakietu:
+
+```java
+java.beans
+```
+
+Służy do:
+
+> **jawnego oznaczenia pola lub metody jako właściwości (property) JavaBeans**
+
+📌 Czyli mówisz:
+
+> „To jest property, nawet jeśli JavaBeans nie potrafi go automatycznie rozpoznać”
+
+---
+
+## 2️⃣ Jaki problem rozwiązuje?
+
+JavaBeans **rozpoznaje property głównie przez konwencję**:
+
+```java
+getX()
+setX()
+```
+
+Ale co jeśli:
+
+* nie ma settera?
+* pole jest publiczne?
+* nazwa nie pasuje do konwencji?
+* property jest tylko do odczytu?
+
+👉 **`@BeanProperty` rozwiązuje ten problem**
+
+---
+
+## 3️⃣ Gdzie można jej użyć?
+
+```java
+@Target({METHOD, FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface BeanProperty {
+    boolean bound() default false;
+    boolean expert() default false;
+    boolean hidden() default false;
+    boolean preferred() default false;
+}
+```
+
+📌 Można używać na:
+
+* **polach**
+* **metodach**
+
+---
+
+## 4️⃣ Najprostszy przykład
+
+```java
+import java.beans.BeanProperty;
+
+public class User {
+
+    @BeanProperty
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+}
+```
+
+➡️ Nawet bez settera:
+
+* `email` jest **property**
+* widoczne dla introspekcji
+
+---
+
+## 5️⃣ Atrybuty `@BeanProperty`
+
+### 🔹 `bound`
+
+```java
+@BeanProperty(bound = true)
+```
+
+➡️ Property generuje `PropertyChangeEvent`
+
+---
+
+### 🔹 `expert`
+
+```java
+@BeanProperty(expert = true)
+```
+
+➡️ Property tylko dla **zaawansowanych użytkowników**
+
+---
+
+### 🔹 `hidden`
+
+```java
+@BeanProperty(hidden = true)
+```
+
+➡️ Property **ukryte** w edytorach wizualnych
+
+---
+
+### 🔹 `preferred`
+
+```java
+@BeanProperty(preferred = true)
+```
+
+➡️ Property **wyróżnione / polecane**
+
+---
+
+## 6️⃣ Przykład praktyczny (GUI / tooling)
+
+```java
+public class Config {
+
+    @BeanProperty(preferred = true)
+    public int timeout;
+
+    @BeanProperty(hidden = true)
+    public String internalId;
+}
+```
+
+➡️ Edytor GUI:
+
+* pokaże `timeout`
+* ukryje `internalId`
+
+📌 To było bardzo popularne w:
+
+* JavaBeans editors
+* NetBeans GUI Builder
+* stare RAD-y
+
+---
+
+## 7️⃣ Czy wpływa na runtime?
+
+❌ **NIE wpływa na logikę programu**
+
+* nie waliduje
+* nie zmienia dostępu
+* jest **czysto opisowa**
+
+➡️ używana przez **Introspector**
+
+---
+
+## 8️⃣ `@BeanProperty` vs konwencja getter/setter
+
+| Sposób          | Wymaga konwencji | Jawne |
+| --------------- | ---------------- | ----- |
+| Getter/setter   | ✅                | ❌     |
+| `@BeanProperty` | ❌                | ✅     |
+
+➡️ Adnotacja **nadpisuje domyślne wnioskowanie**
+
+---
+
+## 9️⃣ Czy dziś się jej używa?
+
+⚠️ **Rzadko**
+
+Dlaczego?
+
+* Spring / Jackson mają własne adnotacje
+* records
+* Lombok
+* brak GUI JavaBeans
+
+Ale:
+✔️ **egzaminacyjnie**
+✔️ **legacy**
+✔️ **czysta Java**
+
+---
+
+## 🔟 Najczęstsze błędy ❌
+
+❌ Mylenie z `@JsonProperty`
+❌ Oczekiwanie walidacji
+❌ Używanie w nowym Springowym kodzie
+❌ Brak zrozumienia JavaBeans
+
+---
+
+## 🧠 Podsumowanie (egzaminowe)
+
+> **`@BeanProperty` jawnie oznacza pole lub metodę jako właściwość JavaBeans**
+
+* pakiet: `java.beans`
+* target: `FIELD`, `METHOD`
+* retencja: `RUNTIME`
+* działa z `Introspector`
+* dziś głównie legacy
+
+---
+
+Jeśli chcesz:
+
+* ✅ **quiz z `@BeanProperty`**
+* ✅ **porównanie: `@BeanProperty` vs `@ConstructorProperties`**
+* ✅ **JavaBeans Introspector krok po kroku**
+* ✅ **mapa adnotacji `java.beans`**
+
+Napisz 👉 **quiz** 😄

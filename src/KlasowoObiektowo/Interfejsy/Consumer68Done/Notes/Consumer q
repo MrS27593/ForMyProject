@@ -1,0 +1,69 @@
+Świetnie! Oto krótki quiz (7 pytań) sprawdzający Twoją wiedzę na temat interfejsu `Consumer<T>` w Javie. Przy każdym pytaniu masz 4 odpowiedzi – tylko jedna jest poprawna.
+
+---
+
+### 🧠 **Quiz: Interfejs Consumer w Javie**
+
+**1. Czym jest `Consumer<T>` w Javie?**
+A) Interfejsem, który zwraca wartość typu T
+B) Interfejsem, który nie przyjmuje żadnych argumentów
+C) Interfejsem funkcyjnym przyjmującym T i zwracającym void
+D) Klasą abstrakcyjną do przetwarzania list
+
+---
+
+**2. Co wykona poniższy kod?**
+
+```java
+Consumer<String> printer = s -> System.out.println(s.toUpperCase());
+printer.accept("java");
+```
+
+A) Wyświetli `java`
+B) Zwróci `JAVA`
+C) Wyświetli `JAVA`
+D) Nic się nie stanie
+
+---
+
+**3. Co oznacza `printer.andThen(logger)`?**
+A) Wywoła `logger`, a potem `printer`
+B) Połączy dwa Consumer-y tak, że wykonają się kolejno
+C) Usunie `printer`
+D) Skopiuje `logger` do `printer`
+
+---
+
+**4. Która metoda służy do uruchomienia akcji `Consumer`?**
+A) `run()`
+B) `get()`
+C) `accept(T t)`
+D) `apply(T t)`
+
+---
+
+**5. Gdzie typowo używa się `Consumer`?**
+A) W metodach takich jak `filter()`
+B) W pętlach `while`
+C) W metodach takich jak `forEach()`
+D) W konstruktorach klas
+
+---
+
+**6. Co zwraca metoda `accept()` z `Consumer`?**
+A) Typ `boolean`
+B) Typ `void`
+C) Typ `String`
+D) Typ `Object`
+
+---
+
+**7. Co się stanie, gdy połączysz dwa `Consumer` obiekty `c1` i `c2` metodą `c1.andThen(c2)` i `c1` rzuci wyjątek?**
+A) `c2` wykona się niezależnie
+B) Program zignoruje wyjątek
+C) `c2` nie wykona się
+D) `c2` wykona się przed `c1`
+
+---
+
+Chcesz, żebym od razu sprawdził Twoje odpowiedzi po każdej, czy wszystkie naraz na koniec?

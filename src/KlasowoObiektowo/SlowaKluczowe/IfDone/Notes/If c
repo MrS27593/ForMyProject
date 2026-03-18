@@ -1,0 +1,154 @@
+## WIEDZA – `if` w Java
+
+---
+
+### 1️⃣ Czym jest `if`?
+
+* `if` to **instrukcja warunkowa**, pozwalająca wykonywać kod **tylko wtedy, gdy warunek jest prawdziwy (`true`)**.
+* Składnia bazowa:
+
+```java
+if (warunek) {
+    // kod do wykonania, gdy warunek jest true
+}
+```
+
+---
+
+### 2️⃣ `if-else`
+
+* Pozwala wykonać alternatywny blok, gdy warunek jest fałszywy:
+
+```java
+int x = 5;
+
+if (x > 10) {
+    System.out.println("Większe niż 10");
+} else {
+    System.out.println("Mniejsze lub równe 10");
+}
+```
+
+---
+
+### 3️⃣ `if-else if-else`
+
+* Pozwala sprawdzić **wiele warunków po kolei**:
+
+```java
+int score = 85;
+
+if (score >= 90) {
+    System.out.println("A");
+} else if (score >= 75) {
+    System.out.println("B");
+} else if (score >= 50) {
+    System.out.println("C");
+} else {
+    System.out.println("F");
+}
+```
+
+---
+
+### 4️⃣ Składnia bez nawiasów `{}`
+
+* Jeśli **blok instrukcji ma jedną linię**, nawiasy są opcjonalne:
+
+```java
+if (x > 0) System.out.println("Dodatnia liczba");
+```
+
+📌 Zalecenie: zawsze używaj nawiasów `{}` dla lepszej czytelności i bezpieczeństwa.
+
+---
+
+### 5️⃣ Zagnieżdżone `if`
+
+```java
+int x = 5;
+int y = 10;
+
+if (x > 0) {
+    if (y > 5) {
+        System.out.println("x>0 i y>5");
+    }
+}
+```
+
+➡ Można używać **zagnieżdżonych warunków**, ale warto stosować polimorfizm lub funkcje pomocnicze w dużych projektach.
+
+---
+
+### 6️⃣ Warunki logiczne
+
+* Operatory logiczne: `&&` (AND), `||` (OR), `!` (NOT)
+
+```java
+int x = 5;
+int y = 10;
+
+if (x > 0 && y > 0) {
+    System.out.println("Obie liczby są dodatnie");
+}
+
+if (x > 0 || y < 0) {
+    System.out.println("Przynajmniej jeden warunek jest prawdziwy");
+}
+
+if (!(x < 0)) {
+    System.out.println("x nie jest ujemne");
+}
+```
+
+---
+
+### 7️⃣ Przykład praktyczny – system zamówień
+
+```java
+int quantity = 15;
+
+if (quantity >= 100) {
+    System.out.println("Duże zamówienie – rabat 10%");
+} else if (quantity >= 50) {
+    System.out.println("Średnie zamówienie – rabat 5%");
+} else {
+    System.out.println("Małe zamówienie – brak rabatu");
+}
+```
+
+➡ Czytelne decyzje biznesowe w kodzie.
+
+---
+
+### 8️⃣ `if` vs `switch`
+
+* `if` – **dla warunków logicznych, zakresów, złożonych wyrażeń**
+* `switch` – **dla konkretnych wartości** (int, String, enum)
+
+```java
+String day = "MONDAY";
+if (day.equals("MONDAY") || day.equals("TUESDAY")) { ... }
+```
+
+---
+
+### 9️⃣ Najczęstsze błędy
+
+❌ Brak `{}` przy wielu instrukcjach
+❌ Użycie `=` zamiast `==` w warunku
+❌ Złe łączenie operatorów logicznych
+❌ Nadmierne zagnieżdżanie bez funkcji pomocniczych
+
+---
+
+### ✅ Podsumowanie
+
+* `if` = podstawowa instrukcja sterująca w Javie
+* Pozwala wykonywać kod **tylko, gdy warunek jest prawdziwy**
+* Można używać `else`, `else if`, zagnieżdżać i łączyć warunki logiczne
+* W dużych projektach warto dbać o czytelność i unikać głębokich zagnieżdżeń
+
+---
+
+Gdy chcesz, napisz **„quiz”** 👍

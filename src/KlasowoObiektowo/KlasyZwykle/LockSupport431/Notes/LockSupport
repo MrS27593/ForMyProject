@@ -1,0 +1,10 @@
+Aby dobrze umieć Klasę LockSupport warto znać:
+Interface:
+
+
+Class:
+Thread
+Object
+Unsafe
+
+Exceptions:

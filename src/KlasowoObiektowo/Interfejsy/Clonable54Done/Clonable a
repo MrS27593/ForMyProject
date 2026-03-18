@@ -1,0 +1,74 @@
+ClonableSuper, oto **odpowiedzi do quizu o interfejsie `Cloneable`** z wyjaśnieniami:
+
+        ---
+
+        ### **1️⃣ Czym jest interfejs `Cloneable` w Javie?**
+
+        **Odpowiedź:** b) Interfejsem markerowym bez metod
+        *Wyjaśnienie:* Cloneable nie posiada żadnych metod. Jego implementacja informuje JVM, że obiekt może być klonowany.
+
+        ---
+
+        ### **2️⃣ Co się stanie, gdy wywołamy `clone()` na obiekcie, który nie implementuje `Cloneable`?**
+
+        **Odpowiedź:** c) CloneNotSupportedException
+        *Wyjaśnienie:* Domyślnie metoda `clone()` w Object rzuca wyjątek, jeśli klasa nie implementuje Cloneable.
+
+        ---
+
+        ### **3️⃣ Domyślna metoda `clone()` tworzy:**
+
+        **Odpowiedź:** b) Płytką kopię (shallow copy)
+        *Wyjaśnienie:* Pola obiektowe nie są klonowane, tylko referencje do nich są kopiowane.
+
+        ---
+
+        ### **4️⃣ Która metoda musi być nadpisana w klasie implementującej `Cloneable`, aby była publicznie dostępna?**
+
+        **Odpowiedź:** c) clone()
+        *Wyjaśnienie:* Domyślnie clone() w Object jest protected, więc trzeba nadpisać ją jako public.
+
+        ---
+
+        ### **5️⃣ Jak zrobić głęboką kopię obiektu w Javie implementując `Cloneable`?**
+
+        **Odpowiedź:** b) Skopiować wszystkie pola obiektowe ręcznie lub wywołać ich clone()
+        *Wyjaśnienie:* Domyślna metoda clone() tworzy shallow copy, więc pola obiektowe trzeba klonować ręcznie.
+
+        ---
+
+        ### **6️⃣ Czy `Cloneable` ma jakieś metody do implementacji?**
+
+        **Odpowiedź:** b) Nie, jest markerowy
+
+        ---
+
+        ### **7️⃣ Który z poniższych typów kopii zachowuje referencje do tych samych obiektów?**
+
+        **Odpowiedź:** b) Shallow copy
+
+        ---
+
+        ### **8️⃣ Które słowo kluczowe w klasie oznacza, że obiekt może być klonowany?**
+
+        **Odpowiedź:** a) implements Cloneable
+
+        ---
+
+        ### **9️⃣ Wyjątek `CloneNotSupportedException` jest wyjątkiem:**
+
+        **Odpowiedź:** a) Checked
+        *Wyjaśnienie:* Wyjątek ten należy obsłużyć lub zadeklarować w `throws`.
+
+        ---
+
+        ### **🔟 Które z poniższych stwierdzeń jest prawdziwe?**
+
+        **Odpowiedź:** b) Domyślny clone() kopiuje tylko referencje do obiektów
+        *Wyjaśnienie:* Domyślna implementacja `clone()` tworzy shallow copy, nie deep copy.
+
+        ---
+
+        Jeżeli chcesz, mogę zrobić teraz **krótki praktyczny mini-quiz z zadaniami do samodzielnego kodowania Cloneable**, żeby utrwalić wiedzę w praktyce.
+
+        Chcesz, żebym go zrobił?

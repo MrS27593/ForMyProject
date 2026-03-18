@@ -1,0 +1,76 @@
+Oto **poprawne odpowiedzi do quizu o `@JavaBean`** z krótkim wyjaśnieniem:
+
+---
+
+### 1️⃣ Co oznacza adnotacja `@JavaBean`?
+
+**B – Klasa spełnia konwencję JavaBean**
+➡ Oznacza, że klasa ma pusty konstruktor, prywatne pola i gettery/settery.
+
+---
+
+### 2️⃣ Czy `@JavaBean` jest częścią standardowej JDK?
+
+**B – Nie**
+➡ To adnotacja informacyjna, najczęściej z JetBrains lub frameworków, nie z JDK.
+
+---
+
+### 3️⃣ Które z poniższych jest wymogiem JavaBean?
+
+**D – Wszystkie powyższe**
+
+* pusty konstruktor, prywatne pola z getterami/setterami i opcjonalna serializacja.
+
+---
+
+### 4️⃣ Czy adnotacja `@JavaBean` automatycznie generuje gettery i settery?
+
+**B – Nie**
+➡ Sama adnotacja jest informacyjna; generowanie wymaga narzędzi jak Lombok.
+
+---
+
+### 5️⃣ W jakich narzędziach/IDE najczęściej spotyka się `@JavaBean`?
+
+**D – Wszystkie powyższe**
+➡ IntelliJ, Eclipse i Lombok mogą wspierać klasy oznaczone `@JavaBean`.
+
+---
+
+### 6️⃣ Czy klasy oznaczone `@JavaBean` mogą implementować własne metody biznesowe?
+
+**A – Tak**
+➡ JavaBean to wzorzec, nie ograniczenie funkcjonalności klasy.
+
+---
+
+### 7️⃣ Czy pola JavaBean mogą być publiczne?
+
+**B – Nie, muszą być prywatne**
+➡ Getter/setter zapewnia enkapsulację.
+
+---
+
+### 8️⃣ Czy `@JavaBean` wpływa na zachowanie klasy w runtime?
+
+**B – Nie**
+➡ To wyłącznie adnotacja informacyjna.
+
+---
+
+### 9️⃣ Jakie frameworki korzystają z klasy JavaBean do serializacji/konfiguracji?
+
+**D – Wszystkie powyższe**
+➡ Jackson, JAXB, Spring i inne frameworki rozpoznają wzorzec JavaBean.
+
+---
+
+### 🔟 Czy adnotacja `@JavaBean` jest obowiązkowa, aby klasa była traktowana jako JavaBean?
+
+**B – Nie**
+➡ Klasa spełniająca konwencję JavaBean jest JavaBeanem nawet bez adnotacji.
+
+---
+
+Jeśli chcesz, mogę teraz zrobić **quiz zbiorczy ze wszystkich adnotacji, które przerobiliśmy do tej pory** – od `@Deprecated` po `@JavaBean` – w jednym miejscu, żeby zrobić **mega powtórkę**. Chcesz, żebym to zrobił?

@@ -1,0 +1,126 @@
+## WIEDZA – `new` w Java
+
+---
+
+### 1️⃣ Czym jest `new`?
+
+* `new` to **słowo kluczowe w Javie** używane do **tworzenia nowych obiektów**.
+* Przy wywołaniu konstruktora alokuje pamięć i zwraca referencję do nowego obiektu.
+
+```java
+String s = new String("Hello");
+```
+
+* Tworzy nowy obiekt typu `String` i przypisuje go do zmiennej `s`.
+
+---
+
+### 2️⃣ Tworzenie obiektów własnych klas
+
+```java
+class Person {
+    String name;
+
+    Person(String name) {
+        this.name = name;
+    }
+}
+
+Person p = new Person("Alice");
+```
+
+* Konstruktor `Person(String name)` inicjalizuje obiekt.
+* `new` tworzy **fizyczny obiekt w pamięci**.
+
+---
+
+### 3️⃣ Tworzenie tablic
+
+```java
+int[] numbers = new int[5]; // tablica 5 elementów
+String[] names = new String[]{"Alice", "Bob"};
+```
+
+* `new` tworzy również **tablice**, nawet jeśli są typami prostymi.
+
+---
+
+### 4️⃣ `new` a klasy abstrakcyjne / interfejsy
+
+* **Nie można** użyć `new` bezpośrednio na klasach abstrakcyjnych ani interfejsach:
+
+```java
+abstract class Shape {}
+// Shape s = new Shape(); // ❌ błąd kompilacji
+```
+
+* Można użyć **anonimowych klas**:
+
+```java
+Shape s = new Shape() {
+    void draw() {
+        System.out.println("Drawing shape");
+    }
+};
+```
+
+---
+
+### 5️⃣ `new` a typy prymitywne
+
+* Typy prymitywne (`int`, `double`) **nie potrzebują** `new`:
+
+```java
+int x = 5; // nie używamy new
+```
+
+* Typy opakowujące (`Integer`, `Double`) **mogą używać** `new`:
+
+```java
+Integer number = new Integer(10);
+```
+
+---
+
+### 6️⃣ `new` a konstruktor domyślny
+
+* Jeśli klasa **nie ma konstruktora**, Java tworzy **konstruktor domyślny**:
+
+```java
+class Example {}
+
+Example e = new Example(); // działa, mimo że konstruktor nie został napisany
+```
+
+---
+
+### 7️⃣ `new` a referencje
+
+```java
+Person p1 = new Person("Alice");
+Person p2 = p1; // obie referencje wskazują na ten sam obiekt
+```
+
+* `new` tworzy **nowy obiekt**, ale przypisanie bez `new` tylko kopiuje referencję.
+
+---
+
+### 8️⃣ Zasady praktyczne
+
+✔ `new` = zawsze tworzy nowy obiekt
+✔ Do typów prymitywnych nie jest potrzebny
+✔ Nie można tworzyć obiektów klas abstrakcyjnych ani interfejsów bez anonimowej klasy
+
+---
+
+### 🔟 Podsumowanie
+
+* `new` = **alokacja pamięci + wywołanie konstruktora**
+* Tworzy obiekty własnych klas, tablice i typy opakowujące
+* Kluczowe dla OOP w Javie
+
+---
+
+Jeśli chcesz, mogę teraz przygotować **quiz o `new`** w tym samym stylu co poprzednie słowa kluczowe ✅
+
+Chcesz, żebym to zrobił?

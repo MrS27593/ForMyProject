@@ -1,0 +1,127 @@
+Świetnie 😄
+Oto **quiz z `java.time.temporal.ChronoField`** – poziom **podstawy → egzamin → rekrutacja**.
+
+---
+
+# ✅ **Quiz: `ChronoField` w Javie**
+
+## 1️⃣ Prawda / Fałsz
+
+1. `ChronoField` znajduje się w pakiecie `java.time.temporal`.
+
+   * A) Prawda
+   * B) Fałsz
+
+2. `ChronoField` jest enumem.
+
+   * A) Prawda
+   * B) Fałsz
+
+3. `ChronoField` reprezentuje jednostki czasu (np. dni, miesiące).
+
+   * A) Prawda
+   * B) Fałsz
+
+4. `ChronoField.DAY_OF_WEEK` zwraca enum `DayOfWeek`.
+
+   * A) Prawda
+   * B) Fałsz
+
+---
+
+## 2️⃣ Wybór jednokrotny
+
+5. Który `ChronoField` najlepiej opisuje **numer miesiąca (1–12)**?
+
+* A) MONTH
+* B) MONTH_OF_YEAR
+* C) MONTH_VALUE
+* D) MONTH_NUMBER
+
+---
+
+6. Co wypisze poniższy kod?
+
+```java
+LocalDate date = LocalDate.of(2026, 3, 15);
+System.out.println(date.get(ChronoField.DAY_OF_YEAR));
+```
+
+* A) 15
+* B) 31
+* C) 74
+* D) 75
+
+---
+
+## 3️⃣ Wybór wielokrotny
+
+7. Które z poniższych pól mogą być użyte z `LocalTime`?
+
+* A) HOUR_OF_DAY
+* B) DAY_OF_MONTH
+* C) MINUTE_OF_HOUR
+* D) SECOND_OF_MINUTE
+
+---
+
+## 4️⃣ Analiza kodu
+
+8. Co się stanie?
+
+```java
+LocalDate date = LocalDate.of(2026, 1, 10);
+date.get(ChronoField.HOUR_OF_DAY);
+```
+
+* A) Zwróci 0
+* B) Zwróci 10
+* C) Rzuci wyjątek
+* D) Błąd kompilacji
+
+---
+
+## 5️⃣ Pytanie praktyczne
+
+9. Uzupełnij metodę tak, aby ustawiła **dzień miesiąca na 1**, bez zmiany miesiąca i roku:
+
+```java
+public LocalDate firstDayOfMonth(LocalDate date) {
+    // Twój kod
+}
+```
+
+---
+
+## 6️⃣ Pytanie podchwytliwe (bardzo ważne!)
+
+10. Który zapis jest **najlepszy i najbardziej czytelny**?
+
+* A)
+
+```java
+date.get(ChronoField.DAY_OF_MONTH)
+```
+
+* B)
+
+```java
+date.getDayOfMonth()
+```
+
+* C)
+
+```java
+date.get(ChronoField.DAY_OF_WEEK)
+```
+
+* D)
+
+```java
+date.get(ChronoField.DAY_OF_YEAR)
+```
+
+---
+
+👉 Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam **pełne rozwiązania z wyjaśnieniami** 👌
+

@@ -1,0 +1,105 @@
+Jedziemy 😄
+**QUIZ: `@Description` (JMX)**
+— krótki, ale **pełen haczyków** 🧠⚙️
+
+---
+
+# 📝 Quiz – `@Description`
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ `@Description` w Javie to:
+
+A. Adnotacja Springa
+B. Adnotacja JDK do dokumentacji REST
+C. Adnotacja JMX do opisu elementów MBean
+D. Adnotacja do walidacji danych
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Description`?
+
+A. `java.beans`
+B. `java.lang`
+C. `javax.management`
+D. `jakarta.annotation`
+
+---
+
+### 3️⃣ Jaki jest główny cel `@Description`?
+
+A. Generowanie dokumentacji Javadoc
+B. Dodanie opisu do metadanych JMX
+C. Walidacja parametrów
+D. Serializacja obiektów
+
+---
+
+## 🔹 Część II – Użycie
+
+### 4️⃣ Na czym MOŻNA użyć `@Description`?
+
+A. Tylko na klasie
+B. Tylko na metodzie
+C. Na klasie, metodzie i parametrze
+D. Tylko na polu
+
+---
+
+### 5️⃣ Gdzie opis z `@Description` jest widoczny?
+
+A. W Javadoc HTML
+B. W Swagger UI
+C. W narzędziach JMX (np. JConsole)
+D. W logach aplikacji
+
+---
+
+## 🔹 Część III – Techniczne detale
+
+### 6️⃣ Retencja `@Description` to:
+
+A. `SOURCE`
+B. `CLASS`
+C. `RUNTIME`
+D. `MODULE`
+
+---
+
+### 7️⃣ `@Description` wpływa na logikę programu?
+
+A. Tak, zmienia zachowanie metod
+B. Tak, dodaje walidację
+C. Nie, jest czysto opisowa
+D. Tak, generuje kod
+
+---
+
+## 🔹 Część IV – Porównania
+
+### 8️⃣ Najbliższa koncepcyjnie adnotacja do `@Description` to:
+
+A. `@DescriptorKey`
+B. `@BeanProperty`
+C. `@JsonProperty`
+D. `@Override`
+
+---
+
+### 9️⃣ Czego `@Description` NIE zastępuje?
+
+A. Metadanych JMX
+B. Javadoc
+C. Opisów MBeanów
+D. Informacji w JConsole
+
+---
+
+## ✍️ 1️⃣0️⃣ (opisowe)
+
+Dlaczego `@Description` jest używana głównie w JMX, a nie w „zwykłych” aplikacjach Java?
+
+---
+
+Jak skończysz — napisz 👉 **odpowiedzi**
+a ja dam Ci **klucz + komentarze rekrutacyjne** 😄💪

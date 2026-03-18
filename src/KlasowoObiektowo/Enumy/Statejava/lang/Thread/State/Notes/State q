@@ -1,0 +1,102 @@
+Świetnie 💪
+Oto **quiz z `java.lang.Thread.State`** – poziom **egzamin + rozmowa rekrutacyjna**.
+
+---
+
+# ✅ **Quiz: `Thread.State`**
+
+## 1️⃣ Prawda / Fałsz
+
+1. `Thread.State` jest enumem.
+
+   * A) Prawda
+   * B) Fałsz
+
+2. W Javie istnieje osobny stan `RUNNING`.
+
+   * A) Prawda
+   * B) Fałsz
+
+3. Wątek w stanie `BLOCKED` czeka na zakończenie `sleep()`.
+
+   * A) Prawda
+   * B) Fałsz
+
+4. Wątek w stanie `WAITING` może czekać w nieskończoność.
+
+   * A) Prawda
+   * B) Fałsz
+
+---
+
+## 2️⃣ Wybór jednokrotny
+
+5. Jaki będzie stan nowo utworzonego wątku przed `start()`?
+
+* A) RUNNABLE
+* B) NEW
+* C) WAITING
+* D) TERMINATED
+
+---
+
+6. Która metoda **NIE** powoduje stanu `WAITING` ani `TIMED_WAITING`?
+
+* A) `Object.wait()`
+* B) `Thread.sleep()`
+* C) `Thread.start()`
+* D) `Thread.join()`
+
+---
+
+## 3️⃣ Wybór wielokrotny
+
+7. Które metody mogą wprowadzić wątek w stan `TIMED_WAITING`?
+
+* A) `Thread.sleep(long)`
+* B) `Object.wait(long)`
+* C) `Thread.join(long)`
+* D) `Thread.yield()`
+
+---
+
+## 4️⃣ Analiza kodu
+
+8. Co wypisze kod?
+
+```java
+Thread t = new Thread(() -> {});
+System.out.println(t.getState());
+```
+
+* A) RUNNABLE
+* B) NEW
+* C) WAITING
+* D) TERMINATED
+
+---
+
+## 5️⃣ Analiza sytuacyjna
+
+9. Wątek próbuje wejść do bloku `synchronized`, ale lock jest zajęty.
+   Jaki to stan?
+
+* A) WAITING
+* B) RUNNABLE
+* C) BLOCKED
+* D) TIMED_WAITING
+
+---
+
+## 6️⃣ Pytanie podchwytliwe (rekrutacyjne!)
+
+10. Który stan oznacza, że **wątek zakończył działanie i nie można go ponownie uruchomić**?
+
+* A) RUNNABLE
+* B) WAITING
+* C) TERMINATED
+* D) BLOCKED
+
+---
+
+👉 Napisz **„odpowiedzi”**, a podam **pełne rozwiązania z wyjaśnieniami krok po kroku** 🔥

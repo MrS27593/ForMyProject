@@ -1,0 +1,113 @@
+Świetnie 👍
+Oto **pełne odpowiedzi do quizu z `java.lang.Thread.State`** – dokładnie tak, jak lubią rekruterzy.
+
+---
+
+# ✅ **Odpowiedzi – Quiz: `Thread.State`**
+
+## 1️⃣ Prawda / Fałsz
+
+**1.** `Thread.State` jest enumem.
+✅ **A) Prawda**
+
+---
+
+**2.** W Javie istnieje osobny stan `RUNNING`.
+❌ **B) Fałsz**
+➡ JVM używa tylko `RUNNABLE`.
+
+---
+
+**3.** Wątek w stanie `BLOCKED` czeka na zakończenie `sleep()`.
+❌ **B) Fałsz**
+➡ `BLOCKED` = czekanie na **lock (`synchronized`)**.
+
+---
+
+**4.** Wątek w stanie `WAITING` może czekać w nieskończoność.
+✅ **A) Prawda**
+
+---
+
+## 2️⃣ Wybór jednokrotny
+
+**5.** Stan nowego wątku przed `start()`:
+
+✅ **B) NEW**
+
+---
+
+**6.** Która metoda **NIE** powoduje `WAITING` ani `TIMED_WAITING`?
+
+* `wait()` → WAITING
+* `sleep()` → TIMED_WAITING
+* `join()` → WAITING / TIMED_WAITING
+
+✅ **C) `Thread.start()`**
+
+---
+
+## 3️⃣ Wybór wielokrotny
+
+**7.** Metody powodujące `TIMED_WAITING`:
+
+* ✅ **A) `Thread.sleep(long)`**
+* ✅ **B) `Object.wait(long)`**
+* ✅ **C) `Thread.join(long)`**
+* ❌ **D) `Thread.yield()`**
+
+✔️ **Poprawne:** **A, B, C**
+
+---
+
+## 4️⃣ Analiza kodu
+
+**8.**
+
+```java
+Thread t = new Thread(() -> {});
+System.out.println(t.getState());
+```
+
+➡ `start()` nie zostało wywołane
+
+✅ **B) NEW**
+
+---
+
+## 5️⃣ Analiza sytuacyjna
+
+**9.** Próba wejścia do `synchronized`, lock zajęty:
+
+✅ **C) BLOCKED**
+
+---
+
+## 6️⃣ Pytanie podchwytliwe
+
+**10.** Wątek zakończony, nie do uruchomienia ponownie:
+
+✅ **C) TERMINATED**
+
+---
+
+## 🧠 Najważniejsze rzeczy do zapamiętania
+
+✔ `Thread.State` = enum
+✔ 6 stanów
+✔ `RUNNABLE` ≠ RUNNING
+✔ `BLOCKED` → synchronized
+✔ `WAITING` → wait/join
+✔ `TERMINATED` = koniec życia wątku
+
+---
+
+### 🔥 Co dalej?
+
+Mogę:
+
+* zrobić **zadania rekrutacyjne z wielowątkowości**
+* porównać **`sleep()` vs `wait()` vs `join()`**
+* przejść do **`ExecutorService`, `Callable`, `Future`**
+
+👉 Co wybierasz?

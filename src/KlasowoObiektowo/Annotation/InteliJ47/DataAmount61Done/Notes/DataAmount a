@@ -1,0 +1,112 @@
+Świetnie 😄
+Poniżej masz **pełny klucz odpowiedzi do quizu: `DataAmount / DataSize`** wraz z komentarzami, które idealnie nadają się na egzamin albo rozmowę techniczną.
+
+---
+
+# ✅ Odpowiedzi – Quiz `DataAmount / DataSize`
+
+## 🔹 Część I – Prawda / Fałsz
+
+### 1️⃣ W standardowej Javie istnieje klasa `DataAmount`.
+
+**❌ B – Fałsz**
+
+➡️ W JDK **nie ma** takiej klasy.
+
+---
+
+### 2️⃣ W Springu istnieje adnotacja `@DataAmount`.
+
+**❌ B – Fałsz**
+
+➡️ Spring **nie posiada** takiej adnotacji.
+
+---
+
+### 3️⃣ `DataSize` jest częścią JDK.
+
+**❌ B – Fałsz**
+
+➡️ To klasa **Springowa**, nie JDK.
+
+---
+
+## 🔹 Część II – Spring
+
+### 4️⃣ Jaka klasa w Springu reprezentuje ilość danych?
+
+**✅ C – `DataSize`**
+
+---
+
+### 5️⃣ W jakim pakiecie znajduje się `DataSize`?
+
+**✅ C – `org.springframework.util.unit`**
+
+---
+
+### 6️⃣ Co robi `DataSize.parse("10MB")`?
+
+**✅ C – Zwraca obiekt `DataSize`**
+
+📌 Wewnątrz przechowuje liczbę bajtów (`long`).
+
+---
+
+## 🔹 Część III – Konfiguracja
+
+### 7️⃣ Jakiego typu są właściwości multipart?
+
+**✅ C – `DataSize`**
+
+➡️ Spring automatycznie konwertuje String.
+
+---
+
+### 8️⃣ Kto konwertuje `"10MB"` → `DataSize`?
+
+**✅ C – Spring Converter**
+
+---
+
+## 🔹 Część IV – Porównania
+
+### 9️⃣ Co jest lepszym odpowiednikiem „ilości danych” niż adnotacja?
+
+**✅ C – Typ wartości (`DataSize`)**
+
+---
+
+### 🔟 Odpowiednik `DataSize` w JDK?
+
+**✅ D – Brak bezpośredniego odpowiednika**
+
+📌 JDK ma `Duration`, ale **nie ma** `DataSize`.
+
+---
+
+## ✍️ 1️⃣1️⃣ Odpowiedź opisowa (wzorcowa)
+
+> Ilość danych jest wartością, a nie metadanymi struktury kodu, dlatego powinna być reprezentowana przez typ (np. `DataSize`), a nie adnotację. Typ zapewnia bezpieczeństwo, operacje arytmetyczne oraz jednoznaczność jednostek, czego adnotacje nie oferują.
+
+---
+
+## 🧠 Najważniejsze do zapamiętania
+
+* ❌ `DataAmount` — nie istnieje
+* ❌ `@DataAmount` — nie istnieje
+* ✅ `DataSize` — klasa Spring
+* ✅ parsowanie `"10MB"` → `DataSize`
+* ✅ konwertery Spring Boot
+
+---
+
+Jeśli chcesz dalej cisnąć temat 🔥
+Proponuję:
+
+* ➡️ **quiz: Duration vs Period vs DataSize**
+* ➡️ **najczęstsze pułapki konfiguracyjne Spring Boot**
+* ➡️ **„czy to adnotacja czy klasa?” – wersja ultra**
+* ➡️ **walidacja rozmiaru uploadu w Springu**
+
+Co bierzemy następne? 😄

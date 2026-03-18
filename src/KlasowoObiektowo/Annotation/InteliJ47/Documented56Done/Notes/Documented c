@@ -1,0 +1,180 @@
+Świetnie — **`@Documented`** to *prosta*, ale bardzo **często pomijana** meta-adnotacja, a jednocześnie **ważna w profesjonalnych API** 👍
+Wyjaśnię ją krótko, jasno i z przykładami.
+
+---
+
+# 📘 `@Documented` w Javie — wszystko, co musisz wiedzieć
+
+## 1️⃣ Czym jest `@Documented`?
+
+`@Documented` to **meta-adnotacja**, czyli:
+
+> 👉 **adnotacja używana do opisywania innych adnotacji**
+
+Jej zadanie:
+
+> **sprawić, aby dana adnotacja była widoczna w JavaDoc**
+
+---
+
+## 2️⃣ Jaki problem rozwiązuje?
+
+Domyślnie:
+❌ **Adnotacje NIE pojawiają się w JavaDoc**
+
+```java
+public @interface MyAnnotation {}
+```
+
+➡️ W dokumentacji **nie zobaczysz**, że metoda/klasa jest nią oznaczona.
+
+---
+
+## 3️⃣ Jak działa `@Documented`?
+
+Jeśli dodasz `@Documented`:
+
+```java
+import java.lang.annotation.Documented;
+
+@Documented
+public @interface MyAnnotation {
+}
+```
+
+➡️ **Każde użycie tej adnotacji pojawi się w JavaDoc**
+
+---
+
+## 4️⃣ Przykład praktyczny (najlepszy)
+
+### 🔹 Definicja adnotacji
+
+```java
+@Documented
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Audited {
+}
+```
+
+### 🔹 Użycie
+
+```java
+public class UserService {
+
+    @Audited
+    public void createUser() {}
+}
+```
+
+### 🔹 JavaDoc wygenerowany:
+
+```text
+@Audited
+void createUser()
+```
+
+📌 Bez `@Documented` → **tego by nie było**
+
+---
+
+## 5️⃣ Czy `@Documented` wpływa na runtime?
+
+❌ **NIE**
+
+* nie wpływa na JVM
+* nie wpływa na reflection
+* działa **tylko przy generowaniu JavaDoc**
+
+---
+
+## 6️⃣ `@Documented` vs `@Retention`
+
+| Adnotacja     | Co robi                               |
+| ------------- | ------------------------------------- |
+| `@Documented` | widoczność w JavaDoc                  |
+| `@Retention`  | widoczność w SOURCE / CLASS / RUNTIME |
+
+➡️ To **zupełnie różne rzeczy**
+
+---
+
+## 7️⃣ Kiedy warto używać `@Documented`?
+
+✅ Gdy tworzysz:
+
+* publiczne API
+* bibliotekę
+* framework
+* adnotacje konfiguracyjne (Spring-like)
+
+❌ Gdy:
+
+* adnotacja jest wewnętrzna
+* nie interesuje użytkownika API
+
+---
+
+## 8️⃣ Przykład z JDK
+
+```java
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+public @interface FunctionalInterface
+```
+
+📌 `@FunctionalInterface` jest **widoczna w JavaDoc**
+
+---
+
+## 9️⃣ Najczęstsze błędy ❌
+
+❌ Mylenie z `@Retention`
+❌ Oczekiwanie wpływu na runtime
+❌ Brak w publicznych adnotacjach
+❌ Używanie „bo ktoś powiedział”
+
+---
+
+## 🔟 Dobre praktyki ✅
+
+✔️ Używaj w adnotacjach publicznych
+✔️ Łącz z JavaDoc komentarzem
+✔️ Nie używaj w adnotacjach technicznych
+✔️ Pamiętaj: to tylko dokumentacja
+
+---
+
+## 1️⃣1️⃣ Minimalny wzorzec (idealny)
+
+```java
+@Documented
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Example {
+}
+```
+
+---
+
+## 1️⃣2️⃣ Podsumowanie 🧠
+
+> **`@Documented` = „pokaż adnotację w JavaDoc”**
+
+* meta-adnotacja
+* tylko dokumentacja
+* brak wpływu na runtime
+* MUST-HAVE w publicznym API
+
+---
+
+Jeśli chcesz:
+
+* ✅ **quiz z `@Documented`**
+* ✅ **porównanie wszystkich meta-adnotacji**
+* ✅ **zadanie: zaprojektuj API adnotacji**
+* ✅ **lista adnotacji z `java.lang.annotation`**
+
+Napisz 👉 **quiz** 😄

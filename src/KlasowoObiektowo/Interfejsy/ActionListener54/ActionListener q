@@ -1,0 +1,91 @@
+Świetnie! Oto **quiz** sprawdzający Twoją wiedzę o `ActionListener` w Javie. Zawiera pytania wielokrotnego wyboru oraz pytania otwarte.
+
+---
+
+## 🧠 **QUIZ: ActionListener w Java**
+
+### 🔹 Pytanie 1 (jednokrotnego wyboru):
+
+Które z poniższych zdań **najlepiej opisuje** interfejs `ActionListener`?
+
+A) Służy do rysowania komponentów w GUI
+B) Obsługuje zdarzenia akcji generowane przez komponenty GUI
+C) Umożliwia przesyłanie danych między klasami
+D) Pozwala na tworzenie wątków
+
+✅ **Twoja odpowiedź:**
+
+---
+
+### 🔹 Pytanie 2 (jednokrotnego wyboru):
+
+Która z metod **musi** być zaimplementowana, jeśli implementujesz `ActionListener`?
+
+A) `actionEvent()`
+B) `onClick()`
+C) `actionPerformed(ActionEvent e)`
+D) `handleEvent()`
+
+✅ **Twoja odpowiedź:**
+
+---
+
+### 🔹 Pytanie 3 (wielokrotnego wyboru):
+
+Które z poniższych komponentów Swing mogą korzystać z `ActionListener`?
+
+A) `JButton`
+B) `JLabel`
+C) `JCheckBox`
+D) `JMenuItem`
+
+✅ **Twoje odpowiedzi (możesz wybrać kilka):**
+
+---
+
+### 🔹 Pytanie 4 (kod – co zostanie wypisane?):
+
+```java
+JButton btn = new JButton("Kliknij");
+btn.addActionListener(e -> System.out.println("Kliknięto!"));
+btn.doClick();
+```
+
+Co zostanie wypisane na konsolę?
+
+A) Nic
+B) Kliknięto!
+C) Błąd kompilacji
+D) Kliknięto dwa razy
+
+✅ **Twoja odpowiedź:**
+
+---
+
+### 🔹 Pytanie 5 (krótkie pytanie otwarte):
+
+Co robi metoda `getSource()` w klasie `ActionEvent`?
+
+✍️ **Twoja odpowiedź:**
+
+---
+
+### 🔹 Pytanie 6 (kod – uzupełnij):
+
+Uzupełnij poniższy kod, aby po kliknięciu przycisku wypisywał "Naciśnięto przycisk!".
+
+```java
+JButton button = new JButton("Start");
+button._________(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        System.out.println("Naciśnięto przycisk!");
+    }
+});
+```
+
+✍️ **Twoja odpowiedź (wpisz brakującą metodę):**
+
+---
+
+Jeśli chcesz, mogę przygotować interaktywną wersję tego quizu w formie aplikacji Swing z oceną odpowiedzi. Chcesz?

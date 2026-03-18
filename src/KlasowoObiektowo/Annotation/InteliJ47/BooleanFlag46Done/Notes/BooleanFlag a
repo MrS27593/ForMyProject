@@ -1,0 +1,117 @@
+Super 👍
+Poniżej masz **pełny klucz odpowiedzi do quizu: `@BooleanFlag` (Java Flight Recorder)** z krótkimi, technicznymi wyjaśnieniami.
+
+---
+
+# ✅ **Odpowiedzi: Quiz `@BooleanFlag`**
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Czym jest `@BooleanFlag`?
+
+**✅ C – adnotacją związaną z Java Flight Recorder**
+
+➡️ Jest częścią JFR, nie ogólnego systemu adnotacji aplikacyjnych.
+
+---
+
+### 2️⃣ W jakim pakiecie się znajduje?
+
+**✅ C – `jdk.jfr`**
+
+---
+
+### 3️⃣ Główny cel `@BooleanFlag`?
+
+**✅ B** – oznaczenie wartości jako **flagi logicznej dla narzędzi JFR**
+
+➡️ Pomaga narzędziom poprawnie interpretować dane.
+
+---
+
+## 🔹 Część II – Techniczne szczegóły
+
+### 4️⃣ Jaki typ danych opisuje najczęściej?
+
+**✅ C – `boolean`**
+
+📌 Może być też `Boolean`, ale sens adnotacji dotyczy logiki true/false.
+
+---
+
+### 5️⃣ Jaka jest retencja?
+
+**✅ C – `RUNTIME`**
+
+➡️ JFR działa w runtime.
+
+---
+
+### 6️⃣ Gdzie MOŻNA użyć?
+
+**✅ E – A, B i C**
+
+✔️ pola
+✔️ metody
+✔️ typy (klasy)
+
+---
+
+## 🔹 Część III – JFR
+
+### 7️⃣ W jakim kontekście jest używana?
+
+**✅ C – Java Flight Recorder**
+
+---
+
+### 8️⃣ Jak narzędzia JFR ją interpretują?
+
+**✅ C – jako checkbox / przełącznik**
+
+➡️ Np. w JDK Mission Control.
+
+---
+
+## 🔹 Część IV – Porównania
+
+### 9️⃣ Czy wpływa na logikę programu?
+
+**✅ C – NIE, jest opisowa**
+
+📌 Nie zmienia zachowania kodu.
+
+---
+
+### 🔟 Z którą adnotacją JFR najczęściej występuje?
+
+**✅ B – `@Label`**
+
+➡️ Często razem z `@Name`, `@Description`, `@Category`.
+
+---
+
+## ✍️ 1️⃣1️⃣ Przykładowa poprawna odpowiedź (opisowa)
+
+> Gdy tworzę własne zdarzenie lub ustawienie w Java Flight Recorder i chcę umożliwić użytkownikowi włączenie/wyłączenie konkretnej opcji (np. „czy rejestrować rollbacki”), oznaczam ją `@BooleanFlag`, aby narzędzia JFR pokazały ją jako przełącznik.
+
+---
+
+## 🧠 Podsumowanie do zapamiętania
+
+> **`@BooleanFlag` = semantyczna informacja „to jest flaga true/false” dla JFR**
+
+* tylko `jdk.jfr`
+* tylko narzędzia monitorujące
+* brak wpływu na logikę aplikacji
+* ważna przy custom events / settings
+
+---
+
+Jeśli chcesz iść dalej 👇
+
+* ➡️ **inne adnotacje JFR (`@Label`, `@Name`, `@Category`)**
+* ➡️ **napisz własne zdarzenie JFR krok po kroku**
+* ➡️ **pełna mapa Java Flight Recorder API**
+
+Co następne? 😄

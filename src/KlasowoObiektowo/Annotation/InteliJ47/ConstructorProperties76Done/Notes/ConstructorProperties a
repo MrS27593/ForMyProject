@@ -1,0 +1,109 @@
+Świetnie 👍
+Poniżej masz **pełny klucz odpowiedzi do quizu: `@ConstructorProperties`** wraz z krótkimi, egzaminacyjnymi wyjaśnieniami.
+
+---
+
+# ✅ **Odpowiedzi: Quiz `@ConstructorProperties`**
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Czym jest `@ConstructorProperties`?
+
+**✅ C** – adnotacją **mapującą parametry konstruktora na właściwości (properties)**
+
+---
+
+### 2️⃣ W jakim pakiecie się znajduje?
+
+**✅ C – `java.beans`**
+
+---
+
+### 3️⃣ Gdzie można jej użyć?
+
+**✅ C – na konstruktorze**
+
+---
+
+## 🔹 Część II – Działanie
+
+### 4️⃣ Do czego używają jej frameworki?
+
+**✅ B** – do **serializacji / deserializacji / introspekcji**
+
+---
+
+### 5️⃣ Niezgodna liczba nazw?
+
+**✅ C – błąd w runtime**
+
+➡️ `IllegalArgumentException`
+
+---
+
+### 6️⃣ Retencja?
+
+**✅ C – `RUNTIME`**
+
+---
+
+## 🔹 Część III – Porównania
+
+### 7️⃣ Nowoczesna alternatywa?
+
+**✅ C – `record`**
+
+---
+
+### 8️⃣ Co jest wymagane?
+
+**✅ A – gettery JavaBeans**
+
+📌 Bez getterów nie ma „properties”.
+
+---
+
+## 🔹 Część IV – Praktyka
+
+### 9️⃣ Poprawny zapis?
+
+**✅ B**
+
+```java
+@ConstructorProperties({"name", "age"})
+public Person(String name, int age) {}
+```
+
+---
+
+### 🔟 Zalecana dziś?
+
+**✅ C – raczej nie, głównie legacy**
+
+---
+
+## ✍️ 1️⃣1️⃣ Przykładowa poprawna odpowiedź
+
+> Gdy utrzymuję starszy system oparty o JavaBeans, który używa introspekcji do serializacji obiektów, a projekt nie jest kompilowany z flagą `-parameters`, wtedy `@ConstructorProperties` pozwala frameworkom poprawnie mapować parametry konstruktora na właściwości.
+
+---
+
+## 🧠 Podsumowanie do zapamiętania
+
+> **`@ConstructorProperties` łączy konstruktor z właściwościami JavaBeans**
+
+* pakiet: `java.beans`
+* target: `CONSTRUCTOR`
+* retencja: `RUNTIME`
+* dziś głównie legacy
+* konceptualny poprzednik `record`
+
+---
+
+Jeśli chcesz iść dalej 👇
+
+* ➡️ **`@ParametersAreNonnullByDefault`**
+* ➡️ **adnotacje `javax.annotation` vs `jakarta.annotation`**
+* ➡️ **records vs klasy + adnotacje**
+
+Co następne? 😄

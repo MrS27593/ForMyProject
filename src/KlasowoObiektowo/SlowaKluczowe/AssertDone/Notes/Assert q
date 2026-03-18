@@ -1,0 +1,118 @@
+Świetnie 👍
+Oto **QUIZ z `assert` w Javie** — solidny, z pytaniami koncepcyjnymi i pułapkami, dokładnie pod dobrą naukę.
+
+---
+
+## 🧪 Quiz: `assert` w języku Java
+
+**Instrukcja:**
+Wybierz **jedną poprawną odpowiedź** (A, B, C lub D).
+W pytaniach 9–10 są pytania **otwarte**.
+
+---
+
+### **1. Do czego służy słowo kluczowe `assert` w Javie?**
+
+A. Do obsługi wyjątków
+B. Do walidacji danych użytkownika
+C. Do sprawdzania założeń w kodzie
+D. Do logowania błędów
+
+---
+
+### **2. Co się stanie, jeśli warunek w `assert` będzie fałszywy?**
+
+A. Program zignoruje instrukcję
+B. Zostanie rzucony `RuntimeException`
+C. Zostanie rzucony `AssertionError`
+D. Program wypisze ostrzeżenie i będzie działał dalej
+
+---
+
+### **3. Która składnia `assert` jest poprawna?**
+
+A.
+
+```java
+assert(x > 0);
+```
+
+B.
+
+```java
+assert x > 0 : "x musi być dodatnie";
+```
+
+C.
+
+```java
+assert x > 0 then "błąd";
+```
+
+D.
+
+```java
+assert(x > 0, "błąd");
+```
+
+---
+
+### **4. Co jest prawdą o `assert` w Javie?**
+
+A. Jest zawsze włączony
+B. Jest domyślnie wyłączony
+C. Jest obowiązkowy w każdej metodzie
+D. Działa tylko w testach JUnit
+
+---
+
+### **5. Jak włączyć obsługę `assert` w JVM?**
+
+A. `-da`
+B. `-assert`
+C. `-enable`
+D. `-ea`
+
+---
+
+### **6. Które z poniższych zastosowań `assert` jest POPRAWNE?**
+
+A. Sprawdzanie danych z formularza
+B. Walidacja parametrów metody publicznej
+C. Sprawdzanie niezmiennika wewnętrznego klasy
+D. Obsługa błędów użytkownika
+
+---
+
+### **7. Dlaczego nie powinno się używać `assert` w logice biznesowej?**
+
+A. Jest wolne
+B. Może być wyłączone
+C. Zawsze rzuca wyjątek
+D. Jest przestarzałe
+
+---
+
+### **8. Jakiego typu jest błąd rzucany przez `assert`?**
+
+A. `Exception`
+B. `RuntimeException`
+C. `AssertionError`
+D. `ErrorException`
+
+---
+
+### **9. (Otwarte)**
+
+Podaj **jedną sytuację**, w której `assert` jest dobrym wyborem.
+
+---
+
+### **10. (Otwarte)**
+
+Dlaczego **nie należy** zastępować `if + exception` instrukcją `assert`?
+
+---
+
+👉 Gdy skończysz, napisz: **`odpowiedzi`**
+a dostaniesz **pełny klucz + dokładne wyjaśnienia** ✅

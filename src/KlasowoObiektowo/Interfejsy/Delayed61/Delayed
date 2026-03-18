@@ -1,0 +1,8 @@
+Aby dobrze umieć Interfejs Delayed warto znać:
+Interface:
+Comparable<>
+
+Class:
+TimeUnit
+
+Exceptions:

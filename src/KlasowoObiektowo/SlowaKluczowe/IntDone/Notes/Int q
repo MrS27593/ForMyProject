@@ -1,0 +1,108 @@
+### 📘 QUIZ – `int` w Java
+
+**10 pytań: 8 zamkniętych (A–D) + 2 otwarte**
+
+---
+
+#### 1️⃣ Jaki jest rozmiar typu `int` w Javie?
+
+A. 16 bitów
+B. 32 bity
+C. 64 bity
+D. Zależny od systemu operacyjnego
+
+---
+
+#### 2️⃣ Jaki jest poprawny zakres wartości typu `int`?
+
+A. –32 768 do 32 767
+B. –9 223 372 036 854 775 808 do 9 223 372 036 854 775 807
+C. –2 147 483 648 do 2 147 483 647
+D. 0 do 4 294 967 295
+
+---
+
+#### 3️⃣ Co wypisze poniższy kod?
+
+```java
+int a = 10;
+int b = 3;
+System.out.println(a / b);
+```
+
+A. `3.3333`
+B. `3`
+C. `3.0`
+D. Błąd kompilacji
+
+---
+
+#### 4️⃣ Co się stanie w wyniku wykonania tego kodu?
+
+```java
+int x = Integer.MAX_VALUE;
+x = x + 1;
+System.out.println(x);
+```
+
+A. Program się nie skompiluje
+B. Zostanie rzucony wyjątek
+C. Zostanie wypisane `2147483648`
+D. Nastąpi overflow i wynik będzie liczbą ujemną
+
+---
+
+#### 5️⃣ Która deklaracja jest POPRAWNA?
+
+A. `int a = 10.5;`
+B. `int a = (int) 10.5;`
+C. `int a = "10";`
+D. `int a = null;`
+
+---
+
+#### 6️⃣ Czym różni się `int` od `Integer`?
+
+A. `int` jest wolniejszy
+B. `Integer` jest typem prymitywnym
+C. `Integer` może przyjmować wartość `null`
+D. `int` jest klasą
+
+---
+
+#### 7️⃣ Co się stanie przy wykonaniu tego kodu?
+
+```java
+Integer x = null;
+int y = x;
+```
+
+A. `y` będzie równe `0`
+B. Kod się skompiluje i zadziała
+C. Błąd kompilacji
+D. `NullPointerException` w runtime
+
+---
+
+#### 8️⃣ Które zastosowanie `int` jest NAJLEPSZE?
+
+A. Przechowywanie bardzo dużych kwot pieniężnych
+B. Indeksowanie tablic i pętle
+C. Obliczenia finansowe z groszami
+D. Reprezentowanie bardzo dużych liczb
+
+---
+
+#### 9️⃣ (Pytanie otwarte)
+
+Podaj **jedną sytuację**, w której **nie powinno się używać `int`**.
+
+---
+
+#### 🔟 (Pytanie otwarte)
+
+Dlaczego dzielenie dwóch zmiennych typu `int` nie zwraca części ułamkowej?
+
+---
+
+Gdy będziesz gotowy, napisz **„odpowiedzi”** 👍

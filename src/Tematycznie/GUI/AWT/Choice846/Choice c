@@ -1,0 +1,93 @@
+Oczywiście! Klasa `Choice` w języku Java to część starszego API AWT (Abstract Window Toolkit) i służy do tworzenia rozwijanych list wyboru (tzw. *drop-down list* lub *combo box*). Umożliwia użytkownikowi wybranie jednej z kilku dostępnych opcji.
+
+---
+
+### 📦 **Pakiet**
+
+```java
+java.awt.Choice
+```
+
+---
+
+## 🧱 Podstawowe informacje
+
+* `Choice` dziedziczy po `Component`, więc można ją dodawać do kontenerów jak `Frame`, `Panel` itd.
+* Użytkownik może wybrać **tylko jedną** z dostępnych opcji.
+* Nie wspiera wielu linii tekstu, ikon, czy grupowania (w przeciwieństwie do nowszego `JComboBox` z biblioteki Swing).
+
+---
+
+## 🔧 Przykład użycia
+
+```java
+import java.awt.*;
+import java.awt.event.*;
+
+public class ChoiceExample {
+    public static void main(String[] args) {
+        Frame frame = new Frame("Przykład Choice");
+        Choice choice = new Choice();
+
+        // Dodajemy elementy do listy
+        choice.add("Jabłko");
+        choice.add("Banan");
+        choice.add("Gruszka");
+
+        // Dodanie słuchacza
+        choice.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent e) {
+                System.out.println("Wybrano: " + choice.getSelectedItem());
+            }
+        });
+
+        frame.add(choice);
+        frame.setSize(300, 200);
+        frame.setLayout(new FlowLayout());
+        frame.setVisible(true);
+
+        // Zamknięcie okna
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                frame.dispose();
+            }
+        });
+    }
+}
+```
+
+---
+
+## 🛠️ Najważniejsze metody
+
+| Metoda                           | Opis                                             |
+| -------------------------------- | ------------------------------------------------ |
+| `add(String item)`               | Dodaje element do listy.                         |
+| `insert(String item, int index)` | Wstawia element w określonej pozycji.            |
+| `getItem(int index)`             | Zwraca element z danego indeksu.                 |
+| `getItemCount()`                 | Zwraca liczbę elementów.                         |
+| `getSelectedItem()`              | Zwraca aktualnie wybraną wartość (typ `String`). |
+| `getSelectedIndex()`             | Zwraca indeks wybranej pozycji.                  |
+| `select(int index)`              | Ustawia wybór na danym indeksie.                 |
+| `select(String str)`             | Ustawia wybór na podstawie wartości tekstowej.   |
+| `remove(String item)`            | Usuwa element po nazwie.                         |
+| `remove(int index)`              | Usuwa element po indeksie.                       |
+| `removeAll()`                    | Usuwa wszystkie elementy.                        |
+
+---
+
+## ⚠️ Wady i ograniczenia
+
+* Klasa `Choice` jest częścią AWT, które jest przestarzałe względem Swing czy JavaFX.
+* Ma ograniczone możliwości stylizacji i rozbudowy.
+* Działa natywnie – na różnych systemach może wyglądać inaczej.
+
+---
+
+## ✅ Alternatywa: `JComboBox` (Swing)
+
+W nowszych aplikacjach Java (szczególnie desktopowych) zaleca się używać klasy `JComboBox` z pakietu `javax.swing`, która oferuje więcej możliwości (np. możliwość wpisywania własnych wartości).
+
+---
+
+Czy chcesz, żebym pokazał porównanie `Choice` i `JComboBox`, albo stworzył bardziej rozbudowany przykład GUI?

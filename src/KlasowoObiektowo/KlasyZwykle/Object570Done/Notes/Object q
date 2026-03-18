@@ -1,0 +1,49 @@
+Świetnie! Oto **quiz dotyczący klasy `Object` w Javie** – zawiera pytania wielokrotnego i jednokrotnego wyboru, a także pytanie otwarte. Na końcu możesz sprawdzić swoje odpowiedzi.
+
+---
+
+### ✅ **Quiz: Klasa `Object` w Javie**
+
+#### 1. Co zwraca domyślna implementacja metody `toString()`?
+
+A) Reprezentację binarną obiektu
+B) Nazwę klasy i hashCode w postaci szesnastkowej
+C) Adres fizyczny w pamięci
+D) Zawartość wszystkich pól obiektu
+
+---
+
+#### 2. Jak działa domyślna metoda `equals()` w klasie `Object`?
+
+A) Porównuje zawartość pól obiektu
+B) Porównuje referencje (czy to ten sam obiekt)
+C) Porównuje klasy obiektów
+D) Porównuje obiekty przy użyciu `hashCode()`
+
+---
+
+#### 3. Wskaż prawdziwe zdania (więcej niż jedno może być poprawne):
+
+A) Jeśli nadpisujesz `equals()`, nie musisz nadpisywać `hashCode()`
+B) Każda klasa w Javie dziedziczy po klasie `Object`
+C) `Object` jest interfejsem
+D) `clone()` działa tylko wtedy, gdy klasa implementuje interfejs `Cloneable`
+
+---
+
+#### 4. Co zwraca metoda `getClass()`?
+
+A) Nazwę klasy jako `String`
+B) Obiekt typu `Class`
+C) Superklasę obiektu
+D) Klasę w formacie JSON
+
+---
+
+#### 5. Otwarta:
+
+Wyobraź sobie klasę `Samochod` z polem `String marka`. Jak nadpisałbyś metodę `equals()`, żeby porównywała dwa obiekty `Samochod` na podstawie marki?
+
+---
+
+Daj znać, kiedy chcesz zobaczyć **odpowiedzi i omówienie**, albo jeśli chcesz **więcej pytań**!

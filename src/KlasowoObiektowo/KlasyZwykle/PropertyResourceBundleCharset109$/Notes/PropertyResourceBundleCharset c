@@ -1,0 +1,106 @@
+Klasa **`MyPropertyResourceBundleCharset`** nie należy do standardowej biblioteki Javy (Java SE), dlatego nie znajdziesz jej w oficjalnym API jak np. `PropertyResourceBundle` czy `ResourceBundle`. Możliwe, że chodzi Ci o **niestandardową klasę**, często spotykaną w rozszerzeniach lub własnych implementacjach, mającą na celu:
+
+### 🧩 Cel klasy `MyPropertyResourceBundleCharset`
+
+Umożliwienie wczytywania plików `.properties` z określonym kodowaniem znaków (np. UTF-8), ponieważ domyślnie `PropertyResourceBundle` wczytywał pliki jako **ISO-8859-1**, co ograniczało używanie polskich (lub innych specjalnych) znaków bez stosowania `native2ascii`.
+
+---
+
+## 📚 Kontekst — Problem w standardowej Javie
+
+W klasycznej wersji Javy:
+
+```java
+ResourceBundle bundle = ResourceBundle.getBundle("messages");
+```
+
+Java oczekuje pliku `messages.properties` w formacie **ISO-8859-1**. Gdy spróbujesz użyć np. znaków `ąęśżźć`, musisz zapisać je jako Unicode Escapes:
+
+```properties
+polish_letter=\u0105\u0119\u015b...
+```
+
+To jest mało wygodne. Dlatego powstają rozwiązania takie jak:
+
+---
+
+## 🛠️ Implementacja `MyPropertyResourceBundleCharset`
+
+Poniżej znajdziesz przykładową implementację klasy `MyPropertyResourceBundleCharset`, która rozszerza `ResourceBundle.Control` i wymusza kodowanie UTF-8:
+
+```java
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.Locale;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
+
+public class MyPropertyResourceBundleCharset extends ResourceBundle.Control {
+    private final String charset;
+
+    public MyPropertyResourceBundleCharset(String charset) {
+        this.charset = charset;
+    }
+
+    @Override
+    public ResourceBundle newBundle(String baseName, Locale locale, String format,
+                                    ClassLoader loader, boolean reload)
+            throws IllegalAccessException, InstantiationException, java.io.IOException {
+
+        String bundleName = toBundleName(baseName, locale);
+        String resourceName = toResourceName(bundleName, "properties");
+        try (var stream = loader.getResourceAsStream(resourceName)) {
+            if (stream != null) {
+                Reader reader = new InputStreamReader(stream, charset);
+                return new PropertyResourceBundle(reader);
+            }
+        }
+        return null;
+    }
+}
+```
+
+---
+
+## ✅ Praktyczne Zastosowanie
+
+### Przykład 1 — Wczytywanie pliku `messages_pl.properties` z UTF-8
+
+### 1. Plik `messages_pl.properties` (zapisany jako UTF-8):
+
+```properties
+greeting=Witaj świecie!
+farewell=Do widzenia!
+```
+
+### 2. Kod Java:
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Locale locale = new Locale("pl", "PL");
+        ResourceBundle.Control utf8Control = new MyPropertyResourceBundleCharset("UTF-8");
+        ResourceBundle bundle = ResourceBundle.getBundle("messages", locale, utf8Control);
+
+        System.out.println(bundle.getString("greeting"));   // Witaj świecie!
+        System.out.println(bundle.getString("farewell"));   // Do widzenia!
+    }
+}
+```
+
+---
+
+## 🧠 Podsumowanie
+
+| Cecha                      | Opis                                                                                             |
+| -------------------------- | ------------------------------------------------------------------------------------------------ |
+| **Nazwa klasy**            | Niestandardowa – trzeba ją zaimplementować samodzielnie                                          |
+| **Cel**                    | Umożliwienie wczytywania `.properties` w innym kodowaniu niż ISO-8859-1                          |
+| **Typowe użycie**          | Międzynarodowa aplikacja z zasobami zawierającymi znaki narodowe (np. polskie)                   |
+| **Alternatywa od Java 9+** | `ResourceBundle.getBundle(..., Control.getControl(Control.FORMAT_PROPERTIES))` z obsługą `UTF-8` |
+
+---
+
+Jeśli chcesz, mogę też pokazać, jak to wygląda w Springu, gdzie takie rzeczy robi się inaczej (np. `ReloadableResourceBundleMessageSource`). Czy chcesz to rozszerzyć?

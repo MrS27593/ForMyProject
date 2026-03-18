@@ -1,0 +1,91 @@
+### 📘 QUIZ – `final` w Java
+
+**10 pytań: 8 zamkniętych (A–D) + 2 otwarte**
+
+---
+
+#### 1️⃣ Co oznacza słowo kluczowe `final` w Javie?
+
+A. Zmienna lub element może być użyty tylko raz
+B. Element nie może być zmieniony lub nadpisany
+C. Kod wykona się na końcu programu
+D. Element jest widoczny tylko w pakiecie
+
+---
+
+#### 2️⃣ Co się stanie, jeśli spróbujesz zmienić wartość zmiennej `final`?
+
+A. Kod się skompiluje, ale zmiana zostanie zignorowana
+B. Program rzuci wyjątek w runtime
+C. Kompilator zgłosi błąd
+D. Zmienna zostanie nadpisana
+
+---
+
+#### 3️⃣ Które zdanie o `final` i obiektach jest prawdziwe?
+
+A. `final` uniemożliwia zmianę stanu obiektu
+B. `final` uniemożliwia zmianę referencji
+C. `final` powoduje, że obiekt jest immutable
+D. `final` blokuje wszystkie metody obiektu
+
+---
+
+#### 4️⃣ Co oznacza metoda oznaczona jako `final`?
+
+A. Nie można jej wywołać
+B. Nie można jej przeciążyć
+C. Nie można jej nadpisać
+D. Zawsze musi zwracać wartość
+
+---
+
+#### 5️⃣ Co oznacza klasa oznaczona jako `final`?
+
+A. Nie można tworzyć jej obiektów
+B. Nie można jej nadpisać
+C. Nie można po niej dziedziczyć
+D. Nie można mieć pól statycznych
+
+---
+
+#### 6️⃣ Gdzie **musi** zostać zainicjalizowane pole `final`?
+
+A. Tylko przy deklaracji
+B. Tylko w konstruktorze
+C. Przy deklaracji lub w konstruktorze
+D. Tylko w metodzie `main`
+
+---
+
+#### 7️⃣ Czy parametr metody może być `final`?
+
+A. Nie
+B. Tak, ale tylko w metodach statycznych
+C. Tak, nie można go wtedy zmienić
+D. Tak, ale tylko dla typów prostych
+
+---
+
+#### 8️⃣ Która klasa z JDK jest `final`?
+
+A. `ArrayList`
+B. `Thread`
+C. `String`
+D. `Object`
+
+---
+
+#### 9️⃣ (Pytanie otwarte)
+
+Podaj przykład praktycznego zastosowania `final` w aplikacji (np. konfiguracja, bezpieczeństwo).
+
+---
+
+#### 🔟 (Pytanie otwarte)
+
+Wyjaśnij różnicę między `final` dla zmiennej prymitywnej a `final` dla obiektu.
+
+---
+
+Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam komplet z wyjaśnieniami ✅

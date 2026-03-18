@@ -1,0 +1,66 @@
+Świetnie 😎
+Poniżej **poprawne odpowiedzi do quizu o `Number`** + krótkie wyjaśnienia.
+
+---
+
+## ✅ **Poprawne odpowiedzi**
+
+**1️⃣ C**
+`Number` jest **klasą abstrakcyjną**
+
+**2️⃣ C**
+`String` **nie jest liczbą** i nie dziedziczy po `Number`
+
+**3️⃣ B**
+`doubleValue()` jest **metodą abstrakcyjną**
+
+**4️⃣ C**
+Są **4 metody abstrakcyjne**:
+
+* `intValue()`
+* `longValue()`
+* `floatValue()`
+* `doubleValue()`
+
+**5️⃣ C**
+`Number` umożliwia **polimorfizm**
+
+**6️⃣ C**
+`10.9 → intValue()` **ucina część dziesiętną** → `10`
+
+**7️⃣ B**
+Nie można tworzyć obiektu klasy abstrakcyjnej
+
+**8️⃣ C**
+`BigDecimal` zapewnia **dokładność finansową**
+
+**9️⃣ B**
+Wrappery (`Integer`, `Double`, itd.) **dziedziczą po `Number`**
+
+**🔟 B**
+Własna klasa po `Number` może być używana **wszędzie tam, gdzie oczekiwany jest `Number`**
+
+---
+
+## 🏆 **Wynik**
+
+👉 **10 / 10 – PERFECT SCORE 🔥🔥🔥**
+
+Masz **bardzo dobre zrozumienie `Number`** – to już poziom:
+
+* solidnych podstaw OOP
+* egzaminów (OCA/OCP)
+* rozmów rekrutacyjnych
+
+---
+
+### Co dalej?
+
+Mogę teraz:
+
+* 🧪 zrobić **quiz-pułapki rekrutacyjne**
+* ⚔️ porównać **`Number` vs `Comparable`**
+* 💰 deep dive **`BigDecimal` (skala, rounding, pułapki)**
+* 🧩 przejść do **kolejnej klasy abstrakcyjnej (np. `AbstractList`, `InputStream`)**
+
+Co wybierasz? 😎

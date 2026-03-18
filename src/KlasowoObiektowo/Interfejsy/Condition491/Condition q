@@ -1,0 +1,131 @@
+Oczywiście! Oto **quiz z interfejsu `Condition` w Java** – 10 pytań o różnym stopniu trudności (wielokrotnego i jednokrotnego wyboru). Na końcu mogę przygotować klucz odpowiedzi – daj znać, czy chcesz go od razu.
+
+---
+
+### 🧠 **Quiz: Interfejs `Condition` w Java**
+
+#### **Pytanie 1 (jednokrotnego wyboru):**
+
+Które z poniższych należy do interfejsu `Condition`?
+
+A. `notify()`
+B. `await()`
+C. `acquire()`
+D. `release()`
+
+---
+
+#### **Pytanie 2 (jednokrotnego wyboru):**
+
+Z jakim typem obiektu najczęściej współpracuje `Condition`?
+
+A. `Thread`
+B. `Semaphore`
+C. `ReentrantLock`
+D. `FutureTask`
+
+---
+
+#### **Pytanie 3 (wielokrotnego wyboru):**
+
+Które z poniższych są poprawnymi metodami interfejsu `Condition`?
+
+A. `signal()`
+B. `signalAll()`
+C. `waitUntil()`
+D. `awaitUninterruptibly()`
+
+---
+
+#### **Pytanie 4 (jednokrotnego wyboru):**
+
+Jaki efekt ma wywołanie `await()` na wątku?
+
+A. Zatrzymuje wątek bez zwalniania locka
+B. Zatrzymuje wątek i zwalnia lock
+C. Wybudza inny wątek
+D. Trwale kończy działanie wątku
+
+---
+
+#### **Pytanie 5 (jednokrotnego wyboru):**
+
+Kiedy możesz legalnie wywołać `await()` lub `signal()`?
+
+A. W dowolnym momencie
+B. Gdy masz `synchronized` na metodzie
+C. Gdy posiadasz blokadę (`lock.lock()`)
+D. Gdy masz referencję do `Thread`
+
+---
+
+#### **Pytanie 6 (wielokrotnego wyboru):**
+
+Zalety `Condition` nad `wait/notify`:
+
+A. Możliwość wielu warunków dla jednego locka
+B. Prostsza składnia
+C. Lepsza kontrola nad kolejkami oczekujących
+D. Nie wymaga synchronizacji
+
+---
+
+#### **Pytanie 7 (jednokrotnego wyboru):**
+
+Co się stanie, jeśli wątek wywoła `signal()` bez posiadania locka?
+
+A. Nic, metoda się wykona
+B. Wątek zostanie zablokowany
+C. Rzucany jest wyjątek `IllegalMonitorStateException`
+D. Rzucany jest wyjątek `IllegalStateException`
+
+---
+
+#### **Pytanie 8 (wielokrotnego wyboru):**
+
+Do czego może służyć `Condition` w systemach produkcyjnych?
+
+A. Implementacja buforów
+B. Synchronizacja wątków w kolejce
+C. Tworzenie niereużywalnych barier
+D. Obsługa timeoutów i kolejek priorytetowych
+
+---
+
+#### **Pytanie 9 (jednokrotnego wyboru):**
+
+Jaki jest efekt `signalAll()`?
+
+A. Usypia wszystkie wątki
+B. Budzi jeden wątek
+C. Budzi wszystkie oczekujące na tym `Condition`
+D. Wznawia główny wątek
+
+---
+
+#### **Pytanie 10 (praktyczne, jednokrotnego wyboru):**
+
+W której linii poniższego kodu brakuje istotnej operacji?
+
+```java
+lock.lock();
+try {
+    while (count == 0) {
+        notEmpty.await();
+    }
+    // konsumowanie
+    count--;
+    notFull.signal();
+} finally {
+    // ?
+}
+```
+
+A. `lock.unlock();`
+B. `Thread.yield();`
+C. `System.exit(0);`
+D. `lock.lock();`
+
+---
+
+Chcesz, żebym od razu podał **klucz odpowiedzi** i krótkie wyjaśnienia?

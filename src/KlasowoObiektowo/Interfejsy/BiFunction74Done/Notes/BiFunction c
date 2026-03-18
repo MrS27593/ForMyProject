@@ -1,0 +1,160 @@
+Świetnie 👍
+Teraz **`BiFunction<T, U, R>`** — bardzo ważny interfejs funkcyjny, gdy **potrzebujesz DWÓCH argumentów i wyniku**.
+
+---
+
+# 🧩 Interfejs `BiFunction<T, U, R>`
+
+## 1️⃣ Co to jest `BiFunction`?
+
+`BiFunction` to **interfejs funkcyjny**, który:
+
+* przyjmuje **dwa argumenty**
+* **zwraca wynik**
+
+📦 Pakiet:
+
+```java
+java.util.function.BiFunction
+```
+
+📌 Definicja:
+
+```java
+@FunctionalInterface
+public interface BiFunction<T, U, R> {
+    R apply(T t, U u);
+}
+```
+
+* `T` – pierwszy argument
+* `U` – drugi argument
+* `R` – wynik
+
+---
+
+## 2️⃣ Do czego służy `BiFunction`?
+
+* operacje na **dwóch wartościach**
+* łączenie danych
+* obliczenia
+* często używany w:
+
+  * `Map.compute()`
+  * `Map.merge()`
+  * `Stream.reduce()`
+
+---
+
+## 3️⃣ Najprostszy przykład
+
+```java
+BiFunction<Integer, Integer, Integer> sum = (a, b) -> a + b;
+
+System.out.println(sum.apply(3, 5)); // 8
+```
+
+---
+
+## 4️⃣ BiFunction z różnymi typami
+
+```java
+BiFunction<String, Integer, String> repeat =
+        (s, n) -> s.repeat(n);
+
+System.out.println(repeat.apply("A", 3)); // AAA
+```
+
+---
+
+## 5️⃣ Metoda domyślna `andThen()` (WAŻNE)
+
+`BiFunction` ma **tylko jedną metodę domyślną**:
+
+```java
+default <V> BiFunction<T, U, V> andThen(Function<? super R, ? extends V> after)
+```
+
+### Przykład:
+
+```java
+BiFunction<Integer, Integer, Integer> sum = (a, b) -> a + b;
+Function<Integer, String> toString = Object::toString;
+
+BiFunction<Integer, Integer, String> sumAsString =
+        sum.andThen(toString);
+
+System.out.println(sumAsString.apply(2, 3)); // "5"
+```
+
+➡️ Najpierw `apply(a, b)`, potem `after.apply(result)`
+
+---
+
+## 6️⃣ BiFunction vs Function
+
+| Interfejs         | Argumenty | Zwraca |
+| ----------------- | --------- | ------ |
+| Function<T,R>     | 1         | R      |
+| BiFunction<T,U,R> | 2         | R      |
+
+---
+
+## 7️⃣ BiFunction vs BinaryOperator
+
+```java
+BinaryOperator<Integer> add = (a, b) -> a + b;
+```
+
+| BiFunction | BinaryOperator |
+| ---------- | -------------- |
+| różne typy | ten sam typ    |
+| `T, U → R` | `T, T → T`     |
+
+➡️ `BinaryOperator` to **specjalizacja BiFunction**
+
+---
+
+## 8️⃣ BiFunction w Map (BARDZO CZĘSTE)
+
+### `Map.compute()`
+
+```java
+map.compute(key, (k, v) -> v == null ? 1 : v + 1);
+```
+
+### `Map.merge()`
+
+```java
+map.merge("A", 1, (oldV, newV) -> oldV + newV);
+```
+
+➡️ Lambda w `merge()` to **BiFunction**
+
+---
+
+## 9️⃣ Czego BiFunction NIE robi?
+
+❌ nie przyjmuje więcej niż 2 argumenty
+❌ nie zwraca `boolean` (do tego `BiPredicate`)
+❌ nie wykonuje akcji bez wyniku (do tego `BiConsumer`)
+
+---
+
+## 🔟 Podsumowanie (ściąga)
+
+* `BiFunction<T,U,R>` → `R apply(T t, U u)`
+* interfejs funkcyjny
+* 2 argumenty → 1 wynik
+* metoda domyślna: `andThen()`
+* często w `Map` i `reduce()`
+
+---
+
+📌 **Naturalne kolejne kroki**:
+
+* 🔹 **QUIZ z BiFunction**
+* 🔹 **BiFunction vs BinaryOperator**
+* 🔹 **BiPredicate / BiConsumer**
+
+👉 Co dalej? 💪

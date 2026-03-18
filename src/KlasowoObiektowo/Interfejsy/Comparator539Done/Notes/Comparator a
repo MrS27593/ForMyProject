@@ -1,0 +1,91 @@
+Super 👍
+Oto **ODPOWIEDZI do quizu o interfejsie `Comparator`** wraz z krótkimi, konkretnymi wyjaśnieniami.
+
+---
+
+## ✅ **Odpowiedzi – Quiz `Comparator`**
+
+---
+
+### **1️⃣ Czym jest interfejs `Comparator`?**
+
+**Odpowiedź:** **c) Interfejsem funkcyjnym**
+➡️ Ma jedną metodę abstrakcyjną `compare()`.
+
+---
+
+### **2️⃣ W jakim pakiecie znajduje się `Comparator`?**
+
+**Odpowiedź:** **c) java.util**
+
+---
+
+### **3️⃣ Jaką metodę musi zaimplementować `Comparator`?**
+
+**Odpowiedź:** **c) `compare(T o1, T o2)`**
+
+---
+
+### **4️⃣ Co oznacza, że `Comparator` jest interfejsem funkcyjnym?**
+
+**Odpowiedź:** **b) Zawiera dokładnie jedną metodę abstrakcyjną**
+➡️ Dzięki temu można używać **lambd**.
+
+---
+
+### **5️⃣ Jaka jest podstawowa różnica między `Comparator` a `Comparable`?**
+
+**Odpowiedź:** **c) `Comparator` definiuje porządek zewnętrzny**
+➡️ `Comparable` → porządek naturalny w klasie.
+
+---
+
+### **6️⃣ Co zwraca metoda `compare(o1, o2)` gdy obiekty są równe?**
+
+**Odpowiedź:** **c) 0**
+
+---
+
+### **7️⃣ Która z poniższych metod służy do łączenia kilku kryteriów sortowania?**
+
+**Odpowiedź:** **c) `thenComparing()`**
+
+---
+
+### **8️⃣ Co się stanie w `TreeSet`, jeśli `compare()` zwróci `0` dla dwóch różnych obiektów?**
+
+**Odpowiedź:** **c) Drugi obiekt nie zostanie dodany**
+➡️ `TreeSet` uznaje je za duplikaty.
+
+---
+
+### **9️⃣ Która metoda pozwala odwrócić kolejność sortowania?**
+
+**Odpowiedź:** **c) `reversed()`**
+
+---
+
+### **🔟 Który zapis jest NAJLEPSZĄ praktyką sortowania po polu typu `int`?**
+
+**Odpowiedź:** **c) `Comparator.comparingInt(a -> a.getX())`**
+➡️ Bez ryzyka przepełnienia i czytelnie.
+
+---
+
+## 🧠 **Egzaminacyjna ściąga**
+
+* `Comparator` → `compare(o1, o2)`
+* interfejs funkcyjny → lambda
+* wiele strategii sortowania
+* `thenComparing()` → sortowanie wielokryterialne
+* `TreeSet` opiera się na `compare()`, nie `equals()`
+
+---
+
+Jeśli chcesz iść dalej logicznym krokiem:
+
+* 🔹 **zadania praktyczne z Comparator**
+* 🔹 **tricky pytania rekrutacyjne**
+* 🔹 **porównanie: Comparator vs Comparable vs equals/hashCode**
+
+👉 Co następne? 💪

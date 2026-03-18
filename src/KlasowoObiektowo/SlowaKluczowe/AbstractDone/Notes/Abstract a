@@ -1,0 +1,141 @@
+Świetnie, jedziemy 👍
+Poniżej masz **poprawne odpowiedzi do quizu `abstract`** wraz z **konkretnymi wyjaśnieniami** (bardzo ważne na egzaminach i w praktyce).
+
+---
+
+## ✅ Odpowiedzi – `abstract` w Java
+
+---
+
+### **1. Co oznacza słowo kluczowe `abstract` w Javie?**
+
+**✔ B. Klasa lub metoda jest niekompletna**
+
+**Wyjaśnienie:**
+`abstract` oznacza, że implementacja **nie jest pełna** i **musi zostać dokończona** w klasie potomnej.
+
+---
+
+### **2. Która deklaracja klasy abstrakcyjnej jest poprawna?**
+
+**✔ B**
+
+```java
+abstract class Vehicle { }
+```
+
+**Wyjaśnienie:**
+Słowo `abstract` **musi stać przed `class`**.
+
+---
+
+### **3. Co jest prawdą o metodzie abstrakcyjnej?**
+
+**✔ C. Nie ma ciała i kończy się `;`**
+
+```java
+abstract void run();
+```
+
+**Wyjaśnienie:**
+Metoda abstrakcyjna **nie ma implementacji**.
+
+---
+
+### **4. Co się stanie, jeśli klasa dziedzicząca NIE zaimplementuje wszystkich metod abstrakcyjnych?**
+
+**✔ C. Klasa musi być oznaczona jako `abstract`**
+
+**Wyjaśnienie:**
+Taka klasa **dziedziczy „niekompletność”**.
+
+---
+
+### **5. Który kod jest poprawny?**
+
+**✔ C**
+
+```java
+abstract class A {
+    abstract void test();
+}
+```
+
+---
+
+### **6. Które połączenie słów kluczowych jest NIEDOZWOLONE?**
+
+**✔ C. `abstract static method`**
+
+**Wyjaśnienie:**
+
+* `abstract` → metoda **musi być nadpisana**
+* `static` → metoda **nie może być nadpisana**
+
+➡️ **Sprzeczność logiczna**
+
+---
+
+### **7. Które zdanie jest prawdziwe?**
+
+**✔ B. Klasa abstrakcyjna może mieć konstruktor**
+
+```java
+abstract class A {
+    A() {
+        System.out.println("Konstruktor");
+    }
+}
+```
+
+---
+
+### **8. Jaki jest główny cel klas abstrakcyjnych?**
+
+**✔ C. Wymuszanie implementacji metod w klasach potomnych**
+
+To jest **kluczowe pojęcie OOP**.
+
+---
+
+### **9. Co wypisze poniższy kod?**
+
+**✔ C. `Hau`**
+
+**Wyjaśnienie:**
+To klasyczny **polimorfizm**:
+
+```java
+Animal a = new Dog();
+a.sound(); // wywołuje Dog.sound()
+```
+
+---
+
+### **10. Kiedy lepiej użyć `abstract class` zamiast `interface`?**
+
+**✔ B. Gdy chcesz mieć pola i konstruktor**
+
+**Porównanie:**
+
+| abstract class            | interface                        |
+| ------------------------- | -------------------------------- |
+| może mieć pola            | pola tylko `public static final` |
+| może mieć konstruktor     | ❌                                |
+| może mieć metody z ciałem | od Java 8 – też                  |
+
+---
+
+## 🧠 PODSUMOWANIE EGZAMINACYJNE
+
+* ❌ Nie można tworzyć obiektów klas abstrakcyjnych
+* ✅ Można mieć konstruktory
+* ✅ Metody abstrakcyjne nie mają ciała
+* ❌ `abstract + static` = **błąd**
+* ✅ Idealne do **szablonów klas (Template Method Pattern)**
+
+---
+
+Jeśli chcesz, następny bardzo logiczny krok to:
+👉 **`abstract` vs `interface` – QUIZ pułapki egzaminacyjne**
+albo 👉 **zaawansowany przykład projektowy z `abstract` (realny kod)**

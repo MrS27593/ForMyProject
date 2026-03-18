@@ -1,0 +1,75 @@
+Świetnie 😄 teraz lecimy z **`@MXBean`** – adnotacją związaną z **Java Management Extensions (JMX)**.
+
+---
+
+# 📌 `@MXBean` – co to jest?
+
+`@MXBean` to adnotacja, która oznacza, że:
+
+> Interfejs lub klasa jest **MXBean** – czyli Management eXtension Bean – używana do zarządzania i monitorowania aplikacji w Javie przez JMX.
+
+MXBean umożliwia eksportowanie stanu i metod obiektów do narzędzi zarządzania, takich jak **JConsole** czy **Java Mission Control**.
+
+---
+
+## 🔎 Pakiet
+
+```java id="t6q93c"
+javax.management
+```
+
+Od wersji: Java 6+
+
+---
+
+# ✅ Przykład użycia
+
+```java id="u2m5cj"
+import javax.management.MXBean;
+
+@MXBean
+public interface SystemConfigMXBean {
+    int getThreadCount();
+    void setThreadCount(int count);
+    String getVersion();
+}
+```
+
+```java id="v3b9yz"
+import javax.management.*;
+
+public class SystemConfig implements SystemConfigMXBean {
+    private int threadCount = 5;
+    private String version = "1.0";
+
+    @Override
+    public int getThreadCount() { return threadCount; }
+
+    @Override
+    public void setThreadCount(int count) { threadCount = count; }
+
+    @Override
+    public String getVersion() { return version; }
+}
+```
+
+➡ Taki MXBean może być zarejestrowany w **MBeanServer**, a jego metody będą dostępne dla narzędzi monitorujących.
+
+---
+
+# 🧠 Uwagi
+
+1. **`@MXBean` automatycznie konwertuje typy Java na typy zgodne z JMX** (np. mapy, listy).
+2. Każdy interfejs oznaczony `@MXBean` musi mieć **publiczne metody get/set**.
+3. Może być stosowana na interfejsach lub klasach implementujących interfejsy MXBean.
+4. Pozwala uniknąć ręcznego mapowania typów w MBeans.
+
+---
+
+# 🎯 Definicja egzaminacyjna
+
+> `@MXBean` oznacza, że dany interfejs lub klasa implementująca interfejs jest **management bean** (MXBean), który może być monitorowany i zarządzany przez JMX. Adnotacja upraszcza eksport metod i typów do narzędzi zarządzających.
+
+---
+
+Chcesz, żebym teraz zrobił **quiz z `@MXBean`**?

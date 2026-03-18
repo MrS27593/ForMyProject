@@ -1,0 +1,111 @@
+### 📘 QUIZ – `goto` w Java
+
+**10 pytań: 8 zamkniętych (A–D) + 2 otwarte**
+
+---
+
+#### 1️⃣ Czy można użyć słowa kluczowego `goto` w Javie?
+
+A. Tak, działa jak w C/C++
+B. Nie, to zarezerwowane słowo kluczowe, nieużywane
+C. Tak, ale tylko w metodach statycznych
+D. Tak, ale tylko w pętlach
+
+---
+
+#### 2️⃣ Dlaczego Java nie wspiera klasycznego `goto`?
+
+A. Ponieważ jest nieczytelne i prowadzi do „spaghetti code”
+B. Ponieważ zwiększa wydajność programu
+C. Ponieważ wymaga zewnętrznej biblioteki
+D. Ponieważ tylko języki skryptowe mogą mieć `goto`
+
+---
+
+#### 3️⃣ Co można użyć zamiast `goto` w Javie do wyjścia z pętli?
+
+A. `exit()`
+B. `return`
+C. `break` lub `continue` z etykietą
+D. `goto`
+
+---
+
+#### 4️⃣ Która opcja poprawnie pokazuje użycie etykiety (`label`) z `break`?
+
+A.
+
+```java
+outer:
+for (int i=0;i<5;i++) break outer;
+```
+
+B.
+
+```java
+break outer; // bez pętli
+```
+
+C.
+
+```java
+outer: break; // niepoprawne
+```
+
+D.
+
+```java
+for: break outer;
+```
+
+---
+
+#### 5️⃣ Co się stanie, jeśli spróbujesz użyć `goto` w Javie?
+
+A. Kod zadziała poprawnie
+B. Kompilator zgłosi błąd
+C. JVM zignoruje `goto`
+D. Program wykona losowy skok
+
+---
+
+#### 6️⃣ Czy etykiety (`label`) mogą być użyte do `continue`?
+
+A. Tak, aby przeskoczyć do początku zewnętrznej pętli
+B. Nie, tylko `break`
+C. Tak, ale tylko w metodach statycznych
+D. Nie, Java nie obsługuje etykiet
+
+---
+
+#### 7️⃣ Dlaczego `break` z etykietą jest bezpieczniejszy niż `goto`?
+
+A. Bo działa tylko w pętli lub switch
+B. Bo może przeskoczyć do dowolnego miejsca w kodzie
+C. Bo automatycznie optymalizuje pamięć
+D. Bo zastępuje wszystkie pętle
+
+---
+
+#### 8️⃣ Które zdanie o `goto` w Javie jest prawdziwe?
+
+A. Można go użyć, ale niezalecane
+B. Jest zarezerwowane, nieużywane i nie można go użyć
+C. Działa tylko w klasach abstrakcyjnych
+D. Jest zalecane w dużych projektach
+
+---
+
+#### 9️⃣ (Pytanie otwarte)
+
+Podaj przykład sytuacji, w której etykieta (`label`) z `break` może zastąpić klasyczny `goto`.
+
+---
+
+#### 🔟 (Pytanie otwarte)
+
+Dlaczego stosowanie `goto` w innych językach może prowadzić do problemów w dużych projektach?
+
+---
+
+Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam komplet z wyjaśnieniami ✅

@@ -1,0 +1,167 @@
+Świetnie 👍
+**`IllegalStateException`** to **bliźniaczy wyjątek** do `IllegalArgumentException` i **bardzo częsty temat rekrutacyjny**. Zróbmy go **porządnie i jasno**.
+
+---
+
+## 1️⃣ Czym jest `IllegalStateException`?
+
+`IllegalStateException` to **unchecked exception** (`RuntimeException`), rzucany gdy:
+
+➡️ **stan obiektu** jest nieprawidłowy
+➡️ metoda została wywołana **w złym momencie**
+➡️ obiekt nie jest gotowy do wykonania operacji
+
+📌 **Nie chodzi o argumenty — chodzi o STAN obiektu**
+
+```java
+public void start() {
+    if (!initialized) {
+        throw new IllegalStateException("Obiekt nie został zainicjalizowany");
+    }
+}
+```
+
+---
+
+## 2️⃣ Miejsce w hierarchii
+
+```
+Throwable
+ └── Exception
+      └── RuntimeException
+           └── IllegalStateException
+```
+
+---
+
+## 3️⃣ IllegalStateException vs IllegalArgumentException ⭐
+
+| Sytuacja                    | Właściwy wyjątek           |
+| --------------------------- | -------------------------- |
+| Zły argument metody         | `IllegalArgumentException` |
+| Zły stan obiektu            | `IllegalStateException`    |
+| Argument `null` w API       | `IllegalArgumentException` |
+| Metoda wywołana za wcześnie | `IllegalStateException`    |
+
+📌 **Argument ≠ Stan**
+
+---
+
+## 4️⃣ Typowe przypadki użycia 🔥
+
+### 🔴 Obiekt niegotowy
+
+```java
+class Service {
+    private boolean initialized = false;
+
+    void init() {
+        initialized = true;
+    }
+
+    void process() {
+        if (!initialized) {
+            throw new IllegalStateException("Service not initialized");
+        }
+    }
+}
+```
+
+---
+
+### 🔴 Zła kolejność wywołań
+
+```java
+iterator.remove(); // bez next() → IllegalStateException
+```
+
+---
+
+### 🔴 Zamykanie już zamkniętego zasobu
+
+```java
+stream.close();
+stream.close(); // IllegalStateException (często)
+```
+
+---
+
+### 🔴 Obiekt w złym cyklu życia (lifecycle)
+
+```java
+entityManager.persist(entity); // po close()
+```
+
+---
+
+## 5️⃣ Przykłady z JDK (REKRUTACYJNE!)
+
+### `Iterator.remove()`
+
+```java
+Iterator<String> it = list.iterator();
+it.remove(); // IllegalStateException
+```
+
+### `Scanner`
+
+```java
+scanner.next(); // po close() → IllegalStateException
+```
+
+---
+
+## 6️⃣ Czego NIE robić ❌
+
+❌ Nie używaj zamiast `IllegalArgumentException`
+❌ Nie łap lokalnie
+❌ Nie używaj do błędów zewnętrznych
+
+---
+
+## 7️⃣ Dobre praktyki ✅
+
+✔️ Rzucaj **fail-fast**
+✔️ Jasny komunikat (jaki stan jest zły)
+✔️ Sprawdzaj stan na początku metody
+✔️ Idealny do **kontroli cyklu życia obiektu**
+
+---
+
+## 8️⃣ Rekrutacyjne pytania 🎯
+
+❓ Argument poprawny, ale metoda wywołana za wcześnie → ?
+➡️ `IllegalStateException`
+
+❓ Checked czy unchecked?
+➡️ **Unchecked**
+
+❓ Czy można rzucać w konstruktorze?
+➡️ Raczej **IllegalArgumentException**, nie `IllegalStateException`
+
+---
+
+## 9️⃣ Złota reguła ⭐
+
+> **IllegalArgumentException** → *co przekazano*
+> **IllegalStateException** → *kiedy wywołano*
+
+---
+
+## 🔟 Podsumowanie – MUST KNOW
+
+* `IllegalStateException` = unchecked
+* Błąd stanu obiektu
+* Zła kolejność wywołań
+* Cykl życia obiektu
+* Bardzo częsty w JDK i frameworkach
+
+---
+
+Chcesz teraz:
+👉 **QUIZ z IllegalStateException**
+👉 **porównanie IllegalState vs IllegalArgument (hard)**
+👉 **kolejny wyjątek: IndexOutOfBoundsException**
+👉 **zadania rekrutacyjne (lifecycle bugs)**
+
+Co dalej? 😄

@@ -1,0 +1,24 @@
+Aby dobrze umieć Interfejs Cloneable warto znać:
+Interface:
+Function,
+Collections,
+Serializable,
+ToIntFunction,
+oLongFunction,
+ToDoubleFunction
+Comparable,
+
+
+Class:
+Object
+Objects
+Comparators
+Comparators.NaturalOrderComparator
+Collections
+Long
+Double
+Integer
+
+Exceptions:
+ClassCastException
+NullPointerException

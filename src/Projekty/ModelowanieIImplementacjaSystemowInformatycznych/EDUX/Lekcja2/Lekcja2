@@ -1,0 +1,606 @@
+Modelowanie i Analiza Systemów Informacyjnych (MAS)
+
+Lekcja 02 - Wykorzystanie klas w obiektowych językach programowania (2)
+Autor: dr inż. Mariusz Trzaska
+Efekty kształcenia
+Student:
+
+tłumaczy sposób realizacji konstrukcji takich jak: metoda obiektu i klasowa, przeciążenie metody, trwałość ekstensji w języku naturalnym (zrozumienie);
+identyfikuje i poprawia błędy w kodzie źródłowym, który stanowi implementację w/w konstrukcji (zrozumienie);
+wymienia konstrukcje zaimplementowane we wskazanym kodzie źródłowym (zrozumienie);
+implementuje w/w konstrukcje korzystając z wybranego języka programowania (zastosowanie);
+wskazuje różnice w zakresie funkcjonalności między dwoma wybranymi programami na podstawie fragmentów kodów źródłowych (analiza);
+tworzy program realizujący określone wymagania biznesowe wykorzystując przy tym konstrukcje poznane na wykładach (synteza);
+Uzasadnienie
+Współczesne języki programowania są w większości oparte o paradygmat obiektowy. W związku z tym jego praktyczne zrozumienie jest niezbędną podstawą do pracy w tym zawodzie. Co więcej, programiści często tworzą systemy w oparciu o materiały analityczne. A te w dużej mierze wykorzystują obiektowe notacje graficzne (np. UML). W trakcie tej i następnych lekcji, pogłębisz swoją więdzę teoretyczną, ale przede wszystkim poznasz sposoby implementacji różnych pojęć z obiektowości. Dzięki temu będziesz w stanie projektować oraz implementować nowoczesne aplikacje biznesowe.
+
+Większość pojęć teoretycznych poruszanych na przedmiocie MAS została dokładnie omówiona na przedmiocie PRI. Na MAS-ach zajmujemy się ich praktycznym wykorzystaniem (implementacją). W związku z tym osoby, które mają problemy z ich zrozumieniem powinny zacząć od przypomnienia sobie materiału z PRI.
+
+Niemniej, w miarę możliwości, będziemy podawali i omawiali niezbędne definicje.
+
+To samo dotyczy programowania w języku Java.
+
+Metody obiektu
+Metody służą do opisu zachowania obiektu. Każda z nich może zwracać jakąś wartość (ale nie musi) i pobierać parametry (również nie musi). W przeciwieństwie do atrybutów, gdzie zróżnicowanie było spore, tutaj mamy dość prosty podział:
+
+Metoda obiektu ma dostęp i operuje tylko na konkretnym obiekcie (na rzecz, którego została wywołana).
+
+Dokładniej rzecz umując, mają dostęp do jego atrybutów oraz innych metod tego obiektu (czyli zdefiniowanych w klasie, do której należy ten obiekt). Nie mamy możliwości bezpośredniego odwołania się do innego obiektu (w tym jego zawartości) – nawet z tej samej klasy. Można powiedzieć w uproszczeniu, że pojedynczy obiekt nie jest świadomy istnienia innych obiektów danej klasy (chyba że dostanie się do nich poprzez ekstensję). Przykłady to (z dokładnością do nazewnictwa):
+
+string PodajNazwisko(), zwracamy nazwisko konkretnego pracownika (tego, na rzecz którego wywołaliśmy tę metodę).
+void ZmienPensje(double NowaPensja), zmieniamy pensję konkretnego pracownika.
+bool CzyJestKobieta(), pytamy czy konkretny pracownik jest kobietą.
+A jak to ma się do języków programowania? Metody obiektu w Java, C# czy C++ mają taką samą semantykę jak w obiektowości (UML). Konkretna metoda operuje na obiekcie, na rzecz którego została wywołana. Ma dostęp do jego wszystkich elementów: atrybutów oraz innych metod. W ciele metody możemy używać specjalnego słowa kluczowego this, które jest referencją na obiekt, na rzecz którego metoda została wywołana (więcej na ten temat w książkach poświęconych językowi Java). Przykładowy kod bardzo prostej metody jest pokazany na poniższym listingu:
+
+1
+2
+3
+4
+public float getPrice() {
+    return price;
+}
+Sprawdzenie wiedzy
+Które twierdzenia są prawdziwe?
+
+W celu stworzenia metody obiektu w języku Java, należy użyć słowa kluczowego object.
+
+Metoda obiektu może modyfikować tylko atrybuty instancji, na rzecz której została wywołana.
+
+
+Metody klasowe
+Metoda klasowa ma dostęp do całej ekstensji, a zatem do wszystkich obiektów należących do danej klasy.
+
+Może na nich operować, ale nie musi: może być np. metoda klasowa, która zwróci jakąś wartość bez „zaglądania” do ekstensji (dlatego stwierdzenie, że metody klasowe operują na całej ekstensji, nie jest do końca precyzyjne). Analogicznie jak w przypadku atrybutów, metody klasowe wywołujemy na rzecz klasy, a nie konkretnego obiektu. Dzięki temu można z nich korzystać nawet, gdy nie ma jeszcze obiektów danej klasy. Przykłady:
+
+Pracownik PodajNajlepszegoPracownika(),
+void ZmienPensje(double nowaPensja), analogiczny przykład był podany dla metod obiektu, ale tutaj ma inne znaczenie; tam zwiększaliśmy pensję jednemu pracownikowi, tutaj wszystkim (całej ekstensji).
+Metody klasowe w rozumieniu obiektowości niestety nie występują w popularnych językach programowania. Tutaj ktoś mógłby zaprotestować: chwileczkę, a słowo kluczowe static? Przecież rozwiązało problem atrybutów klasowych – czy tutaj nam nie pomoże? Częściowo tak, ale nie do końca – proponuję przypomnieć sobie, co przed chwilą pisaliśmy o metodach klasowych.
+
+Otóż metoda klasowa charakteryzuje się następującymi cechami:
+
+Można ją wywołać na rzecz klasy. Dzięki temu możemy jej używać nawet gdy nie ma żadnych obiektów danej klasy. I to możemy uzyskać za pomocą słowa kluczowego static występującego i w Java, i w C++, jak również w C#.
+Drugą, bardzo ważną cechą jest dostęp do ekstensji klasy. I tutaj zaczyna się problem. Powiedzieliśmy, że w językach, które nas interesują, nie ma ekstensji klasy, co oczywiście oznacza, że i metoda ze słowem static nie może mieć do niej automatycznie dostępu.
+W efekcie musimy sami jakoś zaimplementować metodę klasową. Nasze podejście zależy od sposobu zarządzania ekstensją:
+
+Ekstensja w ramach tej samej klasy. Metody klasowe w tej samej klasie ze słowem kluczowym static. Ponieważ w tej samej klasie istnieje kontener też zadeklarowany ze słowem kluczowym static, nasza metoda klasowa ma bezproblemowy dostęp do niego,a co za tym idzie, do ekstensji.
+Ekstensja jako klasa dodatkowa. Metody klasowe umieszczamy w klasie dodatkowej – tym razem bez słowa kluczowego static.
+Poniżej znajduje się przykład pokazujący dwie metody klasowe zrealizowane w ramach tej samej klasy biznesowej:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+package mt.mas;
+ 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+ 
+public class Employee {
+    private static List<Employee> extent = new ArrayList<>();
+ 
+    private double salary;
+    private String name;
+ 
+    // ...
+ 
+    public Employee(String name, double salary) {
+        this.salary = salary;
+        this.name = name;
+ 
+        // Add to the extent
+        extent.add(this);
+    }
+ 
+    public double getSalary() {
+        return salary;
+    }
+ 
+    public void setSalary(double newSalary) {
+        this.salary = newSalary;
+    }
+ 
+    public String getName() {
+        return name;
+    }
+ 
+    public void setName(String name) {
+        this.name = name;
+    }
+ 
+    @Override
+    public String toString() {
+        return String.format("Emp '%s' sal: %s", getName(), getSalary());
+    }
+ 
+    /**
+        * Class method returning all employees having a salary higher the the given minimum.
+        * @param minSalary
+        * @return
+        */
+    public static List<Employee> findEmployeesWithMinSalary(float minSalary) {
+        // Using Java 8 Functional Streams to find/process data
+        return extent.stream().filter(emp -> emp.getSalary() > minSalary).collect(Collectors.toCollection(ArrayList::new));
+    }
+ 
+    /**
+        * Class method setting a new salary for all the employees.
+        * @param newSalary
+        */
+    public static void changeSalary(double newSalary) {
+        // For each employee in the extent
+        for (Employee p : extent) {
+            p.setSalary(newSalary);
+        }
+    }
+}
+Sprawdzenie wiedzy
+Które twierdzenia są prawdziwe?
+
+W celu stworzenia metody klasowej w języku Java, należy użyć słowa kluczowego class.
+
+Metoda klasowa może byc użyta nawet wtedy gdy nie ma żadnego obiektu danej klasy.
+
+
+Przeciążanie metod
+Przeciążenie metody nie jest konstrukcją czysto obiektową, ponieważ nie wykorzystuje jakichś szczególnych pojęć z obiektowości. Mimo wszystko jest wykorzystywana chyba we wszystkich współczesnych językach obiektowych i dlatego warto ją omówić.
+
+Przeciążenie metody to stworzenie kolejnej metody o takiej samej nazwie jak metoda przeciążana, ale różnej liczbie i/lub typie parametrów.
+
+Po co nam druga „taka sama” metoda? Czy to nam się do czegoś przyda? Spójrzmy na poniższy przykład:
+
+1
+2
+3
+4
+5
+6
+7
+public float getPrice() {
+    return price;
+}
+public float getPrice(float vatRate) {
+    return price * (1.0f + vatRate / 100.0f);
+}
+W jakiejś klasie, np. Produkt jest metoda zwracająca jego cenę netto. Co zrobić, jeżeli chcemy dowiedzieć się o cenę brutto? Możemy utworzyć metodę, np. getCenaBrutto(). Innym sposobem jest przeciążenie podstawowej metody za pomocą parametru określającego np. stawkę VAT (w procentach). Dzięki temu, odwołując się do niej w kodzie programu, nie musimy przypominać sobie jej szczególnej nazwy – po prostu wołamy metodę zwracającą cenę uzupełnioną o parametr.
+
+Trwałość ekstensji
+Trwała ekstensja klasy występuje wtedy gdy jej obiekty „przeżyją” wyłączenie systemu – po jego ponownym włączeniu będziemy mieli te same obiekty.
+
+O ważności tej cechy nie trzeba chyba nikogo przekonywać. W takiej czy innej formie występuje w prawie wszystkich systemach komputerowych: poczynając od gier (zapamiętujemy stan gry, który jest właśnie definiowany przez stan obiektów w grze), poprzez aplikacje biurowe (np. edytor, w którym piszę te materiały), a kończąc na bazach danych.
+
+W językach programowania takich jak Java, MS C# czy C++ cecha ta nie występuje bezpośrednio. Mamy tu na myśli fakt, że nie ma jakiegoś specjalnego słowa kluczowego, którego użycie razem z np. definicją klasy zapewni trwałość jej ekstensji. Dlatego trzeba ją jakoś zaimplementować. Jednym ze sposobów jest „ręczne” zapamiętywanie ekstensji na dysku, a następnie wczytywanie. Inne, bardziej nietypowe może być wykorzystywanie takich pamięci w komputerze, które nie tracą swojego stanu po wyłączeniu zasilania (np. Flash).
+
+Najczęstszym sposobem realizacji trwałości jest skorzystanie z pliku dyskowego. Polega to na zapisie danych do pliku oraz ponownym ich wczytaniu do pamięci po ewentualnym wyłączeniu oraz włączeniu oprogramowania. Takie podejście niesie ze sobą pewien problem. Najkrócej można go scharakteryzować w sposób następujący: po wczytaniu nie mamy tych samych obiektów, ale takie same. Czy to jest problem? Owszem może być. Po pierwsze, nie jest to do końca idealna trwałość, bo w niej mamy te same obiekty. Po drugie, co ważniejsze z praktycznego punktu widzenia, narażamy się na problemy wynikające z faktu istnienia powiązań pomiędzy obiektami. Jeżeli używamy natywnych referencji języka programowania, to oznaczają one konkretne miejsca w pamięci, gdzie rezydują powiązane obiekty. Jeżeli wczytamy je z pliku i na nowo utworzymy, to na 99% będą umieszczone gdzie indziej, a przecież odczytane referencje pokazują na „stare” miejsca. Trzeba sobie z tym jakoś poradzić – pokażemy dalej, jak to zrobić.
+
+Na szczęście nowsze języki programowania takie jak Java oraz C# udostępniają mechanizm zwany serializacją. Technika ta znacząco automatyzuje i ułatwia zapewnienie trwałości danych. W kolejnych blokach przeanalizujemy te dwa podejścia: ręczne oraz (pół) automatyczne.
+
+Sprawdzenie wiedzy
+Które twierdzenia są prawdziwe?
+
+Jednym ze sposobów uzyskiwania trwałości ekstensji jest jej zapis do pliku.
+
+Aplikacje biznesowe nie potrzebują trwałości ekstensji.
+
+
+Trwałość ekstensji – rozwiązanie ręczne
+W porównaniu z wykorzystaniem serializacji ręczna implementacja ma prawie same zalety – oprócz jednej. Tą jedyną wadą jest dość duża pracochłonność – szczególnie, jeżeli chce się optymalnie rozwiązać problem z powiązaniami obiektów. Wracając do zalet tego podejścia:
+
+Szybkość. Bezpośrednio wybieramy elementy, które mają być zapisywane oraz tryb (np. binarny, tekstowy, strukturalno-tekstowy) tego zapisu. Dzięki temu wykorzystujemy maksymalną szybkość oferowaną przez dany język programowania.
+Duża kontrola nad efektem końcowym. To my – programiści jesteśmy odpowiedzialni za całą implementację, co umożliwia całkowitą kontrolę tego, co zapisujemy (bo nie musimy chcieć zapamiętywać wszystkiego) oraz jak zapisujemy.
+Większa odporność na zmiany w kodzie utrwalanych klas. Do tego wrócimy przy okazji opisu metody z serializacją.
+Mały plik. Dzięki temu, że zapisujemy tylko wybrane elementy, plik może być tak mały jak tylko się da to uzyskać, chcąc zapamiętać określoną ilość danych, np. w jednym z projektów nad którym pracowałem, zapisywane pliki były dość duże. Przyczyną było zapamiętywanie kolejnych współrzędnych położenia na ekranie pewnych elementów (jako liczba typu int – zajmują 4 bajty każda). Ponieważ ich wartości były z zakresu 0 – 1000, zdecydowaliśmy się na typ short (2 bajty). Po analizie danych zastosowaliśmy jeszcze sprytniejsze rozwiązanie. Zapamiętujemy tylko różnice pomiędzy współrzędnymi. Ponieważ są one stosunkowo niewielkie to mieszczą się w zakresie 0-255. Dzięki temu możemy je zapisywać korzystając z jednego bajtu. Jak widać, czasami sposób zapisu danych ma niewiele wspólnego z ich fizycznym przechowywaniem w klasie.
+Oczywiście ręcznych sposobów implementacji trwałości danych jest bardzo dużo. Jedno z możliwych rozwiązań znajduje się poniżej:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+public class Movie {
+ 
+    //   [...]
+ 
+    private String title;
+    private float price;
+    private LocalDate additionDate;  // requires Java 8+
+ 
+    private void write(DataOutputStream stream) throws IOException {
+        stream.writeUTF(title);
+        stream.writeFloat(price);
+        stream.writeLong(additionDate.toEpochDay());    // count of days where day 0 is 1970-01-01 (ISO)
+    }
+ 
+    private void read(DataInputStream stream) throws IOException {
+        title = stream.readUTF();
+        price = stream.readFloat();
+        long epochDay = stream.readLong();
+        additionDate = LocalDate.ofEpochDay(epochDay);
+    }
+}
+Uwagi do powyższego listingu:
+
+(5). Standardowe atrybuty przechowujące dane biznesowe.
+(9). Metoda dokonująca zapisu danych biznesowych do pliku. A dokładniej rzecz biorąc, do strumienia. (Dlaczego nie do pliku? Dzięki tak podzielonej funkcjonalności można zapisywać również inne ekstensje do tego samego strumienia. Dzięki temu otrzymujemy jeden plik zawierający wszystkie ekstensje z naszego systemu.) W jej ciele, po kolei zapisujemy, atrybut po atrybucie.
+(15). Metoda odczytująca dane. Zwróćmy uwagę na kolejność – jest ona identyczna z kolejnością zapisu.
+(12), (19). Standardowe metody zapisujące typy proste w Javie nie potrafią poradzić sobie z datą. W związku z tym zapisujemy liczbę dni (12), a następnie na jej podstawie konstruujemy obiekt daty (19).
+Oprócz metod zapisujących i odczytujących stan pojedynczego obiektu, potrzebujemy metod zapisujących oraz odczytujących stan całej ekstensji. Naturalnie umieszczamy je w klasie zarządzającej ekstensją lub w ramach samej klasy biznesowej (jeżeli takie rozwiązanie wybraliśmy dla przechowywania ekstensji). Przykładowa implementacja:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+public class Movie {
+ 
+    //   [...]
+ 
+    private static List<Movie> extent = new ArrayList<>();
+ 
+    public static void writeExtent(DataOutputStream stream) throws IOException {
+        // Number of objects
+        stream.writeInt(extent.size());
+ 
+        for (Movie movie : extent) {
+            movie.write(stream);
+        }
+    }
+ 
+    public static void readExtent(DataInputStream stream) throws IOException {
+        Movie movie = null;
+ 
+        // Get the number of written objects
+        int objectCount = stream.readInt();
+ 
+        // remove the current extent
+        extent.clear();
+ 
+        for (int i = 0; i < objectCount; i++) {
+            movie = new Movie();
+            movie.read(stream);
+        }
+    }
+}
+Komentarz do powyższego kodu:
+
+(3). Ze względu na czytelność nie pokazano konstruktora dodającego nowo utworzony obiekt do kontenera oraz innych składowych klasy.
+(7). Metoda zapisująca ekstensję do podanego strumienia.
+(9). Na początku zapisujemy liczbę obiektów w ekstensji – będzie to potrzebne przy odczycie.
+(11). Następnie iterujemy po całym kontenerze zawierającym referencje do poszczególnych obiektów i wywołujemy metodę zapisującą pojedynczy obiekt (pokazaną wcześniej).
+(16). Metoda odczytująca zawartość ekstensji z podanego strumienia.
+(20). Najpierw odczytujemy liczbę zapisanych obiektów.
+(23). Czyścimy dotychczasową zawartość ekstensji (usuwamy wszystkie aktualnie istniejące obiekty danej klasy).
+(25). Znając liczbę zapisanych obiektów, w pętli tworzymy obiekty (26) oraz odczytujemy ich zawartość, wywołując metodę dla każdego z nich (27).
+Spójrzmy jak możemy z tego korzystać:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+// a test method
+ 
+final String extentFile = "d:\\mas-extent.bin"; // TODO update the file location
+ 
+var movie1 = new Movie("Terminator 1", LocalDate.now(), 29.90f);
+var movie2 = new Movie("Terminator 2", LocalDate.now(), 34.90f);
+ 
+// A test: persistency of the extent (manual impl.)
+try {
+    // Write the extent to the given stream
+    var out2 = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(extentFile)));
+    Movie.writeExtent(out2);
+    out2.close();
+ 
+    // Read the extent from the given stream
+    var in2 = new DataInputStream(new BufferedInputStream(new FileInputStream(extentFile)));
+    Movie.readExtent(in2);
+    in2.close();
+} catch (IOException e) {
+    e.printStackTrace();
+}
+ 
+Movie.showExtent();
+Komentarz:
+
+(3). Określenie lokalizacji pliku na dysku, który będzie przechowywał ekstensję.
+(5). Utworzenie dwóch przykładowych instancji (obiektów) klasy Film. Dzięki specjalnej konstrukcji konstruktora obiekty są automatycznie dodawane do ekstensji.
+(11). Utworzenie strumienia wyjściowego podłączonego do pliku.
+(12). Wywołanie metody klasowej powodującej zapisanie ekstensji do podanego strumienia.
+(13). Zamknięcie strumienia. Jest to bardzo ważny element, którego pominięcie może skutkować różnymi błędami, np. blokadą pliku czy utratą części „zapisanych” danych.
+(16). Utworzenie strumienia do czytania z pliku.
+(17). Wywołanie metody klasowej odczytującej zawartość pliku.
+(18). Zamknięcie strumienia.
+(20). Niezbędna obsługa wyjątków.
+Poniżej widzimy zawartość konsoli po uruchomieniu powyższego programu. Warto zwrócić uwagę na fakt, że liczby po znaku „@” (jak wspomnieliśmy są to adresy w pamięci) są inne przed zapisem i po odczycie. Jest to ilustracja naszego stwierdzenia, że wykorzystanie zapisu do pliku skutkuje tym, iż otrzymujemy takie same obiekty (bo tytuły filmów się zgadzają), ale nie te same obiekty (bo ich komputerowa tożsamość (referencje - adresy) jest inna).
+
+1
+2
+3
+4
+5
+6
+7
+Extent of the class: mt.mas.Movie
+Movie: Terminator 1, id: mt.mas.Movie@61a485d2
+Movie: Terminator 2, id: mt.mas.Movie@1810399e
+Extent of the class: mt.mas.Movie
+Movie: Terminator 1, id: mt.mas.Movie@4439f31e
+Movie: Terminator 2, id: mt.mas.Movie@5dfcfece
+Sprawdzenie wiedzy
+Które twierdzenia są prawdziwe?
+
+Metoda utrwalająca pojedynczy obiekt powinna, jako parametr, przyjmować nazwę pliku.
+
+Metoda utrwalająca wszystkie ekstensje powinna, jako parametr, przyjmować nazwę pliku.
+
+
+Trwałość ekstensji – problem z powiązaniami
+Przedstawiony powyżej sposób ręcznej implementacji trwałości jest bardzo prosty. Sprawdza się całkiem nieźle przy zapisie poszczególnych instancji. Niestety nie pozwala na właściwe traktowanie powiązanych obiektów. Spójrzmy na rysunek:
+
+Powiązania pomiędzy obiektami
+Przedstawia on fragment dwóch ekstensji klas: Film oraz Aktor. Obiekty z tych klas są ze sobą powiązane w dwóch kierunkach, tzn. film ma połączenie do aktorów, którzy w nim grali oraz aktor jest połączony ze wszystkimi filmami, w których grał. Na czym polega problem? Otóż zastanówmy się, jak byśmy zapisywali te ekstensje do pliku oraz później je odczytywali?
+
+Tak jak w zaprezentowanym podejściu, próbujemy zapisać obiekty z klasy film – jeden po drugim. Ale jak zapamiętamy informacje o aktorach danego filmu? Powiedzieliśmy wcześniej, że zapis referencji jako liczby nie zadziała, ponieważ przy odczycie obiekt znajdzie się w innym miejscu pamięci (więc i referencja powinna być inna). Możemy spróbować zapisywać w ten sposób:
+
+Tak jak dotychczas zapisujemy poszczególne atrybuty,
+Gdy natrafimy na obiekt, to wywołujemy na jego rzecz metodę write(). Analogicznie jak wywoływaliśmy taką metodę z poziomu zapisu ekstensji. Czy to zadziała? Są tu dwa potencjalne problemy: zapętlenie się (z filmu wywołamy zapis aktora, z aktora zapis filmu itd. – trzeba to jakoś rozwiązać) oraz wielokrotny zapis tych samych elementów. Polega to na tym, że na ten sam obiekt może pokazywać wiele różnych obiektów. Stosując taką prostą metodę, informacje o aktorze „Arnold Schwarzenegger” zapiszemy przy okazji utrwalania każdego przykładowego filmu (bo ten aktor grał w każdym z nich).
+Jak widać, nie jest to najlepszy sposób. Można spróbować innego podejścia:
+
+Każdy z obiektów ma własny, unikatowy identyfikator.
+Gdy natrafimy na konieczność zapisu informacji o obiekcie, zapamiętujemy jego id, a nie referencję.
+Odczyt tak zapisanego pliku przebiega dwutorowo: najpierw wczytujemy dane z identyfikatorami, a następnie podmieniamy identyfikatory na natywne referencje.
+Nie będziemy podawać przykładowej implementacji bo byłaby dość skomplikowana - zamiast tego skorzystamy z gotowego mechanizmu zwanego serializacją.
+
+Sprawdzenie wiedzy
+Które twierdzenia są prawdziwe?
+
+Problem trwałości ekstensji, spowodowany powiązaniami, jest spowodowany słabą wydajnością platformy Java.
+
+Jednym ze sposobów na efektywne utrwalanie powiązań pomiędzy obiektami jest wykorzystanie referencji.
+
+
+Trwałość ekstensji – serializacja
+Serializacja jest mechanizmem zaimplementowanym w ramach bibliotek języka Java. Umożliwia automatyczne:
+
+zapisywanie grafu obiektów do strumienia,
+odczytywanie grafu obiektów ze strumienia.
+Co to znaczy, że zapisujemy/odczytujemy cały graf obiektów? Na tym właśnie polega użyteczność tego mechanizmu. Wróćmy na chwilę do przykładu z powyższego rysunku. Zapisując informacje o obiekcie klasy film o nazwie „Terminator 1”, zapisujemy również informacje o wszystkich obiektach, na które on pokazuje czyli „Arnold Schwarzenegger” oraz „Michael Biehn” (oba z klasy Aktor). Zapisywane są też informacje o wszystkich obiektach wskazywanych przez te obiekty, czyli w tym przykładzie wszystkie filmy oraz wszyscy aktorzy. Innymi słowy, mechanizm serializacji dba, aby wszystkie osiągalne obiekty (nieważne przez ile obiektów pośredniczących trzeba „przejść”) były w prawidłowym stanie. I robi to tak sprytnie, że rozwiązuje problemy, które wcześniej wymieniliśmy: zapętlenia się oraz wielokrotnego zapisu tych samych obiektów.
+
+Jeżeli chcemy, aby zapis odbywał się z optymalnym wykorzystaniem zasobów, to musimy wszystkie serializowane elementy wysyłać do jednego strumienia – nawet te pochodzące z różnych klas. W przeciwnym wypadku „komputer” nie będzie w stanie wychwycić tych powtórzeń. Z tego powodu, serializacja do wielu plików (np. jeden plik na jedną ekstensję) jest ewidentnym błędem – i tak w każdym pliku zapisują się całe grafy powiązanych obiektów, obejmujące wiele ekstensji (gdy obiekty z wielu ekstensji są ze sobą powiązane).
+
+Jedynym wymogiem, który trzeba spełnić, aby korzystać z serializacji, jest „specjalna” implementacja przez klasę (oraz wszystkie jej elementy składowe) interfejsu Serializable. Owa specjalność implementacji interfejsu polega na tym, że w najprostszym przypadku deklarujemy jego implementację przez klasę, ale nie musimy ręcznie implementować jego metod. Tym zajmie się „kompilator” języka Java. Interfejs ten musi być zaimplementowany nie tylko przez obiekt, od którego zaczyna się zapis (graf obiektów), ale przez wszystkie obiekty, które są zapisywane. W przeciwnym wypadku zobaczymy informację o wyjątku. Dobra wiadomość jest taka, że większość klas udostępnianych przez język Java czy C# implementuje ten interfejs.
+
+Z punktu widzenia programisty możemy wymienić następujące cechy takiego podejścia do trwałości ekstensji:
+
+Łatwość użycia. W najprostszym przypadku polega to na dodaniu dwóch słów do definicji klasy.
+Mniejsza szybkość działania.
+Większy plik niż w przypadku zapisu ręcznego. Te dwie ostatnie cechy są spowodowane tym, że razem z biznesowymi danymi klasy zapisywane są różnego rodzaju informacje techniczne. Nie dość, że zajmują miejsce, to jeszcze ich pozyskanie trochę spowalnia cały proces. Kolejną przyczyną spowolnienia jest konieczność uzyskania informacji o budowie klasy w trakcie działania programu.
+Dość duża wrażliwość na zmiany w kodzie klas. Tak się składa, że większość zmian, które wprowadzimy do kodu źródłowego wykorzystującego serializację, spowoduje brak kompatybilności zapisanych danych. Innymi słowy: serializujemy obiekty klasy, wprowadzamy zmiany do kodu źródłowego, a przy próbie odczytu danych możemy otrzymać wyjątek. Taka sytuacja może mieć miejsce nawet wtedy, gdy nie zmienimy atrybutów klasy (bo to byłoby dość oczywiste), ale nawet wtedy, gdy np. dodamy jakąś metodę.
+Na szczęście mamy pewne możliwości kontrolowania sposobu działania serializacji:
+
+Dodanie i przesłonięcie (własną implementacją zapisu/odczytu) poniższych metod:
+private void writeObject(ObjectOutputStream stream) throws IOException,
+private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException,
+Oznaczenie wybranych atrybutów słowem kluczowym transient. Dzięki temu nie będą one automatycznie zapisywane.
+Poniżej znajdują się dwa listingi: kod klasy biznesowej z zadeklarowaną implementacją interfejsu Serializable oraz sposób jego użycia. Tak jak wspomnieliśmy, warto zwrócić uwagę, że tak naprawdę w klasie nie umieszczamy metod znajdujących się w tym interfejsie. Czyli tak jak obiecaliśmy, cała sprawa polega na dodaniu dwóch słów: implements Serializable.
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+public class Movie implements Serializable {
+    //   [...]
+ 
+    private String title;
+    private float price;
+    private LocalDate additionDate;  // requires Java 8+
+ 
+    private static List<Movie> extent = new ArrayList<>();
+ 
+    public static void writeExtent(ObjectOutputStream stream) throws IOException {
+        stream.writeObject(extent);
+    }
+ 
+    public static void readExtent(ObjectInputStream stream) throws IOException, ClassNotFoundException {
+        extent = (ArrayList<Movie>) stream.readObject();
+    }
+}
+I pozostało nam jeszcze zademonstrowanie wykorzystania serializacji:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+final String extentFile = "d:\\mas-extent.ser"; // TODO update the file location
+ 
+var movie1 = new Movie("Terminator 1", LocalDate.now(), 29.90f);
+var movie2 = new Movie("Terminator 2", LocalDate.now(), 34.90f);
+ 
+// A test: persistency of the extent (impl. using serialization)
+try {
+    // Write the extent to the given stream
+    var out = new ObjectOutputStream(new FileOutputStream(extentFile));
+    Movie.writeExtent(out);
+    out.close();
+ 
+    // Read the extent from the given stream
+    var in = new ObjectInputStream(new FileInputStream(extentFile));
+    Movie.readExtent(in);
+    in.close();
+} catch (IOException | ClassNotFoundException e) {
+    e.printStackTrace();
+}
+ 
+Movie.showExtent();
+Sprawdzenie wiedzy
+Które twierdzenia są prawdziwe?
+
+W celu poprawy wydajności, każdą ekstensję należy serializować do oddzielnego pliku.
+
+W celu skorzystania z serializacji wystarczy zaimplementować interfejs ISerial.
+
+
+Inne sposoby uzyskiwania trwałości ekstensji
+Powyżej opisane sposoby utrwalania ekstensji (danych) nie wykorzystują dodatkowych komponentów – czy to w postaci bibliotek, czy zewnętrznych aplikacji. To nie są jedyne możliwości, jakie ma programista. Można wyróżnić jeszcze co najmniej dwa podejścia.
+
+Pierwsze z nich to wykorzystanie bazy danych. Do jego największych wad należy na pewno zaliczyć konieczność ręcznego mapowania struktur języka Java na konstrukcje z bazy danych. Ponieważ aktualnie najpopularniejsze rozwiązania z baz danych są oparte na technologiach relacyjnych, programista jest zmuszony do zrezygnowania z większości konstrukcji obiektowych. Dlatego też należy zastąpić wszystkie te pojęcia występujące w obiektowości, równoważnymi konstrukcjami z modelu relacyjnego.
+
+Drugie rozwiązanie zakłada wykorzystanie gotowych bibliotek, które ułatwiają pracę z danymi (nie tylko trwałość). Często, pod warstwą pośredniczącą (którą jest właśnie biblioteka) znajduje się system zarządzania bazą danych.
+
+Wrócimy do tych zagadnień przy okazji kolejnych lekcji.

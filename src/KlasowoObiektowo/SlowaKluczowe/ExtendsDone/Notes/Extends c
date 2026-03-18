@@ -1,0 +1,205 @@
+## `extends` w Java – dziedziczenie klas
+
+---
+
+### 1️⃣ Czym jest `extends`?
+
+`extends` to słowo kluczowe używane do **dziedziczenia** jednej klasy po drugiej.
+
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Zwierzę wydaje dźwięk");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Hau hau");
+    }
+}
+```
+
+➡ `Dog` **dziedziczy** metody i pola klasy `Animal`.
+
+---
+
+### 2️⃣ Relacja „IS-A”
+
+`extends` oznacza relację **jest-typem**:
+
+* `Dog` **jest** `Animal`
+* `Car` **jest** `Vehicle`
+
+```java
+Animal a = new Dog(); // poprawne (polimorfizm)
+```
+
+---
+
+### 3️⃣ Co jest dziedziczone?
+
+Dziedziczone są:
+
+* metody (`public`, `protected`)
+* pola (`public`, `protected`)
+* metody `default` (z pakietu)
+
+❌ **Nie są dziedziczone**:
+
+* konstruktory
+* elementy `private`
+
+---
+
+### 4️⃣ Dziedziczenie a konstruktory
+
+Konstruktor **nie jest dziedziczony**, ale:
+
+* konstruktor klasy nadrzędnej **zawsze** wywołuje się jako pierwszy
+
+```java
+class Animal {
+    Animal() {
+        System.out.println("Animal created");
+    }
+}
+
+class Dog extends Animal {
+    Dog() {
+        System.out.println("Dog created");
+    }
+}
+```
+
+Wyjście:
+
+```
+Animal created
+Dog created
+```
+
+---
+
+### 5️⃣ `extends` a `super`
+
+* `super` pozwala odwołać się do:
+
+  * konstruktora klasy nadrzędnej
+  * metod/pól klasy nadrzędnej
+
+```java
+class Dog extends Animal {
+    Dog() {
+        super(); // wywołanie konstruktora Animal
+    }
+
+    @Override
+    void makeSound() {
+        super.makeSound();
+        System.out.println("Hau!");
+    }
+}
+```
+
+---
+
+### 6️⃣ Nadpisywanie metod (override)
+
+```java
+class Animal {
+    void move() {
+        System.out.println("Zwierzę się porusza");
+    }
+}
+
+class Bird extends Animal {
+    @Override
+    void move() {
+        System.out.println("Ptak lata");
+    }
+}
+```
+
+✔ sygnatura musi być taka sama
+✔ poziom dostępu nie może być węższy
+❌ metody `final` **nie mogą** być nadpisane
+
+---
+
+### 7️⃣ Ograniczenia `extends`
+
+* Java obsługuje **tylko pojedyncze dziedziczenie klas**
+
+```java
+class A {}
+class B {}
+// class C extends A, B {} ❌
+```
+
+* Ale można:
+
+  * implementować wiele interfejsów (`implements`)
+
+---
+
+### 8️⃣ `extends` w klasach abstrakcyjnych
+
+```java
+abstract class Shape {
+    abstract double area();
+}
+
+class Circle extends Shape {
+    double r;
+
+    Circle(double r) {
+        this.r = r;
+    }
+
+    @Override
+    double area() {
+        return Math.PI * r * r;
+    }
+}
+```
+
+---
+
+### 9️⃣ `extends` a modyfikatory dostępu
+
+| Modyfikator    | Dziedziczony       |
+| -------------- | ------------------ |
+| `public`       | ✅                  |
+| `protected`    | ✅                  |
+| brak (default) | ✅ (ten sam pakiet) |
+| `private`      | ❌                  |
+
+---
+
+### 🔟 Kiedy **nie używać** `extends`?
+
+❌ Gdy relacja **nie jest „IS-A”**
+❌ Gdy lepsza jest **kompozycja** niż dziedziczenie
+
+```java
+class Engine {}
+
+class Car {
+    private Engine engine; // lepsze niż extends
+}
+```
+
+---
+
+### 🧠 Podsumowanie
+
+* `extends` = dziedziczenie klasy
+* Jedna klasa nadrzędna
+* Podstawa polimorfizmu
+* Współpracuje z `super` i `@Override`
+* Używaj świadomie
+
+---
+
+Gdy będziesz gotowy, napisz **„quiz”**, a przygotuję solidny quiz o `extends` 💪

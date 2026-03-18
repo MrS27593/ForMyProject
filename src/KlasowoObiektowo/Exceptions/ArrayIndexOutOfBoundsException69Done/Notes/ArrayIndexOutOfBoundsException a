@@ -1,0 +1,49 @@
+Świetnie 👍 Oto **ODPOWIEDZI do quizu: `ArrayIndexOutOfBoundsException`** z krótkimi, **rekrutacyjnymi wyjaśnieniami** 👇
+
+---
+
+## ✅ **ODPOWIEDZI – ArrayIndexOutOfBoundsException**
+
+1️⃣ **B** – jest **unchecked exception** (`RuntimeException`)
+
+2️⃣ **B** – JVM rzuca go, gdy indeks jest **< 0 lub ≥ length**
+
+3️⃣ **C** – poprawne indeksy: **0–3**
+
+4️⃣ **C** – indeks `-1` → **ArrayIndexOutOfBoundsException**
+
+5️⃣ **C** – tablica o długości 0 → każdy indeks jest poza zakresem
+
+6️⃣ **C** – jedyna poprawna pętla: `i < arr.length`
+
+7️⃣ **C** – `i == arr.length` → indeks poza zakresem
+
+8️⃣ **B** – **sprawdzanie indeksu** to najlepsza praktyka
+
+9️⃣ **B** – `arr` jest `null` → **NullPointerException** (nie index!)
+
+🔟 **C** – jest podklasą `IndexOutOfBoundsException`
+
+1️⃣1️⃣ **D** – JVM **zawsze** sprawdza zakres indeksów tablic
+
+1️⃣2️⃣ **B** – warunek przed dostępem do tablicy = **BEST PRACTICE**
+
+---
+
+## 🧠 **Najważniejsze wnioski (must-know)**
+
+✔️ Tablice są **zero-based**
+✔️ `ArrayIndexOutOfBoundsException` rzuca **JVM**, nie programista
+✔️ Nie łap wyjątku → **zapobiegaj**
+✔️ `<= length` to klasyczny błąd
+✔️ `null` tablica ≠ index problem
+
+---
+
+Jeśli chcesz dalej:
+👉 **StringIndexOutOfBoundsException**
+👉 **ConcurrentModificationException**
+👉 **hard quiz – mieszane RuntimeExceptions**
+👉 **zadania: „co się stanie?”**
+
+Co następne? 😄

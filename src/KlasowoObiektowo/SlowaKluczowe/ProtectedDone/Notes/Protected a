@@ -1,0 +1,105 @@
+## ✅ Odpowiedzi – QUIZ `protected` w Java
+
+---
+
+### **1. Co oznacza modyfikator `protected` w Javie?**
+
+**✅ B. Dostęp w tej samej klasie, pakiecie i klasach dziedziczących**
+
+---
+
+### **2. Które elementy mogą być oznaczone jako `protected`?**
+
+**✅ C. Metody i pola**
+
+* Klasy najwyższego poziomu nie mogą być `protected`
+* Zmienne lokalne nie mają modyfikatorów dostępu
+
+---
+
+### **3. Gdzie element `protected` jest dostępny?**
+
+**✅ C. W pakiecie i w klasach dziedziczących (także w innym pakiecie)**
+
+---
+
+### **4. Jaka jest różnica między `protected` a brakiem modyfikatora?**
+
+**✅ C. `protected` dodaje dostęp dla klas dziedziczących**
+
+---
+
+### **5. Czy klasa najwyższego poziomu może być `protected`?**
+
+**✅ D. Nie**
+
+* Tylko `public` albo package-private
+
+---
+
+### **6. Co stanie się przy nadpisaniu metody `protected`?**
+
+**✅ B. Widoczność musi pozostać taka sama lub większa**
+
+* Można zwiększyć widoczność (np. do `public`), ale nie zmniejszyć
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład użycia `protected` zamiast `public`:**
+
+```java
+protected void calculateInternal() {
+    // logika tylko dla podklas
+}
+```
+
+* Metoda nie jest częścią API, ale potrzebna podklasom
+
+---
+
+### **8. (OTWARTE)**
+
+**Dlaczego `protected` jest często używane w klasach bazowych?**
+
+* Umożliwia rozszerzanie funkcjonalności
+* Chroni implementację przed światem zewnętrznym
+* Wspiera wzorce projektowe (Template Method)
+
+---
+
+### **9. Który kod jest poprawny?**
+
+**✅ B**
+
+```java
+class A {
+    protected int x;
+}
+```
+
+* Pozostałe przykłady są niepoprawne składniowo
+
+---
+
+### **10. Które zdanie o `protected` jest prawdziwe?**
+
+**✅ C. Jest szersze niż `private`, ale węższe niż `public`**
+
+---
+
+### 🧠 Podsumowanie
+
+* `protected` = pakiet + dziedziczenie
+* Idealny do klas bazowych
+* Często spotykany w frameworkach
+* Uważaj na nadmierne użycie przy polach
+
+---
+
+Następny logiczny krok:
+👉 **package-private (brak modyfikatora)**
+👉 albo **porównanie wszystkich modyfikatorów dostępu na jednym przykładzie**
+
+Daj znać, co robimy dalej 🚀

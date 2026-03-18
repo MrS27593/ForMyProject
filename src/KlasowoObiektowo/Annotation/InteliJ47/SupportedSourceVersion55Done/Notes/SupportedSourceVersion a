@@ -1,0 +1,116 @@
+Świetnie 👍
+Poniżej masz **kompletny klucz odpowiedzi do quizu: `@SupportedSourceVersion`** wraz z krótkimi, technicznymi wyjaśnieniami.
+
+---
+
+# ✅ **Odpowiedzi: Quiz `@SupportedSourceVersion`**
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Do czego służy `@SupportedSourceVersion`?
+
+**✅ B** – określa wersję Javy obsługiwaną przez **annotation processor**
+
+---
+
+### 2️⃣ Gdzie można jej użyć?
+
+**✅ C** – na klasach dziedziczących po `AbstractProcessor`
+
+---
+
+### 3️⃣ W jakim pakiecie się znajduje?
+
+**✅ C – `javax.annotation.processing`**
+
+---
+
+## 🔹 Część II – Działanie
+
+### 4️⃣ Co jeśli jej nie użyjesz?
+
+**✅ C** – pojawi się **ostrzeżenie kompilatora**
+
+---
+
+### 5️⃣ Wpływ na runtime?
+
+**✅ C – NIE**
+
+---
+
+## 🔹 Część III – `SourceVersion`
+
+### 6️⃣ Skąd pochodzi `SourceVersion`?
+
+**✅ C – `javax.lang.model`**
+
+---
+
+### 7️⃣ Najlepsza praktyka?
+
+**✅ D – `latestSupported()`**
+
+---
+
+## 🔹 Część IV – Praktyka
+
+### 8️⃣ Poprawny zapis?
+
+**✅ B**
+
+```java
+@SupportedSourceVersion(SourceVersion.RELEASE_17)
+```
+
+---
+
+### 9️⃣ Alternatywa dla adnotacji?
+
+**✅ B – `getSupportedSourceVersion()`**
+
+---
+
+### 🔟 Najczęstsze połączenie?
+
+**✅ C – `@SupportedAnnotationTypes`**
+
+---
+
+## ✍️ 1️⃣1️⃣ Przykładowa poprawna odpowiedź
+
+```java
+import javax.annotation.processing.AbstractProcessor;
+import javax.annotation.processing.SupportedSourceVersion;
+import javax.lang.model.SourceVersion;
+
+@SupportedSourceVersion(SourceVersion.latestSupported())
+public class MyProcessor extends AbstractProcessor {
+}
+```
+
+✔️ brak warningów
+✔️ zawsze aktualna wersja
+✔️ poprawny processor
+
+---
+
+## 🧠 Podsumowanie do zapamiętania
+
+> **`@SupportedSourceVersion` = informacja dla `javac`, jaką wersję Javy obsługuje processor**
+
+* tylko compile-time
+* tylko `AbstractProcessor`
+* brak wpływu na runtime
+* BEST PRACTICE: `latestSupported()`
+
+---
+
+Jeśli chcesz iść dalej (świetna ścieżka 👇):
+
+* ➡️ **`@SupportedAnnotationTypes` – następny krok**
+* ➡️ **`@SupportedOptions`**
+* ➡️ **napisz własny annotation processor krok po kroku**
+* ➡️ **pełna mapa Annotation Processing API**
+
+Co dalej? 😄

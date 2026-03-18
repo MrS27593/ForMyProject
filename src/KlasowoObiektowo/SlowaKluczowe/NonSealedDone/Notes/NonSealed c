@@ -1,0 +1,78 @@
+## WIEDZA – `non-sealed` w Java
+
+---
+
+### 1️⃣ Czym jest `non-sealed`?
+
+* `non-sealed` to **słowo kluczowe wprowadzone w Javie 17**.
+* Stosuje się je w połączeniu z **klasami sealed**.
+* Pozwala **otworzyć klasę potomną** dla dalszego dziedziczenia, mimo że klasa bazowa jest `sealed`.
+
+```java
+public sealed class Shape permits Circle, Rectangle { }
+
+public non-sealed class Circle extends Shape { }
+```
+
+📌 `Circle` może mieć własne podklasy, w przeciwieństwie do `final` (które zabrania dziedziczenia) i zwykłego `sealed`.
+
+---
+
+### 2️⃣ `sealed` vs `non-sealed` vs `final`
+
+| Typ klasy    | Co oznacza?                                                    |
+| ------------ | -------------------------------------------------------------- |
+| `sealed`     | Klasa ogranicza, które klasy mogą ją dziedziczyć               |
+| `non-sealed` | Klasa potomna **odblokowuje dziedziczenie** dla kolejnych klas |
+| `final`      | Klasa **nie może być dziedziczona**                            |
+
+---
+
+### 3️⃣ Przykład użycia
+
+```java
+public sealed class Vehicle permits Car, Bike {}
+
+public non-sealed class Car extends Vehicle {}
+
+public class SportsCar extends Car {} // Możliwe, bo Car jest non-sealed
+```
+
+* `SportsCar` może dziedziczyć po `Car`, mimo że `Vehicle` jest `sealed`.
+
+---
+
+### 4️⃣ Zasady stosowania
+
+* `non-sealed` może być używane **tylko w klasach potomnych klasy sealed**
+* Klasa oznaczona `non-sealed` **nie musi wymieniać dozwolonych podklas**
+* Pozwala na stopniowe otwieranie hierarchii klas
+
+---
+
+### 5️⃣ Przykład praktyczny – geometria
+
+```java
+sealed class Shape permits Circle, Square {}
+
+non-sealed class Circle extends Shape {}
+
+class RedCircle extends Circle {}
+```
+
+* `Circle` jest otwarta do dziedziczenia
+* `RedCircle` jest możliwa do utworzenia
+
+---
+
+### 6️⃣ Podsumowanie
+
+* `non-sealed` = **otwiera dziedziczenie w klasach sealed**
+* Użyteczne przy projektowaniu **bezpiecznych hierarchii klas**
+* Razem z `sealed` i `final` daje pełną kontrolę nad dziedziczeniem
+
+---
+
+Gdy będziesz gotowy, mogę przygotować **quiz o `non-sealed`** w tym samym stylu co poprzednie słowa kluczowe ✅
+
+Chcesz, żebym to zrobił?

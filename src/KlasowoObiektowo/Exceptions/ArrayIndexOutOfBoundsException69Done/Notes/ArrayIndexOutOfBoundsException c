@@ -1,0 +1,144 @@
+Świetnie 👍
+Zaczynamy **ArrayIndexOutOfBoundsException** — krótko, konkretnie i **pod rekrutacje**.
+
+---
+
+## 🧠 ArrayIndexOutOfBoundsException – co to jest?
+
+`ArrayIndexOutOfBoundsException` to **unchecked exception** (`RuntimeException`), rzucany wtedy, gdy:
+
+➡️ próbujesz odwołać się do **indeksu tablicy poza jej zakresem**
+
+```java
+int[] arr = {1, 2, 3};
+arr[3];   // ❌ ArrayIndexOutOfBoundsException
+arr[-1];  // ❌ ArrayIndexOutOfBoundsException
+```
+
+---
+
+## 📌 Zakres indeksów tablicy
+
+Dla tablicy:
+
+```java
+int[] arr = new int[5];
+```
+
+✔️ poprawne indeksy: `0 .. 4`
+❌ błędne indeksy: `< 0` lub `>= arr.length`
+
+---
+
+## 🧬 Hierarchia
+
+```text
+Object
+ └── Throwable
+     └── Exception
+         └── RuntimeException
+             └── IndexOutOfBoundsException
+                 └── ArrayIndexOutOfBoundsException
+```
+
+---
+
+## ⚠️ Najczęstsze przyczyny
+
+### 1️⃣ Błędna pętla
+
+```java
+for (int i = 0; i <= arr.length; i++) { // ❌
+    System.out.println(arr[i]);
+}
+```
+
+✅ poprawnie:
+
+```java
+for (int i = 0; i < arr.length; i++) {
+    System.out.println(arr[i]);
+}
+```
+
+---
+
+### 2️⃣ Indeks z danych zewnętrznych
+
+```java
+int index = scanner.nextInt();
+System.out.println(arr[index]); // ❌ ryzyko
+```
+
+---
+
+### 3️⃣ Praca na pustej tablicy
+
+```java
+int[] arr = {};
+arr[0]; // ❌
+```
+
+---
+
+## ✅ Jak zapobiegać (BEST PRACTICES)
+
+### ✔️ Sprawdzanie zakresu
+
+```java
+if (index >= 0 && index < arr.length) {
+    System.out.println(arr[index]);
+}
+```
+
+---
+
+### ✔️ Enhanced for-loop
+
+```java
+for (int value : arr) {
+    System.out.println(value);
+}
+```
+
+---
+
+### ❌ Czego NIE robić
+
+```java
+try {
+    System.out.println(arr[i]);
+} catch (ArrayIndexOutOfBoundsException e) {
+    // zła praktyka
+}
+```
+
+➡️ wyjątki **nie są do sterowania logiką programu**
+
+---
+
+## 🆚 Porównanie (częste pytanie)
+
+| Wyjątek                          | Kiedy używać               |
+| -------------------------------- | -------------------------- |
+| `ArrayIndexOutOfBoundsException` | JVM – błąd indeksu tablicy |
+| `IndexOutOfBoundsException`      | Listy, Stringi             |
+| `IllegalArgumentException`       | Zły argument metody        |
+
+---
+
+## 🎯 Rekrutacyjne złoto
+
+✔️ Zawsze `< arr.length`
+✔️ Indeksy zaczynają się od 0
+✔️ Nie łap – zapobiegaj
+✔️ JVM rzuca ten wyjątek automatycznie
+
+---
+
+Jeśli chcesz, następny krok:
+👉 **quiz z ArrayIndexOutOfBoundsException**
+👉 **porównanie List vs Array (wyjątki)**
+👉 **hard task: co się stanie?**
+
+Co wybierasz? 😄

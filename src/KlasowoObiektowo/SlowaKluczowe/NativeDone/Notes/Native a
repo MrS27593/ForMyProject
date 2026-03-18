@@ -1,0 +1,99 @@
+## ✅ Odpowiedzi – QUIZ `native` w Java
+
+---
+
+### **1. Co oznacza słowo kluczowe `native` w Javie?**
+
+**✅ B. Metoda jest implementowana w innym języku, np. C/C++**
+
+* `native` oznacza, że metoda nie ma implementacji w Javie i będzie zdefiniowana w kodzie natywnym.
+
+---
+
+### **2. Co jest prawdziwe dla metod `native`?**
+
+**✅ B. Nie mogą mieć ciała w Javie**
+
+* Metoda kończy się średnikiem `;` i implementacja jest poza Javą.
+
+---
+
+### **3. Które elementy mogą być oznaczone słowem `native`?**
+
+**✅ C. Metody**
+
+* `native` dotyczy **tylko metod**, nie pól ani klas.
+
+---
+
+### **4. Dlaczego używa się `native`?**
+
+**✅ A. Aby korzystać z funkcji systemowych lub bibliotek napisanych w innych językach**
+
+* Umożliwia integrację z niskopoziomowym kodem lub API systemowym.
+
+---
+
+### **5. Która deklaracja jest poprawna?**
+
+**✅ B. `public native void doSomething();`**
+
+* Poprawna składnia: brak ciała metody, średnik kończący.
+
+---
+
+### **6. Jaką bibliotekę należy załadować, aby użyć metody `native`?**
+
+**✅ B. Bibliotekę natywną (np. C/C++) poprzez `System.loadLibrary()`**
+
+```java
+static {
+    System.loadLibrary("NativeLib");
+}
+```
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład zastosowania `native`:**
+
+```java
+public class SystemInfo {
+    public native String getOSName();
+
+    static {
+        System.loadLibrary("SystemLib"); // ładuje bibliotekę natywną
+    }
+}
+```
+
+* Pozwala pobrać nazwę systemu operacyjnego z poziomu natywnego kodu.
+
+---
+
+### **8. (OTWARTE)**
+
+**Dlaczego metody `native` nie mają ciała w Javie?**
+
+* Implementacja odbywa się w innym języku (C/C++), więc ciało w Javie nie jest potrzebne ani dozwolone.
+
+---
+
+### **9. Czy metody `native` mogą być `static`?**
+
+**✅ A. Tak**
+
+* Mogą być zarówno `static`, jak i `synchronized` lub `public/private`.
+
+---
+
+### **10. Które zdanie o `native` jest prawdziwe?**
+
+**✅ B. `native` umożliwia integrację z kodem natywnym**
+
+* Podstawowe zastosowanie: dostęp do funkcji niedostępnych w czystej Javie.
+
+---
+
+Chcesz, żebym teraz przeszedł do **następnego słowa kluczowego w Javie**, np. `new` już mamy, więc może `null` mamy też, więc kolejnym logicznym może być `instanceof`?

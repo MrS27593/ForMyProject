@@ -1,0 +1,133 @@
+Oczywiście! Wyjaśnię Ci wszystko, co powinieneś wiedzieć o interfejsie `Iterable` w języku Java – od podstaw aż po praktyczne zastosowanie, krok po kroku.
+
+---
+
+## 🔍 Co to jest `Iterable` w Java?
+
+`Iterable` to **interfejs funkcyjny** z pakietu `java.lang`, który oznacza, że obiekt może być "iterowany", czyli przeglądany element po elemencie. To właśnie dzięki niemu możemy używać pętli **`for-each`** na kolekcjach takich jak `List`, `Set`, `Queue` itd.
+
+### 📦 Deklaracja interfejsu:
+
+```java
+public interface Iterable<T> {
+    Iterator<T> iterator();
+
+    // Domyślne metody od Javy 8:
+    default void forEach(Consumer<? super T> action) { ... }
+    default Spliterator<T> spliterator() { ... }
+}
+```
+
+---
+
+## 📌 Kluczowe elementy:
+
+1. **Metoda `iterator()`** – musi być zaimplementowana, zwraca `Iterator<T>`, który umożliwia przechodzenie po elementach kolekcji.
+2. **Domyślna metoda `forEach(...)`** – umożliwia wykonanie akcji na każdym elemencie (lambda/funkcja).
+3. **Domyślna metoda `spliterator()`** – do przetwarzania równoległego (np. w streamach).
+
+---
+
+## 💡 Przykład użycia wbudowanego typu:
+
+```java
+import java.util.List;
+
+public class IterableExample {
+    public static void main(String[] args) {
+        List<String> names = List.of("Anna", "Bartek", "Celina");
+
+        // dzięki Iterable możemy użyć for-each
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}
+```
+
+`List` implementuje `Iterable`, więc możemy jej używać z `for-each`.
+
+---
+
+## 🧑‍💻 Praktyczny przykład – własna klasa implementująca `Iterable`
+
+Załóżmy, że tworzymy klasę `MyRange`, która reprezentuje zakres liczb od `start` do `end`.
+
+```java
+import java.util.Iterator;
+
+public class MyRange implements Iterable<Integer> {
+    private final int start;
+    private final int end;
+
+    public MyRange(int start, int end) {
+        this.start = start;
+        this.end = end;
+    }
+
+    @Override
+    public Iterator<Integer> iterator() {
+        return new Iterator<>() {
+            private int current = start;
+
+            @Override
+            public boolean hasNext() {
+                return current <= end;
+            }
+
+            @Override
+            public Integer next() {
+                return current++;
+            }
+        };
+    }
+}
+```
+
+### Użycie:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        MyRange range = new MyRange(1, 5);
+        for (int number : range) {
+            System.out.println(number);
+        }
+    }
+}
+```
+
+#### Wynik:
+
+```
+1
+2
+3
+4
+5
+```
+
+---
+
+## 🧠 Dlaczego warto znać `Iterable`?
+
+* Umożliwia implementację własnych struktur danych, które współpracują z `for-each`.
+* Integruje się ze Stream API (`StreamSupport.stream(..., ...)`).
+* Zwiększa czytelność kodu.
+* Jest podstawą wszystkich kolekcji w Java.
+
+---
+
+## ✅ Podsumowanie
+
+| Cecha               | Opis                                       |
+| ------------------- | ------------------------------------------ |
+| Pakiet              | `java.lang`                                |
+| Główna metoda       | `iterator()`                               |
+| Użycie              | `for-each`, `forEach()`, streamy           |
+| Wymagany interfejs? | Tak, by używać `for-each` na własnym typie |
+| Typ generyczny      | Tak (`Iterable<T>`)                        |
+
+---
+
+Jeśli chcesz, mogę Ci też pokazać, jak stworzyć własną **kolekcję danych** (np. listę jednokierunkową) implementującą `Iterable`. Czy mam to zrobić?

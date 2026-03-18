@@ -1,0 +1,76 @@
+Oto **poprawne odpowiedzi do quizu o `@Override`** wraz z krótkim wyjaśnieniem:
+
+---
+
+### 1️⃣ Co oznacza adnotacja `@Override`?
+
+**B – Metoda nadpisuje metodę z klasy nadrzędnej lub implementuje metodę z interfejsu**
+➡ Kompilator sprawdza, czy metoda rzeczywiście nadpisuje metodę bazową.
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Override`?
+
+**A – `java.lang.annotation`**
+
+---
+
+### 3️⃣ Od której wersji Javy wprowadzono `@Override`?
+
+**B – Java 5**
+➡ W Java 5 dodano tę adnotację jako marker przy nadpisywaniu metod.
+
+---
+
+### 4️⃣ Czy `@Override` wpływa na zachowanie programu w runtime?
+
+**B – Nie**
+➡ Jest adnotacją informacyjną dla kompilatora.
+
+---
+
+### 5️⃣ Czy można używać `@Override` przy metodach implementujących interfejsy?
+
+**A – Tak, od Java 6+**
+➡ W Javie 5 można było tylko nadpisywać metody z klas nadrzędnych.
+
+---
+
+### 6️⃣ Co się stanie, jeśli użyjemy `@Override` przy metodzie, która **nie nadpisuje żadnej metody**?
+
+**B – Kompilator zgłosi błąd**
+➡ Dzięki temu wykrywane są literówki lub błędne sygnatury.
+
+---
+
+### 7️⃣ Czy `@Override` jest adnotacją markerową?
+
+**A – Tak**
+➡ Nie ma pól ani wartości – pełni tylko funkcję informacyjną.
+
+---
+
+### 8️⃣ Czy `@Override` może być stosowana na polach klasy?
+
+**B – Nie**
+➡ Dotyczy wyłącznie metod.
+
+---
+
+### 9️⃣ Czy `@Override` jest obowiązkowa przy nadpisywaniu metod?
+
+**B – Nie**
+➡ Jest opcjonalna, ale zalecana, aby uniknąć błędów.
+
+---
+
+### 🔟 Czy `@Override` można stosować przy metodach prywatnych?
+
+**B – Nie**
+➡ Metody prywatne nie mogą być nadpisywane, więc `@Override` nie ma zastosowania.
+
+---
+
+Jeśli chcesz, mogę teraz zrobić **mega quiz zbiorczy wszystkich przerobionych adnotacji** – od `@Deprecated` do `@Override` – w jednym miejscu, idealny do powtórki.
+
+Chcesz, żebym go zrobił?

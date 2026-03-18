@@ -1,0 +1,108 @@
+## ✅ Odpowiedzi – QUIZ `static` w Java
+
+---
+
+### **1. Co oznacza słowo kluczowe `static`?**
+
+**✅ B. Element należy do klasy, a nie do obiektu**
+
+`static` sprawia, że pole, metoda czy blok jest współdzielony przez wszystkie instancje i można go używać bez tworzenia obiektu.
+
+---
+
+### **2. Które z poniższych jest poprawnym statycznym polem?**
+
+**✅ A. `static int count;`**
+
+Pozostałe odpowiedzi mają błędną składnię.
+
+---
+
+### **3. Która metoda może być wywołana bez tworzenia obiektu?**
+
+**✅ B. Statyczna metoda klasy**
+
+Statyczna metoda jest powiązana z klasą, więc nie wymaga instancji.
+
+---
+
+### **4. Co jest prawdą o statycznych blokach inicjalizacyjnych?**
+
+**✅ B. Wykonują się raz przy pierwszym odwołaniu do klasy**
+
+* Używane do inicjalizacji pól statycznych i konfiguracji globalnej.
+
+---
+
+### **5. Czy metoda statyczna może odwoływać się do pól niestatycznych bez obiektu?**
+
+**✅ B. Nie**
+
+* Pola niestatyczne należą do instancji, więc potrzebny jest obiekt klasy.
+
+---
+
+### **6. Jakie ograniczenia ma metoda statyczna?**
+
+**✅ A. Nie może używać `this` ani `super`**
+
+* Nie ma „bieżącego obiektu”, więc `this` i `super` są niedostępne.
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład użycia statycznego pola i metody w systemie bankowym:**
+
+```java
+class Bank {
+    static double totalBalance = 0;
+
+    static void deposit(double amount) {
+        totalBalance += amount;
+        System.out.println("Saldo globalne: " + totalBalance);
+    }
+}
+```
+
+* `totalBalance` współdzielone przez wszystkie konta
+* `deposit()` można wywołać bez obiektu
+
+---
+
+### **8. (OTWARTE)**
+
+**Dlaczego warto używać `static` w klasach narzędziowych typu `Math`?**
+
+* Metody i pola narzędziowe nie zależą od instancji
+* Można je wywoływać globalnie: `Math.sqrt(25)`
+
+---
+
+### **9. Co oznacza połączenie `final static`?**
+
+**✅ B. Pole jest stałe i współdzielone przez wszystkie instancje**
+
+* Przykład: `public static final double PI = 3.14159;`
+
+---
+
+### **10. Która statyczna klasa wewnętrzna jest poprawna?**
+
+**✅ A. `class Outer { static class Inner {} }`**
+
+Pozostałe mają błędną składnię.
+
+---
+
+### 🧠 Podsumowanie
+
+* `static` = element klasy, nie instancji
+* Pola i metody statyczne → współdzielone, wywoływane bez obiektu
+* Statyczne bloki → inicjalizacja klasy
+* `final static` → stałe klasy
+* Statyczne klasy wewnętrzne → niezależne od instancji
+
+---
+
+Chcesz, żebym teraz przeszedł do **`instanceof`**, **`abstract`** i połączył wszystko w mini-projekcie, aby te słowa kluczowe były użyte razem w praktyce?

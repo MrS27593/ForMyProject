@@ -1,0 +1,97 @@
+Pewnie! W Javie pętla `while` jest jedną z podstawowych pętli, używaną do wykonywania kodu wielokrotnie, dopóki określony warunek jest spełniony.
+
+### Składnia pętli `while`:
+
+```java
+while (warunek) {
+    // kod do wykonania, gdy warunek jest prawdziwy
+}
+```
+
+1. **Warunek**: Pętla `while` działa tak długo, jak długo warunek w nawiasach jest prawdziwy (czyli `true`).
+2. **Kod wewnątrz pętli**: Jest to blok kodu, który zostanie wykonany za każdym razem, gdy warunek będzie spełniony.
+
+Pętla sprawdza warunek **przed** każdym obiegiem, co oznacza, że jeśli warunek jest fałszywy od początku, kod w pętli nigdy się nie wykona.
+
+### Przykład:
+
+```java
+public class WhileExample {
+    public static void main(String[] args) {
+        int i = 0;
+
+        while (i < 5) {
+            System.out.println("Wartość i: " + i);
+            i++; // Zwiększamy i, aby pętla miała szansę zakończyć się
+        }
+    }
+}
+```
+
+W tym przykładzie:
+
+* Zmienna `i` zaczyna się od 0.
+* Pętla sprawdza, czy `i` jest mniejsze niż 5.
+* Jeśli tak, to wypisuje wartość `i` i następnie zwiększa ją o 1 (to zapobiega nieskończonemu powtarzaniu się pętli).
+* Pętla wykonuje się, dopóki `i` nie osiągnie 5.
+
+### Ważne uwagi:
+
+1. **Nieskończona pętla**: Jeśli warunek nigdy nie stanie się fałszywy (np. nie zmienisz odpowiednio zmiennej sterującej), pętla będzie się powtarzać w nieskończoność. Należy uważać na takie przypadki.
+
+   Przykład nieskończonej pętli:
+
+   ```java
+   while (true) {
+       System.out.println("Ta pętla nigdy się nie skończy");
+   }
+   ```
+
+2. **Pętla z warunkiem fałszywym na początku**: Jeśli warunek jest fałszywy od samego początku, kod w pętli nie wykona się ani razu.
+
+   Przykład:
+
+   ```java
+   int x = 10;
+   while (x < 5) {
+       System.out.println("To się nie wykona");
+   }
+   ```
+
+### Modyfikowanie pętli:
+
+* Możesz używać słów kluczowych `break` i `continue`, aby kontrolować działanie pętli:
+
+  * `break`: przerywa działanie pętli natychmiast, niezależnie od warunku.
+  * `continue`: powoduje, że pętla przechodzi do następnej iteracji, ignorując resztę kodu w tej iteracji.
+
+Przykład użycia `break` i `continue`:
+
+```java
+int i = 0;
+
+while (i < 5) {
+    if (i == 3) {
+        break; // Zakończ pętlę, gdy i wynosi 3
+    }
+    if (i == 1) {
+        i++;
+        continue; // Pomiń resztę kodu, gdy i wynosi 1
+    }
+    System.out.println("Wartość i: " + i);
+    i++;
+}
+```
+
+### Zastosowanie pętli `while`:
+
+* Pętla `while` jest użyteczna, gdy nie wiesz z góry, ile razy pętla ma zostać wykonana, a zamiast tego zależy to od jakiegoś warunku.
+* Jest to również przydatne, gdy chcesz kontrolować, w jakim momencie pętla zakończy działanie, a nie na podstawie prostego licznika.
+
+### Porównanie z pętlą `for`:
+
+* `while` jest bardziej ogólna, ale pętla `for` jest bardziej odpowiednia, gdy wiesz, ile razy pętla ma się wykonać.
+
+Pętla `while` jest więc bardziej elastyczna, ale czasami mniej przejrzysta, jeśli masz do czynienia z prostymi iteracjami.
+
+Czy chcesz, żebym pokazał Ci więcej przykładów lub użycie `while` w konkretnym kontekście?

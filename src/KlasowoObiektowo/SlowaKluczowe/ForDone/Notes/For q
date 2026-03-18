@@ -1,0 +1,97 @@
+### 📘 QUIZ – `for` w Java
+
+**10 pytań: 8 zamkniętych (A–D) + 2 otwarte**
+
+---
+
+#### 1️⃣ Co oznacza pętla `for` w Javie?
+
+A. Pętlę warunkową z nieznaną liczbą powtórzeń
+B. Pętlę sterowaną licznikowo
+C. Pętlę do obsługi wyjątków
+D. Instrukcję warunkową
+
+---
+
+#### 2️⃣ Co wypisze poniższy kod?
+
+```java
+for (int i = 0; i < 3; i++) {
+    System.out.print(i + " ");
+}
+```
+
+A. `0 1 2`
+B. `1 2 3`
+C. `0 1 2 3`
+D. `3 2 1`
+
+---
+
+#### 3️⃣ Który zapis tworzy **pętlę nieskończoną**?
+
+A. `for (int i=0; i<10; i++) {}`
+B. `for (;;) {}`
+C. `for (int i=0; i<5;) {}`
+D. `for (int i=0; i<5; i++) {}`
+
+---
+
+#### 4️⃣ Do czego służy `for-each`?
+
+A. Do iteracji po tablicach i kolekcjach
+B. Do warunkowego przerywania pętli
+C. Do obsługi wyjątków
+D. Do deklarowania zmiennych
+
+---
+
+#### 5️⃣ Co się stanie, jeśli zapomnisz `i++` w standardowym `for`?
+
+A. Pętla wykona się raz
+B. Pętla może stać się nieskończona
+C. Kompilator zgłosi błąd
+D. Pętla zakończy się natychmiast
+
+---
+
+#### 6️⃣ Co robi `break` w pętli `for`?
+
+A. Kończy wykonywanie całego programu
+B. Kończy aktualną iterację i przechodzi do następnej
+C. Kończy pętlę natychmiast
+D. Przeskakuje do końca metody
+
+---
+
+#### 7️⃣ Co robi `continue` w pętli `for`?
+
+A. Zatrzymuje cały program
+B. Pomija resztę bieżącej iteracji i przechodzi do następnej
+C. Kończy pętlę
+D. Zmienia wartość zmiennej sterującej
+
+---
+
+#### 8️⃣ Czy można zagnieżdżać pętle `for`?
+
+A. Nie, Java tego nie pozwala
+B. Tak, można zagnieżdżać dowolnie
+C. Tylko dwie pętle mogą być zagnieżdżone
+D. Tylko przy pętlach statycznych
+
+---
+
+#### 9️⃣ (Pytanie otwarte)
+
+Podaj praktyczny przykład użycia pętli `for` w projekcie biznesowym.
+
+---
+
+#### 🔟 (Pytanie otwarte)
+
+Wyjaśnij, kiedy warto używać `for-each` zamiast standardowego `for`.
+
+---
+
+Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam komplet z wyjaśnieniami ✅

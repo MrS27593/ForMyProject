@@ -1,0 +1,115 @@
+## ODPOWIEDZI – QUIZ `this` w Java
+
+---
+
+### **1. Czym jest `this` w Javie?**
+
+✅ **B. Referencją do bieżącego obiektu**
+
+`this` wskazuje na obiekt, na którym została wywołana metoda lub konstruktor.
+
+---
+
+### **2. Do czego najczęściej używa się `this` w konstruktorze?**
+
+✅ **C. Do odróżnienia pól klasy od parametrów**
+
+Najczęstszy przypadek:
+
+```java
+this.name = name;
+```
+
+---
+
+### **3. Co robi poniższy kod?**
+
+```java
+this.name = name;
+```
+
+✅ **B. Przypisuje parametr do pola klasy**
+
+* `this.name` → pole obiektu
+* `name` → parametr konstruktora/metody
+
+---
+
+### **4. Gdzie NIE można użyć słowa kluczowego `this`?**
+
+✅ **C. W metodzie statycznej**
+
+Metody statyczne nie są powiązane z konkretnym obiektem.
+
+---
+
+### **5. Co oznacza wywołanie `this()` w konstruktorze?**
+
+✅ **C. Wywołanie innego konstruktora tej samej klasy**
+
+Pozwala uniknąć duplikacji kodu.
+
+---
+
+### **6. Jakie ograniczenie dotyczy `this()`?**
+
+✅ **C. Musi być pierwszą instrukcją w konstruktorze**
+
+Inaczej kod się nie skompiluje.
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład przekazania bieżącego obiektu (`this`) jako argumentu:**
+
+```java
+class Example {
+    void call(Example e) {
+        System.out.println("Obiekt przekazany");
+    }
+
+    void test() {
+        call(this);
+    }
+}
+```
+
+`this` przekazuje aktualny obiekt do innej metody.
+
+---
+
+### **8. (OTWARTE)**
+
+**Dlaczego nie można używać `this` w metodach statycznych?**
+
+* Metody statyczne nie są wywoływane na konkretnym obiekcie
+* `this` odnosi się do bieżącego obiektu, a w metodzie statycznej go nie ma
+
+---
+
+### **9. Co zostanie wypisane przez poniższy kod?**
+
+```java
+System.out.println(this);
+```
+
+✅ **B. Referencja do bieżącego obiektu**
+
+Domyślnie: `nazwaKlasy@hashCode`
+
+---
+
+### **10. Które zdanie o `this` jest prawdziwe?**
+
+✅ **C. `this` odnosi się do aktualnego obiektu klasy**
+
+* ❌ Nie tworzy obiektu
+* ❌ Nie jest tym samym co `super`
+
+---
+
+Świetnie Ci idzie 👍
+Jeśli chcesz, kolejnym naturalnym krokiem będzie **`super`** (bardzo podobne do `this`, ale działa z klasą nadrzędną).
+
+Chcesz, żebym teraz omówił `super`?

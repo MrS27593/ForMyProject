@@ -1,0 +1,97 @@
+### ✅ Odpowiedzi – `extends` w Java (z wyjaśnieniami)
+
+---
+
+#### 1️⃣ Co oznacza słowo kluczowe `extends` w Javie?
+
+**✅ B. Klasa dziedziczy po innej klasie**
+`extends` tworzy relację dziedziczenia, dzięki której klasa pochodna ma dostęp do pól i metod klasy nadrzędnej.
+
+---
+
+#### 2️⃣ Co jest dziedziczone z klasy nadrzędnej?
+
+**✅ B. `public` i `protected` metody oraz pola**
+❌ Pola/metody `private` nie są dziedziczone, konstruktory też nie.
+
+---
+
+#### 3️⃣ Czy konstruktor klasy nadrzędnej jest dziedziczony?
+
+**✅ C. Nie**
+Konstruktor nie jest dziedziczony, ale jest wywoływany w konstruktorze klasy pochodnej przez `super()`.
+
+---
+
+#### 4️⃣ Co oznacza relacja „IS-A”?
+
+**✅ B. Obiekt klasy pochodnej jest typu klasy nadrzędnej**
+Przykład:
+
+```java
+Dog d = new Dog();
+Animal a = d; // Dog IS-A Animal
+```
+
+---
+
+#### 5️⃣ Co robi słowo `super` w klasie pochodnej?
+
+**✅ B. Wywołuje konstruktor klasy nadrzędnej**
+Można też użyć `super.method()` do wywołania metody klasy nadrzędnej.
+
+---
+
+#### 6️⃣ Czy można dziedziczyć po więcej niż jednej klasie w Javie?
+
+**✅ C. Nie**
+Java obsługuje tylko pojedyncze dziedziczenie klas. Wielokrotne dziedziczenie można osiągnąć przez interfejsy.
+
+---
+
+#### 7️⃣ Czy metoda `final` może być nadpisana w klasie pochodnej?
+
+**✅ B. Nie**
+`final` blokuje możliwość nadpisania metody w klasie pochodnej.
+
+---
+
+#### 8️⃣ Co się stanie, gdy klasa pochodna nie nadpisze metody abstrakcyjnej z klasy nadrzędnej?
+
+**✅ B. Kod się nie skompiluje**
+Każda klasa pochodna musi nadpisać wszystkie metody abstrakcyjne lub sama musi być abstrakcyjna.
+
+---
+
+#### 9️⃣ (Otwarte) Przykład dziedziczenia i nadpisania:
+
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Zwierzę wydaje dźwięk");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Hau hau");
+    }
+}
+```
+
+---
+
+#### 🔟 (Otwarte) Dlaczego Java nie pozwala na dziedziczenie po więcej niż jednej klasie?
+
+**Odpowiedź:**
+
+* Aby uniknąć **konfliktów nazw metod i pól** (problem diamentu)
+* Aby zachować **prostotę hierarchii klas**
+* Wielokrotne dziedziczenie osiąga się przez **interfejsy**
+
+---
+
+Jeżeli chcesz, mogę teraz przejść do **`implements`** – kolejnego słowa kluczowego powiązanego z `extends`.
+
+Chcesz kontynuować?

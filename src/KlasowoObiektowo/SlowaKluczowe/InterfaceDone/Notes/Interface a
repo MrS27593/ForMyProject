@@ -1,0 +1,99 @@
+### ✅ Odpowiedzi – QUIZ `interface` w Java
+
+*(z krótkim, ale konkretnym wyjaśnieniem – kursowo)*
+
+---
+
+### 1️⃣ Czym najlepiej opisać rolę `interface` w Javie?
+
+**✅ B. Jest to kontrakt definiujący zachowanie klas**
+
+➡ Interfejs mówi **CO klasa musi robić**, ale nie **JAK**.
+
+---
+
+### 2️⃣ Jakiego słowa kluczowego używa klasa do skorzystania z interfejsu?
+
+**✅ C. `implements`**
+
+➡ `extends` – dla klas
+➡ `implements` – dla interfejsów
+
+---
+
+### 3️⃣ Które stwierdzenie o metodach w interfejsie jest prawdziwe?
+
+**✅ C. Metody w interfejsie są domyślnie `public abstract`**
+
+➡ Nawet jeśli tego nie zapiszesz – kompilator tak je traktuje.
+
+---
+
+### 4️⃣ Co stanie się, jeśli klasa nie zaimplementuje wszystkich metod interfejsu?
+
+**✅ B. Klasa musi być oznaczona jako `abstract`**
+
+➡ W przeciwnym razie **błąd kompilacji**.
+
+---
+
+### 5️⃣ Które elementy mogą znajdować się w interfejsie?
+
+**✅ B. Metody abstrakcyjne, `default`, `static`**
+
+➡ Od Java 8 interfejsy są znacznie bogatsze.
+
+---
+
+### 6️⃣ Co oznacza fakt, że pola w interfejsie są `public static final`?
+
+**✅ C. Pole jest stałą współdzieloną przez wszystkie klasy**
+
+➡ To **konstanty**, a nie pola obiektu.
+
+---
+
+### 7️⃣ Która linia kodu jest POPRAWNA?
+
+**✅ B. `interface Test { int x = 10; }`**
+
+➡ To jest poprawna stała (`public static final` domyślnie).
+
+❌ A – brak inicjalizacji
+❌ C – `protected` niedozwolone
+❌ D – brak konstruktorów w interfejsach
+
+---
+
+### 8️⃣ Dlaczego w Javie stosuje się interfejsy zamiast wielodziedziczenia klas?
+
+**✅ B. Aby umożliwić implementację wielu zachowań**
+
+➡ Java celowo **blokuje wielodziedziczenie klas**, ale **pozwala na wiele interfejsów**.
+
+---
+
+### 9️⃣ Pytanie otwarte – przykładowa poprawna odpowiedź
+
+**✔ Ułatwiają testowanie, wymienność implementacji i luźne powiązania (SOLID – Dependency Inversion).**
+
+---
+
+### 🔟 Pytanie otwarte – przykładowa poprawna odpowiedź
+
+**✔ `default method` ma implementację, a metoda abstrakcyjna nie – musi być zaimplementowana w klasie.**
+
+---
+
+## 🎯 Podsumowanie rekrutacyjne
+
+Jeśli na rozmowie:
+
+* mówisz o **kontrakcie**
+* wspominasz o **polimorfizmie**
+* znasz różnice `interface` vs `abstract class`
+
+➡ jesteś **powyżej juniora** 💪
+
+Gdy będziesz gotowy:
+👉 **następny keyword / klasa / enum** (np. `enum`, `optional`, `var`, `instanceof`, `default`, `extends`)

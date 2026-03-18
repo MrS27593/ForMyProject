@@ -1,0 +1,927 @@
+Programowanie klient serwer. Podstawowe klasy Javy
+1. Architektura klient-serwer i sieć
+Architektura klient-serwer jest technologią budowy systemów informatycznych, polegającą na podziale systemu na współdziałające ze sobą dwie kategorie programów lub procesów: klientów i serwerów.
+
+Klient to program lub proces, który - oprócz wykonywania swoistych dla niego działań -  łączy się z innym programem lub procesem, zwanym serwerem i poprzez kanały komunikacyjne zleca mu wykonanie określonych działań; w szczególności dostarczenia jakichś danych lub wyników przetwarzania danych
+
+
+Serwer jest programem lub procesem, który - na zlecenie klientów - świadczy określone usługi - np. dostarcza im dane lub wyniki przetwarzania jakichś danych
+
+
+
+Zwróćmy uwagę na to, że pojęcie "klient-serwer" jest natury software'owej, a nie hardware'owej. Dotyczy programów, a nawet ich części (podprocesów, wątków), a nie sprzętu. Typowym błędem, popełnianym nie tylko w popularnej literaturze informatycznej, jest identyfikowanie pojęcia serwer z komputerem i traktowanie architektury klient-serwer jako wyłącznie sposobu komunikacji pomiędzy różnymi komputerami w sieci.
+Tymczasem koncepcję klient-serwer możemy zastosować do budowy systemu informatycznego działającego na jednym komputerze w jednym systemie operacyjnym, a nawet dla budowy systemu, składająccego się z jednego programu, w którym określony wątek będzie pełnił role serwera, a inne wątki będą zlecać mu różne usługi do wykonania.
+
+Tak naprawdę takie były początki tej koncepcji, w czasach, kiedy jeszcze komputery nie były łączone w sieci. Po to by zapewnić komunikację pomiędzy procesami-serwerami i procesami-klientami w różnych systemach operacyjnych wprowadzono specjalne mechanizmy komunikacji międzyprocesowej (IPC - interprocess communication).
+Należą do nich:
+potoki,
+wspólne (dzielone) obszary pamięci,
+kolejki (jest to bazowy mechanizm systemowy, nie należy go mylić np. z kolejkami zdarzeń).
+semafory.
+Potoki - to swoiste kanały wymiany danych (bufory w pamięci), łączące procesy.
+Np. proces-klient może zapisywać do potoku jakieś dane (powiedzmy żądanie przekazania informacji z serwera), proces-serwer odczytuje to i - poprzez potok - przekazuje potrzebne klientowi informacje.
+Wspólne (dzielone) obszary pamięci są tym na co wkazuje ich nazwa. Jeden z procesów może alokować taki obszar, po czym przekazać jego adres innym procesom. Każdy z nich teraz może korzystać ze wspólnej puli informacji, zmieniać ją, dodawać do niej "swoje".
+Kolejka jest po prostu nazwaną, uporządkowaną listą 32-bitowych elementów. Procesy dodają elementy do kolejek i wyciągają je z nich (na tym polega komunikacja). Zwykle elementami tymi są adresy wspólnych (dzielonych) obszarów pamięci.
+
+Jak widzimy, same typy mechanizmów wymiany informacji są już dość rozbudowne.  W środowisku wielozadaniowym  dochodzi jeszcze problem synchronizacji transakcji. Do jednego "kanału" wymiany danych może mieć dostęp równocześnie wiele procesów. Co się stanie gdy jeden z nich chce czytać, a drugi pisać w tym samym czasie ? Jak serwer ma stwierdzić, że oto nadeszły od klienta instrukcje do wykonania ?
+Wszystkie te problemy - na poziomie bazowym - rozwiązują różnego rodzaju semafory. Semafory stanowią znaczniki, które pokazują czy dany zasób w danym kontekście jest dla jakiegoś procesu dostępny, czy też jest zajęty przez inny proces (np. potok do odczytania).
+Ale to jeszcze nie wszystko. Bazowe mechanizmy IPC są uzupełniane (w różnych systemach różnie)  przez inne komponenty systemowe - na przykład, strukturę zdarzeniowego programowania aplikacji. Mamy to możliwości posyłania odpowiednich sygnałów z jednej aplikacji do kolejek zdarzeń innej aplikacji, a przez to generowania zdarzeń i zsynchronizowanej wymiany informacji. Niejako unifikacją (a także pewnym rozszerzeniem) tego podejścia jest tzw. dynamiczna wymiana danych (DDE - dynamic data exchange). DDE pozwala (przy wykorzystaniu prostych reguł i zapewnianych w systemowym API funkcji) na odczytywanie/przekazywanie danych (a także instrukcji do wykonania) pomiędzy aplikacjami klient - serwer, oraz na dynamiczne wiązanie danych (włącznie z automatycznym odświeżaniem: np. gdy zmienią się dane w jakimś arkuszu, to odpowiednia tabela w procesorze tekstów ulegnie natychmiastowej modyfikacji).
+
+Te bogate środki współdziałania aplikacji klient-serwer mają dwie wady:
+są różnie (co do sposobu i co do zakresu) implementowane w różnych systemach operacyjnych,
+nie dają się łatwo uogólniać na interakcję pomiędzy serwerami i klientami w środowisku sieciowym.
+A właśnie w środowisku sieciowym zalety modelu klient-serwer stają się bardzo wyraźne. Do ogólnej lepszej strukturyzacji systemu (przy podziale jego komponentów wedle zasady klient-serwer, co pozwala zarówno uprościć system, jak i równolegle rozwijać jego różne komponenty) dochodzą tu bowiem:
+możliwość podziału pracy pomiędzy różnymi maszynami odpowiednio do ich potencjału i efektywności,
+możliwość uzyskiwania usług serwera na odległość,
+dane mogą być prowadzone w sposób scentralizowany (na serwerze) co zapewnia spójność i bezpieczeństwo,
+mogą też być pzrechowywane w sposób rozproszony pomiędzy róznymi loakalizacjami geograficznymi (różnymi serwerami i/lub klientami w różnych miejscach), co zmniejsza ryzyko utraty danych przy awariach.
+Wraz z rozpowszechnieniem środowisk rozproszonych (sieci) pojawiła się potrzeba swoistej unifikacji mechanizmów IPC, tak by mogły być stosowane w jednolity sposób do komunikacji  klientów i serwerów działających na dowolnych komputerach w sieci (również na jednym i tym samym komputerze).
+
+Oczywiście, komunikacja wymaga przestrzegania pewnych reguł. Reguły te są definiowane przez protokoły.
+
+Protokół - to swoisty język i zasady za pomocą których komunikują się programy i procesy, w szczególności serwery i klienci
+
+
+Protokoły interakcji sieciowej są podzielone na warstwy, które wyznaczają poziomy komunikacji. Dzięki temu złożony problem interakcji sieciowej jest podzielony na podproblemy, za rozwiązywanie których odpowiadają protokoły poszczególnych warstw.
+
+Ogólny standard tego podziału jest zapisany jako tzw.  modelu  ISO-OSI (OSI -Open Standards Interconnect).
+Model OSI składa się z  siedmiu warstw:
+
+Komputer 1
+
+
+Komputer 2
+
+dane	Wa rstwa aplikacji				Warstwa aplikacji	dane
+|dane	Warstwa prezentacji		Warstwa prezentacji	|dane
+||dane	Warstwa sesji	r	Warstwa sesji	||dane
+|||dane	Warstwa transportowa		Warstwa transportowa	|||dane
+||||dane	Warstwa sieci		Warstwa sieci	||||dane
+|||||dane	Warstwa łącza danych		Warstwa łącza danych	|||||dane
+||||||dane	Warstwa fizyczna		Warstwa fizyczna	||||||dane
+Źródło: InetDaemon.com tutorial
+
+aplikacje, działające na dwóch komputerachw  sieci (klient i serwer) wymieniają dane.
+kolejne protokoły w kolejnych warstwach dodają nagłówki do danych otrzymywanycyh z warstwy powyżej. Dane opakowane w nagłówki są transmitowane w tzw.  Protocol Data Units (PDUs).
+PDU są przesyłane w dół sekwencji warstw i transmitowane fizycznie przez warstwę fizyczną, która reprezentuje fizyczne połączenie w sieci.
+Dane otrzymane są przesyłane "w górę" warstw i "odpakowywane" z kolejnych nagłówków.
+Jedną z możliwych, a przy tym obecnie często występującą realizację tego modelu przedstawia poniższy rysunek.
+
+r
+
+2. Gniazda.
+
+Jak widać z poprzedniego rysunku  komunikacja pomiędzy procesami w sieci może  odbywać się za pomocą jednego z wysokopoziomowych protokołów sieciowych (HTTP, FTP itp.), a  także bardziej zaawansowanych mechanizmów takich jak zdalne wywołanie metod (RMI, CORBA), zdalne wywołanie procedur (RPC), czy SOAP (pozwalający na zdalne wolanie metod i procedur - inaczej: zlecanie usług - za pomocą przekazywania odpowiednio ustrukturyzowanych plików XML z zapisem "zadań do wykonania").
+
+U podstaw wymiany informacji za pomocą protokołów najwyższego poziomu leży obecnie (najczęściej) komunikacja za pomocą gniazd.
+
+Gniazdo (socket) - to abstrakcja programistyczna, oznaczająca punkt docelowy dwustronnej komunikacji dwóch procesów działających równolegle w sieci
+
+
+To właśnie koncepcja gniazd, wprowadzona w Uniksie w latach 70-tych, stanowi wspomnianą wcześniej, sieciowo-zorientowaną, unifikację mechanizmu IPC.
+Naturalne było uczynienie  komunikacji za pomocą gniazd w idei podobnej do dobrze znanego programistom paradygmatu operacji wejścia-wyjścia. Zatem mamy to naturalną sekwencję: otwarcie kanału komunikacji (gniazda), zapis lub odczyt (przesłanie lub otrzymanie danych za pomocą gniazda), zamknięcie kanału komunikacyjnego (zamkniecie gniazda).
+
+Zwykle komunikacja za pomocą gniazd implementowane jest na bazie protokołu TCP lub protokołu UDP.
+
+Protokół TCP (Transport Control Protocol) jest protokołem połączeniowym (co znaczy, że ustanawiana jest dwustronne połączenie pomiędzy klientem i serwerem). Zapewnia, że dane posyłane poprzez gniazda docierają w całości i w odpowiedniej kolejności. Inaczeje możemy powiedzieć, że realizowana jest tu strumieniowa koncepeja wymiany danych, co oznacza, że po ustanowieniu połaczenia można przesłać dane o dowolnym rozmiarze i - jak zobaczymy - operacje wymiany danych możemy wykonywać tutaj za pomocą dobrze nam znanych środków strumieniowych.
+
+Protokół UDP (User Datagrams Protocol) jest protokołem bezpołączeniowym. Dane przesyłane są pomiędzy procesami jako datagramy (pakiety danych o określonej maksymalnej wielkości np. 64 kB), przy czym z każdym datagramem posyłany jest "adres" odbiorcy. Datagramy mogą więc przybywac na miejsce przeznaczenia (do innego procesu) w dowolnje kolejności (a niektóre nawet mogą w ogóle nie dotrzeć).
+
+Oba protokoły (TCP i UDP) są protokołami typu "point-to-point", czyli każdorazowo zapewniającymi komunikację tylko pomiędzy dwoma procesami (w szczególności na dwóch różnych maszynach w sieci).
+Istnieje również możliwość użycia tzw. multicastingu. Ten rodzaj protokołów oznacza dystrybucje informacji z serwera od razu do wielu klientów. Oparty jest on na protokole UDP.
+
+Identyfikacji maszyn biorących udział w komunikacji (tzw. hostów) służy protokól IP (Internet Protocol). Adresy IP mają ogólnie formę 32-bitowych (lub 128-bitowych w wersji IPv6) liczb i mogą być zapisywane jako sekwencja czterech (ośmiu)  liczb rozdzielonych kropkami (np. 192.33.71.12) lub - w formie "strawniejszej", wykorzystującej DNS (Domain Name Service) jako: nazwa_hosta.nazwa_domeny (np. boulder.ibm.com).
+
+Identyfikacja hosta jest jednak nie wystarczająca dla komunikacji miedzy procesami: na danym komputerze może się przecież wykonywać równolegle wiele procesów.
+
+Termin port używany jest rownież w innych znaczeniach, dotyczących fizycznego łączenia urządzeń np. port szeregowy czy USBPo to, by dane dotarły do określonego procesu protokoły TCP i UDP posługują się tzw. portami.
+Porty są identyfikowane przez 16-bitowe liczby - numery portów. Numery te są używane przez TCP lub UDP do przesyłanie danych do odpowiedniego procesu.
+
+W prokołach połączeniowych (takich jak TCP) proces-serwer przydziela sobie port o określoneym numerze i poprzez ten właśnie port procesy klienckie mogą ustanawiać połączenia z serwerem.
+
+r
+
+
+
+W protokołach opartych na datagramach, pakiety datagramów zawierają numer portu dzięki któremy dane kierowane są do właściwego procesu (aplikacji).
+
+r
+
+
+
+Teraz zajmiemy się tylko najprostszym TCP.
+Inne:
+multicasting (w Javie - klasa MulticastDatagramSocket)
+bezpieczną transmisja danych opartą na protokole SSL/TSL (Secure Socket Layer/Transport Secure Layer).
+Typowa interakcja pomiędzy klientem i serwerem opiera się na następującym modelu.
+
+Serwer tworzy gniazdo związane z określonym portem i na tym kanale komunikacyjnym czeka na prośbę połączenia od klienta.
+Inicjatywa połączenia wychodzi od klienta; klient musi znać host serwera oraz numer portu otwartego do przyjmowania połączeń i podaje tę informację tworząc "u siebie" gniazdo związane z tak określonym adresem
+Serwer akceptuje połaczenie od klienta i - aby pozostać dostępnym dla innych klientów na "kanale połączeniowym" - tworzy inne gniazdo do komunikacji z danym klientem;
+Z punktu widzenia klienta jest to (zazwyczaj) to samo gniazdo na którym zainicjowano połączenie; strumienie wejściowy i wyjściowy związane z tym gniazdem służą do komunikacji pomiędzy klientem i serwerem zgodnie z protokołem serwera.
+
+Ilustruje to poniższy rysunek.
+r
+
+Jest to oczywiście ogólny model. Niektóre protokoły mogą wprowadzać pewne odstępstwa
+od niego. Przykładem jest protokól FTP, gdzie do komunikacji z serwerem wykorzystywane są dwa gniazda: do posyłania poleceń i do posyłania/odczytywania danych.
+
+Zatem posługujemy się dwoma rodzajami gniazd:
+gniazdami serwerowymi, w Javie  reprezentowanymi przez klasę ServerSocket, używanymi przy programowaniu serwerów,
+gniazdami klienckimi, w Javie reprezentowanymi przez klasę Socket, używanymi w  programowaniu klientów, a w serwerach do komunikacji z klientem po zaakceptowaniu połączenia od niego.
+3. Klienci. Protokoły i porty
+W Javie oprogramowanie klienta, komunikującego sie z serwerem - w większości przypadków - jest niezwykle proste i polega na:
+Utworzeniu gniazda - obiektu klasy Socket, dającego połączenie  z serwerem.
+Uzyskaniu od tego obiektu strumieni wyjściowego i wejściowego, związanych z gniazdem.
+Posyłanie zleceń dla serwera poprzez zapis do strumienia wyjściowego gniazda.
+Odczytywanie odpowiedzi serwera poprzez odczyt ze strumienia wejściowego.
+Zamknięcie strumieni.
+Zamknięcie gniazda
+
+Najprostszy schemat komunikacji klienta z serwerem przez gniazda
+
+try {
+  // Utworzenie gniazda
+  String serverHost = ... ; // adres IP serwera ("cyfrowo" lub z użyciem DNS)
+  int serverPort = ... ;      // numer portu na którym nasłuchuje serwer
+
+  Socket socket = new Socket(serverHost, serverPort)
+
+  // Uzyskanie strumieni do komunikacji
+  OutputStream sockOut = socket.getOutputStream();
+  InputStream  sockIn = socket.getInputStream();
+
+  // Komunikacja (zależna od protokołu)
+
+  // Wysłanie zlecenia do serwera
+  sockOut.write(...);
+    ...
+
+  // Odczytanie odpowiedzi serwera
+  sockIn.read(...);
+   ...
+
+  // Po zakończeniu komunikacji - zamkniecie strumieni i gniazda
+  sockOut.close();
+  sockIn.close();
+  socket.close();
+
+} catch (UnknownHostException exc) {
+    // nieznany host
+} catch (SocketException exc) {
+    // wyjątki związane z komunikacją przez gniazda
+} catch (IOException exc) {
+    // inne wyjątki we/wy
+}
+
+Uwaga: zazwyczaj strumienie związane z gniazdem będziemy opakowywać, zapewniając określone rodzaje przetwarzania (np. buforowanie, kodowanie-dekodowanie, odczyt/zapis danych binarnych itp.).
+
+
+W komunikacji pomiędzy klientem i serwerem kluczową sprawą jest znajomość protokołu (czyli rodzajów i formatów zleceń, które można posłać do serwera oraz treści i formatów odpowiedzi, które serwer przyszyła w reakcji na konkretne zlecenia).
+
+
+Istnieją  pewne standardowe protokoły, dzięki którym uzyskujemy dostęp do różnorodnych usług w Internecie. Do najbardziej znanych (a czasem i  użytecznych) należą protokoły:
+HTTP (Hypertext Transfer Protocol) służący m.in. do uzyskiwania dostępu do stron WWW oraz przesyłania fromularzy (jego wersja HTTPS, oparta na protokole TSL/ SSL - Transport Security Layer/Secure Sockets Layer - pozwala na bezpieczną transmisję danych),
+FTP (File Transfer Protocol) służący do pobierania/zapisywania plików (i jego bezpieczna wersja oparta na TSL/SSL - FTPS)
+SMTP (Simple Mail Transfer Protocol)  służący do przesyłania poczty elektronicznej (ESMPT -  SMPT z rozszerzeniami).
+POP3 (Post Office Protocol) służący do pobierania poczty z serwera
+IMAP (Internet Message Access Protocol) j.w., z dodatkowymi możliwościami.
+TELNET - umożliwiający zdalną prace na komputerze-hoście
+TIME  - proste uzyskiwanie aktualnego czasu od serwerów czasu
+DAYTIME - proste uzyskiwanie daty i czasu
+NTP (Network Time Protocol) - zaawansowane możliwości uzyskiwania dokładnego czasu
+NNTP (Network News Transfer Protocol) - przesyłanie, dystrybucja i odbiór wiadomości z tzw. newsgroups.
+IRC - Internet Relay Chat - znane wszystkim internetowe "czaty",
+ECHO -  "odbijający" dane posyłane przez klienta (służy głównie do celów testowania klientów)
+DICT - wyszukiwanie definicji w bazach słownikowych.
+Protokoły te (a zatem format zleceń klienta i odpowiedzi serwera, kolejność wymiany informacji itp.) są szczegółowo opisane w dokumentach RFC (Request For Comments). Dokumenty RFC opisują technologiczne i organizacyjne aspekty Internetu. Od 1969 roku opublikowano prawie 10000 dokumentów RFC. Wiele z nich uzyskało status standardu (m.in. prawie wszystkie opisujące w/w protokoly). Standartyzacją protokołów internetowych zajmują się następujące organizacje:
+IETF - The Internet Engineering Task Force - http://www.ietf.org/home.html
+IESG - The Internet Engineering Steering Group
+IANA - Internet Assigned Numbers Authority (http://www.iana.org/), która m.in. ustala różnego rodzaju parametry protokołów, np. numery portów, czy nazwy zbiorów znaków.
+
+Przyjęte jako standardy dokumenty RFC (Official Internet Protocol Standards), w szczególności opisujące protokoły, można znaleźć na stronie: http://www.rfc-editor.org/rfc.html. Uzyskamy tam również dostęp do bazy danych wszystkich dokumentów RFC.
+
+Tworząc program kliencki, który ma komunikować się z serwerem, musimy  (oczywiście) wiedzieć na jakim hoście działa serwer i przez jaki port możemy się z nim skontaktować.
+
+Z serwerami udostępniającymi opisane wcześniej protokoły-usługi (oprócz serwerów DICT) łączymy się przez tzw. dobrze-znane-porty. "Dobrze-znane-porty" mają zarezerwowane numery od 0 do 1023 (tych numerów nie powinniśmy przydzielać swoim serwerom). Porty o numerach 1024-49151 są natomiast tzw. portami zarejestrowanymi. Tych numerów możemy używać, ale należy liczyć się z tym, że wybrany przez nas numer może być "zarejestrowany" - czyli jego użycie opisane  publicznie jako skojarzone z jakimś protokołem. Przykładem jest protokól DICT, któremu przypisano port 2628.
+Pozostały zakres numerów portów 49152-65535 określa tzw. porty dynamiczne lub prywatne. Możemy ich używac.
+
+Każdy ze standardowych protokołów (a ściślej każdy z serwerów realizujących dany protokół) ma ściśle określony port kontaktowy, za pomocą którgo klient nawiązuje połączenie. Numery portów określa standard IANA - można je znaleźć na stronie: http://www.iana.org/assignments/port-numbers.
+
+W poniższej tabeli pokazano niektóre standardowe numery portów.
+
+
+Numer portu	Protokół
+7	ECHO
+20	FTP -- Dane
+21	FTP -- Polecenia
+Uwaga: protokól FTP posluguje się dwoma portami (a w konsekwencji dwoma gniazdami): jednym dla przekazywania poleceń, drugim - dla transferu plików). W zależności od trybu p[rort danych może mieć numer 20, albo inny.
+22	SSH Remote Login Protocol
+23	Telnet
+25	Simple Mail Transfer Protocol (SMTP)
+37	Time
+70	Gopher ("przodek" HTTP)
+Uwaga: jest jeszcze trochę działających serwerów Gopher m.in. w Kanadyjskim Urzędzie Statystycznym
+80	HTTP
+110	POP3
+119	Newsgroup (NNTP)
+123
+Network Time Protocol (NTP)
+143	Internet Mail Access Protocol (IMAP)
+194	Internet Relay Chat (IRC)
+443	HTTPS (HTTP w oparciu o TSL/SSL)
+989
+FTPS (w oparciu o TSL/SSL) - dane
+990
+FTPS (w oparciu o TSL/SSL) - polecenia
+992
+Telnets (Telnet w oparciu o TSL/SSL)
+993
+IMAPS (IMAP4 w oparciu o TSL/SSL)
+994
+IRCS (IRC w oparciu o TSL/SSL)
+995
+POP3S (POP3 w oparciu o TSL/SSL)
+2628	DICT
+
+Zanim przeanalizujemy nieco bardziej rozbudowane przykłady programów klienckich warto przyjrzeć się najprostszym ilustracjom i na ich  przykładach poznać pewne cechy gniazd.
+
+Zaczniemy od prostej komunikacji typu ECHO. Obecnie interakcje na porcie 7 są ogólnie wyłączone ze względów bezpieczeństwa, ale dla celów testowych powstały proste serwery ECHO, komunikujace się na innych portach.
+Sekwencję interakcji klient-serwer dobrze ilustruje poniższy programik.
+
+Kopiuj
+import java.io.*;
+import java.net.*;
+
+public class EchoClient {
+  public static void main(String[] args) {
+    String host = "45.79.112.203" // "tcpbin.org"
+    int port = 4242; // zamiast zazwyczaj blokowanego 7
+
+    // Try-with-resources zamknie gniazdo i automatycznie
+    // powiązane z nimi strumienie
+    try (Socket socket = new Socket(host, port)) {
+
+      // Strumienie gniazda - do zapisu i odczytu
+      OutputStream sos = socket.getOutputStream();
+      PrintWriter out = new PrintWriter(sos, true);  // true robi flush
+
+      InputStream sins = socket.getInputStream();
+      BufferedReader in = new BufferedReader(new InputStreamReader(sins));
+
+      //  Wysłanie wiadomości
+      String msg = "Moja wiadomość";
+      out.println(msg);
+      // Odebranie odpowiedzi
+      String resp = in.readLine();
+      System.out.println("Odebrano: " + resp);
+    } catch (UnknownHostException e) {
+      System.err.println("Nie znaleziono hosta: " + host);
+    } catch (IOException e) {
+      System.err.println("Błąd I/O: " + e.getMessage());
+    }
+  }
+}
+
+Nastepny przykład to protokół DAYTIME, zgodnie z którym - zaraz po połączeniu - serwer przesyła klientowi aktualną date i czas, po czym zamyka połączenie. Format odpowiedzi nie jest przez RFC określony, jednak każdy serwer dostarcza  informacji o składni komunikatu, zawierającego datę i czas.
+
+Uwaga: dla prostoty kodu wykorzystano nieco przestarzały protokół DAYTIME. O uzyskiwaniu czasu w bardziej precyzyjnej i współczesnej formie (protokół NTP) będzie mowa w dalszej częsci wykładów.
+
+W najprostszej postaci  program odczytujący datę i czas z serwera czasu  może wyglądać tak.
+Kopiuj
+    String host = "132.163.97.1"; // jeden z serwerów NIST
+    int port = 13;
+    try (Socket socket = new Socket(host, port)) {
+      BufferedReader br = new BufferedReader(
+                    new InputStreamReader(
+                     socket.getInputStream()
+                     )
+                  );
+      String line;
+      while ((line = br.readLine()) != null) {
+        System.out.println(line);
+      }
+    } catch (UnknownHostException exc) {
+        System.err.println("Nieznany host: " + host);
+    } catch (Exception exc) {
+      System.err.println(exc);
+    }
+
+
+Po uruchomieniu w wierszu poleceń np. z argumentem time.nist.gov uzyskamy odpowiedź w następujacej postaci:
+
+61079 26-02-08 20:21:09 00 0 0 305.0 UTC(NIST) *
+
+Uwaga: wyjaśnienie szczegółów składni tej odpowiedzi można znaleźć na stronie https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its
+4. Adresowanie i wyjątki przy próbie połączenia z serwerem
+Jak widzieliśmy, przy tworzeniu gniazda adresy hostów można podawać w postaci tekstowej (w formie DNS lub w formie "liczbowego" adresu IP).
+Np.
+
+Socket socket = new Socket("time.nist.gov", 13);
+lub
+Socket socket = new Socket("132.163.97.1", 13);
+
+Te formy konstruktorów klasy Socket zapewniają nie tylko utworzenie gniazda, ale również próbę połączenia z serwerem.
+Podany serwer może nie istnieć, może istnieć ale nie zgodzić się na połączenie, może się też zdarzyć że przekroczony zostanie maksymalny czas oczekiwania na uzyskanie połączenia. Wszystkie te sytuacje są sygnalizowane jako odpowiednie wyjątki.
+
+Pokazuje to poniższy przykład, w którym staramy się połączyć z różnymi potencjalnymi serwerami, które na połączenie mają odpiwedzieć tekstem.
+
+Kopiuj
+def serversAndPorts = [
+  'buuu': 80,
+  'localhost': 9999,
+  'ptbtime1.ptb.de': 13,
+  '132.163.97.1': 13
+]
+
+
+def connect(serverInfo) {
+  def (host, port) = [ serverInfo.key, serverInfo.value ]
+  Socket socket
+  try {
+    socket = new Socket(host, port)
+    println 'Connected to ' + serverInfo
+    socket.inputStream.eachLine { println it }
+  } catch (UnknownHostException exc) {
+      System.err.println("Nieznany host: " + host);
+  } catch (Exception exc) {
+    System.err.println("$serverInfo  $exc");
+  } finally {
+    socket?.close()
+  }
+}
+
+serversAndPorts.each { connect(it) }
+Program wyprowadzi następującą informację:
+Nieznany host: buuu
+localhost=9999  java.net.ConnectException: Connection refused: connect
+ptbtime1.ptb.de=13  java.net.ConnectException: Connection timed out: connect
+Connected to 132.163.97.1=13
+
+61079 26-02-08 22:06:23 00 0 0 641.3 UTC(NIST) *
+
+
+Zauważmy:
+wyjątki powstające przy braku możliwości połączenia są klasy ConnectException (i jest to podklasa IOException),
+wadliwy (nieistniejący) host zgłaszany jest w  formie wyjątku UnknownHostException,
+Istnieje jeszcze inny sposób tworzenia gniazd i użycia adresów internetowych.
+Możemy w tym celu wykorzystać klasy InetAddress i InetSocketAddress.
+
+Obiekty klasy InetAddress reprezentują adresy IP (podklasa Inet4Address w wersji 4, a podklasa Inet6Adrres w wersji 6 protokołu IP) i zapewniają translację adresów z postaci tekstowej do binarnej i odwrotnie. Adresy IP - obiekty klasy uzyskujemy  stosując statyczne metody klasy m.in.
+InetAddres InetAddress.getByName(nazwa_hosta) - zwraca adres IP podanego hosta,
+InetAddress[] InetAddress.getAllByName(nazwa_hosta) - zwraca tablicę adresów IP podanego hosta (nazwa hosta np. java.sun.com może być skojarzona z kilkoma adresami IP, używanymi alternatywnie dla zmniejszania obciążenia serwerów).
+Uwagi:
+podając nazwę hosta w postaci DNS (np. pja.edu.pl) uzyskujemy rozwiązanie referencji przez serwisy DNS (Domain Name Service) czy NIS (Network Information Service); wywołanie jest blokujące i ew. - dla nieistniejącego hosta może powstać wyjątek UnknownHostException
+podając nazwę hosta w tekstowej postaci IP (np. "192.33.87.12") uzyskujemy tylko formalne sprawdzenie poprawności adresu,
+podając null uzyskamy adres interfejsu loopback.
+Referencje do obiektu klasy InetAddress możemy podać przy tworzeniu gniazda np.
+
+Kopiuj
+ String host = "https://x.y.z";
+ int port = 13;
+
+ try {
+   // Utworzenie adresu
+   InetAddress inetadr = InetAddress.getByName(host);
+
+   // Utworzenie gniazda
+   Socket socket = new Socket(inetadr, port);
+ ....
+ }
+
+Oprócz bardziej zaawansowanych działań na adresach sieciowych, klasa InetAdress jest wykorzystywana przy tworzeniu "adresów gniazd" (adres IP + port), które są obiektami klasy InetSocketAddress. Te z kolei mogą być zastosowane do odroczenia (odseparowania) łączenia z serwerem od aktu utworzenia gniazda.
+
+Możemy mianowicie najpierw utworzyć "niezwiązane" gniazdo:
+
+    Socket socket = new Socket();
+
+
+odpowiednie adresy:
+
+    InetAdress inetadr = InetAddress.getByName(host);
+    InetSocketAddress conadr = new InetSocketAddress(inetadr, port);
+
+po czym w odpowiednim, wybranym momencie połączyć się z serwerem:
+
+    socket.connect(conadr);
+
+Dokładniej obrazuje to poniższy fragment programu:
+Kopiuj
+ String host = "...";
+ int port = 13;
+ Socket socket = new Socket(); // utworzenie niezwiązanego gniazda
+
+ try {
+   // Utworzenie adresów
+   InetAddress inetadr = InetAddress.getByName(host);
+   InetSocketAddress conadr = new InetSocketAddress(inetadr, port);
+
+   // Połaczenie z serwerem
+  socket.connect(conadr);
+
+   // Dzialanie na gniazdach
+   // ...
+ }
+
+
+Ten sposób programowania może sprzyjać lepszemu izolowaniu fragmentów kodu. Okaże się także przydatny wtedy, gdy chcemy precyzyjnie określić maksymalny czas oczekiwania na połączenie czy też inne charakterystyki gniazda, możliwe do ustalenia tylko przed połączeniem.
+
+5. Limity czasu łączenia i odczytu
+Czasami przydatne jest określenie maksymalnego czasu oczekiwania na połączenie z serwerem jak również masymalnego czasu oczekiwania na odczyt kolejnych danych z serwera. Na przykład - nie chcemy uzyskać informacji o czasie od serwera czasu po upływie kilku sekund - chcemy mieć raczej dokładny, aktualny pomiar.
+
+Limit czasu na połączenie (w milisekundach) specyfikujemy jako drugi argument przeciążonej metody connect. Gdybyśmy np. w poprzednim programie napisali:
+Kopiuj
+socket.connect(conadr, 100);
+to nie uzyskanie połączenia w ciągu 100 milisekund będzie skutkowało powstaniem wyjątku SocketTimeoutException np.
+
+java.net.SocketTimeoutException: connect timed out
+
+
+Innym limitem czasowym jest limit odczytu. Możemy uzyskać połączenie, ale w komunikacji z serwerem (w trakcie czytania odpowiedzi serwera) mogą wystąpić jakieś opóźnienia, których nie chcemy zaakceptować. Limity czasu na odczyt specyfikujemy w milisekunadach za pomocą metody setSoTimeout(...) z klasy Socket. Ten limit określa maksymalny czas blokowania operacji czytania strumienia wejściowego gniazda. Po przekroczeniu tego czasu blokowanie na wejściu jest przerywane i powstaje wyjątek SocketTimedOutException. Gniazdo i jego strumień wejściowy mogą być ponownie użyte.
+Ustalenie limitu musi poprzedzać wprowadzanie jakiejkolwiek blokującego czytania strumienia gniazda.
+
+Przykładowy program pokazuje, że po uzyskaniu połaczenia z serwerem czasu odpowiedź (aktualny czas) uzyskujemy nie dość szybko (jak sobie tego życzymy)   i powstaje wyjątek SocketTimeoutException.
+Kopiuj
+    try {
+      // Utworzenie adresów
+      InetAddress inetadr = InetAddress.getByName(host);
+      InetSocketAddress conadr = new InetSocketAddress(inetadr, port);
+
+      // Połaczenie z serwerem
+      // Określenie maksymalnego czasu oczekiwania na połączenie
+      socket.connect(conadr, 200);
+
+      // Pobranie strumienia wejściowego gniazda
+      // Nakładamy buforowanie
+      BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+      // Okreslenie maksymalnego czasu oczekiwania na odczyt danych z serwera
+      socket.setSoTimeout(50);
+      // Odczyt odpowiedzi serwera String line;
+      String line;
+      while ((line = br.readLine()) != null) {
+        System.out.println(line);
+      }
+      // Zamknięcie strumienia i gniazda
+      br.close();
+      socket.close();
+    } catch (UnknownHostException exc) {
+      System.out.println("Nieznany host: " + host);
+    } catch (Exception exc) {
+      exc.printStackTrace();
+    }
+
+
+java.net.SocketTimeoutException: Read timed out
+        at java.net.SocketInputStream.socketRead0(Native Method)
+        at java.net.SocketInputStream.read(SocketInputStream.java:129)
+        at sun.nio.cs.StreamDecoder$CharsetSD.readBytes(StreamDecoder.java:408)
+        at sun.nio.cs.StreamDecoder$CharsetSD.implRead(StreamDecoder.java:450)
+        at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:182)
+        at java.io.InputStreamReader.read(InputStreamReader.java:167)
+        at java.io.BufferedReader.fill(BufferedReader.java:136)
+        at java.io.BufferedReader.readLine(BufferedReader.java:299)
+        at java.io.BufferedReader.readLine(BufferedReader.java:362)
+        at DateTime2.main(DateTime2.java:36)
+
+
+6. Inne parametry gniazd kliencich.
+
+Klasa Socket dostarcza wielu metod uzyskiwania informacji o stanie i opcjach gniazda.
+W syntetyczny sposób możemy poznać je za pomocą poniższego programiku, który refleksyjnie wywołuje publiczne metody get...() i is...() z klasy Socket.
+
+Kopiuj
+import java.net.*;
+import java.io.*;
+import java.lang.reflect.*;
+
+class DateTime2 {
+
+  public static void main(String[] args) {
+
+    String host = "132.163.97.1";
+    int port = 13;
+    ;
+
+    try(Socket socket = new Socket()) {
+      // Utworzenie adresów
+      InetAddress inetadr = InetAddress.getByName(host);
+      InetSocketAddress conadr = new InetSocketAddress(inetadr, port);
+
+      // Połaczenie z serwerem
+      // Określenie maksymalnego czasu oczekiwania na połączenie
+      socket.connect(conadr, 1000);
+
+
+      // Pobranie strumienia wejściowego gniazda
+      // Nakładamy buforowanie
+      BufferedReader br = new BufferedReader(
+                            new InputStreamReader(
+                             socket.getInputStream()
+                             )
+                          );
+      // Okreslenie maksymalnego czasu oczekiwania na odczyt danych z serwera
+      socket.setSoTimeout(2000);
+
+      // Czego możemy się dowiedzieć o stanie gniazda?
+      report(socket);
+
+
+      // Odczyt odpowiedzi serwera (data i czas)
+      String line;
+      while ((line = br.readLine()) != null) {
+        System.out.println(line);
+      }
+
+    } catch (UnknownHostException exc) {
+        System.out.println("Nieznany host: " + host);
+    } catch (Exception exc) {
+         exc.printStackTrace();
+    }
+  }
+
+  // Dynamiczne wołanie metod z klasy Socket
+  static void report(Socket s) throws Exception {
+    Method[] methods = (java.net.Socket.class).getMethods();
+    Object[] args = {};
+    for (int i=0; i<methods.length; i++) {
+      String name = methods[i].getName();
+      if ((name.startsWith("get") || name.startsWith("is")) &&
+          !name.equals("getChannel") &&
+          !name.equals("getOption") &&
+          !name.equals("getInputStream") &&
+          !name.equals("getOutputStream")) {
+
+        System.out.println(name + "() = " +
+                           methods[i].invoke(s, args));
+      }
+    }
+  }
+
+}
+
+Program wyprowadzi:
+
+getPort() = 13
+isClosed() = false
+isConnected() = true
+isBound() = true
+getInetAddress() = /132.163.97.1
+getLocalPort() = 52677
+getLocalAddress() = /192.168.0.11
+isInputShutdown() = false
+isOutputShutdown() = false
+getRemoteSocketAddress() = /132.163.97.1:13
+getLocalSocketAddress() = /192.168.0.11:52677
+getTcpNoDelay() = false
+getSoLinger() = -1
+getOOBInline() = false
+getSoTimeout() = 2000
+getSendBufferSize() = 65536
+getReceiveBufferSize() = 65536
+getKeepAlive() = false
+getTrafficClass() = 0
+getReuseAddress() = false
+getClass() = class java.net.Socket
+
+61079 26-02-08 22:33:55 00 0 0   0.0 UTC(NIST) *
+
+
+
+Proszę sprawdzić w dokumentacji znaczenie poszczególnych opcji.
+
+7. Podstawowe klasy Javy wspomagające programowanie aplikacji klienckich
+Tworząc programy klienckie zazwyczaj musimy sięgać do programowania na poziomie gniazd.
+W Javie istnieją zestawy klas, które ukrywają przed programistą szczegóły komunikacji poprzez gniazda, m.in. zestaw klas pozwalajacych na połączenia i komunikację z zasobami sieciowymi, w szczególności przy wykorzystaniu protokołu HTTP.
+
+W pakiecie java.net znajdziemy  standardowe klasy przeznaczone do pracy z zasobami sieciowymi, m.in.  klasy URL i URI oraz  URLConnection i HttpURLConnection.
+
+Obiekty klasy URL (Uniform Resource Locator) reprezentują - dobrze chyba znane wszystkim - adresy zasobów sieciowych (jednolite lokalizatory zasobów).
+Składniowo lokalizator taki składa się z kilku części, m.in.:
+opisu protokołu (np. http, ftp, gopher, file)
+nazwy hosta (np. www.ibm.com)
+odniesienia do konkretnego zasobu  (np. ścieżki dostępu do pliku i jego nazwy).
+
+Konkretne znaczenie treści zasobu zależy od protokołu i hosta (np. http://xyz może oznaczac konkretny dokument lub treść dokumentu generowaną dynamicznie). Zasoby sieciowe - to nie tylko pliki czy katalogi. mogą oznaczać również inne rodzaje informacji (np. wynik zapytania kierowanego do bazy danych).
+
+O lokalizatorach zasobów sieciowych bedziemy czasem mówić krótko: url.
+
+URI (Uniform Resource Identifier) jest uogólnieniem pojęcia URL - opisuje dowolne (fizyczne i abstrakcyjne) zasoby w sieci, które mogą być w jakikolwiek sposób zidentyfikowane.
+Lokalizatory (URLe) są podzbiorem identyfikatorów (URI).
+ O ile lokalizator (url) opisuje zasób w  taki sposób, że jednoznaczny jest mechanizm dostępu do niego (np. położenie pliku w sieci i protokół), to identyfikator (URI) może oznaczać zasób o nieznanej lub niejednoznacznej konkretnej lokalizacji i mechanizmie dostępu, charakteryzujący sie jedynie unikalną, jednoznaczną nazwą (Uniform Resource Name - URN).
+
+Więcej informacji na ten temat można znaleźć w dokumencie  RFC 2396: Uniform Resource Identifiers (URI): Generic Syntax.
+
+URI - identyfikacja, parsowanie, przekształcanie
+URL - fizyczny dostęp
+
+Klasa URI w Javie nie dostarcza metod dostępu do zasobów (znajdziemy tu głównie metody służące do rozbioru identyfikatorów na części składowe, normalizacji, relatywizacji i rozwikływania identyfikatorów).
+Natomiast poprzez obiekty klasy URL uzyskujemy dostęp do zasobów sieciowych.
+
+Najważniejsze zastosawania klasy URI to:
+
+A. Relatywizacja ścieżek (relativize())
+
+Przydatne np. do skracania adresów w linkach.
+Kopiuj
+// Relativize
+URI fullImgLink = new URI("https://sdkp/images/a.jpg");
+URI relativeImgLink = new URI("images/a.jpg");
+println fullImgLink.relativize(relativeImgLink)
+
+Na wyjściu:
+images/a.jpg
+
+B. Rozwikływanie ścieżek relatywnych (resolve())
+
+Mając adres bazowy strony oraz link relatywny możemy uzyskać pełny adres URL
+
+Kopiuj
+// Resolve
+URI base = new URI("https://sdkp/task/result.html");
+URI relativeLink = new URI('../images/a.jpg')
+URI resolved = base.resolve(relativeLink)
+println resolved
+
+Na wyjściu:
+https://sdkp/images/a.jpg
+
+
+C. Normalizacja ścieżek (normalize())
+
+Gdy w adresie są kropki (wskazujące na relatywne odwolania np. do katalogu nadrzędnego)  daje  "normalny", pełny adres.
+
+Kopiuj
+// Normalize
+String addr = "https://sdkp/task/result.html/../../images/a.jpg"
+URI uri = new URI(addr)
+println uri
+println uri.normalize()
+
+Na wyjściu:
+https://sdkp/task/result.html/../../images/a.jpg
+https://sdkp/images/a.jpg
+
+Oprócz tego klasa URI zapewnia automatyczne URL-kodowanie znaków specjalnych (ale tylko przy użyciu konstruktorów z wieloma argumentami).
+
+
+Preferowanym sposobem adresowania zasobów internetowych jest URI, z następującym uzyskaniem URL, a konstruktory klasy URL zostały oznaczone jako "deprecated".
+Jednak uzycie konstruktorów klasy URL jest w wielu przypadkach prostsze niż "nowe sposoby" i dlatego będziemy się tego trzymać w naszych ilustracyjnych przykladach interakcji z Internetem.
+
+Poprzez obiekty klasy URL możemy uzyskać dostęp do zasobów sieciowych i to co najmniej na dwa sposoby.
+
+Najprostszy sposób (zarazem jednak najmniej elastyczny) uzyskiwania dostępu do zasobow sieciowych polega na wykorzystaniu strumienia wejściowego, związanego z lokalizatorem zasobu (URLem - obiektem klasy URL).
+
+Kolejne kroki są następujące:
+stworzyć URL za pomocą jednego z konstruktorów klasy URL (jeśli podamy błędny adres powstanie wyjątek MalformedURLException),
+uzyskać od niego strumień wejściowy za pomocą metody getInputStream(),
+odczytać treść zasobu ze strumienia.
+Poniższy przykładowy program pobiera  przypisania numerów portów ze strony www.iana.org.
+Kopiuj
+import java.io.*;
+import java.net.*;
+
+public class SimpleGetUrlContent {
+
+  public static void main(String[] args) throws Exception {
+    URL url = new URL("https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml");
+    String cont = "";
+    try (BufferedReader in = new BufferedReader(
+                 new InputStreamReader(url.openStream(), "UTF-8"))) {
+      String line;
+      while((line = in.readLine()) != null) cont +=line + "\n";
+    }
+    System.out.println(cont);
+  }
+
+}
+
+Przedstawiony bardzo prosty sposób pobierania zasobów (za pomocą strumienia uzyskanego od URLa) ma jednak co najmniej dwie wady:
+nie pozwala na odczytanie i interpretację nagłówków odpowiedzi serwera HTTP,
+nie pozwala na uzyskanie przekazywanych przez serwer kodów błędów  HTTP i związanych z nimi komunikatów.
+Klasa URLConnection i pochodna od niej HttpURLConnection usuwają te wady, a co więcej pozwalają nie tylko na odczytywanie treści zasobów, ale również na posyłanie do serwera innych zleceń HTTP.
+
+No, właśnie - jak w każdym protokole - komunikacja pomiędzy klientem i serwerem HTTP polega na wymianie zleceń (od klienta) i odpowiedzi (od serwera).  Rodzaje zleceń HTTP podaje poniższa tabela.
+
+
+Zlecenie
+(request method)
+Znaczenie
+GET 	uzyskanie zasobu identyfikowanego przez URL (odczytanie treści zasobu)
+HEAD 	Uzyskanie nagłówków
+POST 	Wysłanie danych o nielimiotowanej długości
+PUT 	Zapisanie zasobu
+DELETE 	Usunięcie zasobu
+OPTIONS 	Zwraca metody HTTP podtrzymywane przez serwer
+TRACE	Zwraca nagłówki wysłane z leceniem TRACE (do celów testowania_
+
+Każde zlecenie składa się m.in. z
+nazwy metody zlecenia ,
+nagłówków HTTP zlecenia ,
+treści.
+W odpowiedzi serwera również występują nagłówki, opisujące "parametry" treści odpowiedzi ( np. wielkośc, datę modyfikacji, typ treści)
+
+Analizę nagłówków odpowiedzi serwera umożliwiają metody klasy URLConnection. Klasa ta (wraz z pochodną od niej HttpURLConnection)  pozwala również na wysyłanie do serwera innych od najprostszego GET zleceń HTTP  i ustalanie nagłówków tych zleceń.
+
+Komunikację z serwerem HTTP za pomocą klasy HttpURLConnection można przedstawić w nastepujących krokach.
+
+1
+Od url uzyskujemy połaczenie (formalnie  typu URLConnection, stąd konieczność rzutowania):
+URL url = new URL(...);
+HtppURLConnection conn = (HttpURLConnection) url.openConnection();
+2
+Opcjonalnie:
+Za pomocą metody setRequestProperty(String key, String value) ustalamy zawartość nagłówków zlecenia (np. nagłówek "accept-language")
+Za pomocą wywolania metody setDoOutput(true) ustalamy, że połączenie umożliwi przesyłania do serwera  danych poprzez strumień wyjsciowy; domyslnie doOutput jest false,
+Za pomocą metody setDoInput(false) możemy ustalić, że nie będziemy odczytywać danych ze strumienia wejściowego. Domyslnie doInput jest true.
+Za pomocą metody setRequestMethod(String) możemy ustalić typ zlecenia: GET, POST, PUT itp.  Domyślnie zlecenie jest typu GET
+3
+Nawiązujemy połączenie:
+conn.connect()
+4
+Możemy teraz - jeśli tego potrzebujemy - odczytać nagłówki przesłane przez serwer za pomocą metod getHeader(...), getHeaders(...) oraz metod przeznaczonych do odczytywania często używanych nagłówków (np. getContentType()).
+5
+Jeżeli doOuput == true, to za pomoca metody conn.getOutputStream() uzyskujemy dostęp do strumienia wyjściowego połączenia i zapisujemy do niego treśc zlecenia (np. parametry formularza)
+6
+Jeżeli doInput == true, uzyskujemy strumień wejściowy do czytania odpowiedzi serwera (conn.getInputStream()) i za jego pomoca czytamy "ciało" odpowiedzi serwera.
+
+
+Spójrzmy najpierw na bardzo prosty program, odczytujący z serwera dokument HTML za pomocą obiektu klasy URLConnection .
+Przy okazji zapoznamy sie ze sposobem uzyskiwania całego zestawu nagłówków odpowiedzi (w mapie zawierajacej jako klucze nazwy nagłówków a jako wartości - ich zawartość). Dla często używanych nagłówków (np. contnet-type, content-length) istnieją dodatkowe odrębne metody pobierania (np. getContentType(), getContentLength()).
+
+Kopiuj
+  public static void main(String[] args) {
+    String surl = "https://....";  // <- konkretny portal pokazany bedzie na wykładzie
+    try {
+      URL url = new URL(surl);
+      HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+      conn.connect();
+      Map<String, List<String>> map = conn.getHeaderFields();
+      for (String header : map.keySet()) {
+        System.out.println(header + ":" + map.get(header));
+      }
+
+      try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
+        for (String line; (line = in.readLine()) != null;)
+          System.out.println(line);
+      }
+
+      conn.disconnect();
+    } catch (MalformedURLException exc) {
+        exc.printStackTrace();
+        System.exit(1);
+    } catch (FileNotFoundException exc) {
+        System.out.println("Podanego zasobu nie ma na serwerze");
+        System.exit(2);
+    } catch (Exception exc) {
+        exc.printStackTrace();
+    }
+  }
+
+
+Po wprowadzeniu jakiegoś (prawidłowego) adresu na początku wydruku uzyskamy nagłówki np.
+
+null:[HTTP/1.1 200 OK]
+Keep-Alive:[timeout=5, max=100]
+Transfer-Encoding:[chunked]
+Server:[Apache]
+X-Content-Type-Options:[nosniff]
+Connection:[Upgrade, Keep-Alive]
+Upgrade:[h2]
+Date:[Mon, 09 Feb 2026 15:32:28 GMT]
+Referrer-Policy:[strict-origin]
+Strict-Transport-Security:[max-age=31536000; preload]
+Cache-Control:[private, must-revalidate]
+Vary:[Accept-Encoding]
+Expires:[Wed, 11 Feb 2026 15:32:28 GMT]
+X-XSS-Protection:[1; mode=block]
+Content-Type:[text/html; charset=UTF-8]...
+// dalej treśc dokumentu html
+
+
+Zwróćmy uwagę, interpretacja nagłówków może sie nam przydać do prawidłowego kodowania treści dokumentu (nagłówek Content-Type będzie często, choć nie zawsze, podawał stronę kodową).
+Zauważmy też, że w pierwszesj linii wydruku podany jest kod odpowiedzi serwera (200) i związany z nim komunikat (OK - zlecenie było poprawne i uzyskaliśmy odpowiedź).
+Gdyby np. podać nieistniejący plik, to uzyskalibyśmy nagłówki np.:
+
+
+null:[HTTP/1.1 404 Not Found]
+// ...
+
+
+ale przy czytaniu treści odpowiedzi wystąpiłby wyjątek FileNotFoundException.
+
+Na marginesie nalezy dodać tu, że wygodniejszym i  bardziej szczegółowym sposobem identyfikacji wyniku zlecenia jest użycie metod getResponseCode() i getResponseMessage() z klasy HttpURLConnection (obiekt tej klasy dla URLi z protokołem HTTP jest zwracany z metody URLConnection.openConnectuin(), musimy tylko dokonać zawężajacej konwesrji referencyjnej z formalnego typu URLConncetion do  HttpURLConnection).
+
+Niektóre serwery zabraniają połączenia, jeśli widać, ze nie pochodzi z przeglądarki (ale np. z programu).
+Przykładowo taki kod:
+Kopiuj
+def site = 'https:// ...' // <- konkretny portal pokazany bedzia na wykładzie
+def url = new URL(site)
+println url.text // pobranie tekstu HTML
+
+Spowoduje wyjatek:
+
+ java.io.IOException: Server returned HTTP
+response code: 403 for URL:
+
+Kod HTTP 403 (FORBIDDEN) oznacza, że serwer odmawia dostępu do zasobu. W tym konkretnym przypadku dzieje się tak dlatego, że automatycznie utworzony nagłówek zlecenia "User-Agent" wskazuje na dostęp z poziomu programu.
+
+I tu HttpURLConnection okazuje sie użyteczne, bowiem możemy zmienić ten nagłówek, tak aby wskazywał na dostęp z poziomu przeglądarki:
+
+Kopiuj
+def site = 'https://...'
+def url = new URL(site)
+HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+def cont = connection.inputStream.text
+println cont
+W rezultacie uzyskamy treśc zasobu.
+
+
+Ostatni przykladowy programik, używa klasy URLConenction do przeslania danych do serwisu. W tym celu ustalamy właściwość połączenia jako "do pisania" - metodą setDoOutput(true). W tym przypadku serwis ma poprawić dane i zwrócić poprawione.
+Ilustracyjny serwis  quickFix, zrealizowany na localhost, po prostu usuwa zbędne spacje.
+
+Kopiuj
+import java.io.*;
+import java.net.*;
+
+public class Client1 {
+
+  public static void main(String[] args) throws Exception {
+
+    // Z tego pliku przeczytamy dane
+
+    BufferedReader br = new BufferedReader(new FileReader("toFix.txt"));
+
+    URL url = new URL("http://localhost:8080/Shorties/quickFix"); // adres aplikacji
+                                      // po stronie serwera
+                                      // obsługującej klienta
+    URLConnection connection = url.openConnection();
+
+    // Ustalenie nagłówka "accept-language" zlecenia
+    // Po stronie serwera da to informację o lokalizacji
+    // Tutaj jej nie używamy, ale może sie przydac w innych okolicznościach
+    connection.setRequestProperty("accept-language", "pl");
+
+    // Będziemy pisać treść zlecenia
+    connection.setDoOutput(true);
+
+    String charset = "UTF-8"; // kodowanie treści
+    PrintWriter out = new PrintWriter(
+        new OutputStreamWriter(connection.getOutputStream(), charset));
+    // Czytamy z pliku i zapisujemy jako treść zlecenia
+    String line;
+    while ((line = br.readLine()) != null)
+      out.println(line);
+    br.close();
+    out.close();
+    // Odczytujemy odpowiedź serwera
+    BufferedReader in = new BufferedReader(
+        new InputStreamReader(connection.getInputStream(), charset));
+
+    while ((line = in.readLine()) != null)
+      System.out.println(line);
+
+    in.close();
+  }
+
+}
+Jesli w pliku  znajdują się zapisy:
+
+Spójrzmy najpierw na bardzo prosty program, odczytujący z serwera dokument HTML
+za          pomocą obiektu klasy URLConnection.
+Przy okazji zapoznamy sie        ze sposobem uzyskiwania całego zestawu nagłówków odpowiedzi .
+
+
+
+
+to program wyprowadzi na konsoli:
+
+
+Spójrzmy najpierw na bardzo prosty program, odczytujący z serwera dokument HTML
+za pomocą obiektu klasy URLConnection.
+Przy okazji zapoznamy sie ze sposobem uzyskiwania całego zestawu nagłówków odpowiedzi.
+
+
+Uwaga: różne sposoby oprogramowania serwisu poprawiającego (quickFix) będą podane w dalszej części wykładów.
+
+Przy okazji warto pokazać realizację tego samego zadania w języku Groovy.
+Groovy to tak naprawdę Java (kompiluje sie do bytecodu), ale ma wiele udoskonaleń składniowych oraz bogate wbudowane biblioteki.
+Kod - w stosunku do poprzedniego programu w Javie - jest 5-krotnie krótszy i bardziej zrozumiały, a nawet bardziej bezpieczny (bo automatycznie zamyka strumienie):
+Kopiuj
+String contToFix = new File('toFix.txt').getText('UTF-8')
+URL fixService = new URL('http://localhost:8080/Shorties/quickFix')
+HttpURLConnection conn = fixService.openConnection()
+conn.doOutput = true
+conn.outputStream.withWriter { out -> out << contToFix }
+println conn.inputStream.getText('UTF-8')
+
+Wspominam o tym, bo nieraz użyjemy (i już używaliśmy) Groovy do ilustracji koncepcji i działań, bez zaciemniania istoty rzeczy nadmiernym werbalizmem Javy.
+
+Klasy URL i HttpURLConnection są bardzo podstawowe. Między innymi nie udostępniają mozliwości autentykacji i autoryzacji.
+Do tego (i nie tylko) będa potrzebne "pełnowymiarowe" klasy klientów HTTP.
+Mowa będzie o nich w następnym wykładzie.
+
+
+
+

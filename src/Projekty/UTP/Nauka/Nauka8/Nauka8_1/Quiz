@@ -1,0 +1,106 @@
+Oczywiście! Oto przykładowy **quiz** składający się z 10 pytań (różnego typu: jednokrotnego wyboru, wielokrotnego wyboru, prawda/fałsz, uzupełnianie), stworzony na podstawie Twojego tekstu o wątkach i programowaniu współbieżnym w Javie.
+
+---
+
+### **Quiz: Wątki i programowanie współbieżne w Javie**
+
+**1. \[Jednokrotny wybór]**
+Czym jest wątek w kontekście programowania współbieżnego?
+A. Procesem działającym niezależnie od programu
+B. Obiektem typu Runnable
+C. Sekwencją działań mogącą działać równolegle z innymi w obrębie jednego procesu
+D. Kodem wykonywanym tylko przez główny procesor
+
+✅ **Prawidłowa odpowiedź: C**
+
+---
+
+**2. \[Wielokrotny wybór]**
+Które z poniższych stwierdzeń dotyczących wątków w Javie są prawdziwe?
+A. Wątek może być uruchomiony przez metodę `run()` bezpośrednio.
+B. Wątek kończy się, gdy zakończy się wykonanie metody `run()`.
+C. Wątek w Javie nie może być zatrzymany przed końcem jego działania.
+D. Klasa `Thread` implementuje interfejs `Runnable`.
+
+✅ **Prawidłowe odpowiedzi: B, D**
+
+---
+
+**3. \[Prawda/Fałsz]**
+W systemach jednoprocesorowych wątki są faktycznie uruchamiane równolegle.
+❌ Fałsz
+✅ Prawda
+
+✅ **Poprawna odpowiedź: Fałsz**
+*(Działają naprzemiennie dzięki przydzielaniu kwantu czasu przez system.)*
+
+---
+
+**4. \[Jednokrotny wybór]**
+Jak nazywa się mechanizm, w którym system operacyjny sam decyduje, który wątek ma obecnie działać?
+A. Synchronizacja
+B. Kooperacyjne multitasking
+C. Wywłaszczanie (pre-emptive multitasking)
+D. Harmonogramowanie ręczne
+
+✅ **Prawidłowa odpowiedź: C**
+
+---
+
+**5. \[Uzupełnianie]**
+Uzupełnij zdanie:
+„Aby uruchomić wątek w Javie, należy użyć metody **\_\_\_\_\_\_** na obiekcie klasy Thread.”
+✅ **Prawidłowa odpowiedź: `start()`**
+
+---
+
+**6. \[Jednokrotny wybór]**
+Która z poniższych metod służy do zakończenia pracy wątku w sposób naturalny?
+A. kill()
+B. exit()
+C. end()
+D. return z metody run()
+
+✅ **Prawidłowa odpowiedź: D**
+
+---
+
+**7. \[Wielokrotny wybór]**
+Które z poniższych elementów są wymagane przy drugim sposobie uruchamiania wątku (Java 1.4, z użyciem interfejsu Runnable)?
+A. Zdefiniowanie klasy implementującej `Runnable`
+B. Utworzenie obiektu klasy `Thread` z referencją do `Runnable`
+C. Przedefiniowanie metody `start()`
+D. Wywołanie metody `start()` na obiekcie `Thread`
+
+✅ **Prawidłowe odpowiedzi: A, B, D**
+
+---
+
+**8. \[Prawda/Fałsz]**
+Metoda `run()` jest automatycznie wywoływana po utworzeniu obiektu klasy `Thread`.
+❌ Fałsz
+✅ Prawda
+
+✅ **Poprawna odpowiedź: Fałsz**
+*(Aby uruchomić wątek, trzeba jawnie wywołać `start()`.)*
+
+---
+
+**9. \[Jednokrotny wybór]**
+Które rozwiązanie jest uznawane za nowocześniejsze i bardziej elastyczne w zarządzaniu wątkami w Javie?
+A. Dziedziczenie po klasie `Thread`
+B. Bezpośrednie wywoływanie `run()`
+C. Pakiet `java.util.concurrent`
+D. Implementacja klasy `Runnable`
+
+✅ **Prawidłowa odpowiedź: C**
+
+---
+
+**10. \[Uzupełnianie]**
+W kontekście programowania współbieżnego, możliwość dostępu wielu wątków do wspólnych danych wymaga odpowiedniej **\_\_\_\_\_\_\_\_\_\_\_\_\_\_** ich działania.
+✅ **Prawidłowa odpowiedź: synchronizacji**
+
+---
+
+Jeśli chcesz, mogę przygotować wersję do wydruku lub format interaktywny (np. w HTML).

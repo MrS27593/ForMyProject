@@ -1,0 +1,48 @@
+Jasne 👍 Oto **ODPOWIEDZI do quizu: `IndexOutOfBoundsException`** wraz z krótkimi wyjaśnieniami rekrutacyjnymi 👇
+
+---
+
+## ✅ **ODPOWIEDZI – IndexOutOfBoundsException**
+
+1️⃣ **B** – `IndexOutOfBoundsException` jest **unchecked exception**
+
+2️⃣ **B** – powstaje przy próbie użycia indeksu **poza zakresem**
+
+3️⃣ **B** – podklasą jest **ArrayIndexOutOfBoundsException** (oraz StringIndexOutOfBoundsException)
+
+4️⃣ **B** – `arr[3]` → indeks poza zakresem tablicy
+
+5️⃣ **C** – `s.charAt(3)` → `StringIndexOutOfBoundsException` (podklasa IndexOutOfBoundsException)
+
+6️⃣ **B** – poprawna pętla: `i < arr.length` (0–4 dla arr.length = 5)
+
+7️⃣ **B** – `List.of("X","Y").get(2)` → indeks 2 poza zakresem → `IndexOutOfBoundsException`
+
+8️⃣ **B** – najlepiej **sprawdzać indeks przed get()** (fail-fast)
+
+9️⃣ **C** – `s.charAt(0)` na pustym String → `StringIndexOutOfBoundsException`
+
+🔟 **B** – `ArrayIndexOutOfBoundsException` jest podklasą `IndexOutOfBoundsException`
+
+1️⃣1️⃣ **B** – `List.get(-1)` → `IndexOutOfBoundsException` (indeks < 0)
+
+1️⃣2️⃣ **B** – najlepiej **sprawdzać indeks przed dostępem**, nie łapać wyjątku w try-catch
+
+---
+
+## 🧠 **Złote wnioski (rekrutacyjne)**
+
+✔️ `IndexOutOfBoundsException` = błąd programisty
+✔️ Podklasy: `ArrayIndexOutOfBoundsException`, `StringIndexOutOfBoundsException`
+✔️ Pętle zawsze `<` zamiast `<=`
+✔️ W publicznych API: lepiej walidować i rzucać `IllegalArgumentException`
+✔️ Fail-fast i jawny komunikat → zawsze lepszy niż łapanie wyjątku
+
+---
+
+Chcesz teraz:
+👉 **ConcurrentModificationException** (bardzo często w praktyce i na rekrutacji)
+👉 **hard quiz – mieszane wyjątki Runtime**
+👉 **IllegalArgumentException vs IndexOutOfBoundsException – porównanie**
+
+Co robimy dalej? 😄

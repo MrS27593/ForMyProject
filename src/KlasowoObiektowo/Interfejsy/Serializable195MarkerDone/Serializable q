@@ -1,0 +1,104 @@
+Świetnie 👍
+Poniżej **SAM QUIZ z interfejsu `Serializable`** — **bez odpowiedzi**, dokładnie tak jak prosiłeś.
+
+---
+
+## 🧪 Quiz: Interfejs `Serializable` w Javie
+
+---
+
+### **1️⃣ Czym jest interfejs `Serializable`?**
+
+a) Interfejsem z metodą `serialize()`
+b) Interfejsem markerowym bez metod
+c) Abstrakcyjną klasą do zapisu obiektów
+d) Interfejsem do klonowania obiektów
+
+---
+
+### **2️⃣ W jakim pakiecie znajduje się `Serializable`?**
+
+a) java.util
+b) java.lang
+c) java.io
+d) java.net
+
+---
+
+### **3️⃣ Co oznacza serializacja obiektu?**
+
+a) Skopiowanie obiektu w pamięci
+b) Zamianę obiektu na strumień bajtów
+c) Porównanie obiektów
+d) Usunięcie obiektu z pamięci
+
+---
+
+### **4️⃣ Co się stanie, jeśli spróbujemy zapisać obiekt klasy, która NIE implementuje `Serializable`?**
+
+a) Program się skompiluje i wykona poprawnie
+b) Zostanie rzucony wyjątek `IOException`
+c) Zostanie rzucony wyjątek `NotSerializableException`
+d) Obiekt zostanie zapisany częściowo
+
+---
+
+### **5️⃣ Do czego służy słowo kluczowe `transient`?**
+
+a) Do serializacji pola tylko raz
+b) Do ukrycia pola przed JVM
+c) Do pominięcia pola podczas serializacji
+d) Do wymuszenia deep copy
+
+---
+
+### **6️⃣ Jaką wartość będzie miało pole `transient` po deserializacji?**
+
+a) Ostatnią zapisaną
+b) Wartość losową
+c) Wartość domyślną (`0`, `null`, `false`)
+d) Tę samą co przed serializacją
+
+---
+
+### **7️⃣ Do czego służy `serialVersionUID`?**
+
+a) Do szyfrowania danych
+b) Do wersjonowania klasy podczas serializacji
+c) Do zwiększenia wydajności zapisu
+d) Do oznaczenia pól transient
+
+---
+
+### **8️⃣ Co może się stać, gdy zmienimy klasę i NIE użyjemy `serialVersionUID`?**
+
+a) Nic – Java poradzi sobie sama
+b) Błąd kompilacji
+c) InvalidClassException podczas deserializacji
+d) Program się zawiesi
+
+---
+
+### **9️⃣ Które stwierdzenie jest prawdziwe?**
+
+a) Serializable ma metody do implementacji
+b) Wszystkie pola klasy muszą być serializowane
+c) Wszystkie pola muszą być typu prymitywnego
+d) Wszystkie pola obiektu też muszą być serializowalne
+
+---
+
+### **🔟 Kiedy NAJLEPIEJ używać `Serializable`?**
+
+a) Do sortowania obiektów
+b) Do zapisu/odczytu obiektów (plik, sieć, sesja)
+c) Do porównywania obiektów
+d) Do iterowania po kolekcjach
+
+---
+
+📌 Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam:
+
+* poprawne odpowiedzi
+* krótkie, konkretne wyjaśnienia
+* wskazówki egzaminacyjne 💡

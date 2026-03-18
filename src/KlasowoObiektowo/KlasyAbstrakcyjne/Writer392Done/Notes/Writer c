@@ -1,0 +1,158 @@
+Świetnie! ✍️ Skoro mamy `OutputStream`, czas przejść do **`Writer`** – klasy abstrakcyjnej do **zapisu znaków (charów) w Javie**.
+
+---
+
+# 🧩 `java.io.Writer` – pełne omówienie
+
+## 1️⃣ Czym jest `Writer`?
+
+```java
+public abstract class Writer implements Appendable, Closeable, Flushable
+```
+
+📌 **Najważniejsze fakty**
+
+* Klasa **abstrakcyjna** w pakiecie `java.io`.
+* Służy do **zapisu znaków (char), a nie bajtów**.
+* Wszystkie klasy zapisujące znaki dziedziczą po niej, np.:
+
+  * `FileWriter` – zapis do pliku
+  * `BufferedWriter` – buforowany zapis znaków
+  * `PrintWriter` – wygodne metody do zapisu tekstu
+
+---
+
+## 2️⃣ Metody abstrakcyjne
+
+**Kluczowe metody, które muszą być zaimplementowane w podklasie**:
+
+```java
+public abstract void write(int c) throws IOException;
+public abstract void write(char[] cbuf, int off, int len) throws IOException;
+public abstract void flush() throws IOException;
+public abstract void close() throws IOException;
+```
+
+📌 `write(int c)` zapisuje **pojedynczy znak** (char), a nie bajt.
+
+---
+
+## 3️⃣ Ważniejsze metody z `Writer` (już zaimplementowane)
+
+| Metoda                     | Co robi                            |
+| -------------------------- | ---------------------------------- |
+| `write(char[] cbuf)`       | Zapisuje wszystkie znaki z tablicy |
+| `write(String str)`        | Zapisuje wszystkie znaki z Stringa |
+| `append(CharSequence csq)` | Dodaje sekwencję znaków            |
+| `append(char c)`           | Dodaje pojedynczy znak             |
+| `flush()`                  | Wypycha dane do docelowego medium  |
+| `close()`                  | Zamyka strumień i zwalnia zasoby   |
+
+📌 Większość klas dziedziczących **nadpisuje te metody dla wydajności**.
+
+---
+
+## 4️⃣ Dlaczego `Writer` jest abstrakcyjny?
+
+✅ Bo różne źródła docelowe (plik, pamięć, konsola) mają różne mechanizmy zapisu znaków, ale wszystkie można traktować **jednoznacznie przez Writer**.
+
+---
+
+## 5️⃣ Przykład użycia `FileWriter`
+
+```java
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+
+public class Main {
+    public static void main(String[] args) {
+        try (Writer writer = new FileWriter("plik.txt")) {
+            writer.write("Hello World\n");
+            writer.write("Kolejna linia");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+📌 **Try-with-resources** automatycznie zamyka strumień.
+
+---
+
+## 6️⃣ Przykład własnej klasy dziedziczącej `Writer`
+
+### 🔹 Klasa zapisująca tylko cyfry
+
+```java
+import java.io.IOException;
+import java.io.Writer;
+
+public class DigitWriter extends Writer {
+
+    @Override
+    public void write(int c) throws IOException {
+        if (Character.isDigit(c)) {
+            System.out.print((char)c);
+        }
+    }
+
+    @Override
+    public void write(char[] cbuf, int off, int len) throws IOException {
+        for (int i = off; i < off + len; i++) {
+            write(cbuf[i]);
+        }
+    }
+
+    @Override
+    public void flush() throws IOException {
+        // nic do zrobienia w konsoli
+    }
+
+    @Override
+    public void close() throws IOException {
+        // nic do zamknięcia w konsoli
+    }
+}
+```
+
+### Użycie:
+
+```java
+public class Main {
+    public static void main(String[] args) throws IOException {
+        Writer w = new DigitWriter();
+        w.write("a1b2c3"); // wypisze: 123
+    }
+}
+```
+
+---
+
+## 7️⃣ Typowe pułapki początkujących
+
+1. **Nie zamykasz strumienia** → wyciek zasobów.
+2. **Nie używasz flush()** przy buforowanych writerach → dane mogą nie zostać zapisane.
+3. **Nie rozróżniasz Writer vs OutputStream** – Writer = znaki, OutputStream = bajty.
+4. **Nie nadpisujesz write(int c)** w własnym Writerze → klasa nie działa.
+
+---
+
+## 8️⃣ Podsumowanie – najważniejsze punkty
+
+* `Writer` = **abstrakcyjny zapis znaków**
+* Metody abstrakcyjne: `write(int c)`, `write(char[] cbuf, int off, int len)`, `flush()`, `close()`
+* Kluczowe klasy dziedziczące: `FileWriter`, `BufferedWriter`, `PrintWriter`
+* Pozwala tworzyć **polimorficzne operacje zapisu znaków**
+
+---
+
+💡 **Analogia:**
+`Writer` = **długopis** do pisania liter, a różne klasy pochodne to np. **notes, tablica, plik**.
+
+---
+
+Mogę teraz zrobić **quiz o Writer**, podobny do InputStream i OutputStream, żeby utrwalić wszystko.
+
+Chcesz, żebym zrobił quiz?

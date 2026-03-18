@@ -1,0 +1,184 @@
+Super! 🚀 Przechodzimy do klasy **`Integer`** w Javie – jednej z najważniejszych klas opakowujących liczby całkowite. Nauczymy się wszystkiego krok po kroku.
+
+---
+
+# 🌟 Klasa `Integer` w Javie
+
+## 🔹 Czym jest `Integer`?
+
+* Należy do pakietu `java.lang`
+* Jest **klasą opakowującą (wrapper class)** dla typu prostego `int`
+* Pozwala traktować `int` jak **obiekt** – potrzebne w kolekcjach (`ArrayList<Integer>`), metodach generycznych itp.
+* Klasa **final** → nie można jej dziedziczyć
+
+---
+
+## 🔹 Tworzenie obiektu `Integer`
+
+### 1️⃣ Poprzez konstruktor (przestarzałe w nowych wersjach Javy):
+
+```java
+Integer i1 = new Integer(10);  // przestarzałe (deprecated)
+Integer i2 = new Integer("20");
+```
+
+### 2️⃣ Poprzez metody statyczne (zalecane):
+
+```java
+Integer i1 = Integer.valueOf(10);
+Integer i2 = Integer.valueOf("20");
+```
+
+### 3️⃣ Autoboxing (najprostsze):
+
+```java
+Integer i = 30;  // kompilator sam zamieni int -> Integer
+```
+
+---
+
+## 🔹 Konwersja między typem prostym a obiektem
+
+| Typ           | Przykład                      |
+| ------------- | ----------------------------- |
+| int → Integer | `Integer i = 5;` (autoboxing) |
+| Integer → int | `int x = i;` (unboxing)       |
+
+```java
+Integer i = 100;
+int j = i;  // unboxing
+```
+
+---
+
+## 🔹 Najważniejsze pola statyczne
+
+| Pole        | Wartość / Opis                    |
+| ----------- | --------------------------------- |
+| `MIN_VALUE` | najmniejsza wartość int (-2^31)   |
+| `MAX_VALUE` | największa wartość int (2^31 - 1) |
+| `SIZE`      | liczba bitów w `int` (32)         |
+| `BYTES`     | liczba bajtów w `int` (4)         |
+| `TYPE`      | klasa prymitywna `int.class`      |
+
+**Przykład:**
+
+```java
+System.out.println(Integer.MIN_VALUE); // -2147483648
+System.out.println(Integer.MAX_VALUE); // 2147483647
+System.out.println(Integer.SIZE);      // 32
+```
+
+---
+
+## 🔹 Najważniejsze metody
+
+### 1️⃣ `parseInt(String s)`
+
+* Zamienia napis na `int`
+
+```java
+int a = Integer.parseInt("123");
+```
+
+### 2️⃣ `valueOf(String s)`
+
+* Zwraca obiekt `Integer` z napisu
+
+```java
+Integer i = Integer.valueOf("456");
+```
+
+### 3️⃣ `toString()`
+
+* Zamienia `Integer` na `String`
+
+```java
+Integer i = 100;
+String s = i.toString(); // "100"
+```
+
+### 4️⃣ `compare(int x, int y)`
+
+* Porównuje dwa inty
+
+```java
+int result = Integer.compare(5, 10);
+// result < 0, bo 5 < 10
+```
+
+### 5️⃣ `compareTo(Integer anotherInteger)`
+
+* Porównuje ten obiekt do innego `Integer`
+
+```java
+Integer a = 5;
+Integer b = 10;
+System.out.println(a.compareTo(b)); // -1
+```
+
+### 6️⃣ `intValue()`
+
+* Zwraca wartość typu `int` z obiektu `Integer`
+
+```java
+Integer i = 50;
+int x = i.intValue();
+```
+
+### 7️⃣ `byteValue()`, `shortValue()`, `longValue()`, `floatValue()`, `doubleValue()`
+
+* Konwersje na inne typy liczbowe
+
+```java
+Integer i = 100;
+long l = i.longValue();
+double d = i.doubleValue();
+```
+
+---
+
+## 🔹 Konwersja liczby na systemy liczbowe
+
+```java
+int num = 255;
+
+System.out.println(Integer.toBinaryString(num));   // "11111111"
+System.out.println(Integer.toHexString(num));      // "ff"
+System.out.println(Integer.toOctalString(num));    // "377"
+```
+
+---
+
+## 🔹 Porównywanie Integerów
+
+* **Uwaga na `==`!**
+
+```java
+Integer a = 100;
+Integer b = 100;
+System.out.println(a == b); // true (bo cache od -128 do 127)
+
+Integer x = 200;
+Integer y = 200;
+System.out.println(x == y); // false (nie w cache)
+System.out.println(x.equals(y)); // true
+```
+
+> Zawsze do porównywania **obiektów** Integer używaj `equals()`, chyba że jesteś pewien zakresu.
+
+---
+
+## 🔹 Podsumowanie
+
+* `Integer` = opakowanie dla `int`
+* **Statyczne pola**: `MIN_VALUE`, `MAX_VALUE`, `SIZE`, `BYTES`
+* **Najważniejsze metody**: `parseInt()`, `valueOf()`, `toString()`, `compare()`, `compareTo()`, `intValue()`
+* **Autoboxing / unboxing** → automatyczna konwersja między `int` i `Integer`
+* **Porównywanie** → `equals()` zamiast `==` dla bezpieczeństwa
+
+---
+
+Jeżeli chcesz, mogę teraz zrobić **quiz z 10 pytań do klasy `Integer`**, zgodnie z Twoimi zasadami (a, b, c, d).
+
+Chcesz, żebym go przygotował?

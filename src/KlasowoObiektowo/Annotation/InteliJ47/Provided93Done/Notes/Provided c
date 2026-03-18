@@ -1,0 +1,65 @@
+Świetnie 😄 teraz lecimy z **`@Provided`** – kolejną adnotacją z kontekstu **Java Flight Recorder (JFR)** i metadanych.
+
+---
+
+# 📌 `@Provided` – co to jest?
+
+`@Provided` to adnotacja, która:
+
+> Oznacza, że wartość pola **jest dostarczana przez system lub narzędzia JFR**, a nie przez programistę.
+> Używana jest w zdarzeniach JFR, gdzie pole może być automatycznie wypełniane przez JVM lub JFR podczas rejestrowania zdarzenia.
+
+---
+
+## 🔎 Pakiet
+
+```java
+jdk.jfr.Provided
+```
+
+Od wersji: Java 9+
+
+---
+
+# ✅ Przykład użycia
+
+```java
+import jdk.jfr.*;
+
+@Label("Thread Event")
+@Description("Tracks information about threads")
+class ThreadEvent extends Event {
+
+    @Provided
+    @Label("Thread ID")
+    long threadId;  // wypełniane automatycznie przez JFR
+
+    @Label("Thread Name")
+    String threadName;  // może być ustawiane ręcznie
+}
+```
+
+➡ `@Provided` wskazuje, że pole `threadId` **nie musi być ustawiane ręcznie**, bo JFR wypełni je automatycznie.
+
+---
+
+# 🧠 Uwagi
+
+1. **Nie wpływa na runtime programu** – jest informacją dla JFR.
+2. Stosowana na **polach w klasach zdarzeń**.
+3. Pomaga **narzędziom monitorującym** w odróżnieniu wartości dostarczanych przez system od tych ustawianych przez użytkownika.
+4. Często używana w połączeniu z:
+
+   * `@Label` – przyjazna nazwa pola
+   * `@Description` – opis pola
+
+---
+
+# 🎯 Definicja egzaminacyjna
+
+> `@Provided` w Java Flight Recorder oznacza, że wartość pola jest **dostarczana przez system lub JFR**, a nie ustawiana ręcznie przez programistę. Służy do automatycznego wypełniania danych w zdarzeniach i ułatwia interpretację przez narzędzia monitorujące.
+
+---
+
+Chcesz, żebym teraz zrobił **quiz z `@Provided`**?
+

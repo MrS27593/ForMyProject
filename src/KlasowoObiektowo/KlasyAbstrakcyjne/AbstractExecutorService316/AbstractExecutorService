@@ -1,0 +1,24 @@
+Aby dobrze umieć Klasę AbstractExecutorService warto znać:
+Interface:
+ExecutorService
+RunnableFuture<T>
+Runnable
+Callable<T>
+Future<?>
+RunnableFuture
+Collection
+Iterator
+
+Class:
+ArrayList
+ExecutorCompletionService
+Throwable
+System
+
+
+Exceptions:
+InterruptedException
+ExecutionException
+TimeoutException
+CancellationException
+

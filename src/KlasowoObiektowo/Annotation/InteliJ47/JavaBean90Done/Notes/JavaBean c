@@ -1,0 +1,83 @@
+Świetnie 😄 teraz **`@JavaBean`** – czyli adnotacja związana z klasycznym wzorcem JavaBeans.
+
+---
+
+# 📌 `@JavaBean` – co to jest?
+
+> Adnotacja informacyjna, która oznacza, że klasa spełnia **konwencję JavaBean**.
+
+---
+
+## 🔎 Kontekst JavaBeans
+
+JavaBean to klasa spełniająca kilka reguł:
+
+1. Ma **pusty konstruktor** (domyślny lub bezparametrowy).
+2. Posiada **pola prywatne** i **gettery/settery**.
+3. Jest **serializowalna** (`implements Serializable`).
+4. Może emitować zdarzenia i korzystać z listenerów (opcjonalne).
+
+Adnotacja `@JavaBean` jest **informacyjna** – IDE lub narzędzia mogą ją wykorzystywać do:
+
+* automatycznego generowania getterów/setterów
+* frameworków (np. Spring, BeanUtils)
+* wizualnych edytorów Beanów
+
+---
+
+## 📦 Pakiet
+
+W standardowej Javie **nie ma oficjalnego `@JavaBean`** w JDK.
+
+Najczęściej spotykana w:
+
+* IntelliJ / JetBrains annotations
+* Narzędziach typu Lombok (własne adnotacje do generowania Beanów)
+* Frameworkach serializacji/konfiguracji
+
+Przykładowy pakiet w JetBrains:
+
+```java id="g2t73s"
+org.jetbrains.annotations.JavaBean
+```
+
+---
+
+## ✅ Przykład klasy oznaczonej `@JavaBean`
+
+```java id="r5f8d1"
+@JavaBean
+public class Person implements Serializable {
+    private String name;
+    private int age;
+
+    public Person() {} // konstruktor domyślny
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
+}
+```
+
+➡ IDE może traktować tę klasę jako standardowy JavaBean.
+
+---
+
+## 🧠 Uwagi
+
+1. Adnotacja **nie zmienia zachowania klasy**.
+2. Jest **czysto informacyjna** i służy do wsparcia narzędzi.
+3. W Lomboku `@Data` może pełnić podobną rolę, generując automatycznie getter/setter.
+4. Często wykorzystywana w frameworkach serializacji (Jackson, JAXB).
+
+---
+
+# 🎯 Definicja egzaminacyjna
+
+> `@JavaBean` oznacza klasę zgodną ze wzorcem JavaBean – posiada pusty konstruktor, prywatne pola, gettery/settery i może być serializowana. Adnotacja jest informacyjna, wspomaga IDE i narzędzia do automatycznej obsługi Beanów.
+
+---
+
+Chcesz, żebym od razu przygotował **quiz z `@JavaBean`**?

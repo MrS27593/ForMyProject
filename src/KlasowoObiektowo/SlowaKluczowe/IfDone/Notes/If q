@@ -1,0 +1,100 @@
+### 📘 QUIZ – `if` w Java
+
+**10 pytań: 8 zamkniętych (A–D) + 2 otwarte**
+
+---
+
+#### 1️⃣ Co robi instrukcja `if` w Javie?
+
+A. Tworzy pętlę
+B. Wykonuje blok kodu tylko wtedy, gdy warunek jest prawdziwy
+C. Importuje klasy z pakietu
+D. Definiuje zmienną
+
+---
+
+#### 2️⃣ Co się stanie, jeśli warunek w `if` jest fałszywy, a nie ma `else`?
+
+A. Blok `if` zostanie wykonany
+B. Program rzuci wyjątek
+C. Blok `if` zostanie pominięty
+D. Kod zostanie skompilowany z błędem
+
+---
+
+#### 3️⃣ Który operator służy do porównania wartości w warunku?
+
+A. `=`
+B. `==`
+C. `!=`
+D. `=>`
+
+---
+
+#### 4️⃣ Co wypisze poniższy kod?
+
+```java
+int x = 5;
+if (x > 10) {
+    System.out.println("Większe niż 10");
+} else {
+    System.out.println("Mniejsze lub równe 10");
+}
+```
+
+A. `Większe niż 10`
+B. `Mniejsze lub równe 10`
+C. Nic
+D. Błąd kompilacji
+
+---
+
+#### 5️⃣ Czy instrukcje w bloku `if` mogą być bez nawiasów `{}`?
+
+A. Tak, jeśli jest tylko jedna instrukcja
+B. Tak, zawsze
+C. Nie, nawiasy są obowiązkowe
+D. Nie, kompilator zgłosi błąd
+
+---
+
+#### 6️⃣ Jakie operatory logiczne można używać w warunkach `if`?
+
+A. `&&`, `||`, `!`
+B. `+`, `-`, `*`
+C. `<`, `>`
+D. `=`
+
+---
+
+#### 7️⃣ Które zdanie jest prawdziwe o `if-else if-else`?
+
+A. Można używać tylko jednego `else if`
+B. `else` jest obowiązkowe
+C. Można sprawdzać wiele warunków po kolei
+D. `if` nie może być zagnieżdżone
+
+---
+
+#### 8️⃣ Co jest lepsze do sprawdzania zakresów wartości – `if` czy `switch`?
+
+A. `switch`
+B. `if`
+C. Oba tak samo
+D. Żadne
+
+---
+
+#### 9️⃣ (Pytanie otwarte)
+
+Podaj przykład praktycznego zastosowania instrukcji `if` w projekcie biznesowym.
+
+---
+
+#### 🔟 (Pytanie otwarte)
+
+Dlaczego **zagnieżdżone `if`** mogą być problematyczne w dużych projektach i jak temu zaradzić?
+
+---
+
+Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam komplet z wyjaśnieniami ✅

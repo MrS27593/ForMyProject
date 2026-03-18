@@ -1,0 +1,105 @@
+Oto **quiz** stworzony na podstawie podanego tekstu o pakiecie `java.util.concurrent` — zawiera 10 pytań różnych typów (jednokrotnego wyboru, wielokrotnego wyboru, prawda/fałsz, uzupełnianie):
+
+---
+
+### **Quiz: java.util.concurrent – przegląd ogólny**
+
+**1. \[Jednokrotny wybór]**
+Dlaczego wcześniejsze podejście do współbieżności w Javie (przed wersją 1.5) bywało niewystarczające?
+A. Bo nie obsługiwało wątków
+B. Bo synchronizacja była całkowicie niedostępna
+C. Bo programy nie działały w ogóle
+D. Bo przy dużej liczbie wątków trudno było o skalowalność i efektywność
+
+✅ **Prawidłowa odpowiedź: D**
+
+---
+
+**2. \[Wielokrotny wybór]**
+Które konstrukcje były dostępne w Javie od początku jej istnienia dla wsparcia współbieżności?
+A. `synchronized`
+B. `wait`
+C. `notifyAll`
+D. `ExecutorService`
+
+✅ **Prawidłowe odpowiedzi: A, B, C**
+
+---
+
+**3. \[Prawda/Fałsz]**
+Pakiet `java.util.concurrent` został wprowadzony w Javie od wersji 1.4.
+❌ Fałsz
+✅ Prawda
+
+✅ **Poprawna odpowiedź: Fałsz**
+*(Wprowadzony od wersji **1.5**.)*
+
+---
+
+**4. \[Jednokrotny wybór]**
+Kto był głównym twórcą pakietu `java.util.concurrent`?
+A. James Gosling
+B. Joshua Bloch
+C. Doug Lea
+D. Brian Goetz
+
+✅ **Prawidłowa odpowiedź: C**
+
+---
+
+**5. \[Uzupełnianie]**
+Pakiet `java.util.concurrent` umożliwia separację \_\_\_\_\_\_\_\_ i wątków.
+✅ **Prawidłowa odpowiedź: zadań**
+
+---
+
+**6. \[Jednokrotny wybór]**
+Które narzędzie z `java.util.concurrent` ułatwia obsługę wielu wątków za pomocą pul zarządzanych automatycznie?
+A. Semaphore
+B. Thread
+C. Executor
+D. Runnable
+
+✅ **Prawidłowa odpowiedź: C**
+
+---
+
+**7. \[Wielokrotny wybór]**
+Jakie możliwości oferuje pakiet `java.util.concurrent`?
+A. Definiowanie własnych typów danych
+B. Użycie semaforów i barier
+C. Anulowanie zadań
+D. Wykorzystanie blokujących kolejek
+
+✅ **Prawidłowe odpowiedzi: B, C, D**
+
+---
+
+**8. \[Prawda/Fałsz]**
+Blokujące kolejki w `java.util.concurrent` pozwalają łatwo koordynować zadania między wątkami.
+✅ Prawda
+❌ Fałsz
+
+✅ **Poprawna odpowiedź: Prawda**
+
+---
+
+**9. \[Jednokrotny wybór]**
+Jakie mechanizmy synchronizacji są bardziej efektywne przy tzw. „high contention”?
+A. synchronized blocks
+B. wait/notify
+C. Locki z pakietu `java.util.concurrent`
+D. Ręczne zarządzanie czasem procesora
+
+✅ **Prawidłowa odpowiedź: C**
+
+---
+
+**10. \[Uzupełnianie]**
+Pakiet `java.util.concurrent` dostarcza także tzw. **\_\_\_\_\_\_\_\_** – typy danych, które można bezpiecznie modyfikować współbieżnie bez synchronizacji.
+✅ **Prawidłowa odpowiedź: atomiki**
+*(lub: `atomowe typy`, `typy atomowe`)*
+
+---
+
+Chcesz wersję do druku, w Google Forms lub może format interaktywny w HTML?

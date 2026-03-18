@@ -1,0 +1,76 @@
+## WIEDZA – `native` w Java
+
+---
+
+### 1️⃣ Czym jest `native`?
+
+* `native` to **słowo kluczowe w Javie** używane w deklaracjach metod, które są **implementowane w innym języku**, np. C lub C++.
+* Takie metody **nie mają ciała w Javie**, a ich implementacja odbywa się w kodzie natywnym (native code).
+
+```java
+public class Example {
+    public native void doSomething();
+}
+```
+
+* Metoda `doSomething` będzie zdefiniowana w bibliotece natywnej, np. za pomocą JNI (Java Native Interface).
+
+---
+
+### 2️⃣ Zasady używania `native`
+
+* Tylko **metody mogą być `native`**, nie pola ani klasy.
+* Metoda `native` **nie ma ciała** – kończy się średnikiem `;`.
+* Najczęściej łączone z `static` lub `synchronized`.
+
+```java
+public class Example {
+    public static native int calculate(int a, int b);
+}
+```
+
+---
+
+### 3️⃣ Dlaczego używamy `native`?
+
+* Aby korzystać z **funkcji systemowych** lub bibliotek napisanych w innych językach.
+* Daje dostęp do **niskopoziomowych operacji** niedostępnych w czystej Javie.
+
+---
+
+### 4️⃣ Przykład praktyczny
+
+```java
+public class SystemInfo {
+    public native String getOSName();
+
+    static {
+        System.loadLibrary("SystemLib"); // ładuje bibliotekę natywną
+    }
+}
+```
+
+* `System.loadLibrary` wczytuje bibliotekę C/C++ zawierającą implementację metody `getOSName`.
+
+---
+
+### 5️⃣ `native` a Java
+
+* Nie można wywołać metody `native` bez **załadowania odpowiedniej biblioteki**.
+* Metody `native` są **często `private` lub `public`**, zależnie od wymagań klasy.
+
+---
+
+### 6️⃣ Podsumowanie
+
+* `native` = metoda implementowana poza Javą
+* Metody `native` **nie mają ciała** w Javie
+* Wymaga użycia **JNI** lub innych mechanizmów łączenia z kodem natywnym
+* Przydatne do niskopoziomowego programowania lub integracji z systemem
+
+---
+
+Jeśli chcesz, mogę teraz przygotować **quiz o `native`** w tym samym stylu co poprzednie słowa kluczowe ✅
+
+Chcesz, żebym to zrobił?
+

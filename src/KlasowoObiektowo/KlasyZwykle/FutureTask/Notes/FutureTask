@@ -1,0 +1,18 @@
+Aby dobrze umieć Klasę FutureTask warto znać:
+Interface:
+RunnableFuture<V>
+Callable<V>
+Runnable
+
+Class:
+Object
+Thread
+WaitNode
+Throwable
+LockSupport
+
+Exceptions:
+ExecutionException
+CancellationException
+NullPointerException
+InterruptedException

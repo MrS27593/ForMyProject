@@ -1,0 +1,91 @@
+### 📘 QUIZ – `default` w Java
+
+**10 pytań: 8 zamkniętych (A–D) + 2 otwarte**
+
+---
+
+#### 1️⃣ Co robi słowo kluczowe `default` w instrukcji `switch`?
+
+A. Definiuje wartość domyślną zmiennej
+B. Wykonuje blok kodu, gdy żaden `case` nie pasuje
+C. Tworzy nową klasę
+D. Tworzy metodę w interfejsie
+
+---
+
+#### 2️⃣ Co się stanie, jeśli w `switch` nie ma `default` i żaden `case` nie pasuje?
+
+A. Wykona się ostatni `case`
+B. Pętla się zatrzyma
+C. Blok kodu nie wykona się wcale
+D. Kompilator zgłosi błąd
+
+---
+
+#### 3️⃣ W którym roku wprowadzono domyślne metody (`default methods`) w interfejsach?
+
+A. Java 5
+B. Java 6
+C. Java 7
+D. Java 8
+
+---
+
+#### 4️⃣ Dlaczego używa się metod `default` w interfejsach?
+
+A. Aby wymusić implementację w klasach
+B. Aby zapewnić domyślną implementację bez łamania istniejącego kodu
+C. Aby zastąpić wszystkie metody abstrakcyjne
+D. Aby zwiększyć widoczność pól
+
+---
+
+#### 5️⃣ Które z poniższych zdań jest prawdziwe o dostępie „default” (brak modyfikatora)?
+
+A. Element jest `public`
+B. Element jest `private`
+C. Element jest `protected`
+D. Element jest widoczny tylko w tym samym pakiecie
+
+---
+
+#### 6️⃣ Jaką wartość zwróci `switch` z `default`, jeśli żaden `case` nie pasuje?
+
+A. `null`
+B. Wywoła blok kodu `default`
+C. Zwróci 0
+D. Kompilator zgłosi błąd
+
+---
+
+#### 7️⃣ Czy można użyć `default` w klasie?
+
+A. Tak, dla metod i pól
+B. Tak, dla pól statycznych
+C. Nie, `default` w klasie oznacza brak modyfikatora (pakietowy)
+D. Nie, w klasie słowo `default` jest zabronione
+
+---
+
+#### 8️⃣ Czy metoda `default` w interfejsie może być nadpisana w klasie implementującej?
+
+A. Tak
+B. Nie
+C. Tylko jeśli metoda jest `final`
+D. Tylko w klasie abstrakcyjnej
+
+---
+
+#### 9️⃣ (Otwarte)
+
+Podaj przykład użycia `default` w `switch` w aplikacji.
+
+---
+
+#### 🔟 (Otwarte)
+
+Wyjaśnij, jakie korzyści daje metoda `default` w interfejsie w Javie.
+
+---
+
+Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam komplet z wyjaśnieniami ✅

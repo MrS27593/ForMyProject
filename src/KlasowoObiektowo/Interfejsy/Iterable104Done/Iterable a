@@ -1,0 +1,92 @@
+Świetnie, oto **odpowiedzi i wytłumaczenia** do quizu o interfejsie `Iterable` w języku Java:
+
+---
+
+### ✅ **Odpowiedzi – Pytania zamknięte (jednokrotny wybór)**
+
+**1. Co zwraca metoda `iterator()` z interfejsu `Iterable`?**
+✅ **C) `Iterator<T>`**
+
+> Metoda `iterator()` musi zwracać obiekt typu `Iterator<T>` – to klasa, która pozwala przeglądać kolekcję krok po kroku.
+
+---
+
+**2. Dlaczego warto implementować interfejs `Iterable`?**
+✅ **A) Żeby móc używać `for-each`**
+
+> Pętla `for-each` działa tylko na obiektach implementujących `Iterable`.
+
+---
+
+**3. Która z poniższych klas NIE implementuje `Iterable`?**
+✅ **C) `HashMap`**
+
+> `HashMap` nie implementuje `Iterable` bezpośrednio – ale np. `HashMap.keySet()` czy `entrySet()` już tak.
+
+---
+
+**4. Co się stanie, jeśli spróbujesz użyć `for-each` na obiekcie, który nie implementuje `Iterable`?**
+✅ **C) Błąd czasu kompilacji**
+
+> Kompilator zgłosi błąd – pętla `for-each` wymaga obiektu typu `Iterable`.
+
+---
+
+**5. Co musisz zrobić, aby klasa implementująca `Iterable` działała z `for-each`?**
+✅ **C) Przesłonić metodę `iterator()`**
+
+> To jest *jedyny wymóg* – dzięki temu kompilator wie, jak utworzyć iterator.
+
+---
+
+### ✅ **Prawda / Fałsz**
+
+**6. `Iterable` to klasa abstrakcyjna.**
+❌ **Fałsz**
+
+> `Iterable` to **interfejs**, a nie klasa.
+
+---
+
+**7. `Iterable` wspiera użycie wyrażeń lambda od Javy 8 dzięki metodzie `forEach()`.**
+✅ **Prawda**
+
+> Od Javy 8 `Iterable` zawiera domyślną metodę `forEach(...)` z `Consumer<T>`.
+
+---
+
+**8. `Map` w Java implementuje bezpośrednio `Iterable`.**
+❌ **Fałsz**
+
+> `Map` nie implementuje `Iterable`, ale możemy iterować po `keySet()`, `values()` lub `entrySet()`, które już są `Iterable`.
+
+---
+
+### ✅ **Pytania otwarte – przykładowe odpowiedzi**
+
+**9. Napisz fragment kodu, który pokazuje iterację po obiekcie implementującym `Iterable`, z użyciem `for-each`:**
+
+```java
+List<String> items = List.of("a", "b", "c");
+
+for (String item : items) {
+    System.out.println(item);
+}
+```
+
+> `List` implementuje `Iterable`, więc można jej używać w `for-each`.
+
+---
+
+**10. Wyjaśnij różnicę między `Iterable` a `Iterator`:**
+
+| Cecha           | `Iterable`                             | `Iterator`                           |
+| --------------- | -------------------------------------- | ------------------------------------ |
+| Co to?          | Interfejs kolekcji do iteracji         | Interfejs służący do iterowania      |
+| Kluczowa metoda | `iterator()`                           | `hasNext()`, `next()`                |
+| Rola            | Obiekt, który **udostępnia** iteratora | Obiekt, który **realizuje** iterację |
+| Przykład użycia | `for (T item : collection)`            | `while (it.hasNext())`               |
+
+---
+
+Jeśli chcesz, mogę Ci teraz wygenerować **wersję PDF quizu z odpowiedziami** albo stworzyć **wersję interaktywną** (np. HTML lub quiz do przeglądarki). Chcesz taką wersję?

@@ -1,0 +1,157 @@
+## WIEDZA – `static` w Java (praktycznie i projektowo)
+
+---
+
+### 1️⃣ Czym jest `static`?
+
+`static` to słowo kluczowe, które oznacza, że **pole, metoda lub blok należy do klasy**, a **nie do instancji obiektu**.
+
+📌 Oznacza:
+
+* brak potrzeby tworzenia obiektu, żeby użyć elementu
+* element współdzielony przez wszystkie instancje klasy
+
+---
+
+### 2️⃣ `static` – zastosowania
+
+1. **Statyczne pola** – wspólne dla wszystkich obiektów
+
+```java
+class Counter {
+    static int count = 0;
+
+    void increment() {
+        count++;
+    }
+}
+```
+
+* Każdy obiekt modyfikuje **to samo pole `count`**
+
+---
+
+2. **Statyczne metody** – można wywołać bez obiektu
+
+```java
+class MathUtils {
+    static int square(int x) {
+        return x * x;
+    }
+}
+
+// użycie
+int result = MathUtils.square(5);
+```
+
+---
+
+3. **Statyczne bloki inicjalizacyjne** – wykonywane raz, przy ładowaniu klasy
+
+```java
+class Config {
+    static String version;
+
+    static {
+        version = "1.0";
+        System.out.println("Konfiguracja załadowana");
+    }
+}
+```
+
+* Wykonuje się **przy pierwszym odwołaniu do klasy**
+* Idealne do inicjalizacji stałych lub zasobów
+
+---
+
+4. **Statyczne klasy wewnętrzne** – niezależne od instancji zewnętrznej klasy
+
+```java
+class Outer {
+    static class Inner {
+        void greet() {
+            System.out.println("Witaj z klasy wewnętrznej");
+        }
+    }
+}
+
+// użycie
+Outer.Inner inner = new Outer.Inner();
+inner.greet();
+```
+
+✔ Przydatne w organizacji kodu, np. w Builderach czy strukturach danych.
+
+---
+
+### 3️⃣ Praktyczny przykład „projektowy” – system logowania
+
+```java
+class Logger {
+    private static int logCount = 0;
+
+    static void log(String message) {
+        logCount++;
+        System.out.println("Log #" + logCount + ": " + message);
+    }
+}
+
+// użycie
+Logger.log("System uruchomiony");
+Logger.log("Użytkownik zalogowany");
+```
+
+📌 `logCount` jest współdzielone – każdy log zwiększa tę samą wartość.
+
+---
+
+### 4️⃣ `static` a ograniczenia
+
+❌ Nie można używać `this` ani `super` w metodach statycznych
+❌ Nie można odwoływać się do **niestatycznych pól/metod** bez obiektu
+✔ Można wywoływać **inne statyczne pola/metody** w tej samej klasie
+
+---
+
+### 5️⃣ `static` w praktyce – połączenie z `final` i `synchronized`
+
+```java
+class BankAccount {
+    private static double totalBalance = 0.0;
+
+    static synchronized void addToBalance(double amount) {
+        totalBalance += amount;
+        System.out.println("Saldo globalne: " + totalBalance);
+    }
+}
+```
+
+* `static` → współdzielone saldo
+* `synchronized` → bezpieczne wątkowo
+* `final static` → stałe wartości (np. PI)
+
+---
+
+### 6️⃣ Kiedy używać `static`?
+
+✔ Stałe klasy (`final static`)
+✔ Metody pomocnicze (`Math`, `Utils`)
+✔ Wspólne zasoby współdzielone przez wszystkie obiekty
+✔ Bloki inicjalizacyjne do ustawień globalnych
+
+---
+
+### 7️⃣ Podsumowanie
+
+* `static` = element klasy, a nie instancji
+* Statyczne pola → współdzielone przez wszystkie obiekty
+* Statyczne metody → wywołanie bez obiektu
+* Statyczne bloki → inicjalizacja klasy
+* Statyczne klasy wewnętrzne → niezależne od instancji
+
+---
+
+Gdy będziesz gotowy:
+👉 mogę przygotować **quiz do `static`** z pytaniami A–D i kilkoma otwartymi, praktycznymi.
+
+Chcesz od razu quiz?

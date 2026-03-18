@@ -1,0 +1,91 @@
+Oczywiście! Oto **odpowiedzi** do quizu o interfejsie `Callable` w Javie:
+
+---
+
+### **1. Które z poniższych stwierdzeń jest prawdziwe o interfejsie `Callable`?**
+
+✅ **a)** `Callable` zwraca wynik, a `Runnable` nie.
+
+---
+
+### **2. Główna różnica między `run()` a `call()`?**
+
+✅ **a)** `run()` nie może rzucać wyjątków, podczas gdy `call()` może.
+
+---
+
+### **3. Prawda/Fałsz:**
+**Metoda `call()` w interfejsie `Callable` musi zawsze zwracać wartość.**
+
+✅ **Prawda** – musi zwrócić coś typu `V`, nie może być `void`.
+
+---
+
+### **4. Co zwraca `submit()` dla `Callable`?**
+
+✅ **a)** `Future<T>`
+
+---
+
+### **5. Co się stanie przy wyjątku w `Callable`?**
+
+✅ **c)** `Future.get()` rzuci wyjątek, który musi być obsłużony przez kod wywołujący.
+
+---
+
+### **6. Korzyści `ExecutorService` dla `Callable`?**
+
+✅ **d)** Wszystkie odpowiedzi są poprawne.
+
+---
+
+### **7. Różnice między `submit()` a `invokeAll()`?**
+
+**Odpowiedź przykładowa:**
+- `submit()` przyjmuje jedno zadanie (`Callable` lub `Runnable`) i zwraca `Future`.
+- `invokeAll()` przyjmuje listę `Callable` i zwraca listę `Future`, **czeka**, aż wszystkie zadania się zakończą.
+
+---
+
+### **8. Zachowanie `Future.get()`?**
+
+✅ **a)** Blokuje aż zadanie zakończy się i zwróci wynik.
+
+---
+
+### **9. Jak anulować zadanie z użyciem `Future`?**
+
+✅ **a)** `future.cancel(true)`
+
+---
+
+### **10. Przykład użycia `Callable` do równoległego wykonania 3 zadań**
+
+```java
+import java.util.concurrent.*;
+import java.util.*;
+
+public class MultiCallableExample {
+    public static void main(String[] args) throws Exception {
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+
+        List<Callable<String>> tasks = List.of(
+            () -> "Zadanie 1",
+            () -> "Zadanie 2",
+            () -> "Zadanie 3"
+        );
+
+        List<Future<String>> results = executor.invokeAll(tasks);
+
+        for (Future<String> future : results) {
+            System.out.println(future.get());
+        }
+
+        executor.shutdown();
+    }
+}
+```
+
+---
+
+Chcesz teraz trudniejszą wersję quizu albo zadanie praktyczne do napisania?

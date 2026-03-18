@@ -1,0 +1,87 @@
+Oczywiście! Słowo kluczowe `void` w języku **Java** odnosi się do **typu zwrotu metody**, czyli tego, **co metoda zwraca** po zakończeniu działania. Gdy używamy `void`, oznacza to, że **metoda nic nie zwraca**.
+
+---
+
+### 🔹 1. Czym jest `void`?
+
+W Java każda metoda musi określić, co zwraca:
+
+* `int` → zwraca liczbę całkowitą,
+* `String` → zwraca tekst,
+* `boolean` → zwraca wartość logiczną (true/false),
+* `void` → **nie zwraca nic**.
+
+---
+
+### 🔹 2. Składnia `void`
+
+```java
+public void wyswietlPowitanie() {
+    System.out.println("Witaj świecie!");
+}
+```
+
+W tym przykładzie:
+
+* `public` — metoda dostępna z innych klas,
+* `void` — **nie zwraca żadnej wartości**,
+* `wyswietlPowitanie()` — nazwa metody.
+
+---
+
+### 🔹 3. Kiedy używamy `void`?
+
+Używamy `void`, gdy:
+
+* metoda **ma coś zrobić**, ale **nie musi nic zwracać**,
+* np. wypisać coś na ekran, zapisać do pliku, wysłać dane.
+
+#### ✅ Przykłady użycia `void`:
+
+```java
+public void zapiszDoPliku(String tekst) {
+    // zapisuje tekst do pliku, ale nie zwraca nic
+}
+```
+
+---
+
+### 🔹 4. Co się stanie, gdy spróbujesz zwrócić coś z metody typu `void`?
+
+Jeśli napiszesz `return 5;` w metodzie `void`, kompilator wyświetli **błąd**:
+
+> *"cannot return a value from method whose result type is void"*
+
+Ale można napisać samo `return;` — oznacza to „zakończ metodę teraz”.
+
+```java
+public void przyklad() {
+    if (true) return; // poprawne, ale nie zwraca nic
+}
+```
+
+---
+
+### 🔹 5. Metody `void` kontra inne metody
+
+| Rodzaj metody | Deklaracja                | Zwraca coś? |
+| ------------- | ------------------------- | ----------- |
+| `void`        | `public void hello()`     | ❌ Nie       |
+| `int`         | `public int getWiek()`    | ✅ Tak       |
+| `String`      | `public String getImie()` | ✅ Tak       |
+
+---
+
+### 🔹 6. `main` w Java też używa `void`
+
+```java
+public static void main(String[] args) {
+    // punkt startowy programu
+}
+```
+
+Tu `void` oznacza, że metoda `main` nie zwraca nic — po prostu uruchamia program.
+
+---
+
+Chcesz przećwiczyć to na przykładach, czy mam opowiedzieć o `return`, typach zwracanych lub różnicach między `void` a innymi typami metod?

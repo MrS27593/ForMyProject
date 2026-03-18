@@ -1,0 +1,112 @@
+## QUIZ – `private` w Java (10 pytań)
+
+---
+
+### **1. Co oznacza modyfikator `private` w Javie?**
+
+A. Dostęp z dowolnej klasy
+B. Dostęp tylko w tym samym pakiecie
+C. Dostęp tylko w tej samej klasie
+D. Dostęp w klasach dziedziczących
+
+---
+
+### **2. Które elementy mogą być oznaczone jako `private`?**
+
+A. Pola, metody, konstruktory
+B. Zmienne lokalne w metodzie
+C. Klasy najwyższego poziomu
+D. Pakiety
+
+---
+
+### **3. Czy klasa dziedzicząca ma dostęp do pól `private` klasy bazowej?**
+
+A. Tak, zawsze
+B. Tak, tylko jeśli jest w tym samym pakiecie
+C. Nie
+D. Tylko metody `static`
+
+---
+
+### **4. Dlaczego używa się `private` przy polach?**
+
+A. Aby przyspieszyć działanie programu
+B. Aby chronić stan obiektu i wymusić enkapsulację
+C. Aby pola były dostępne z każdej klasy
+D. Aby pola dziedziczyły się automatycznie
+
+---
+
+### **5. Który przykład poprawnie pokazuje `private` przy polu i metodzie?**
+
+A.
+
+```java
+private int age;
+private void setAge(int age) {}
+```
+
+B.
+
+```java
+public int age;
+public void setAge(int age) {}
+```
+
+C.
+
+```java
+protected int age;
+private int setAge() {}
+```
+
+D.
+
+```java
+int age;
+void setAge() {}
+```
+
+---
+
+### **6. Co pozwala zrobić `private` przy konstruktorze?**
+
+A. Udostępnić konstruktor wszystkim klasom
+B. Ukryć konstruktor i kontrolować tworzenie obiektów
+C. Zwiększyć dostępność metody `main`
+D. Nic, konstruktor nie może być `private`
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład klasy, w której użycie `private` chroni ważne dane i metody.
+
+---
+
+### **8. (OTWARTE)**
+
+Dlaczego zasada „najpierw `private`, potem ewentualnie zwiększ widoczność” jest ważna?
+
+---
+
+### **9. Czy `private` pola rekordu mogą być modyfikowane po utworzeniu obiektu?**
+
+A. Tak, dowolnie
+B. Tak, jeśli są statyczne
+C. Nie, są `final`
+D. Nie, chyba że konstruktor jest publiczny
+
+---
+
+### **10. Które zdanie o `private` jest prawdziwe?**
+
+A. `private` elementy są dostępne tylko w klasie
+B. `private` jest najszerszym modyfikatorem dostępu
+C. `private` pozwala na dostęp z pakietu
+D. `private` elementy dziedziczą się automatycznie
+
+---
+
+Napisz **„odpowiedzi”**, a podam komplet poprawnych odpowiedzi z wyjaśnieniami ✅

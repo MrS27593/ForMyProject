@@ -1,0 +1,14 @@
+    public enum Style {
+
+        /**
+         * The {@code SHORT} number format style.
+         */
+        SHORT,
+
+        /**
+         * The {@code LONG} number format style.
+         */
+        LONG
+
+    }
+}

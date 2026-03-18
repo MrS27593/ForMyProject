@@ -1,0 +1,114 @@
+Super 💪
+Oto **quiz o klasie abstrakcyjnej `Number` w Javie**.
+**Odpowiedzi podaj w formie jak wcześniej** (np. `1A, 2C, 3B…`).
+
+---
+
+# 🧠 QUIZ – `java.lang.Number`
+
+### **1️⃣ Czym jest klasa `Number`?**
+
+A. Interfejsem
+B. Klasą finalną
+C. Klasą abstrakcyjną
+D. Typem prymitywnym
+
+---
+
+### **2️⃣ Której z poniższych klas NIE dziedziczy po `Number`?**
+
+A. `Integer`
+B. `Double`
+C. `String`
+D. `BigDecimal`
+
+---
+
+### **3️⃣ Która metoda jest abstrakcyjna w klasie `Number`?**
+
+A. `toString()`
+B. `doubleValue()`
+C. `equals()`
+D. `compareTo()`
+
+---
+
+### **4️⃣ Ile metod abstrakcyjnych MUSI zaimplementować klasa dziedzicząca po `Number`?**
+
+A. 2
+B. 3
+C. 4
+D. 5
+
+---
+
+### **5️⃣ Co umożliwia użycie typu `Number` jako parametru metody?**
+
+A. Dziedziczenie wielokrotne
+B. Autoboxing
+C. Polimorfizm
+D. Hermetyzację
+
+---
+
+### **6️⃣ Co zostanie wypisane?**
+
+```java
+Number n = 10.9;
+System.out.println(n.intValue());
+```
+
+A. `10.9`
+B. `11`
+C. `10`
+D. Błąd kompilacji
+
+---
+
+### **7️⃣ Czy można utworzyć obiekt klasy `Number`?**
+
+A. Tak
+B. Nie
+C. Tylko przez `new Number()`
+D. Tylko przez `static`
+
+---
+
+### **8️⃣ Która z poniższych klas NAJLEPIEJ nadaje się do przechowywania precyzyjnych wartości finansowych?**
+
+A. `Double`
+B. `Float`
+C. `BigDecimal`
+D. `Integer`
+
+---
+
+### **9️⃣ Które stwierdzenie jest PRAWIDŁOWE?**
+
+A. Prymitywy dziedziczą po `Number`
+B. Wrappery dziedziczą po `Number`
+C. `Number` jest interfejsem
+D. `Number` nie ma metod abstrakcyjnych
+
+---
+
+### **🔟 Po co implementować własną klasę dziedziczącą po `Number`?**
+
+A. Aby móc ją serializować
+B. Aby używać jej w kolekcjach generycznych jako `Number`
+C. Aby nadpisać `toString()`
+D. Aby przyspieszyć działanie programu
+
+---
+
+✍️ **Podaj odpowiedzi w jednej linii**
+np.
+`1C, 2C, 3B, ...`
+
+Po sprawdzeniu:
+
+* dam Ci **wynik**
+* wyjaśnię **każde pytanie**
+* pokażę **na co zwracają uwagę na egzaminach i rozmowach**
+
+Czekam 🔥

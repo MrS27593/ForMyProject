@@ -1,0 +1,114 @@
+Klasa `CalendarProvider` **nie jest częścią standardowej biblioteki Javy** (Java SE). Jest jednak związana z frameworkami lub bibliotekami specyficznymi dla aplikacji Android lub Java EE (np. w kontekście **Android Content Providers**). W szczególności:
+
+---
+
+## 🗓️ `CalendarProvider` w Androidzie
+
+W **Androidzie** `CalendarProvider` to **interfejs do bazy danych kalendarza systemowego**, który pozwala aplikacjom zewnętrznym czytać, modyfikować lub dodawać wydarzenia kalendarza przy pomocy **Content Providerów**.
+
+---
+
+## 🔍 Co to jest `CalendarProvider` (Android)?
+
+To część Androidowego `ContentProvider`a, którego URI to np.:
+
+```java
+content://com.android.calendar/events
+```
+
+Dzięki temu możemy:
+
+* Czytać wydarzenia kalendarza
+* Dodawać nowe wydarzenia
+* Modyfikować istniejące
+* Usuwać wydarzenia
+
+Aby tego używać, potrzebujesz odpowiednich **uprawnień**:
+
+### 📜 Wymagane uprawnienia w `AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.READ_CALENDAR"/>
+<uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+```
+
+---
+
+## ✅ Praktyczny przykład użycia `CalendarProvider` (dodawanie wydarzenia)
+
+Poniżej znajduje się **przykład aplikacji Android**, która dodaje wydarzenie do domyślnego kalendarza użytkownika:
+
+### 🔧 Dodawanie wydarzenia do kalendarza
+
+```java
+public void addEventToCalendar(Context context) {
+    long calendarId = getPrimaryCalendarId(context);
+    if (calendarId == -1) return;
+
+    ContentResolver cr = context.getContentResolver();
+    ContentValues values = new ContentValues();
+
+    long startMillis = System.currentTimeMillis() + 60 * 60 * 1000; // za 1h
+    long endMillis = startMillis + 60 * 60 * 1000; // 1h trwania
+
+    values.put(CalendarContract.Events.DTSTART, startMillis);
+    values.put(CalendarContract.Events.DTEND, endMillis);
+    values.put(CalendarContract.Events.TITLE, "Spotkanie z zespołem");
+    values.put(CalendarContract.Events.DESCRIPTION, "Omówienie sprintu");
+    values.put(CalendarContract.Events.CALENDAR_ID, calendarId);
+    values.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
+
+    Uri uri = cr.insert(CalendarContract.Events.CONTENT_URI, values);
+    if (uri != null) {
+        Log.i("Calendar", "Wydarzenie dodane: " + uri.toString());
+    }
+}
+```
+
+### 🔍 Jak uzyskać ID kalendarza?
+
+```java
+public long getPrimaryCalendarId(Context context) {
+    String[] projection = new String[]{
+            CalendarContract.Calendars._ID,
+            CalendarContract.Calendars.IS_PRIMARY
+    };
+
+    Cursor cursor = context.getContentResolver().query(
+            CalendarContract.Calendars.CONTENT_URI,
+            projection,
+            null,
+            null,
+            null
+    );
+
+    if (cursor != null) {
+        while (cursor.moveToNext()) {
+            long id = cursor.getLong(0);
+            int isPrimary = cursor.getInt(1);
+            if (isPrimary == 1) {
+                cursor.close();
+                return id;
+            }
+        }
+        cursor.close();
+    }
+
+    return -1;
+}
+```
+
+---
+
+## 📘 Podsumowanie
+
+| Cecha     | Opis                                                                    |
+| --------- | ----------------------------------------------------------------------- |
+| Klasa     | `CalendarProvider` to **interfejs do kalendarza Androida**              |
+| Działanie | Pozwala na: odczyt, dodanie, edycję i usunięcie wydarzeń                |
+| Używany z | `ContentResolver` i `CalendarContract`                                  |
+| Wymaga    | Uprawnień w `AndroidManifest.xml` i runtime permissions od Android 6.0+ |
+
+---
+
+Jeśli chcesz, mogę przygotować kompletny **projekt Android Studio** lub kod w formie klasy, którą możesz łatwo zintegrować. Czy mam to zrobić?

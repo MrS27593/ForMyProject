@@ -1,0 +1,155 @@
+Super, jedziemy z **rozwiązaniami + komentarzem eksperckim** 😄🧠
+
+---
+
+# ✅ Odpowiedzi – Quiz `@Enabled`
+
+## 🔹 Część I – Prawda / Fałsz
+
+### 1️⃣ W standardowej Javie (JDK) istnieje adnotacja `@Enabled`.
+
+**❌ B. Fałsz**
+
+➡️ **Nie ma** adnotacji `@Enabled` w JDK.
+JDK daje **mechanizm**, a nie semantykę „włączania”.
+
+---
+
+### 2️⃣ W JUnit 5 istnieje adnotacja `@Enabled`.
+
+**❌ B. Fałsz**
+
+➡️ Nadal **nie istnieje** czysta `@Enabled`.
+
+---
+
+### 3️⃣ W JUnit 5 istnieją adnotacje zaczynające się od `@Enabled…`.
+
+**✅ A. Prawda**
+
+➡️ I jest ich sporo 👇
+
+* `@EnabledOnOs`
+* `@EnabledOnJre`
+* `@EnabledIfEnvironmentVariable`
+* `@EnabledIfSystemProperty`
+
+---
+
+## 🔹 Część II – JUnit
+
+### 4️⃣ Która adnotacja włącza test tylko na danym systemie operacyjnym?
+
+**✅ A. `@EnabledOnOs`**
+
+```java
+@EnabledOnOs(OS.WINDOWS)
+@Test
+void onlyOnWindows() {}
+```
+
+---
+
+### 5️⃣ Przeciwieństwem `@EnabledOn…` jest:
+
+**✅ C. `@Disabled`**
+
+➡️ `@Disabled` **bezwarunkowo wyłącza** test / klasę testową.
+
+---
+
+### 6️⃣ Pakiet adnotacji warunkowych:
+
+**✅ B. `org.junit.jupiter.api.condition`**
+
+📌 Klasyczne pytanie rekrutacyjne.
+
+---
+
+## 🔹 Część III – Spring
+
+### 7️⃣ Warunkowe włączenie na podstawie property:
+
+**✅ C. `@ConditionalOnProperty`**
+
+```java
+@ConditionalOnProperty(
+    name = "feature.enabled",
+    havingValue = "true"
+)
+```
+
+---
+
+### 8️⃣ Co robi `@EnableScheduling`?
+
+**✅ C. Importuje konfigurację i aktywuje mechanizm**
+
+➡️ To **meta-adnotacja**:
+
+* rejestruje beany
+* uruchamia scheduler
+* NIE ustawia flagi boolean
+
+---
+
+## 🔹 Część IV – Pułapki
+
+### 9️⃣ Które stwierdzenie jest prawdziwe?
+
+**✅ C. „Enabled” to pojęcie, nie standardowa adnotacja**
+
+🔥 **BARDZO WAŻNE**
+
+➡️ Frameworki interpretują „enabled” **po swojemu**.
+
+---
+
+### 🔟 Gdzie NAJCZĘŚCIEJ spotyka się „enabled/disabled” jako adnotacje?
+
+**✅ B. JUnit**
+
+➡️ Testy = idealne miejsce na warunki uruchamiania.
+
+---
+
+## ✍️ 1️⃣1️⃣ Odpowiedź opisowa
+
+### ❓ Dlaczego nie ma jednej adnotacji `@Enabled`?
+
+**Bo „enabled” jest ZALEŻNE OD KONTEKSTU**:
+
+* testy → JUnit
+* konfiguracja → Spring
+* komponenty → CDI
+* funkcje → feature flags
+
+🧠 Jedna adnotacja:
+
+* byłaby niejednoznaczna
+* łamałaby SRP
+* powodowałaby konflikty semantyczne
+
+➡️ Dlatego mamy:
+
+* `@EnabledOn…`
+* `@ConditionalOn…`
+* `@Enable…`
+
+---
+
+# 🧩 PODSUMOWANIE
+
+| Środowisko | Czy istnieje `@Enabled`             |
+| ---------- | ----------------------------------- |
+| JDK        | ❌                                   |
+| JUnit      | ❌ (ale `@EnabledOn...`)             |
+| Spring     | ❌ (`@Enable...`, `@Conditional...`) |
+| Ogólnie    | ❌ (to koncept, nie standard)        |
+
+---
+
+Jeśli chcesz, możemy teraz:
+👉 napisać **własną adnotację `@Enabled`**
+👉 porównać `@Enable` vs `@Conditional`
+👉 albo zrobić **mega-quiz ze wszystkich adnotacji Javy** 🔥

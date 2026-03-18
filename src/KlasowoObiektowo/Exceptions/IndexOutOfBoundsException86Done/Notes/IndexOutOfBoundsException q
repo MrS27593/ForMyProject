@@ -1,0 +1,168 @@
+Super 😄 Oto **QUIZ: `IndexOutOfBoundsException`** — od podstaw do rekrutacyjnego poziomu.
+Najpierw pytania, **odpowiedzi podasz na „odpowiedzi”** 👇
+
+---
+
+# 🧠 **QUIZ – IndexOutOfBoundsException**
+
+## 🟢 Poziom 1 – Podstawy
+
+### 1️⃣ `IndexOutOfBoundsException` jest:
+
+A. Checked exception
+B. Unchecked exception
+C. Error
+D. Compile-time exception
+
+---
+
+### 2️⃣ Kiedy powstaje IndexOutOfBoundsException?
+
+A. Argument metody jest null
+B. Próbujesz użyć indeksu poza zakresem
+C. JVM nie ma pamięci
+D. Argument jest niepoprawny
+
+---
+
+### 3️⃣ Co jest podklasą IndexOutOfBoundsException?
+
+A. NullPointerException
+B. ArrayIndexOutOfBoundsException
+C. IOException
+D. IllegalArgumentException
+
+---
+
+### 4️⃣ Co się stanie?
+
+```java
+int[] arr = {1, 2, 3};
+System.out.println(arr[3]);
+```
+
+A. Kod poprawny
+B. `IndexOutOfBoundsException`
+C. `NullPointerException`
+D. `IllegalArgumentException`
+
+---
+
+## 🟡 Poziom 2 – Praktyka
+
+### 5️⃣ Co się stanie?
+
+```java
+String s = "abc";
+s.charAt(3);
+```
+
+A. Kod poprawny
+B. `IndexOutOfBoundsException`
+C. `StringIndexOutOfBoundsException`
+D. `NullPointerException`
+
+---
+
+### 6️⃣ Która pętla jest POPRAWNA dla tablicy `arr.length = 5`?
+
+A.
+
+```java
+for (int i = 0; i <= arr.length; i++) {}
+```
+
+B.
+
+```java
+for (int i = 0; i < arr.length; i++) {}
+```
+
+C.
+
+```java
+for (int i = 1; i <= arr.length; i++) {}
+```
+
+D.
+
+```java
+for (int i = 0; i <= arr.length - 1; i++) {}
+```
+
+---
+
+### 7️⃣ Co się stanie?
+
+```java
+List<String> list = List.of("X", "Y");
+list.get(2);
+```
+
+A. Kod poprawny
+B. `IndexOutOfBoundsException`
+C. `IllegalArgumentException`
+D. `UnsupportedOperationException`
+
+---
+
+### 8️⃣ Jak najlepiej uniknąć IndexOutOfBoundsException w List?
+
+A. Nie używać List
+B. Sprawdzając indeks w warunku przed `get()`
+C. Łapiąc wyjątek try-catch
+D. Rzucając IllegalStateException
+
+---
+
+## 🔵 Poziom 3 – Rekrutacyjny
+
+### 9️⃣ Co się stanie?
+
+```java
+String s = "";
+System.out.println(s.charAt(0));
+```
+
+A. Kod poprawny
+B. `IndexOutOfBoundsException`
+C. `StringIndexOutOfBoundsException`
+D. `NullPointerException`
+
+---
+
+### 🔟 Które stwierdzenie jest prawdziwe?
+
+A. `ArrayIndexOutOfBoundsException` jest checked
+B. `ArrayIndexOutOfBoundsException` jest podklasą IndexOutOfBoundsException
+C. `IndexOutOfBoundsException` jest podklasą IllegalArgumentException
+D. `StringIndexOutOfBoundsException` nie jest RuntimeException
+
+---
+
+### 1️⃣1️⃣ Który wyjątek rzuci `List.get(-1)`?
+
+A. `IllegalArgumentException`
+B. `IndexOutOfBoundsException`
+C. `ArrayIndexOutOfBoundsException`
+D. `NullPointerException`
+
+---
+
+### 1️⃣2️⃣ Jak najlepiej obsłużyć ryzyko IndexOutOfBounds w kodzie produkcyjnym?
+
+A. Łapać IndexOutOfBoundsException wszędzie
+B. Sprawdzać indeks przed dostępem
+C. Ignorować wyjątek
+D. Używać try-catch zamiast warunków
+
+---
+
+📌 Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam **pełne rozwiązania + wyjaśnienia rekrutacyjne**.
+
+Chcesz potem:
+👉 **ConcurrentModificationException**
+👉 **hard quiz – mieszane wyjątki**
+👉 **porównanie IndexOutOfBounds vs IllegalArgumentException**
+
+Jedziemy dalej 😄

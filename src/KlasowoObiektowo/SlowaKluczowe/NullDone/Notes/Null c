@@ -1,0 +1,132 @@
+## WIEDZA – `null` w Java
+
+---
+
+### 1️⃣ Czym jest `null`?
+
+* `null` to specjalna wartość, która oznacza **brak referencji do obiektu**.
+* Można ją przypisać do zmiennych obiektowych (np. `String`, `Integer`, własne klasy).
+
+```java
+String name = null; // brak przypisanego obiektu
+```
+
+📌 `null` nie może być używane dla typów prostych (`int`, `double`, `boolean`).
+
+---
+
+### 2️⃣ Sprawdzanie `null`
+
+```java
+if (name == null) {
+    System.out.println("Brak wartości");
+}
+```
+
+* Ważne, aby **zawsze sprawdzać null**, aby uniknąć błędu `NullPointerException`.
+
+---
+
+### 3️⃣ `null` a obiekty
+
+```java
+String text = null;
+System.out.println(text.length()); // ❌ NullPointerException
+```
+
+* Próba wywołania metody na `null` powoduje **NullPointerException**.
+
+---
+
+### 4️⃣ Bezpieczne użycie `null`
+
+```java
+String text = null;
+
+if (text != null) {
+    System.out.println(text.length());
+} else {
+    System.out.println("Brak tekstu");
+}
+```
+
+* Najprostszy sposób unikania błędów.
+
+---
+
+### 5️⃣ `null` a typy opakowujące
+
+```java
+Integer number = null;
+
+if (number == null) {
+    number = 0; // domyślna wartość
+}
+```
+
+* Typy obiektowe (`Integer`, `Double`, `Boolean`) mogą przyjmować `null`.
+
+---
+
+### 6️⃣ `null` a kolekcje
+
+```java
+List<String> list = new ArrayList<>();
+list.add(null); // dopuszczalne
+```
+
+* Niektóre klasy jak `HashMap` dopuszczają klucze lub wartości `null`.
+
+---
+
+### 7️⃣ Operatory związane z `null`
+
+* `==` i `!=` – porównanie z `null`
+* `Objects.isNull(obj)` / `Objects.nonNull(obj)` – wygodne metody w Javie 8+
+
+```java
+if (Objects.isNull(text)) {
+    System.out.println("Brak wartości");
+}
+```
+
+* `Optional` – nowoczesny sposób unikania `null`
+
+```java
+Optional<String> maybeText = Optional.ofNullable(text);
+maybeText.ifPresent(System.out::println);
+```
+
+---
+
+### 8️⃣ Zasady praktyczne
+
+✔ Sprawdzaj zmienne przed użyciem
+✔ Preferuj `Optional` zamiast `null`, gdy to możliwe
+✔ Unikaj `null` dla typów prostych – używaj domyślnych wartości
+
+---
+
+### 9️⃣ Najczęstsze błędy
+
+```java
+String s = null;
+System.out.println(s.length()); // ❌ NullPointerException
+```
+
+* Wyjątki `NullPointerException` są najczęstszą przyczyną błędów w Javie.
+
+---
+
+### 🔟 Podsumowanie
+
+* `null` = brak referencji
+* Tylko dla typów obiektowych
+* Sprawdzanie przed użyciem = obowiązkowe
+* `Optional` = bezpieczna alternatywa
+
+---
+
+Jeśli chcesz, mogę teraz przygotować **quiz o `null`** w tym samym stylu co poprzednie słowa kluczowe ✅
+
+Chcesz, żebym to zrobił?

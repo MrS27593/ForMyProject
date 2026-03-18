@@ -1,0 +1,14 @@
+Aby dobrze umieć Klasę ReetrantLock warto znać:
+Interface:
+Lock
+Serializable
+
+Class:
+long
+Thread
+ConditionObject$
+
+Exceptions:
+InterruptedException
+ClassNotFoundException
+IOException

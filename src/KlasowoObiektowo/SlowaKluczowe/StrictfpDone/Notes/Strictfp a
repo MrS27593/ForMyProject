@@ -1,0 +1,95 @@
+## ✅ Odpowiedzi – QUIZ `strictfp` w Java
+
+---
+
+### **1. Do czego służy słowo kluczowe `strictfp`?**
+
+**✅ C. Wymusza identyczne wyniki obliczeń zmiennoprzecinkowych na każdej platformie**
+
+`strictfp` gwarantuje spójność wyników `float` i `double` niezależnie od sprzętu i JVM.
+
+---
+
+### **2. Jakie typy danych są bezpośrednio objęte działaniem `strictfp`?**
+
+**✅ B. `float`, `double`**
+
+Inne typy liczbowe (`int`, `long`) nie są objęte działaniem `strictfp`.
+
+---
+
+### **3. Gdzie można zastosować `strictfp`?**
+
+**✅ C. W klasach, interfejsach i metodach**
+
+Nie można używać go na polach, konstruktorach czy blokach statycznych.
+
+---
+
+### **4. Co się stanie, jeśli klasa jest oznaczona jako `strictfp`?**
+
+**✅ B. Wszystkie metody w klasie podlegają `strictfp`**
+
+Wszystkie obliczenia zmiennoprzecinkowe w metodach klasy są zgodne ze standardem IEEE 754.
+
+---
+
+### **5. Czy `strictfp` zwiększa precyzję obliczeń?**
+
+**✅ C. Nie**
+
+`strictfp` nie zwiększa dokładności — tylko zapewnia spójność wyników.
+
+---
+
+### **6. Dlaczego `strictfp` może wpłynąć na wydajność?**
+
+**✅ B. Blokuje niektóre optymalizacje sprzętowe**
+
+Wymusza użycie standardowej precyzji, co może uniemożliwić niektóre przyspieszenia procesora.
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład zastosowania `strictfp`:**
+
+* System finansowy: obliczanie miesięcznych odsetek
+* Symulacja fizyczna: siły, prędkości, energii
+* Gry lub naukowe obliczenia wymagające powtarzalności wyników
+
+---
+
+### **8. (OTWARTE)**
+
+**Dlaczego `strictfp` nie zastępuje `BigDecimal`?**
+
+* `strictfp` gwarantuje **spójność float/double**, ale **nie eliminuje błędów zaokrągleń**
+* `BigDecimal` daje **dokładność dowolnej precyzji**, ale jest wolniejszy
+
+---
+
+### **9. Które zdanie o `strictfp` jest PRAWDZIWE?**
+
+**✅ B. Zapewnia takie same wyniki obliczeń na różnych JVM i procesorach**
+
+---
+
+### **10. Którego miejsca NIE MOŻNA oznaczyć jako `strictfp`?**
+
+**✅ D. Pola klasy**
+
+Nie można też stosować w konstruktorach czy blokach statycznych.
+
+---
+
+### 🧠 Podsumowanie
+
+* `strictfp` = deterministyczne obliczenia float/double
+* Stosujemy w **finansach, symulacjach, nauce**
+* Nie zwiększa dokładności → wciąż potrzebny `BigDecimal` do precyzyjnych obliczeń
+* Rzadko używane w codziennym kodzie, ale ważne w **systemach krytycznych**
+
+---
+
+Chcesz, żebym teraz przeszedł do **`super` + `this` + `synchronized` w mini-projekcie**, żeby połączyć wszystkie słowa kluczowe w jednym praktycznym przykładzie?

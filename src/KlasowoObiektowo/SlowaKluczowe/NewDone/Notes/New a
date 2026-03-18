@@ -1,0 +1,101 @@
+## ✅ Odpowiedzi – QUIZ `new` w Java
+
+---
+
+### **1. Do czego służy słowo kluczowe `new` w Javie?**
+
+**✅ B. Tworzy nowy obiekt i wywołuje konstruktor**
+
+* `new` alokuje pamięć i inicjalizuje obiekt poprzez konstruktor.
+
+---
+
+### **2. Które zdanie jest prawdziwe?**
+
+**✅ B. `new` tworzy nowy obiekt w pamięci**
+
+* Każde użycie `new` powoduje stworzenie nowego obiektu.
+
+---
+
+### **3. Czy można użyć `new` do utworzenia obiektu klasy abstrakcyjnej?**
+
+**✅ B. Nie, chyba że tworzymy anonimową klasę**
+
+```java
+Shape s = new Shape() {
+    void draw() { System.out.println("Drawing"); }
+};
+```
+
+---
+
+### **4. Co robi `new` przy tworzeniu tablicy?**
+
+**✅ B. Tworzy fizyczną tablicę w pamięci**
+
+* Tworzy miejsce w pamięci dla elementów tablicy (domyślnie z wartościami domyślnymi).
+
+---
+
+### **5. Który przykład jest poprawny?**
+
+**✅ A. `int[] numbers = new int[5];`**
+
+* Pozostałe są składniowo niepoprawne.
+
+---
+
+### **6. Czy przypisanie jednej referencji do drugiej tworzy nowy obiekt?**
+
+**✅ B. Nie, tylko kopiowana jest referencja**
+
+```java
+Person p1 = new Person("Alice");
+Person p2 = p1; // oba wskazują ten sam obiekt
+```
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład użycia `new` do stworzenia obiektu własnej klasy:**
+
+```java
+class Person {
+    String name;
+    Person(String name) { this.name = name; }
+}
+
+Person p = new Person("Alice");
+```
+
+---
+
+### **8. (OTWARTE)**
+
+**Dlaczego typy prymitywne nie potrzebują `new`?**
+
+* Typy prymitywne (`int`, `double`, `boolean`) są przechowywane bezpośrednio w pamięci i mają **wartości domyślne**, więc nie potrzebują alokacji obiektu.
+
+---
+
+### **9. Co się stanie, jeśli spróbujesz użyć `new` na interfejsie?**
+
+**✅ B. Kompilator zgłosi błąd, chyba że użyjesz anonimowej klasy**
+
+```java
+Runnable r = new Runnable() {
+    public void run() { System.out.println("Running"); }
+};
+```
+
+---
+
+### **10. Które zdanie o `new` jest prawdziwe?**
+
+**✅ B. `new` alokuje pamięć i wywołuje konstruktor**
+
+---
+
+Chcesz, żebym teraz przeszedł do **następnego słowa kluczowego w Javie**, np. `null` już mamy, więc może `instanceof`?

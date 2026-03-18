@@ -1,0 +1,98 @@
+Najpierw przygotowałem quiz dla `char`, teraz podaję **odpowiedzi w formie, jak wcześniej**, z wyjaśnieniami krok po kroku.
+
+---
+
+## ✅ Odpowiedzi – `char` w Java
+
+---
+
+### **1. Jaki zakres wartości może przyjmować zmienna `char`?**
+
+**✔ B. 0 … 65535** ✅
+
+* `char` to 16-bitowy typ całkowity reprezentujący znaki Unicode.
+
+---
+
+### **2. Co się stanie, gdy przypiszemy `'AB'` do `char`?**
+
+**✔ C. Kompilator zgłosi błąd** ✅
+
+* `char` przechowuje **tylko jeden znak**. `'AB'` to **dwa znaki** – niepoprawne.
+
+---
+
+### **3. Jak przekonwertować `char` na liczbę całkowitą?**
+
+**✔ A. int code = c;** ✅
+
+* `char` jest zgodny z typem liczbowym i można go przypisać do `int`, aby uzyskać kod Unicode.
+
+---
+
+### **4. Co zrobi poniższy kod?**
+
+```java
+char a = 'A';
+char b = (char)(a + 1);
+System.out.println(b);
+```
+
+**✔ B. Wypisze 'B'** ✅
+
+* Operacje arytmetyczne na `char` dają `int`, więc potrzebne jest rzutowanie z powrotem na `char`.
+
+---
+
+### **5. Czy `char` może przechowywać znaki Unicode spoza standardowego alfabetu łacińskiego?**
+
+**✔ A. Tak** ✅
+
+* `char` obsługuje **pełny zakres Unicode**, np. `'\u03A9'` (Omega).
+
+---
+
+### **6. Jak utworzyć tablicę znaków `char`?**
+
+**✔ B. char[] letters = {'J','a','v','a'};** ✅
+
+* Składnia tablicy znaków wymaga pojedynczych znaków `' '` w nawiasach `{}`.
+
+---
+
+### **7. Co jest nieprawidłowe przy operacjach arytmetycznych na `char`?**
+
+**✔ C. Dodawanie dwóch `char` bez rzutowania** ✅
+
+* `char + char` daje `int`, więc jeśli przypisujemy wynik do `char`, trzeba użyć `(char)`.
+
+---
+
+### **8. Jak wypisać znak z tablicy `char`?**
+
+**✔ A. System.out.println(letters[0]);** ✅
+
+* Odwołanie do elementu tablicy zwraca pojedynczy znak.
+
+---
+
+### **9. (Otwarte)**
+
+**Przykład konwersji `char` na `String`:**
+
+```java
+char c = 'A';
+String s = String.valueOf(c);  // lub "" + c
+```
+
+---
+
+### **10. (Otwarte)**
+
+**Dlaczego warto znać `char` w Javie?**
+
+* Do **przetwarzania pojedynczych znaków**, np. w tekstach, tablicach, konwersjach liczbowych, obsłudze strumieni znaków.
+
+---
+
+Chcesz, żebym teraz przeszedł do **quizu i wiedzy o `class`** w Javie, czy kontynuujemy kolejne słowa kluczowe?

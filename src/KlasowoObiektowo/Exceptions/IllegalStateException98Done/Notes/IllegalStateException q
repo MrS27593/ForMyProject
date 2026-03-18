@@ -1,0 +1,160 @@
+Świetnie 😄 Oto **QUIZ: `IllegalStateException`** — poziom **od podstaw do rekrutacyjnego**.
+Jak zawsze: **najpierw pytania**, a **odpowiedzi po Twoim „odpowiedzi”** 👇
+
+---
+
+# 🧠 **QUIZ – IllegalStateException**
+
+## 🟢 Poziom 1 – Podstawy
+
+### 1️⃣ `IllegalStateException` jest:
+
+A. Checked exception
+B. Unchecked exception
+C. Error
+D. Compile-time exception
+
+---
+
+### 2️⃣ Kiedy NAJLEPIEJ użyć `IllegalStateException`?
+
+A. Gdy argument metody jest niepoprawny
+B. Gdy plik nie istnieje
+C. Gdy stan obiektu jest nieprawidłowy
+D. Gdy wystąpi błąd sieci
+
+---
+
+### 3️⃣ Czy `IllegalStateException` musi być obsłużony w `try-catch`?
+
+A. Tak
+B. Tylko w `main`
+C. Nie
+D. Tylko w Springu
+
+---
+
+### 4️⃣ Co jest KLUCZOWĄ różnicą między `IllegalStateException` a `IllegalArgumentException`?
+
+A. Jeden jest checked, drugi unchecked
+B. Jeden dotyczy argumentów, drugi stanu obiektu
+C. Jeden jest wolniejszy
+D. Jeden jest tylko do kolekcji
+
+---
+
+## 🟡 Poziom 2 – Praktyka
+
+### 5️⃣ Co się stanie?
+
+```java
+Iterator<String> it = list.iterator();
+it.remove();
+```
+
+A. Kod poprawny
+B. `NullPointerException`
+C. `IllegalStateException`
+D. `IllegalArgumentException`
+
+---
+
+### 6️⃣ Która sytuacja NAJLEPIEJ pasuje do `IllegalStateException`?
+
+A. `setAge(-1)`
+B. `parseInt("abc")`
+C. Wywołanie `process()` przed `init()`
+D. Brak pliku na dysku
+
+---
+
+### 7️⃣ Co jest ZŁĄ praktyką?
+
+A. Sprawdzanie stanu obiektu
+B. Rzucanie `IllegalStateException` z komunikatem
+C. Łapanie `IllegalStateException` lokalnie
+D. Fail-fast
+
+---
+
+### 8️⃣ Który przykład jest POPRAWNY?
+
+A.
+
+```java
+if (arg < 0) throw new IllegalStateException();
+```
+
+B.
+
+```java
+if (!initialized) throw new IllegalStateException("Not initialized");
+```
+
+C.
+
+```java
+catch (IllegalStateException e) {}
+```
+
+D.
+
+```java
+throw new Exception();
+```
+
+---
+
+## 🔵 Poziom 3 – Rekrutacyjny
+
+### 9️⃣ Metoda wywołana w złym momencie cyklu życia obiektu → ?
+
+A. `IllegalArgumentException`
+B. `NullPointerException`
+C. `IllegalStateException`
+D. `IOException`
+
+---
+
+### 🔟 Co jest LEPSZE?
+
+A.
+
+```java
+throw new IllegalStateException();
+```
+
+B.
+
+```java
+throw new IllegalStateException("Service already closed");
+```
+
+---
+
+### 1️⃣1️⃣ Czy `IllegalStateException` może być rzucany przez metody JDK?
+
+A. Nie
+B. Tylko w kolekcjach
+C. Tak (np. `Iterator`, `Scanner`)
+D. Tylko w Springu
+
+---
+
+### 1️⃣2️⃣ Złota reguła:
+
+A. Argument → IllegalStateException
+B. Stan → IllegalArgumentException
+C. Argument → IllegalArgumentException, Stan → IllegalStateException
+D. Wszystko → RuntimeException
+
+---
+
+📌 Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam **pełne rozwiązania + krótkie wyjaśnienia rekrutacyjne**.
+
+Chcesz potem:
+👉 **IllegalState vs IllegalArgument – hard quiz**
+👉 **IndexOutOfBoundsException**
+👉 **mieszany quiz z wyjątków**
+
+Jedziemy dalej 😄

@@ -1,0 +1,17 @@
+2. Pakiet java.util.concurrent z lotu ptaka
+Java zawsze była przygotowana na współbieżność. Od początku  jej istnienia, w samym języku i jego pakietach, zawarto odpowiednie konstrukcje (synchronize, synchronized,  wait, notify, notifyAll).
+Java umożliwiała  pisanie współbieżnych programów, ale nie zawsze w sposób skalowalny.
+Czyli wszystko działało dobrze, dopóki o zasoby nie konkurowało zbyt wiele wątków. Przy dużej konkurencji ("high-contention") tylko genialnie napisane programy sprawdzały się i pod względem miarodajności i pod względem efektywności.
+Genialne pisanie programu wymaga i dużo wysiłku i zwykle nie wychodzi.
+Pakiet java.util.concurrent (opracowany głównie przez Douga Lea i obecny w Javie od wersji 1.5) zmienia tę sytuację. Teraz dość prosto można napisać programy nastawione na konkurencyjność (a więc nie tylko współbieżność, ale i  skalowalną współbieżność). A dodatkowo mamy do dyspozycji nieprzebrane mnóstwo narzędzi do tworzenia całkiem własnych, przygotowanych na  specyficzne sytuacje, rozwiązań problemów współbieżności,
+
+Pakiet java.util.concurrent:
+umożliwia separację zadań i wątków,
+pozwala na anulowanie zadań,
+dostarcza puli wątków prowadzonych przez Wykonawców,
+zawiera bardziej efektywne przy "high contention" - bazowe synchronizatory (Lock),
+umożliwia łatwą realizację read/write locks,
+udostępnia nowe synchronizatory wyższego poziomu (semafory, bariery, zasuwy),
+pozwala na użycie blokujących kolejek (łatwa koordynacja zadań),
+dostarcza konkurencyjnych (efektywnych przy dużej konkurencji) kolekcji,
+definiuje atomiki (dane podstawowych typów, bezpiecznie dostępne współbieżnie).

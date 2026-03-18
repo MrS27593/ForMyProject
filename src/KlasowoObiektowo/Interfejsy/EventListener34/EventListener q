@@ -1,0 +1,97 @@
+Super! Oto **quiz z EventListenerów w Javie** – 10 pytań, poziom rośnie stopniowo. Każde pytanie ma 4 odpowiedzi, tylko jedna jest poprawna.
+
+---
+
+### 🧠 **Quiz: EventListener w Java**
+
+#### **1. Który interfejs służy do reagowania na kliknięcia przycisków?**
+
+A) `MouseListener`
+B) `ActionListener`
+C) `KeyListener`
+D) `FocusListener`
+
+---
+
+#### **2. Który pakiet zawiera interfejs `EventListener`?**
+
+A) `javax.event`
+B) `java.event`
+C) `java.util`
+D) `java.util.EventListener`
+
+---
+
+#### **3. Której metody wymaga `ActionListener`?**
+
+A) `onClick()`
+B) `actionPerformed(ActionEvent e)`
+C) `run()`
+D) `handleEvent(Event e)`
+
+---
+
+#### **4. Co się stanie, jeśli nie zaimplementujesz wszystkich metod `MouseListener`?**
+
+A) Kompilacja się uda, ale program nie zadziała
+B) Kompilacja się nie uda
+C) Nic – to opcjonalne
+D) Program zawiesi się w czasie działania
+
+---
+
+#### **5. Jak zarejestrować `ActionListener` w komponencie Swing?**
+
+A) `addListener()`
+B) `register(ActionListener l)`
+C) `addActionListener(ActionListener l)`
+D) `onClick(ActionListener l)`
+
+---
+
+#### **6. Który adapter służy do obsługi zdarzeń klawiatury?**
+
+A) `MouseAdapter`
+B) `FocusAdapter`
+C) `KeyAdapter`
+D) `ActionAdapter`
+
+---
+
+#### **7. Co umożliwia użycie lambd z listenerami w Javie 8+?**
+
+A) Wydajniejsze działanie programu
+B) Możliwość pominięcia metody `main()`
+C) Skrócenie kodu poprzez przekazanie funkcji anonimowej
+D) Automatyczne rejestrowanie zdarzeń
+
+---
+
+#### **8. Co oznacza, że `EventListener` to "marker interface"?**
+
+A) Zawiera tylko jedną metodę
+B) Nie zawiera żadnych metod – służy do oznaczania
+C) Jest dziedziczony automatycznie
+D) Oznacza klasę jako serializowalną
+
+---
+
+#### **9. Jaką klasę rozszerzasz, by nie musieć implementować wszystkich metod `MouseListener`?**
+
+A) `MouseHandler`
+B) `MouseListenerAdapter`
+C) `MouseAdapter`
+D) `EventAdapter`
+
+---
+
+#### **10. Jak można utworzyć własne zdarzenie w Javie?**
+
+A) Przez rozszerzenie `EventObject` i stworzenie własnego interfejsu listenera
+B) Nie da się
+C) Tylko przez klasę `ActionEvent`
+D) Tylko przez dziedziczenie po `Component`
+
+---
+
+Chcesz, żebym sprawdził Twoje odpowiedzi lub omówił je po kolei?

@@ -1,0 +1,89 @@
+## QUIZ – `new` w Java (10 pytań)
+
+---
+
+### **1. Do czego służy słowo kluczowe `new` w Javie?**
+
+A. Tworzy nową metodę
+B. Tworzy nowy obiekt i wywołuje konstruktor
+C. Przypisuje wartość domyślną
+D. Deklaruje zmienną
+
+---
+
+### **2. Które zdanie jest prawdziwe?**
+
+A. `new` można użyć dla typów prymitywnych (`int`, `double`)
+B. `new` tworzy nowy obiekt w pamięci
+C. `new` inicjalizuje klasę abstrakcyjną bezpośrednio
+D. `new` kopiuje istniejący obiekt
+
+---
+
+### **3. Czy można użyć `new` do utworzenia obiektu klasy abstrakcyjnej?**
+
+A. Tak, zawsze
+B. Nie, chyba że tworzymy anonimową klasę
+C. Tak, jeśli konstruktor jest publiczny
+D. Nie, w żadnym przypadku
+
+---
+
+### **4. Co robi `new` przy tworzeniu tablicy?**
+
+A. Przypisuje wszystkie elementy do `null`
+B. Tworzy fizyczną tablicę w pamięci
+C. Tworzy klasę pomocniczą
+D. Nic, tylko deklaruje zmienną
+
+---
+
+### **5. Który przykład jest poprawny?**
+
+A. `int[] numbers = new int[5];`
+B. `int x = new int(5);`
+C. `Person p = new Person;`
+D. `String s = new "Hello";`
+
+---
+
+### **6. Czy przypisanie jednej referencji do drugiej tworzy nowy obiekt?**
+
+A. Tak, zawsze
+B. Nie, tylko kopiowana jest referencja
+C. Tak, jeśli klasa jest final
+D. Tak, jeśli użyjemy `static`
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład użycia `new` do stworzenia obiektu własnej klasy z konstruktorem.
+
+---
+
+### **8. (OTWARTE)**
+
+Dlaczego typy prymitywne nie potrzebują `new` w Javie?
+
+---
+
+### **9. Co się stanie, jeśli spróbujesz użyć `new` na interfejsie?**
+
+A. Utworzy nowy obiekt interfejsu
+B. Kompilator zgłosi błąd, chyba że użyjesz anonimowej klasy
+C. Utworzy tablicę metod interfejsu
+D. Nada domyślną wartość `null`
+
+---
+
+### **10. Które zdanie o `new` jest prawdziwe?**
+
+A. `new` kopiuje istniejący obiekt
+B. `new` alokuje pamięć i wywołuje konstruktor
+C. `new` inicjalizuje zmienną lokalną do wartości domyślnej
+D. `new` jest potrzebne dla wszystkich zmiennych
+
+---
+
+Napisz **„odpowiedzi”**, a podam komplet poprawnych odpowiedzi z wyjaśnieniami ✅

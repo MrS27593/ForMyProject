@@ -1,0 +1,13 @@
+Aby dobrze umieć Interfejs Connection warto znać:
+Interface:
+Wrapper
+AutoCloseable
+Statement
+PreparedStatement
+CallableStatement
+
+Class:
+
+
+Exceptions:
+SQLException

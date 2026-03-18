@@ -1,0 +1,104 @@
+Oczywiście! Oto **quiz na temat `Enumeration` w Javie**, idealny do nauki i sprawdzenia swojej wiedzy. 🎓
+
+---
+
+## ✅ Quiz: Interfejs `Enumeration` w Javie
+
+### 🔸 Poziom: podstawowy–średniozaawansowany
+
+Dla każdej odpowiedzi wybierz **A, B, C lub D**.
+
+---
+
+### **1. Jakie metody posiada interfejs `Enumeration`?**
+
+A. `hasNext()`, `next()`
+B. `hasMoreElements()`, `nextElement()`
+C. `hasMore()`, `next()`
+D. `hasNextElement()`, `getElement()`
+
+---
+
+### **2. Co zwraca metoda `Hashtable.elements()`?**
+
+A. Klucze typu `Enumeration<K>`
+B. Wartości typu `Enumeration<V>`
+C. Parę `(key, value)`
+D. Listę typu `List<V>`
+
+---
+
+### **3. Co wypisze poniższy kod?**
+
+```java
+Hashtable<String, String> ht = new Hashtable<>();
+ht.put("A", "Apple");
+ht.put("B", "Banana");
+
+Enumeration<String> en = ht.elements();
+while (en.hasMoreElements()) {
+    System.out.print(en.nextElement() + " ");
+}
+```
+
+A. `A B`
+B. `Apple Banana`
+C. `A=Apple B=Banana`
+D. Błąd kompilacji
+
+---
+
+### **4. Jaka jest główna wada `Enumeration` w porównaniu do `Iterator`?**
+
+A. Nie działa w pętli `for-each`
+B. Nie działa z mapami
+C. Nie pozwala na usuwanie elementów
+D. Wymaga generyków
+
+---
+
+### **5. Która z poniższych kolekcji NIE wspiera `Enumeration`?**
+
+A. `Vector`
+B. `Hashtable`
+C. `ArrayList`
+D. `Stack`
+
+---
+
+### **6. Jak poprawnie wypisać klucze i wartości z `Hashtable` używając `Enumeration`?**
+
+A.
+
+```java
+Enumeration<String> keys = hashtable.keys();
+while (keys.hasNext()) {
+    System.out.println(keys.next());
+}
+```
+
+B.
+
+```java
+for (String key : hashtable) {
+    System.out.println(key + ": " + hashtable.get(key));
+}
+```
+
+C.
+
+```java
+Enumeration<String> keys = hashtable.keys();
+while (keys.hasMoreElements()) {
+    String key = keys.nextElement();
+    System.out.println(key + ": " + hashtable.get(key));
+}
+```
+
+D. Nie da się – trzeba użyć `Iterator`.
+
+---
+
+
+
+

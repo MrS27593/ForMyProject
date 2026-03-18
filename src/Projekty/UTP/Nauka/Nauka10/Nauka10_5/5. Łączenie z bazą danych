@@ -1,0 +1,142 @@
+5. Łączenie z bazą danych
+
+Połączenie z bazą danych wymaga dwóch kroków:
+załadowania sterownika JDBC,
+zażądania od sterownika  połączenia i ew. uzyskania go w postaci obiektu typu Connection.
+Załadowanie sterownika odbywa się za pomocą wywołania statycznej metody klasy Class o nazwie forName i z argumentem – nazwa klasy (sterownika). Ogólnie metoda ta zwraca obiekt-klasę o podanej nazwie. Jeśli klasa ta nie jest załadowana do JVM, następuje jej załadowanie. Klasy-sterowniki są tak napisane, że przy ich ładowaniu rejestrują się jako obiekty typu Driver.
+Zwykle obiekt ten (klasa) nie interesuje nas (dlatego w wywołaniu pomijamy zwracany rezultat).
+
+Przykłady:
+
+  Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+  Class.forName("postgresql.Driver");
+  Class.forName("oracle.jdbc.driver.OracleDriver");
+  Class.forName("com.mysql.jdbc.Driver");
+
+
+Nad załadowanymi sterownikami kontrolę sprawuje DriverManager (nazwa klasy).
+Prowadzi on listę zarejestrowanych sterowników.
+Statyczna metoda getConnection z klasy DriverManager pozwala na uzyskanie połączenia z bazą, której URL podajemy jako argument metody.
+DriverManager przegląda listę zarejestrowanych sterowników i wybiera ten, który może połączyć się z podaną bazą.
+Po połączeniu z bazą  zwracany jest obiekt typu Connection, który reprezentuje połączenie.
+
+
+Connection con = DriverManager.getConnection(dbUrl,
+                                                                        userID,
+                                                                        password);
+
+lub (jeśli dopuszczalne jest "domyślne" połączenie – bez podania nazwy użytkownika i hasła)
+
+Connection con = DriverManager.getConnection(dbUrl);
+
+Wszystkie argumenty metody getConnection są typu String.
+
+Forma lokatorów (urli) zależna jest od sterownika i konkretnej bazy danych np.
+
+// źródło danych ODBC o nazwie ksidb
+String dbUrl = "jdbc:odbc:ksidb"
+
+// łączenie z Oraclem z dodatkowymi specyfikacjami
+String dbUrl = "jdbc:oracle:thin:user/password@( description=(address_list=( address=(protocol=tcp) (host=dbmachine)(port=1521)))(source_route=yes) (connect_data=(sid=ksidb)))";
+
+// MySQL:
+String dbUrl = "jdbc:mysql://localhost/ksidb";
+
+
+
+Uwaga: klasa sterownika powinna być dostępna dla odwolań z naszego programu. Odpowiedni JAR można np. umieścić w katalogu jre/lib/ext.
+
+
+W trakcie ładowania klasy sterownika i przy próbie połączenia mogą powstać wyjątki, które musimy obsłużyć.
+
+....
+ String driverName = "com.mysql.jdbc.Driver";
+ String url = "jdbc:mysql://localhost/ksidb";
+ String uid = "jakis";
+ String pwd = "haslo";
+ Connection con;
+
+ try {
+     Class.forName(driverName);
+     con = DriverManager.getConnection(url, uid, pwd);
+    } catch (ClassNotFoundException  exc)  {  // brak klasy sterownika
+        System.out.println("Brak klasy sterownika");
+        System.out.println(exc);
+        System.exit(1);
+    } catch(SQLException exc) {  // nieudane połączenie
+       System.out.println("Nieudane połączenie z " + url);
+       System.out.println(exc);
+       System.exit(1);
+}
+
+.....
+
+
+Możemy też przechwycić oba wyjątki w jednej klauzuli catch(Exception exc) ...
+
+Innym sposobem uzyskania połaczenie jest wykorzystaie serwisów JNDI oraz tzw. źródeł danych - zapoznamy sie z nim w rozdziale "Aplikacje WEB".
+
+
+Sterowniki spełniające specyfikację JDBC 4.0 (jeśli odpowiednie JARy spełniają protokól Service Provider) mogą być odnajdywane bez jawnego załadowania klasy.
+Np. jeśli nasza aplikacja ma dostęp do pliku derby.jar (jest na ścieżce dostępu klas), to uzyskać połaczenie możemy  prościej:
+
+Connection con = DriverManager.getConnection("jdbc:derby:ksidb");
+Dzieje się tak dlatego, że w derby.jar w katalogu META-INF/services znajduje się plik java.sql.Driver, zawierający nazwę klasy sterowanika.
+
+Przy tej okazji - parę słów o Derby.
+Derby jest  niewielkim i wygodnym w użyciu SZBD, całkowicie napisanym w Javie, dostarczanym w dystrybucji Javy 6.
+Może działać w dwóch trybach:
+embedded - SZBD działa w tej samej maszynie wirtualnej co nasza aplikacja i nie wymaga działania serwera,
+klient-serwer (wymaga startu serwera Derby)
+
+Bardzo ważną kwestią jest ustalenie systemowej właściwości Javy derby.system.home, wskazującej na katalog, w którym zajdują się bazy danych. Jesli tej właściwości nie ustalimy, to zostanie przyjęty bieżący katalog lub katalog podany bezpośrednio przy specyfikacji URLa bazy danych.
+Właściwość derby.system.home możemy określić  podając opcję -Dderby.system.home=nazwa_katalogu przy starcie JVM (czy to nazej aplikacji, czy serwera Derby czy też CLI, który w Derby nazywa się ij.
+
+Załóżmy, że:
+JAVA_HOME wskazuje na katalog instalacyjny Javy i katalog %JAVA_HOME%/bin jest naścieżce PATH
+DERBY_HOME - katalog instalacyjny Derby,
+DERBY_JARS - zawiera nazwy niezbędnych bibliotek JAR z katalogu %DERBY_HOME%/lib, w szczególności: (rozdzielone srednikami):
+%DERBY_HOME%/lib/derby.jar
+%DERBY_HOME%/lib/derbynet.jar
+%DERBY_HOME%/lib/derbyclient.jar
+%DERBY_HOME%/lib/derbytools.jar
+
+
+Start CLI w trybie embedded  ze skryptem tworzącym bazę danych ksidb w katalogu D:\DerbyDbs
+java -Dderby.system.home=D:/DerbyDbs -cp "%DERBY_JARS" -Dij.protocol=jdbc:derby:
+org.apache.derby.tools.ij nazwa_skryptu
+
+Start aplikacji App w trybie embedded  Derby (dostęp do bd ksidb umieszczonej w katalogu D:\DerbyDbs):
+java -Dderby.system.home=D:/DerbyDbs -cp %DERBY_HOME%/derby.jar App
+
+// dostęp do ksidb w programie:
+Connection con = DriverManager.getConnection("jdbc:derby:ksidb");
+
+Start serwera Derby (z ustaleniem derby.system.home):
+java -Dderby.system.home=D:/DerbyDbs -cp "%DERBY_JARS" org.apache.derby.drda.NetworkServerControl start
+
+Dostęp do bazy danych za pomocą protokołu sieciowego (po starcie serwera):
+  String driverName = "org.apache.derby.jdbc.ClientDriver";
+  String url = "jdbc:derby://localhost/ksidb";
+  try {
+      Class.forName(driverName).newInstance();
+      Connection con = DriverManager.getConnection(url);
+      // ...
+  }
+
+lub jeśli dostępnym JARem jest tylko derbyclient.jar:
+
+try {
+     Connection con = DriverManager.getConnection(jdbc:derby://localhost/ksidb);
+// ...
+}
+Dostęp w trybie embedded do bazy danych  umieszczonej w katalogu D:\DerbyDbs (niezależnie od tego czy właściwość derby.system.home została ustalona  czy nie):
+Connection con = DriverManager.getConnection(jdbc:derby:D:/DerbyDbs/ksidb);
+
+Po uzyskaniu połączenia otrzymany obiekt Connection wykorzystujemy do operacji na bazie danych za pośrednictwem innych obiektów, który uzyskamy od obiektu Connection.
+Pokazuje to poniższy rysunek.
+
+r
+
+Po zakończeniu operacji na bazie danych warto zwolnić uzyskane zasoby (takie jak Statement) oraz  połączenie, wywołując odpowiednie  metody close() na rzecz obiektów reprezentujących zasoby/ połączenie.
+Nie zawsze jest to obowiązkowe, bo zwykle zasoby są zwalniane automatycznie przy zakończeniu programu, ale należy do dobrej praktyki programistycznej, mogą się bowiem zdarzyć takie sytuacje, kiedy zasoby nie zostaną automatycznie zwolnione.

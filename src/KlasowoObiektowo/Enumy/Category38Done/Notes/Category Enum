@@ -1,0 +1,37 @@
+    public enum Category {
+
+        /**
+         * Category used to represent the default locale for
+         * displaying user interfaces.
+         */
+        DISPLAY("user.language.display",
+                "user.script.display",
+                "user.country.display",
+                "user.variant.display",
+                "user.extensions.display"),
+
+        /**
+         * Category used to represent the default locale for
+         * formatting dates, numbers, and/or currencies.
+         */
+        FORMAT("user.language.format",
+               "user.script.format",
+               "user.country.format",
+               "user.variant.format",
+               "user.extensions.format");
+
+        Category(String languageKey, String scriptKey, String countryKey,
+                String variantKey, String extensionsKey) {
+            this.languageKey = languageKey;
+            this.scriptKey = scriptKey;
+            this.countryKey = countryKey;
+            this.variantKey = variantKey;
+            this.extensionsKey = extensionsKey;
+        }
+
+        final String languageKey;
+        final String scriptKey;
+        final String countryKey;
+        final String variantKey;
+        final String extensionsKey;
+    }

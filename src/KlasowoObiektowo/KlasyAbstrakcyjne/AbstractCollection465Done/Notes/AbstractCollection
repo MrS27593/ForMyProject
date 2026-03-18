@@ -1,0 +1,18 @@
+Aby dobrze umieć Klase abstrakcyjna AbstractCollection warto znać:
+Interface:
+Iterator
+Collection
+
+Class:
+Object
+System
+ArraysSupport
+Arrays
+StringBuilder
+
+Exceptions:
+ClassCastException
+UnsupportedOperationException
+NullPointerException
+IllegalStateException
+ArrayStoreException

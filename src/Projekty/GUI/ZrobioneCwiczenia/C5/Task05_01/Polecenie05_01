@@ -1,0 +1,58 @@
+
+Zdefiniuj (funkcyjny) interfejs generyczny Transform<T,R> deklarujący jedną metodę apply, która pobiera T a zwraca R.
+Zdefiniuj też klasę StrToInt, która implementuje ten interfejs dla T=String i R=Integer.
+Implementacja funkcji apply zwraca po prostu długość przekazanego napisu.
+
+W klasie głównej zdefiniuj statyczną funkcję
+
+
+która pobiera dwie tablice tej samej długości,
+jedną elementów typu T a drugą elementów typu R oraz obiekt, np.trans, implementujący interfejs Transform.
+Funkcja wypełnia drugą tablicę rezultatami wywołania na rzecz trans metody apply z kolejnymi elementami pierwszej tablicy jako argumentami.
+
+W funkcji main utwórz dwie tablice tego samego wymiaru i wywołaj funkcję transform przesyłając te tablice i obiekt
+implementujący interfejs Transform.
+
+Zrób to na trzy różne sposoby, przesyłając jako ten obiekt:
+obiekt typuStrToInt— typami tablic są wtedy String i Integer;
+
+obiekt klasy anonimowej implementującej interfejs Transform w taki sposób,
+aby jego metoda apply pobierała napis (String) a zwracała jego pierwszy znak(Character);
+
+lambdę transformującą napis na taki sam napis, ale dużymi literami.
+Załączony program GenTrans.java powinien wydrukować:
+
+
+Materiały referencyjne
+import java.util.Arrays;
+
+@FunctionalInterface
+interface Transform<T, R> {
+    R apply(T s);
+}
+
+ // class StrToInt
+
+public class GenTrans {
+    private static <T, R>
+    void transform(T[] in, R[] out, Transform<T, R> trans) {
+        // ...
+    }
+
+    public static void main (String[] args) {
+        String[]  sin = {"Alice", "Sue", "Janet", "Bea"};
+        System.out.println(Arrays.toString(sin) + '\n');
+
+        Integer[] iout = new Integer[sin.length];
+        transform(sin, iout, /* ... */);
+        System.out.println(Arrays.toString(iout));
+
+        Character[] cout = new Character[sin.length];
+        transform(sin, cout, /* ... */);
+        System.out.println(Arrays.toString(cout));
+
+        String[] sout = new String[sin.length];
+        transform(sin, sout, /* ... */);
+        System.out.println(Arrays.toString(sout));
+    }
+}

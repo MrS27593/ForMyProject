@@ -1,0 +1,149 @@
+Świetnie 😄 Oto **QUIZ: `IllegalArgumentException`** — poziom **od podstaw do rekrutacyjnego**.
+Jak zawsze: **najpierw pytania**, a **odpowiedzi na Twoje „odpowiedzi”** 👇
+
+---
+
+# 🧠 **QUIZ – IllegalArgumentException**
+
+## 🟢 Poziom 1 – Podstawy
+
+### 1️⃣ `IllegalArgumentException` jest:
+
+A. Checked exception
+B. Unchecked exception
+C. Error
+D. Compile-time exception
+
+---
+
+### 2️⃣ Kiedy NAJLEPIEJ użyć `IllegalArgumentException`?
+
+A. Gdy plik nie istnieje
+B. Gdy argument metody jest niepoprawny
+C. Gdy JVM ma za mało pamięci
+D. Gdy wystąpi błąd sieci
+
+---
+
+### 3️⃣ Czy `IllegalArgumentException` musi być obsłużony w `try-catch`?
+
+A. Tak
+B. Tylko w `main`
+C. Nie
+D. Tylko w Springu
+
+---
+
+### 4️⃣ Co się stanie?
+
+```java
+public void setAge(int age) {
+    if (age < 0) {
+        throw new IllegalArgumentException("age < 0");
+    }
+}
+```
+
+A. Błąd kompilacji
+B. Checked exception
+C. Unchecked exception
+D. `NullPointerException`
+
+---
+
+## 🟡 Poziom 2 – Praktyka
+
+### 5️⃣ Który wyjątek jest LEPSZY w publicznym API?
+
+A. `NullPointerException`
+B. `Exception`
+C. `IllegalArgumentException`
+D. `Error`
+
+---
+
+### 6️⃣ Co się stanie?
+
+```java
+UUID.fromString("abc");
+```
+
+A. `NumberFormatException`
+B. `IllegalArgumentException`
+C. `NullPointerException`
+D. Kod poprawny
+
+---
+
+### 7️⃣ Co jest ZŁĄ praktyką?
+
+A. Walidacja argumentów
+B. Rzucanie `IllegalArgumentException` z komunikatem
+C. Łapanie `IllegalArgumentException`
+D. Fail-fast
+
+---
+
+### 8️⃣ Który przypadek NAJLEPIEJ pasuje do `IllegalArgumentException`?
+
+A. Brak połączenia z bazą
+B. Zły indeks w tablicy
+C. Argument łamie kontrakt metody
+D. Brak pliku
+
+---
+
+## 🔵 Poziom 3 – Rekrutacyjny
+
+### 9️⃣ `IllegalArgumentException` vs `NullPointerException`
+
+Argument `null` w metodzie publicznej → ?
+A. Zawsze `NullPointerException`
+B. Zawsze `Exception`
+C. Najczęściej `IllegalArgumentException`
+D. `Error`
+
+---
+
+### 🔟 Co jest LEPSZE?
+
+A.
+
+```java
+throw new IllegalArgumentException();
+```
+
+B.
+
+```java
+throw new IllegalArgumentException("price must be > 0");
+```
+
+---
+
+### 1️⃣1️⃣ Czy `IllegalArgumentException` można rzucać w konstruktorze?
+
+A. Nie
+B. Tylko w klasach abstrakcyjnych
+C. Tak
+D. Tylko w Springu
+
+---
+
+### 1️⃣2️⃣ Dlaczego `IllegalArgumentException` jest tak często używany?
+
+A. Bo jest szybki
+B. Bo jest checked
+C. Bo jasno komunikuje błąd argumentu
+D. Bo JVM go ignoruje
+
+---
+
+📌 Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam **pełne rozwiązania + krótkie wyjaśnienia rekrutacyjne**.
+
+Chcesz potem:
+👉 **IllegalArgumentException vs IllegalStateException**
+👉 **hard quiz (code traps)**
+👉 **kolejny wyjątek: IndexOutOfBoundsException**
+
+Jedziemy dalej 😄

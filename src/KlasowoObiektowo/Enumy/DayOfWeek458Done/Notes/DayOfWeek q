@@ -1,0 +1,127 @@
+Świetnie 😄
+Oto **quiz z Enum `DayOfWeek` w Javie** – dokładnie w tym samym stylu jak poprzednio: teoria + kod + praktyka. Na końcu będziesz mógł sprawdzić odpowiedzi.
+
+---
+
+# ✅ **Quiz: Enum `DayOfWeek` w Javie**
+
+## 1️⃣ Prawda / Fałsz
+
+1. `DayOfWeek` znajduje się w pakiecie `java.util`.
+
+   * A) Prawda
+   * B) Fałsz
+
+2. `DayOfWeek` jest enumem.
+
+   * A) Prawda
+   * B) Fałsz
+
+3. `DayOfWeek.MONDAY.getValue()` zwraca `0`.
+
+   * A) Prawda
+   * B) Fałsz
+
+4. `ordinal()` w `DayOfWeek` zwraca ten sam numer co `getValue()`.
+
+   * A) Prawda
+   * B) Fałsz
+
+---
+
+## 2️⃣ Wybór jednokrotny
+
+5. Który dzień tygodnia ma wartość `7` według ISO-8601?
+
+   * A) SATURDAY
+   * B) SUNDAY
+   * C) MONDAY
+   * D) FRIDAY
+
+---
+
+6. Co wypisze poniższy kod?
+
+```java
+DayOfWeek day = DayOfWeek.FRIDAY;
+System.out.println(day.plus(2));
+```
+
+* A) SUNDAY
+* B) MONDAY
+* C) SATURDAY
+* D) TUESDAY
+
+---
+
+## 3️⃣ Wybór wielokrotny
+
+7. Które z poniższych metod istnieją w `DayOfWeek`?
+
+* A) `getValue()`
+* B) `plus(long days)`
+* C) `isWeekend()`
+* D) `minus(long days)`
+
+---
+
+## 4️⃣ Analiza kodu
+
+8. Co zostanie wypisane?
+
+```java
+LocalDate date = LocalDate.of(2026, 1, 4);
+DayOfWeek day = date.getDayOfWeek();
+System.out.println(day);
+```
+
+* A) SATURDAY
+* B) SUNDAY
+* C) MONDAY
+* D) TUESDAY
+
+---
+
+## 5️⃣ Pytanie praktyczne
+
+9. Uzupełnij metodę tak, aby zwracała `true` **tylko dla dni roboczych**:
+
+```java
+public boolean isWorkingDay(DayOfWeek day) {
+    // Twój kod
+}
+```
+
+---
+
+## 6️⃣ Pytanie podchwytliwe (egzaminacyjne)
+
+10. Który zapis jest **najlepszy** do sprawdzenia weekendu?
+
+* A)
+
+```java
+day.ordinal() >= 5
+```
+
+* B)
+
+```java
+day.getValue() >= 6
+```
+
+* C)
+
+```java
+day.name().equals("SATURDAY") || day.name().equals("SUNDAY")
+```
+
+* D)
+
+```java
+day.toString().contains("DAY")
+```
+
+---
+
+👉 Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam **pełne rozwiązania z wyjaśnieniem** 👌

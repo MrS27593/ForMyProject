@@ -1,0 +1,72 @@
+Oto **poprawne odpowiedzi do quizu o `@Inherited`** wraz z krótkim wyjaśnieniem:
+
+---
+
+### 1️⃣ Co robi adnotacja `@Inherited`?
+
+**B – Pozwala klasom potomnym dziedziczyć adnotacje z klasy bazowej**
+➡ Działa tylko na adnotacje klas (`@Target(TYPE)`) z retention `RUNTIME`.
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Inherited`?
+
+**A – `java.lang.annotation`**
+
+---
+
+### 3️⃣ Na jakich elementach można stosować `@Inherited`?
+
+**C – Klasach i interfejsach**
+➡ Ale działa tylko dla klas dziedziczących klasy, nie dla interfejsów.
+
+---
+
+### 4️⃣ Jakie Retention musi mieć adnotacja, aby `@Inherited` działało?
+
+**C – `RUNTIME`**
+➡ Musi być dostępna w czasie wykonywania, aby reflection mogło ją odczytać.
+
+---
+
+### 5️⃣ Czy `@Inherited` działa na metody?
+
+**B – Nie**
+➡ Działa tylko dla klas, metody i pola nie dziedziczą adnotacji.
+
+---
+
+### 6️⃣ Czy adnotacja dziedziczy się przez interfejsy?
+
+**B – Nie, `@Inherited` działa tylko dla klas**
+
+---
+
+### 7️⃣ Czy `@Deprecated` jest dziedziczona automatycznie przez klasy potomne?
+
+**B – Nie**
+➡ `@Deprecated` nie ma `@Inherited`.
+
+---
+
+### 8️⃣ Kiedy warto użyć `@Inherited`?
+
+**B – Aby framework mógł automatycznie rozpoznać adnotacje w klasach potomnych**
+
+---
+
+### 9️⃣ Czy `@Inherited` może być stosowana na interfejsach metod?
+
+**B – Nie**
+➡ Metody nie dziedziczą adnotacji przez `@Inherited`.
+
+---
+
+### 🔟 Jak sprawdzić w kodzie, czy klasa potomna dziedziczy adnotację?
+
+**B – `Child.class.isAnnotationPresent(Annotation.class)`**
+➡ To poprawna metoda reflection w Javie.
+
+---
+
+Chcesz, mogę teraz zrobić **quiz podchwytliwy HARD** z `@Inherited` + `Retention` + `Target` + interfejsy i klasy, który często pojawia się na rozmowach?

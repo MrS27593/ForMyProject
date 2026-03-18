@@ -1,0 +1,191 @@
+3. Separacja zadań od sposobu ich wykonania
+
+Od początków Javy  programiści mieli wiele kłopotów ze zrozumieniem pojęcia wątku (a szczególnie obiektów klasy Thread). Nawet zaawansowanym programistom wydawało się, że użyteczną pracę wykonuje klasa Thread. Tymczasem  kod wątku zapisywany jest w metodzie run(), a klasa Thread tak naprawdę nic nie robi. To kod metody run() wykonuje się "w wątku" (czyli współbieżnie), choć często mówimy nieco mylnie (potocznie): "wątek się wykonuje".  Tymczasem wcale nie jesteśmy zainteresowani wątkami (obiektami klasy Thread) tylko zadaniami (zapisanymi w metodzie run()), które "poprzez wątki" się wykonują. Chcielibyśmy rozumować raczej w kategoriach zadań do wykonania, a nie technicznych szczegółów sposobu ich wykonania.
+
+Poczynając od Javy 1.5 stało się to możliwe.  Zadania "do wykonania" mogą być odseparowane od wątków (od zarządzanie nimi, umartwiania się nimi, śledzenia ich - co w dotychczasowej Javie wcale nie było łatwe, o ile w ogóle możliwe).
+
+Dotychczas było tak:
+
+    Runnable r = ...;
+    Thread t = new Thread(r);
+    t.start();
+
+
+to znaczy - trzeba było samemu uruchomić wątek i dalej martwić się o jego los.
+
+Gdy miał wyprodukować jakieś wyniki  trzeba było o nie zadbać  (dość żmudnie  oprogramować ich przejęcie).
+
+Gdy było dużo wątków - pojawiał się duży problem.
+A co się stanie, gdy nasza metoda run() zgłosi wyjątek?
+Interfejs Runnable nie przewidział tego w deklaracji run(). Pozostaje tylko RuntimeException.
+Sposoby jego obsługi  w Javie "przedkonkurencyjnej" były i uciążliwe i niezbyt niezawodne.
+
+Na te wszystkie  problemy pakiet java.util.concurrent ma gotowe odpowiedzi.
+
+Chcesz łatwo tworzyć pule wątków, i zarządzać nimi bez  trudnego programowania?	Użyj odpowiednich Serwisów Wykonawców (ExecutorService)
+Chcesz myśleć  w kategoriach zadań (Task), nie wątków?	Daj Wykonawcom zadania do wykonania, oni zdecydują jak najlepiej podzielić je między wątki, ale ogólna strategia podziału i uruchamiania jest pod Twoją kontrolą (mamy wybór różnych strategii)
+Chcesz mieć łatwo dostępne wyniki współbieżnych zadań?	Użyj interfejsu Callable, zaufaj Wykonawcom i odbieraj wyniki w postaci FutureTask - obiektu pozwalającego na asynchroniczne testy (wyniki już są? jeszcze nie ma?), reagowanie na wyjątki, odczytywanie wyników zadań i podłączanie callbacków.
+
+Pierwszym krokiem ku poprawie sytuacji jest odseparowanie zadań do wykonania od  mechanizmów tworzenia i uruchamiania wątków.
+Pakiet java.util.concurrent definiuje interfejs Executor:
+
+public interface Executor {
+  void execute(Runnable);
+}
+Jego implementacje  (nie my) winny zajmowac się tworzeniem i uruchamianiem wątków.
+Sposób, polityka tworzenia i uruchamiania wątków spoczywa na Wykonawcach (klasach implementujących interfejs Executor).
+
+A zatem napiszemy raczej tak (choć jeszcze nie do końca poprawnie):
+
+  Executor executor = ....;
+
+  private void serviceConnections() {
+    while (serverRunning) {
+      try {
+        final Socket conn = ss.accept();
+        System.out.println("Connection established");
+
+        Runnable serviceCode = new Runnable() {
+           public void run() {
+              serviceRequests(conn);
+           }
+        }
+
+        executor.execute(serviceCode);
+
+      } catch (Exception exc) {
+          exc.printStackTrace();
+      }
+    }
+    try { ss.close(); } catch (Exception exc) { //... }
+  }
+W szczególności konkretny Wykonawca może prowadzić pulę wątków, zapewniając naszemu serwerowi odpowiednią efektywność.
+
+Tworzenie wątków jest kosztowne czasowo. Pule wątków pozwalają na ponowne użycie wolnych wątków, a także na ew. limitowanie maksymalnej liczby wątków w puli.
+
+
+My rozumujemy w kategoriach zadania do wykonania (określanegu tu przez kod Runnable), tworzeniem i uruchamianiem wątków zajmuja się Wykonawcy.
+
+W Javie mamy do dyspozycji kilka rodzajów gotowych Wykonawców, fabrykowanych przez odpowiednie metody klasy Executors m.in.:
+Wykonawca uruchamiający podane mu zadania w jednym wątku (po kolei) (Executors.newSingleThreadExecutor()),
+Wykonawca, prowadzący pulę wątków o zadanych maksymalnych rozmiarach (Executors.newFixedThreadPool()),
+Wykonawca, prowadzący pulę wątków o dynamicznych rozmiarach
+(Executors.newCachedThreadPool()),
+Wykonawcy zarządzający tworzeniem i wykonaniem wątków w określonym czasie lub z określoną periodycznością (Executors.newScheduled....())
+Możemy więc napisać coś takiego:
+import java.util.concurrent.*;
+
+
+class Task implements Runnable {
+
+  private String name;
+
+  public Task(String name) {
+    this.name = name;
+  }
+
+  public void run() {
+    for (int i=1; i <= 4; i++) {
+      System.out.println(name + " " + i);
+      Thread.yield();
+    }
+  }
+}
+
+
+public class Wykonawca {
+
+  public static void main(String[] args) {
+    Executor exec = Executors.newFixedThreadPool(2);
+    for (int i=1; i<=4; i++) {
+      exec.execute(new Task("Task " + i));
+    }
+  }
+}
+Program wypisze następujące wyniki:
+
+Task 1 1
+Task 2 1
+Task 1 2
+Task 2 2
+Task 1 3
+Task 2 3
+Task 1 4
+Task 2 4
+Task 3 1
+Task 4 1
+Task 3 2
+Task 4 2
+Task 3 3
+Task 4 3
+Task 3 4
+Task 4 4
+
+
+Zwróćmy uwagę, że pula wątków jest ograniczona do dwóch. Zatem najpierw wspólbieżnie działają dwa pierwsze zadania, a po nich - trzecie i czwarte.
+
+Gdy nasze zadania zakończą się, Wykonawca nadal "działa" i jest gotowy do przyjmowania nowych zadań.
+
+Zamknięcie Wykonawcy oznacza, iż nie będzie on  już przyjmował nowych zadań do wykonania; jednak przekazane mu wcześniej i jeszcze nie zakończone - będzie wykonywał.
+
+
+Usługę zamknięcia dostarcza interfejs ExecutorService, który jest rozszerzeniem interfejsu Executor.
+
+Metody fabryczne klasy Executors zwracają Wykonawców implementujących ExecutorService
+
+
+Zobaczmy.
+
+  public static void main(String[] args) {
+    ExecutorService exec = Executors.newFixedThreadPool(2);
+    for (int i=1; i<=4; i++) {
+      exec.execute(new Task("Task " + i));
+    }
+    Thread.yield();
+    exec.shutdown();
+
+    try {
+      exec.execute(new Task("Task after shutdown"));
+    } catch (RejectedExecutionException  exc) {
+        exc.printStackTrace();
+    }
+    try {
+      exec.awaitTermination(5, TimeUnit.SECONDS);
+    } catch(InterruptedException exc) { exc.printStackTrace(); }
+    System.out.println("Terminated: " + exec.isTerminated());
+
+  }
+
+.......
+Task 3 4
+Task 4 4
+Terminated: true
+java.util.concurrent.RejectedExecutionException
+    at java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:1477)
+    at java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:384)
+    at java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:856)
+    at exec0.Wykonawca.main(Wykonawca.java:34)
+
+
+Ponieważ metoda shutdown() zamyka ExecutorService, zadanie "Task after shutdown" nie zostanie uruchomione (powstanie wyjątek RejectedExecutionException; ten wyjątek może powstawać również wtedy, gdy ExecutorService z innych powodów niż zamknięcie odmawia wykonania zadania).
+TimeUnit pozwala na lepszą i wygodniejszą granulację czasu - wszędzie tam gdzie wchodzą w grę opóźnienia i oczekiwania.. Są dostępne stałe, określające wybór jednostek:
+TimeUnit.SECONDS
+TimeUnit.MICROSECONDS
+TimeUnit.MILLISECONDS
+TimeUnit.NANOSECONDS
+
+Na końcu programu - za pomocą metody awaitTermination(...) wstrzymujemy bieżący wątek dopóki Wykonawca nie zakończy wszystkich zadań (albo dopóki nie minie 5 sekund lub też nie wystąpi przerwanie bieżącego wątku za pomocą metody interrupt). Warto stosować metodę awaitTermination(),  kiedy chcemy mieć pewność, że Wykonawaca naprawdę zakończył działanie i wyczyścił wszystkie swoje zajęte zasoby (np. bez tego nasz głowny wątek może sie skończyć wcześniej niż Wykonawcy i aplikacja nie zakończy działania).
+
+ExecutorService dostarcza także metody shutdownNow(), która ma za zadanie zakończyć działanie wszystkich aktualnie wykonujących się zadań (wątków) i zamknąć Wykonawcę.
+
+
+Spróbujmy jej użyć w naszym kodzie.
+Niech pętla w run() wykonuje się w nieskończoność np. for (byte i=1; i<=128; i++)
+W metodzie main - w miejsce shutdown() wstawmy kod:
+    try {
+      Thread.sleep(1000);
+    } catch(Exception exc) {}
+
+    exec.shutdownNow();
+Co się stanie? Nic. Dwa zadania (wątki) będą działać w nieskończoność (i nie zostaną zatrzymane).
+Dlaczego?

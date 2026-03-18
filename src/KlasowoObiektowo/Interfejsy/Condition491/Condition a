@@ -1,0 +1,77 @@
+Oczywiście! Oto **klucz odpowiedzi** do quizu o interfejsie `Condition` w Java wraz z krótkimi wyjaśnieniami:
+
+---
+
+### ✅ **Odpowiedzi i wyjaśnienia**
+
+#### **Pytanie 1**
+
+**Prawidłowa odpowiedź: B. `await()`**
+👉 `await()` to metoda interfejsu `Condition`. `notify()` pochodzi z `Object`, nie z `Condition`.
+
+---
+
+#### **Pytanie 2**
+
+**Prawidłowa odpowiedź: C. `ReentrantLock`**
+👉 `Condition` zawsze współpracuje z obiektami `Lock`, najczęściej `ReentrantLock`.
+
+---
+
+#### **Pytanie 3**
+
+**Prawidłowe odpowiedzi: A, B, D**
+👉 `awaitUninterruptibly()` to metoda z `Condition`. Nie istnieje `waitUntil()` – poprawna nazwa to `awaitUntil()`.
+
+---
+
+#### **Pytanie 4**
+
+**Prawidłowa odpowiedź: B. Zatrzymuje wątek i zwalnia lock**
+👉 `await()` blokuje wątek i automatycznie zwalnia lock, tak jak `wait()` w monitorach.
+
+---
+
+#### **Pytanie 5**
+
+**Prawidłowa odpowiedź: C. Gdy posiadasz blokadę (`lock.lock()`)**
+👉 Przed wywołaniem `await()`, `signal()`, czy `signalAll()` musisz mieć **zablokowany `Lock`**.
+
+---
+
+#### **Pytanie 6**
+
+**Prawidłowe odpowiedzi: A, C**
+👉 `Condition` umożliwia tworzenie wielu warunków (`Condition` obiektów) i ma lepszą kontrolę nad oczekującymi wątkami. Nie ma prostszej składni niż `wait/notify`, raczej bardziej elastyczną.
+
+---
+
+#### **Pytanie 7**
+
+**Prawidłowa odpowiedź: C. Rzucany jest wyjątek `IllegalMonitorStateException`**
+👉 Próba wywołania `signal()` lub `await()` bez trzymania `Lock` kończy się tym wyjątkiem.
+
+---
+
+#### **Pytanie 8**
+
+**Prawidłowe odpowiedzi: A, B, D**
+👉 `Condition` przydaje się w wielu zaawansowanych strukturach danych i algorytmach współbieżności. Nie nadaje się do **niereużywalnych barier** – do tego lepsze są np. `CountDownLatch`.
+
+---
+
+#### **Pytanie 9**
+
+**Prawidłowa odpowiedź: C. Budzi wszystkie oczekujące na tym `Condition`**
+👉 `signalAll()` działa jak `notifyAll()` – budzi wszystkie wątki czekające na danym warunku.
+
+---
+
+#### **Pytanie 10**
+
+**Prawidłowa odpowiedź: A. `lock.unlock();`**
+👉 W bloku `finally` powinieneś zawsze wywołać `lock.unlock();`, by uniknąć zakleszczenia (deadlock).
+
+---
+
+Chcesz wersję PDF do druku lub do wykorzystania np. na szkoleniu? Albo dodatkowy zestaw pytań – bardziej praktyczny lub typowo egzaminacyjny?

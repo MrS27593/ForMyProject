@@ -1,0 +1,95 @@
+## WIEDZA – `goto` w Java
+
+---
+
+### 1️⃣ Czy Java ma słowo kluczowe `goto`?
+
+* **Tak**, `goto` jest zarezerwowanym słowem kluczowym w Javie.
+* **Nie jest używany i nie można go użyć w kodzie.**
+
+➡ Powód: Java nie wspiera klasycznego **skoku w kodzie** (jak w C/C++), aby uniknąć nieczytelnych i trudnych do utrzymania programów.
+
+---
+
+### 2️⃣ Alternatywy dla `goto` w Javie
+
+Chociaż nie ma `goto`, można osiągnąć podobne efekty przy użyciu:
+
+#### 🔹  Pętle z `break` lub `continue`
+
+```java
+for (int i = 0; i < 10; i++) {
+    if (i == 5) break;  // przerywa pętlę
+}
+```
+
+#### 🔹  Etykiety (`label`) + `break`/`continue`
+
+```java
+outer:
+for (int i = 0; i < 5; i++) {
+    for (int j = 0; j < 5; j++) {
+        if (i + j > 5) break outer; // przerywa obie pętle
+    }
+}
+```
+
+* Tzw. **labelled break/continue** daje częściową kontrolę „skoków”.
+
+---
+
+### 3️⃣ Dlaczego Java zrezygnowała z `goto`?
+
+* `goto` prowadzi do **„spaghetti code”**
+* Trudno jest **czytać i debugować kod**
+* Java stawia na **czytelne struktury sterujące**: pętle, if, switch, metody, wyjątki
+
+---
+
+### 4️⃣ Przykład praktyczny – zamiast `goto`
+
+**Problem:** Wyszukiwanie w dwuwymiarowej tablicy i wyjście po znalezieniu liczby.
+
+```java
+int[][] matrix = {
+    {1,2,3},
+    {4,5,6},
+    {7,8,9}
+};
+
+boolean found = false;
+
+search:
+for (int i = 0; i < matrix.length; i++) {
+    for (int j = 0; j < matrix[i].length; j++) {
+        if (matrix[i][j] == 5) {
+            found = true;
+            break search;  // zamiast goto
+        }
+    }
+}
+
+System.out.println("Found: " + found);
+```
+
+➡ Bezpieczne, czytelne i kontrolowane wyjście z zagnieżdżonych pętli.
+
+---
+
+### 5️⃣ Najczęstsze błędy początkujących
+
+❌ Próba użycia `goto` w Javie – **błąd kompilacji**
+❌ Nadmierne używanie etykiet (`label`) – może być równie nieczytelne jak `goto`
+❌ Mylenie `break`/`continue` z `goto`
+
+---
+
+### ✅ Podsumowanie
+
+* `goto` **istnieje tylko jako słowo kluczowe zarezerwowane**, ale **nie można go używać**
+* Java oferuje **czytelne struktury sterujące**
+* `break/continue` z etykietą to jedyny „bezpieczny skok” w zagnieżdżonych pętlach
+
+---
+
+Chcesz, żebym teraz przygotował **quiz** dotyczący `goto`?

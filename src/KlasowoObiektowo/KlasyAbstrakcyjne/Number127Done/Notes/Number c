@@ -1,0 +1,244 @@
+Świetny wybór 👍
+`Number` to **jedna z kluczowych klas abstrakcyjnych w Javie**, od której zależy cały system typów liczbowych. Nauczmy się jej **od podstaw do poziomu „rozumiem, po co istnieje i jak ją używać / implementować”**.
+
+---
+
+# 🧩 `java.lang.Number` – kompletne omówienie
+
+## 1️⃣ Czym jest klasa `Number`?
+
+```java
+public abstract class Number implements Serializable
+```
+
+📌 **Najważniejsze fakty**
+
+* jest **klasą abstrakcyjną**
+* znajduje się w pakiecie `java.lang`
+* **nie da się utworzyć jej obiektu**
+* jest **nadklasą wszystkich klas liczbowych**
+
+👉 Dzięki `Number` Java traktuje różne typy liczb w sposób **polimorficzny**.
+
+---
+
+## 2️⃣ Klasy dziedziczące po `Number`
+
+| Klasa        | Opis                         |
+| ------------ | ---------------------------- |
+| `Integer`    | liczby całkowite 32-bit      |
+| `Long`       | liczby całkowite 64-bit      |
+| `Short`      | liczby całkowite 16-bit      |
+| `Byte`       | liczby całkowite 8-bit       |
+| `Double`     | liczby zmiennoprzecinkowe    |
+| `Float`      | liczby zmiennoprzecinkowe    |
+| `BigInteger` | bardzo duże liczby całkowite |
+| `BigDecimal` | precyzyjne liczby dziesiętne |
+
+📌 **Wszystkie wrappery liczbowe dziedziczą po `Number`**
+
+---
+
+## 3️⃣ Metody abstrakcyjne w `Number`
+
+Każda klasa dziedzicząca **MUSI je zaimplementować**:
+
+```java
+public abstract int intValue();
+public abstract long longValue();
+public abstract float floatValue();
+public abstract double doubleValue();
+```
+
+📌 (opcjonalnie nadpisywane, ale już zaimplementowane)
+
+```java
+public byte byteValue();
+public short shortValue();
+```
+
+---
+
+## 4️⃣ Po co w ogóle istnieje `Number`?
+
+### ❌ Bez `Number`
+
+```java
+void print(Integer i) {}
+void print(Double d) {}
+void print(Long l) {}
+```
+
+### ✅ Z `Number`
+
+```java
+void print(Number n) {
+    System.out.println(n.doubleValue());
+}
+```
+
+📌 **Polimorfizm** – jedna metoda, wiele typów liczb.
+
+---
+
+## 5️⃣ Przykład użycia `Number`
+
+```java
+Number n1 = 10;        // Integer
+Number n2 = 3.14;     // Double
+Number n3 = 100L;     // Long
+
+System.out.println(n1.intValue());     // 10
+System.out.println(n2.doubleValue());  // 3.14
+System.out.println(n3.longValue());    // 100
+```
+
+👉 **Autoboxing** sprawia, że prymitywy są automatycznie opakowane.
+
+---
+
+## 6️⃣ `Number` w kolekcjach
+
+```java
+List<Number> numbers = List.of(
+    1,
+    2.5,
+    10L,
+    new BigDecimal("99.99")
+);
+
+for (Number n : numbers) {
+    System.out.println(n.doubleValue());
+}
+```
+
+📌 Bez `Number` taka lista byłaby niemożliwa.
+
+---
+
+## 7️⃣ Własna implementacja klasy dziedziczącej po `Number`
+
+### 🔹 Przykład: `Temperature`
+
+```java
+public class Temperature extends Number {
+
+    private final double celsius;
+
+    public Temperature(double celsius) {
+        this.celsius = celsius;
+    }
+
+    @Override
+    public int intValue() {
+        return (int) celsius;
+    }
+
+    @Override
+    public long longValue() {
+        return (long) celsius;
+    }
+
+    @Override
+    public float floatValue() {
+        return (float) celsius;
+    }
+
+    @Override
+    public double doubleValue() {
+        return celsius;
+    }
+}
+```
+
+### Użycie:
+
+```java
+Number temp = new Temperature(36.6);
+System.out.println(temp.doubleValue()); // 36.6
+```
+
+---
+
+## 8️⃣ Przykład bardziej zaawansowany – `Percentage`
+
+```java
+public class Percentage extends Number {
+
+    private final double value; // 0–100
+
+    public Percentage(double value) {
+        if (value < 0 || value > 100) {
+            throw new IllegalArgumentException("0–100");
+        }
+        this.value = value;
+    }
+
+    @Override
+    public int intValue() {
+        return (int) value;
+    }
+
+    @Override
+    public long longValue() {
+        return (long) value;
+    }
+
+    @Override
+    public float floatValue() {
+        return (float) value;
+    }
+
+    @Override
+    public double doubleValue() {
+        return value;
+    }
+}
+```
+
+---
+
+## 9️⃣ Kiedy **warto** dziedziczyć po `Number`?
+
+✅ Gdy:
+
+* tworzysz **nowy typ liczbowy**
+* chcesz współpracować z API przyjmującym `Number`
+* potrzebujesz **polimorfizmu liczb**
+
+❌ Nie warto, gdy:
+
+* klasa **nie jest liczbą**
+* nie ma sensu konwersja do `int`, `double`, itd.
+
+---
+
+## 🔟 `Number` a prymitywy
+
+| Prymityw | Wrapper   | Dziedziczy po `Number` |
+| -------- | --------- | ---------------------- |
+| `int`    | `Integer` | ✅                      |
+| `double` | `Double`  | ✅                      |
+| `long`   | `Long`    | ✅                      |
+
+📌 Prymitywy **NIE dziedziczą**, ale wrappery już tak.
+
+---
+
+## 🧠 Najważniejsze do zapamiętania (egzamin / rekrutacja)
+
+✔ `Number` to **abstrakcyjna klasa bazowa dla liczb**
+✔ Zapewnia **wspólny interfejs konwersji**
+✔ Umożliwia **polimorfizm liczbowy**
+✔ Wrappery **dziedziczą**, prymitywy **nie**
+
+---
+
+Jeśli chcesz, mogę teraz:
+
+* 🔥 zrobić **mini quiz o `Number`**
+* 🧠 porównać `Number` vs `Comparable`
+* 🧪 pokazać **błędy początkujących**
+* 🧩 omówić **BigDecimal vs Double**
+
+Co wybierasz? 😎

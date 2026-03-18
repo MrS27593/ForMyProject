@@ -1,0 +1,176 @@
+
+WYKŁAD 01
+Poruszyliśmy zagadnienia:
+∙ miejsca definicji klas
+∙ klasy abstrakcyjne
+1
+
+
+WYKŁAD 02
+Plan wykładu:
+∙ Interfejsy w wersji przed Java 8
+∙ Interfejsy po Java 8
+∙ Interfejsy vs klasy abstrakcyjne
+∙ Wyrażenia Lambda
+2
+
+
+PRZYKŁAD 1
+INTERFEJSY
+Klasa może dziedziczyć co najwyżej jedną klasę, ale może implementować dowolnie wiele
+interfejsów.
+class Derived
+    extends Primary
+        implements Drawable , Movable {
+            // . . .
+        }
+3
+
+
+INTERFEJSY
+Interfejs może dziedziczyć dowolnie wiele interfejsów.
+interface Drawable {
+    void draw ( ) ;
+}
+interface Movable {
+    void moveTo(int x , int y) ;
+    void moveBack ( ) ;
+}
+interface PrintableAndMovable
+extends Drawable , Movable {
+    // . . .
+}
+4
+
+
+INTERFEJSY CD
+INTERFEJS Z ”ZMIENNYMI”
+Począwszy od Java 8 istnieje możliwość deklarowania w interfejsach zmiennych.
+Zmienne zdefiniowane w interfejsie są domyślnie:
+∙ public – aby był do nich dostęp z poziomu wszystkich klas;
+∙ static – ponieważ interface nie fabrykuje obiektów, odwołanie do takiej zmiennej
+jest realizowane przez podanie nazwyInterfejsu.nazwyZmiennej
+∙ final – aby uniknąć konfliktów gdy dwie klasy implementują ten sam interfejs
+6
+
+
+
+INTERFEJS Z METODAMI
+Począwszy od Java 8 istnieje możliwość deklarowania w interfejsach metod.
+W takich metodach typ zwracany musi zostać poprzedzony specyfikatorem default.
+Zysk - klasy pochodne nie muszą implementować ich ciała.
+7
+
+
+
+INTERFEJS Z METODAMI - PROBLEM
+Co zatem gdy:
+∙ interfejs A implementuje metodę xxx(),
+∙ interfejs B implementuje metodę xxx(),
+∙ a klasa C implementuje oba interfejsy – mamy problem!
+9
+
+
+PRZYKŁAD 3
+INTERFEJS Z METODAMI - STATIC
+W ciele interfejsu można również zadeklarować metody poprzedzone specyfikatorem
+static.
+Zatem, takie same fragmenty kodu wykonywane przez metody default mogą zostać
+wyizolowane do metod statycznych.
+11
+
+
+PRZYKŁAD 4
+KLASY ABSTRAKCYJNE
+KLASA ABSTRAKCYJNA
+Klasa abstrakcyjna to taka, w której słowo class jest poprzedzone słowem kluczowym
+abstract i może zawierać abstrakcyjne metody nie zawierające ciał
+KLASA ABSTRAKCYJNA VS INTEFEJS
+∙ interface nie posiada nie statycznych pól
+∙ interface nie może posiadać konstruktorów
+∙ interface nie może posiadać metod final
+
+
+
+KLASA ABSTRAKCYJNA VS INTEFEJS
+∙ interface nie posiada nie statycznych pól , podczas gdy klasa abstract może
+takie posiadać
+∙ interface nie może posiadać konstruktorów , a klasa abstract może
+∙ interface nie może posiadać metod final, a klasa abstract może
+15
+
+
+KIEDY UŻYĆ
+∙ Dziedziczenie
+∙ Wielokrotne dziedziczenie
+∙ Kontrakt
+∙ Ograniczenie hierarchii
+∙ Polimorfizm
+
+
+16
+KIEDY UŻYĆ
+∙ Dziedziczenie - jeśli potrzebna jest hierarchia dziedziczenia, a klasa ma wspólną
+implementację, zwykle korzysta się z klas. Klasy pozwalają na dziedziczenie
+właściwości i metod.
+
+∙ Wielokrotne dziedziczenie -Java nie obsługuje wielokrotnego dziedziczenia klas, ale
+ umożliwia wielokrotne implementowanie interfejsów. Jeśli potrzebne są funkcje z
+ różnych źródeł, należy wybrać interfejsy.
+
+∙ Kontrakt - interfejsy są używane, gdy chcemy zdefiniować tylko kontrakt, ale nie
+ chcemy dostarczać implementacji. Klasy używane są, gdy chcemy dostarczyć
+ implementację.
+
+∙ Ograniczenie hierarchii - użycie interfejsów pozwala na elastyczniejsze
+projektowanie, ponieważ klasy mogą implementować wiele interfejsów, niezależnie
+od hierarchii dziedziczenia.
+
+∙ Polimorfizm - interfejsy mogą być używane do osiągnięcia polimorfizmu, co pozwala
+na traktowanie różnych klas zgodnie z jednym interfejsem.
+16
+
+
+WYRAŻENIA LAMBDA
+INTERFEJS FUNKCYJNY
+Jeżeli interfejs zawiera dokładnie jeden nagłówek niezaimplementowanej metody,
+wówczas nazywamy go funkcyjnym.
+WYRAŻENIE LAMBDA
+(Argument List) − >{expression ; }
+
+
+WRAŻENIE LAMBDA
+
+
+public
+    interface Drawable {
+        void draw();
+    };
+// ....
+Drawable drawable = new Drawable(){
+    void draw (){
+        // rysuje sie
+    }
+};
+
+public
+    interface Drawable {
+       void draw();
+    }
+Drawable drawable = (){
+    // rysuje sie
+}
+
+public
+    interface Drawable {
+        void draw();
+}
+Drawable drawable = () -> {
+    // rysuje sie
+}
+
+( ) − >{System . out . println(”Hello”) ; } ;
+
+(a) − >{System . out . println(a) ; }
+
+(a , b) −> a+b ;

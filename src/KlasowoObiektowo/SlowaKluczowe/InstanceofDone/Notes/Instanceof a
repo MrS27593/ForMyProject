@@ -1,0 +1,122 @@
+### ✅ Odpowiedzi – QUIZ `instanceof` w Java
+
+*(konkretnie + z perspektywy OOP i rekrutacyjnej)*
+
+---
+
+### 1️⃣ Czym jest `instanceof` w Javie?
+
+**✅ C. Operatorem sprawdzającym typ obiektu w runtime**
+
+➡ To **operator**, a nie metoda ani instrukcja sterująca.
+
+---
+
+### 2️⃣ Jaki typ wartości zwraca wyrażenie z użyciem `instanceof`?
+
+**✅ B. `boolean`**
+
+➡ Zawsze `true` albo `false`.
+
+---
+
+### 3️⃣ Co zwróci poniższy kod?
+
+```java
+Object o = null;
+System.out.println(o instanceof String);
+```
+
+**✅ B. `false`**
+
+➡ `instanceof` z `null` **nigdy nie rzuca wyjątku**.
+
+---
+
+### 4️⃣ Co zostanie wypisane?
+
+```java
+A obj = new B();
+System.out.println(obj instanceof B);
+```
+
+**✅ B. `true`**
+
+➡ Sprawdzany jest **rzeczywisty typ obiektu**, nie typ referencji.
+
+---
+
+### 5️⃣ Która sytuacja NAJLEPIEJ uzasadnia użycie `instanceof`?
+
+**✅ C. Gdy musimy bezpiecznie wykonać rzutowanie**
+
+➡ To jest **najbardziej poprawne i akceptowalne użycie**.
+
+---
+
+### 6️⃣ Co się stanie, jeśli wykonasz rzutowanie bez sprawdzenia `instanceof`?
+
+**✅ C. Możliwy `ClassCastException` w runtime**
+
+➡ Kompilator nie zawsze to wykryje.
+
+---
+
+### 7️⃣ Która wersja kodu jest NOWOCZESNA (Java 16+) i poprawna?
+
+**✅ B**
+
+```java
+if (obj instanceof String s) {
+    System.out.println(s.length());
+}
+```
+
+➡ Pattern matching – brak jawnego castowania.
+
+---
+
+### 8️⃣ Które zdanie o `instanceof` jest PRAWDZIWE?
+
+**✅ B. Sprawdza rzeczywisty typ obiektu**
+
+➡ A to klasyczny **błąd juniorów**.
+
+---
+
+### 9️⃣ Pytanie otwarte – przykładowa poprawna odpowiedź
+
+**✔ Nadużywanie `instanceof` łamie polimorfizm i prowadzi do sztywnego, trudnego w utrzymaniu kodu.**
+
+Inne poprawne:
+
+* rozbudowane `if-else`
+* trudna rozbudowa systemu
+* naruszenie zasad SOLID
+
+---
+
+### 🔟 Pytanie otwarte – przykładowa poprawna odpowiedź
+
+**✔ Polimorfizm (metody abstrakcyjne / interfejsy).**
+
+Inne poprawne:
+
+* wzorzec strategii
+* metoda w klasie bazowej
+* double dispatch
+
+---
+
+## 🎯 Podsumowanie końcowe
+
+Jeśli:
+
+* wiesz **kiedy** użyć `instanceof`
+* znasz pattern matching
+* unikasz go tam, gdzie powinien być polimorfizm
+
+➡ jesteś **na bardzo dobrym poziomie Java OOP** 💪
+
+Chcesz iść dalej?
+👉 `if`, `enum`, `var`, `Optional`, `equals`, `hashCode`, `Collections`

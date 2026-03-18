@@ -1,0 +1,82 @@
+Świetnie! Oto **quiz dotyczący `ToLongFunction<T>`** – składa się z pytań jednokrotnego wyboru, pytań z kodem oraz otwartych, aby sprawdzić Twoje zrozumienie tematu.
+
+---
+
+## ✅ **Quiz: `ToLongFunction<T>` w Javie**
+
+### 1. Co robi `ToLongFunction<T>`?
+
+A. Przekształca wartość typu `long` w obiekt typu `T`
+B. Przekształca wartość typu `T` w wartość typu `long`
+C. Oblicza funkcję logiczną na typie `T`
+D. Łączy dwie wartości typu `T` w jedną
+
+> **Prawidłowa odpowiedź:** \_\_\_
+
+---
+
+### 2. Która z poniższych sygnatur poprawnie reprezentuje metodę `ToLongFunction`?
+
+A. `long apply(T value);`
+B. `Long applyAsLong(T value);`
+C. `long applyAsLong(T value);`
+D. `T apply(long value);`
+
+> **Prawidłowa odpowiedź:** \_\_\_
+
+---
+
+### 3. Co wypisze poniższy kod?
+
+```java
+ToLongFunction<String> countA = str -> str.chars().filter(ch -> ch == 'a').count();
+System.out.println(countA.applyAsLong("java"));
+```
+
+A. 1
+B. 2
+C. 3
+D. Błąd kompilacji
+
+> **Prawidłowa odpowiedź:** \_\_\_
+
+---
+
+### 4. Jakie są zalety używania `ToLongFunction<T>` zamiast `Function<T, Long>`?
+
+A. Brak różnicy – to tylko inne nazewnictwo
+B. `ToLongFunction<T>` unika autoboxingu
+C. `ToLongFunction<T>` działa tylko z liczbami całkowitymi dodatnimi
+D. `Function<T, Long>` działa szybciej
+
+> **Prawidłowa odpowiedź:** \_\_\_
+
+---
+
+### 5. Zastosuj `ToLongFunction<T>` do klasy:
+
+Masz klasę:
+
+```java
+class Product {
+    String name;
+    long price;
+
+    Product(String name, long price) {
+        this.name = name;
+        this.price = price;
+    }
+}
+```
+
+Zdefiniuj `ToLongFunction<Product>` zwracający cenę produktu.
+
+> **Twoja odpowiedź (kod):**
+
+```java
+// wpisz tutaj
+```
+
+---
+
+Chcesz, żebym podał odpowiedzi i wyjaśnienia?

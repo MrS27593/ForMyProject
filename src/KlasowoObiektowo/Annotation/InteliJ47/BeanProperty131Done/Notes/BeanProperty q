@@ -1,0 +1,123 @@
+No to lecimy 😄
+**QUIZ: `@BeanProperty`**
+(bez odpowiedzi — jak zwykle, najpierw sprawdzamy wiedzę 🧠)
+
+---
+
+# 📝 Quiz – `@BeanProperty`
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Czym jest `@BeanProperty`?
+
+A. Adnotacją do walidacji pól
+B. Adnotacją oznaczającą komponent Springa
+C. Adnotacją jawnie oznaczającą property JavaBeans
+D. Adnotacją do serializacji JSON
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@BeanProperty`?
+
+A. `java.lang`
+B. `java.util`
+C. `java.beans`
+D. `javax.beans`
+
+---
+
+### 3️⃣ Na czym **MOŻNA** użyć `@BeanProperty`?
+
+A. Tylko na klasie
+B. Tylko na konstruktorze
+C. Na polu i metodzie
+D. Tylko na getterze
+
+---
+
+## 🔹 Część II – Działanie
+
+### 4️⃣ Jaki problem rozwiązuje `@BeanProperty`?
+
+A. Brak serializacji
+B. Brak refleksji
+C. Brak automatycznego rozpoznania property przez konwencję JavaBeans
+D. Brak walidacji danych
+
+---
+
+### 5️⃣ Czy `@BeanProperty` wpływa na logikę programu?
+
+A. Tak, zmienia dostęp do pola
+B. Tak, dodaje walidację
+C. Tak, generuje kod
+D. Nie, jest tylko opisowa
+
+---
+
+### 6️⃣ Jaka jest retencja `@BeanProperty`?
+
+A. `SOURCE`
+B. `CLASS`
+C. `RUNTIME`
+D. `MODULE`
+
+---
+
+## 🔹 Część III – Atrybuty
+
+### 7️⃣ Który atrybut oznacza property jako „ukryte”?
+
+A. `expert`
+B. `hidden`
+C. `preferred`
+D. `bound`
+
+---
+
+### 8️⃣ Co oznacza `bound = true`?
+
+A. Property tylko do odczytu
+B. Property jest final
+C. Property generuje `PropertyChangeEvent`
+D. Property jest ukryte
+
+---
+
+### 9️⃣ Który atrybut sugeruje, że property jest „najważniejsze”?
+
+A. `hidden`
+B. `expert`
+C. `preferred`
+D. `bound`
+
+---
+
+## 🔹 Część IV – Porównania i praktyka
+
+### 🔟 `@BeanProperty` działa głównie z:
+
+A. Spring Reflection
+B. Jackson ObjectMapper
+C. JavaBeans `Introspector`
+D. JVM ClassLoader
+
+---
+
+### 1️⃣1️⃣ Czy `@BeanProperty` zastępuje gettery/settery?
+
+A. Tak, zawsze
+B. Tak, całkowicie
+C. Nie, tylko pomaga w introspekcji
+D. Tak, ale tylko w recordach
+
+---
+
+### ✍️ 1️⃣2️⃣ (opisowe)
+
+W jakim **legacy lub specjalistycznym** scenariuszu użycie `@BeanProperty` ma sens?
+
+---
+
+Jak skończysz — napisz 👉 **odpowiedzi**
+a ja dam Ci **pełny klucz + komentarze egzaminacyjne** 💪😄

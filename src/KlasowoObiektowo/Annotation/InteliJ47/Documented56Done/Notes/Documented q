@@ -1,0 +1,119 @@
+Świetnie 😄
+Oto **quiz z meta-adnotacji `@Documented` w Javie** — krótki, ale **egzaminacyjny**.
+Jak zawsze: **bez odpowiedzi**. Gdy skończysz, napisz **„odpowiedzi”** ✅
+
+---
+
+# 🧠 **Quiz: `@Documented` w Javie**
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Czym jest `@Documented`?
+
+A. Zwykłą adnotacją
+B. Meta-adnotacją
+C. Adnotacją runtime
+D. Adnotacją kompilatora
+
+---
+
+### 2️⃣ Do czego służy `@Documented`?
+
+A. Do kontroli dostępu
+B. Do walidacji kodu
+C. Do pokazania adnotacji w JavaDoc
+D. Do obsługi reflection
+
+---
+
+### 3️⃣ Czy adnotacje są domyślnie widoczne w JavaDoc?
+
+A. Tak
+B. Nie
+C. Tylko w runtime
+D. Tylko z `@Retention(RUNTIME)`
+
+---
+
+## 🔹 Część II – Działanie
+
+### 4️⃣ Czy `@Documented` ma wpływ na runtime?
+
+A. Tak
+B. Tylko przy reflection
+C. Nie
+D. Tylko w debug
+
+---
+
+### 5️⃣ Gdzie stosuje się `@Documented`?
+
+A. Na klasach
+B. Na metodach
+C. Na polach
+D. Na definicjach adnotacji
+E. W `main()`
+
+---
+
+### 6️⃣ Co się stanie, jeśli adnotacja NIE ma `@Documented`?
+
+A. Nie będzie działać
+B. Nie będzie dostępna w runtime
+C. Nie pojawi się w JavaDoc
+D. Spowoduje błąd kompilacji
+
+---
+
+## 🔹 Część III – Porównania
+
+### 7️⃣ Która adnotacja odpowiada za widoczność w JavaDoc?
+
+A. `@Retention`
+B. `@Inherited`
+C. `@Target`
+D. `@Documented`
+
+---
+
+### 8️⃣ Które połączenie jest POPRAWNE?
+
+A. `@Documented` + `@Target`
+B. `@Documented` + `@Retention`
+C. `@Documented` + `@Inherited`
+D. Wszystkie powyższe
+
+---
+
+## 🔹 Część IV – Praktyka
+
+### 9️⃣ Kiedy warto używać `@Documented`?
+
+A. Zawsze
+B. Tylko w kodzie testowym
+C. W publicznych adnotacjach API
+D. Nigdy
+
+---
+
+### 🔟 Która adnotacja JDK jest oznaczona `@Documented`?
+
+A. `@Override`
+B. `@SuppressWarnings`
+C. `@FunctionalInterface`
+D. `@SafeVarargs`
+
+---
+
+## ✍️ Pytanie otwarte
+
+### 1️⃣1️⃣ Napisz minimalną definicję adnotacji:
+
+* widocznej w JavaDoc
+* działającej na metodach
+* dostępnej w runtime
+
+---
+
+Gdy skończysz 👉 napisz **„odpowiedzi”**
+i sprawdzimy wszystko krok po kroku 💪

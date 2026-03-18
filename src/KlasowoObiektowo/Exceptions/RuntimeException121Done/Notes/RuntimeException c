@@ -1,0 +1,203 @@
+Świetnie 👍 Teraz **`RuntimeException` w Javie** – **dokładnie, praktycznie i po kolei**, tak żebyś naprawdę to zrozumiał.
+
+---
+
+## 1️⃣ Czym jest `RuntimeException`?
+
+`RuntimeException` to **wyjątek niekontrolowany (unchecked exception)**.
+
+➡️ **Nie musisz** go obsługiwać w `try-catch`
+➡️ **Nie musisz** deklarować go w `throws`
+➡️ Występuje **w czasie działania programu**, a nie kompilacji
+
+```java
+int x = 10 / 0; // ArithmeticException (RuntimeException)
+```
+
+---
+
+## 2️⃣ Miejsce w hierarchii
+
+```
+Throwable
+ └── Exception
+      └── RuntimeException
+           ├── NullPointerException
+           ├── IllegalArgumentException
+           ├── IndexOutOfBoundsException
+           ├── ArithmeticException
+           └── ClassCastException
+```
+
+📌 **Każdy RuntimeException jest Exception**
+📌 **Nie każdy Exception jest RuntimeException**
+
+---
+
+## 3️⃣ Najważniejsze RuntimeException (MUST KNOW)
+
+### 🔴 `NullPointerException`
+
+```java
+String s = null;
+s.length();
+```
+
+---
+
+### 🔴 `ArithmeticException`
+
+```java
+int x = 10 / 0;
+```
+
+---
+
+### 🔴 `IndexOutOfBoundsException`
+
+```java
+int[] arr = {1, 2};
+arr[5];
+```
+
+---
+
+### 🔴 `IllegalArgumentException`
+
+```java
+public void setAge(int age) {
+    if (age < 0) {
+        throw new IllegalArgumentException("Wiek nie może być ujemny");
+    }
+}
+```
+
+➡️ **NAJCZĘŚCIEJ używany RuntimeException w kodzie biznesowym**
+
+---
+
+### 🔴 `ClassCastException`
+
+```java
+Object o = "tekst";
+Integer i = (Integer) o;
+```
+
+---
+
+### 🔴 `NumberFormatException`
+
+```java
+int x = Integer.parseInt("abc");
+```
+
+---
+
+## 4️⃣ Dlaczego RuntimeException jest ważny?
+
+✔️ sygnalizuje **błąd programisty**
+✔️ nie zaśmieca kodu `try-catch`
+✔️ idealny do walidacji danych
+✔️ często używany w frameworkach (Spring, Hibernate)
+
+📌 **Zasada**:
+
+> Jeśli błąd wynika z logiki programu → `RuntimeException`
+
+---
+
+## 5️⃣ `RuntimeException` vs `Exception`
+
+| Cecha            | Exception | RuntimeException |
+| ---------------- | --------- | ---------------- |
+| Checked          | ✅         | ❌                |
+| Wymaga try-catch | ✅         | ❌                |
+| Błąd programisty | ❌         | ✅                |
+| Walidacja danych | ❌         | ✅                |
+
+---
+
+## 6️⃣ Tworzenie własnego RuntimeException
+
+```java
+public class InvalidOrderException extends RuntimeException {
+
+    public InvalidOrderException(String message) {
+        super(message);
+    }
+}
+```
+
+Użycie:
+
+```java
+if (order == null) {
+    throw new InvalidOrderException("Zamówienie nie istnieje");
+}
+```
+
+---
+
+## 7️⃣ Kiedy NIE łapać RuntimeException?
+
+❌ **Nie rób tak:**
+
+```java
+try {
+    service.process();
+} catch (RuntimeException e) {
+    e.printStackTrace();
+}
+```
+
+✔️ Lepiej:
+
+* naprawić kod
+* poprawić walidację
+* pozwolić wyjątkom „wyjść wyżej”
+
+---
+
+## 8️⃣ Kiedy łapać RuntimeException?
+
+✔️ Na **granicach aplikacji**:
+
+* Controller (REST)
+* Main
+* Global Exception Handler
+
+```java
+@ExceptionHandler(RuntimeException.class)
+public ResponseEntity<String> handle(RuntimeException e) {
+    return ResponseEntity.badRequest().body(e.getMessage());
+}
+```
+
+---
+
+## 9️⃣ Rekrutacyjna ZASADA ⭐
+
+> **Checked Exception** → problemy zewnętrzne (plik, sieć, DB)
+> **RuntimeException** → błędy logiki i danych
+
+---
+
+## 🔟 Podsumowanie (do zapamiętania!)
+
+* `RuntimeException` = unchecked
+* Nie wymaga `try-catch`
+* Idealny do walidacji
+* Błąd programisty
+* Często używany w Springu
+* Twórz własne wyjątki biznesowe
+
+---
+
+Jeśli chcesz dalej:
+👉 **QUIZ z RuntimeException**
+👉 **zadania „co się stanie?”**
+👉 **lista 50 RuntimeException**
+👉 **porównanie Exception vs RuntimeException – rekrutacyjne pytania**
+
+Co robimy dalej? 😄
+

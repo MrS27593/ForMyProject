@@ -1,0 +1,120 @@
+Pewnie! Oto **quiz sprawdzający wiedzę o interfejsie `Lock` w Javie** – z pytaniami zamkniętymi, otwartymi i kodowymi.
+
+---
+
+## 📋 Quiz: Interfejs `Lock` w Javie
+
+### 🧠 **Część 1 – Pytania jednokrotnego wyboru (ABC)**
+
+**1. Co robi metoda `lock()` z interfejsu `Lock`?**
+A. Próbuje zablokować, ale tylko na chwilę
+B. Zablokuje i natychmiast rzuci wyjątek, jeśli nie może
+C. Czeka, aż zamek będzie dostępny i go blokuje
+
+**2. Jaka jest główna różnica między `synchronized` a `Lock`?**
+A. `Lock` nie zapewnia wzajemnego wykluczania
+B. `Lock` pozwala na przerwanie oczekiwania
+C. `synchronized` pozwala na `tryLock`
+
+**3. W jakim bloku kodu należy wywoływać `unlock()`?**
+A. Po instrukcji `if`
+B. W bloku `finally`
+C. W `catch` zawsze
+
+**4. Która implementacja `Lock` umożliwia wielu czytelników i jednego pisarza?**
+A. `ReentrantLock`
+B. `ReadWriteLock`
+C. `SpinLock`
+
+**5. Co zwraca metoda `tryLock()`?**
+A. `void`
+B. `boolean`
+C. `Lock`
+
+---
+
+### 💬 **Część 2 – Pytania otwarte**
+
+**6. Dlaczego warto używać `tryLock()` zamiast `lock()` w niektórych przypadkach?**
+
+**7. Czym jest `Condition` i jaką funkcję pełni w kontekście `Lock`?**
+
+**8. Jakie są zagrożenia, jeśli zapomnisz wywołać `unlock()` po `lock()`?**
+
+---
+
+### 💻 **Część 3 – Pytania kodowe**
+
+**9. Uzupełnij kod tak, by zapewnić bezpieczny dostęp do `balance`:**
+
+```java
+public class BankAccount {
+    private int balance = 0;
+    private final ___ lock = new ___();
+
+    public void deposit(int amount) {
+        lock.___();
+        try {
+            balance += amount;
+        } finally {
+            lock.___();
+        }
+    }
+}
+```
+
+**10. Co zrobi poniższy kod?**
+
+```java
+Lock lock = new ReentrantLock();
+
+if (lock.tryLock()) {
+    try {
+        System.out.println("Zamek zdobyty");
+    } finally {
+        lock.unlock();
+    }
+} else {
+    System.out.println("Nie udało się zdobyć zamka");
+}
+```
+
+---
+
+## ✅ Odpowiedzi (ukryj przed rozwiązaniem)
+
+Kliknij, żeby zobaczyć po sprawdzeniu swoich odpowiedzi:
+
+<details>
+<summary>🟩 Zobacz odpowiedzi</summary>
+
+**Część 1:**
+
+1. C
+2. B
+3. B
+4. B
+5. B
+
+**Część 2 – przykładowe odpowiedzi:**
+
+6. `tryLock()` pozwala spróbować zdobyć zamek bez ryzyka zablokowania się – przydaje się w systemach o ograniczonym czasie reakcji.
+7. `Condition` to obiekt umożliwiający komunikację między wątkami (np. `await()`, `signal()`) – alternatywa dla `wait/notify`.
+8. Brak `unlock()` prowadzi do zakleszczeń – inne wątki nigdy nie uzyskają dostępu do sekcji krytycznej.
+
+**Część 3:**
+
+9.
+
+```java
+private final Lock lock = new ReentrantLock();
+lock.lock(); ... lock.unlock();
+```
+
+10. Wydrukuje "Zamek zdobyty" jeśli uda się zdobyć blokadę natychmiast. W przeciwnym razie – "Nie udało się zdobyć zamka".
+
+</details>
+
+---
+
+Chcesz teraz wersję PDF do pobrania lub rozszerzenie quizu na `ReentrantReadWriteLock` lub `Condition`?

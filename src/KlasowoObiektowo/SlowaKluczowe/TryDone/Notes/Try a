@@ -1,0 +1,70 @@
+## ✅ ODPOWIEDZI I WYJAŚNIENIA
+
+### **1.** ✅ B
+
+`try` służy do obsługi wyjątków
+
+---
+
+### **2.** ✅ C
+
+Musi być `catch` **lub** `finally`
+
+---
+
+### **3.** ✅ C
+
+JVM szuka pasującego `catch`
+
+---
+
+### **4.** ✅ B
+
+Najpierw wyjątek szczegółowy
+
+---
+
+### **5.** ✅ C
+
+`finally` wykonuje się zawsze
+
+---
+
+### **6.** ✅ C
+
+Zamyka zasoby automatycznie
+
+---
+
+### **7.** ✅ B
+
+`try` może być z samym `finally`
+
+---
+
+### **8.** ✅ B
+
+Pełna poprawna składnia
+
+---
+
+### **9. (otwarte)**
+
+Bo:
+
+* maskuje błędy
+* utrudnia debugowanie
+* łapie wyjątki, których nie oczekujemy
+
+---
+
+### **10. (otwarte)**
+
+Np.:
+
+* odczyt pliku
+* dzielenie przez 0
+* operacje na tablicach
+* wejście użytkownika
+
+---

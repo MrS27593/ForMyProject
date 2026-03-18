@@ -1,0 +1,75 @@
+Super! 🚀
+Oto **odpowiedzi i omówienie** do quizu o klasie `System` w Javie:
+
+---
+
+## ✅ **ODPOWIEDZI – Quiz: Klasa `System`**
+
+---
+
+### **1. Czy można utworzyć obiekt klasy `System`?**
+
+❌ A) Tak
+✅ **B) Nie**
+
+🔎 `System` jest **final** i ma **prywatny konstruktor**, więc nie można zrobić `new System()`.
+Wszystkie metody i pola są **statyczne**.
+
+---
+
+### **2. Co robi `System.exit(0)`?**
+
+✅ **A) Zamyka program**
+
+* Kod `0` oznacza **sukces**, inne liczby → błąd.
+* Program natychmiast kończy działanie.
+
+---
+
+### **3. Jak pobrać czas w milisekundach od 1970?**
+
+❌ A) `System.nanoTime()`
+✅ **B) `System.currentTimeMillis()`**
+❌ C) `System.getTime()`
+
+* `nanoTime()` służy do **mierzenia czasu wykonywania kodu**, nie czasu systemowego.
+
+---
+
+### **4. Do czego służy `System.arraycopy()`?**
+
+✅ **A) Do kopiowania elementów tablicy**
+
+Przykład:
+
+```java
+int[] src = {1,2,3};
+int[] dest = new int[3];
+System.arraycopy(src, 0, dest, 0, src.length);
+```
+
+---
+
+### **5. Jak pobrać nazwę systemu operacyjnego?**
+
+❌ A) `System.getenv("os.name")`
+✅ **B) `System.getProperty("os.name")`**
+❌ C) `System.osName()`
+
+* `getProperty()` → właściwości systemu i JVM
+* `getenv()` → zmienne środowiskowe
+
+---
+
+## 🧠 **Krótko o klasie System**
+
+* **Statyczna** → używasz bez tworzenia obiektu
+* **Pola**: `in`, `out`, `err`
+* **Metody**: `exit()`, `gc()`, `arraycopy()`, `currentTimeMillis()`, `getProperty()`, `getenv()`
+* Niezbędna do **wejścia/wyjścia, informacji o systemie, zarządzania pamięcią i synchronizacji**
+
+---
+
+Jeśli chcesz, możemy teraz przejść do **klasy `Math`**, która naturalnie łączy się z `System` i oferuje **wszystkie funkcje matematyczne w Javie**, albo zrobić **trudniejszy quiz z System + Object + Math**.
+
+Którą opcję wybierasz?

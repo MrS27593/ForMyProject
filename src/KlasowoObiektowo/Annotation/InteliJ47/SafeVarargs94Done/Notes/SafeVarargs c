@@ -1,0 +1,193 @@
+Świetnie — **`@SafeVarargs`** to *zaawansowana, ale bardzo egzaminacyjna* adnotacja 👍
+Jest ściśle powiązana z **varargs + generyki**, więc wyjaśnię ją **krok po kroku**, od problemu → do rozwiązania.
+
+---
+
+# 🟢 `@SafeVarargs` w Javie — wszystko, co musisz wiedzieć
+
+## 1️⃣ Jaki problem rozwiązuje `@SafeVarargs`?
+
+### 🔥 Problem: **varargs + generyki**
+
+```java
+public static <T> void print(T... items) {
+    for (T item : items) {
+        System.out.println(item);
+    }
+}
+```
+
+⚠️ Kompilator:
+
+```
+warning: Possible heap pollution from parameterized vararg type
+```
+
+👉 Dlaczego?
+
+* varargs = **tablica**
+* generyki = **type erasure**
+* JVM **nie zna typu T w runtime**
+* możliwe „zanieczyszczenie sterty” (heap pollution)
+
+---
+
+## 2️⃣ Czym jest heap pollution?
+
+```java
+List<String>[] array = new List[1];
+array[0] = List.of(1, 2, 3); // ❌ Integer w miejscu String
+```
+
+➡️ Kompilator tego nie wykryje
+➡️ Runtime może wybuchnąć `ClassCastException`
+
+---
+
+## 3️⃣ Czym jest `@SafeVarargs`?
+
+> **`@SafeVarargs` mówi kompilatorowi:**
+> 👉 *„Ta metoda NIE wykonuje niebezpiecznych operacji na varargs”*
+
+📌 To **obietnica programisty**, nie sprawdzenie automatyczne.
+
+---
+
+## 4️⃣ Jak używać `@SafeVarargs`?
+
+```java
+@SafeVarargs
+public static <T> void print(T... items) {
+    for (T item : items) {
+        System.out.println(item);
+    }
+}
+```
+
+✅ Ostrzeżenie znika
+✅ Kod czytelny
+⚠️ Odpowiedzialność po Twojej stronie
+
+---
+
+## 5️⃣ Gdzie WOLNO użyć `@SafeVarargs`?
+
+### 🔒 Ograniczenia (BARDZO WAŻNE!)
+
+| Miejsce            | Czy wolno?           |
+| ------------------ | -------------------- |
+| `static` metoda    | ✅                    |
+| `final` metoda     | ✅                    |
+| `private` metoda   | ✅                    |
+| konstruktor        | ✅ (Java 9+)          |
+| metoda instancyjna | ❌ (chyba że `final`) |
+
+📌 **Dlaczego?**
+Bo nie można jej **nadpisać** → gwarancja bezpieczeństwa
+
+---
+
+## 6️⃣ Od której wersji Javy?
+
+| Java   | Możliwości                      |
+| ------ | ------------------------------- |
+| Java 7 | `static`, `final` metody        |
+| Java 9 | `private` metody + konstruktory |
+
+---
+
+## 7️⃣ Czego NIE WOLNO robić w metodzie `@SafeVarargs` ❌
+
+```java
+@SafeVarargs
+static <T> void broken(T... items) {
+    Object[] array = items;
+    array[0] = 123; // ❌ ŁAMANIE BEZPIECZEŃSTWA
+}
+```
+
+➡️ **kłamstwo wobec kompilatora**
+➡️ potencjalny runtime crash
+
+---
+
+## 8️⃣ Co WOLNO robić? ✅
+
+✔️ Odczyt
+✔️ Iteracja
+✔️ Przekazywanie dalej (bez modyfikacji)
+
+```java
+@SafeVarargs
+static <T> void safe(T... items) {
+    for (T t : items) {
+        System.out.println(t);
+    }
+}
+```
+
+---
+
+## 9️⃣ `@SafeVarargs` vs `@SuppressWarnings("unchecked")`
+
+| `@SafeVarargs`  | `@SuppressWarnings` |
+| --------------- | ------------------- |
+| specyficzna     | ogólna              |
+| tylko varargs   | wszystko            |
+| semantyczna     | „zaklejka”          |
+| lepsza praktyka | ostateczność        |
+
+👉 **Zawsze wybieraj `@SafeVarargs` jeśli się da**
+
+---
+
+## 🔟 Przykład z JDK
+
+```java
+@SafeVarargs
+public static <T> List<T> of(T... elements)
+```
+
+📌 `List.of(...)` – Java 9+
+
+---
+
+## 1️⃣1️⃣ Najczęstsze błędy ❌
+
+❌ Użycie na metodzie, która modyfikuje tablicę
+❌ Mylenie z `@SuppressWarnings`
+❌ Brak `final/static`
+❌ Użycie „bo warning przeszkadza”
+
+---
+
+## 1️⃣2️⃣ Dobre praktyki ✅
+
+✔️ Używaj tylko gdy **naprawdę bezpieczne**
+✔️ Nie zapisuj do `items`
+✔️ Preferuj **niemodyfikowalność**
+✔️ Dokumentuj zachowanie
+✔️ Zrozum heap pollution
+
+---
+
+## 1️⃣3️⃣ Podsumowanie 🧠
+
+> **`@SafeVarargs` = „varargs + generyki są tu bezpieczne”**
+
+* Java 7+
+* tylko `static`, `final`, `private`
+* usuwa warning heap pollution
+* NIE sprawdza bezpieczeństwa
+* kłamstwo = runtime bug
+
+---
+
+Jeśli chcesz, następny krok idealny to:
+
+* ✅ **quiz z `@SafeVarargs`**
+* ✅ **zadania: wykryj błąd heap pollution**
+* ✅ **porównanie `@SafeVarargs` vs `@SuppressWarnings`**
+* ✅ **lista „annotations egzaminacyjnych” (OCA/OCP)**
+
+Napisz 👉 **quiz** 😄

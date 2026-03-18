@@ -1,0 +1,133 @@
+Super 👍
+Oto **pełne odpowiedzi do quizu z `java.time.temporal.ChronoUnit`** – z wyjaśnieniami, dokładnie pod egzamin i rekrutację.
+
+---
+
+# ✅ **Odpowiedzi – Quiz: `ChronoUnit`**
+
+## 1️⃣ Prawda / Fałsz
+
+**1.** `ChronoUnit` znajduje się w pakiecie `java.time`.
+❌ **B) Fałsz**
+➡ Poprawny pakiet: `java.time.temporal`
+
+---
+
+**2.** `ChronoUnit` jest enumem.
+✅ **A) Prawda**
+
+---
+
+**3.** `ChronoUnit.DAYS` jest jednostką czasową (*time-based*).
+❌ **B) Fałsz**
+➡ `DAYS` jest **date-based**
+
+---
+
+**4.** `ChronoUnit.MONTHS.getDuration()` zawsze zwraca stałą liczbę sekund.
+❌ **B) Fałsz**
+➡ Miesiąc ma zmienną długość.
+
+---
+
+## 2️⃣ Wybór jednokrotny
+
+**5.** Której jednostki nie można użyć z `LocalTime`?
+
+`LocalTime` nie obsługuje dat.
+
+✅ **C) DAYS**
+
+---
+
+**6.** Co wypisze kod?
+
+```java
+LocalDate.of(2026, 1, 1).plus(2, ChronoUnit.MONTHS)
+```
+
+➡ 1 stycznia + 2 miesiące = **1 marca 2026**
+
+✅ **A) 2026-03-01**
+
+---
+
+## 3️⃣ Wybór wielokrotny
+
+**7.** Jednostki **date-based**:
+
+* ✅ **A) DAYS**
+* ❌ **B) HOURS**
+* ✅ **C) MONTHS**
+* ✅ **D) YEARS**
+
+✔️ **Poprawne:** **A, C, D**
+
+---
+
+## 4️⃣ Analiza kodu
+
+**8.**
+
+```java
+ChronoUnit.MINUTES.between(10:00, 12:45)
+```
+
+➡ 2h 45min = **165 minut**
+
+✅ **D) 165**
+
+---
+
+## 5️⃣ Pytanie praktyczne
+
+**9.** Metoda `daysBetween`
+
+### ✅ Poprawne rozwiązanie:
+
+```java
+public long daysBetween(LocalDate start, LocalDate end) {
+    return ChronoUnit.DAYS.between(start, end);
+}
+```
+
+---
+
+## 6️⃣ Pytanie podchwytliwe
+
+**10.** Najlepszy sposób:
+
+```java
+ChronoUnit.MONTHS.between(d1, d2)
+```
+
+✅ **B)**
+
+❌ Dlaczego inne są złe:
+
+* dzielenie dni przez 30 ❌
+* `Duration` ❌ (miesiąc ≠ stała długość)
+* odejmowanie numerów miesięcy ❌ (ignoruje lata)
+
+---
+
+## 🧠 Kluczowe wnioski (zapamiętaj!)
+
+✔ `ChronoUnit` = enum
+✔ Pakiet: `java.time.temporal`
+✔ `between()` to złoty standard
+✔ `DAYS` ≠ `HOURS`
+✔ `MONTHS` i `YEARS` są date-based
+✔ Idealny do obliczeń różnic czasu
+
+---
+
+### 🔥 Co dalej?
+
+Mogę:
+
+* przejść do **`Duration` i `Period` (naturalna kontynuacja)**
+* zrobić **quiz łączony `Month + DayOfWeek + ChronoUnit`**
+* dać **zadania rekrutacyjne z datami i czasem**
+
+👉 Co wybierasz?

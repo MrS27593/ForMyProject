@@ -1,0 +1,105 @@
+### ✅ Odpowiedzi – QUIZ `if` w Java
+
+---
+
+### 1️⃣ Co robi instrukcja `if` w Javie?
+
+**✅ B. Wykonuje blok kodu tylko wtedy, gdy warunek jest prawdziwy**
+
+➡ Podstawa sterowania przepływem w Javie.
+
+---
+
+### 2️⃣ Co się stanie, jeśli warunek w `if` jest fałszywy, a nie ma `else`?
+
+**✅ C. Blok `if` zostanie pominięty**
+
+➡ Kod po prostu się nie wykona.
+
+---
+
+### 3️⃣ Który operator służy do porównania wartości w warunku?
+
+**✅ B. `==`**
+
+❌ `=` służy do przypisania.
+
+---
+
+### 4️⃣ Co wypisze poniższy kod?
+
+```java
+int x = 5;
+if (x > 10) { ... } else { ... }
+```
+
+**✅ B. `Mniejsze lub równe 10`**
+
+➡ Warunek `x > 10` jest fałszywy, więc wykona się blok `else`.
+
+---
+
+### 5️⃣ Czy instrukcje w bloku `if` mogą być bez nawiasów `{}`?
+
+**✅ A. Tak, jeśli jest tylko jedna instrukcja**
+
+➡ Zalecane jest jednak zawsze używanie `{}` dla bezpieczeństwa.
+
+---
+
+### 6️⃣ Jakie operatory logiczne można używać w warunkach `if`?
+
+**✅ A. `&&`, `||`, `!`**
+
+➡ Do łączenia i negowania warunków logicznych.
+
+---
+
+### 7️⃣ Które zdanie jest prawdziwe o `if-else if-else`?
+
+**✅ C. Można sprawdzać wiele warunków po kolei**
+
+➡ Wykonywana jest pierwsza prawdziwa ścieżka, reszta jest pomijana.
+
+---
+
+### 8️⃣ Co jest lepsze do sprawdzania zakresów wartości – `if` czy `switch`?
+
+**✅ B. `if`**
+
+➡ `switch` sprawdza tylko **konkretne wartości**, nie zakresy ani złożone warunki logiczne.
+
+---
+
+### 9️⃣ Pytanie otwarte – przykładowa odpowiedź
+
+**✔ Przykład zastosowania biznesowego:**
+
+```java
+if (orderAmount >= 1000) {
+    applyDiscount(10); // rabat 10%
+} else if (orderAmount >= 500) {
+    applyDiscount(5);  // rabat 5%
+} else {
+    applyDiscount(0);  // brak rabatu
+}
+```
+
+---
+
+### 🔟 Pytanie otwarte – przykładowa odpowiedź
+
+**✔ Zagnieżdżone `if` mogą być problematyczne**, ponieważ:
+
+* kod staje się trudny do czytania i utrzymania
+* zwiększa się ryzyko błędów logicznych
+
+**Rozwiązania:**
+
+* używać funkcji/metod pomocniczych
+* stosować polimorfizm lub wzorce projektowe
+* rozważyć `switch` dla konkretnych wartości
+
+---
+
+Chcesz, żebym teraz przeszedł do **`else`**, czy wolisz od razu do kolejnego słowa kluczowego jak `enum` lub `var`?

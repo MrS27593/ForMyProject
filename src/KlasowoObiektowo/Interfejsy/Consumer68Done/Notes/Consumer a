@@ -1,0 +1,51 @@
+Jasne! Oto **odpowiedzi** do quizu wraz z krótkimi wyjaśnieniami:
+
+---
+
+### ✅ **Odpowiedzi:**
+
+**1. Czym jest `Consumer<T>` w Javie?**
+✅ **C) Interfejsem funkcyjnym przyjmującym T i zwracającym void**
+➡️ `Consumer<T>` reprezentuje operację, która przyjmuje argument typu `T` i nie zwraca żadnej wartości (`void`).
+
+---
+
+**2. Co wykona poniższy kod?**
+✅ **C) Wyświetli `JAVA`**
+➡️ `s.toUpperCase()` zamienia tekst na wielkie litery, a `System.out.println()` go wypisuje.
+
+---
+
+**3. Co oznacza `printer.andThen(logger)`?**
+✅ **B) Połączy dwa Consumer-y tak, że wykonają się kolejno**
+➡️ `andThen()` tworzy nowego `Consumer`, który najpierw wywoła `printer.accept()`, a potem `logger.accept()`.
+
+---
+
+**4. Która metoda służy do uruchomienia akcji `Consumer`?**
+✅ **C) `accept(T t)`**
+➡️ To główna metoda funkcjonalna interfejsu `Consumer`.
+
+---
+
+**5. Gdzie typowo używa się `Consumer`?**
+✅ **C) W metodach takich jak `forEach()`**
+➡️ `forEach` przyjmuje `Consumer<T>` jako argument i wykonuje go dla każdego elementu kolekcji.
+
+---
+
+**6. Co zwraca metoda `accept()` z `Consumer`?**
+✅ **B) Typ `void`**
+➡️ `Consumer` nie zwraca wyniku – jego metoda `accept` wykonuje akcję i nic nie zwraca.
+
+---
+
+**7. Co się stanie, gdy połączysz dwa `Consumer` obiekty `c1` i `c2` metodą `c1.andThen(c2)` i `c1` rzuci wyjątek?**
+✅ **C) `c2` nie wykona się**
+➡️ Jeśli `c1.accept()` rzuci wyjątek, to `c2.accept()` nie zostanie wywołane – `andThen()` przerywa łańcuch.
+
+---
+
+### Twój wynik: **7/7 – Świetna robota! 🎉**
+
+Chcesz teraz przećwiczyć `Consumer` na przykładach kodu albo rozszerzyć wiedzę o inne interfejsy funkcyjne (np. `Function`, `Predicate`)?

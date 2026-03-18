@@ -1,0 +1,101 @@
+## QUIZ – `this` w Java (10 pytań)
+
+---
+
+### **1. Czym jest `this` w Javie?**
+
+A. Nazwą klasy
+B. Referencją do bieżącego obiektu
+C. Typem danych
+D. Modyfikatorem dostępu
+
+---
+
+### **2. Do czego najczęściej używa się `this` w konstruktorze?**
+
+A. Do tworzenia nowego obiektu
+B. Do wywołania metody statycznej
+C. Do odróżnienia pól klasy od parametrów
+D. Do zniszczenia obiektu
+
+---
+
+### **3. Co robi poniższy kod?**
+
+```java
+this.name = name;
+```
+
+A. Przypisuje pole klasy do parametru
+B. Przypisuje parametr do pola klasy
+C. Tworzy nowy obiekt
+D. Nic nie robi
+
+---
+
+### **4. Gdzie NIE można użyć słowa kluczowego `this`?**
+
+A. W konstruktorze
+B. W metodzie niestatycznej
+C. W metodzie statycznej
+D. W bloku inicjalizacyjnym
+
+---
+
+### **5. Co oznacza wywołanie `this()` w konstruktorze?**
+
+A. Wywołanie metody
+B. Utworzenie nowego obiektu
+C. Wywołanie innego konstruktora tej samej klasy
+D. Zakończenie konstruktora
+
+---
+
+### **6. Jakie ograniczenie dotyczy `this()`?**
+
+A. Może być użyte tylko w metodach
+B. Może być użyte w dowolnym miejscu konstruktora
+C. Musi być pierwszą instrukcją w konstruktorze
+D. Nie może mieć parametrów
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład metody, w której `this` jest używane do przekazania bieżącego obiektu jako argumentu.
+
+---
+
+### **8. (OTWARTE)**
+
+Dlaczego nie można używać `this` w metodach statycznych?
+
+---
+
+### **9. Co zostanie wypisane przez poniższy kod?**
+
+```java
+class Test {
+    void show() {
+        System.out.println(this);
+    }
+}
+```
+
+A. Wartość `null`
+B. Referencja do bieżącego obiektu
+C. Nazwa klasy
+D. Błąd kompilacji
+
+---
+
+### **10. Które zdanie o `this` jest prawdziwe?**
+
+A. `this` tworzy nowy obiekt
+B. `this` można używać tylko w konstruktorach
+C. `this` odnosi się do aktualnego obiektu klasy
+D. `this` jest tym samym co `super`
+
+---
+
+Napisz **„odpowiedzi”**, a podam poprawne odpowiedzi z wyjaśnieniami krok po kroku 👍

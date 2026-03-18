@@ -1,0 +1,57 @@
+Super! 😎 Oto **poprawne odpowiedzi do quizu o `InputStream`** wraz z krótkim wyjaśnieniem każdego pytania:
+
+---
+
+## ✅ **Poprawne odpowiedzi**
+
+**1️⃣ B**
+`InputStream` jest **klasą abstrakcyjną** – nie można jej instancjonować bezpośrednio.
+
+**2️⃣ C**
+Jedyna metoda abstrakcyjna: **`read()`**. Wszystkie pozostałe są już częściowo zaimplementowane.
+
+**3️⃣ C**
+`read()` zwraca **`int`** (0–255 dla bajtów, -1 przy końcu strumienia).
+
+**4️⃣ C**
+Przy końcu strumienia metoda `read()` zwraca **`-1`**.
+
+**5️⃣ B**
+`read()` zwraca `int`, aby móc zwrócić **wszystkie możliwe bajty 0–255** oraz **-1** jako sygnał końca strumienia.
+
+**6️⃣ D**
+`FileReader` **nie dziedziczy po `InputStream`**, tylko po `Reader` (czytanie znaków, nie bajtów).
+
+**7️⃣ C**
+Niezamknięcie `InputStream` może prowadzić do **wycieków zasobów** (np. otwarte pliki).
+
+**8️⃣ C**
+**Poprawny zapis** używa try-with-resources, co zapewnia automatyczne zamknięcie strumienia.
+
+**9️⃣ B**
+`read(byte[])` pozwala odczytać **wiele bajtów naraz** do tablicy.
+
+**🔟 B**
+Główna rola `InputStream` to **odczyt danych bajtowych**.
+
+---
+
+### 🏆 **Wynik**
+
+Jeżeli wszystkie odpowiedzi są poprawne → **10/10** 🔥
+
+---
+
+💡 **Pułapki rekrutacyjne na rozmowach:**
+
+1. `read()` zwraca **int**, a nie byte.
+2. `FileReader` ≠ `InputStream` – często początkujący mylą bajty i znaki.
+3. Niezamknięty strumień = wyciek zasobów → zawsze try-with-resources.
+4. `read()` = pojedynczy bajt, `read(byte[])` = wiele bajtów.
+
+---
+
+Jeśli chcesz, możemy teraz zrobić **quiz połączony: AbstractCollection + InputStream + Number**, żeby mieć **wiedzę z klas abstrakcyjnych i kolekcji + strumieni w jednym**.
+
+Chcesz taki mega quiz?
+

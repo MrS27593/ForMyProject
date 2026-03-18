@@ -1,0 +1,173 @@
+Świetnie 😄 Lecimy z **QUIZEM: `NullPointerException`**
+Poziom **od podstaw do rekrutacyjnego**.
+Najpierw pytania — **odpowiedzi na Twoje „odpowiedzi”** 👇
+
+---
+
+# 🧠 **QUIZ – NullPointerException (NPE)**
+
+## 🟢 Poziom 1 – Podstawy
+
+### 1️⃣ `NullPointerException` jest:
+
+A. Checked exception
+B. Error
+C. Unchecked exception
+D. Compile-time error
+
+---
+
+### 2️⃣ Co bezpośrednio powoduje NPE?
+
+A. Próba użycia `null` jako liczby
+B. Wywołanie metody na obiekcie `null`
+C. Brak `try-catch`
+D. Rzutowanie typów
+
+---
+
+### 3️⃣ Co się stanie?
+
+```java
+String s = null;
+System.out.println(s);
+```
+
+A. `NullPointerException`
+B. `println` wypisze `null`
+C. Błąd kompilacji
+D. Program się nie uruchomi
+
+---
+
+### 4️⃣ Która sytuacja NIE spowoduje NPE?
+
+A.
+
+```java
+String s = null;
+s.length();
+```
+
+B.
+
+```java
+Integer x = null;
+int y = x;
+```
+
+C.
+
+```java
+List<String> list = null;
+list.size();
+```
+
+D.
+
+```java
+System.out.println(null);
+```
+
+---
+
+## 🟡 Poziom 2 – Praktyka
+
+### 5️⃣ Co się stanie?
+
+```java
+List<String> list = new ArrayList<>();
+list.add(null);
+list.get(0).length();
+```
+
+A. Nic
+B. `IndexOutOfBoundsException`
+C. `NullPointerException`
+D. `IllegalArgumentException`
+
+---
+
+### 6️⃣ Najlepszy sposób, by zapobiec NPE w setterze?
+
+A. `try-catch`
+B. `Objects.requireNonNull()`
+C. Ignorować `null`
+D. Rzucić `NullPointerException`
+
+---
+
+### 7️⃣ Co jest ZŁĄ praktyką?
+
+A. Sprawdzanie `null`
+B. `Optional.ofNullable()`
+C. Łapanie `NullPointerException`
+D. Zwracanie pustej kolekcji
+
+---
+
+## 🔵 Poziom 3 – Rekrutacyjny
+
+### 8️⃣ Co się stanie?
+
+```java
+Optional<String> opt = Optional.ofNullable(null);
+opt.ifPresent(System.out::println);
+```
+
+A. `NullPointerException`
+B. `NoSuchElementException`
+C. Nic się nie stanie
+D. Błąd kompilacji
+
+---
+
+### 9️⃣ Dlaczego NIE zaleca się `Optional` jako pola klasy?
+
+A. Bo jest wolny
+B. Bo może być `null`
+C. Bo komplikuje serializację i API
+D. Bo rzuca NPE
+
+---
+
+### 🔟 Co wypisze Java 17?
+
+```java
+String s = null;
+s.length();
+```
+
+A. Tylko stacktrace
+B. Brak komunikatu
+C. Czytelny komunikat wskazujący, co jest null
+D. Błąd kompilacji
+
+---
+
+### 1️⃣1️⃣ Kiedy NPE może być akceptowalny?
+
+A. Nigdy
+B. Jako fail-fast przy błędzie programisty
+C. W walidacji danych
+D. Zawsze w setterach
+
+---
+
+### 1️⃣2️⃣ Najlepsza alternatywa dla NPE w API publicznym?
+
+A. Zwracanie `null`
+B. `NullPointerException`
+C. `IllegalArgumentException`
+D. `Error`
+
+---
+
+📌 Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam **pełne rozwiązania + krótkie wyjaśnienia**.
+
+Chcesz potem:
+👉 **pułapki NPE (hard mode)**
+👉 **Optional – deep dive**
+👉 **rekrutacyjne zadania z null**
+
+Jedziemy dalej 😄

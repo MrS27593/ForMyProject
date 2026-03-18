@@ -1,0 +1,94 @@
+### ✅ Odpowiedzi – QUIZ `float` w Java
+
+---
+
+### 1️⃣ Czym jest typ `float` w Javie?
+
+**✅ B. Typ zmiennoprzecinkowy pojedynczej precyzji**
+
+➡ Służy do przechowywania liczb z częścią dziesiętną, zajmuje 4 bajty.
+
+---
+
+### 2️⃣ Jak poprawnie zadeklarować zmienną typu `float`?
+
+**✅ D. B i C są poprawne**
+
+```java
+float f = 3.14f;       // poprawne
+float f = (float) 3.14; // poprawne rzutowanie
+```
+
+➡ Domyślnie liczby dziesiętne są typu `double`.
+
+---
+
+### 3️⃣ Ile bajtów zajmuje `float` w Javie?
+
+**✅ B. 4**
+
+➡ Pojedyncza precyzja zmiennoprzecinkowa.
+
+---
+
+### 4️⃣ Jaka jest główna różnica między `float` a `double`?
+
+**✅ B. `double` ma większą precyzję niż `float`**
+
+➡ `float` ~7 cyfr, `double` ~15 cyfr.
+
+---
+
+### 5️⃣ Co się stanie, jeśli przypiszesz `float f = 3.14;` bez sufiksu `f`?
+
+**✅ A. Kompilator zgłosi błąd**
+
+➡ Domyślnie 3.14 jest `double`, a przypisanie do `float` wymaga rzutowania lub sufiksu `f`.
+
+---
+
+### 6️⃣ Czy można używać `float` do bardzo dokładnych obliczeń finansowych?
+
+**✅ B. Nie, lepiej używać `BigDecimal`**
+
+➡ `float` i `double` mogą wprowadzać błędy przy dokładnych obliczeniach.
+
+---
+
+### 7️⃣ Jak można rzutować `double` na `float`?
+
+**✅ A. `float f = (float) d;`**
+
+➡ Trzeba jawnie rzutować, aby uniknąć błędu kompilacji.
+
+---
+
+### 8️⃣ Co jest prawdą o operacjach arytmetycznych na `float`?
+
+**✅ A. Wyniki mogą być przybliżone**
+
+➡ Typy zmiennoprzecinkowe nie są dokładne w reprezentacji dziesiętnej.
+
+---
+
+### 9️⃣ Pytanie otwarte – przykładowa odpowiedź
+
+```java
+float price = 19.99f;
+float taxRate = 0.23f;
+float totalPrice = price + (price * taxRate);
+System.out.println("Total: " + totalPrice);
+```
+
+➡ Obliczanie ceny z podatkiem.
+
+---
+
+### 🔟 Pytanie otwarte – przykładowa odpowiedź
+
+* `float` i `double` używają reprezentacji binarnej, co może prowadzić do **błędów przy dokładnych obliczeniach finansowych**.
+* Dlatego stosuje się **BigDecimal** w aplikacjach finansowych.
+
+---
+
+Chcesz, żebym teraz przeszedł do **`double`**, czy wolisz kontynuować inne typy lub słowa kluczowe?

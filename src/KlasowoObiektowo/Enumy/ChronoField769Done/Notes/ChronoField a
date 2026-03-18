@@ -1,0 +1,139 @@
+Super 👍
+Oto **pełne odpowiedzi do quizu z `java.time.temporal.ChronoField`** – z jasnymi wyjaśnieniami (egzamin + praktyka).
+
+---
+
+# ✅ **Odpowiedzi – Quiz: `ChronoField`**
+
+## 1️⃣ Prawda / Fałsz
+
+**1.** `ChronoField` znajduje się w pakiecie `java.time.temporal`.
+✅ **A) Prawda**
+
+---
+
+**2.** `ChronoField` jest enumem.
+✅ **A) Prawda**
+
+---
+
+**3.** `ChronoField` reprezentuje jednostki czasu (np. dni, miesiące).
+❌ **B) Fałsz**
+➡ Reprezentuje **pola**, nie jednostki.
+
+---
+
+**4.** `ChronoField.DAY_OF_WEEK` zwraca enum `DayOfWeek`.
+❌ **B) Fałsz**
+➡ Zwraca **int (1–7)**.
+
+---
+
+## 2️⃣ Wybór jednokrotny
+
+**5.** Numer miesiąca (1–12):
+
+✅ **B) MONTH_OF_YEAR**
+
+---
+
+**6.** Kod:
+
+```java
+LocalDate.of(2026, 3, 15)
+```
+
+Dni do 15 marca:
+
+* styczeń: 31
+* luty: 28
+* * 15 → **74**
+
+✅ **C) 74**
+
+---
+
+## 3️⃣ Wybór wielokrotny
+
+**7.** Dla `LocalTime` poprawne pola:
+
+* ✅ **A) HOUR_OF_DAY**
+* ❌ **B) DAY_OF_MONTH**
+* ✅ **C) MINUTE_OF_HOUR**
+* ✅ **D) SECOND_OF_MINUTE**
+
+✔️ **Poprawne:** **A, C, D**
+
+---
+
+## 4️⃣ Analiza kodu
+
+**8.**
+
+```java
+date.get(ChronoField.HOUR_OF_DAY);
+```
+
+➡ `LocalDate` **nie obsługuje czasu**
+
+✅ **C) Rzuci wyjątek** (`UnsupportedTemporalTypeException`)
+
+---
+
+## 5️⃣ Pytanie praktyczne
+
+**9.** Metoda `firstDayOfMonth`
+
+### ✅ Poprawne rozwiązanie:
+
+```java
+public LocalDate firstDayOfMonth(LocalDate date) {
+    return date.with(ChronoField.DAY_OF_MONTH, 1);
+}
+```
+
+📌 Alternatywa (też poprawna i czytelniejsza):
+
+```java
+return date.withDayOfMonth(1);
+```
+
+---
+
+## 6️⃣ Pytanie podchwytliwe
+
+**10.** Najlepszy i najbardziej czytelny zapis:
+
+```java
+date.getDayOfMonth()
+```
+
+✅ **B)**
+
+📌 `ChronoField` używaj, gdy:
+
+* pracujesz z `Temporal`
+* pole jest dynamiczne
+
+---
+
+## 🧠 Kluczowe wnioski (zapamiętaj!)
+
+✔ `ChronoField` = pole czasu
+✔ Zwraca **int**, nie enum
+✔ Używany z `get()` i `with()`
+✔ `ChronoField` ≠ `ChronoUnit`
+✔ Gettery są czytelniejsze, gdy są dostępne
+
+---
+
+### 🔥 Co dalej?
+
+Mogę:
+
+* zrobić **mega-podsumowanie całego `java.time`**
+* dać **zadania rekrutacyjne łączące `Field + Unit + Month + DayOfWeek`**
+* albo przejść do **`ZoneId`, `ZonedDateTime` (strefy czasowe)**
+
+👉 Co robimy dalej?
+

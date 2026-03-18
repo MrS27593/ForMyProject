@@ -1,0 +1,152 @@
+Świetnie 👍
+Oto **kompletne odpowiedzi do quizu `@Deprecated` w Javie** wraz z krótkim wyjaśnieniem.
+
+---
+
+# ✅ **Odpowiedzi: Quiz `@Deprecated`**
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Do czego służy `@Deprecated`?
+
+**✅ B** – informuje, że element nie powinien być już używany
+
+---
+
+### 2️⃣ Czy kod deprecated nadal działa?
+
+**✅ C** – działa normalnie, tylko pojawia się ostrzeżenie
+
+---
+
+### 3️⃣ Od której wersji Javy istnieje `@Deprecated` jako adnotacja?
+
+**✅ C – Java 5**
+
+---
+
+## 🔹 Część II – Zastosowanie
+
+### 4️⃣ Co można oznaczyć `@Deprecated`?
+
+**✅ A, B, C, E**
+
+❌ D – zmienne lokalne **nie mogą** być oznaczane adnotacjami
+
+---
+
+### 5️⃣ Co się stanie przy użyciu deprecated metody?
+
+**✅ C** – kompilator zgłosi ostrzeżenie
+
+---
+
+### 6️⃣ Gdzie umieszcza się `@Deprecated`?
+
+**✅ A** – bezpośrednio przed klasą / metodą / polem
+
+---
+
+## 🔹 Część III – JavaDoc
+
+### 7️⃣ Najlepsza praktyka?
+
+**✅ D** – `@Deprecated` + JavaDoc `@deprecated`
+
+---
+
+### 8️⃣ Dlaczego podajemy alternatywę?
+
+**✅ C** – dla innych programistów
+
+---
+
+## 🔹 Część IV – Java 9+
+
+### 9️⃣ Co oznacza `forRemoval = true`?
+
+**✅ B** – element zostanie usunięty w przyszłości
+
+---
+
+### 🔟 Do czego służy `since`?
+
+**✅ B** – od której wersji element jest deprecated
+
+---
+
+## 🔹 Część V – Ostrzeżenia
+
+### 1️⃣1️⃣ Jak wyciszyć ostrzeżenie?
+
+**✅ B** – `@SuppressWarnings("deprecation")`
+
+---
+
+### 1️⃣2️⃣ Gdzie NIE należy używać suppress?
+
+**✅ C** – globalnie w całym projekcie
+
+---
+
+## 🔹 Część VI – Zaawansowane
+
+### 1️⃣3️⃣ Dlaczego najpierw deprecated, a nie usunięcie?
+
+**✅ B** – kompatybilność wsteczna
+
+---
+
+### 1️⃣4️⃣ Czy `@Deprecated` wpływa na runtime?
+
+**✅ C** – tylko ostrzeżenie, brak wpływu na wykonanie
+
+---
+
+### 1️⃣5️⃣ Klasyczny przykład z JDK?
+
+**✅ C – `Thread.stop()`**
+
+---
+
+## ✍️ 1️⃣6️⃣ Przykładowa poprawna odpowiedź (wzorcowa)
+
+```java
+/**
+ * @deprecated Use {@link #newMethod()} instead.
+ */
+@Deprecated(since = "2.0", forRemoval = true)
+public void oldMethod() {
+    // stara implementacja
+}
+
+public void newMethod() {
+    // nowa implementacja
+}
+```
+
+✅ adnotacja
+✅ JavaDoc
+✅ alternatywa
+✅ since
+✅ gotowe jak w profesjonalnym API
+
+---
+
+## 🧠 Wynik (samodzielna ocena)
+
+* **0–7** → trzeba jeszcze powtórzyć
+* **8–12** → solidne podstawy
+* **13–15** → bardzo dobra znajomość
+* **16** → 🔥 poziom bibliotek JDK / Spring
+
+---
+
+Jeśli chcesz:
+
+* ➡️ **quiz porównawczy** `@Override vs @Deprecated`
+* ➡️ **kolejny quiz** (`@SuppressWarnings`, `@FunctionalInterface`)
+* ➡️ **zadania praktyczne** „co i jak deprecated’ować”
+* ➡️ **ściągę wszystkich adnotacji**
+
+Daj znać 😄

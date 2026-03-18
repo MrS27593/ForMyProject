@@ -1,0 +1,184 @@
+## WIEDZA – `instanceof` w Java
+
+---
+
+### 1️⃣ Czym jest `instanceof`?
+
+* `instanceof` to **operator**, który sprawdza **czy obiekt jest instancją danej klasy lub interfejsu**.
+* Zwraca wartość typu `boolean`: `true` albo `false`.
+
+```java
+if (obj instanceof String) {
+    System.out.println("To jest String");
+}
+```
+
+---
+
+### 2️⃣ Co dokładnie sprawdza `instanceof`?
+
+`instanceof` zwraca `true`, jeśli:
+
+* obiekt **nie jest `null`**
+* obiekt jest:
+
+  * instancją danej klasy **lub**
+  * instancją klasy dziedziczącej **lub**
+  * implementacją danego interfejsu
+
+```java
+Integer x = 10;
+System.out.println(x instanceof Number); // true
+```
+
+---
+
+### 3️⃣ `instanceof` a `null`
+
+```java
+Object o = null;
+System.out.println(o instanceof Object); // false
+```
+
+📌 `instanceof` **nigdy nie rzuca wyjątku** – z `null` zawsze zwraca `false`.
+
+---
+
+### 4️⃣ Klasy, dziedziczenie i `instanceof`
+
+```java
+class Animal {}
+class Dog extends Animal {}
+
+Animal a = new Dog();
+
+System.out.println(a instanceof Dog);     // true
+System.out.println(a instanceof Animal);  // true
+```
+
+➡ Sprawdzany jest **rzeczywisty typ obiektu**, a nie typ referencji.
+
+---
+
+### 5️⃣ Interfejsy i `instanceof`
+
+```java
+interface Flyable {}
+class Bird implements Flyable {}
+
+Bird bird = new Bird();
+System.out.println(bird instanceof Flyable); // true
+```
+
+---
+
+### 6️⃣ `instanceof` a rzutowanie (casting)
+
+BARDZO częsty wzorzec:
+
+```java
+if (obj instanceof String) {
+    String s = (String) obj;
+    System.out.println(s.length());
+}
+```
+
+➡ `instanceof` chroni przed `ClassCastException`.
+
+---
+
+### 7️⃣ Pattern Matching for `instanceof` (Java 16+)
+
+Nowoczesna składnia:
+
+```java
+if (obj instanceof String s) {
+    System.out.println(s.length());
+}
+```
+
+✔ brak jawnego castowania
+✔ mniejsza liczba błędów
+✔ czytelniejszy kod
+
+---
+
+### 8️⃣ Praktyczny przykład – system płatności (bardziej złożony)
+
+```java
+interface Payment {
+    void pay(double amount);
+}
+
+class CardPayment implements Payment {
+    public void pay(double amount) {
+        System.out.println("Card payment: " + amount);
+    }
+}
+
+class BlikPayment implements Payment {
+    public void pay(double amount) {
+        System.out.println("Blik payment: " + amount);
+    }
+}
+```
+
+```java
+void process(Payment payment) {
+    if (payment instanceof BlikPayment blik) {
+        System.out.println("Logowanie BLIK");
+        blik.pay(100);
+    } else if (payment instanceof CardPayment card) {
+        System.out.println("Sprawdzanie limitu karty");
+        card.pay(100);
+    }
+}
+```
+
+📌 **Uwaga architektoniczna:**
+Jeśli często używasz `instanceof` → być może **brakuje polimorfizmu**.
+
+---
+
+### 9️⃣ Kiedy NIE używać `instanceof`?
+
+❌ Gdy można użyć:
+
+* polimorfizmu
+* metody abstrakcyjnej
+* wzorca strategii
+
+Zamiast:
+
+```java
+if (shape instanceof Circle) ...
+```
+
+Lepiej:
+
+```java
+shape.draw();
+```
+
+---
+
+### 🔟 Najczęstsze błędy
+
+❌ Sprawdzanie `instanceof` na `null` (bez sensu)
+❌ Nadużywanie zamiast OOP
+❌ Rzutowanie bez sprawdzenia
+❌ Sprawdzanie typu zamiast zachowania
+
+---
+
+### ✅ Podsumowanie
+
+* `instanceof` = sprawdzanie typu obiektu w runtime
+* Zawsze zwraca `boolean`
+* Bezpieczny z `null`
+* Nowoczesna Java → pattern matching
+* Używaj **rozsądnie**
+
+---
+
+Gdy chcesz, napisz **„quiz”** 👍

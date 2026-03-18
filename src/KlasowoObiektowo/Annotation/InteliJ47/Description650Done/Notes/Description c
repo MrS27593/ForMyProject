@@ -1,0 +1,148 @@
+Dobre pytanie — **`@Description`** wygląda „oczywiście”, a jednak to **kolejna klasyczna pułapka** 👀
+Tym razem **częściowo istnieje**, ale **tylko w jednym bardzo konkretnym świecie**.
+
+---
+
+# 📘 `@Description` w Javie
+
+## 1️⃣ Czy istnieje adnotacja `@Description` w Javie?
+
+### ✅ TAK — ale **tylko w JMX**
+
+```java
+javax.management.Description
+```
+
+❌ **Nie istnieje**:
+
+* w `java.lang`
+* w `java.beans`
+* w Springu
+* w JDK „ogólnym”
+
+➡️ **100% JMX**
+
+---
+
+## 2️⃣ Do czego służy `@Description`?
+
+`@Description` służy do:
+
+> **dodawania opisu (tekstowego) do elementów MBean / MXBean**
+
+Ten opis:
+
+* jest widoczny w narzędziach JMX (np. JConsole, VisualVM)
+* trafia do metadanych (`MBeanInfo`)
+
+---
+
+## 3️⃣ Gdzie można jej użyć?
+
+`@Description` można stosować na:
+
+* ✔️ **klasie / interfejsie**
+* ✔️ **metodzie**
+* ✔️ **parametrze metody**
+* ✔️ **polu (atrybucie MBean)**
+
+---
+
+## 4️⃣ Przykład – MXBean
+
+```java
+import javax.management.Description;
+
+@Description("MXBean zarządzający cache")
+public interface CacheMXBean {
+
+    @Description("Aktualny rozmiar cache w MB")
+    int getSize();
+
+    @Description("Czyści cache")
+    void clear();
+}
+```
+
+➡️ W JConsole zobaczysz **ładne opisy**, zamiast suchych nazw metod.
+
+---
+
+## 5️⃣ Retencja i target
+
+* 🎯 `@Target` → TYPE, METHOD, PARAMETER, FIELD
+* ⏱️ `@Retention(RUNTIME)`
+
+📌 Musi być widoczna w runtime dla JMX.
+
+---
+
+## 6️⃣ Czy `@Description` jest powiązana z `@DescriptorKey`?
+
+👉 **Tak, koncepcyjnie**
+
+* `@Description` = **gotowy, standardowy opis**
+* `@DescriptorKey` = **dowolne klucze metadanych**
+
+Można powiedzieć:
+
+| Adnotacja        | Rola             |
+| ---------------- | ---------------- |
+| `@Description`   | opis tekstowy    |
+| `@DescriptorKey` | dowolna metadana |
+| `Descriptor`     | mapa metadanych  |
+
+---
+
+## 7️⃣ Czego `@Description` NIE robi?
+
+❌ Nie:
+
+* zmienia logiki
+* nie waliduje
+* nie dokumentuje Javadoc
+* nie działa w Spring REST
+* nie ma nic wspólnego z OpenAPI
+
+---
+
+## 8️⃣ Czy używa się jej dziś?
+
+⚠️ **Rzadko**, ale:
+
+* monitoring JVM
+* systemy legacy
+* narzędzia administracyjne
+* systemy bankowe / telco
+
+📌 Jeśli widzisz `@Description` → **JMX**
+
+---
+
+## 9️⃣ Częste pomyłki ❌
+
+❌ Mylenie z:
+
+* `@ApiModelProperty`
+* `@Schema`
+* `@JsonPropertyDescription`
+* Javadoc `/** */`
+
+➡️ To **zupełnie inne światy**
+
+---
+
+## 🧪 Wzorcowa odpowiedź egzaminacyjna
+
+> `@Description` to adnotacja z pakietu `javax.management`, używana w JMX do opisywania MBeanów i ich elementów. Jej wartość jest wykorzystywana przez narzędzia monitorujące JVM i trafia do metadanych MBeanInfo.
+
+---
+
+Jeśli chcesz, naturalny ciąg dalszy 🔥
+
+* ➡️ **quiz z `@Description`**
+* ➡️ **porównanie: `@Description` vs `@DescriptorKey`**
+* ➡️ **pełna mapa adnotacji JMX**
+* ➡️ **JMX oczami rekrutera**
+
+Jak zwykle — napisz 👉 **quiz** 😄

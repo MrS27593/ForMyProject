@@ -1,0 +1,170 @@
+Świetnie 😄
+Oto **quiz z adnotacji `@Deprecated` w Javie** – poziom **od podstaw do zaawansowanego**.
+Na końcu **NIE MA odpowiedzi** – jeśli chcesz, po quizie podam klucz ✅
+
+---
+
+# 🧠 **Quiz: `@Deprecated` w Javie**
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Do czego służy adnotacja `@Deprecated`?
+
+A. Powoduje błąd kompilacji
+B. Informuje, że element nie powinien być używany
+C. Usuwa element z kodu
+D. Zwiększa wydajność
+
+---
+
+### 2️⃣ Czy kod oznaczony `@Deprecated` nadal działa?
+
+A. Nie, program się nie skompiluje
+B. Tak, ale tylko w trybie debug
+C. Tak, normalnie działa
+D. Tylko w starszych wersjach Javy
+
+---
+
+### 3️⃣ Od której wersji Javy istnieje `@Deprecated` jako adnotacja?
+
+A. Java 1.2
+B. Java 1.4
+C. Java 5
+D. Java 8
+
+---
+
+## 🔹 Część II – Zastosowanie
+
+### 4️⃣ Które elementy **MOŻNA** oznaczyć `@Deprecated`? (wielokrotny wybór)
+
+A. Klasa
+B. Metoda
+C. Konstruktor
+D. Zmienna lokalna
+E. Pole klasy
+
+---
+
+### 5️⃣ Co się stanie przy użyciu metody oznaczonej `@Deprecated`?
+
+A. Rzuci wyjątek
+B. Program się zatrzyma
+C. Kompilator zgłosi ostrzeżenie
+D. Nic się nie stanie
+
+---
+
+### 6️⃣ Gdzie poprawnie umieszcza się `@Deprecated`?
+
+A. Przed klasą / metodą / polem
+B. W środku metody
+C. Po nazwie metody
+D. W `main()`
+
+---
+
+## 🔹 Część III – JavaDoc i dobre praktyki
+
+### 7️⃣ Które podejście jest **najlepsze**?
+
+A. Sam komentarz `// deprecated`
+B. Tylko JavaDoc `@deprecated`
+C. Tylko adnotacja `@Deprecated`
+D. `@Deprecated` + JavaDoc `@deprecated`
+
+---
+
+### 8️⃣ Dlaczego warto podawać alternatywę w JavaDoc?
+
+A. Dla kompilatora
+B. Dla JVM
+C. Dla innych programistów
+D. Nie ma sensu
+
+---
+
+## 🔹 Część IV – Java 9+
+
+### 9️⃣ Co oznacza `forRemoval = true`?
+
+A. Metoda jest już usunięta
+B. Metoda zostanie usunięta w przyszłości
+C. Metoda nie działa
+D. Metoda działa tylko w starszych wersjach
+
+---
+
+### 🔟 Do czego służy parametr `since`?
+
+A. Od kiedy element działa
+B. Od której wersji element jest deprecated
+C. Od kiedy JVM zgłasza błąd
+D. Do wersjonowania pakietów
+
+---
+
+## 🔹 Część V – Ostrzeżenia
+
+### 1️⃣1️⃣ Jak poprawnie wyciszyć ostrzeżenie deprecated?
+
+A. Usunąć `@Deprecated`
+B. Użyć `@SuppressWarnings("deprecation")`
+C. Zignorować ostrzeżenie
+D. Użyć `try-catch`
+
+---
+
+### 1️⃣2️⃣ Gdzie **NIE** powinno się używać `@SuppressWarnings("deprecation")`?
+
+A. Na pojedynczej metodzie
+B. Na klasie, jeśli trzeba
+C. Globalnie w całym projekcie
+D. W testach
+
+---
+
+## 🔹 Część VI – Zaawansowane
+
+### 1️⃣3️⃣ Dlaczego biblioteki najpierw deprecated’ują metody zamiast je usuwać?
+
+A. Dla lepszej wydajności
+B. Aby nie łamać kompatybilności wstecznej
+C. Bo Java tego wymaga
+D. Żeby zwiększyć liczbę linii kodu
+
+---
+
+### 1️⃣4️⃣ Czy `@Deprecated` ma wpływ na runtime?
+
+A. Tak, rzuca wyjątek
+B. Tak, spowalnia program
+C. Nie, tylko ostrzega
+D. Tak, blokuje wykonanie
+
+---
+
+### 1️⃣5️⃣ Która metoda JDK jest klasycznym przykładem deprecated?
+
+A. `String.length()`
+B. `System.out.println()`
+C. `Thread.stop()`
+D. `Math.max()`
+
+---
+
+## ✍️ Pytanie otwarte
+
+### 1️⃣6️⃣ Napisz poprawnie deprecated metodę:
+
+* z adnotacją
+* z JavaDoc
+* z informacją o alternatywie
+* z `since`
+
+---
+
+Gdy będziesz gotowy:
+👉 napisz **„odpowiedzi”**
+a sprawdzimy wszystko krok po kroku ✅

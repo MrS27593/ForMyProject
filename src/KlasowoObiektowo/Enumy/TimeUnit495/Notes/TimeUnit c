@@ -1,0 +1,193 @@
+Świetnie 👍
+`java.util.concurrent.TimeUnit` to **bardzo ważny enum** w Javie — często pojawia się przy **wątkach, synchronizacji i API concurrency**.
+
+---
+
+# ⏱️ `java.util.concurrent.TimeUnit` — wszystko, co musisz wiedzieć
+
+## 📦 Gdzie się znajduje?
+
+```java
+java.util.concurrent.TimeUnit
+```
+
+Jest to **enum**.
+
+---
+
+## 🎯 Do czego służy?
+
+Reprezentuje **jednostki czasu** i umożliwia:
+
+* **czytelne operacje na czasie**
+* **konwersje między jednostkami**
+* bezpieczne API (bez „magic numbers”)
+
+Zamiast:
+
+```java
+Thread.sleep(1000);
+```
+
+Lepiej:
+
+```java
+TimeUnit.SECONDS.sleep(1);
+```
+
+---
+
+## 🧩 Wszystkie wartości enumu
+
+```java
+NANOSECONDS
+MICROSECONDS
+MILLISECONDS
+SECONDS
+MINUTES
+HOURS
+DAYS
+```
+
+📌 `DAYS` → 24 godziny (nie uwzględnia DST)
+
+---
+
+## 🔁 Najważniejsze metody
+
+### 🔹 `sleep(long timeout)`
+
+Usypia aktualny wątek
+
+```java
+TimeUnit.SECONDS.sleep(2);
+```
+
+➡ wewnętrznie wywołuje `Thread.sleep(...)`
+
+---
+
+### 🔹 `convert(long sourceDuration, TimeUnit sourceUnit)`
+
+Konwertuje czas
+
+```java
+long seconds = TimeUnit.SECONDS.convert(2, TimeUnit.MINUTES);
+// 120
+```
+
+---
+
+### 🔹 `toMillis(long)`
+
+```java
+long ms = TimeUnit.SECONDS.toMillis(5); // 5000
+```
+
+Analogicznie:
+
+* `toNanos`
+* `toMicros`
+* `toSeconds`
+* `toMinutes`
+* `toHours`
+* `toDays`
+
+---
+
+### 🔹 Metody typu `timed wait`
+
+Używane w concurrency:
+
+```java
+lock.tryLock(5, TimeUnit.SECONDS);
+future.get(1, TimeUnit.MINUTES);
+queue.poll(500, TimeUnit.MILLISECONDS);
+```
+
+---
+
+## 🧠 Dlaczego `TimeUnit` jest lepsze niż `Thread.sleep(ms)`?
+
+❌
+
+```java
+Thread.sleep(60000);
+```
+
+✔
+
+```java
+TimeUnit.MINUTES.sleep(1);
+```
+
+✔ czytelność
+✔ mniejsze ryzyko błędów
+✔ standard w API concurrency
+
+---
+
+## ⚠️ Pułapki i ważne fakty
+
+### ❗ `TimeUnit` ≠ `ChronoUnit`
+
+| TimeUnit    | ChronoUnit |
+| ----------- | ---------- |
+| concurrency | java.time  |
+| wątki       | daty/czas  |
+| proste      | precyzyjne |
+
+---
+
+### ❗ Overflow
+
+```java
+TimeUnit.DAYS.toMillis(Long.MAX_VALUE); // overflow!
+```
+
+---
+
+### ❗ Brak miesięcy i lat
+
+➡ bo mają zmienną długość
+
+---
+
+## 🧪 Przykład praktyczny
+
+```java
+public void waitFor() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(3);
+}
+```
+
+---
+
+## 🧠 Kiedy używać?
+
+* `Thread.sleep`
+* `ExecutorService`
+* `Locks`
+* `Futures`
+* `BlockingQueue`
+* timeouty
+
+---
+
+## 🔥 Podsumowanie (must-know)
+
+✔ `TimeUnit` = enum
+✔ 7 jednostek czasu
+✔ konwersje (`toX`, `convert`)
+✔ standard w `java.util.concurrent`
+✔ brak miesięcy i lat
+
+---
+
+Chcesz teraz:
+
+* 🧠 **quiz z `TimeUnit`**
+* ⚔️ **porównanie `TimeUnit` vs `ChronoUnit`**
+* 🚀 **zadania rekrutacyjne z timeoutami**
+
+👉 Co dalej?

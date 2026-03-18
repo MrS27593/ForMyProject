@@ -1,0 +1,150 @@
+Pewnie! Oto kompletny przewodnik po `EventListener` w Javie — od podstaw po zaawansowane zastosowania.
+
+---
+
+## 🔹 Co to jest `EventListener`?
+
+`EventListener` to interfejs w Javie używany w programowaniu zdarzeniowym (event-driven programming), najczęściej w aplikacjach graficznych (GUI) przy użyciu bibliotek takich jak **AWT** lub **Swing**. Pozwala reagować na zdarzenia, takie jak kliknięcia przycisków, ruchy myszy, wpisywanie tekstu itp.
+
+```java
+public interface EventListener {
+    // Jest to tzw. marker interface – nie zawiera żadnych metod
+}
+```
+
+---
+
+## 🔹 Główne rodzaje `EventListener` (AWT/Swing)
+
+Oto najczęściej używane interfejsy dziedziczące po `EventListener`:
+
+| Interfejs        | Zdarzenie                           | Przykład         |
+| ---------------- | ----------------------------------- | ---------------- |
+| `ActionListener` | kliknięcie przycisku                | `JButton`        |
+| `MouseListener`  | kliknięcia, wejście/wyjście kursora | komponenty Swing |
+| `KeyListener`    | naciśnięcie klawisza                | `JTextField`     |
+| `WindowListener` | zamknięcie, otwarcie okna           | `JFrame`         |
+| `FocusListener`  | fokus wejścia/wyjścia               | formularze       |
+| `ItemListener`   | zaznaczenie checkboxów              | `JCheckBox`      |
+
+---
+
+## 🔹 Jak działa `EventListener`?
+
+### 1. Rejestracja listenera na komponencie
+
+Musisz:
+
+* **zaimplementować odpowiedni interfejs**
+* **dodać listener do komponentu**
+
+---
+
+## 🔹 Przykład – `ActionListener` (np. kliknięcie przycisku)
+
+```java
+import javax.swing.*;
+import java.awt.event.*;
+
+public class PrzykladActionListener {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Przykład");
+        JButton button = new JButton("Kliknij mnie");
+
+        // Rejestrujemy listener
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Kliknięto przycisk!");
+            }
+        });
+
+        frame.add(button);
+        frame.setSize(300, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+}
+```
+
+---
+
+## 🔹 `MouseListener` – Reakcja na zdarzenia myszy
+
+```java
+button.addMouseListener(new MouseListener() {
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        System.out.println("Kliknięto myszą!");
+    }
+    public void mousePressed(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {}
+    public void mouseEntered(MouseEvent e) {}
+    public void mouseExited(MouseEvent e) {}
+});
+```
+
+➡️ Dla wygody często używa się adapterów, np. `MouseAdapter` – wtedy nie trzeba implementować wszystkich metod.
+
+---
+
+## 🔹 Adaptery (np. `MouseAdapter`, `KeyAdapter`)
+
+```java
+button.addMouseListener(new MouseAdapter() {
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        System.out.println("Klik!");
+    }
+});
+```
+
+---
+
+## 🔹 Lambda (od Java 8) – uproszczenie dla `ActionListener`
+
+```java
+button.addActionListener(e -> System.out.println("Klik z lambdy!"));
+```
+
+---
+
+## 🔹 Tworzenie własnych zdarzeń i listenerów
+
+Możesz definiować własne zdarzenia i listenerów np.:
+
+```java
+// Krok 1: własny interfejs
+public interface MyCustomListener extends EventListener {
+    void onSomethingHappened();
+}
+
+// Krok 2: klasa źródłowa
+public class MyComponent {
+    private List<MyCustomListener> listeners = new ArrayList<>();
+
+    public void addMyCustomListener(MyCustomListener l) {
+        listeners.add(l);
+    }
+
+    public void doSomething() {
+        // powiadamiamy słuchaczy
+        for (MyCustomListener l : listeners) {
+            l.onSomethingHappened();
+        }
+    }
+}
+```
+
+---
+
+## 🔹 Podsumowanie
+
+* `EventListener` to fundament systemu zdarzeń w Javie (GUI, a nawet serwery itp.).
+* Praktyczne zastosowanie: Swing, AWT, JavaFX.
+* Możesz tworzyć własne zdarzenia i listenerów.
+* W Java 8+ warto używać lambd do uproszczenia kodu.
+
+---
+
+Chcesz, żebym przygotował mały projekt (np. aplikacja GUI z wieloma listenerami) jako ćwiczenie?

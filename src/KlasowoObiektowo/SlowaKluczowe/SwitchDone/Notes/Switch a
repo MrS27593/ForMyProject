@@ -1,0 +1,134 @@
+## ODPOWIEDZI – QUIZ `switch` w Java
+
+---
+
+### **1. Do czego służy instrukcja `switch` w Javie?**
+
+✅ **C. Do wyboru jednej z wielu ścieżek wykonania na podstawie wartości**
+
+`switch` upraszcza wybór logiki na podstawie jednej zmiennej.
+
+---
+
+### **2. Który typ NIE jest obsługiwany przez `switch`?**
+
+✅ **D. `double`**
+
+`switch` nie obsługuje typów zmiennoprzecinkowych (`float`, `double`).
+
+---
+
+### **3. Co się stanie, jeśli w klasycznym `switch` zabraknie `break`?**
+
+✅ **C. Nastąpi przejście do kolejnych `case` (fall-through)**
+
+Czasem celowe, ale często źródło błędów.
+
+---
+
+### **4. Jaka jest rola `default` w `switch`?**
+
+✅ **B. Obsługuje przypadki, które nie pasują do żadnego `case`**
+
+`default` jest odpowiednikiem `else`.
+
+---
+
+### **5. Który kod jest POPRAWNY?**
+
+✅ **C**
+
+```java
+switch(x) {
+    case 1:
+        System.out.println("1");
+        break;
+}
+```
+
+Pozostałe:
+
+* A – brak `break` (nie błąd składni, ale niepoprawne wg intencji pytania)
+* B – błędne użycie `break` przy `->`
+* D – błędna składnia (`;` zamiast `:`)
+
+---
+
+### **6. Kiedy najlepiej użyć `switch` zamiast `if-else`?**
+
+✅ **B. Gdy sprawdzamy wiele wartości jednej zmiennej**
+
+`switch` poprawia czytelność.
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład praktycznego zastosowania `switch`:**
+
+```java
+switch (status) {
+    case SUCCESS:
+        sendEmail();
+        break;
+    case ERROR:
+        logError();
+        break;
+    default:
+        retry();
+}
+```
+
+Często używany w systemach backendowych.
+
+---
+
+### **8. (OTWARTE)**
+
+**Różnica między klasycznym `switch` a `switch expression`:**
+
+* Klasyczny `switch` → instrukcja (statement), używa `break`
+* `switch expression` (Java 12+) → **zwraca wartość**, używa `->` lub `yield`
+
+---
+
+### **9. Co się stanie, jeśli do `switch` przekażesz `null` (np. `String`)?**
+
+✅ **B. Zostanie rzucony `NullPointerException`**
+
+`switch` nie obsługuje `null`.
+
+---
+
+### **10. Które zdanie o `switch expression` jest prawdziwe?**
+
+✅ **C. Zawsze zwraca wartość**
+
+To jego główna cecha.
+
+---
+
+## 🧠 PODSUMOWANIE
+
+* `switch` = czytelna alternatywa dla `if-else`
+* Idealny dla:
+
+  * `enum`
+  * menu
+  * statusów
+* Uważaj na:
+
+  * brak `break`
+  * `null`
+* Nowoczesny `switch` (Java 12+) jest **krótszy i bezpieczniejszy**
+
+---
+
+Jeśli chcesz iść dalej w tym samym stylu (większe przykłady), naturalne kolejne tematy to:
+
+* **`enum + switch` w mini-projekcie**
+* **`if-else` vs `switch` – refaktoryzacja kodu**
+* **`sealed classes` + `switch` (Java 17+)**
+* albo wracamy do słów kluczowych: **`super`, `final`, `abstract`**
+
+👉 Co robimy dalej?

@@ -1,0 +1,24 @@
+Super! Oto **odpowiedzi do quizu z Exception w Javie** w formie jasnej listy:
+
+---
+
+### **ODPOWIEDZI:**
+
+1️⃣ **C** – `Throwable`
+2️⃣ **C** – `IOException` (checked exception)
+3️⃣ **C** – Nie musi być obsłużony (unchecked exception)
+4️⃣ **C** – `ArithmeticException`
+5️⃣ **C** – `finally`
+6️⃣ **B** – Zła kolejność `catch` (najpierw szczegółowy wyjątek, potem ogólny)
+7️⃣ **C** – `throws` informuje, że metoda może rzucić wyjątek
+8️⃣ **C** – `throw new Exception()`
+9️⃣ **C** – `RuntimeException` (unchecked)
+🔟 **C** – Pusty blok `catch` jest złą praktyką
+1️⃣1️⃣ **C** – Wypisze najpierw `Catch`, potem `Finally`
+1️⃣2️⃣ **C** – Biznesowy wyjątek, który nie musi być obsługiwany → `RuntimeException`
+
+---
+
+Jeżeli chcesz, mogę teraz zrobić **drugą część quizu trudniejszą** z przykładami kodu i pytaniami typu “co się stanie po uruchomieniu?” – idealne do **rekrutacji Java**.
+
+Chcesz, żebym zrobił taką wersję?

@@ -1,0 +1,121 @@
+Świetnie! Oto **quiz sprawdzający Twoją wiedzę o interfejsie `Runnable` w Java** – łącznie 10 pytań z odpowiedziami do wyboru. Na końcu chcesz zobaczyć odpowiedzi i wyjaśnienia? 😊
+
+---
+
+## 🧠 **Quiz: Interfejs Runnable w Java**
+
+### **1. Co definiuje interfejs `Runnable`?**
+
+A. `void execute();`
+B. `void run();`
+C. `void start();`
+D. `int call();`
+
+---
+
+### **2. Co robi metoda `start()` w klasie `Thread`?**
+
+A. Bezpośrednio wywołuje `run()`
+B. Tworzy nowy wątek i wywołuje `run()`
+C. Kończy wątek
+D. Sprawdza, czy wątek już działa
+
+---
+
+### **3. Które z poniższych to prawidłowe użycie `Runnable` z lambdą?**
+
+A.
+
+```java
+Runnable r = () -> System.out.println("Hello");
+```
+
+B.
+
+```java
+Runnable r = new Runnable();
+```
+
+C.
+
+```java
+Runnable r = new Thread(() -> {});
+```
+
+D.
+
+```java
+Runnable r = () -> { return "Done"; };
+```
+
+---
+
+### **4. Co się stanie, gdy wywołasz `run()` zamiast `start()` na wątku?**
+
+A. Powstanie nowy wątek
+B. Kod zostanie wykonany w nowym wątku
+C. Kod `run()` wykona się w bieżącym wątku
+D. Wystąpi wyjątek
+
+---
+
+### **5. Czym różni się `Runnable` od `Callable`?**
+
+A. `Callable` nie może rzucać wyjątków
+B. `Runnable` może zwracać wartość
+C. `Callable` może zwracać wynik i rzucać wyjątki
+D. Nie ma żadnej różnicy
+
+---
+
+### **6. Jak najlepiej zakończyć działanie wątku typu `Runnable`?**
+
+A. Wywołać `thread.stop()`
+B. Zatrzymać JVM
+C. Użyć flagi/przerwania (`Thread.interrupt()`)
+D. Wywołać `thread.run()` jeszcze raz
+
+---
+
+### **7. Które z poniższych NIE jest zaletą używania `Runnable`?**
+
+A. Rozdzielenie logiki od zarządzania wątkiem
+B. Możliwość przekazania do wielu wątków
+C. Obsługa zwracania wartości
+D. Możliwość użycia z `ExecutorService`
+
+---
+
+### **8. Jakie będzie wyjście?**
+
+```java
+Runnable task = () -> System.out.println(Thread.currentThread().getName());
+new Thread(task).start();
+```
+
+A. `main`
+B. `Thread-0` (lub podobne)
+C. `task`
+D. Kompilator zgłosi błąd
+
+---
+
+### **9. Gdzie znajduje się interfejs `Runnable`?**
+
+A. `java.util.concurrent`
+B. `java.threading`
+C. `java.lang`
+D. `java.io`
+
+---
+
+### **10. Czy `Runnable` można używać z `ExecutorService`?**
+
+A. Nie, tylko `Callable`
+B. Tak, ale bez zwracania wartości
+C. Tylko w klasach anonimowych
+D. Nie, wymaga `ThreadPoolExecutor`
+
+---
+
+Chcesz teraz zobaczyć **odpowiedzi i wyjaśnienia**?

@@ -1,0 +1,110 @@
+## ✅ Odpowiedzi – QUIZ `public` w Java
+
+---
+
+### **1. Co oznacza modyfikator `public` w Javie?**
+
+**✅ D. Dostęp z każdego miejsca programu**
+
+* `public` nie wprowadza żadnych ograniczeń dostępu.
+
+---
+
+### **2. Gdzie NIE można użyć modyfikatora `public`?**
+
+**✅ C. Przy zmiennej lokalnej w metodzie**
+
+* Zmienne lokalne **nie mogą** mieć modyfikatorów dostępu.
+
+---
+
+### **3. Ile klas `public` może znajdować się w jednym pliku `.java`?**
+
+**✅ C. Jedna**
+
+* Nazwa pliku musi odpowiadać nazwie klasy publicznej.
+
+---
+
+### **4. Co jest wymagane, gdy klasa jest `public`?**
+
+**✅ B. Plik musi mieć taką samą nazwę jak klasa**
+
+* To jest twarda reguła kompilatora.
+
+---
+
+### **5. Dlaczego `public` pola są zwykle złą praktyką?**
+
+**✅ C. Łamią enkapsulację**
+
+* Umożliwiają bezpośrednią, niekontrolowaną modyfikację stanu obiektu.
+
+---
+
+### **6. Która deklaracja jest najlepszą praktyką?**
+
+**✅ C**
+
+```java
+private int age;
+public int getAge() { return age; }
+```
+
+* Chroni dane i zachowuje enkapsulację.
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład metody, która powinna być `public`:**
+
+```java
+public User register(String email) {
+    return new User(email);
+}
+```
+
+* Jest to część **API klasy**, dostępna dla innych klas.
+
+---
+
+### **8. (OTWARTE)**
+
+**Dlaczego warto stosować zasadę „najmniejszego możliwego dostępu”?**
+
+* Zwiększa bezpieczeństwo
+* Ułatwia utrzymanie kodu
+* Ogranicza ryzyko błędów
+* Poprawia enkapsulację
+
+---
+
+### **9. Które zdanie o `public` jest prawdziwe?**
+
+**✅ C. `public` jest najszerszym modyfikatorem dostępu**
+
+---
+
+### **10. Która metoda powinna być `public`?**
+
+**✅ C. Metoda będąca częścią API klasy**
+
+* Metody pomocnicze powinny być `private` lub `protected`.
+
+---
+
+### 🧠 Podsumowanie
+
+* `public` = maksymalna dostępność
+* Używaj świadomie
+* Unikaj `public` pól
+* Projektuj klasy z jasno określonym API
+
+---
+
+Jeśli chcesz kontynuować logicznie:
+👉 **`protected`** (następny modyfikator dostępu)
+👉 albo **porównanie `public` vs `private` vs `protected`**
+
+Napisz, co robimy dalej 🚀

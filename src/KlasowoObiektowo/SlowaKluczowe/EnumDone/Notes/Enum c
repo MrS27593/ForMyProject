@@ -1,0 +1,153 @@
+Oczywiście! Zanurzmy się w temat **`enum` w Javie**, czyli typów wyliczeniowych. Są one potężnym narzędziem, które pozwala reprezentować **skończony zestaw stałych wartości** w sposób bezpieczny i czytelny.
+
+---
+
+## 🧠 Co to jest `enum`?
+
+`enum` (skrót od *enumeration*) w Javie to **specjalny typ klasowy**, który reprezentuje zbiór stałych (tzn. wartości niezmiennych, ustalonych z góry).
+
+Przykład:
+```java
+public enum Day {
+    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+}
+```
+
+Tutaj `Day` to typ, który może przyjąć tylko jedną z 7 wartości. Jest to **typu-bezpieczne** (type-safe) i znacznie lepsze niż użycie `int` lub `String` do reprezentowania dni tygodnia.
+
+---
+
+## 🛠 Podstawowe cechy `enum`
+
+### 1. **Enum jako klasa**
+Każdy `enum` w Javie jest traktowany jako **specjalna klasa**, która:
+- Może mieć **pola**, **konstruktory**, **metody**.
+- Może implementować **interfejsy** (ale nie może rozszerzać klas, bo `enum` nie może dziedziczyć).
+
+---
+
+### 2. **Enum z polami i metodami**
+
+```java
+public enum Planet {
+    MERCURY(3.303e+23, 2.4397e6),
+    VENUS(4.869e+24, 6.0518e6),
+    EARTH(5.976e+24, 6.37814e6);
+
+    private final double mass;   // in kilograms
+    private final double radius; // in meters
+
+    Planet(double mass, double radius) {
+        this.mass = mass;
+        this.radius = radius;
+    }
+
+    public double surfaceGravity() {
+        final double G = 6.67300E-11;
+        return G * mass / (radius * radius);
+    }
+}
+```
+
+- Każda wartość `enum` (np. `EARTH`) działa jak obiekt klasy `Planet`.
+- Można dodać metody i pola jak w zwykłych klasach.
+- Konstruktor `enum` jest **zawsze prywatny**.
+
+---
+
+### 3. **Użycie `switch` z enum**
+
+```java
+Day today = Day.FRIDAY;
+
+switch (today) {
+    case MONDAY:
+        System.out.println("Początek tygodnia");
+        break;
+    case FRIDAY:
+        System.out.println("Prawie weekend!");
+        break;
+    case SUNDAY:
+        System.out.println("Czas na odpoczynek");
+        break;
+    default:
+        System.out.println("Zwykły dzień");
+}
+```
+
+---
+
+### 4. **Wbudowane metody enum**
+
+Każdy `enum` automatycznie dziedziczy kilka przydatnych metod:
+
+| Metoda | Opis |
+|--------|------|
+| `values()` | Zwraca tablicę wszystkich wartości enum. |
+| `valueOf(String name)` | Zwraca wartość enum o podanej nazwie. |
+| `ordinal()` | Zwraca indeks (licząc od zera) danej wartości enum. |
+
+Przykład:
+```java
+for (Day d : Day.values()) {
+    System.out.println(d + " ma indeks " + d.ordinal());
+}
+```
+
+---
+
+## 🤖 Enum z metodą abstrakcyjną (polimorfizm w enum)
+
+```java
+public enum Operation {
+    PLUS {
+        public double apply(double x, double y) { return x + y; }
+    },
+    MINUS {
+        public double apply(double x, double y) { return x - y; }
+    };
+
+    public abstract double apply(double x, double y);
+}
+```
+
+Tu każda wartość `enum` implementuje własną wersję metody `apply`.
+
+---
+
+## 🧩 Enum implementujący interfejs
+
+```java
+interface Printable {
+    void print();
+}
+
+public enum Color implements Printable {
+    RED, GREEN, BLUE;
+
+    public void print() {
+        System.out.println("Kolor: " + this.name());
+    }
+}
+```
+
+---
+
+## ❗ Czego NIE można z `enum`?
+
+- Nie można dziedziczyć po innym `enum` (bo są one finalne).
+- Nie można tworzyć instancji `enum` przez `new`.
+
+---
+
+## 📦 Enum w praktyce
+
+Typy wyliczeniowe są bardzo użyteczne w:
+- Przełącznikach `switch`
+- Zastępowaniu `String`/`int`-ów na stałe
+- Budowie maszyn stanów, konfiguracji, strategii
+- API np. `java.time.DayOfWeek`, `java.nio.file.StandardOpenOption`
+
+---
+
+Chcesz, żebym pokazał Ci teraz praktyczny przykład lub zrobił quiz ze zrozumienia `enum`?

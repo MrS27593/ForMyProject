@@ -1,0 +1,134 @@
+W Javie **nie istnieje oficjalna klasa `PreHashedMap`** w standardowej bibliotece JDK (Java Development Kit). Jednak nazwa ta mogłaby sugerować:
+
+* **niestandardową (custom) implementację mapy haszującej**, w której kluczowe dane lub struktura są z góry znane i/lub z góry obliczono funkcje haszujące (np. w kontekście optymalizacji),
+* lub być częścią jakiejś zewnętrznej biblioteki (np. biblioteki używanej w parserach, kompilatorach, frameworkach).
+
+### Możliwe konteksty `PreHashedMap`
+
+1. **Apache OpenNLP / Apache Lucene / IBM J9** – niektóre z tych projektów mają coś podobnego do `PreHashedMap`, gdzie mapy są generowane „statycznie” z predefiniowaną tablicą hashów dla szybszego dostępu, np. słowniki NLP.
+2. **Optymalizacja** – `PreHashedMap` mogłaby być używana tam, gdzie:
+
+   * znana jest z góry zawartość mapy,
+   * mapa jest tworzona raz i tylko odczytywana (read-only),
+   * można przygotować wcześniej „rozsianie” kluczy w tablicy hashów (np. wygenerować źródło offline).
+
+---
+
+## Jak mógłby wyglądać `PreHashedMap` (własna implementacja)
+
+Poniżej przykład uproszczonej klasy `PreHashedMap`, zakładającej statyczną listę kluczy, której nie można zmieniać:
+
+```java
+import java.util.*;
+
+public class PreHashedMap<K, V> {
+    private final Object[] keys;
+    private final Object[] values;
+    private final int capacity;
+
+    public PreHashedMap(Map<K, V> predefinedData) {
+        capacity = predefinedData.size();
+        keys = new Object[capacity];
+        values = new Object[capacity];
+        int i = 0;
+        for (Map.Entry<K, V> entry : predefinedData.entrySet()) {
+            keys[i] = entry.getKey();
+            values[i] = entry.getValue();
+            i++;
+        }
+    }
+
+    public V get(K key) {
+        for (int i = 0; i < capacity; i++) {
+            if (keys[i].equals(key)) {
+                return (V) values[i];
+            }
+        }
+        return null;
+    }
+
+    public boolean containsKey(K key) {
+        for (Object k : keys) {
+            if (k.equals(key)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int size() {
+        return capacity;
+    }
+}
+```
+
+---
+
+## Praktyczny przykład użycia: parser języka
+
+Wyobraź sobie, że budujesz **parser prostego języka programowania**, i chcesz zdefiniować zbiór **słów kluczowych** (`if`, `else`, `for`, itp.). Skoro znasz je z góry, możesz je zakodować w `PreHashedMap`:
+
+```java
+public class KeywordParser {
+    private static final PreHashedMap<String, String> keywords;
+
+    static {
+        Map<String, String> data = new HashMap<>();
+        data.put("if", "IF_KEYWORD");
+        data.put("else", "ELSE_KEYWORD");
+        data.put("for", "FOR_KEYWORD");
+        data.put("while", "WHILE_KEYWORD");
+        keywords = new PreHashedMap<>(data);
+    }
+
+    public static String parseToken(String token) {
+        String result = keywords.get(token);
+        return result != null ? result : "IDENTIFIER";
+    }
+
+    public static void main(String[] args) {
+        String[] tokens = {"if", "x", "else", "while", "do"};
+        for (String token : tokens) {
+            System.out.println(token + ": " + parseToken(token));
+        }
+    }
+}
+```
+
+**Wynik:**
+
+```
+if: IF_KEYWORD
+x: IDENTIFIER
+else: ELSE_KEYWORD
+while: WHILE_KEYWORD
+do: IDENTIFIER
+```
+
+---
+
+## Dlaczego "PreHashed"?
+
+* Zoptymalizowane dla **read-only danych**,
+* Uniknięcie kosztów `HashMap` w środowiskach ograniczonych pamięciowo (np. embedded),
+* Możliwość **generowania statycznych tablic** w czasie kompilacji.
+
+---
+
+## Podsumowanie
+
+* W standardowej Javie **nie istnieje `PreHashedMap`**, ale:
+
+  * możesz zaimplementować ją samodzielnie,
+  * albo spotkać ją w wyspecjalizowanych bibliotekach (OpenNLP, słowniki NLP, kompilatory).
+* Przydaje się tam, gdzie znasz dane z góry i potrzebujesz bardzo szybkiego dostępu bez kosztów dynamicznego hashowania.
+* Przykład użycia: **analiza składniowa, parsery, słowniki językowe, konfigurowalne klasyfikatory tekstu**.
+
+---
+
+Jeśli chcesz, mogę:
+
+* Znaleźć konkretne implementacje `PreHashedMap` w bibliotekach open-source,
+* Lub pomóc Ci stworzyć bardzo szybką wersję na konkretny zestaw danych.
+
+Czy mam kontynuować w którymś z tych kierunków?

@@ -1,0 +1,120 @@
+Super! 🔥
+Oto **quiz o klasie abstrakcyjnej `OutputStream`** – 10 pytań idealnych do utrwalenia wiedzy i przygotowania na rozmowy rekrutacyjne.
+
+---
+
+# 🧠 QUIZ – `java.io.OutputStream`
+
+### **1️⃣ Czym jest `OutputStream`?**
+
+A. Interfejsem
+B. Klasą finalną
+C. Klasą abstrakcyjną
+D. Typem prymitywnym
+
+---
+
+### **2️⃣ Jaka jest JEDYNA metoda abstrakcyjna w `OutputStream`?**
+
+A. `flush()`
+B. `write(int b)`
+C. `close()`
+D. `write(byte[] b)`
+
+---
+
+### **3️⃣ Co robi metoda `write(int b)`?**
+
+A. Zapisuje pojedynczy bajt
+B. Odczytuje jeden bajt
+C. Zapisuje wiele bajtów naraz
+D. Zwraca liczbę zapisanych bajtów
+
+---
+
+### **4️⃣ Co się stanie, jeśli nie wywołasz `flush()` przed zamknięciem strumienia?**
+
+A. Dane zawsze zapiszą się automatycznie
+B. Może dojść do utraty danych w buforze
+C. Program się nie skompiluje
+D. Nic się nie stanie
+
+---
+
+### **5️⃣ Która metoda zapisuje wiele bajtów naraz do strumienia?**
+
+A. `write(int b)`
+B. `write(byte[] b)`
+C. `read(byte[] b)`
+D. `available()`
+
+---
+
+### **6️⃣ Która klasa NIE dziedziczy po `OutputStream`?**
+
+A. `FileOutputStream`
+B. `BufferedOutputStream`
+C. `ByteArrayOutputStream`
+D. `PrintWriter`
+
+---
+
+### **7️⃣ Czy można instancjonować `OutputStream` bezpośrednio?**
+
+A. Tak
+B. Nie
+C. Tylko w pakiecie java.io
+D. Tylko w wersji JDK 17+
+
+---
+
+### **8️⃣ Co się stanie, jeśli zapiszesz int większy niż 255 w `write(int b)`?**
+
+A. Zostanie zapisany poprawnie
+B. Zostanie zapisany tylko **ostatni bajt** (8 bitów)
+C. Kompilator zgłosi błąd
+D. Rzucany jest `IOException`
+
+---
+
+### **9️⃣ Jak bezpiecznie otworzyć i zapisać plik w Javie?**
+
+A.
+
+```java
+OutputStream out = new FileOutputStream("a.txt");
+```
+
+B.
+
+```java
+OutputStream out = null;
+```
+
+C.
+
+```java
+try (OutputStream out = new FileOutputStream("a.txt")) { }
+```
+
+D.
+
+```java
+FileOutputStream out = new OutputStream();
+```
+
+---
+
+### **🔟 Główna rola `OutputStream` to:**
+
+A. Odczyt danych bajtowych
+B. Zapis danych bajtowych
+C. Obsługa znaków Unicode
+D. Serializacja obiektów
+
+---
+
+✍️ Podaj odpowiedzi w jednej linii, np.:
+`1C, 2B, 3A…`
+
+Po tym podam **poprawne odpowiedzi** i krótkie wyjaśnienia wszystkich pytań.

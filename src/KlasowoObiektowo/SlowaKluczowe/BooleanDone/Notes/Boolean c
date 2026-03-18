@@ -1,0 +1,187 @@
+### `boolean` w języku Java — **WIEDZA**
+
+`boolean` to **prymitywny typ danych**, który przechowuje jedną z dwóch wartości logicznych:
+
+* `true`
+* `false`
+
+Jest absolutnie **podstawowy** dla warunków, pętli, logiki programu i sterowania przepływem.
+
+---
+
+## 1️⃣ Podstawy `boolean`
+
+```java
+boolean isActive = true;
+boolean isFinished = false;
+```
+
+📌 `boolean` **nie jest liczbą** (`true ≠ 1`, `false ≠ 0`).
+
+---
+
+## 2️⃣ Gdzie używa się `boolean`?
+
+### 🔹 Instrukcje warunkowe
+
+```java
+if (isActive) {
+    System.out.println("Aktywny");
+}
+```
+
+### 🔹 Pętle
+
+```java
+while (!isFinished) {
+    // wykonuj dopóki false
+}
+```
+
+### 🔹 Metody zwracające wynik logiczny
+
+```java
+boolean isAdult(int age) {
+    return age >= 18;
+}
+```
+
+---
+
+## 3️⃣ Operatory logiczne (`boolean`)
+
+| Operator | Nazwa | Przykład |    |    |   |    |
+| -------- | ----- | -------- | -- | -- | - | -- |
+| `&&`     | AND   | `a && b` |    |    |   |    |
+| `        |       | `        | OR | `a |   | b` |
+| `!`      | NOT   | `!a`     |    |    |   |    |
+
+### Przykład:
+
+```java
+boolean loggedIn = true;
+boolean isAdmin = false;
+
+if (loggedIn && isAdmin) {
+    System.out.println("Panel admina");
+}
+```
+
+---
+
+## 4️⃣ Porównania → `boolean`
+
+Wszystkie porównania zwracają `boolean`:
+
+```java
+int a = 5;
+int b = 10;
+
+boolean result = a < b;   // true
+```
+
+Operatory porównania:
+
+* `==`
+* `!=`
+* `<`
+* `>`
+* `<=`
+* `>=`
+
+---
+
+## 5️⃣ `boolean` a `Boolean` ❗
+
+| `boolean`           | `Boolean`             |
+| ------------------- | --------------------- |
+| typ prymitywny      | klasa (wrapper)       |
+| `true / false`      | `true / false / null` |
+| szybszy             | wolniejszy            |
+| nie może być `null` | może być `null`       |
+
+```java
+Boolean flag = null; // OK
+boolean flag2 = null; // ❌ błąd
+```
+
+---
+
+## 6️⃣ Short-circuit (bardzo ważne!)
+
+### `&&` i `||` są **krótkiego spięcia**
+
+```java
+if (obj != null && obj.isValid()) {
+    // bezpieczne
+}
+```
+
+Jeśli `obj == null`, druga część **nie zostanie wykonana**.
+
+---
+
+## 7️⃣ Częste błędy
+
+❌ Porównywanie z `true`
+
+```java
+if (isActive == true) // źle
+```
+
+✅ Poprawnie
+
+```java
+if (isActive)
+```
+
+---
+
+❌ Użycie `=` zamiast `==`
+
+```java
+if (isActive = true) // ❌ błąd logiczny
+```
+
+---
+
+## 8️⃣ Praktyczny przykład (bardziej złożony)
+
+```java
+class User {
+    boolean loggedIn;
+    boolean banned;
+
+    boolean canAccess() {
+        return loggedIn && !banned;`
+    }
+}
+```
+
+---
+
+## 9️⃣ boolean w API Javy
+
+Często spotkasz metody:
+
+* `isEmpty()`
+* `hasNext()`
+* `equals()`
+* `contains()`
+
+Wszystkie zwracają `boolean`.
+
+---
+
+## 10️⃣ Podsumowanie
+
+* `boolean` = `true` / `false`
+* Podstawa `if`, `while`, `for`
+* Wynik porównań
+* Uwaga na `Boolean` i `null`
+* `&&` i `||` → short-circuit
+
+---
+
+Gdy będziesz gotowy, napisz: **`quiz`**
+i zrobimy **dobry quiz z `boolean` (z pułapkami logicznymi)** ✅

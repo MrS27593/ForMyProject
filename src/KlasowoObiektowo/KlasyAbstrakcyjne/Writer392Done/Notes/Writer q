@@ -1,0 +1,120 @@
+Super! ✍️
+Oto **quiz o klasie abstrakcyjnej `Writer`** – 10 pytań idealnych do utrwalenia wiedzy i przygotowania na rozmowy techniczne.
+
+---
+
+# 🧠 QUIZ – `java.io.Writer`
+
+### **1️⃣ Czym jest `Writer`?**
+
+A. Interfejsem
+B. Klasą finalną
+C. Klasą abstrakcyjną
+D. Typem prymitywnym
+
+---
+
+### **2️⃣ Jaka metoda MUSI być zaimplementowana w podklasie Writer?**
+
+A. `write(int c)`
+B. `read()`
+C. `append()`
+D. `available()`
+
+---
+
+### **3️⃣ Co robi metoda `write(int c)`?**
+
+A. Zapisuje pojedynczy znak (char)
+B. Odczytuje bajt
+C. Zapisuje wiele bajtów
+D. Zwraca liczbę zapisanych znaków
+
+---
+
+### **4️⃣ Która metoda wypycha bufor do docelowego medium?**
+
+A. `close()`
+B. `flush()`
+C. `write()`
+D. `available()`
+
+---
+
+### **5️⃣ Która metoda zapisuje wszystkie znaki z tablicy?**
+
+A. `write(char[] cbuf)`
+B. `write(int b)`
+C. `read(char[] cbuf)`
+D. `skip()`
+
+---
+
+### **6️⃣ Która klasa NIE dziedziczy po Writer?**
+
+A. `FileWriter`
+B. `BufferedWriter`
+C. `PrintWriter`
+D. `FileInputStream`
+
+---
+
+### **7️⃣ Czy można instancjonować klasę Writer bezpośrednio?**
+
+A. Tak
+B. Nie
+C. Tylko w pakiecie java.io
+D. Tylko w wersji JDK 17+
+
+---
+
+### **8️⃣ Która metoda dodaje pojedynczy znak do strumienia w stylu append?**
+
+A. `write(int c)`
+B. `append(char c)`
+C. `write(char[] cbuf)`
+D. `flush()`
+
+---
+
+### **9️⃣ Jak bezpiecznie zapisać tekst do pliku?**
+
+A.
+
+```java
+Writer w = new FileWriter("plik.txt");
+```
+
+B.
+
+```java
+try (Writer w = new FileWriter("plik.txt")) { }
+```
+
+C.
+
+```java
+Writer w = null;
+```
+
+D.
+
+```java
+FileWriter w = new Writer();
+```
+
+---
+
+### **🔟 Główna rola Writer to:**
+
+A. Odczyt danych bajtowych
+B. Zapis znaków (char)
+C. Zapis danych bajtowych
+D. Serializacja obiektów
+
+---
+
+✍️ Podaj odpowiedzi w jednej linii, np.:
+`1C, 2A, 3A…`
+
+Po tym podam **poprawne odpowiedzi** i krótkie wyjaśnienia wszystkich pytań.

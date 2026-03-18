@@ -1,0 +1,92 @@
+Świetnie! Zróbmy **kompletny quiz dotyczący `Enum LogLevel` w Javie** – będą pytania wielokrotnego wyboru, prawda/fałsz i pytania praktyczne. Na końcu możesz sprawdzić odpowiedzi.
+
+---
+
+# ✅ **Quiz: Enum LogLevel w Javie**
+
+### 1️⃣ Podstawy – prawda/fałsz
+
+1. `Enum LogLevel` może mieć własne pola i metody.
+
+   * A) Prawda
+   * B) Fałsz
+
+2. Każda stała w `Enum` to osobna instancja klasy Enum.
+
+   * A) Prawda
+   * B) Fałsz
+
+3. Metoda `ordinal()` zwraca numer porządkowy stałej w deklaracji, zaczynając od 1.
+
+   * A) Prawda
+   * B) Fałsz
+
+4. Enum w Javie może dziedziczyć po innej klasie.
+
+   * A) Prawda
+   * B) Fałsz
+
+---
+
+### 2️⃣ Wybór wielokrotny
+
+5. Które z poniższych zdań są prawdziwe dla Enum `LogLevel`?
+
+   * A) Enum może implementować interfejs.
+   * B) Enum może mieć konstruktor publiczny.
+   * C) Enum może mieć abstrakcyjne metody.
+   * D) Enum może być używany w `switch`.
+
+---
+
+### 3️⃣ Kod i analiza
+
+6. Co zostanie wypisane po wykonaniu poniższego kodu?
+
+```java
+public enum LogLevel {
+    ERROR, WARN, INFO;
+}
+
+public class Main {
+    public static void main(String[] args) {
+        LogLevel level = LogLevel.WARN;
+        System.out.println(level.ordinal());
+        System.out.println(level.name());
+    }
+}
+```
+
+* A) `1` i `WARN`
+* B) `2` i `WARN`
+* C) `0` i `ERROR`
+* D) `2` i `INFO`
+
+---
+
+7. Która linia jest poprawna do przypisania poziomu logu z napisu `"INFO"`?
+
+```java
+LogLevel level = ?;
+```
+
+* A) `LogLevel level = LogLevel.valueOf("INFO");`
+* B) `LogLevel level = LogLevel.INFO();`
+* C) `LogLevel level = new LogLevel("INFO");`
+* D) `LogLevel level = LogLevel.get("INFO");`
+
+---
+
+### 4️⃣ Pytanie praktyczne
+
+8. Napisz metodę `shouldLog` w Javie, która przyjmuje **aktualny poziom logu** i **minimalny poziom logu** i zwraca `true`, jeśli komunikat powinien być wyświetlony. Zakładamy, że Enum `LogLevel` ma pole `severity` (im wyższa wartość, tym ważniejszy log).
+
+```java
+public boolean shouldLog(LogLevel current, LogLevel minimum) {
+    // Twój kod tutaj
+}
+```
+
+---
+
+Chcesz, żebym od razu podał **odpowiedzi do tego quizu** wraz z wyjaśnieniami?

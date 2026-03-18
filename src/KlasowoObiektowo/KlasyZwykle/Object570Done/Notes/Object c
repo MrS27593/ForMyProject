@@ -1,0 +1,67 @@
+Oczywiście! Klasa `Object` w Javie to **najważniejsza klasa w całym języku** – jest **bazową klasą wszystkich innych klas**. Oznacza to, że każda klasa w Javie dziedziczy (nawet jeśli niejawnie) po klasie `Object`.
+
+---
+
+### 📌 Podstawowe informacje o klasie `Object`
+
+* Jest w pakiecie `java.lang`, więc nie musisz jej importować.
+* Gwarantuje, że każda klasa w Javie ma zestaw podstawowych metod (np. `toString()`, `equals()`, `hashCode()`).
+* Możesz nadpisywać jej metody, żeby zmienić domyślne zachowanie (np. porównywanie obiektów czy wypisywanie ich na ekranie).
+
+---
+
+### 🧩 Najważniejsze metody klasy `Object`
+
+| Metoda                | Opis                                                                           |
+| --------------------- | ------------------------------------------------------------------------------ |
+| `toString()`          | Zwraca reprezentację tekstową obiektu. Domyślnie: `nazwa_klasy@adres_hashowy`. |
+| `equals(Object obj)`  | Porównuje dwa obiekty. Domyślnie porównuje referencje. Można nadpisać.         |
+| `hashCode()`          | Zwraca kod skrótu (hash) obiektu. Współpracuje z `equals()`.                   |
+| `getClass()`          | Zwraca klasę, z której dany obiekt został utworzony.                           |
+| `clone()`             | Tworzy i zwraca kopię obiektu (jeśli klasa implementuje `Cloneable`).          |
+| `finalize()`          | Wywoływana przed usunięciem obiektu przez Garbage Collector (przestarzała).    |
+| `wait()` / `notify()` | Do komunikacji między wątkami (synchronizacja).                                |
+
+---
+
+### 🔍 Przykład użycia:
+
+```java
+public class Osoba {
+    private String imie;
+
+    public Osoba(String imie) {
+        this.imie = imie;
+    }
+
+    @Override
+    public String toString() {
+        return "Osoba: " + imie;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Osoba inna = (Osoba) obj;
+        return this.imie.equals(inna.imie);
+    }
+
+    @Override
+    public int hashCode() {
+        return imie.hashCode();
+    }
+}
+```
+
+---
+
+### 🧠 Co warto zapamiętać:
+
+* Jeśli nadpisujesz `equals()`, powinieneś też nadpisać `hashCode()`, bo wiele struktur (np. `HashMap`) tego oczekuje.
+* `toString()` warto nadpisywać, żeby ułatwić debugowanie.
+* `==` porównuje referencje, a `equals()` — zawartość.
+
+---
+
+Czy chciałbyś, żebym przygotował ćwiczenia albo quiz do przećwiczenia tej wiedzy?

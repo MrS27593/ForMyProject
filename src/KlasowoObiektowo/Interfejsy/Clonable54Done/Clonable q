@@ -1,0 +1,89 @@
+Super! Zaczniemy od **samego quizu z interfejsu `Cloneable`**, bez podawania odpowiedzi. Będzie 10 pytań wielokrotnego wyboru, gotowych do rozwiązania.
+
+---
+
+## 🧪 Quiz: Interfejs `Cloneable` w Javie
+
+**1️⃣ Czym jest interfejs `Cloneable` w Javie?**
+a) Interfejsem z metodą `clone()`
+b) Interfejsem markerowym bez metod
+c) Abstrakcyjną klasą z jedną metodą
+d) Interfejsem do sortowania obiektów
+
+---
+
+**2️⃣ Co się stanie, gdy wywołamy `clone()` na obiekcie, który nie implementuje `Cloneable`?**
+a) NullPointerException
+b) ClassCastException
+c) CloneNotSupportedException
+d) ArrayIndexOutOfBoundsException
+
+---
+
+**3️⃣ Domyślna metoda `clone()` tworzy:**
+a) Głęboką kopię (deep copy)
+b) Płytką kopię (shallow copy)
+c) Kopię referencji
+d) Nową klasę
+
+---
+
+**4️⃣ Która metoda musi być nadpisana w klasie implementującej `Cloneable`, aby była publicznie dostępna?**
+a) iterator()
+b) compareTo()
+c) clone()
+d) hasNext()
+
+---
+
+**5️⃣ Jak zrobić głęboką kopię obiektu w Javie implementując `Cloneable`?**
+a) Wystarczy wywołać `super.clone()`
+b) Skopiować wszystkie pola obiektowe ręcznie lub wywołać ich `clone()`
+c) Nie da się zrobić deep copy w Javie
+d) Wystarczy użyć `Integer.compare()`
+
+---
+
+**6️⃣ Czy `Cloneable` ma jakieś metody do implementacji?**
+a) Tak, clone()
+b) Nie, jest markerowy
+c) Tak, compareTo()
+d) Tak, iterator()
+
+---
+
+**7️⃣ Który z poniższych typów kopii zachowuje referencje do tych samych obiektów?**
+a) Deep copy
+b) Shallow copy
+c) Full copy
+d) Partial copy
+
+---
+
+**8️⃣ Które słowo kluczowe w klasie oznacza, że obiekt może być klonowany?**
+a) implements Cloneable
+b) extends Object
+c) implements Iterable
+d) extends Cloneable
+
+---
+
+**9️⃣ Wyjątek `CloneNotSupportedException` jest wyjątkiem:**
+a) Checked
+b) Unchecked
+c) RuntimeException
+d) Error
+
+---
+
+**🔟 Które z poniższych stwierdzeń jest prawdziwe?**
+a) Domyślny clone() kopiuje wszystkie obiekty głęboko
+b) Domyślny clone() kopiuje tylko referencje do obiektów
+c) Cloneable jest interfejsem z metodą iterator()
+d) Cloneable sortuje obiekty według naturalnego porządku
+
+---
+
+Jeżeli chcesz, mogę teraz przygotować **oddzielny zestaw z odpowiedziami i wyjaśnieniami** do tego quizu.
+
+Chcesz, żebym to zrobił?

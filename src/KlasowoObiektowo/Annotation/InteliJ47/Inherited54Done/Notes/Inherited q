@@ -1,0 +1,87 @@
+Okej, lecimy z quizem o `@Inherited` – **czysty, bez końcówek instruktażowych**.
+
+---
+
+# 🟢 Quiz – `@Inherited`
+
+### 1️⃣ Co robi adnotacja `@Inherited`?
+
+A. Dziedziczy wszystkie metody z klasy bazowej
+B. Pozwala klasom potomnym dziedziczyć adnotacje z klasy bazowej
+C. Automatycznie dziedziczy pola klasy bazowej
+D. Powoduje, że adnotacja staje się domyślna
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Inherited`?
+
+A. `java.lang.annotation`
+B. `javax.annotation`
+C. `java.util`
+D. `javax.annotation.processing`
+
+---
+
+### 3️⃣ Na jakich elementach można stosować `@Inherited`?
+
+A. Polach i metodach
+B. Konstruktorach
+C. Klasach i interfejsach
+D. Wszystkich elementach
+
+---
+
+### 4️⃣ Jakie Retention musi mieć adnotacja, aby `@Inherited` działało?
+
+A. `SOURCE`
+B. `CLASS`
+C. `RUNTIME`
+D. Dowolne
+
+---
+
+### 5️⃣ Czy `@Inherited` działa na metody?
+
+A. Tak
+B. Nie
+
+---
+
+### 6️⃣ Czy adnotacja dziedziczy się przez interfejsy?
+
+A. Tak, zawsze
+B. Nie, `@Inherited` działa tylko dla klas
+C. Tylko jeśli interfejs rozszerza inny interfejs
+D. Tylko w Java 11+
+
+---
+
+### 7️⃣ Czy `@Deprecated` jest dziedziczona automatycznie przez klasy potomne?
+
+A. Tak
+B. Nie
+
+---
+
+### 8️⃣ Kiedy warto użyć `@Inherited`?
+
+A. Aby pola klasy były publiczne
+B. Aby framework mógł automatycznie rozpoznać adnotacje w klasach potomnych
+C. Aby metody były domyślnie `static`
+D. Aby dziedziczyć konstruktory
+
+---
+
+### 9️⃣ Czy `@Inherited` może być stosowana na interfejsach metod?
+
+A. Tak
+B. Nie
+
+---
+
+### 🔟 Jak sprawdzić w kodzie, czy klasa potomna dziedziczy adnotację?
+
+A. `Child.class.hasAnnotation(Annotation.class)`
+B. `Child.class.isAnnotationPresent(Annotation.class)`
+C. `AnnotationUtils.getAnnotations(Child.class)`
+D. `Child.getAnnotationsInherited()`

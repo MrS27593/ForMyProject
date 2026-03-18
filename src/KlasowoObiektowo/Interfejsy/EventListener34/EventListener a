@@ -1,0 +1,73 @@
+Oczywiście! Oto **odpowiedzi do quizu** wraz z krótkim uzasadnieniem:
+
+---
+
+### ✅ **Odpowiedzi:**
+
+#### **1. B) `ActionListener`**
+
+➡️ Obsługuje kliknięcia przycisków i innych komponentów generujących akcję.
+
+---
+
+#### **2. D) `java.util.EventListener`**
+
+➡️ Interfejs `EventListener` znajduje się w pakiecie `java.util`.
+
+---
+
+#### **3. B) `actionPerformed(ActionEvent e)`**
+
+➡️ To jedyna metoda wymagana przez `ActionListener`.
+
+---
+
+#### **4. B) Kompilacja się nie uda**
+
+➡️ `MouseListener` ma 5 metod – musisz je wszystkie zaimplementować, chyba że używasz `MouseAdapter`.
+
+---
+
+#### **5. C) `addActionListener(ActionListener l)`**
+
+➡️ To standardowa metoda w komponentach Swing, np. `JButton`.
+
+---
+
+#### **6. C) `KeyAdapter`**
+
+➡️ Ułatwia implementację `KeyListener`, bo możesz nadpisać tylko potrzebne metody.
+
+---
+
+#### **7. C) Skrócenie kodu poprzez przekazanie funkcji anonimowej**
+
+➡️ Dzięki lambdom możesz np. zamiast klasy anonimowej napisać:
+
+```java
+button.addActionListener(e -> System.out.println("Klik!"));
+```
+
+---
+
+#### **8. B) Nie zawiera żadnych metod – służy do oznaczania**
+
+➡️ Marker interface to taki, który „oznacza” klasę – np. jako listener, serializowalną itd.
+
+---
+
+#### **9. C) `MouseAdapter`**
+
+➡️ Umożliwia implementację tylko wybranych metod `MouseListener`.
+
+---
+
+#### **10. A) Przez rozszerzenie `EventObject` i stworzenie własnego interfejsu listenera**
+
+➡️ Własne zdarzenia tworzy się dziedzicząc po `EventObject` + interfejs listenera + metoda powiadamiająca.
+
+---
+
+🎉 **Wynik**: Jeśli masz 8–10 punktów – świetna znajomość!
+5–7 – solidna podstawa, warto ćwiczyć!
+Mniej niż 5? Chcesz, żebym przygotował zestaw ćwiczeń lub prosty projekt do przećwiczenia tych zagadnień?

@@ -1,0 +1,123 @@
+Świetnie! Oto **quiz dotyczący interfejsu `Supplier<T>` w Javie**, który pomoże Ci utrwalić wiedzę.
+Składa się z 10 pytań — są zarówno jednokrotnego, jak i wielokrotnego wyboru.
+
+---
+
+## ✅ Quiz: Interfejs `Supplier` w Javie
+
+### **Pytanie 1 (jednokrotnego wyboru)**
+
+Co robi metoda `get()` w interfejsie `Supplier<T>`?
+
+A. Przyjmuje jeden argument i nic nie zwraca
+B. Zwraca obiekt typu `T` i nie przyjmuje argumentów
+C. Zwraca wartość `boolean`
+D. Przyjmuje obiekt typu `T` i zwraca `void`
+
+---
+
+### **Pytanie 2 (jednokrotnego wyboru)**
+
+Który z poniższych to poprawna implementacja `Supplier<String>` w postaci wyrażenia lambda?
+
+A. `() -> System.out.println("Hello")`
+B. `() -> { return 5; }`
+C. `() -> "Witaj"`
+D. `(x) -> "Cześć"`
+
+---
+
+### **Pytanie 3 (wielokrotnego wyboru)**
+
+W których przypadkach warto użyć `Supplier<T>`?
+
+A. Generowanie losowych wartości
+B. Sprawdzanie warunku logicznego
+C. Tworzenie obiektu na żądanie
+D. Konsumowanie wartości typu `T`
+
+---
+
+### **Pytanie 4 (jednokrotnego wyboru)**
+
+Jaka paczka zawiera interfejs `Supplier`?
+
+A. `java.util.stream`
+B. `java.util`
+C. `java.lang.function`
+D. `java.util.function`
+
+---
+
+### **Pytanie 5 (jednokrotnego wyboru)**
+
+Które z poniższych jest interfejsem funkcyjnym?
+
+A. `Runnable`
+B. `Supplier`
+C. `Comparator`
+D. Wszystkie powyższe
+
+---
+
+### **Pytanie 6 (jednokrotnego wyboru)**
+
+Co zostanie wypisane?
+
+```java
+Supplier<Integer> numberSupplier = () -> 10;
+System.out.println(numberSupplier.get());
+```
+
+A. `Supplier@123abc`
+B. `0`
+C. `10`
+D. Błąd kompilacji
+
+---
+
+### **Pytanie 7 (wielokrotnego wyboru)**
+
+Czym różni się `Supplier<T>` od `Function<T, R>`?
+
+A. `Supplier` nie przyjmuje żadnych argumentów
+B. `Function` zawsze zwraca typ `boolean`
+C. `Function` przyjmuje argument i zwraca wartość
+D. `Supplier` może być użyty do leniwej inicjalizacji
+
+---
+
+### **Pytanie 8 (jednokrotnego wyboru)**
+
+Co robi `Stream.generate(() -> Math.random())`?
+
+A. Generuje nieskończony strumień losowych liczb
+B. Tworzy jeden element
+C. Generuje strumień typu `int`
+D. Rzuca wyjątek
+
+---
+
+### **Pytanie 9 (wielokrotnego wyboru)**
+
+Które z poniższych interfejsów **różnią się liczbą parametrów wejściowych od `Supplier`**?
+
+A. `Consumer<T>`
+B. `Function<T, R>`
+C. `Runnable`
+D. `Predicate<T>`
+
+---
+
+### **Pytanie 10 (jednokrotnego wyboru)**
+
+Dlaczego `Supplier` jest przydatny przy tzw. „lazy loading” (leniwe ładowanie)?
+
+A. Ponieważ zawsze buforuje wynik
+B. Ponieważ wykonuje `get()` automatycznie w tle
+C. Ponieważ kod nie wykonuje się, dopóki `get()` nie zostanie wywołany
+D. Ponieważ działa tylko z typami prostymi
+
+---
+
+Chcesz od razu zobaczyć odpowiedzi i wyjaśnienia?

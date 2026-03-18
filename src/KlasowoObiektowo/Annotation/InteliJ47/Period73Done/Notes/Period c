@@ -1,0 +1,67 @@
+Super 😄 teraz lecimy z **`@Period`** – kolejną adnotacją z kontekstu **Java Flight Recorder (JFR)**.
+
+---
+
+# 📌 `@Period` – co to jest?
+
+`@Period` to adnotacja, która:
+
+> Określa **częstotliwość próbkowania zdarzenia JFR** w określonym interwale czasowym.
+> Wartość podawana jest w nanosekundach lub w formie jednostek czasu (np. `ms`, `s`) i służy do konfiguracji **trybu próbkowania zdarzeń**.
+
+Jest przydatna do zdarzeń typu **sampling**, np. CPU, pamięci czy zdarzeń niestandardowych w aplikacjach.
+
+---
+
+## 🔎 Pakiet
+
+```java
+jdk.jfr.Period
+```
+
+Od wersji: Java 9+
+
+---
+
+# ✅ Przykład użycia
+
+```java
+import jdk.jfr.*;
+
+@Label("CPU Usage Event")
+@Description("Tracks CPU usage at regular intervals")
+@Period("1 s") // próbkowanie co 1 sekundę
+class CpuUsageEvent extends Event {
+
+    @Label("CPU Usage")
+    double cpuUsage;
+
+    @Label("Memory Usage")
+    double memoryUsage;
+}
+```
+
+➡ `@Period("1 s")` oznacza, że zdarzenie będzie próbkowane co sekundę w JFR.
+
+---
+
+# 🧠 Uwagi
+
+1. **Nie wpływa na logikę programu** – kontroluje jedynie zachowanie **JFR**.
+2. Stosowana głównie na **klasach zdarzeń**, nie na polach.
+3. Wartość można podawać w:
+
+   * `"ns"` – nanosekundy
+   * `"ms"` – milisekundy
+   * `"s"` – sekundy
+4. Pomaga **narzędziom monitorującym** (JMC) poprawnie agregować dane w raportach.
+
+---
+
+# 🎯 Definicja egzaminacyjna
+
+> `@Period` w Java Flight Recorder określa **interwał próbkowania zdarzenia**, definiując jak często dane zdarzenie powinno być rejestrowane. Służy narzędziom monitorującym do kontrolowania częstotliwości zbierania danych.
+
+---
+
+Chcesz, żebym teraz zrobił **quiz z `@Period`**?

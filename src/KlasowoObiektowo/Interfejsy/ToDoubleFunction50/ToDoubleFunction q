@@ -1,0 +1,62 @@
+Jasne! Oto krótki quiz (5 pytań) dotyczący interfejsu `ToDoubleFunction<T>` w Javie. Pytania mają formę wielokrotnego wyboru – na końcu podam odpowiedzi, ale spróbuj najpierw samodzielnie 😉
+
+---
+
+### 🧠 **Quiz: ToDoubleFunction w Javie**
+
+#### **1. Co robi interfejs `ToDoubleFunction<T>`?**
+
+A. Przyjmuje jeden argument i zwraca obiekt typu `Double`
+B. Przyjmuje jeden argument typu `double` i zwraca obiekt typu `T`
+C. Przyjmuje jeden argument typu `T` i zwraca wartość typu `double`
+D. Przyjmuje dwa argumenty typu `T` i zwraca wartość typu `double`
+
+---
+
+#### **2. Jaka jest poprawna sygnatura metody interfejsu `ToDoubleFunction`?**
+
+A. `Double apply(T t);`
+B. `double applyAsDouble(T value);`
+C. `T applyAsDouble(double value);`
+D. `void apply(T value);`
+
+---
+
+#### **3. Który z poniższych zapisów jest poprawną implementacją `ToDoubleFunction<String>` za pomocą wyrażenia lambda?**
+
+A. `s -> s.toString()`
+B. `s -> (double) s.length()`
+C. `(String s) -> s.length()`
+D. `s -> s.length()`
+
+---
+
+#### **4. Jakie jest zastosowanie `mapToDouble()` w strumieniach (Streams)?**
+
+A. Mapuje strumień do typu `String`
+B. Mapuje strumień do typu `int`
+C. Mapuje elementy do typu `double`, umożliwiając operacje numeryczne
+D. Filtruje strumień, zostawiając tylko wartości typu `double`
+
+---
+
+#### **5. Co się stanie, jeśli `average()` zostanie wywołane na pustym strumieniu typu `DoubleStream`?**
+
+A. Zwróci `0.0`
+B. Zgłosi wyjątek
+C. Zwróci `OptionalDouble.empty()`
+D. Zwróci `NaN`
+
+---
+
+### ✅ **Odpowiedzi:**
+
+1. C
+2. B
+3. D *(B i C też technicznie poprawne, ale D jest najprostsze i najczęściej używane)*
+4. C
+5. C
+
+---
+
+I jak poszło? Chcesz trudniejszą wersję lub pytania z kodem? 😊

@@ -1,0 +1,127 @@
+### `catch` w języku Java — **WIEDZA**
+
+`catch` to słowo kluczowe służące do **obsługi wyjątków** w Javie. Pozwala przechwycić wyjątek zgłoszony w bloku `try` i odpowiednio na niego zareagować.
+
+---
+
+## 1️⃣ Składnia podstawowa
+
+```java
+try {
+    int result = 10 / 0; // może wyrzucić ArithmeticException
+} catch (ArithmeticException e) {
+    System.out.println("Nie można dzielić przez zero!");
+}
+```
+
+* `try` — blok kodu, w którym może wystąpić wyjątek
+* `catch` — blok przechwytujący wyjątek określonego typu (`ArithmeticException`)
+* `e` — referencja do obiektu wyjątku, można z niej pobrać np. komunikat (`e.getMessage()`)
+
+---
+
+## 2️⃣ Obsługa wielu wyjątków
+
+```java
+try {
+    String s = null;
+    System.out.println(s.length());
+} catch (NullPointerException e) {
+    System.out.println("Obiekt jest null!");
+} catch (Exception e) {
+    System.out.println("Inny wyjątek");
+}
+```
+
+* Można używać wielu bloków `catch` dla różnych typów wyjątków.
+* Ważna kolejność: od **bardziej szczegółowych** do **bardziej ogólnych**.
+
+---
+
+## 3️⃣ Catch z wieloma typami wyjątków (Java 7+)
+
+```java
+try {
+    int[] arr = new int[2];
+    arr[5] = 10;
+} catch (ArrayIndexOutOfBoundsException | NullPointerException e) {
+    System.out.println("Błąd tablicy lub null!");
+}
+```
+
+* Pozwala obsłużyć kilka wyjątków tym samym blokiem `catch`.
+
+---
+
+## 4️⃣ `catch` i `finally`
+
+```java
+try {
+    int x = 5 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Błąd dzielenia!");
+} finally {
+    System.out.println("To wykona się zawsze!");
+}
+```
+
+* `finally` wykonuje się **zawsze**, niezależnie czy wyjątek wystąpił.
+* Przydatne do zwalniania zasobów (np. zamykanie plików, strumieni).
+
+---
+
+## 5️⃣ Dostęp do informacji o wyjątku
+
+```java
+try {
+    int x = 5 / 0;
+} catch (ArithmeticException e) {
+    System.out.println(e.getMessage());   // np. / by zero
+    e.printStackTrace();                 // pełny ślad stosu
+}
+```
+
+* `getMessage()` – komunikat wyjątku
+* `printStackTrace()` – pokazuje szczegóły błędu i miejsce wystąpienia
+
+---
+
+## 6️⃣ Przykład praktyczny
+
+```java
+public class CatchExample {
+    public static void main(String[] args) {
+        try {
+            int[] numbers = {1, 2, 3};
+            System.out.println(numbers[5]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Niepoprawny indeks tablicy");
+        }
+    }
+}
+```
+
+* Przechwytuje błąd indeksu tablicy, zamiast przerywać program.
+
+---
+
+## 7️⃣ Częste błędy
+
+❌ Nieprawidłowa kolejność `catch` (od ogólnego do szczegółowego)
+❌ Brak `catch` przy `try` (chyba że użyto `try-with-resources`)
+❌ Pusta obsługa wyjątku bez komentarza – trudne do debugowania
+
+---
+
+## 8️⃣ Podsumowanie
+
+* `catch` = przechwycenie i obsługa wyjątku
+* Obsługuje **tylko wyjątki**, które wystąpiły w `try`
+* Można używać wielu `catch` lub jednego dla wielu typów wyjątków
+* Współpracuje z `finally`
+
+---
+
+Kiedy chcesz, mogę przygotować **quiz z `catch`** z pytaniami praktycznymi i pułapkami, tak jak robiłem wcześniej.
+
+Chcesz, żebym to zrobił teraz?

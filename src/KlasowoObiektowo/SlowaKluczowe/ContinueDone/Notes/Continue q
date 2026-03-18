@@ -1,0 +1,98 @@
+### 📘 QUIZ – `continue` w Java
+
+**10 pytań: 8 zamkniętych (A–D) + 2 otwarte**
+
+---
+
+#### 1️⃣ Co robi słowo kluczowe `continue` w pętli?
+
+A. Kończy całą pętlę
+B. Przeskakuje bieżącą iterację i przechodzi do następnej
+C. Kończy działanie programu
+D. Powtarza bieżącą iterację
+
+---
+
+#### 2️⃣ Co wypisze poniższy kod?
+
+```java
+for (int i = 1; i <= 5; i++) {
+    if (i == 3) continue;
+    System.out.print(i + " ");
+}
+```
+
+A. 1 2 3 4 5
+B. 1 2 4 5
+C. 1 2 3 4
+D. 2 3 4 5
+
+---
+
+#### 3️⃣ W jakich pętlach można używać `continue`?
+
+A. Tylko `for`
+B. `for`, `while`, `do-while`
+C. Tylko `while`
+D. Tylko w metodach
+
+---
+
+#### 4️⃣ Co się stanie w przypadku `continue` w pętli `while`?
+
+A. Pętla zakończy się natychmiast
+B. Pominięta zostanie pozostała część iteracji i sprawdzany będzie warunek następnej iteracji
+C. Program wyrzuci błąd
+D. Pętla zostanie pominięta całkowicie
+
+---
+
+#### 5️⃣ Co robi `continue` z etykietą (label)?
+
+A. Przeskakuje do następnej iteracji pętli oznaczonej etykietą
+B. Kończy działanie programu
+C. Zastępuje `break`
+D. Tworzy nową pętlę
+
+---
+
+#### 6️⃣ Co jest różnicą między `continue` a `break`?
+
+A. `continue` kończy całą pętlę, `break` tylko iterację
+B. `continue` pomija iterację, `break` kończy całą pętlę
+C. Nie ma różnicy
+D. `break` działa tylko w `for`, `continue` tylko w `while`
+
+---
+
+#### 7️⃣ Czy można używać `continue` w pętli `do-while`?
+
+A. Tak
+B. Nie
+C. Tylko z etykietą
+D. Tylko w Javie 8+
+
+---
+
+#### 8️⃣ Który zapis jest prawidłowy?
+
+A. `if (x == 5) continue;`
+B. `continue (x == 5);`
+C. `continue x;`
+D. `continue x == 5;`
+
+---
+
+#### 9️⃣ (Otwarte)
+
+Podaj przykład użycia `continue` w pętli `for`, aby wypisać tylko liczby parzyste od 1 do 10.
+
+---
+
+#### 🔟 (Otwarte)
+
+Wyjaśnij, w jakiej sytuacji warto użyć `continue` w pętli zamiast `if-else`.
+
+---
+
+Napisz **„odpowiedzi”**, a podam komplet odpowiedzi wraz z wyjaśnieniami ✅

@@ -1,0 +1,220 @@
+Świetny wybór 👍
+`java.time.Month` to **jeden z najważniejszych enumów w nowoczesnej Javie**. Nauczymy się go **od zera do poziomu rekrutacyjno-egzaminacyjnego**, dokładnie tak jak `DayOfWeek`.
+
+---
+
+# 🗓️ `java.time.Month` – kompletny przewodnik
+
+## 1️⃣ Czym jest `Month`?
+
+`Month` to **enum reprezentujący 12 miesięcy w roku**, zgodnie z ISO-8601.
+
+Pakiet:
+
+```java
+java.time.Month
+```
+
+Wartości:
+
+```java
+JANUARY, FEBRUARY, MARCH, APRIL,
+MAY, JUNE, JULY, AUGUST,
+SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
+```
+
+---
+
+## 2️⃣ Podstawowe użycie
+
+```java
+import java.time.Month;
+
+Month month = Month.JANUARY;
+System.out.println(month); // JANUARY
+```
+
+---
+
+## 3️⃣ Wartości liczbowe (`getValue()`)
+
+| Miesiąc  | `getValue()` |
+| -------- | ------------ |
+| JANUARY  | 1            |
+| FEBRUARY | 2            |
+| ...      | ...          |
+| DECEMBER | 12           |
+
+```java
+Month month = Month.MARCH;
+System.out.println(month.getValue()); // 3
+```
+
+📌 **Bardzo ważne:**
+`ordinal()` ❌ ≠ numer miesiąca
+`getValue()` ✅ = numer miesiąca
+
+---
+
+## 4️⃣ Iterowanie po miesiącach
+
+```java
+for (Month m : Month.values()) {
+    System.out.println(m + " -> " + m.getValue());
+}
+```
+
+---
+
+## 5️⃣ Operacje na miesiącach (`plus`, `minus`)
+
+```java
+Month month = Month.NOVEMBER;
+
+System.out.println(month.plus(1));  // DECEMBER
+System.out.println(month.plus(2));  // JANUARY
+System.out.println(month.minus(3)); // AUGUST
+```
+
+✔ Operacje są **cykliczne**
+
+---
+
+## 6️⃣ Liczba dni w miesiącu
+
+### 6.1️⃣ Bez roku (minimum / maximum)
+
+```java
+Month february = Month.FEBRUARY;
+
+System.out.println(february.minLength()); // 28
+System.out.println(february.maxLength()); // 29
+```
+
+---
+
+### 6.2️⃣ Z uwzględnieniem roku przestępnego
+
+```java
+System.out.println(Month.FEBRUARY.length(true));  // 29
+System.out.println(Month.FEBRUARY.length(false)); // 28
+```
+
+---
+
+## 7️⃣ Pobieranie miesiąca z daty
+
+```java
+import java.time.LocalDate;
+
+LocalDate date = LocalDate.of(2026, 3, 15);
+Month month = date.getMonth();
+
+System.out.println(month); // MARCH
+```
+
+---
+
+## 8️⃣ Sprawdzanie kwartału
+
+```java
+public int getQuarter(Month month) {
+    return (month.getValue() - 1) / 3 + 1;
+}
+```
+
+| Miesiąc | Kwartał |
+| ------- | ------- |
+| JANUARY | Q1      |
+| APRIL   | Q2      |
+| JULY    | Q3      |
+| OCTOBER | Q4      |
+
+---
+
+## 9️⃣ Parsowanie z `String`
+
+```java
+Month month = Month.valueOf("AUGUST");
+```
+
+⚠️ Wymaga **dokładnej nazwy** (DUŻE LITERY).
+
+---
+
+## 🔟 `Month` + `switch`
+
+```java
+Month month = Month.DECEMBER;
+
+switch (month) {
+    case DECEMBER, JANUARY, FEBRUARY -> System.out.println("Zima ❄️");
+    case MARCH, APRIL, MAY -> System.out.println("Wiosna 🌸");
+    case JUNE, JULY, AUGUST -> System.out.println("Lato ☀️");
+    case SEPTEMBER, OCTOBER, NOVEMBER -> System.out.println("Jesień 🍂");
+}
+```
+
+---
+
+## 1️⃣1️⃣ `Month` vs `int`
+
+❌ Złe podejście:
+
+```java
+int month = 13; // ❌
+```
+
+✔ Dobre:
+
+```java
+Month month = Month.DECEMBER;
+```
+
+✔ Zalety:
+
+* brak niepoprawnych wartości
+* czytelność
+* integracja z `LocalDate`
+
+---
+
+## 1️⃣2️⃣ Najczęstsze pułapki
+
+❗ `ordinal()` zaczyna się od 0
+❗ `getValue()` zaczyna się od 1
+❗ `valueOf("August")` → ❌ wyjątek
+❗ Luty ≠ zawsze 28 dni
+
+---
+
+## 1️⃣3️⃣ Przykład biznesowy
+
+```java
+public boolean isHighSeason(Month month) {
+    return month == Month.JULY || month == Month.AUGUST;
+}
+```
+
+---
+
+## 🧠 Podsumowanie
+
+✔ `Month` to Enum
+✔ Zakres 1–12 (`getValue()`)
+✔ Obsługuje `plus`, `minus`
+✔ Wie ile ma dni
+✔ Idealny do logiki biznesowej i dat
+
+---
+
+### 🔥 Co dalej?
+
+Mogę:
+
+* zrobić **quiz z `Month`**
+* porównać **`Month` vs `MonthDay`**
+* dać **zadania rekrutacyjne (daty, sezony, kwartały)**
+* przejść do **`Year`, `YearMonth`, `ChronoUnit`**
+
+👉 Co wybierasz?

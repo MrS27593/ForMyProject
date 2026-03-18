@@ -1,0 +1,171 @@
+Super 👍 teraz klasyk Javy:
+
+# `@FunctionalInterface`
+
+---
+
+## 📌 Co to jest?
+
+`@FunctionalInterface` to standardowa adnotacja JDK, która oznacza:
+
+> Interfejs posiada **dokładnie jedną metodę abstrakcyjną**
+> i może być używany z lambdami.
+
+Pakiet:
+
+```java
+java.lang.FunctionalInterface
+```
+
+Od wersji:
+Java 8
+
+---
+
+# 🔎 Dlaczego to ważne?
+
+Wprowadzenie lambd w Java 8 wymagało formalnego pojęcia:
+
+> „Interfejs funkcyjny”
+
+czyli interfejsu, który reprezentuje jedną operację.
+
+---
+
+# ✅ Poprawny przykład
+
+```java
+@FunctionalInterface
+public interface Calculator {
+    int add(int a, int b);
+}
+```
+
+Można użyć lambdy:
+
+```java
+Calculator c = (a, b) -> a + b;
+```
+
+---
+
+# ❌ Błąd kompilacji
+
+Jeśli dodasz drugą metodę abstrakcyjną:
+
+```java
+@FunctionalInterface
+public interface Calculator {
+    int add(int a, int b);
+    int subtract(int a, int b); // ❌ błąd
+}
+```
+
+Kompilator zgłosi błąd.
+
+---
+
+# 🧠 Ale uwaga!
+
+Można mieć:
+
+* metody `default`
+* metody `static`
+* metody z `Object` (equals, hashCode, toString)
+
+To nadal będzie functional interface.
+
+Przykład poprawny:
+
+```java
+@FunctionalInterface
+public interface Calculator {
+    int add(int a, int b);
+
+    default void print() {
+        System.out.println("Calculator");
+    }
+}
+```
+
+---
+
+# 📦 Przykłady z JDK
+
+![Image](https://media.licdn.com/dms/image/v2/D4D12AQFMQ6MQcOlWjQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1694687291067?e=2147483647\&t=k5oDSjxfO3sd-xLmC_1EaxWZ5VAdNSLjRZ-L7qp2Ti8\&v=beta)
+
+![Image](https://www.concretepage.com/java/java-8/images/java-predicate.jpg)
+
+![Image](https://cdn.ttgtmedia.com/ITKE/uploads/blogs.dir/319/files/2018/12/java-consumer-function-example.jpg)
+
+![Image](https://www.concretepage.com/java/java-8/images/java-consumer.jpg)
+
+Najpopularniejsze functional interfaces:
+
+* `Function<T, R>`
+* `Predicate<T>`
+* `Consumer<T>`
+* `Supplier<T>`
+* `Runnable`
+* `Callable`
+
+---
+
+# 🎯 Co daje adnotacja?
+
+Technicznie:
+
+* kompilator sprawdza, czy interfejs ma dokładnie 1 metodę abstrakcyjną
+* daje czytelność kodu
+* chroni przed przypadkowym „zepsuciem” interfejsu
+
+---
+
+# ❗ Czy jest obowiązkowa?
+
+Nie.
+
+To działa nawet bez adnotacji:
+
+```java
+public interface Calculator {
+    int add(int a, int b);
+}
+```
+
+Ale dobra praktyka mówi:
+
+> Zawsze oznaczaj functional interface adnotacją.
+
+---
+
+# 🔥 Różnica: SAM
+
+Functional interface =
+**SAM (Single Abstract Method)**
+
+---
+
+# 🧪 Pytanie rekrutacyjne
+
+Dlaczego `Comparator` jest functional interface mimo że ma wiele metod?
+
+Odpowiedź:
+Bo tylko jedna jest abstrakcyjna (`compare`), reszta to `default` i `static`.
+
+---
+
+# 📌 Najkrótsza definicja
+
+> `@FunctionalInterface` oznacza interfejs z jedną metodą abstrakcyjną, który może być używany jako target dla wyrażeń lambda.
+
+---
+
+Chcesz teraz:
+
+* 🔥 quiz z functional interfaces?
+* 🔥 różnice: lambda vs anonymous class?
+* 🔥 jak napisać własny `BiFunction`?
+* 🔥 pułapki egzaminacyjne?
+
+Co robimy dalej? 😄

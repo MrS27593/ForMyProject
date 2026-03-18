@@ -1,0 +1,49 @@
+Jasne 👍 Oto **ODPOWIEDZI do quizu: `IllegalStateException`** wraz z krótkimi, rekrutacyjnymi wyjaśnieniami 👇
+
+---
+
+## ✅ **ODPOWIEDZI – IllegalStateException**
+
+1️⃣ **B** – `IllegalStateException` jest **unchecked exception**
+
+2️⃣ **C** – używamy go, gdy **stan obiektu jest nieprawidłowy**
+
+3️⃣ **C** – **nie musi** być obsłużony w `try-catch`
+
+4️⃣ **B** – kluczowa różnica: **argumenty vs stan obiektu**
+
+5️⃣ **C** – `Iterator.remove()` bez `next()` → **IllegalStateException**
+
+6️⃣ **C** – wywołanie `process()` przed `init()` → zły stan obiektu
+
+7️⃣ **C** – łapanie `IllegalStateException` lokalnie to **zła praktyka**
+
+8️⃣ **B** – poprawne użycie z czytelnym komunikatem
+
+9️⃣ **C** – zły moment cyklu życia → `IllegalStateException`
+
+🔟 **B** – wersja z komunikatem jest **zdecydowanie lepsza**
+
+1️⃣1️⃣ **C** – JDK często rzuca `IllegalStateException`
+
+1️⃣2️⃣ **C** – **Argument → IllegalArgumentException, Stan → IllegalStateException**
+
+---
+
+## 🧠 **Złote wnioski (must-know)**
+
+✔️ Nie myl argumentu ze stanem
+✔️ `IllegalStateException` = cykl życia obiektu
+✔️ Rzucaj fail-fast
+✔️ Zawsze dawaj komunikat
+✔️ Bardzo częsty wyjątek rekrutacyjny
+
+---
+
+Jeśli chcesz iść dalej:
+👉 **IndexOutOfBoundsException**
+👉 **ConcurrentModificationException**
+👉 **hard quiz – mieszane wyjątki**
+👉 **zadania „co się stanie?”**
+
+Co robimy dalej? 😄

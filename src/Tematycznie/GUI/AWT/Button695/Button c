@@ -1,0 +1,125 @@
+Świetnie — skupmy się **tylko na przycisku `Button` z AWT**. Oto szczegółowe omówienie tej klasy, jej właściwości, metod, oraz przykładów praktycznego zastosowania.
+
+---
+
+## 🔷 1. Co to jest `Button` z AWT?
+
+`Button` to komponent GUI wchodzący w skład pakietu **`java.awt`**, który reprezentuje klasyczny **przycisk**. Użytkownik może go kliknąć, co zwykle wywołuje jakąś akcję.
+
+```java
+Button myButton = new Button("Kliknij mnie");
+```
+
+---
+
+## 📚 2. Kluczowe cechy klasy `Button`
+
+* Dziedziczy po klasie `Component`, więc jest częścią hierarchii komponentów AWT.
+* Umożliwia ustawienie tekstu, dodanie nasłuchiwacza zdarzeń (`ActionListener`).
+* Można go dodać do każdego kontenera AWT, np. `Frame`, `Panel`, `Dialog`.
+
+---
+
+## 🛠️ 3. Konstruktor
+
+### a) Z tekstem:
+
+```java
+Button b = new Button("Kliknij");
+```
+
+### b) Bez tekstu:
+
+```java
+Button b = new Button();
+b.setLabel("Kliknij mnie");
+```
+
+---
+
+## 🧩 4. Najważniejsze metody `Button`
+
+| Metoda                                           | Opis                                                              |
+| ------------------------------------------------ | ----------------------------------------------------------------- |
+| `setLabel(String label)`                         | Ustawia tekst przycisku                                           |
+| `getLabel()`                                     | Pobiera aktualny tekst przycisku                                  |
+| `addActionListener(...)`                         | Dodaje nasłuchiwacz zdarzenia kliknięcia                          |
+| `setEnabled(boolean)`                            | Włącza/wyłącza przycisk (np. `false` czyni go nieklikalnym)       |
+| `isEnabled()`                                    | Sprawdza, czy przycisk jest aktywny                               |
+| `setBounds(int x, int y, int width, int height)` | Ustawia pozycję i rozmiar przycisku (jeśli używasz `null layout`) |
+| `setVisible(boolean)`                            | Pokazuje lub ukrywa przycisk                                      |
+
+---
+
+## 🎯 5. Obsługa kliknięcia – `ActionListener`
+
+Aby przycisk reagował na kliknięcia, musisz dodać `ActionListener`:
+
+```java
+b.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+        System.out.println("Kliknięto przycisk!");
+    }
+});
+```
+
+---
+
+## 🧪 6. Przykład z działającym przyciskiem AWT
+
+```java
+import java.awt.*;
+import java.awt.event.*;
+
+public class PrzykladButton {
+    public static void main(String[] args) {
+        Frame f = new Frame("Przycisk AWT");
+
+        Button b = new Button("Kliknij mnie");
+        b.setBounds(100, 100, 100, 40);
+
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Kliknięto przycisk!");
+            }
+        });
+
+        f.add(b);
+        f.setSize(300, 250);
+        f.setLayout(null);
+        f.setVisible(true);
+
+        f.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                f.dispose();
+            }
+        });
+    }
+}
+```
+
+---
+
+## 🖼️ 7. Stylizacja i wygląd
+
+W czystym AWT możliwości stylizacji są **ograniczone**:
+
+* Brak możliwości ustawienia kolorów czcionki lub tła bezpośrednio przez style CSS.
+* Możesz używać `setBackground(Color)` i `setForeground(Color)`:
+
+```java
+b.setBackground(Color.YELLOW);
+b.setForeground(Color.RED);
+```
+
+---
+
+## ⚠️ 8. Ograniczenia przycisku AWT
+
+* Brak obsługi ikon (nie możesz dodać obrazka jak w Swing).
+* Wygląd zależy od systemu operacyjnego (komponenty są **"native"**, czyli wyglądają jak elementy systemowe).
+* Trudniejszy w stylizacji niż komponenty `Swing`.
+
+---
+
+Czy chcesz, abym teraz pokazał przykład z kilkoma przyciskami lub zrobił miniaplikację z licznikiem kliknięć przy użyciu AWT?

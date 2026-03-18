@@ -1,0 +1,86 @@
+Oczywiście! Interfejs `ItemSelectable` to część biblioteki Swing w Javie, i jest używany do reprezentowania komponentów GUI (interfejsu graficznego), które pozwalają użytkownikowi wybrać jeden lub więcej elementów — takich jak lista, pole wyboru (`Checkbox`), przycisk opcji (`RadioButton`) itp.
+
+---
+
+### 📌 Gdzie znajduje się `ItemSelectable`?
+
+Pakiet: `java.awt`
+
+```java
+import java.awt.ItemSelectable;
+```
+
+---
+
+### 🔧 Co robi `ItemSelectable`?
+
+Interfejs `ItemSelectable` deklaruje metody do:
+
+* Uzyskiwania wybranych elementów.
+* Rejestrowania i usuwania słuchaczy (listenerów), którzy będą informowani o zmianie wyboru.
+
+---
+
+### 📘 Metody interfejsu `ItemSelectable`
+
+```java
+Object[] getSelectedObjects();
+```
+
+* Zwraca tablicę obiektów, które są aktualnie wybrane.
+* Może być `null`, jeśli nic nie jest wybrane.
+
+```java
+void addItemListener(ItemListener l);
+```
+
+* Dodaje `ItemListener` (obiekt nasłuchujący zmian zaznaczenia).
+
+```java
+void removeItemListener(ItemListener l);
+```
+
+* Usuwa wcześniej dodanego `ItemListener`.
+
+---
+
+### 👇 Przykład użycia: `Checkbox`
+
+```java
+import java.awt.*;
+import java.awt.event.*;
+
+public class CheckboxExample {
+    public static void main(String[] args) {
+        Frame frame = new Frame("ItemSelectable przykład");
+        Checkbox checkbox = new Checkbox("Zaznacz mnie");
+
+        checkbox.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent e) {
+                ItemSelectable source = e.getItemSelectable();
+                Object[] selected = source.getSelectedObjects();
+                if (selected != null) {
+                    System.out.println("Wybrano: " + selected[0]);
+                } else {
+                    System.out.println("Nic nie wybrano");
+                }
+            }
+        });
+
+        frame.add(checkbox);
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+    }
+}
+```
+
+---
+
+### 🧠 Dodatkowe uwagi
+
+* `ItemSelectable` to **interfejs funkcjonalny**, czyli komponent go implementujący może być podany jako lambda (od Javy 8).
+* `ItemEvent` to zdarzenie, które jest emitowane, gdy zaznaczenie ulegnie zmianie.
+
+---
+
+Chcesz, żebym pokazał przykład z `JComboBox`, `CheckboxGroup`, czy może inne zastosowanie?

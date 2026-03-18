@@ -1,0 +1,141 @@
+### `char` w języku Java — **WIEDZA**
+
+`char` to **prymitywny typ danych** w Javie, używany do przechowywania **pojedynczych znaków Unicode**.
+
+---
+
+## 1️⃣ Zakres i deklaracja
+
+* `char` zajmuje **2 bajty (16 bitów)**
+* Może przechowywać znaki Unicode od `\u0000` do `\uffff` (0 … 65535)
+
+```java
+char letter = 'A';
+char digit = '9';
+char unicodeChar = '\u03A9'; // Omega
+```
+
+❌ Nie można przypisać `'AB'` ani liczby większej niż 65535 bez rzutowania.
+
+---
+
+## 2️⃣ Operacje na `char`
+
+* `char` można porównywać i wykonywać operacje arytmetyczne (bo traktowany jest jak liczba całkowita `int`):
+
+```java
+char a = 'A';
+char b = 'B';
+
+if (a < b) {
+    System.out.println("A jest mniejsze od B");
+}
+
+char next = (char)(a + 1); // B
+```
+
+* Dodawanie i odejmowanie zwraca `int`, więc czasem potrzebne jest rzutowanie na `char`.
+
+---
+
+## 3️⃣ Łączenie znaków w `String`
+
+```java
+char c1 = 'H';
+char c2 = 'i';
+String s = "" + c1 + c2; // "Hi"
+```
+
+* `char` można konwertować na `String` i odwrotnie (`charAt()` w `String`).
+
+---
+
+## 4️⃣ Znaki specjalne
+
+```java
+char newline = '\n'; // nowa linia
+char tab = '\t';     // tabulator
+char quote = '\'';   // apostrof
+char backslash = '\\'; // backslash
+```
+
+* Warto znać **sekwencje ucieczki** (`\n`, `\t`, `\\`, `\'`, `\"`)
+
+---
+
+## 5️⃣ Porównania i logika
+
+```java
+char grade = 'B';
+
+if (grade >= 'A' && grade <= 'F') {
+    System.out.println("Poprawna ocena");
+}
+```
+
+* Można używać operatorów porównania (`<`, `>`, `==`) z `char`.
+
+---
+
+## 6️⃣ Tablice znaków
+
+```java
+char[] letters = {'J','a','v','a'};
+System.out.println(letters[0]); // J
+```
+
+* Przydatne do **przetwarzania tekstu niskopoziomowo**.
+
+---
+
+## 7️⃣ Konwersje
+
+```java
+char c = 'A';
+int code = c;        // 65
+char fromCode = (char)65; // 'A'
+```
+
+* `char` jest zgodny z typem liczbowym, można go rzutować do `int` i odwrotnie.
+
+---
+
+## 8️⃣ Przykład praktyczny
+
+```java
+public class CharExample {
+    public static void main(String[] args) {
+        char[] letters = {'J', 'a', 'v', 'a'};
+        for (char c : letters) {
+            System.out.print(c);
+        }
+    }
+}
+```
+
+**Wynik:** `Java`
+
+* Idealne do **przetwarzania pojedynczych znaków w tekstach**.
+
+---
+
+## 9️⃣ Częste błędy
+
+❌ Przypisanie więcej niż jednego znaku `'AB'`
+❌ Brak rzutowania przy operacjach arytmetycznych
+❌ Mylenie `char` z `String`
+
+---
+
+## 🔟 Podsumowanie
+
+* `char` = prymitywny typ przechowujący **pojedynczy znak Unicode**
+* Zajmuje **2 bajty**, zakres 0 … 65535
+* Wspiera operacje arytmetyczne i porównania
+* Używany w tablicach znaków, przetwarzaniu tekstu, konwersjach na liczby i stringi
+
+---
+
+Kiedy będziesz gotowy, mogę zrobić **quiz z `char`** z praktycznymi pytaniami i pułapkami, jak we wcześniejszych przykładach.
+
+Chcesz, żebym zrobił quiz teraz?

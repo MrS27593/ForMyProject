@@ -1,0 +1,159 @@
+Ooo, **`DataAmount`** — kolejny **świetny „egzaminacyjny haczyk”** 😄
+I znowu: najpierw **twarda prawda techniczna**, potem porządkujemy pojęcia.
+
+---
+
+# ❗ `DataAmount` — **nie jest standardową adnotacją w Javie**
+
+👉 **W JDK NIE ISTNIEJE adnotacja ani klasa `DataAmount`.**
+
+Nie ma:
+
+* `@DataAmount`
+* `java.lang.DataAmount`
+* `java.util.DataAmount`
+
+I bardzo dobrze, że o to pytasz — bo to pojęcie **często mylone** z czymś, co naprawdę istnieje.
+
+---
+
+# ✅ Co ludzie MAJĄ NA MYŚLI, mówiąc „DataAmount”?
+
+W 99% przypadków chodzi o **SPRINGA** 👇
+
+---
+
+## 1️⃣ Spring: `DataSize` (najczęstsza pomyłka)
+
+### ✔️ Prawdziwa klasa
+
+```java
+org.springframework.util.unit.DataSize
+```
+
+➡️ Reprezentuje **ilość danych** (B, KB, MB, GB)
+
+---
+
+### Przykład:
+
+```java
+DataSize size = DataSize.ofMegabytes(10);
+```
+
+albo:
+
+```java
+DataSize size = DataSize.parse("256MB");
+```
+
+---
+
+## 2️⃣ Spring Boot + konfiguracja (MEGA WAŻNE)
+
+```properties
+spring.servlet.multipart.max-file-size=10MB
+spring.servlet.multipart.max-request-size=20MB
+```
+
+➡️ Spring **parsuje String → DataSize**
+
+📌 To jest główny powód, dla którego ludzie „pamiętają” coś jak `DataAmount`.
+
+---
+
+## 3️⃣ `DataUnit` – jednostki danych
+
+```java
+DataUnit.MEGABYTES
+DataUnit.GIGABYTES
+```
+
+📦 Pakiet:
+
+```java
+org.springframework.util.unit
+```
+
+---
+
+## 4️⃣ Czy istnieje `@DataAmount` w Springu?
+
+❌ **NIE**
+
+Nie ma:
+
+* `@DataAmount`
+* walidacyjnej adnotacji tego typu
+* konwertera adnotacyjnego
+
+➡️ Spring używa:
+
+* `DataSize`
+* `Converter<String, DataSize>`
+
+---
+
+## 5️⃣ A walidacja „ilości danych”?
+
+Robi się ją inaczej 👇
+
+### ✔️ Bean Validation
+
+```java
+@Max(10485760) // 10 MB w bajtach
+long fileSize;
+```
+
+albo:
+
+```java
+@AssertTrue
+boolean isSizeValid() {
+    return size <= 10 * 1024 * 1024;
+}
+```
+
+---
+
+## 6️⃣ Dlaczego NIE ma `@DataAmount`?
+
+Bo:
+
+* ilość danych ≠ metadana
+* to **wartość**, nie opis struktury
+* lepiej reprezentować ją jako **typ (`DataSize`)**, nie adnotację
+
+📌 To samo podejście co:
+
+* `Duration` zamiast `@TimeAmount`
+* `Period` zamiast `@DateAmount`
+
+---
+
+## 🧠 Szybka tabela prawdy
+
+| Nazwa         | Istnieje? | Co to jest              |
+| ------------- | --------- | ----------------------- |
+| `@DataAmount` | ❌         | Nie istnieje            |
+| `DataAmount`  | ❌         | Nie istnieje            |
+| `DataSize`    | ✅         | Klasa Spring            |
+| `DataUnit`    | ✅         | Enum                    |
+| `"10MB"`      | ✅         | Parsowane do `DataSize` |
+
+---
+
+## 🧪 Egzaminacyjna odpowiedź (wzorcowa)
+
+> W Javie nie istnieje standardowa adnotacja ani klasa `DataAmount`. W Springu ilość danych reprezentowana jest przez klasę `DataSize`, która umożliwia pracę z jednostkami takimi jak KB, MB czy GB, szczególnie w konfiguracji aplikacji.
+
+---
+
+Jeśli chcesz, kolejne fajne kroki 🔥
+
+* ➡️ **quiz: DataSize / Duration / Period**
+* ➡️ **„Czy to adnotacja czy typ?” – wersja hard**
+* ➡️ **walidacja rozmiaru plików w Springu**
+* ➡️ **mapa: wartości konfiguracyjne Spring Boot**
+
+Jak zawsze — napisz 👉 **quiz** 😄

@@ -1,0 +1,90 @@
+Super 👍
+Oto **ODPOWIEDZI do quizu o interfejsie `BiConsumer<T, U>`** wraz z wyjaśnieniami krok po kroku.
+
+---
+
+## ✅ **Odpowiedzi – Quiz `BiConsumer`**
+
+---
+
+### **1️⃣ Czym jest `BiConsumer<T, U>`?**
+
+**Odpowiedź:** **b) Interfejsem funkcyjnym**
+➡️ Ma dokładnie jedną metodę abstrakcyjną `accept(T t, U u)` i można go używać z lambdą.
+
+---
+
+### **2️⃣ Jaką metodę definiuje `BiConsumer`?**
+
+**Odpowiedź:** **c) `void accept(T t, U u)`**
+➡️ Przyjmuje dwa argumenty i **nie zwraca wyniku**.
+
+---
+
+### **3️⃣ Ile argumentów przyjmuje `BiConsumer`?**
+
+**Odpowiedź:** **c) 2**
+
+---
+
+### **4️⃣ Co zwraca metoda `accept()`?**
+
+**Odpowiedź:** **a) void**
+
+---
+
+### **5️⃣ W jakim pakiecie znajduje się `BiConsumer`?**
+
+**Odpowiedź:** **b) java.util.function**
+
+---
+
+### **6️⃣ Co robi metoda domyślna `andThen()` w `BiConsumer`?**
+
+**Odpowiedź:** **a) Łączy dwa BiConsumer w jeden, wykonując je po sobie**
+➡️ Najpierw wykonuje pierwszy BiConsumer, potem drugi.
+
+---
+
+### **7️⃣ Jak BiConsumer różni się od BiFunction?**
+
+**Odpowiedź:** **b) BiConsumer nie zwraca wyniku, BiFunction zwraca wynik**
+
+---
+
+### **8️⃣ Który z przykładów jest poprawnym BiConsumer?**
+
+**Odpowiedź:** **a) `(a, b) -> System.out.println(a + b)`**
+Pozostałe:
+
+* `(a, b) -> a + b` → zwraca wartość (to BiFunction)
+* `(a) -> System.out.println(a)` → jeden argument (to Consumer)
+* `(a, b, c) -> ...` → trzy argumenty (niepoprawne)
+
+---
+
+### **9️⃣ Gdzie najczęściej używa się BiConsumer w Javie?**
+
+**Odpowiedź:** **b) Map.forEach() / Map.computeIfPresent()**
+
+---
+
+### **🔟 Czego BiConsumer NIE robi?**
+
+**Odpowiedź:** **c) Zwraca boolean (do tego służy BiPredicate)**
+
+---
+
+## 🧠 **Ściąga egzaminacyjna BiConsumer**
+
+* `BiConsumer<T,U>` → `void accept(T t, U u)`
+* interfejs funkcyjny → lambda
+* metoda domyślna: `andThen()`
+* używany w `Map.forEach()`, `computeIfPresent()`
+* wykonuje **akcje na dwóch argumentach** bez zwracania wyniku
+
+---
+
+Jeśli chcesz, mogę teraz zrobić **pełne zestawienie wszystkich interfejsów funkcyjnych (Function, Predicate, Consumer, BiFunction, BiPredicate, BiConsumer) w jednym miejscu z krótką ściągawką i przykładami**, żebyś miał to jako kompletny cheat sheet.
+
+Chcesz, żebym to zrobił?

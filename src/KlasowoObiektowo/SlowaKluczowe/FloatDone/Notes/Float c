@@ -1,0 +1,104 @@
+## WIEDZA – `float` w Java
+
+---
+
+### 1️⃣ Czym jest `float`?
+
+* `float` to **typ danych zmiennoprzecinkowych** w Javie o **pojedynczej precyzji**.
+* Zajmuje **4 bajty** w pamięci.
+* Służy do przechowywania liczb z częścią dziesiętną.
+
+```java
+float f = 3.14f;  // f na końcu jest obowiązkowe
+```
+
+📌 W Javie domyślne liczby zmiennoprzecinkowe typu dziesiętnego są **double**, dlatego `f` jest potrzebne przy przypisaniu do `float`.
+
+---
+
+### 2️⃣ Zakres wartości
+
+* `float` może przechowywać wartości w przybliżeniu od **1.4e-45 do 3.4028235e38**.
+
+```java
+float min = 1.4e-45f;
+float max = 3.4028235e38f;
+```
+
+---
+
+### 3️⃣ Operacje na `float`
+
+* Można wykonywać **standardowe operacje arytmetyczne**:
+
+```java
+float a = 5.5f;
+float b = 2.0f;
+
+float sum = a + b;
+float diff = a - b;
+float prod = a * b;
+float div = a / b;
+
+System.out.println("Sum: " + sum);  // 7.5
+```
+
+---
+
+### 4️⃣ Różnica między `float` a `double`
+
+| Cecha        | float   | double        |
+| ------------ | ------- | ------------- |
+| Bajty        | 4       | 8             |
+| Precyzja     | ~7 cyfr | ~15 cyfr      |
+| Domyślny typ | nie     | tak           |
+| Sufiks       | f lub F | nie potrzebny |
+
+➡ `double` jest dokładniejszy i częściej używany w obliczeniach naukowych.
+
+---
+
+### 5️⃣ Przykład praktyczny – obliczenia finansowe (przybliżone)
+
+```java
+float price = 19.99f;
+float taxRate = 0.23f;
+
+float totalPrice = price + (price * taxRate);
+System.out.println("Total: " + totalPrice);
+```
+
+📌 Uwagi: Dla dokładnych obliczeń finansowych lepiej używać **BigDecimal**, bo `float` i `double` mogą wprowadzać błędy przy bardzo dokładnych obliczeniach.
+
+---
+
+### 6️⃣ Rzutowanie typów
+
+* Można rzutować `double` na `float`, ale istnieje ryzyko utraty precyzji:
+
+```java
+double d = 9.87654321;
+float f = (float) d;
+System.out.println(f);  // Może być mniej dokładne
+```
+
+---
+
+### 7️⃣ Najczęstsze błędy początkujących
+
+❌ Pominięcie sufiksu `f` przy przypisaniu liczby zmiennoprzecinkowej do `float`
+❌ Używanie `float` do bardzo dokładnych obliczeń finansowych
+❌ Mylenie `float` z `int` w operacjach arytmetycznych
+
+---
+
+### ✅ Podsumowanie
+
+* `float` = pojedyncza precyzja zmiennoprzecinkowa
+* Wymaga sufiksu `f` przy przypisaniu wartości
+* Używany głównie w obliczeniach przybliżonych
+* Dla większej precyzji stosować `double` lub `BigDecimal`
+
+---
+
+Jeśli chcesz, mogę teraz przygotować **quiz** dotyczący `float`. Napisz **„quiz”**, a stworzę pytania.

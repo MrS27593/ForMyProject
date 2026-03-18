@@ -1,0 +1,137 @@
+Super 👍
+Oto **quiz z adnotacji `@SupportedSourceVersion`** — poziom **średnio-zaawansowany / egzaminacyjny**.
+Jak zwykle: **bez odpowiedzi**.
+Gdy skończysz, napisz **„odpowiedzi”** ✅
+
+---
+
+# 🧠 **Quiz: `@SupportedSourceVersion`**
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Do czego służy `@SupportedSourceVersion`?
+
+A. Określa wersję Javy używaną w runtime
+B. Określa wersję Javy obsługiwaną przez annotation processor
+C. Określa minimalną wersję JVM projektu
+D. Wymusza kompatybilność wsteczną
+
+---
+
+### 2️⃣ Gdzie można użyć `@SupportedSourceVersion`?
+
+A. Na dowolnej klasie
+B. Na interfejsach
+C. Na klasach dziedziczących po `AbstractProcessor`
+D. Na metodach
+E. W enumach
+
+---
+
+### 3️⃣ W jakim pakiecie znajduje się `@SupportedSourceVersion`?
+
+A. `java.lang.annotation`
+B. `java.lang.model`
+C. `javax.annotation.processing`
+D. `java.compiler`
+
+---
+
+## 🔹 Część II – Działanie
+
+### 4️⃣ Co się stanie, jeśli NIE użyjesz `@SupportedSourceVersion` ani nie nadpiszesz metody?
+
+A. Błąd kompilacji
+B. Processor nie zostanie uruchomiony
+C. Ostrzeżenie kompilatora
+D. Nic
+
+---
+
+### 5️⃣ Czy `@SupportedSourceVersion` ma wpływ na runtime?
+
+A. Tak
+B. Tylko przy reflection
+C. Nie
+D. Tylko w testach
+
+---
+
+## 🔹 Część III – Enum `SourceVersion`
+
+### 6️⃣ Skąd pochodzi `SourceVersion`?
+
+A. `java.lang`
+B. `java.util`
+C. `javax.lang.model`
+D. `javax.annotation.processing`
+
+---
+
+### 7️⃣ Która wartość jest najlepszą praktyką?
+
+A. `RELEASE_8`
+B. `RELEASE_11`
+C. `RELEASE_17`
+D. `latestSupported()`
+
+---
+
+## 🔹 Część IV – Praktyka
+
+### 8️⃣ Który zapis jest POPRAWNY?
+
+A.
+
+```java
+@SupportedSourceVersion("17")
+```
+
+B.
+
+```java
+@SupportedSourceVersion(SourceVersion.RELEASE_17)
+```
+
+C.
+
+```java
+@SupportedSourceVersion(17)
+```
+
+D.
+
+```java
+@SupportedSourceVersion(JavaVersion.JAVA_17)
+```
+
+---
+
+### 9️⃣ Która metoda jest alternatywą dla adnotacji?
+
+A. `getSourceVersion()`
+B. `getSupportedSourceVersion()`
+C. `getJavaVersion()`
+D. `supportedSource()`
+
+---
+
+### 🔟 Z którym typem adnotacji NAJCZĘŚCIEJ występuje razem?
+
+A. `@Override`
+B. `@Documented`
+C. `@SupportedAnnotationTypes`
+D. `@SuppressWarnings`
+
+---
+
+## ✍️ Pytanie otwarte
+
+### 1️⃣1️⃣ Napisz minimalną definicję klasy annotation processor, która:
+
+* obsługuje wszystkie wersje Javy znane kompilatorowi
+* nie generuje warningów
+
+---
+
+Gdy skończysz 👉 napisz **„odpowiedzi”** 💪

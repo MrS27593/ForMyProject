@@ -1,0 +1,110 @@
+## QUIZ – `non-sealed` w Java (10 pytań)
+
+---
+
+### **1. Co oznacza słowo kluczowe `non-sealed`?**
+
+A. Klasa nie może być dziedziczona
+B. Klasa jest częścią `sealed` i pozwala dalsze dziedziczenie
+C. Klasa jest finalna
+D. Klasa jest abstrakcyjna
+
+---
+
+### **2. `non-sealed` może być użyte tylko w:**
+
+A. Dowolnej klasie
+B. Klasie finalnej
+C. Klasie potomnej klasy sealed
+D. Klasie abstrakcyjnej
+
+---
+
+### **3. Co umożliwia klasa oznaczona `non-sealed`?**
+
+A. Zabrania tworzenia podklas
+B. Pozwala dalsze dziedziczenie niezależnie od klasy bazowej
+C. Tylko instancjonowanie obiektów
+D. Ogranicza dziedziczenie do pakietu
+
+---
+
+### **4. Jaka jest różnica między `non-sealed` a `final`?**
+
+A. `non-sealed` zabrania dziedziczenia, `final` pozwala
+B. `non-sealed` pozwala dziedziczyć, `final` zabrania dziedziczenia
+C. Brak różnicy
+D. Oba słowa kluczowe otwierają dziedziczenie
+
+---
+
+### **5. Które zdanie jest prawdziwe?**
+
+A. `non-sealed` może być użyte dla klasy, która nie dziedziczy po klasie sealed
+B. `non-sealed` wymaga deklaracji `permits`
+C. `non-sealed` może być użyte tylko w klasach potomnych klasy sealed
+D. `non-sealed` oznacza, że klasa jest abstrakcyjna
+
+---
+
+### **6. (OTWARTE)**
+
+Podaj przykład, kiedy użycie `non-sealed` jest przydatne w projekcie.
+
+---
+
+### **7. (OTWARTE)**
+
+Dlaczego `non-sealed` pozwala tworzyć bardziej elastyczne hierarchie klas w Javie?
+
+---
+
+### **8. Który kod jest poprawny?**
+
+A.
+
+```java
+public sealed class Shape permits Circle, Square {}
+non-sealed class Circle extends Shape {}
+class RedCircle extends Circle {}
+```
+
+B.
+
+```java
+final class Circle extends Shape {}
+```
+
+C.
+
+```java
+non-sealed class Shape {}
+```
+
+D.
+
+```java
+sealed class Circle {}
+```
+
+---
+
+### **9. Które zdanie o `non-sealed` jest prawdziwe?**
+
+A. `non-sealed` wymusza podanie listy dozwolonych podklas
+B. `non-sealed` pozwala na dalsze dziedziczenie klasy sealed
+C. `non-sealed` blokuje dziedziczenie poza pakietem
+D. `non-sealed` jest tym samym co `final`
+
+---
+
+### **10. Czy klasa `non-sealed` musi mieć swoje własne podklasy?**
+
+A. Tak
+B. Nie, może nie mieć żadnych podklas
+C. Tylko jeśli jest w tym samym pakiecie
+D. Tylko jeśli jest publiczna
+
+---
+
+Napisz **„odpowiedzi”**, a podam komplet poprawnych odpowiedzi z wyjaśnieniami ✅

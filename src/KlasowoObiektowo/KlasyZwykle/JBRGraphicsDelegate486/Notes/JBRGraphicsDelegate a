@@ -1,0 +1,77 @@
+Świetnie! Oto **odpowiedzi do quizu o `JBRGraphicsDelegate` i JetBrains Runtime (JBR)**:
+
+---
+
+### ✅ **ODPOWIEDZI:**
+
+#### 1. **Co to jest `JBRGraphicsDelegate`?**
+
+**✅ B) Klasa do zaawansowanego renderowania grafiki w JBR**
+
+---
+
+#### 2. **W jakim pakiecie znajduje się klasa `JBRGraphicsDelegate`?**
+
+**✅ C) `com.jetbrains.desktop`**
+
+---
+
+#### 3. **JetBrains Runtime (JBR) to:**
+
+**✅ C) Zmodyfikowana wersja OpenJDK**
+
+---
+
+#### 4. **Jakie jest główne zastosowanie `JBRGraphicsDelegate`?**
+
+**✅ B) Efektywne renderowanie grafiki i wsparcie dla HiDPI**
+
+---
+
+#### 5. **Czy `JBRGraphicsDelegate` jest przeznaczona do bezpośredniego użycia przez programistów?**
+
+**✅ B) Nie**
+*(To klasa wewnętrzna, wykorzystywana przez inne komponenty, np. `GraphicsUtils`)*
+
+---
+
+#### 6. **Jakie IDE korzystają z JetBrains Runtime?**
+
+**✅ A) IntelliJ IDEA**
+**✅ B) Android Studio**
+**✅ D) PyCharm**
+*(JetBrains Runtime jest używany we wszystkich produktach JetBrains, a także przez Android Studio — bazuje ono na IntelliJ IDEA)*
+
+---
+
+#### 7. **Czym różni się JBR od standardowego OpenJDK?**
+
+**✅ B) Zawiera poprawki i rozszerzenia graficzne dla IntelliJ Platform**
+
+---
+
+#### 8. **Co oznacza "HiDPI"?**
+
+**✅ A) Wysoka rozdzielczość i skalowanie**
+
+---
+
+### ✍️ Odpowiedzi otwarte — przykładowe:
+
+#### 9. **Jakie korzyści może przynieść aplikacji używanie JBR zamiast standardowego JDK?**
+
+➡️ Przykładowa odpowiedź:
+
+> Lepsze wsparcie dla monitorów HiDPI, płynniejsze renderowanie interfejsu, poprawki błędów graficznych, integracja z natywnym systemem okienkowym oraz większa stabilność dla aplikacji GUI opartych o IntelliJ Platform.
+
+---
+
+#### 10. **Czy korzystałeś wcześniej z funkcji graficznych w Javie, np. `Graphics2D` lub `BufferedImage`?**
+
+➡️ Przykładowa odpowiedź:
+
+> Tak, używałem `Graphics2D` do rysowania prostych kształtów i tekstu w Swingu oraz `BufferedImage` do tworzenia i modyfikacji obrazów w pamięci (np. zapisywanie screenshotów z aplikacji).
+
+---
+
+Chcesz może quiz w innej formie (np. PDF lub interaktywny test online)? Albo kolejny poziom trudności?

@@ -1,0 +1,112 @@
+### Klasa `JSException` w Javie – Kompletny Przewodnik
+
+#### 1. **Czym jest `JSException`?**
+
+`JSException` to klasa należąca do pakietu **`netscape.javascript`**, która służy do obsługi wyjątków rzucanych w wyniku błędów JavaScript podczas integracji **Java ↔ JavaScript** w aplikacjach Java (np. w apletach lub środowiskach takich jak JavaFX WebView lub starych przeglądarkach z obsługą apletów).
+
+---
+
+#### 2. **Hierarchia dziedziczenia**
+
+```java
+java.lang.Object
+  ↳ java.lang.Throwable
+      ↳ java.lang.Exception
+          ↳ netscape.javascript.JSException
+```
+
+---
+
+#### 3. **Zastosowanie `JSException`**
+
+Wyjątek `JSException` jest rzucany, gdy:
+
+* Wykonanie JavaScriptu kończy się błędem.
+* Odwołanie do obiektu JavaScript z poziomu Java kończy się niepowodzeniem.
+* Przekazany kod JavaScript jest nieprawidłowy lub zawiera błędy wykonawcze.
+
+---
+
+#### 4. **Środowisko użycia**
+
+Klasa ta jest głównie używana w:
+
+* **Appletach Javy** (z pakietu `netscape.javascript`) – dziś już przestarzałe.
+* **JavaFX WebEngine/WebView** – nowoczesne użycie, np. wbudowanie przeglądarki w aplikację Java.
+
+---
+
+#### 5. **Przykład praktyczny – JavaFX WebView**
+
+Poniżej znajdziesz przykład aplikacji JavaFX, która ładuje stronę HTML i próbuje wykonać kod JavaScript. Błąd w JavaScript zostanie przechwycony jako `JSException`.
+
+```java
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+import netscape.javascript.JSException;
+
+public class JavaScriptIntegrationExample extends Application {
+
+    @Override
+    public void start(Stage primaryStage) {
+        WebView webView = new WebView();
+        WebEngine webEngine = webView.getEngine();
+
+        // Załaduj prosty HTML
+        webEngine.loadContent("<html><body><h1>Hello from HTML</h1></body></html>");
+
+        // Po załadowaniu spróbuj wykonać błędny kod JavaScript
+        webEngine.documentProperty().addListener((obs, oldDoc, newDoc) -> {
+            try {
+                // Błędna funkcja - spowoduje wyjątek JSException
+                webEngine.executeScript("nonExistentFunction()");
+            } catch (JSException e) {
+                System.out.println("JSException caught: " + e.getMessage());
+            }
+        });
+
+        primaryStage.setScene(new Scene(webView, 600, 400));
+        primaryStage.setTitle("JSException Example");
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+```
+
+---
+
+#### 6. **Jak obsługiwać `JSException` poprawnie?**
+
+* Zawsze używaj bloku `try-catch`, gdy wykonujesz JavaScript z poziomu Java.
+* Sprawdzaj, czy funkcja lub zmienna JavaScript istnieje, zanim ją wywołasz.
+
+---
+
+#### 7. **Uwaga dotycząca zależności**
+
+`JSException` znajduje się w **pakiecie `netscape.javascript`**, który:
+
+* jest automatycznie dostępny w JDK w przypadku apletów,
+* **wymaga dodania odpowiednich modułów lub bibliotek w nowszych wersjach JDK**, szczególnie przy użyciu JavaFX.
+
+---
+
+### Podsumowanie
+
+| Cecha             | Opis                                          |
+| ----------------- | --------------------------------------------- |
+| Pakiet            | `netscape.javascript`                         |
+| Służy do          | Obsługi błędów JavaScript wywoływanych z Javy |
+| Typ               | Wyjątek (`Exception`)                         |
+| Środowisko        | JavaFX WebView, przestarzałe aplety           |
+| Praktyczne użycie | Integracja z przeglądarką, dynamiczne UI      |
+
+---
+
+Chcesz, żebym przygotował dla Ciebie wersję Maven/Gradle z JavaFX lub pokazał integrację z HTML/JS w inny sposób?

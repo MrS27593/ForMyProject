@@ -1,0 +1,10 @@
+Aby dobrze umieć Klasę VirtualMachineError warto znać:
+Interface:
+
+
+Class:
+String
+Throwable
+
+Exceptions:
+

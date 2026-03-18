@@ -1,0 +1,117 @@
+## ODPOWIEDZI – QUIZ `throw` w Java
+
+---
+
+### **1. Czym jest `throw` w Javie?**
+
+✅ **B. Słowem kluczowym do rzucania wyjątku w ciele metody**
+
+`throw` służy do **rzucania wyjątku**, który zostaje przekazany do wywołującego.
+
+---
+
+### **2. Co można użyć po `throw`?**
+
+✅ **B. Obiekt klasy dziedziczącej po `Throwable`**
+
+Przykład: `throw new IOException();`
+Nie można użyć liczby ani Stringa bez opakowania w wyjątek.
+
+---
+
+### **3. Co zrobi poniższy kod?**
+
+```java
+throw new ArithmeticException("Błąd!");
+```
+
+✅ **A. Zakończy metodę i przekaże wyjątek wywołującemu**
+
+* Wyjątek przerywa dalsze wykonywanie metody.
+* Jeśli nie zostanie obsłużony, program zakończy się błędem (unchecked exception).
+
+---
+
+### **4. Jak różni się `throw` od `throws`?**
+
+✅ **C. `throw` rzuca wyjątek w kodzie, `throws` deklaruje wyjątki w sygnaturze**
+
+* `throw` → w ciele metody
+* `throws` → w nagłówku metody
+
+---
+
+### **5. Czy `throw` może rzucić więcej niż jeden wyjątek naraz?**
+
+✅ **B. Nie**
+
+* Każde `throw` może rzucić tylko **jeden wyjątek na raz**.
+* Aby rzucić inny, trzeba użyć kolejnego `throw` w innym miejscu.
+
+---
+
+### **6. Co się stanie, jeśli rzucisz checked exception w metodzie bez `throws` lub `try-catch`?**
+
+✅ **B. Kompilator zgłosi błąd**
+
+Checked exceptions muszą być obsłużone (`try-catch`) lub zadeklarowane (`throws`).
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład użycia `throw` dla `RuntimeException`:**
+
+```java
+void checkAge(int age) {
+    if (age < 18) {
+        throw new RuntimeException("Niepełnoletni");
+    }
+}
+```
+
+* `RuntimeException` jest unchecked → nie wymaga `throws`.
+
+---
+
+### **8. (OTWARTE)**
+
+**Dlaczego użycie `throw` przerywa dalsze wykonywanie metody?**
+
+* `throw` natychmiast przerywa wykonanie metody i przekazuje wyjątek do wywołującego.
+* Kod po `throw` **nie jest wykonywany**.
+
+---
+
+### **9. Czy można użyć `throw` dla zmiennej typu `int`?**
+
+✅ **B. Nie**
+
+* `throw` wymaga obiektu klasy dziedziczącej po `Throwable`.
+* Nie można rzucać liczb, Stringów ani innych typów prostych.
+
+---
+
+### **10. Co jest błędem w tym kodzie?**
+
+```java
+void read() throw IOException {
+    throw new IOException();
+}
+```
+
+✅ **B. Błędna składnia `throw` w deklaracji metody**
+
+* Poprawnie należy użyć `throws`:
+
+```java
+void read() throws IOException {
+    throw new IOException();
+}
+```
+
+---
+
+Jeśli chcesz, możemy teraz przejść do **wiedzy o `final`**, kolejnym bardzo ważnym słowie kluczowym w Javie.
+
+Chcesz, żebym zrobił `final` teraz?

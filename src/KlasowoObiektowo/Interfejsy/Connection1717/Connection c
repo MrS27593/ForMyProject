@@ -1,0 +1,180 @@
+Oczywiście! Interfejs `Connection` w Java to kluczowy element do pracy z bazami danych w JDBC (Java Database Connectivity). Przejdźmy krok po kroku przez wszystko, co musisz wiedzieć, zaczynając od podstaw, a kończąc na praktycznych przykładach.
+
+---
+
+## 🔹 1. Co to jest `Connection`?
+
+`Connection` to interfejs z pakietu `java.sql`, który reprezentuje połączenie z bazą danych. Umożliwia:
+
+* Wysyłanie zapytań SQL do bazy,
+* Zarządzanie transakcjami (commit/rollback),
+* Konfigurowanie parametrów połączenia,
+* Tworzenie obiektów `Statement`, `PreparedStatement` i `CallableStatement`.
+
+---
+
+## 🔹 2. Uzyskanie połączenia (`Connection`)
+
+Aby uzyskać połączenie, musisz:
+
+1. Załadować sterownik JDBC (dla nowoczesnych JDBC nie jest to konieczne od JDK 6+).
+2. Użyć `DriverManager.getConnection(...)`.
+
+### ✅ Przykład:
+
+```java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DBConnectionExample {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/mydb";
+        String user = "root";
+        String password = "password";
+
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            if (conn != null) {
+                System.out.println("Połączenie nawiązane!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+---
+
+## 🔹 3. Podstawowe metody interfejsu `Connection`
+
+| Metoda                         | Opis                                      |
+| ------------------------------ | ----------------------------------------- |
+| `createStatement()`            | Tworzy zwykły `Statement`                 |
+| `prepareStatement(String sql)` | Tworzy `PreparedStatement`                |
+| `prepareCall(String sql)`      | Tworzy `CallableStatement` (dla procedur) |
+| `setAutoCommit(boolean)`       | Włącza/wyłącza autocommit                 |
+| `commit()`                     | Zatwierdza transakcję                     |
+| `rollback()`                   | Wycofuje transakcję                       |
+| `close()`                      | Zamyka połączenie                         |
+| `isClosed()`                   | Sprawdza, czy połączenie jest zamknięte   |
+| `getMetaData()`                | Zwraca metadane bazy danych               |
+
+---
+
+## 🔹 4. Przykład użycia z `PreparedStatement` i transakcją
+
+```java
+import java.sql.*;
+
+public class TransactionExample {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/mydb";
+        String user = "root";
+        String password = "password";
+
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            conn.setAutoCommit(false); // start transakcji
+
+            String insertSQL = "INSERT INTO users(name, email) VALUES (?, ?)";
+            try (PreparedStatement ps = conn.prepareStatement(insertSQL)) {
+                ps.setString(1, "Jan Kowalski");
+                ps.setString(2, "jan@example.com");
+                ps.executeUpdate();
+
+                ps.setString(1, "Anna Nowak");
+                ps.setString(2, "anna@example.com");
+                ps.executeUpdate();
+            }
+
+            conn.commit(); // zatwierdzenie transakcji
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+---
+
+## 🔹 5. Praktyczne uwagi
+
+### 🔸 Obsługa błędów
+
+Jeśli coś pójdzie nie tak, transakcję można wycofać:
+
+```java
+try {
+    // ...
+    conn.commit();
+} catch (SQLException e) {
+    conn.rollback(); // cofnięcie transakcji
+}
+```
+
+### 🔸 Zamknięcie połączenia
+
+Zawsze używaj try-with-resources, który automatycznie zamyka połączenie:
+
+```java
+try (Connection conn = ...) {
+    // kod
+}
+```
+
+---
+
+## 🔹 6. Wzorzec DAO z użyciem `Connection`
+
+```java
+public class UserDAO {
+    private final Connection conn;
+
+    public UserDAO(Connection conn) {
+        this.conn = conn;
+    }
+
+    public void addUser(String name, String email) throws SQLException {
+        String sql = "INSERT INTO users(name, email) VALUES (?, ?)";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, name);
+            ps.setString(2, email);
+            ps.executeUpdate();
+        }
+    }
+}
+```
+
+---
+
+## 🔹 7. Połączenie z innymi bazami
+
+| Baza danych | URL JDBC                                     |
+| ----------- | -------------------------------------------- |
+| MySQL       | `jdbc:mysql://host:port/db`                  |
+| PostgreSQL  | `jdbc:postgresql://host:port/db`             |
+| Oracle      | `jdbc:oracle:thin:@host:port:SID`            |
+| SQL Server  | `jdbc:sqlserver://host:port;databaseName=db` |
+
+---
+
+## 🔹 8. Wskazówki produkcyjne
+
+* Używaj **Connection Pooling** (np. HikariCP, Apache DBCP, c3p0),
+* Waliduj połączenie przed użyciem (`conn.isValid(2)`),
+* Zamykaj zasoby (`ResultSet`, `Statement`, `Connection`) zawsze,
+* Zadbaj o logikę retry/timeout.
+
+---
+
+## 🔹 9. Bonus – Testowa baza danych H2
+
+Możesz używać wbudowanej bazy H2 do testów:
+
+```java
+Connection conn = DriverManager.getConnection("jdbc:h2:mem:testdb", "sa", "");
+```
+
+---
+
+Jeśli chcesz, mogę stworzyć gotowy mini-projekt (np. CRUD z bazą danych i DAO). Chcesz coś takiego?

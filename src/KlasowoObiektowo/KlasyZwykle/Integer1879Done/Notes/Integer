@@ -1,0 +1,22 @@
+Aby dobrze umieć Class Integer warto znać:
+Interface:
+Comparable
+Constable
+ConstantDesc
+CharSequence
+
+Class i Abstract Class:
+Number
+Class
+Character
+StringUTF16
+Long
+Integer
+Math
+IntegerCache
+
+Exceptions:
+NumberFormatException
+
+Enum:
+

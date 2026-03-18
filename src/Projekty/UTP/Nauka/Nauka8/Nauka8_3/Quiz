@@ -1,0 +1,116 @@
+Oto **quiz** oparty na powyższym tekście o **separacji zadań od sposobu ich wykonania** w Javie oraz zastosowaniu `Executor` i `ExecutorService`.
+
+---
+
+### **Quiz: Executor, ExecutorService i separacja zadań w Javie**
+
+#### **1. \[Jednokrotny wybór]**
+
+Co jest główną ideą wprowadzenia `Executor` w pakiecie `java.util.concurrent`?
+A. Tworzenie nowych klas wątków
+B. Pisanie metod `main()` bez Runnable
+C. Oddzielenie zadań od sposobu ich wykonania
+D. Lepsze zarządzanie wyjątkami Runtime
+
+✅ **Prawidłowa odpowiedź: C**
+
+---
+
+#### **2. \[Prawda/Fałsz]**
+
+W klasie `Thread` to ona sama wykonuje pracę w wątku.
+✅ Prawda
+❌ Fałsz
+
+✅ **Poprawna odpowiedź: Fałsz**
+*(Kod zadań zapisany jest w metodzie `run()`, którą wykonuje wątek – ale `Thread` nie "robi" niczego samodzielnie poza uruchomieniem.)*
+
+---
+
+#### **3. \[Wielokrotny wybór]**
+
+Jakie problemy rozwiązuje `ExecutorService` w porównaniu do ręcznego zarządzania wątkami?
+A. Zarządzanie pulą wątków
+B. Obsługa wyjątków w zadaniach
+C. Możliwość zatrzymania wątków metodą `stop()`
+D. Odbieranie wyników za pomocą `Future`
+
+✅ **Prawidłowe odpowiedzi: A, B, D**
+
+---
+
+#### **4. \[Jednokrotny wybór]**
+
+Który interfejs umożliwia otrzymywanie wyników z zadań i obsługę wyjątków?
+A. `Runnable`
+B. `Callable`
+C. `Thread`
+D. `FutureTask`
+
+✅ **Prawidłowa odpowiedź: B**
+
+---
+
+#### **5. \[Uzupełnianie]**
+
+Metoda `shutdown()` w `ExecutorService` sprawia, że Wykonawca nie przyjmuje nowych \_\_\_\_\_\_\_\_, ale dokończy już rozpoczęte.
+✅ **Prawidłowa odpowiedź: zadań**
+
+---
+
+#### **6. \[Prawda/Fałsz]**
+
+Po wywołaniu `shutdownNow()` aktualnie uruchomione zadania są natychmiast przerywane.
+✅ Prawda
+❌ Fałsz
+
+✅ **Poprawna odpowiedź: Fałsz**
+*(Zadania nie są automatycznie przerywane — muszą same reagować np. na przerwania.)*
+
+---
+
+#### **7. \[Jednokrotny wybór]**
+
+Co się stanie, jeśli spróbujemy dodać zadanie do `ExecutorService` po jego zamknięciu metodą `shutdown()`?
+A. Zadanie zostanie zignorowane
+B. Zadanie zostanie wykonane z opóźnieniem
+C. Zostanie rzucony wyjątek
+D. Zadanie zostanie zamienione na `Runnable`
+
+✅ **Prawidłowa odpowiedź: C**
+*(`RejectedExecutionException`)*
+
+---
+
+#### **8. \[Wielokrotny wybór]**
+
+Które metody klasy `Executors` służą do tworzenia różnych typów wykonawców?
+A. `Executors.newFixedThreadPool()`
+B. `Executors.runSingleThread()`
+C. `Executors.newCachedThreadPool()`
+D. `Executors.newScheduledThreadPool()`
+
+✅ **Prawidłowe odpowiedzi: A, C, D**
+
+---
+
+#### **9. \[Jednokrotny wybór]**
+
+Co umożliwia metoda `awaitTermination()` w `ExecutorService`?
+A. Wstrzymuje działanie wszystkich wątków
+B. Czeka na zakończenie działania wykonawcy przez określony czas
+C. Wymusza zakończenie zadania
+D. Przywraca wykonanie z przerwanego stanu
+
+✅ **Prawidłowa odpowiedź: B**
+
+---
+
+#### **10. \[Uzupełnianie]**
+
+Interfejs `Executor` posiada jedną metodę: `________(Runnable command)`
+✅ **Prawidłowa odpowiedź: execute**
+
+---
+
+Chcesz wersję z automatycznym sprawdzaniem odpowiedzi (np. Google Forms, Moodle) albo wersję w HTML z podświetleniem poprawnych odpowiedzi?

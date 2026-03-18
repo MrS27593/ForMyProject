@@ -1,0 +1,105 @@
+### 📘 QUIZ – `false` w Java
+
+**10 pytań: 8 zamkniętych (A–D) + 2 otwarte**
+
+---
+
+#### 1️⃣ Czym jest `false` w języku Java?
+
+A. Słowem kluczowym typu `Boolean`
+B. Literałem logicznym typu `boolean`
+C. Stałą liczbową o wartości 0
+D. Obiektem klasy `Boolean`
+
+---
+
+#### 2️⃣ Które przypisanie jest poprawne?
+
+A. `boolean x = False;`
+B. `boolean x = "false";`
+C. `boolean x = 0;`
+D. `boolean x = false;`
+
+---
+
+#### 3️⃣ Co zrobi poniższy kod?
+
+```java
+if (false) {
+    System.out.println("Hello");
+}
+```
+
+A. Wypisze „Hello”
+B. Wyrzuci wyjątek
+C. Nie wykona się
+D. Wykona się raz
+
+---
+
+#### 4️⃣ Jaka jest domyślna wartość pola klasy typu `boolean`?
+
+A. `true`
+B. `false`
+C. `null`
+D. `0`
+
+---
+
+#### 5️⃣ Które wyrażenie zwróci `false`?
+
+A. `true && true`
+B. `false || true`
+C. `!false`
+D. `false && true`
+
+---
+
+#### 6️⃣ Co oznacza warunek `if (!isActive)`?
+
+A. `isActive` jest równe `true`
+B. `isActive` jest równe `false`
+C. `isActive` jest `null`
+D. `isActive` jest typu `Boolean`
+
+---
+
+#### 7️⃣ Co się stanie w tym kodzie?
+
+```java
+boolean flag = false;
+
+while (flag) {
+    System.out.println("Loop");
+}
+```
+
+A. Pętla wykona się raz
+B. Pętla wykona się nieskończenie
+C. Pętla nie wykona się wcale
+D. Kod się nie skompiluje
+
+---
+
+#### 8️⃣ Który zapis jest **najlepszą praktyką**?
+
+A. `if (x == false)`
+B. `if (x = false)`
+C. `if (!x)`
+D. `if (x != true)`
+
+---
+
+#### 9️⃣ (Pytanie otwarte)
+
+Podaj przykład praktycznego użycia zmiennej `boolean` ustawionej na `false`.
+
+---
+
+#### 🔟 (Pytanie otwarte)
+
+Dlaczego w Javie **nie można** przypisać `0` lub `1` do zmiennej typu `boolean`?
+
+---
+
+Gdy będziesz gotowy, napisz **„odpowiedzi”**, a podam komplet z wyjaśnieniami ✅

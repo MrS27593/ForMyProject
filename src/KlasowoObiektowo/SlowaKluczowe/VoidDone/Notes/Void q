@@ -1,0 +1,97 @@
+Świetnie! Oto **krótki quiz** o `void` w języku Java – 10 pytań z odpowiedziami **A, B, C lub D**. Na końcu możesz poprosić mnie o sprawdzenie wyników albo podpowiedzi 😊
+
+---
+
+### 📘 **QUIZ: Słowo kluczowe `void` w Java**
+
+#### 1. Co oznacza słowo kluczowe `void` w deklaracji metody?
+
+A. Metoda zwraca `null`
+B. Metoda nic nie robi
+C. Metoda nic nie zwraca
+D. Metoda działa tylko raz
+
+---
+
+#### 2. Która z poniższych metod została poprawnie zadeklarowana jako `void`?
+
+A. `public void pokazTekst() { System.out.println("Hej"); }`
+B. `public pokazTekst() { System.out.println("Hej"); }`
+C. `void pokazTekst { System.out.println("Hej"); }`
+D. `public void pokazTekst() = { System.out.println("Hej"); }`
+
+---
+
+#### 3. Czy metoda typu `void` może zawierać instrukcję `return`?
+
+A. Tak, ale tylko `return;` bez wartości
+B. Nie, nigdy
+C. Tak, ale tylko `return null;`
+D. Tak, dowolne `return`, jak w każdej metodzie
+
+---
+
+#### 4. Jakiego typu metoda NIE powinna używać słowa `void`?
+
+A. Taka, która tylko wyświetla komunikat
+B. Taka, która wykonuje operację matematyczną i zwraca wynik
+C. Taka, która wysyła dane do serwera
+D. Taka, która zapisuje dane do pliku
+
+---
+
+#### 5. Co się stanie, jeśli spróbujesz zwrócić wartość w metodzie `void`?
+
+A. Kod zadziała poprawnie
+B. Kompilator zgłosi błąd
+C. Wartość zostanie zignorowana
+D. Wartość zostanie automatycznie skonwertowana
+
+---
+
+#### 6. Gdzie występuje metoda `void` w typowym programie Java?
+
+A. W klasie `Scanner`
+B. W metodzie `main`
+C. W każdej klasie
+D. Tylko w interfejsach
+
+---
+
+#### 7. Jaka jest poprawna składnia metody `void` bez parametrów?
+
+A. `void metoda[] {}`
+B. `public void metoda() {}`
+C. `public metoda void() {}`
+D. `void metoda() => {}`
+
+---
+
+#### 8. Czy metoda `void` może mieć parametry wejściowe?
+
+A. Nie
+B. Tylko jeden
+C. Tak, dowolną liczbę
+D. Tylko jeśli jest `static`
+
+---
+
+#### 9. Czego **nie można** zrobić w metodzie `void`?
+
+A. Wypisać coś na konsolę
+B. Zwrócić liczbę całkowitą
+C. Zmienić stan obiektu
+D. Wywołać inną metodę
+
+---
+
+#### 10. Jak poprawnie zakończyć metodę `void` wcześniej?
+
+A. `exit();`
+B. `return 0;`
+C. `break;`
+D. `return;`
+
+---
+
+Chcesz, żebym sprawdził Twoje odpowiedzi, czy najpierw sam rozwiążesz? 😊

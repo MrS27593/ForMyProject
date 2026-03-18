@@ -1,0 +1,89 @@
+## QUIZ – `transient` w Java (10 pytań)
+
+---
+
+### **1. Czym jest `transient` w Javie?**
+
+A. Modyfikatorem klasy
+B. Modyfikatorem pola, które nie jest serializowane
+C. Słowem kluczowym pętli
+D. Typem danych
+
+---
+
+### **2. Co stanie się z polem oznaczonym jako `transient` po deserializacji?**
+
+A. Zostanie odtworzone z poprzednią wartością
+B. Przyjmie wartość domyślną (`null`, `0`, `false`)
+C. Wywoła wyjątek
+D. Zostanie zapisane do pliku ponownie
+
+---
+
+### **3. Które pole nie można oznaczyć jako `transient`?**
+
+A. `String password`
+B. `int temp`
+C. `static int counter`
+D. `boolean flag`
+
+---
+
+### **4. Czy `transient` działa na polach statycznych (`static`)?**
+
+A. Tak, zawsze
+B. Nie, nie ma sensu
+C. Tylko w klasach implementujących Serializable
+D. Tylko przy polach final
+
+---
+
+### **5. Czy pole `transient` może być final?**
+
+A. Tak
+B. Nie
+C. Tylko jeśli jest typu String
+D. Tylko jeśli nie jest statyczne
+
+---
+
+### **6. Dlaczego używamy `transient`?**
+
+A. Aby przyspieszyć kompilację
+B. Aby pominąć pole podczas serializacji
+C. Aby pole było widoczne dla wszystkich wątków
+D. Aby pole było dostępne tylko w metodzie main
+
+---
+
+### **7. (OTWARTE)**
+
+Podaj przykład pola, które warto oznaczyć jako `transient`.
+
+---
+
+### **8. (OTWARTE)**
+
+Co się stanie, jeśli obiekt zawiera pole, które nie jest `Serializable`, i próbujesz go zserializować?
+
+---
+
+### **9. Czy `transient` chroni pole przed dostępem z innych wątków?**
+
+A. Tak
+B. Nie
+C. Tylko w pętli synchronized
+D. Tylko przy final
+
+---
+
+### **10. Co będzie wartością domyślną pola `transient int temp` po deserializacji?**
+
+A. `null`
+B. `0`
+C. Wartość, jaką miało przed serializacją
+D. `false`
+
+---
+
+👉 Napisz **„odpowiedzi”**, a ja podam poprawne odpowiedzi z wyjaśnieniami.

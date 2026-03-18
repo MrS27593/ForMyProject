@@ -1,0 +1,124 @@
+Świetnie 😄
+Oto **quiz z adnotacji `@Category` (Java Flight Recorder)** — poziom **praktyczny / narzędziowy**.
+Jak zawsze: **bez odpowiedzi**.
+Po rozwiązaniu napisz **„odpowiedzi”** ✅
+
+---
+
+# 🧠 **Quiz: `@Category` (JFR)**
+
+## 🔹 Część I – Podstawy
+
+### 1️⃣ Czym jest `@Category`?
+
+A. Meta-adnotacją Javy
+B. Adnotacją do walidacji danych
+C. Adnotacją Java Flight Recorder do grupowania zdarzeń
+D. Adnotacją kompilatora
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Category`?
+
+A. `java.lang.annotation`
+B. `javax.annotation.processing`
+C. `jdk.jfr`
+D. `java.util`
+
+---
+
+### 3️⃣ Na jakich elementach można użyć `@Category`?
+
+A. Polach
+B. Metodach
+C. Klasach
+D. Parametrach
+
+---
+
+## 🔹 Część II – Struktura kategorii
+
+### 4️⃣ Jaki jest typ wartości w `@Category`?
+
+A. `String`
+B. `String[]`
+C. `List<String>`
+D. `Enum`
+
+---
+
+### 5️⃣ Co oznacza zapis:
+
+```java
+@Category({"Application", "HTTP"})
+```
+
+A. Dwie niezależne kategorie
+B. Jedną kategorię o nazwie „Application HTTP”
+C. Kategorię główną i podkategorię
+D. Błąd kompilacji
+
+---
+
+### 6️⃣ Jak zostanie wyświetlona ta kategoria w JDK Mission Control?
+
+A. `Application.HTTP`
+B. `Application/HTTP` (hierarchicznie)
+C. `HTTP -> Application`
+D. Jako tagi bez struktury
+
+---
+
+## 🔹 Część III – Praktyka JFR
+
+### 7️⃣ Czy `@Category` wpływa na logikę działania programu?
+
+A. Tak
+B. Tylko w trybie debug
+C. Nie
+D. Tylko na wydajność
+
+---
+
+### 8️⃣ Co się stanie, jeśli NIE użyjesz `@Category`?
+
+A. Błąd kompilacji
+B. Event nie zostanie zarejestrowany
+C. Event trafi do kategorii domyślnej
+D. JVM zakończy działanie
+
+---
+
+## 🔹 Część IV – Porównania
+
+### 9️⃣ Która adnotacja odpowiada za czytelną nazwę eventu?
+
+A. `@Name`
+B. `@Label`
+C. `@Category`
+D. `@Description`
+
+---
+
+### 🔟 Z którą adnotacją `@Category` NAJCZĘŚCIEJ występuje razem?
+
+A. `@Override`
+B. `@SuppressWarnings`
+C. `@Label`
+D. `@Deprecated`
+
+---
+
+## ✍️ Pytanie otwarte
+
+### 1️⃣1️⃣ Zaprojektuj przykład kategorii JFR dla:
+
+* aplikacji webowej
+* obsługi bazy danych
+* cache
+
+(tylko adnotacja `@Category`)
+
+---
+
+Gdy skończysz 👉 napisz **„odpowiedzi”** 💪

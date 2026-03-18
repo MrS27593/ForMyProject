@@ -1,0 +1,24 @@
+Aby dobrze umieć Klasę JBRGraphicsDelegate warto znać:
+Interface:
+ImageObserver
+Shape
+Stroke
+Composite
+Paint
+Map
+
+Class:
+String
+Image
+Rectangle
+Color
+Polygon
+FontMetrics
+Graphics
+FontRenderContext
+AffineTransform
+RenderingHints
+Object
+GraphicsConfiguration
+
+Exceptions:

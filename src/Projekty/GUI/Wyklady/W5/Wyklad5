@@ -1,0 +1,101 @@
+
+WYKŁAD 04
+Poruszyliśmy zagadnienia:
+∙ Typy wylicznikowe
+1
+
+
+WYKŁAD 05
+Plan wykładu:
+∙ Strumienie
+
+
+STRUMIENIE
+Stream API nie ma nic wspólnego z strumieniami plikowymi!
+Strumienie są tworem pochodzącym z programowania funkcyjnego.
+Implementują wzorzec programistyczny Monad, który przedstawia mechanizm powiązania
+metod w ten sposób że rezultat jednej staje się wejściem drugiej.
+4
+
+
+IDEA STREAM API
+Stream reprezentują zbiór danych, na którym wykonuje się sekwencje operacji
+rozpoczynających się od wypełnienia, przez szereg modyfikacji, a kończącą się na
+dostarczeniu wyniku.
+Operacje na strumienach są:
+∙ pośrednie,
+∙ końcowe.
+5
+
+
+IDEA STREAM API
+Stream reprezentują zbiór danych, na którym wykonuje się sekwencje operacji
+rozpoczynających się od wypełnienia, przez szereg modyfikacji, a kończącą się na
+dostarczeniu wyniku.
+źródło
+strumienia
+utworzenie
+obiekty Strumienia
+działanie 1
+działanie 2
+.....
+działanie N
+operacaje
+końcowe wynik
+operacje pośrednie
+przesiewanie,
+sortowanie,
+zamienianie typów,
+mapowanie
+tablice, kolekcje,
+kanały I/O
+przetworzone
+wyniki np:
+count, sum lub
+składanie kolekcji
+5
+
+
+WŁAŚCIWOŚCI
+∙ Strumień nie przechowuje elementów na których działa.
+∙ Operacje strumieniowe nie modyfikują swojego źródła.
+∙ Operacje strumieniowe są „leniwe” (lazy) kiedy tylko jest to możliwe.
+6
+
+
+TWORZENIE STRUMIENI
+Strumienie tworzy się:
+∙ na podstawie istniejących kolekcji – metoda of,
+∙ bez elementów – metoda empty,
+∙ produkując zestaw elementów – metoda generate,
+∙ produkując zakres elementów – metoda iterate.
+Stream<String> ryhme = Stream . of(
+”Ene” , ”due” , ”rabe” ,
+”chinczyk” , ”polknal” ”zabe” ,
+”a” , ”zaba” , ”chinczyka” ,
+”co” , ”z” , ”tego” , ”wynika”
+) ;
+
+Stream<Integer> ints = Stream . empty ( ) ;
+
+Stream<Double> doubles = Stream . generate(Math : : random) ;
+
+Stream<BigInteger> integers = Stream . iterate(
+BigInteger . ZERO , n− >n . add(BigInteger . ONE)
+) ;
+7
+
+
+PRZETWARZANIE STRUMIENI
+Strumienie można zawęzić:
+∙ filter,
+∙ map,
+∙ flatMap.
+
+
+ZBIERANIE WYNIKÓW
+Aby zebrać efekt pracy poszczególnych operacji strumienia można użyć interfejsu
+Collector.
+∙ filter,
+∙ map,
+∙ flatMap.

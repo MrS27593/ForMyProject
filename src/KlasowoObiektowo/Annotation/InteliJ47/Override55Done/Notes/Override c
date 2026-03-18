@@ -1,0 +1,67 @@
+Świetnie 😄 teraz lecimy z **`@Override`** – jedną z najczęściej używanych adnotacji w Javie.
+
+---
+
+# 📌 `@Override` – co to jest?
+
+`@Override` to adnotacja, która:
+
+> Informuje kompilator, że metoda **nadpisuje metodę z klasy nadrzędnej lub implementuje metodę z interfejsu**.
+> Pomaga wykryć błędy, np. literówki w nazwie metody lub niezgodność sygnatury.
+
+---
+
+## 🔎 Pakiet
+
+```java
+java.lang.Override
+```
+
+Od wersji: Java 5+
+
+---
+
+# ✅ Przykład użycia
+
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Some sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Woof!");
+    }
+
+    // Błąd – kompilator wykryje literówkę
+    // @Override
+    // void makesound() { }
+}
+```
+
+➡ Dzięki `@Override` kompilator wykrywa, jeśli metoda **nie nadpisuje** żadnej metody w klasie nadrzędnej.
+
+---
+
+# 🧠 Uwagi
+
+1. **Pomaga uniknąć błędów literówek i niezgodności sygnatur**.
+2. Może być używana przy:
+
+   * Nadpisywaniu metod z klasy nadrzędnej
+   * Implementowaniu metod z interfejsów (od Java 6+ dla klas abstrakcyjnych)
+3. Nie wpływa na runtime – jest adnotacją informacyjną dla kompilatora.
+4. Nie wymaga żadnych pól ani wartości – jest **marker annotation**.
+
+---
+
+# 🎯 Definicja egzaminacyjna
+
+> `@Override` informuje kompilator, że dana metoda **nadpisuje metodę z klasy nadrzędnej lub implementuje metodę z interfejsu**, umożliwiając wykrycie błędów podczas kompilacji.
+
+---
+
+Chcesz, żebym teraz zrobił **quiz z `@Override`**?

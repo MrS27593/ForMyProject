@@ -1,0 +1,191 @@
+Świetnie 👍
+**`IndexOutOfBoundsException`** to **kolejny kluczowy RuntimeException**, bardzo częsty w praktyce i na rozmowach kwalifikacyjnych. Zróbmy go **konkretnie, z przykładami i pułapkami**.
+
+---
+
+## 1️⃣ Czym jest `IndexOutOfBoundsException`?
+
+`IndexOutOfBoundsException` to **unchecked exception** (`RuntimeException`), rzucany gdy:
+
+➡️ indeks jest **mniejszy niż 0**
+➡️ indeks jest **≥ rozmiaru** tablicy / kolekcji / sekwencji
+➡️ próbujesz uzyskać dostęp do elementu poza zakresem
+
+```java
+int[] arr = {1, 2, 3};
+arr[3]; // IndexOutOfBoundsException
+```
+
+---
+
+## 2️⃣ Miejsce w hierarchii
+
+```
+Throwable
+ └── Exception
+      └── RuntimeException
+           └── IndexOutOfBoundsException
+                ├── ArrayIndexOutOfBoundsException
+                └── StringIndexOutOfBoundsException
+```
+
+📌 **IndexOutOfBoundsException** to klasa bazowa
+📌 `ArrayIndexOutOfBoundsException` i `StringIndexOutOfBoundsException` są jej podklasami
+
+---
+
+## 3️⃣ Najczęstsze przyczyny 🔥
+
+### 🔴 Tablice
+
+```java
+int[] arr = new int[3];
+arr[3]; // ❌ indeksy: 0–2
+```
+
+---
+
+### 🔴 Listy (`List`)
+
+```java
+List<String> list = List.of("A", "B");
+list.get(2); // ❌
+```
+
+---
+
+### 🔴 String
+
+```java
+String s = "abc";
+s.charAt(3); // ❌
+```
+
+---
+
+### 🔴 Błędy w pętlach
+
+```java
+for (int i = 0; i <= arr.length; i++) { // ❌ <=
+    System.out.println(arr[i]);
+}
+```
+
+---
+
+## 4️⃣ IndexOutOfBounds vs ArrayIndexOutOfBounds
+
+| Wyjątek                          | Kiedy                 |
+| -------------------------------- | --------------------- |
+| `IndexOutOfBoundsException`      | List, String, ogólnie |
+| `ArrayIndexOutOfBoundsException` | TYLKO tablice         |
+
+📌 Oba są `RuntimeException`
+
+---
+
+## 5️⃣ Jak UNIKAĆ IndexOutOfBoundsException?
+
+### ✅ Sprawdzaj zakres
+
+```java
+if (index >= 0 && index < list.size()) {
+    list.get(index);
+}
+```
+
+---
+
+### ✅ Uważaj na `length` vs `size`
+
+```java
+array.length   // pole
+list.size()    // metoda
+```
+
+---
+
+### ✅ Poprawne pętle
+
+```java
+for (int i = 0; i < arr.length; i++) { // ✅
+}
+```
+
+---
+
+### ✅ Stream API
+
+```java
+list.forEach(System.out::println);
+```
+
+---
+
+## 6️⃣ Czego NIE robić ❌
+
+❌ Łapać wyjątek zamiast poprawić kod
+❌ Używać indeksów „na ślepo”
+❌ Mylić `<=` z `<`
+
+---
+
+## 7️⃣ Rekrutacyjne PUŁAPKI 🎯
+
+### ❓ Co się stanie?
+
+```java
+String s = "A";
+System.out.println(s.charAt(1));
+```
+
+➡️ `StringIndexOutOfBoundsException`
+
+---
+
+### ❓ Co się stanie?
+
+```java
+List<String> list = List.of("X", "Y");
+list.add("Z");
+```
+
+➡️ `UnsupportedOperationException` (NIE IndexOutOfBounds!)
+
+---
+
+## 8️⃣ IndexOutOfBoundsException vs IllegalArgumentException
+
+| Sytuacja                        | Lepszy wyjątek              |
+| ------------------------------- | --------------------------- |
+| Zły indeks przekazany do metody | `IllegalArgumentException`  |
+| Użycie indeksu w kodzie         | `IndexOutOfBoundsException` |
+
+📌 **API publiczne → waliduj i rzucaj IllegalArgumentException**
+
+---
+
+## 9️⃣ Złota reguła ⭐
+
+> **IndexOutOfBoundsException = błąd programisty**
+> Nie łap — napraw kod
+
+---
+
+## 🔟 Podsumowanie – MUST KNOW
+
+* `IndexOutOfBoundsException` = unchecked
+* Najczęściej przez pętle
+* `<` zamiast `<=`
+* Podklasy: `ArrayIndexOutOfBoundsException`, `StringIndexOutOfBoundsException`
+* Bardzo częsty na rekrutacjach
+
+---
+
+Chcesz teraz:
+👉 **QUIZ z IndexOutOfBoundsException**
+👉 **hard pułapki (co się stanie?)**
+👉 **porównanie z IllegalArgumentException**
+👉 **kolejny wyjątek: ConcurrentModificationException**
+
+Co robimy dalej? 😄

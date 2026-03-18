@@ -1,0 +1,183 @@
+Świetnie 👍
+Teraz **interfejs `Comparator` w Javie** — **od zera do poziomu egzamin/rozmowa techniczna**, tak jak poprzednie (`Runnable`, `Serializable`).
+
+---
+
+# 🧩 Interfejs `Comparator<T>`
+
+## 1️⃣ Co to jest `Comparator`?
+
+`Comparator` to **interfejs funkcyjny**, który służy do **porównywania dwóch obiektów** tego samego typu **poza klasą**, którą porównujemy.
+
+📦 Pakiet:
+
+```java
+java.util.Comparator
+```
+
+📌 Definicja:
+
+```java
+@FunctionalInterface
+public interface Comparator<T> {
+    int compare(T o1, T o2);
+}
+```
+
+---
+
+## 2️⃣ Do czego służy `Comparator`?
+
+* sortowanie obiektów **bez modyfikowania ich klasy**
+* definiowanie **wielu różnych porządków sortowania**
+* używany w:
+
+  * `Collections.sort()`
+  * `List.sort()`
+  * `Stream.sorted()`
+  * `TreeSet`, `TreeMap`
+
+---
+
+## 3️⃣ Comparator vs Comparable (BARDZO WAŻNE)
+
+| Comparable              | Comparator            |
+| ----------------------- | --------------------- |
+| `compareTo()`           | `compare()`           |
+| porządek naturalny      | porządek zewnętrzny   |
+| implementowany w klasie | osobna klasa / lambda |
+| tylko jeden             | wiele comparatorów    |
+
+📌 **Comparable = "jak obiekt porównuje się sam"**
+📌 **Comparator = "jak ktoś inny go porównuje"**
+
+---
+
+## 4️⃣ Prosty przykład Comparatora
+
+```java
+class Osoba {
+    String imie;
+    int wiek;
+
+    Osoba(String imie, int wiek) {
+        this.imie = imie;
+        this.wiek = wiek;
+    }
+}
+```
+
+### Sortowanie po wieku
+
+```java
+Comparator<Osoba> poWieku = new Comparator<>() {
+    @Override
+    public int compare(Osoba o1, Osoba o2) {
+        return o1.wiek - o2.wiek;
+    }
+};
+```
+
+Użycie:
+
+```java
+lista.sort(poWieku);
+```
+
+---
+
+## 5️⃣ Comparator z lambdą (NAJCZĘŚCIEJ)
+
+```java
+Comparator<Osoba> poWieku = (o1, o2) -> o1.wiek - o2.wiek;
+```
+
+Jeszcze lepiej 👇
+
+```java
+Comparator<Osoba> poWieku = Comparator.comparingInt(o -> o.wiek);
+```
+
+---
+
+## 6️⃣ Comparator – metody statyczne (BARDZO WAŻNE)
+
+```java
+Comparator<Osoba> cmp =
+        Comparator.comparing(Osoba::getImie)
+                  .thenComparingInt(Osoba::getWiek);
+```
+
+Najważniejsze:
+
+* `comparing()`
+* `comparingInt()`
+* `thenComparing()`
+* `reversed()`
+* `nullsFirst()`
+* `nullsLast()`
+
+---
+
+## 7️⃣ Odwracanie sortowania
+
+```java
+Comparator<Osoba> odwrotnie =
+        Comparator.comparingInt(Osoba::getWiek).reversed();
+```
+
+---
+
+## 8️⃣ Comparator a TreeSet / TreeMap ⚠️
+
+```java
+Set<Osoba> set = new TreeSet<>(Comparator.comparing(Osoba::getImie));
+```
+
+📌 Jeśli `compare()` zwróci `0`, elementy są traktowane jako **duplikaty**
+(nawet jeśli `equals()` mówi co innego!)
+
+---
+
+## 9️⃣ Kontrakt metody compare()
+
+Metoda `compare(a, b)`:
+
+* `< 0` → a < b
+* `0` → a == b
+* `> 0` → a > b
+
+⚠️ Musi być:
+
+* **symetryczna**
+* **przechodnia**
+* **spójna z equals (zalecane)**
+
+---
+
+## 🔟 Czego NIE robi Comparator?
+
+❌ nie modyfikuje obiektu
+❌ nie zapisuje stanu
+❌ nie musi być częścią klasy
+
+---
+
+## 🧠 Podsumowanie (ściąga)
+
+* `Comparator<T>` → `int compare(T o1, T o2)`
+* interfejs funkcyjny → lambda
+* wiele strategii sortowania
+* działa z kolekcjami i strumieniami
+* potężne metody statyczne
+
+---
+
+📌 **Następny krok (jak zawsze 😉)**
+Chcesz:
+
+* 🔹 **QUIZ z Comparator (bez odpowiedzi)**
+* 🔹 **Comparator vs Comparable – zadania**
+* 🔹 **trudne przypadki (null, TreeSet, equals)**
+
+👉 Co robimy dalej? 💪

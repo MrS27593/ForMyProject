@@ -1,0 +1,92 @@
+Klasa `JBRFileDialog` z pakietu `com.jetbrains.desktop` to rozszerzenie standardowego komponentu `FileDialog` z biblioteki AWT w Javie. Została opracowana przez JetBrains w ramach JetBrains Runtime (JBR) — zmodyfikowanej wersji OpenJDK zoptymalizowanej dla środowisk IntelliJ Platform. `JBRFileDialog` oferuje dodatkowe funkcje, takie jak zaawansowane filtrowanie plików, lokalizacja interfejsu użytkownika oraz obsługa wskazówek dotyczących wyboru plików i katalogów.([JetBrains Marketplace][1])
+
+---
+
+### 🔧 Główne cechy `JBRFileDialog`
+
+* **Wskazówki wyboru (hints):**
+
+  * `SELECT_FILES_HINT` – umożliwia wybór plików.
+  * `SELECT_DIRECTORIES_HINT` – umożliwia wybór katalogów.
+  * `CREATE_DIRECTORIES_HINT` – zezwala na tworzenie nowych katalogów (szczególnie przydatne na macOS).([android.googlesource.com][2])
+
+* **Lokalizacja interfejsu:**
+
+  * Możliwość dostosowania tekstów przycisków i opisów, np.:
+
+    * `OPEN_FILE_BUTTON_KEY` – tekst przycisku otwierania pliku.
+    * `OPEN_DIRECTORY_BUTTON_KEY` – tekst przycisku wyboru katalogu.
+    * `ALL_FILES_COMBO_KEY` – opis filtra "Wszystkie pliki".
+
+* **Filtrowanie plików:**
+
+  * Możliwość ustawienia opisów filtrów i rozszerzeń plików, które mają być widoczne w oknie dialogowym.
+
+* **Integracja z `FileDialog`:**
+
+  * Dzięki metodzie `get(FileDialog dialog)` można uzyskać instancję `JBRFileDialog` powiązaną z istniejącym `FileDialog`.([GitHub][3])
+
+---
+
+### 💡 Przykład zastosowania
+
+Poniższy przykład demonstruje, jak skonfigurować `JBRFileDialog` do wyboru plików `.txt` z dostosowanym interfejsem:
+
+```java
+import java.awt.*;
+import com.jetbrains.desktop.JBRFileDialog;
+
+public class FileDialogExample {
+    public static void main(String[] args) {
+        Frame frame = new Frame();
+        FileDialog fileDialog = new FileDialog(frame, "Wybierz plik", FileDialog.LOAD);
+
+        // Uzyskanie instancji JBRFileDialog
+        JBRFileDialog jbrDialog = JBRFileDialog.get(fileDialog);
+
+        if (jbrDialog != null) {
+            // Ustawienie wskazówek wyboru
+            jbrDialog.setHints(JBRFileDialog.SELECT_FILES_HINT);
+
+            // Dostosowanie tekstów interfejsu
+            jbrDialog.setLocalizationString(JBRFileDialog.OPEN_FILE_BUTTON_KEY, "Otwórz plik");
+            jbrDialog.setLocalizationString(JBRFileDialog.ALL_FILES_COMBO_KEY, "Wszystkie pliki");
+
+            // Ustawienie filtra plików
+            jbrDialog.setFileFilterExtensions("Pliki tekstowe (*.txt)", new String[] {"txt"});
+        }
+
+        fileDialog.setVisible(true);
+
+        String selectedFile = fileDialog.getFile();
+        if (selectedFile != null) {
+            System.out.println("Wybrano plik: " + selectedFile);
+        }
+
+        frame.dispose();
+    }
+}
+```
+
+Ten kod otwiera okno dialogowe umożliwiające wybór plików `.txt` z dostosowanymi tekstami przycisków i filtrów.
+
+---
+
+### 🧩 Zastosowania praktyczne
+
+* **Tworzenie wtyczek do IntelliJ IDEA:** Dzięki `JBRFileDialog` można tworzyć bardziej zaawansowane i spójne z IDE okna dialogowe do wyboru plików.
+* **Aplikacje desktopowe:** Umożliwia tworzenie aplikacji z bardziej zaawansowanymi opcjami wyboru plików i katalogów, zwłaszcza na systemach macOS i Windows.
+* **Lokalizacja aplikacji:** Dostosowanie tekstów interfejsu pozwala na łatwiejsze tłumaczenie aplikacji na różne języki.
+
+---
+
+### 📚 Dodatkowe informacje
+
+* **Kod źródłowy `JBRFileDialog`:** Dostępny jest w repozytorium JetBrainsRuntime na GitHubie: ([GitHub][3])
+* **JetBrains Runtime (JBR):** To zmodyfikowana wersja OpenJDK, zoptymalizowana dla produktów JetBrains, takich jak IntelliJ IDEA. Więcej informacji: ([JetBrains Marketplace][1])([GitHub][3])
+
+Jeśli potrzebujesz dalszych informacji lub pomocy w implementacji `JBRFileDialog`, daj znać!
+
+[1]: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-jetbrains-runtime.html?utm_source=chatgpt.com "JetBrains Runtime (JBR) | IntelliJ Platform Plugin SDK"
+[2]: https://android.googlesource.com/platform/external/jetbrains/JetBrainsRuntime/%2B/refs/heads/main/src/jetbrains.api/src/com/jetbrains/JBRFileDialog.java?utm_source=chatgpt.com "src/jetbrains.api/src/com/jetbrains/JBRFileDialog.java - platform ..."
+[3]: https://github.com/JetBrains/JetBrainsRuntime/blob/main/src/java.desktop/share/classes/com/jetbrains/desktop/JBRFileDialog.java?utm_source=chatgpt.com "JetBrainsRuntime/src/java.desktop/share/classes/com/jetbrains/desktop ..."

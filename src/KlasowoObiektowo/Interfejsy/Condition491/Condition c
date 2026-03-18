@@ -1,0 +1,133 @@
+Interfejs `Condition` w języku **Java** jest częścią **pakietu `java.util.concurrent.locks`** i stanowi rozszerzenie funkcjonalności tradycyjnych metod synchronizacji takich jak `wait()`, `notify()`, i `notifyAll()` dostępnych w klasie `Object`. Umożliwia **finer-grained control (drobniejszą kontrolę)** nad współbieżnością w połączeniu z klasą `Lock` (np. `ReentrantLock`).
+
+---
+
+## 🔍 Co to jest `Condition`?
+
+* Jest analogiczny do monitora (`wait/notify`) dla `Lock`.
+* Umożliwia tworzenie **wielu warunków** (condition variables) dla jednego `Lock`.
+* Każda `Condition` może mieć własne kolejki oczekujących wątków.
+
+---
+
+## 📚 Kluczowe metody w interfejsie `Condition`:
+
+| Metoda                          | Opis                                                                 |
+| ------------------------------- | -------------------------------------------------------------------- |
+| `await()`                       | Wątek czeka, aż zostanie obudzony (jak `wait()`), i zwalnia blokadę. |
+| `signal()`                      | Budzi **jeden** wątek oczekujący na ten `Condition`.                 |
+| `signalAll()`                   | Budzi **wszystkie** wątki oczekujące.                                |
+| `awaitNanos(long nanosTimeout)` | Czeka maksymalnie podaną liczbę nanosekund.                          |
+| `awaitUntil(Date deadline)`     | Czeka aż do konkretnej daty/czasu.                                   |
+| `awaitUninterruptibly()`        | Czeka ignorując przerwania (interrupcje).                            |
+
+> Wszystkie metody `await()` muszą być wywoływane w kontekście zablokowanego `Lock`.
+
+---
+
+## ✅ Praktyczny przykład: Bufor producent-konsument
+
+Użyjemy `ReentrantLock` + `Condition` do zaimplementowania bufora o stałym rozmiarze (ang. **bounded buffer**).
+
+```java
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class BoundedBuffer<T> {
+    private final T[] buffer;
+    private int putIndex, takeIndex, count;
+    private final Lock lock = new ReentrantLock();
+    private final Condition notFull = lock.newCondition();
+    private final Condition notEmpty = lock.newCondition();
+
+    @SuppressWarnings("unchecked")
+    public BoundedBuffer(int size) {
+        buffer = (T[]) new Object[size];
+    }
+
+    public void put(T item) throws InterruptedException {
+        lock.lock();
+        try {
+            while (count == buffer.length) {
+                notFull.await();  // czekaj, aż będzie miejsce
+            }
+            buffer[putIndex] = item;
+            putIndex = (putIndex + 1) % buffer.length;
+            count++;
+            notEmpty.signal();  // sygnalizuj, że nie jest pusty
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public T take() throws InterruptedException {
+        lock.lock();
+        try {
+            while (count == 0) {
+                notEmpty.await();  // czekaj, aż będzie jakiś element
+            }
+            T item = buffer[takeIndex];
+            takeIndex = (takeIndex + 1) % buffer.length;
+            count--;
+            notFull.signal();  // sygnalizuj, że nie jest pełny
+            return item;
+        } finally {
+            lock.unlock();
+        }
+    }
+}
+```
+
+### 🔄 Wątek producenta:
+
+```java
+new Thread(() -> {
+    try {
+        for (int i = 0; i < 10; i++) {
+            buffer.put("Item " + i);
+            System.out.println("Produced: Item " + i);
+        }
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    }
+}).start();
+```
+
+### 🔄 Wątek konsumenta:
+
+```java
+new Thread(() -> {
+    try {
+        for (int i = 0; i < 10; i++) {
+            String item = buffer.take();
+            System.out.println("Consumed: " + item);
+        }
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    }
+}).start();
+```
+
+---
+
+## 🧠 Różnice: `Condition` vs `wait/notify`
+
+| Cecha                        | `Condition`               | `wait/notify`               |
+| ---------------------------- | ------------------------- | --------------------------- |
+| Powiązanie                   | Z `Lock`                  | Z monitorem `synchronized`  |
+| Wiele warunków na jeden Lock | ✅ Tak                     | ❌ Nie                       |
+| Czytelność i kontrola        | ✅ Lepsza                  | ❌ Mniejsza                  |
+| Bezpieczeństwo               | ✅ Lepsza obsługa wyjątków | ❌ Mniej przejrzysta obsługa |
+
+---
+
+## 📌 Podsumowanie
+
+* `Condition` to potężny mechanizm współbieżności.
+* Umożliwia tworzenie precyzyjnych warunków synchronizacji.
+* Jest szczególnie przydatny w implementacjach niskopoziomowych (np. bufor, semafor, kolejka, bariera).
+
+---
+
+Jeśli chcesz, mogę też pokazać przykład z `awaitUntil`, `awaitNanos`, albo inne zaawansowane użycie `Condition`. Chcesz?

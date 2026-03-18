@@ -1,0 +1,71 @@
+Świetny pomysł! Oto **quiz dotyczący `PropertyChangeEvent` w Javie**. Zawiera pytania wielokrotnego wyboru oraz otwarte. Po każdej odpowiedzi mogę podać wyjaśnienie, jeśli chcesz.
+
+---
+
+### 📘 Quiz: `PropertyChangeEvent` w Javie
+
+#### **Pytanie 1 (jednokrotnego wyboru):**
+
+Który pakiet zawiera klasę `PropertyChangeEvent`?
+
+A. `java.util.event`
+B. `javax.swing.event`
+C. `java.beans`
+D. `java.event.beans`
+
+---
+
+#### **Pytanie 2 (wielokrotnego wyboru):**
+
+Co przechowuje obiekt `PropertyChangeEvent`?
+
+A. Obiekt źródłowy (source)
+B. Nową wartość właściwości
+C. Stary obiekt klasy
+D. Nazwę właściwości
+
+---
+
+#### **Pytanie 3 (prawda/fałsz):**
+
+Klasa `PropertyChangeEvent` umożliwia słuchaczowi zablokowanie zmiany właściwości.
+(Tak / Nie)
+
+---
+
+#### **Pytanie 4 (kod):**
+
+Co zostanie wypisane na ekranie?
+
+```java
+PropertyChangeEvent evt = new PropertyChangeEvent("Źródło", "wiek", 20, 30);
+System.out.println(evt.getPropertyName());
+System.out.println(evt.getOldValue());
+System.out.println(evt.getNewValue());
+```
+
+A. wiek, 20, 30
+B. Source, 30, 20
+C. Źródło, wiek, 20
+D. Błąd kompilacji
+
+---
+
+#### **Pytanie 5 (otwarte):**
+
+Do czego służy klasa `PropertyChangeSupport`?
+
+---
+
+#### **Pytanie 6 (jednokrotnego wyboru):**
+
+Który interfejs musi zaimplementować obiekt nasłuchujący zmian właściwości?
+
+A. `ChangeListener`
+B. `ActionListener`
+C. `PropertyChangeListener`
+D. `Observer`
+
+---
+
+Daj znać, czy chcesz od razu odpowiedzi i wyjaśnienia, czy wolisz najpierw odpowiedzieć sam.

@@ -1,0 +1,75 @@
+Oto **poprawne odpowiedzi do quizu o `@Provided`** wraz z krótkim wyjaśnieniem:
+
+---
+
+### 1️⃣ Co oznacza adnotacja `@Provided` w JFR?
+
+**B – Pole jest dostarczane automatycznie przez system lub JFR**
+➡ JFR wypełnia wartość pola, programista nie musi jej ustawiać ręcznie.
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@Provided`?
+
+**B – `jdk.jfr`**
+
+---
+
+### 3️⃣ Czy `@Provided` wpływa na logikę programu w runtime?
+
+**B – Nie**
+➡ Jest adnotacją informacyjną dla JFR i narzędzi monitorujących.
+
+---
+
+### 4️⃣ Na czym można stosować `@Provided`?
+
+**C – Na polach w klasach zdarzeń**
+➡ Nie stosuje się na klasach ani metodach.
+
+---
+
+### 5️⃣ Czy `@Provided` wymaga, żeby programista ręcznie ustawił wartość pola?
+
+**B – Nie**
+➡ Wartość jest automatycznie wypełniana przez system/JFR.
+
+---
+
+### 6️⃣ Z którymi adnotacjami JFR często współpracuje `@Provided`?
+
+**A – `@Label` i `@Description`**
+➡ Pomaga w raportowaniu i wizualizacji danych w narzędziach typu JMC.
+
+---
+
+### 7️⃣ Czy `@Provided` może być stosowana na metodach?
+
+**B – Nie**
+➡ Dotyczy wyłącznie pól w klasach zdarzeń.
+
+---
+
+### 8️⃣ Czy narzędzia monitorujące, takie jak Java Mission Control, wykorzystują `@Provided`?
+
+**A – Tak**
+➡ Dzięki temu wiedzą, które pola są wypełniane automatycznie.
+
+---
+
+### 9️⃣ Czy wartość pola oznaczonego `@Provided` może być nadpisana ręcznie w kodzie?
+
+**B – Nie (zalecane)**
+➡ Pole jest przeznaczone do automatycznego wypełniania przez system; nadpisywanie ręczne nie jest standardową praktyką.
+
+---
+
+### 🔟 Czy `@Provided` jest częścią standardowego JDK od Java 9?
+
+**A – Tak**
+➡ Wprowadzona w JDK 9 w pakiecie `jdk.jfr`.
+
+---
+
+Chcesz, żebym teraz kontynuował kolejną adnotację z JFR, czy wolisz, żebym zrobił **mega quiz zbiorczy wszystkich adnotacji JFR**, które przerobiliśmy do tej pory?
+

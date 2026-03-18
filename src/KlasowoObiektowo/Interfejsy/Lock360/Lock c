@@ -1,0 +1,151 @@
+Chętnie! Interfejs `Lock` w Javie to jeden z kluczowych elementów współbieżności (ang. **concurrency**) w ramach pakietu `java.util.concurrent.locks`. Jest alternatywą dla tradycyjnych `synchronized` bloków/metod, oferując większą kontrolę nad mechanizmem blokowania.
+
+---
+
+## 🔐 Czym jest `Lock`?
+
+Interfejs `Lock` reprezentuje **mechanizm wzajemnego wykluczania** (mutual exclusion), który zapewnia, że tylko jeden wątek w danym momencie może mieć dostęp do sekcji kodu chronionej tym zamkiem.
+
+Pakiet: `java.util.concurrent.locks.Lock`
+
+### Kluczowe implementacje:
+
+* `ReentrantLock` (najczęściej używana)
+* `ReentrantReadWriteLock` (dla rozdzielenia blokad do odczytu i zapisu)
+
+---
+
+## ✅ Podstawowe metody interfejsu `Lock`
+
+| Metoda                              | Opis                                                               |
+| ----------------------------------- | ------------------------------------------------------------------ |
+| `lock()`                            | Blokuje, jeśli nie może uzyskać dostępu – wątek czeka              |
+| `unlock()`                          | Zwalnia zamek – **musi** być wywołana przez wątek, który go trzyma |
+| `tryLock()`                         | Próbuje uzyskać blokadę – **nie czeka**                            |
+| `tryLock(long time, TimeUnit unit)` | Próbuje uzyskać blokadę przez określony czas                       |
+| `lockInterruptibly()`               | Blokuje, ale pozwala na przerwanie przez inny wątek                |
+
+---
+
+## 🧠 Różnice `Lock` vs `synchronized`
+
+| Cecha                   | `synchronized`                           | `Lock`                        |
+| ----------------------- | ---------------------------------------- | ----------------------------- |
+| Automatyczne zwalnianie | Tak (automatycznie przy wyjściu z bloku) | Nie – wymaga `unlock()`       |
+| Możliwość przerwania    | Nie                                      | Tak (`lockInterruptibly`)     |
+| Próba bez blokowania    | Nie                                      | Tak (`tryLock`)               |
+| Kolejkowanie wątków     | Brak gwarancji                           | Możliwe (np. `ReentrantLock`) |
+
+---
+
+## 💡 Przykład użycia: `ReentrantLock`
+
+```java
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class Counter {
+    private int count = 0;
+    private final Lock lock = new ReentrantLock();
+
+    public void increment() {
+        lock.lock();
+        try {
+            count++;
+        } finally {
+            lock.unlock(); // bardzo ważne, by zawsze zwolnić blokadę
+        }
+    }
+
+    public int getCount() {
+        return count;
+    }
+}
+```
+
+Ten kod zapewnia, że tylko jeden wątek może na raz modyfikować `count`.
+
+---
+
+## ⚙️ Praktyczne zastosowania `Lock`
+
+1. **Złożone operacje wymagające wielu blokad**
+
+   * Można precyzyjnie kontrolować, w jakiej kolejności są pobierane i zwalniane blokady.
+2. **Warunki wybudzenia – `Condition`**
+
+   * Podobne do `wait()/notify()`, ale z większą elastycznością.
+   * Używane razem z `lock.newCondition()`
+3. **Możliwość przerwania oczekującego wątku**
+
+   * `lockInterruptibly()` pozwala przerwać blokowanie np. podczas zamykania aplikacji.
+4. **Czasowe próby uzyskania blokady**
+
+   * `tryLock(timeout)` przydaje się np. w systemach real-time.
+5. **Read/Write Lock**
+
+   * Zastosowanie `ReentrantReadWriteLock` dla optymalizacji dostępu do danych:
+
+     * wielu czytelników lub jeden pisarz
+
+---
+
+## 🧪 Przykład z `Condition`
+
+```java
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+class BoundedBuffer {
+    private final Lock lock = new ReentrantLock();
+    private final Condition notFull = lock.newCondition();
+    private final Condition notEmpty = lock.newCondition();
+
+    private final int[] buffer = new int[10];
+    private int count = 0, putIndex = 0, takeIndex = 0;
+
+    public void put(int value) throws InterruptedException {
+        lock.lock();
+        try {
+            while (count == buffer.length) {
+                notFull.await();
+            }
+            buffer[putIndex] = value;
+            putIndex = (putIndex + 1) % buffer.length;
+            count++;
+            notEmpty.signal(); // sygnalizuj, że bufor nie jest pusty
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public int take() throws InterruptedException {
+        lock.lock();
+        try {
+            while (count == 0) {
+                notEmpty.await();
+            }
+            int value = buffer[takeIndex];
+            takeIndex = (takeIndex + 1) % buffer.length;
+            count--;
+            notFull.signal(); // sygnalizuj, że bufor nie jest pełny
+            return value;
+        } finally {
+            lock.unlock();
+        }
+    }
+}
+```
+
+---
+
+## 📌 Podsumowanie
+
+* `Lock` daje **większą kontrolę** niż `synchronized`.
+* Przydaje się przy **złożonej współbieżności**, np. buforach, wielowątkowych kolejkach, systemach bankowych.
+* Najczęściej używana implementacja: `ReentrantLock`.
+
+---
+
+Jeśli chcesz, mogę przygotować zadanie praktyczne lub rozbudowany przykład – np. wielowątkową aplikację z logowaniem lub symulacją bankomatu. Chcesz?

@@ -1,0 +1,148 @@
+Świetnie 👍
+Przechodzimy do **`UnaryOperator<T>`** — bardzo ważnego, ale często niedocenianego interfejsu funkcyjnego w Javie.
+
+---
+
+# 🔁 Interfejs `UnaryOperator<T>`
+
+## 1️⃣ Co to jest `UnaryOperator`?
+
+`UnaryOperator<T>` to **specjalizacja `Function<T, T>`**, czyli:
+
+* przyjmuje **jeden argument**
+* **zwraca ten sam typ**
+* wykonuje **operację na obiekcie tego samego typu**
+
+📦 Pakiet:
+
+```java
+java.util.function.UnaryOperator
+```
+
+📌 Definicja:
+
+```java
+@FunctionalInterface
+public interface UnaryOperator<T> extends Function<T, T> {
+}
+```
+
+➡️ Nie dodaje nowych metod – **dziedziczy `apply(T t)` z `Function`**.
+
+---
+
+## 2️⃣ Metoda, którą posiada
+
+```java
+T apply(T t);
+```
+
+* bierze `T`
+* zwraca `T`
+
+---
+
+## 3️⃣ Najprostszy przykład
+
+```java
+UnaryOperator<Integer> square = x -> x * x;
+
+System.out.println(square.apply(4)); // 16
+```
+
+---
+
+## 4️⃣ Kiedy używać `UnaryOperator`, a nie `Function`?
+
+| Przypadek            | Co wybrać            |
+| -------------------- | -------------------- |
+| In → Out ten sam typ | `UnaryOperator<T>` ✅ |
+| In → Out różne typy  | `Function<T,R>`      |
+
+📌 `UnaryOperator` **czytelniej komunikuje intencję**.
+
+---
+
+## 5️⃣ Przykłady praktyczne
+
+### 🔹 Operacje na Stringach
+
+```java
+UnaryOperator<String> toUpper = String::toUpperCase;
+System.out.println(toUpper.apply("java")); // JAVA
+```
+
+---
+
+### 🔹 Modyfikacja kolekcji
+
+```java
+List<Integer> list = List.of(1, 2, 3);
+
+list.replaceAll(x -> x * 2);
+```
+
+➡️ `replaceAll` przyjmuje **UnaryOperator**.
+
+---
+
+## 6️⃣ Metody statyczne w `UnaryOperator`
+
+### 🔸 `identity()`
+
+Zwraca operator, który **zwraca dokładnie to samo**, co dostał:
+
+```java
+UnaryOperator<String> identity = UnaryOperator.identity();
+
+System.out.println(identity.apply("Java")); // Java
+```
+
+---
+
+## 7️⃣ UnaryOperator vs inne interfejsy
+
+| Interfejs         | Wejście | Wyjście |
+| ----------------- | ------- | ------- |
+| Consumer<T>       | T       | void    |
+| Predicate<T>      | T       | boolean |
+| Function<T,R>     | T       | R       |
+| UnaryOperator<T>  | T       | T       |
+| BinaryOperator<T> | T, T    | T       |
+
+---
+
+## 8️⃣ Typowe miejsca użycia
+
+* `List.replaceAll(UnaryOperator)`
+* operacje modyfikujące obiekty
+* pipeline w `Stream.map()`
+* refaktoryzacja kodu (czytelność!)
+
+---
+
+## 9️⃣ Czego `UnaryOperator` NIE robi?
+
+❌ nie przyjmuje 2 argumentów
+❌ nie zwraca innego typu
+❌ nie zwraca boolean
+
+---
+
+## 🔟 Ściąga egzaminacyjna
+
+* `UnaryOperator<T>` = `Function<T,T>`
+* metoda: `T apply(T t)`
+* używaj, gdy **typ wejścia = typ wyjścia**
+* ma `identity()`
+* czytelniejszy niż `Function<T,T>`
+
+---
+
+📌 **Kolejny naturalny krok**:
+
+* 🔹 **Quiz z UnaryOperator**
+* 🔹 **BinaryOperator<T>** (bliźniak UnaryOperator)
+* 🔹 **Porównanie UnaryOperator vs BinaryOperator**
+
+Chcesz teraz **quiz z UnaryOperator** w tym samym stylu jak wcześniej?

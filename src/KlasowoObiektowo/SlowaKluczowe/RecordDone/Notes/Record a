@@ -1,0 +1,104 @@
+## ✅ Odpowiedzi – QUIZ `record` w Java
+
+---
+
+### **1. Jaki jest główny cel użycia `record` w Javie?**
+
+**✅ B. Przechowywanie niemutowalnych danych**
+
+* `record` służy do reprezentowania danych, a nie logiki biznesowej.
+
+---
+
+### **2. Co Java automatycznie generuje w `record`?**
+
+**✅ C. Pola `private final`, konstruktor, `equals`, `hashCode`, `toString`**
+
+* Dodatkowo generowane są metody dostępowe o nazwach pól (`name()`).
+
+---
+
+### **3. Jak poprawnie odczytać pole `name` z rekordu `User`?**
+
+**✅ B. `user.name()`**
+
+* W `record` nie ma `getName()` – metoda ma nazwę pola.
+
+---
+
+### **4. Która deklaracja `record` jest poprawna?**
+
+**✅ B. `record Car(String brand) implements Vehicle {}`**
+
+* `record` może implementować interfejsy, ale nie może dziedziczyć po klasach.
+
+---
+
+### **5. Czy `record` może zawierać własne metody?**
+
+**✅ C. Tak, dowolne metody instancyjne**
+
+* Mogą być publiczne, prywatne, statyczne – byle nie zmieniały stanu pól.
+
+---
+
+### **6. Jakie są cechy pól w `record`?**
+
+**✅ C. `private final`**
+
+* Każdy komponent rekordu jest polem `private final`.
+
+---
+
+### **7. (OTWARTE)**
+
+**Przykład użycia `record` jako DTO:**
+
+```java
+public record UserDto(String email, int age) {}
+```
+
+* Idealne do przekazywania danych między warstwami aplikacji.
+
+---
+
+### **8. (OTWARTE)**
+
+**Dlaczego `record` dobrze współpracuje z `sealed`?**
+
+* Bo oba wspierają:
+
+  * modelowanie domeny
+  * niemutowalność
+  * pełną kontrolę typów (szczególnie w `switch`)
+* Kompilator zna wszystkie możliwe przypadki.
+
+---
+
+### **9. Które zdanie o `record` jest prawdziwe?**
+
+**✅ C. Jest domyślnie `final`**
+
+* Nie można dziedziczyć po `record`.
+
+---
+
+### **10. Kiedy NIE warto używać `record`?**
+
+**✅ C. Do obiektów z bogatą logiką i zmiennym stanem**
+
+* W takich przypadkach lepsza jest klasyczna `class`.
+
+---
+
+### 🧠 Podsumowanie
+
+* `record` = **czyste dane + bezpieczeństwo**
+* Mniej boilerplate’u, większa czytelność
+* Idealny do DTO, wyników, modeli domenowych
+* Świetny w połączeniu z `sealed` i `switch`
+
+---
+
+Jeśli chcesz, następnym logicznym krokiem będzie **`var`** albo **`enum` vs `record` w praktyce**.
+Napisz, co robimy dalej 👍

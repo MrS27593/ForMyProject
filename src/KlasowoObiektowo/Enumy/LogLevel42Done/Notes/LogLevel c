@@ -1,0 +1,230 @@
+Jasne! Skoro chcesz poznać **klasę `Enum LogLevel`**, nauczymy się jej od podstaw do bardziej zaawansowanego poziomu, krok po kroku, z przykładami w Javie. Zrobimy to w formie **teorii + praktyki + dobrych praktyk**.
+
+---
+
+## 1️⃣ Czym jest `Enum` w Javie?
+
+* `Enum` (skrót od *enumeration*) to specjalny typ klasy w Javie, który reprezentuje **zbiór stałych wartości**.
+* Jest **typem referencyjnym**, który może mieć własne metody i pola.
+* Dzięki `Enum` możesz uniknąć magicznych liczb lub stringów w kodzie, np. zamiast:
+
+```java
+int logLevel = 1; // co oznacza 1? ERROR? INFO? DEBUG?
+```
+
+możesz użyć:
+
+```java
+LogLevel level = LogLevel.ERROR;
+```
+
+---
+
+## 2️⃣ Tworzenie prostego `Enum LogLevel`
+
+Najprostsza definicja klasy `Enum LogLevel`:
+
+```java
+public enum LogLevel {
+    ERROR,
+    WARN,
+    INFO,
+    DEBUG,
+    TRACE
+}
+```
+
+* `ERROR, WARN, INFO, DEBUG, TRACE` – to stałe typu `LogLevel`.
+* Każda stała jest obiektem `LogLevel`.
+
+### Użycie w kodzie:
+
+```java
+LogLevel level = LogLevel.INFO;
+
+if (level == LogLevel.ERROR) {
+    System.out.println("Błąd krytyczny!");
+}
+```
+
+---
+
+## 3️⃣ `Enum` z polami i konstruktorami
+
+`Enum` może mieć **pola, konstruktor i metody**.
+
+Przykład dla `LogLevel` z przypisaną **wagą poziomu logów**:
+
+```java
+public enum LogLevel {
+    ERROR(5),
+    WARN(4),
+    INFO(3),
+    DEBUG(2),
+    TRACE(1);
+
+    private final int severity; // pole przechowujące wagę
+
+    // Konstruktor (prywatny, bo Enum nie może być publiczny)
+    LogLevel(int severity) {
+        this.severity = severity;
+    }
+
+    public int getSeverity() {
+        return severity;
+    }
+}
+```
+
+### Użycie:
+
+```java
+LogLevel level = LogLevel.WARN;
+System.out.println(level.getSeverity()); // 4
+```
+
+---
+
+## 4️⃣ Enum z metodami
+
+Możesz dodać własne metody do logiki:
+
+```java
+public enum LogLevel {
+    ERROR(5),
+    WARN(4),
+    INFO(3),
+    DEBUG(2),
+    TRACE(1);
+
+    private final int severity;
+
+    LogLevel(int severity) {
+        this.severity = severity;
+    }
+
+    public boolean isSevere() {
+        return this.severity >= 4;
+    }
+}
+```
+
+```java
+LogLevel level = LogLevel.INFO;
+System.out.println(level.isSevere()); // false
+```
+
+---
+
+## 5️⃣ Enum w switch
+
+```java
+LogLevel level = LogLevel.DEBUG;
+
+switch (level) {
+    case ERROR -> System.out.println("Błąd krytyczny!");
+    case WARN -> System.out.println("Ostrzeżenie!");
+    case INFO -> System.out.println("Informacja");
+    case DEBUG -> System.out.println("Debugowanie");
+    case TRACE -> System.out.println("Śledzenie");
+}
+```
+
+---
+
+## 6️⃣ Metody wbudowane w każdy `Enum`
+
+Każdy `Enum` w Javie automatycznie dziedziczy z `java.lang.Enum`, więc ma np.:
+
+* `name()` – zwraca nazwę stałej jako `String`:
+
+```java
+System.out.println(LogLevel.ERROR.name()); // "ERROR"
+```
+
+* `ordinal()` – zwraca indeks stałej w deklaracji (zaczyna od 0):
+
+```java
+System.out.println(LogLevel.DEBUG.ordinal()); // 3
+```
+
+* `values()` – zwraca wszystkie wartości w tablicy:
+
+```java
+for (LogLevel level : LogLevel.values()) {
+    System.out.println(level);
+}
+```
+
+* `valueOf(String name)` – zwraca stałą po nazwie:
+
+```java
+LogLevel level = LogLevel.valueOf("INFO");
+System.out.println(level); // INFO
+```
+
+---
+
+## 7️⃣ Praktyczne zastosowanie `LogLevel`
+
+* W logowaniu w aplikacjach – określa, które komunikaty mają być wyświetlane.
+* Filtrowanie logów wg poziomu ważności.
+* Konfiguracja frameworków logowania np. Log4j, SLF4J.
+
+```java
+public void log(LogLevel level, String message) {
+    if (level.getSeverity() >= LogLevel.WARN.getSeverity()) {
+        System.out.println("[" + level.name() + "] " + message);
+    }
+}
+```
+
+---
+
+## 8️⃣ Rozszerzony przykład: Enum z metodą abstrakcyjną
+
+Możesz dać każdej stałej własną implementację metody:
+
+```java
+public enum LogLevel {
+    ERROR {
+        @Override
+        public void print(String message) {
+            System.err.println("[ERROR] " + message);
+        }
+    },
+    INFO {
+        @Override
+        public void print(String message) {
+            System.out.println("[INFO] " + message);
+        }
+    };
+
+    public abstract void print(String message);
+}
+```
+
+Użycie:
+
+```java
+LogLevel.ERROR.print("Coś poszło nie tak!");
+LogLevel.INFO.print("Start programu");
+```
+
+---
+
+## ✅ Podsumowanie
+
+`Enum LogLevel` w Javie:
+
+1. Reprezentuje **skończony zbiór stałych wartości**.
+2. Może mieć **pola, konstruktor i metody**.
+3. Obsługuje **switch, iteracje, porównania**.
+4. Każda stała jest instancją typu Enum.
+5. Może implementować **abstrakcyjne metody**, każda stała z własnym zachowaniem.
+
+---
+
+Jeżeli chcesz, mogę zrobić teraz dla Ciebie **kompletny przykład klasy Logera**, który wykorzystuje `LogLevel` z filtrowaniem i metodami drukującymi w zależności od poziomu – gotowy do użycia w projekcie.
+
+Chcesz, żebym to zrobił?

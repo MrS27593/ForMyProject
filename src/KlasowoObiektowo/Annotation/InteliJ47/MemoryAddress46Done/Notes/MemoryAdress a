@@ -1,0 +1,76 @@
+Oto **poprawne odpowiedzi do quizu o `@MemoryAddress`** wraz z krótkim wyjaśnieniem:
+
+---
+
+### 1️⃣ Co oznacza adnotacja `@MemoryAddress`?
+
+**B – Pole lub parametr reprezentuje adres w pamięci natywnej**
+➡ Wskazuje, że wartość pola lub parametru to wskaźnik do pamięci off-heap lub natywnej.
+
+---
+
+### 2️⃣ W jakim pakiecie znajduje się `@MemoryAddress` w JDK?
+
+**B – `jdk.internal.foreign`**
+➡ Jest częścią pakietu internal, związana z Project Panama.
+
+---
+
+### 3️⃣ Czy `@MemoryAddress` wpływa na zachowanie programu w runtime?
+
+**B – Nie**
+➡ To adnotacja informacyjna, używana do analizy i bezpieczeństwa typów.
+
+---
+
+### 4️⃣ Z którym API jest najczęściej używana `@MemoryAddress`?
+
+**B – Foreign Memory API (Project Panama)**
+➡ Od Java 14+ w eksperymentalnym API do zarządzania pamięcią natywną.
+
+---
+
+### 5️⃣ Czy można stosować `@MemoryAddress` na metodach?
+
+**B – Nie**
+➡ Jest przeznaczona dla pól i parametrów reprezentujących adresy.
+
+---
+
+### 6️⃣ Czy użycie `@MemoryAddress` jest w pełni stabilne w JDK 17+?
+
+**B – Nie**
+➡ Jest eksperymentalna; większość projektów używa jej w module `jdk.incubator.foreign`.
+
+---
+
+### 7️⃣ Do czego najczęściej służy `@MemoryAddress`?
+
+**A – Do oznaczania typów w pamięci natywnej, dla bezpieczeństwa i analizy statycznej**
+
+---
+
+### 8️⃣ Czy adnotacja `@MemoryAddress` ma własne pola lub logikę?
+
+**B – Nie**
+➡ Jest marker annotation – sama w sobie nic nie robi.
+
+---
+
+### 9️⃣ Czy `@MemoryAddress` można używać w zwykłych klasach Java bez Foreign Memory API?
+
+**A – Tak, ale nie przynosi korzyści**
+➡ Można dodać adnotację, ale ma znaczenie tylko w kontekście pamięci natywnej.
+
+---
+
+### 🔟 Czy `@MemoryAddress` jest częścią standardowego publicznego API JDK?
+
+**B – Nie**
+➡ Jest w pakiecie `jdk.internal.foreign` – oznacza, że jest **internal/eksperymentalna** i wymaga specjalnych opcji kompilatora.
+
+---
+
+Jeśli chcesz, mogę teraz zrobić **mega quiz zbiorczy** ze wszystkich adnotacji, które przerobiliśmy od `@Deprecated` do `@MemoryAddress` – to będzie świetna powtórka przed egzaminem lub rozmową.
+
+Chcesz, żebym go zrobił?

@@ -1,0 +1,236 @@
+Świetnie 👍 Nauczmy się **`Exception` w Javie** od podstaw aż do dobrych praktyk – krok po kroku.
+
+---
+
+## 1️⃣ Czym jest `Exception` w Javie?
+
+**`Exception`** to obiekt, który reprezentuje **błąd lub nieoczekiwaną sytuację**, która wystąpiła podczas działania programu.
+
+📌 Przykłady:
+
+* dzielenie przez zero
+* dostęp do elementu poza zakresem tablicy
+* brak pliku
+* błędny format danych
+
+---
+
+## 2️⃣ Hierarchia wyjątków (BARDZO WAŻNE)
+
+Wszystkie wyjątki dziedziczą po klasie `Throwable`:
+
+```
+Throwable
+ ├── Error
+ │    └── OutOfMemoryError
+ └── Exception
+      ├── RuntimeException
+      │    ├── NullPointerException
+      │    ├── ArithmeticException
+      │    └── IndexOutOfBoundsException
+      └── IOException
+           └── FileNotFoundException
+```
+
+### 🔴 `Error`
+
+* błędy JVM
+* **nie obsługujemy ich**
+* np. `StackOverflowError`
+
+### 🟡 `Exception`
+
+* błędy aplikacyjne
+* **możemy i powinniśmy je obsługiwać**
+
+---
+
+## 3️⃣ Checked vs Unchecked Exceptions
+
+### ✅ Checked Exceptions
+
+➡️ **muszą być obsłużone**
+
+Przykład:
+
+```java
+IOException
+SQLException
+```
+
+Kod NIE skompiluje się bez `try-catch` lub `throws`.
+
+```java
+FileReader reader = new FileReader("file.txt"); // błąd kompilacji
+```
+
+---
+
+### ❌ Unchecked Exceptions (`RuntimeException`)
+
+➡️ **nie muszą być obsługiwane**
+
+Przykłady:
+
+```java
+NullPointerException
+ArithmeticException
+ClassCastException
+```
+
+```java
+int x = 10 / 0; // ArithmeticException
+```
+
+---
+
+## 4️⃣ Obsługa wyjątków – `try-catch-finally`
+
+### Podstawowa składnia
+
+```java
+try {
+    int x = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Dzielenie przez zero!");
+}
+```
+
+### `finally`
+
+Kod wykona się **zawsze** (np. zamykanie zasobów)
+
+```java
+finally {
+    System.out.println("Koniec");
+}
+```
+
+---
+
+## 5️⃣ Wiele `catch`
+
+```java
+try {
+    String s = null;
+    s.length();
+} catch (NullPointerException e) {
+    System.out.println("Null!");
+} catch (Exception e) {
+    System.out.println("Inny wyjątek");
+}
+```
+
+📌 **Zasada**: od najbardziej szczegółowych do ogólnych!
+
+---
+
+## 6️⃣ `throws` – przekazywanie wyjątku dalej
+
+```java
+public void readFile() throws IOException {
+    FileReader reader = new FileReader("file.txt");
+}
+```
+
+➡️ odpowiedzialność przechodzi na metodę wyżej
+
+---
+
+## 7️⃣ Rzucanie wyjątku – `throw`
+
+```java
+if (age < 18) {
+    throw new IllegalArgumentException("Za mało lat!");
+}
+```
+
+📌 `throw` → rzuca wyjątek
+📌 `throws` → informuje, że metoda może rzucić wyjątek
+
+---
+
+## 8️⃣ Własne wyjątki (CUSTOM EXCEPTION)
+
+### Checked Exception
+
+```java
+class MyException extends Exception {
+    public MyException(String msg) {
+        super(msg);
+    }
+}
+```
+
+### Unchecked Exception
+
+```java
+class MyRuntimeException extends RuntimeException {
+    public MyRuntimeException(String msg) {
+        super(msg);
+    }
+}
+```
+
+Użycie:
+
+```java
+throw new MyException("Coś poszło nie tak");
+```
+
+---
+
+## 9️⃣ Najczęściej spotykane wyjątki
+
+| Exception                        | Kiedy występuje     |
+| -------------------------------- | ------------------- |
+| `NullPointerException`           | obiekt = null       |
+| `ArithmeticException`            | dzielenie przez 0   |
+| `ArrayIndexOutOfBoundsException` | zły indeks          |
+| `ClassCastException`             | złe rzutowanie      |
+| `IOException`                    | operacje na plikach |
+| `NumberFormatException`          | zły format liczby   |
+
+---
+
+## 🔟 Dobre praktyki ✅
+
+✔️ Nie łap `Exception` jeśli znasz konkretny wyjątek
+✔️ Nie ignoruj wyjątku (pusty `catch`)
+✔️ Używaj własnych wyjątków w logice biznesowej
+✔️ Loguj wyjątki
+✔️ Nie używaj wyjątków do sterowania logiką programu
+
+❌ ŹLE:
+
+```java
+catch (Exception e) {}
+```
+
+✅ DOBRZE:
+
+```java
+catch (FileNotFoundException e) {
+    log.error(e.getMessage());
+}
+```
+
+---
+
+## 🧠 Podsumowanie
+
+* `Exception` = błąd aplikacyjny
+* `RuntimeException` → unchecked
+* `try-catch-finally` → obsługa
+* `throw` → rzucanie
+* `throws` → deklaracja
+* własne wyjątki = czystszy kod
+
+---
+
+Jeśli chcesz:
+👉 mogę zrobić **quiz z Exception**
+👉 albo **listę 50 / 100 najważniejszych wyjątków**
+👉 albo **zadania rekrutacyjne z wyjątkami**
+
+Co wybierasz? 😄
